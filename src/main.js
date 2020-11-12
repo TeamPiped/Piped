@@ -4,8 +4,8 @@ import { faThumbsUp, faThumbsDown, faEye } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(faThumbsUp, faThumbsDown, faEye)
 
-import "uikit/src/less/uikit.less";
-import "uikit/dist/js/uikit.min.js";
+require("uikit/src/less/uikit.less")
+require("uikit/dist/js/uikit.min.js")
 
 import router from '@/router/router'
 import App from './App.vue'

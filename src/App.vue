@@ -15,7 +15,7 @@
     </div>
 </nav>
 
-<div class="uk-container uk-light" style="background:#0b0e0f">
+<div class="uk-container uk-container-expand uk-light" style="background:#0b0e0f">
     <router-view />
 </div>
 </template>
@@ -33,5 +33,30 @@ export default {
 <style>
 #app {
     background: #0b0e0f;
+}
+
+::-webkit-scrollbar {
+    background-color: #15191a;
+    color: #c5bcae;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4b4f52;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5b6469;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #485053;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #0b0e0f;
+}
+
+* {
+    scrollbar-color: #15191a #444a4e;
 }
 </style>

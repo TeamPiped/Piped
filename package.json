@@ -20,7 +20,6 @@
         "video.js": "^7.10.2",
         "videojs-contrib-quality-levels": "^2.0.9",
         "videojs-hotkeys": "^0.2.27",
-        "videojs-ttml": "git+https://github.com/StuffNoOneCaresAbout/videojs-ttml.git",
         "vue": "^3.0.0",
         "vue-router": "^4.0.0-rc.2"
     },
