@@ -1,39 +1,41 @@
 <template>
-<h1 class="uk-text-bold">{{ video.title }}</h1>
-<video controls ref="player" class="video-js vjs-16-9"></video>
+<div class="uk-container uk-container-xlarge">
+    <h1 class="uk-text-bold">{{ video.title }}</h1>
+    <video controls ref="player" class="video-js preview-player-dimensions "></video>
 
-<div>
     <img :src="video.uploaderAvatar" />
     <router-link class="uk-text-bold" v-bind:to="video.uploaderUrl || '/'">
-        <p>{{ video.uploader }}</p>
+        <a>{{ video.uploader }}</a>
     </router-link>
-</div>
 
-<p v-if="sponsors && sponsors.segments">Sponsors found in Video: {{ sponsors.segments.length }}</p>
-
-<p class="uk-dark">
-    <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
-    {{ video.likes }}
-    <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
-    {{ video.dislikes }}
-</p>
-<p>
-    <font-awesome-icon icon="eye"></font-awesome-icon> {{ video.views }} views
-</p>
-<p class="uk-light" v-html="video.description"></p>
-
-<div class="uk-tile-default uk-text-secondary" style="background: #0b0e0f; width: 300px" v-bind:key="related.url" v-for="related in video.relatedStreams">
-    <router-link class="uk-link-muted" v-bind:to="related.url">
-        <p class="uk-text-emphasis">{{ related.title }}</p>
-        <img style="width: 100%" v-bind:src="related.thumbnail" />
-    </router-link>
-    <p>
-        <router-link class="uk-link-muted" v-bind:to="related.uploaderUrl || '/'">
-            <p>{{ related.uploaderName }}</p>
-        </router-link>
-        <font-awesome-icon icon="eye"></font-awesome-icon>
-        {{ related.views }} views
+    <p class="uk-dark">
+        <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
+        {{ video.likes }}
+        <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
+        {{ video.dislikes }}
     </p>
+    <p>
+        <font-awesome-icon icon="eye"></font-awesome-icon> {{ video.views }} views
+    </p>
+    <p class="uk-light" v-html="video.description"></p>
+    <a v-if="sponsors && sponsors.segments">Sponsors Segments: {{ sponsors.segments.length }}</a>
+
+    <hr>
+
+    <div class="uk-tile-default uk-text-secondary" style="background: #0b0e0f; width: 300px" v-bind:key="related.url" v-for="related in video.relatedStreams">
+        <router-link class="uk-link-muted" v-bind:to="related.url">
+            <p class="uk-text-emphasis">{{ related.title }}</p>
+            <img style="width: 100%" v-bind:src="related.thumbnail" />
+        </router-link>
+        <p>
+            <router-link class="uk-link-muted" v-bind:to="related.uploaderUrl || '/'">
+                <p>{{ related.uploaderName }}</p>
+            </router-link>
+            <font-awesome-icon icon="eye"></font-awesome-icon>
+            {{ related.views }} views
+        </p>
+    </div>
+
 </div>
 </template>
 
@@ -44,7 +46,6 @@ import videojs from "video.js";
 import "videojs-hotkeys";
 import Constants from "@/Constants.js";
 require("@silvermine/videojs-quality-selector")(videojs);
-//import "videojs-ttml/dist/videojs-ttml.min.js";
 
 export default {
     name: "App",
@@ -102,14 +103,12 @@ export default {
                                 "progressControl",
                                 "volumePanel",
                                 "qualitySelector",
-                                "subtitlesButton",
+                                "captionsButton",
                                 "fullscreenToggle",
                             ],
                         },
-                        plugins: {
-                            ttml: {}
-                        },
-                        nativeTextTracks: false,
+                        responsive: false,
+                        aspectRatio: '16:9'
                     };
 
                     const noPrevPlayer = !this.player
@@ -135,6 +134,14 @@ export default {
                         })
                     );
 
+                    this.video.audioStreams.map((stream) =>
+                        src.push({
+                            src: stream.url,
+                            type: stream.mimeType,
+                            label: stream.quality,
+                        })
+                    );
+
                     this.player.src(src);
 
                     if (noPrevPlayer)
@@ -153,16 +160,16 @@ export default {
                             }
                         });
 
-                    // if (!noPrevPlayer)
-                    //     this.player.remoteTextTracks().map(track => this.player.removeRemoteTextTrack(track));
+                    if (!noPrevPlayer)
+                        this.player.remoteTextTracks().map(track => this.player.removeRemoteTextTrack(track));
 
                     this.video.subtitles.map(subtitle => {
                         this.player.addRemoteTextTrack({
                             kind: "captions",
-                            src: subtitle.url,
+                            src: subtitle.url.replace("fmt=ttml", "fmt=vtt"),
                             label: "Track",
-                            type: subtitle.mimeType
-                        }, false);
+                            type: "captions/captions.vtt"
+                        }, false).mode = "showing"
                     })
 
                     //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
