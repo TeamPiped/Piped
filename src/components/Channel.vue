@@ -3,13 +3,17 @@
     <h1 class="uk-text-center"><img v-bind:src="channel.avatarUrl">{{ channel.name }}</h1>
     <img v-bind:src="channel.bannerUrl" style="width: 100%">
     <p v-html="this.channel.description.replaceAll('\n', '<br>')"></p>
-    <div class="" style="width: 100%" uk-grid="parallax: 0">
-        <div style="width: 260px" v-bind:key="item.url" v-for="item in this.channel.relatedStreams">
-            <router-link class="uk-link-muted" v-bind:to="item.url || '/'">
+
+    <hr>
+
+    <div class="uk-grid-small" style="width: 100%" uk-grid="parallax: 0">
+        <div style="width: 288px" v-bind:key="item.url" v-for="item in this.channel.relatedStreams">
+            <router-link class="uk-link-muted" style="height: 100px" v-bind:to="item.url || '/'">
                 <img style="width: 100%" v-bind:src="item.thumbnail">
-                <p>{{ item.title }}</p>
+                <a>{{ item.title }}</a>
             </router-link>
-            {{ timeFormat(item.duration) }}
+            <br>
+            <a>{{ timeFormat(item.duration) }}</a>
         </div>
     </div>
 </div>
