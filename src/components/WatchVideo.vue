@@ -43,7 +43,7 @@
 import "video.js/dist/video-js.css";
 import "@silvermine/videojs-quality-selector/dist/css/quality-selector.css";
 import videojs from "video.js";
-import "videojs-hotkeys";
+require("videojs-hotkeys");
 import Constants from "@/Constants.js";
 require("@silvermine/videojs-quality-selector")(videojs);
 
