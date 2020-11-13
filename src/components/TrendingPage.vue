@@ -1,7 +1,9 @@
 <template>
 <h1 class="uk-text-bold uk-text-center">Trending</h1>
 
-<div class="" style="width: 100%" uk-grid="parallax: 0">
+<hr>
+
+<div class="uk-grid-collapse" style="width: 100%" uk-grid="parallax: 0">
     <div class="uk-tile-default" style="width: 300px; background: #0b0e0f" v-bind:key="video.url" v-for="video in videos">
         <div class="uk-card uk-card-default uk-card-body uk-grid-match uk-text-secondary" style="background: #0b0e0f">
             <router-link class="uk-text-emphasis" v-bind:to="video.url || '/'">
