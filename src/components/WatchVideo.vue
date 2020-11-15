@@ -55,6 +55,7 @@ export default {
                 title: "Loading...",
             },
             player: null,
+            audioplayer: null,
             sponsors: null,
         };
     },
@@ -66,10 +67,15 @@ export default {
         if (this.player) {
             this.player.dispose();
         }
+        if (this.audioplayer) {
+            this.audioplayer.pause()
+        }
     },
     watch: {
         "$route.query.v": function (v) {
             if (v) {
+                if (this.audioplayer)
+                    this.audioplayer.pause()
                 this.getVideoData();
                 this.getSponsors();
             }
@@ -126,9 +132,17 @@ export default {
 
                     var src = [];
 
-                    this.video.videoStreams.map((stream) =>
+                    if (this.video.livestream) {
+
                         src.push({
-                            src: stream.url,
+                            src: this.video.hls,
+                            type: 'application/x-mpegURL'
+                        })
+
+                    } else {
+                        this.video.videoStreams.map((stream) =>
+                            src.push({
+                                src: stream.url,
                             type: stream.mimeType,
                             label: stream.quality,
                         })
@@ -138,13 +152,16 @@ export default {
                         src.push({
                             src: stream.url,
                             type: stream.mimeType,
-                            label: stream.quality,
-                        })
-                    );
+                                label: stream.quality,
+                            })
+                        );
+                    }
+
+                    this.audioplayer = new Audio((this.video.audioStreams.slice(-1)[0].url));
 
                     this.player.src(src);
 
-                    if (noPrevPlayer)
+                    if (noPrevPlayer) {
                         this.player.on('timeupdate', () => {
                             if (this.sponsors && this.sponsors.segments) {
                                 const time = this.player.currentTime()
@@ -153,12 +170,35 @@ export default {
                                         const end = segment.segment[1]
                                         if (time >= segment.segment[0] && time < end) {
                                             this.player.currentTime(end)
+                                            this.audioplayer.currentTime = end
                                             segment.skipped = true
+                                            return
                                         }
                                     }
                                 })
                             }
+
+                            if (this.audioplayer) {
+                                if (Math.abs(this.audioplayer.currentTime - this.player.currentTime()) > 0.25) {
+                                    this.audioplayer.currentTime = this.player.currentTime()
+                                }
+                            }
                         });
+
+                        this.player.on('play', () => {
+                            this.audioplayer.play()
+                        });
+
+                        this.player.on('pause', () => {
+                            this.audioplayer.currentTime = this.player.currentTime()
+                            this.audioplayer.pause()
+                        });
+
+                        this.player.on('volumechange', () => {
+                            this.audioplayer.volume = this.player.volume()
+                        })
+
+                    }
 
                     if (!noPrevPlayer)
                         this.player.remoteTextTracks().map(track => this.player.removeRemoteTextTrack(track));
