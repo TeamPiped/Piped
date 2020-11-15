@@ -10,6 +10,8 @@ require("uikit/dist/js/uikit.min.js")
 import router from '@/router/router'
 import App from './App.vue'
 
+import './registerServiceWorker'
+
 const app = createApp(App)
 app.use(router)
 app.component('font-awesome-icon', FontAwesomeIcon)
