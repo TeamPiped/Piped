@@ -39,6 +39,7 @@ export default {
         },
         async getChannelData() {
             this.fetchChannel().then(data => this.channel = data)
+                .then(() => document.title = this.channel.name + " - Piped")
         },
         timeFormat(duration) {
 
