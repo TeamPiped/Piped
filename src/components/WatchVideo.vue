@@ -179,8 +179,11 @@ export default {
                             }
 
                             if (this.audioplayer) {
-                                if (Math.abs(this.audioplayer.currentTime - this.player.currentTime()) > 0.25) {
-                                    this.audioplayer.currentTime = this.player.currentTime()
+
+                                const delay = this.audioplayer.currentTime - this.player.currentTime()
+
+                                if (Math.abs(delay) > 0.1) {
+                                    this.audioplayer.currentTime = this.player.currentTime() - delay
                                 }
                             }
                         });
