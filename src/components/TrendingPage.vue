@@ -45,7 +45,6 @@ export default {
     },
     mounted() {
         document.title = "Trending - Piped";
-        console.log(Constants.BASE_URL);
 
         this.fetchTrending().then(videos => (this.videos = videos));
     },
