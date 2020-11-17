@@ -211,7 +211,9 @@ export default {
 
                                 if (Math.abs(delay) > 0.1) {
                                     this.audioplayer.currentTime =
-                                        this.player.currentTime() - delay;
+                                        delay > 0.2
+                                            ? this.player.currentTime()
+                                            : this.player.currentTime() + delay;
                                 }
                             }
                         });
