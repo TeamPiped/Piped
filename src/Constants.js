@@ -1,3 +1,3 @@
 export default {
-    BASE_URL: 'https://pipedapi.kavin.rocks',
+    BASE_URL: localStorage.getItem("instance") || 'https://pipedapi.kavin.rocks',
 }

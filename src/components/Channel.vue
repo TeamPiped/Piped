@@ -1,22 +1,32 @@
 <template>
-<div v-if="channel">
-    <h1 class="uk-text-center"><img v-bind:src="channel.avatarUrl">{{ channel.name }}</h1>
-    <img v-bind:src="channel.bannerUrl" style="width: 100%">
-    <p v-html="this.channel.description.replaceAll('\n', '<br>')"></p>
+    <div v-if="channel">
+        <h1 class="uk-text-center">
+            <img v-bind:src="channel.avatarUrl" />{{ channel.name }}
+        </h1>
+        <img v-bind:src="channel.bannerUrl" style="width: 100%" />
+        <p v-html="this.channel.description.replaceAll('\n', '<br>')"></p>
 
-    <hr>
+        <hr />
 
-    <div class="uk-grid-small" style="width: 100%" uk-grid="parallax: 0">
-        <div style="width: 288px" v-bind:key="item.url" v-for="item in this.channel.relatedStreams">
-            <router-link class="uk-link-muted" style="height: 100px" v-bind:to="item.url || '/'">
-                <img style="width: 100%" v-bind:src="item.thumbnail">
-                <a>{{ item.title }}</a>
-            </router-link>
-            <br>
-            <a>{{ timeFormat(item.duration) }}</a>
+        <div class="uk-grid-small" style="width: 100%" uk-grid="parallax: 0">
+            <div
+                style="width: 288px"
+                v-bind:key="item.url"
+                v-for="item in this.channel.relatedStreams"
+            >
+                <router-link
+                    class="uk-link-muted"
+                    style="height: 100px"
+                    v-bind:to="item.url || '/'"
+                >
+                    <img style="width: 100%" v-bind:src="item.thumbnail" />
+                    <a>{{ item.title }}</a>
+                </router-link>
+                <br />
+                <a>{{ timeFormat(item.duration) }}</a>
+            </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -25,27 +35,31 @@ import Constants from "@/Constants.js";
 export default {
     data() {
         return {
-            channel: null,
-        }
+            channel: null
+        };
     },
     mounted() {
-        this.getChannelData()
+        this.getChannelData();
     },
     methods: {
         async fetchChannel() {
             return await (
-                await fetch(Constants.BASE_URL + "/channels/" + this.$route.params.channelId)
+                await fetch(
+                    Constants.BASE_URL +
+                        "/channels/" +
+                        this.$route.params.channelId
+                )
             ).json();
         },
         async getChannelData() {
-            this.fetchChannel().then(data => this.channel = data)
-                .then(() => document.title = this.channel.name + " - Piped")
+            this.fetchChannel()
+                .then(data => (this.channel = data))
+                .then(() => (document.title = this.channel.name + " - Piped"));
         },
         timeFormat(duration) {
-
-            var pad = function (num, size) {
-                return ('000' + num).slice(size * -1);
-            }
+            var pad = function(num, size) {
+                return ("000" + num).slice(size * -1);
+            };
 
             var time = parseFloat(duration).toFixed(3),
                 hours = Math.floor(time / 60 / 60),
@@ -54,14 +68,12 @@ export default {
 
             var str = "";
 
-            if (hours > 0)
-                str += pad(hours, 2) + ":"
+            if (hours > 0) str += pad(hours, 2) + ":";
 
-            str += pad(minutes, 2) + ':' + pad(seconds, 2)
+            str += pad(minutes, 2) + ":" + pad(seconds, 2);
 
             return str;
-
         }
     }
-}
+};
 </script>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Watch from '../components/WatchVideo.vue'
 import Trending from '../components/TrendingPage.vue'
 import Channel from '../components/Channel.vue'
+import Preferences from '../components/Preferences.vue'
 
 const routes = [{
     path: '/watch',
@@ -15,6 +16,10 @@ const routes = [{
     path: '/channel/:channelId',
     name: 'Channel',
     component: Channel
+}, {
+    path: '/preferences',
+    name: 'Preferences',
+    component: Preferences
 }]
 
 const router = createRouter({
