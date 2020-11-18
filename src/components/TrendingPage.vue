@@ -3,10 +3,10 @@
 
     <hr />
 
-    <div class="uk-grid-collapse" style="width: 100%" uk-grid="parallax: 0">
+    <div class="uk-grid-collapse" uk-grid="parallax: 0">
         <div
-            class="uk-tile-default"
-            style="width: 300px; background: #0b0e0f"
+            style="background: #0b0e0f"
+            class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
             v-bind:key="video.url"
             v-for="video in videos"
         >
