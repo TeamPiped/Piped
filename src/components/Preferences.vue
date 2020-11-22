@@ -1,4 +1,7 @@
 <template>
+    <h1 class="uk-text-bold uk-text-center">Preferences</h1>
+    <hr />
+    <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
             <tr>
@@ -16,6 +19,9 @@
         </tbody>
     </table>
 
+    <hr />
+
+    <b>Instance Selection:</b>
     <select
         class="uk-select"
         v-model="selectedInstance"
