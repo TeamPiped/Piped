@@ -1,11 +1,11 @@
 <template>
     <div class="uk-container uk-container-xlarge">
-        <h1 class="uk-text-bold">{{ video.title }}</h1>
         <video
             controls
             ref="player"
             class="video-js preview-player-dimensions"
         ></video>
+        <h1 class="uk-text-bold">{{ video.title }}</h1>
 
         <img :src="video.uploaderAvatar" />
         <router-link class="uk-text-bold" v-bind:to="video.uploaderUrl || '/'">
@@ -155,6 +155,13 @@ export default {
 
                     var src = [];
 
+                    // src.push({
+                    //     src:
+                    //         "data:application/dash+xml;charset=utf-8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPE1QRCB0eXBlPSJzdGF0aWMiIHhtbG5zPSJ1cm46bXBlZzpkYXNoOnNjaGVtYTptcGQ6MjAxMSIgbWluQnVmZmVyVGltZT0iUFQxLjVTIiBtZWRpYVByZXNlbnRhdGlvbkR1cmF0aW9uPSJQVDIyMC43NjIyMDgzMzMzMzMzMlMiIHByb2ZpbGVzPSJ1cm46bXBlZzpkYXNoOnByb2ZpbGU6aXNvZmYtbWFpbjoyMDExIj4KICA8UGVyaW9kIHN0YXJ0PSJQVDBTIj4KICAgIDxBZGFwdGF0aW9uU2V0PgogICAgICA8UmVwcmVzZW50YXRpb24gaWQ9InZpZGVvMDEiIG1pbWVUeXBlPSJ2aWRlby9tcDQiIGNvZGVjcz0iYXZjMS42NDAwMjgiIGJhbmR3aWR0aD0iMjgxNjM0Ij4KICAgICAgICAgIDxCYXNlVVJMPmh0dHBzOi8vcGlwZWRwcm94eS5rYXZpbi5yb2Nrcy92aWRlb3BsYXliYWNrP2V4cGlyZT0xNjA1NjkxNTMzJmVpPUxaUzBYLVA5RG9TLWh3YU95Sl9vRHcmaXA9MjA5LjE0MS40Ni4zOCZpZD0wN2FmZTI0MmY2ODg4ZDdjJml0YWc9MjQ4JmFpdGFncz0xMzMlMkMxMzQlMkMxMzUlMkMxMzYlMkMxMzclMkMxNjAlMkMyNDIlMkMyNDMlMkMyNDQlMkMyNDclMkMyNDglMkMyNzgmc291cmNlPXlvdXR1YmUmcmVxdWlyZXNzbD15ZXMmbWg9U0EmbW09MzElMkMyOSZtbj1zbi1uNHY3c243cyUyQ3NuLW40djdrbmxrJm1zPWF1JTJDcmR1Jm12PW0mbXZpPTUmcGw9MjMmZ2NyPXVzJmluaXRjd25kYnBzPTExMTI1MCZ2cHJ2PTEmbWltZT12aWRlbyUyRndlYm0mbnM9dllDakpkUFdQTWVjeHhrS3NlXzF4QUFGJmdpcj15ZXMmY2xlbj01MDE0MDM4NyZkdXI9MjIwLjc2MiZsbXQ9MTYwNTY0ODY5MjQyNjI0NSZtdD0xNjA1NjY5ODg1JmZ2aXA9NSZrZWVwYWxpdmU9eWVzJmM9V0VCJnR4cD01NDMyNDM0Jm49blYweDdYZXlodTV4R2ZIJnNwYXJhbXM9ZXhwaXJlJTJDZWklMkNpcCUyQ2lkJTJDYWl0YWdzJTJDc291cmNlJTJDcmVxdWlyZXNzbCUyQ2djciUyQ3ZwcnYlMkNtaW1lJTJDbnMlMkNnaXIlMkNjbGVuJTJDZHVyJTJDbG10JmxzcGFyYW1zPW1oJTJDbW0lMkNtbiUyQ21zJTJDbXYlMkNtdmklMkNwbCUyQ2luaXRjd25kYnBzJmxzaWc9QUczQ194QXdSQUlnUGh1ZklrTzBfZFBSdnFNRFhvRVZsYV9Dbzk1ZkpOYXdwbEM4QWE4eDJCd0NJRVhlOHdnTFJKeUFvZ2xNZmVPak1YTTF0d2hkcnRVWEV3eWowRVZOajFXTSZzaWc9QU9xMFFKOHdSUUloQVA5VDNQNXBCemJpZ3FoaXd2OXVlZjJDMlVoWFlmOHNfbDU2RzFla1VjV25BaUFCU0pSNFdLRlMxS05nUkhjRkUtVGJFRWFiWUtSYlA4YnItcVlzRTczVFFnPT0maG9zdD1yNS0tLXNuLW40djdzbjdzLmdvb2dsZXZpZGVvLmNvbTwvQmFzZVVSTD4KICAgICAgICA8U2VnbWVudEJhc2UgaW5kZXhSYW5nZT0iNzQwLTYyMTc0ODMxIj4KICAgICAgICAgIDxJbml0aWFsaXphdGlvbiByYW5nZT0iMC03NDAiLz4KICAgICAgICA8L1NlZ21lbnRCYXNlPgogICAgICAgIDwvUmVwcmVzZW50YXRpb24+CiAgICA8L0FkYXB0YXRpb25TZXQ+CiAgPC9QZXJpb2Q+CjwvTVBEPgo=",
+                    //     type: "application/dash+xml",
+                    //     label: "DASH"
+                    // });
+
                     if (this.video.livestream) {
                         src.push({
                             src: this.video.hls,
@@ -178,9 +185,11 @@ export default {
                         );
                     }
 
-                    this.audioplayer = new Audio(
-                        this.video.audioStreams.slice(-1)[0].url
-                    );
+                    if (!this.audioplayer) {
+                        this.audioplayer = new Audio(
+                            this.video.audioStreams.slice(-1)[0].url
+                        );
+                    }
 
                     this.player.src(src);
 
@@ -206,14 +215,17 @@ export default {
 
                             if (this.audioplayer) {
                                 const delay =
-                                    this.audioplayer.currentTime -
-                                    this.player.currentTime();
+                                        this.audioplayer.currentTime -
+                                        this.player.currentTime(),
+                                    absdelay = Math.abs(delay);
 
-                                if (Math.abs(delay) > 0.1) {
+                                console.log(delay);
+
+                                if (absdelay > 0.05) {
                                     this.audioplayer.currentTime =
-                                        delay > 0.2
+                                        absdelay > 0.2
                                             ? this.player.currentTime()
-                                            : this.player.currentTime() + delay;
+                                            : this.player.currentTime() - delay;
                                 }
                             }
                         });
