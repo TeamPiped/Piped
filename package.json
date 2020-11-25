@@ -22,13 +22,13 @@
         "videojs-contrib-quality-levels": "^2.0.9",
         "videojs-hotkeys": "^0.2.27",
         "vue": "^3.0.0",
-        "vue-router": "^4.0.0-rc.3"
+        "vue-router": "^4.0.0-rc.5"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "~4.5.0",
-        "@vue/cli-plugin-eslint": "~4.5.0",
-        "@vue/cli-plugin-pwa": "^4.5.8",
-        "@vue/cli-service": "~4.5.0",
+        "@vue/cli-plugin-babel": "^4.5.9",
+        "@vue/cli-plugin-eslint": "^4.5.9",
+        "@vue/cli-plugin-pwa": "^4.5.9",
+        "@vue/cli-service": "^4.5.9",
         "@vue/compiler-sfc": "^3.0.0",
         "babel-eslint": "^10.1.0",
         "eslint": "^6.7.2",
