@@ -13,6 +13,15 @@
                     >Piped</router-link
                 >
             </div>
+            <div class="uk-navbar-center">
+                <input
+                    class="uk-input uk-form-width-large"
+                    type="text"
+                    placeholder="Search"
+                    v-model="searchText"
+                    @keypress="onChange($event)"
+                />
+            </div>
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
                     <li>
@@ -33,9 +42,26 @@
 </template>
 
 <script>
+import Constants from "@/Constants.js";
 export default {
     data() {
-        return {};
+        return {
+            searchText: "",
+            searchSuggestions: []
+        };
+    },
+    methods: {
+        onChange(e) {
+            fetch(
+                Constants.BASE_URL +
+                    "/suggestions?query=" +
+                    encodeURI(this.searchText + e.key)
+            )
+                .then(resp => resp.json())
+                .then(json => {
+                    this.searchSuggestions = json;
+                });
+        }
     }
 };
 </script>
