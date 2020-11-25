@@ -51,6 +51,10 @@ export default {
     },
     mounted() {
         this.getChannelData();
+        window.addEventListener("scroll", this.handleScroll);
+    },
+    unmounted() {
+        window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
         async fetchChannel() {
@@ -69,6 +73,31 @@ export default {
         },
         timeFormat(d) {
             return require("@/utils/TimeUtils.js").default.timeFormat(d);
+        },
+        handleScroll() {
+            if (this.loading || !this.channel || !this.channel.nextpage) return;
+            if (
+                window.innerHeight + window.scrollY >=
+                document.body.offsetHeight - window.innerHeight / 2
+            ) {
+                this.loading = true;
+                fetch(
+                    Constants.BASE_URL +
+                        "/nextpage/channels/" +
+                        this.$route.params.channelId +
+                        "?url=" +
+                        encodeURIComponent(this.channel.nextpage)
+                )
+                    .then(body => body.json())
+                    .then(json => {
+                        this.channel.relatedStreams.concat(json.relatedStreams);
+                        this.channel.nextpage = json.nextpage;
+                        this.loading = false;
+                        json.relatedStreams.map(stream =>
+                            this.channel.relatedStreams.push(stream)
+                        );
+                    });
+            }
         }
     }
 };
