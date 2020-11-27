@@ -51,9 +51,6 @@ export default {
     methods: {
         async fetchTrending() {
             return await (await fetch(Constants.BASE_URL + "/trending")).json();
-        },
-        timeFormat(d) {
-            return require("@/utils/TimeUtils.js").default.timeFormat(d);
         }
     }
 };
