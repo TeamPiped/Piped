@@ -71,14 +71,11 @@ export default {
                 .then(data => (this.channel = data))
                 .then(() => (document.title = this.channel.name + " - Piped"));
         },
-        timeFormat(d) {
-            return require("@/utils/TimeUtils.js").default.timeFormat(d);
-        },
         handleScroll() {
             if (this.loading || !this.channel || !this.channel.nextpage) return;
             if (
                 window.innerHeight + window.scrollY >=
-                document.body.offsetHeight - window.innerHeight / 2
+                document.body.offsetHeight - window.innerHeight
             ) {
                 this.loading = true;
                 fetch(

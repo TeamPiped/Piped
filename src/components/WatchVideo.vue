@@ -14,13 +14,17 @@
 
         <p class="uk-dark">
             <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
-            {{ video.likes }}
+            <b>{{ video.likes }}</b>
+            &nbsp;
             <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
-            {{ video.dislikes }}
+            <b>{{ video.dislikes }}</b>
         </p>
         <p>
             <font-awesome-icon icon="eye"></font-awesome-icon>
-            {{ video.views }} views
+            <b>{{ video.views }}</b> views
+        </p>
+        <p>
+            Uploaded on <b>{{ video.uploadDate }}</b>
         </p>
         <p class="uk-light" v-html="video.description"></p>
         <a v-if="sponsors && sponsors.segments"
