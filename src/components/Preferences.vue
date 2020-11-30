@@ -8,6 +8,7 @@
                 <th>Instance Name</th>
                 <th>Instance Locations</th>
                 <th>Has CDN?</th>
+                <th>SSL Score</th>
             </tr>
         </thead>
         <tbody v-bind:key="instance.name" v-for="instance in instances">
@@ -15,6 +16,11 @@
                 <td>{{ instance.name }}</td>
                 <td>{{ instance.locations }}</td>
                 <td>{{ instance.cdn }}</td>
+                <td>
+                    <a :href="sslScore(instance.apiurl)" target="_blank"
+                        >Click Here</a
+                    >
+                </td>
             </tr>
         </tbody>
     </table>
@@ -79,6 +85,13 @@ export default {
         onChange() {
             if (localStorage)
                 localStorage.setItem("instance", this.selectedInstance);
+        },
+        sslScore(url) {
+            return (
+                "https://www.ssllabs.com/ssltest/analyze.html?d=" +
+                new URL(url).host +
+                "&latest"
+            );
         }
     }
 };
