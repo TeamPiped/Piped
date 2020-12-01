@@ -1,5 +1,10 @@
 # piped
 
+![Matrix](https://img.shields.io/matrix/piped:matrix.org)
+![Netlify](https://img.shields.io/netlify/6ccde6a7-6792-4105-9a28-ee13ce1fbc44)
+![GitHub Repo stars](https://img.shields.io/github/stars/TeamPiped/Piped-Frontend?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/TeamPiped/Piped-Frontend)
+
 ## Project setup
 
 ```
