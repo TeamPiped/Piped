@@ -52,6 +52,14 @@ export default {
     },
     methods: {
         onChange(e) {
+            if (e.key === "Enter") {
+                this.$router.push({
+                    name: "SearchResults",
+                    query: { search_query: this.searchText }
+                });
+                return;
+            }
+
             fetch(
                 Constants.BASE_URL +
                     "/suggestions?query=" +

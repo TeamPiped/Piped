@@ -3,6 +3,7 @@ import Watch from '../components/WatchVideo.vue'
 import Trending from '../components/TrendingPage.vue'
 import Channel from '../components/Channel.vue'
 import Preferences from '../components/Preferences.vue'
+import SearchResults from '../components/SearchResults.vue'
 
 const routes = [{
     path: '/watch',
@@ -20,6 +21,10 @@ const routes = [{
     path: '/preferences',
     name: 'Preferences',
     component: Preferences
+}, {
+    path: '/results',
+    name: 'SearchResults',
+    component: SearchResults
 }]
 
 const router = createRouter({
