@@ -202,11 +202,14 @@ export default {
                         );
                     }
 
-                    if (!this.audioplayer) {
+                    if (!this.audioplayer)
                         this.audioplayer = new Audio(
                             this.video.audioStreams.slice(-1)[0].url
                         );
-                    }
+                    else
+                        this.audioplayer.src = this.video.audioStreams.slice(
+                            -1
+                        )[0].url;
 
                     this.player.src(src);
 
