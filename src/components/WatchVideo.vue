@@ -33,6 +33,14 @@
 
         <hr />
 
+        <b>Auto Play next Video:</b>&nbsp;
+        <input
+            class="uk-checkbox"
+            v-model="selectedAutoPlay"
+            @change="onChange($event)"
+            type="checkbox"
+        />
+
         <div
             class="uk-tile-default uk-text-secondary"
             style="background: #0b0e0f; width: 300px"
@@ -80,6 +88,7 @@ export default {
     mounted() {
         this.getVideoData();
         this.getSponsors();
+        this.selectedAutoPlay = Constants.AUTO_PLAY;
     },
     beforeUnmount() {
         if (this.player) {
@@ -115,6 +124,10 @@ export default {
                         '?category=["sponsor","interaction","selfpromo","music_offtopic"]'
                 )
             ).json();
+        },
+        onChange() {
+            if (localStorage)
+                localStorage.setItem("autoplay", this.selectedAutoPlay);
         },
         async getVideoData() {
             this.fetchVideo()
@@ -245,6 +258,16 @@ export default {
 
                         this.player.on("volumechange", () => {
                             this.audioplayer.volume = this.player.volume();
+                        });
+
+                        this.player.on("ended", () => {
+                            if (
+                                this.selectedAutoPlay &&
+                                this.video.relatedStreams.length > 0
+                            )
+                                this.$router.push(
+                                    this.video.relatedStreams[0].url
+                                );
                         });
                     }
 
