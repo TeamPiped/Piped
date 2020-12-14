@@ -82,13 +82,14 @@ export default {
             },
             player: null,
             audioplayer: null,
-            sponsors: null
+            sponsors: null,
+            selectedAutoPlay: null
         };
     },
     mounted() {
+        this.selectedAutoPlay = Constants.AUTO_PLAY;
         this.getVideoData();
         this.getSponsors();
-        this.selectedAutoPlay = Constants.AUTO_PLAY;
     },
     beforeUnmount() {
         if (this.player) {
