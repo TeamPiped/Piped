@@ -8,7 +8,7 @@
             style="background: #0b0e0f"
             class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
             v-bind:key="result.url"
-            v-for="result in results"
+            v-for="result in results.items"
         >
             <div class="uk-text-secondary" style="background: #0b0e0f">
                 <router-link
@@ -45,6 +45,10 @@ export default {
     },
     mounted() {
         this.updateResults();
+        window.addEventListener("scroll", this.handleScroll);
+    },
+    unmounted() {
+        window.removeEventListener("scroll", this.handleScroll);
     },
     watch: {
         "$route.query.search_query": function() {
@@ -62,9 +66,38 @@ export default {
             ).json();
         },
         async updateResults() {
+            document.title = this.$route.query.search_query + " - Piped";
             this.results = this.fetchResults().then(
                 json => (this.results = json)
             );
+        },
+        handleScroll() {
+            if (this.loading || !this.results || !this.results.nextpage) return;
+            if (
+                window.innerHeight + window.scrollY >=
+                document.body.offsetHeight - window.innerHeight
+            ) {
+                this.loading = true;
+                fetch(
+                    Constants.BASE_URL +
+                        "/nextpage/search" +
+                        "?url=" +
+                        encodeURIComponent(this.results.nextpage) +
+                        "&id=" +
+                        encodeURIComponent(this.results.id) +
+                        "&q=" +
+                        this.$route.params.search_query
+                )
+                    .then(body => body.json())
+                    .then(json => {
+                        this.results.nextpage = json.nextpage;
+                        this.results.id = json.id;
+                        this.loading = false;
+                        json.items.map(stream =>
+                            this.results.items.push(stream)
+                        );
+                    });
+            }
         }
     }
 };
