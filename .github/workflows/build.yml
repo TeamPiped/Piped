@@ -5,7 +5,7 @@ on:
     paths-ignore:
       - "**.md"
     branches:
-      - dev-indep
+      - master
 
 jobs:
   build:
