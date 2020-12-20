@@ -23,7 +23,7 @@ jobs:
             ${{ runner.OS }}-node-
       - run: npm install
       - run: npm run build
-      - uses: aquiladev/ipfs-action@v1
+      - uses: aquiladev/ipfs-action@v0.1.5
         id: ipfs-add
         with:
           path: ./dist
