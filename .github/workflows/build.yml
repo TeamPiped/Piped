@@ -29,11 +29,6 @@ jobs:
           path: ./dist
           service: infura
       - name: Update DNSLink
+        run: npx dnslink-cloudflare -d kavin.rocks -l /ipfs/${{ steps.ipfs-add.outputs.hash }} -r _dnslink.piped-ipfs
         env:
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-          RECORD_DOMAIN: "kavin.rocks"
-          RECORD_NAME: "_dnslink.piped-ipfs"
-          CLOUDFLARE_TOKEN_ZONE_ID: ${{ secrets.CLOUDFLARE_TOKEN_ZONE_ID }}
-        uses: textileio/cloudflare-update-dnslink@master
-        with:
-          cid: ${{ steps.ipfs-add.outputs.hash }}
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
