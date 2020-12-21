@@ -12,8 +12,8 @@ An alternative YouTube frontend which is efficient by design.
 -   [x] No Ads
 -   [x] No Tracking
 -   [x] Infinite Scrolling
--   [x] Intergration with SponsorBlock
--   [x] Intergration with LBRY
+-   [x] Integration with SponsorBlock
+-   [x] Integration with LBRY
 -   [x] 4K support
 -   [x] No connections to Google's servers
 -   [x] Playing just audio
