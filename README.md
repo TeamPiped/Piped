@@ -35,13 +35,13 @@ An alternative YouTube frontend which is efficient by design.
 ## Development Setup
 
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-npm run serve
+yarn serve
 ```
 
 You can now make changes and see them as soon you save the file!
