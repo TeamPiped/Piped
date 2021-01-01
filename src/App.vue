@@ -10,12 +10,16 @@
         >
             <div class="uk-navbar-left">
                 <router-link class="uk-navbar-item uk-logo uk-text-bold" to="/"
-                    >Piped</router-link
+                    ><img
+                        src="../public/img/icons/logo.svg"
+                        height="32"
+                        width="32"
+                    />iped</router-link
                 >
             </div>
-            <div class="uk-navbar-center">
+            <div class="uk-navbar-center uk-flex">
                 <input
-                    class="uk-input uk-form-width-large"
+                    class="uk-input"
                     type="text"
                     placeholder="Search"
                     v-model="searchText"

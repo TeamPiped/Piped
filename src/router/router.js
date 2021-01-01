@@ -1,30 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Watch from '../components/WatchVideo.vue'
-import Trending from '../components/TrendingPage.vue'
-import Channel from '../components/Channel.vue'
-import Preferences from '../components/Preferences.vue'
-import SearchResults from '../components/SearchResults.vue'
 
 const routes = [{
     path: '/watch',
     name: 'Watch',
-    component: Watch
+    component: () => import('../components/WatchVideo.vue')
 }, {
     path: '/',
     name: 'Trending',
-    component: Trending
+    component: () => import('../components/TrendingPage.vue')
 }, {
     path: '/channel/:channelId',
     name: 'Channel',
-    component: Channel
+    component: () => import('../components/Channel.vue')
 }, {
     path: '/preferences',
     name: 'Preferences',
-    component: Preferences
+    component: () => import('../components/Preferences.vue')
 }, {
     path: '/results',
     name: 'SearchResults',
-    component: SearchResults
+    component: () => import('../components/SearchResults.vue')
 }]
 
 const router = createRouter({
