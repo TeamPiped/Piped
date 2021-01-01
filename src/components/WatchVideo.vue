@@ -66,12 +66,14 @@
 </template>
 
 <script>
-import "video.js/dist/video-js.css";
-import "@silvermine/videojs-quality-selector/dist/css/quality-selector.css";
+import("video.js/dist/video-js.css");
+import("@silvermine/videojs-quality-selector/dist/css/quality-selector.css");
 import videojs from "video.js";
-require("videojs-hotkeys");
+import("videojs-hotkeys");
 import Constants from "@/Constants.js";
-require("@silvermine/videojs-quality-selector")(videojs);
+import("@silvermine/videojs-quality-selector").then(module => {
+    module.default(videojs);
+});
 
 export default {
     name: "App",
