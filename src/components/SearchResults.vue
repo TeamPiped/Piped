@@ -86,7 +86,7 @@ export default {
                         "&id=" +
                         encodeURIComponent(this.results.id) +
                         "&q=" +
-                        encodeURIComponent(this.$route.params.search_query)
+                        encodeURIComponent(this.$route.query.search_query)
                 )
                     .then(body => body.json())
                     .then(json => {
