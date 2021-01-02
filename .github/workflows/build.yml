@@ -23,7 +23,7 @@ jobs:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-yarn-
       - run: yarn install --prefer-offline
       - run: yarn build
       - uses: aquiladev/ipfs-action@v0.1.5
