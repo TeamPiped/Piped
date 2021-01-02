@@ -14,15 +14,18 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v1
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Cache Node.js modules
         uses: actions/cache@v2
         with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-node-
-      - run: npm install
-      - run: npm run build
+      - run: yarn install --prefer-offline
+      - run: yarn build
       - uses: aquiladev/ipfs-action@v0.1.5
         id: ipfs-add
         with:
