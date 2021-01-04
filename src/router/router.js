@@ -20,6 +20,10 @@ const routes = [{
     path: '/results',
     name: 'SearchResults',
     component: () => import('../components/SearchResults.vue')
+}, {
+    path: '/playlist',
+    name: 'Playlist',
+    component: () => import('../components/Playlist.vue')
 }]
 
 const router = createRouter({
