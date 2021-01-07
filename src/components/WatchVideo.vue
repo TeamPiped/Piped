@@ -169,6 +169,9 @@ export default {
                             );
                     }
 
+                    if (this.$route.query.t)
+                        this.player.currentTime(this.$route.query.t);
+
                     this.player.hotkeys({
                         volumeStep: 0.1,
                         seekStep: 5,
