@@ -27,7 +27,7 @@ const mixin = {
 
             var str = "";
 
-            if (hours > 0) str += pad(hours, 2) + ":";
+            if (hours > 0) str += hours + ":";
 
             str += pad(minutes, 2) + ":" + pad(seconds, 2);
 
