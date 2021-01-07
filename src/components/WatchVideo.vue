@@ -161,8 +161,13 @@ export default {
 
                     const noPrevPlayer = !this.player;
 
-                    if (noPrevPlayer)
+                    if (noPrevPlayer) {
                         this.player = videojs(this.$refs.player, options);
+                        if (localStorage)
+                            this.player.volume(
+                                localStorage.getItem("volume") || 1
+                            );
+                    }
 
                     this.player.hotkeys({
                         volumeStep: 0.1,
@@ -264,6 +269,11 @@ export default {
 
                         this.player.on("volumechange", () => {
                             this.audioplayer.volume = this.player.volume();
+                            if (localStorage)
+                                localStorage.setItem(
+                                    "volume",
+                                    this.player.volume()
+                                );
                         });
 
                         this.player.on("ended", () => {
