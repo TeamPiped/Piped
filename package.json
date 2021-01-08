@@ -14,7 +14,7 @@
         "@silvermine/videojs-quality-selector": "^1.2.4",
         "core-js": "^3.8.2",
         "css-loader": "^5.0.1",
-        "less": "3.12.2",
+        "less": "4.0.0",
         "less-loader": "^7.2.1",
         "register-service-worker": "^1.7.1",
         "uikit": "3.6.9",
