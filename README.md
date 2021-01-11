@@ -45,3 +45,15 @@ yarn serve
 ```
 
 You can now make changes and see them as soon you save the file!
+
+YourKit
+----
+
+<img src="http://www.yourkit.com/images/yklogo.png"></img>
+
+YourKit has given an open source license for their profiler, greatly simplifying the profiling of ClojureScript performance.
+
+YourKit supports open source projects with its full-featured Java Profiler.
+YourKit, LLC is the creator of <a href="http://www.yourkit.com/java/profiler/index.jsp">YourKit Java Profiler</a>
+and <a href="http://www.yourkit.com/.net/profiler/index.jsp">YourKit .NET Profiler</a>,
+innovative and intelligent tools for profiling Java and .NET applications.
