@@ -51,7 +51,7 @@ YourKit
 
 <img src="http://www.yourkit.com/images/yklogo.png"></img>
 
-YourKit has given an open source license for their profiler, greatly simplifying the profiling of ClojureScript performance.
+YourKit has given an open source license for their profiler, greatly simplifying the profiling of Piped's performance.
 
 YourKit supports open source projects with its full-featured Java Profiler.
 YourKit, LLC is the creator of <a href="http://www.yourkit.com/java/profiler/index.jsp">YourKit Java Profiler</a>
