@@ -26,7 +26,11 @@
         <p>
             Uploaded on <b>{{ video.uploadDate }}</b>
         </p>
-        <p class="uk-light" v-html="video.description"></p>
+        <p
+            class="uk-light"
+            v-if="video.description"
+            v-html="video.description.replaceAll('\n', '<br>')"
+        ></p>
         <a v-if="sponsors && sponsors.segments"
             >Sponsors Segments: {{ sponsors.segments.length }}</a
         >
