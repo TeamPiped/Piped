@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.32",
-        "@fortawesome/free-solid-svg-icons": "^5.15.1",
+        "@fortawesome/free-solid-svg-icons": "^5.15.2",
         "@fortawesome/vue-fontawesome": "^3.0.0-2",
         "@silvermine/videojs-quality-selector": "^1.2.4",
         "core-js": "^3.8.2",
