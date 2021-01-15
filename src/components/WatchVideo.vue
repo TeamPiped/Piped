@@ -26,7 +26,15 @@
         <p>
             Uploaded on <b>{{ video.uploadDate }}</b>
         </p>
+        <a
+            class="uk-button uk-button-small"
+            style="background: #222"
+            @click="showDesc = !showDesc"
+        >
+            {{ showDesc ? "+" : "-" }}
+        </a>
         <p
+            v-show="showDesc"
             class="uk-light"
             v-if="video.description"
             v-html="video.description.replaceAll('\n', '<br>')"
@@ -89,7 +97,8 @@ export default {
             player: null,
             audioplayer: null,
             sponsors: null,
-            selectedAutoPlay: null
+            selectedAutoPlay: null,
+            showDesc: true
         };
     },
     mounted() {
