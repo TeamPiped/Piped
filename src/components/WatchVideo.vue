@@ -33,12 +33,7 @@
         >
             {{ showDesc ? "+" : "-" }}
         </a>
-        <p
-            v-show="showDesc"
-            class="uk-light"
-            v-if="video.description"
-            v-html="video.description.replaceAll('\n', '<br>')"
-        ></p>
+        <p v-show="showDesc" class="uk-light" v-html="video.description"></p>
         <a v-if="sponsors && sponsors.segments"
             >Sponsors Segments: {{ sponsors.segments.length }}</a
         >
@@ -153,7 +148,8 @@ export default {
 
                     this.video.description = this.video.description
                         .replaceAll("http://www.youtube.com", "")
-                        .replaceAll("https://www.youtube.com", "");
+                        .replaceAll("https://www.youtube.com", "")
+                        .replaceAll("\n", "<br>");
 
                     const options = {
                         autoplay: false,
