@@ -199,19 +199,14 @@ export default {
                     //     label: "DASH"
                     // });
 
-                    if (this.video.livestream) {
+                    this.video.videoStreams.map(stream =>
                         src.push({
-                            src: this.video.hls,
-                            type: "application/x-mpegURL"
-                        });
-                    } else {
-                        this.video.videoStreams.map(stream =>
-                            src.push({
-                                src: stream.url,
-                                type: stream.mimeType,
-                                label: stream.quality
-                            })
-                        );
+                            src: stream.url,
+                            type: stream.mimeType,
+                            label: stream.quality,
+                            videoOnly: stream.videoOnly
+                        })
+                    );
 
                         this.video.audioStreams.map(stream =>
                             src.push({
@@ -220,7 +215,7 @@ export default {
                                 label: stream.quality
                             })
                         );
-                    }
+
 
                     if (!this.audioplayer)
                         this.audioplayer = new Audio(
