@@ -213,20 +213,34 @@ export default {
                                 src: stream.url,
                                 type: stream.mimeType,
                                 label: stream.quality
-                            })
-                        );
+                        })
+                    );
 
+                    this.video.subtitles.map(subtitle => {
+                        this.player.addRemoteTextTrack({
+                            kind: "captions",
+                            src: subtitle.url.replace("fmt=ttml", "fmt=vtt"),
+                            label: "Track",
+                            language: "en",
+                            type: "captions/captions.vtt"
+                        });
+                    });
 
-                    if (!this.audioplayer)
-                        this.audioplayer = new Audio(
-                            this.video.audioStreams.slice(-1)[0].url
+                    this.player.src(src);
+
+                    const currentSrc = src.filter(
+                        src => src.src == this.player.currentSrc()
+                    )[0];
+
+                    if (currentSrc.videoOnly)
+                        if (!this.audioplayer)
+                            this.audioplayer = new Audio(
+                                this.video.audioStreams.slice(-1)[0].url
                         );
                     else
                         this.audioplayer.src = this.video.audioStreams.slice(
-                            -1
-                        )[0].url;
-
-                    this.player.src(src);
+                                -1
+                            )[0].url;
 
                     if (noPrevPlayer) {
                         this.player.on("timeupdate", () => {
@@ -240,7 +254,8 @@ export default {
                                             time < end
                                         ) {
                                             this.player.currentTime(end);
-                                            this.audioplayer.currentTime = end;
+                                            if (this.audioplayer)
+                                                this.audioplayer.currentTime = end;
                                             segment.skipped = true;
                                             return;
                                         }
@@ -266,12 +281,14 @@ export default {
                         });
 
                         this.player.on("play", () => {
-                            this.audioplayer.play();
+                            if (this.audioplayer) this.audioplayer.play();
                         });
 
                         this.player.on("pause", () => {
-                            this.audioplayer.currentTime = this.player.currentTime();
-                            this.audioplayer.pause();
+                            if (this.audioplayer) {
+                                this.audioplayer.currentTime = this.player.currentTime();
+                                this.audioplayer.pause();
+                            }
                         });
 
                         this.player.on("volumechange", () => {
