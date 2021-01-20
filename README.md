@@ -17,6 +17,7 @@ An alternative YouTube frontend which is efficient by design.
 -   [x] 4K support
 -   [x] No connections to Google's servers
 -   [x] Playing just audio
+-   [x] Livestreams support with a quality selector
 -   [x] PWA support
 -   [x] Preferences saved locally
 -   [x] Multi-region loadbalancing
@@ -46,8 +47,7 @@ yarn serve
 
 You can now make changes and see them as soon you save the file!
 
-YourKit
-----
+## YourKit
 
 <img src="http://www.yourkit.com/images/yklogo.png"></img>
 
