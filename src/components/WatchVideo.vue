@@ -292,7 +292,8 @@ export default {
                         });
 
                         this.player.on("volumechange", () => {
-                            this.audioplayer.volume = this.player.volume();
+                            if (this.audioplayer)
+                                this.audioplayer.volume = this.player.volume();
                             if (localStorage)
                                 localStorage.setItem(
                                     "volume",
