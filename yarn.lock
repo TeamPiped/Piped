@@ -8459,10 +8459,10 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
-uikit@3.6.11:
-  version "3.6.11"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.6.11.tgz#8c1bd575b7897f2c3dee773539118b42a3af6599"
-  integrity sha512-KL0laSKAKCGT9YeYC1PVkkd+Oa9G7xRS6hD4fnpvh7JUs4P3kV774x2tBAcX34JOLnkMAoc9VrFox16XGokWjA==
+uikit@3.6.13:
+  version "3.6.13"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.6.13.tgz#2afca4cc7d4ab359907ae5cc64cb8d8b73085dab"
+  integrity sha512-XTLip7jfC5kYj2illklyXGHcMQh5x4mf69UU7xHQWgIrUBy+EVhD+KBfyff6KdIxI7M/tyaivAwLRRJcHH+Iow==
 
 underscore@1.9.1:
   version "1.9.1"
