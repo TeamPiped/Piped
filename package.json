@@ -27,7 +27,7 @@
     "devDependencies": {
         "@vue/cli-plugin-babel": "^4.5.10",
         "@vue/cli-plugin-eslint": "^4.5.11",
-        "@vue/cli-plugin-pwa": "^4.5.10",
+        "@vue/cli-plugin-pwa": "^4.5.11",
         "@vue/cli-service": "^4.5.11",
         "@vue/compiler-sfc": "^3.0.5",
         "babel-eslint": "^10.1.0",
