@@ -1404,7 +1404,7 @@
   optionalDependencies:
     vue-loader-v16 "npm:vue-loader@^16.1.0"
 
-"@vue/cli-shared-utils@^4.5.10", "@vue/cli-shared-utils@^4.5.11":
+"@vue/cli-shared-utils@^4.5.11":
   version "4.5.11"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.5.11.tgz#fff71673ee9128f998c691515b9d327071b4f41e"
   integrity sha512-+aaQ+ThQG3+WMexfSWNl0y6f43edqVqRNbguE53F3TIH81I7saS5S750ayqXhZs2r6STJJyqorQnKtAWfHo29A==
@@ -8459,10 +8459,10 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
-uikit@3.6.13:
-  version "3.6.13"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.6.13.tgz#2afca4cc7d4ab359907ae5cc64cb8d8b73085dab"
-  integrity sha512-XTLip7jfC5kYj2illklyXGHcMQh5x4mf69UU7xHQWgIrUBy+EVhD+KBfyff6KdIxI7M/tyaivAwLRRJcHH+Iow==
+uikit@3.6.14:
+  version "3.6.14"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.6.14.tgz#0d04640b35faee6d4cc1a9d37715630c3eb86c3d"
+  integrity sha512-FXkwbGzMq6fI+/5WWeVSk8H2Kuad4g6k5snhUXhYVdTfdOJhrTqprOzo+ZT22V0yvm3HMjceB5EAuOz0lUsK3Q==
 
 underscore@1.9.1:
   version "1.9.1"
