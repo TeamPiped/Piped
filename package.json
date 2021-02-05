@@ -18,7 +18,7 @@
         "less-loader": "^7.3.0",
         "register-service-worker": "^1.7.1",
         "uikit": "3.6.15",
-        "video.js": "^7.10.2",
+        "video.js": "^7.11.4",
         "videojs-contrib-quality-levels": "^2.0.9",
         "videojs-hotkeys": "^0.2.27",
         "vue": "^3.0.5",
