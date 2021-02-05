@@ -37,6 +37,9 @@ const mixin = {
     }
 }
 
+var fetchFn = window.fetch;
+window.fetch = function (url, config) { if (!config) { config = {} } if (!config.mode) { config.mode = 'no-cors' } return fetchFn(url, config) }
+
 const app = createApp(App)
 app.use(router)
 app.mixin(mixin)
