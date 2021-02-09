@@ -13,7 +13,7 @@
         "@fortawesome/vue-fontawesome": "^3.0.0-2",
         "@silvermine/videojs-quality-selector": "^1.2.4",
         "core-js": "^3.8.3",
-        "css-loader": "^5.0.1",
+        "css-loader": "^5.0.2",
         "less": "3.12.2",
         "less-loader": "^7.3.0",
         "register-service-worker": "^1.7.1",
