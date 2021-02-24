@@ -15,7 +15,11 @@
                     class="uk-text-emphasis"
                     v-bind:to="video.url || '/'"
                 >
-                    <img style="width: 100%" v-bind:src="video.thumbnail" />
+                    <img
+                        style="width: 100%"
+                        v-bind:src="video.thumbnail"
+                        loading="lazy"
+                    />
                     <p>{{ video.title }}</p>
                 </router-link>
                 <router-link
@@ -24,10 +28,14 @@
                 >
                     <p>{{ video.uploaderName }}</p>
                 </router-link>
-                {{ timeFormat(video.duration) }}
-                <b class="uk-text-small uk-align-right">
+                <b class="uk-text-small uk-align-left">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     {{ video.views }} views
+                    <br />
+                    {{ video.uploadedDate }}
+                </b>
+                <b class="uk-text-small uk-align-right">
+                    {{ timeFormat(video.duration) }}
                 </b>
             </div>
         </div>
@@ -50,7 +58,7 @@ export default {
     },
     methods: {
         async fetchTrending() {
-            return await (await fetch(Constants.BASE_URL + "/trending")).json();
+            return await this.fetchJson(Constants.BASE_URL + "/trending");
         }
     }
 };

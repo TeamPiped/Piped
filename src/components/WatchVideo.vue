@@ -1,13 +1,9 @@
 <template>
     <div class="uk-container uk-container-xlarge">
-        <video
-            controls
-            ref="player"
-            class="video-js preview-player-dimensions"
-        ></video>
+        <video controls ref="player"></video>
         <h1 class="uk-text-bold">{{ video.title }}</h1>
 
-        <img :src="video.uploaderAvatar" />
+        <img :src="video.uploaderAvatar" loading="lazy" />
         <router-link class="uk-text-bold" v-bind:to="video.uploaderUrl || '/'">
             <a>{{ video.uploader }}</a>
         </router-link>
@@ -56,7 +52,11 @@
         >
             <router-link class="uk-link-muted" v-bind:to="related.url">
                 <p class="uk-text-emphasis">{{ related.title }}</p>
-                <img style="width: 100%" v-bind:src="related.thumbnail" />
+                <img
+                    style="width: 100%"
+                    v-bind:src="related.thumbnail"
+                    loading="lazy"
+                />
             </router-link>
             <p>
                 <router-link
@@ -73,14 +73,8 @@
 </template>
 
 <script>
-import("video.js/dist/video-js.css");
-import("@silvermine/videojs-quality-selector/dist/css/quality-selector.css");
-import videojs from "video.js";
-import("videojs-hotkeys");
+const shaka = import("shaka-player/dist/shaka-player.compiled.js");
 import Constants from "@/Constants.js";
-import("@silvermine/videojs-quality-selector").then(module => {
-    module.default(videojs);
-});
 
 export default {
     name: "App",
@@ -119,22 +113,18 @@ export default {
         }
     },
     methods: {
-        async fetchVideo() {
-            return await (
-                await fetch(
-                    Constants.BASE_URL + "/streams/" + this.$route.query.v
-                )
-            ).json();
+        fetchVideo() {
+            return this.fetchJson(
+                Constants.BASE_URL + "/streams/" + this.$route.query.v
+            );
         },
         async fetchSponsors() {
-            return await (
-                await fetch(
-                    Constants.BASE_URL +
-                        "/sponsors/" +
-                        this.$route.query.v +
-                        '?category=["sponsor","interaction","selfpromo","music_offtopic"]'
-                )
-            ).json();
+            await this.fetchJson(
+                Constants.BASE_URL +
+                    "/sponsors/" +
+                    this.$route.query.v +
+                    '?category=["sponsor","interaction","selfpromo","music_offtopic"]'
+            );
         },
         onChange() {
             if (localStorage)
@@ -142,7 +132,9 @@ export default {
         },
         async getVideoData() {
             this.fetchVideo()
-                .then(data => (this.video = data))
+                .then(data => {
+                    this.video = data;
+                })
                 .then(() => {
                     document.title = this.video.title + " - Piped";
 
@@ -151,96 +143,63 @@ export default {
                         .replaceAll("https://www.youtube.com", "")
                         .replaceAll("\n", "<br>");
 
-                    const options = {
-                        autoplay: false,
-                        controlBar: {
-                            children: [
-                                "playToggle",
-                                "currentTimeDisplay",
-                                "progressControl",
-                                "volumePanel",
-                                "qualitySelector",
-                                "captionsButton",
-                                "fullscreenToggle"
-                            ]
-                        },
-                        responsive: false,
-                        aspectRatio: "16:9"
-                    };
-
                     const noPrevPlayer = !this.player;
 
+                    var streams = [];
+
+                    streams.push(...this.video.audioStreams);
+                    streams.push(...this.video.videoStreams);
+
+                    const dash = require("../utils/DashUtils.js").default.generate_dash_file_from_formats(
+                        streams,
+                        this.video.duration
+                    );
+
                     if (noPrevPlayer) {
-                        this.player = videojs(this.$refs.player, options);
-                        if (localStorage)
-                            this.player.volume(
-                                localStorage.getItem("volume") || 1
-                            );
+                        setTimeout(function() {
+                            shaka
+                                .then(shaka => shaka.default)
+                                .then(shaka => {
+                                    console.log(shaka);
+
+                                    shaka.polyfill.installAll();
+
+                                    this.player = new shaka.Player(
+                                        document.querySelector("video")
+                                    );
+
+                                    this.player.load(
+                                        "data:application/dash+xml;charset=utf-8;base64," +
+                                            btoa(dash)
+                                    );
+                                });
+                        }, 0);
+                        // if (localStorage)
+                        //     this.player.volume(
+                        //         localStorage.getItem("volume") || 1
+                        //     );
                     }
+
+                    shaka;
+
+                    console.log(this.player);
 
                     if (this.$route.query.t)
                         this.player.currentTime(this.$route.query.t);
 
-                    this.player.hotkeys({
-                        volumeStep: 0.1,
-                        seekStep: 5,
-                        enableModifiersForNumbers: false,
-                        enableHoverScroll: true
-                    });
+                    // this.player.poster(this.video.thumbnailUrl);
 
-                    this.player.poster(this.video.thumbnailUrl);
-
-                    var src = [];
-
-                    // src.push({
-                    //     src:
-                    //         "data:application/dash+xml;charset=utf-8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPE1QRCB0eXBlPSJzdGF0aWMiIHhtbG5zPSJ1cm46bXBlZzpkYXNoOnNjaGVtYTptcGQ6MjAxMSIgbWluQnVmZmVyVGltZT0iUFQxLjVTIiBtZWRpYVByZXNlbnRhdGlvbkR1cmF0aW9uPSJQVDIyMC43NjIyMDgzMzMzMzMzMlMiIHByb2ZpbGVzPSJ1cm46bXBlZzpkYXNoOnByb2ZpbGU6aXNvZmYtbWFpbjoyMDExIj4KICA8UGVyaW9kIHN0YXJ0PSJQVDBTIj4KICAgIDxBZGFwdGF0aW9uU2V0PgogICAgICA8UmVwcmVzZW50YXRpb24gaWQ9InZpZGVvMDEiIG1pbWVUeXBlPSJ2aWRlby9tcDQiIGNvZGVjcz0iYXZjMS42NDAwMjgiIGJhbmR3aWR0aD0iMjgxNjM0Ij4KICAgICAgICAgIDxCYXNlVVJMPmh0dHBzOi8vcGlwZWRwcm94eS5rYXZpbi5yb2Nrcy92aWRlb3BsYXliYWNrP2V4cGlyZT0xNjA1NjkxNTMzJmVpPUxaUzBYLVA5RG9TLWh3YU95Sl9vRHcmaXA9MjA5LjE0MS40Ni4zOCZpZD0wN2FmZTI0MmY2ODg4ZDdjJml0YWc9MjQ4JmFpdGFncz0xMzMlMkMxMzQlMkMxMzUlMkMxMzYlMkMxMzclMkMxNjAlMkMyNDIlMkMyNDMlMkMyNDQlMkMyNDclMkMyNDglMkMyNzgmc291cmNlPXlvdXR1YmUmcmVxdWlyZXNzbD15ZXMmbWg9U0EmbW09MzElMkMyOSZtbj1zbi1uNHY3c243cyUyQ3NuLW40djdrbmxrJm1zPWF1JTJDcmR1Jm12PW0mbXZpPTUmcGw9MjMmZ2NyPXVzJmluaXRjd25kYnBzPTExMTI1MCZ2cHJ2PTEmbWltZT12aWRlbyUyRndlYm0mbnM9dllDakpkUFdQTWVjeHhrS3NlXzF4QUFGJmdpcj15ZXMmY2xlbj01MDE0MDM4NyZkdXI9MjIwLjc2MiZsbXQ9MTYwNTY0ODY5MjQyNjI0NSZtdD0xNjA1NjY5ODg1JmZ2aXA9NSZrZWVwYWxpdmU9eWVzJmM9V0VCJnR4cD01NDMyNDM0Jm49blYweDdYZXlodTV4R2ZIJnNwYXJhbXM9ZXhwaXJlJTJDZWklMkNpcCUyQ2lkJTJDYWl0YWdzJTJDc291cmNlJTJDcmVxdWlyZXNzbCUyQ2djciUyQ3ZwcnYlMkNtaW1lJTJDbnMlMkNnaXIlMkNjbGVuJTJDZHVyJTJDbG10JmxzcGFyYW1zPW1oJTJDbW0lMkNtbiUyQ21zJTJDbXYlMkNtdmklMkNwbCUyQ2luaXRjd25kYnBzJmxzaWc9QUczQ194QXdSQUlnUGh1ZklrTzBfZFBSdnFNRFhvRVZsYV9Dbzk1ZkpOYXdwbEM4QWE4eDJCd0NJRVhlOHdnTFJKeUFvZ2xNZmVPak1YTTF0d2hkcnRVWEV3eWowRVZOajFXTSZzaWc9QU9xMFFKOHdSUUloQVA5VDNQNXBCemJpZ3FoaXd2OXVlZjJDMlVoWFlmOHNfbDU2RzFla1VjV25BaUFCU0pSNFdLRlMxS05nUkhjRkUtVGJFRWFiWUtSYlA4YnItcVlzRTczVFFnPT0maG9zdD1yNS0tLXNuLW40djdzbjdzLmdvb2dsZXZpZGVvLmNvbTwvQmFzZVVSTD4KICAgICAgICA8U2VnbWVudEJhc2UgaW5kZXhSYW5nZT0iNzQwLTYyMTc0ODMxIj4KICAgICAgICAgIDxJbml0aWFsaXphdGlvbiByYW5nZT0iMC03NDAiLz4KICAgICAgICA8L1NlZ21lbnRCYXNlPgogICAgICAgIDwvUmVwcmVzZW50YXRpb24+CiAgICA8L0FkYXB0YXRpb25TZXQ+CiAgPC9QZXJpb2Q+CjwvTVBEPgo=",
-                    //     type: "application/dash+xml",
-                    //     label: "DASH"
+                    // this.video.subtitles.map(subtitle => {
+                    //     this.player.addRemoteTextTrack({
+                    //         kind: "captions",
+                    //         src: subtitle.url.replace("fmt=ttml", "fmt=vtt"),
+                    //         label: "Track",
+                    //         language: "en",
+                    //         type: "captions/captions.vtt"
+                    //     });
                     // });
 
-                    this.video.videoStreams.map(stream =>
-                        src.push({
-                            src: stream.url,
-                            type: stream.mimeType,
-                            label: stream.quality,
-                            videoOnly: stream.videoOnly
-                        })
-                    );
-
-                        this.video.audioStreams.map(stream =>
-                            src.push({
-                                src: stream.url,
-                                type: stream.mimeType,
-                                label: stream.quality
-                        })
-                    );
-
-                    this.video.subtitles.map(subtitle => {
-                        this.player.addRemoteTextTrack({
-                            kind: "captions",
-                            src: subtitle.url.replace("fmt=ttml", "fmt=vtt"),
-                            label: "Track",
-                            language: "en",
-                            type: "captions/captions.vtt"
-                        });
-                    });
-
-                    this.player.src(src);
-
-                    const currentSrc = src.filter(
-                        src => src.src == this.player.currentSrc()
-                    )[0];
-
-                    if (currentSrc.videoOnly)
-                        if (!this.audioplayer)
-                            this.audioplayer = new Audio(
-                                this.video.audioStreams.slice(-1)[0].url
-                        );
-                    else
-                        this.audioplayer.src = this.video.audioStreams.slice(
-                                -1
-                            )[0].url;
+                    // this.player.src(src);
 
                     if (noPrevPlayer) {
                         this.player.on("timeupdate", () => {
@@ -262,77 +221,28 @@ export default {
                                     }
                                 });
                             }
-
-                            if (this.audioplayer) {
-                                const delay =
-                                        this.audioplayer.currentTime -
-                                        this.player.currentTime(),
-                                    absdelay = Math.abs(delay);
-
-                                console.log(delay);
-
-                                if (absdelay > 0.05) {
-                                    this.audioplayer.currentTime =
-                                        absdelay > 0.2
-                                            ? this.player.currentTime()
-                                            : this.player.currentTime() - delay;
-                                }
-                            }
                         });
 
-                        this.player.on("play", () => {
-                            if (this.audioplayer) this.audioplayer.play();
-                        });
+                        // this.player.on("volumechange", () => {
+                        //     if (this.audioplayer)
+                        //         this.audioplayer.volume = this.player.volume();
+                        //     if (localStorage)
+                        //         localStorage.setItem(
+                        //             "volume",
+                        //             this.player.volume()
+                        //         );
+                        // });
 
-                        this.player.on("pause", () => {
-                            if (this.audioplayer) {
-                                this.audioplayer.currentTime = this.player.currentTime();
-                                this.audioplayer.pause();
-                            }
-                        });
-
-                        this.player.on("volumechange", () => {
-                            if (this.audioplayer)
-                                this.audioplayer.volume = this.player.volume();
-                            if (localStorage)
-                                localStorage.setItem(
-                                    "volume",
-                                    this.player.volume()
-                                );
-                        });
-
-                        this.player.on("ended", () => {
-                            if (
-                                this.selectedAutoPlay &&
-                                this.video.relatedStreams.length > 0
-                            )
-                                this.$router.push(
-                                    this.video.relatedStreams[0].url
-                                );
-                        });
+                        // this.player.on("ended", () => {
+                        //     if (
+                        //         this.selectedAutoPlay &&
+                        //         this.video.relatedStreams.length > 0
+                        //     )
+                        //         this.$router.push(
+                        //             this.video.relatedStreams[0].url
+                        //         );
+                        // });
                     }
-
-                    if (!noPrevPlayer)
-                        this.player
-                            .remoteTextTracks()
-                            .map(track =>
-                                this.player.removeRemoteTextTrack(track)
-                            );
-
-                    this.video.subtitles.map(subtitle => {
-                        this.player.addRemoteTextTrack(
-                            {
-                                kind: "captions",
-                                src: subtitle.url.replace(
-                                    "fmt=ttml",
-                                    "fmt=vtt"
-                                ),
-                                label: "Track",
-                                type: "captions/captions.vtt"
-                            },
-                            false
-                        ).mode = "showing";
-                    });
 
                     //const parent = this.player.el().querySelector(".vjs-progress-holder")
                     //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12

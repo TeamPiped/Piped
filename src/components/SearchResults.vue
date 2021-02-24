@@ -15,7 +15,11 @@
                     class="uk-text-emphasis"
                     v-bind:to="result.url || '/'"
                 >
-                    <img style="width: 100%" v-bind:src="result.thumbnail" />
+                    <img
+                        style="width: 100%"
+                        v-bind:src="result.thumbnail"
+                        loading="lazy"
+                    />
                     <p>{{ result.name }}</p>
                 </router-link>
                 <router-link
@@ -25,6 +29,8 @@
                     <p>{{ result.uploaderName }}</p>
                 </router-link>
                 {{ result.duration ? timeFormat(result.duration) : "" }}
+                <br />
+                {{ "1/1/2020" }}
                 <b v-if="result.views" class="uk-text-small uk-align-right">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     {{ result.views }} views
@@ -57,13 +63,11 @@ export default {
     },
     methods: {
         async fetchResults() {
-            return await (
-                await fetch(
-                    Constants.BASE_URL +
-                        "/search?q=" +
-                        encodeURIComponent(this.$route.query.search_query)
-                )
-            ).json();
+            return await await this.fetchJson(
+                Constants.BASE_URL +
+                    "/search?q=" +
+                    encodeURIComponent(this.$route.query.search_query)
+            );
         },
         async updateResults() {
             document.title = this.$route.query.search_query + " - Piped";
@@ -78,7 +82,7 @@ export default {
                 document.body.offsetHeight - window.innerHeight
             ) {
                 this.loading = true;
-                fetch(
+                this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/search" +
                         "?url=" +
@@ -87,16 +91,12 @@ export default {
                         encodeURIComponent(this.results.id) +
                         "&q=" +
                         encodeURIComponent(this.$route.query.search_query)
-                )
-                    .then(body => body.json())
-                    .then(json => {
-                        this.results.nextpage = json.nextpage;
-                        this.results.id = json.id;
-                        this.loading = false;
-                        json.items.map(stream =>
-                            this.results.items.push(stream)
-                        );
-                    });
+                ).then(json => {
+                    this.results.nextpage = json.nextpage;
+                    this.results.id = json.id;
+                    this.loading = false;
+                    json.items.map(stream => this.results.items.push(stream));
+                });
             }
         }
     }
