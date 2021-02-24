@@ -23,7 +23,8 @@
         "videojs-contrib-quality-levels": "^2.0.9",
         "videojs-hotkeys": "^0.2.27",
         "vue": "^3.0.5",
-        "vue-router": "^4.0.4"
+        "vue-router": "^4.0.4",
+        "xml-js": "^1.6.11"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^4.5.11",
