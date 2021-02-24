@@ -1,7 +1,8 @@
 <template>
     <div v-if="playlist">
         <h1 class="uk-text-center">
-            <img v-bind:src="playlist.avatarUrl" />{{ playlist.name }}
+            <img v-bind:src="playlist.avatarUrl" loading="lazy" />
+            {{ playlist.name }}
         </h1>
 
         <b
@@ -9,7 +10,7 @@
                 class="uk-text-justify"
                 v-bind:to="playlist.uploaderUrl || '/'"
             >
-                <img v-bind:src="playlist.uploaderAvatar" />
+                <img v-bind:src="playlist.uploaderAvatar" loading="lazy" />
                 {{ playlist.uploader }}</router-link
             ></b
         >
@@ -28,7 +29,11 @@
                     class="uk-link-muted uk-text-justify"
                     v-bind:to="item.url || '/'"
                 >
-                    <img style="width: 100%" v-bind:src="item.thumbnail" />
+                    <img
+                        style="width: 100%"
+                        v-bind:src="item.thumbnail"
+                        loading="lazy"
+                    />
                     <a>{{ item.title }}</a>
                 </router-link>
                 <br />
@@ -67,11 +72,9 @@ export default {
     },
     methods: {
         async fetchPlaylist() {
-            return await (
-                await fetch(
-                    Constants.BASE_URL + "/playlists/" + this.$route.query.list
-                )
-            ).json();
+            return await await this.fetchJson(
+                Constants.BASE_URL + "/playlists/" + this.$route.query.list
+            );
         },
         async getPlaylistData() {
             this.fetchPlaylist()
@@ -86,24 +89,20 @@ export default {
                 document.body.offsetHeight - window.innerHeight
             ) {
                 this.loading = true;
-                fetch(
+                this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/playlists/" +
                         this.$route.query.list +
                         "?url=" +
                         encodeURIComponent(this.playlist.nextpage)
-                )
-                    .then(body => body.json())
-                    .then(json => {
-                        this.playlist.relatedStreams.concat(
-                            json.relatedStreams
-                        );
-                        this.playlist.nextpage = json.nextpage;
-                        this.loading = false;
-                        json.relatedStreams.map(stream =>
-                            this.playlist.relatedStreams.push(stream)
-                        );
-                    });
+                ).then(json => {
+                    this.playlist.relatedStreams.concat(json.relatedStreams);
+                    this.playlist.nextpage = json.nextpage;
+                    this.loading = false;
+                    json.relatedStreams.map(stream =>
+                        this.playlist.relatedStreams.push(stream)
+                    );
+                });
             }
         }
     }

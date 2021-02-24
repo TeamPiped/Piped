@@ -7,6 +7,7 @@
             v-if="channel.bannerUrl"
             v-bind:src="channel.bannerUrl"
             style="width: 100%"
+            loading="lazy"
         />
         <p v-html="this.channel.description.replaceAll('\n', '<br>')"></p>
 
@@ -22,17 +23,23 @@
                     class="uk-link-muted uk-text-justify"
                     v-bind:to="item.url || '/'"
                 >
-                    <img style="width: 100%" v-bind:src="item.thumbnail" />
+                    <img
+                        style="width: 100%"
+                        v-bind:src="item.thumbnail"
+                        loading="lazy"
+                    />
                     <a>{{ item.title }}</a>
                 </router-link>
                 <br />
                 <div>
                     <b class="uk-text-small uk-align-left">
-                        {{ timeFormat(item.duration) }}
-                    </b>
-                    <b class="uk-text-small uk-align-right">
                         <font-awesome-icon icon="eye"></font-awesome-icon>
                         {{ item.views }} views
+                        <br />
+                        {{ item.uploadedDate }}
+                    </b>
+                    <b class="uk-text-small uk-align-right">
+                        {{ timeFormat(item.duration) }}
                     </b>
                 </div>
             </div>
@@ -58,13 +65,9 @@ export default {
     },
     methods: {
         async fetchChannel() {
-            return await (
-                await fetch(
-                    Constants.BASE_URL +
-                        "/channels/" +
-                        this.$route.params.channelId
-                )
-            ).json();
+            return await this.fetchJson(
+                Constants.BASE_URL + "/channels/" + this.$route.params.channelId
+            );
         },
         async getChannelData() {
             this.fetchChannel()
@@ -78,22 +81,20 @@ export default {
                 document.body.offsetHeight - window.innerHeight
             ) {
                 this.loading = true;
-                fetch(
+                this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/channels/" +
                         this.$route.params.channelId +
                         "?url=" +
                         encodeURIComponent(this.channel.nextpage)
-                )
-                    .then(body => body.json())
-                    .then(json => {
-                        this.channel.relatedStreams.concat(json.relatedStreams);
-                        this.channel.nextpage = json.nextpage;
-                        this.loading = false;
-                        json.relatedStreams.map(stream =>
-                            this.channel.relatedStreams.push(stream)
-                        );
-                    });
+                ).then(json => {
+                    this.channel.relatedStreams.concat(json.relatedStreams);
+                    this.channel.nextpage = json.nextpage;
+                    this.loading = false;
+                    json.relatedStreams.map(stream =>
+                        this.channel.relatedStreams.push(stream)
+                    );
+                });
             }
         }
     }

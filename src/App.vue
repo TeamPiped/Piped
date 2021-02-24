@@ -64,15 +64,11 @@ export default {
                 return;
             }
 
-            fetch(
+            this.fetchJson(
                 Constants.BASE_URL +
                     "/suggestions?query=" +
                     encodeURI(this.searchText + e.key)
-            )
-                .then(resp => resp.json())
-                .then(json => {
-                    this.searchSuggestions = json;
-                });
+            );
         }
     }
 };

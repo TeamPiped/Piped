@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>Piped</ShortName>
+    <LongName>Piped Search</LongName>
+    <Description>Search for videos, channels, and playlists on Piped</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="48" height="48" type="image/x-icon">https://piped.kavin.rocks/favicon.ico</Image>
+    <Url type="text/html" method="get" template="https://piped.kavin.rocks/search?q={searchTerms}" />
+</OpenSearchDescription>
