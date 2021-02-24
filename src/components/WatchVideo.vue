@@ -1,6 +1,6 @@
 <template>
     <div class="uk-container uk-container-xlarge">
-        <video controls ref="player"></video>
+        <video controls></video>
         <h1 class="uk-text-bold">{{ video.title }}</h1>
 
         <img :src="video.uploaderAvatar" loading="lazy" />
@@ -155,66 +155,85 @@ export default {
                         this.video.duration
                     );
 
+                    const WatchVideo = this;
+
+                    const videoEl = document.querySelector("video");
+
                     if (noPrevPlayer) {
                         setTimeout(function() {
                             shaka
                                 .then(shaka => shaka.default)
                                 .then(shaka => {
-                                    console.log(shaka);
-
                                     shaka.polyfill.installAll();
 
-                                    this.player = new shaka.Player(
-                                        document.querySelector("video")
-                                    );
+                                    const player = new shaka.Player(videoEl);
 
-                                    this.player.load(
-                                        "data:application/dash+xml;charset=utf-8;base64," +
-                                            btoa(dash)
+                                    player
+                                        .load(
+                                            "data:application/dash+xml;charset=utf-8;base64," +
+                                                btoa(dash)
+                                        )
+                                        .then(() => {
+                                            WatchVideo.video.subtitles.map(
+                                                subtitle => {
+                                                    player.addTextTrack(
+                                                        subtitle.url,
+                                                        "eng",
+                                                        "SUBTITLE",
+                                                        subtitle.mimeType,
+                                                        null,
+                                                        "English"
+                                                    );
+                                                    player.setTextTrackVisibility(
+                                                        true
+                                                    );
+                                                }
+                                            );
+                                            if (localStorage)
+                                                videoEl.volume =
+                                                    localStorage.getItem(
+                                                        "volume"
+                                                    ) || 1;
+                                        });
+
+                                    videoEl.setAttribute(
+                                        "poster",
+                                        WatchVideo.video.thumbnailUrl
                                     );
                                 });
                         }, 0);
-                        // if (localStorage)
-                        //     this.player.volume(
-                        //         localStorage.getItem("volume") || 1
-                        //     );
                     }
-
-                    shaka;
-
-                    console.log(this.player);
 
                     if (this.$route.query.t)
                         this.player.currentTime(this.$route.query.t);
 
-                    // this.player.poster(this.video.thumbnailUrl);
-
-                    // this.video.subtitles.map(subtitle => {
-                    //     this.player.addRemoteTextTrack({
-                    //         kind: "captions",
-                    //         src: subtitle.url.replace("fmt=ttml", "fmt=vtt"),
-                    //         label: "Track",
-                    //         language: "en",
-                    //         type: "captions/captions.vtt"
-                    //     });
-                    // });
-
-                    // this.player.src(src);
+                    videoEl.addEventListener("loadedmetadata", function() {
+                        const track = this.addTextTrack(
+                            "captions",
+                            "English",
+                            "en"
+                        );
+                        track.mode = "showing";
+                    });
 
                     if (noPrevPlayer) {
-                        this.player.on("timeupdate", () => {
-                            if (this.sponsors && this.sponsors.segments) {
-                                const time = this.player.currentTime();
-                                this.sponsors.segments.map(segment => {
+                        videoEl.addEventListener("timeupdate", () => {
+                            if (
+                                WatchVideo.sponsors &&
+                                WatchVideo.sponsors.segments
+                            ) {
+                                const time = videoEl.currentTime;
+                                WatchVideo.sponsors.segments.map(segment => {
                                     if (!segment.skipped) {
                                         const end = segment.segment[1];
                                         if (
                                             time >= segment.segment[0] &&
                                             time < end
                                         ) {
-                                            this.player.currentTime(end);
-                                            if (this.audioplayer)
-                                                this.audioplayer.currentTime = end;
+                                            console.log(
+                                                "Skipped segment at " + time
+                                            );
+                                            videoEl.currentTime = end;
                                             segment.skipped = true;
                                             return;
                                         }
@@ -223,25 +242,20 @@ export default {
                             }
                         });
 
-                        // this.player.on("volumechange", () => {
-                        //     if (this.audioplayer)
-                        //         this.audioplayer.volume = this.player.volume();
-                        //     if (localStorage)
-                        //         localStorage.setItem(
-                        //             "volume",
-                        //             this.player.volume()
-                        //         );
-                        // });
+                        videoEl.addEventListener("volumechange", () => {
+                            if (localStorage)
+                                localStorage.setItem("volume", videoEl.volume);
+                        });
 
-                        // this.player.on("ended", () => {
-                        //     if (
-                        //         this.selectedAutoPlay &&
-                        //         this.video.relatedStreams.length > 0
-                        //     )
-                        //         this.$router.push(
-                        //             this.video.relatedStreams[0].url
-                        //         );
-                        // });
+                        videoEl.addEventListener("ended", () => {
+                            if (
+                                WatchVideo.selectedAutoPlay &&
+                                WatchVideo.video.relatedStreams.length > 0
+                            )
+                                WatchVideo.$router.push(
+                                    WatchVideo.video.relatedStreams[0].url
+                                );
+                        });
                     }
 
                     //const parent = this.player.el().querySelector(".vjs-progress-holder")
