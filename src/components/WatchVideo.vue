@@ -132,7 +132,12 @@ export default {
                     "?category=" +
                     (localStorage
                         ? encodeURIComponent(
-                              "[" + localStorage.getItem("selectedSkip") + "]"
+                              '["' +
+                                  localStorage
+                                      .getItem("selectedSkip")
+                                      .split(",")
+                                      .join('","') +
+                                  '"]'
                           )
                         : encodeURIComponent(
                               '["sponsor", "interaction", "selfpromo", "music_offtopic"]'
