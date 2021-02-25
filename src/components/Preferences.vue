@@ -10,6 +10,60 @@
         @change="onChange($event)"
         type="checkbox"
     />
+    <br />
+    <b>Skip Sponsors</b>
+    <br />
+    <input
+        class="uk-checkbox"
+        v-model="skipSponsor"
+        @change="onChange($event)"
+        type="checkbox"
+    />
+    <br />
+    <b>Skip Intermission/Intro Animation</b>
+    <br />
+    <input
+        class="uk-checkbox"
+        v-model="skipIntro"
+        @change="onChange($event)"
+        type="checkbox"
+    />
+    <br />
+    <b>Skip Endcards/Credits</b>
+    <br />
+    <input
+        class="uk-checkbox"
+        v-model="skipOutro"
+        @change="onChange($event)"
+        type="checkbox"
+    />
+    <br />
+    <b>Skip Interaction Reminder (Subscribe)</b>
+    <br />
+    <input
+        class="uk-checkbox"
+        v-model="skipInteraction"
+        @change="onChange($event)"
+        type="checkbox"
+    />
+    <br />
+    <b>Skip Unpaid/Self Promotion</b>
+    <br />
+    <input
+        class="uk-checkbox"
+        v-model="skipSelfPromo"
+        @change="onChange($event)"
+        type="checkbox"
+    />
+    <br />
+    <b>Skip Music: Non-Music Section</b>
+    <br />
+    <input
+        class="uk-checkbox"
+        v-model="skipMusicOffTopic"
+        @change="onChange($event)"
+        type="checkbox"
+    />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -58,7 +112,13 @@ export default {
         return {
             selectedInstance: null,
             instances: [],
-            sponsorBlock: true
+            sponsorBlock: true,
+            skipSponsor: true,
+            skipIntro: false,
+            skipOutro: false,
+            skipInteraction: true,
+            skipSelfPromo: true,
+            skipMusicOffTopic: true
         };
     },
     mounted() {
@@ -92,6 +152,35 @@ export default {
                 "https://pipedapi.kavin.rocks";
 
             this.sponsorBlock = localStorage.getItem("sponsorblock") || true;
+            if (localStorage.getItem("selectedSkip")) {
+                var skipList = localStorage.getItem("selectedSkip").split(",");
+                this.skipSponsor = this.skipIntro = this.skipOutro = this.skipInteraction = this.skipSelfPromo = this.skipMusicOffTopic = false;
+                skipList.forEach(skip => {
+                    switch (skip) {
+                        case "sponsor":
+                            this.skipSponsor = true;
+                            break;
+                        case "intro":
+                            this.skipIntro = true;
+                            break;
+                        case "outro":
+                            this.skipOutro = true;
+                            break;
+                        case "interaction":
+                            this.skipInteraction = true;
+                            break;
+                        case "selfpromo":
+                            this.skipSelfPromo = true;
+                            break;
+                        case "music_offtopic":
+                            this.skipMusicOffTopic = true;
+                            break;
+                        default:
+                            console.log("Unknown sponsor type: " + skip);
+                            break;
+                    }
+                });
+            }
         }
     },
     methods: {
@@ -99,6 +188,16 @@ export default {
             if (localStorage) {
                 localStorage.setItem("instance", this.selectedInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
+
+                var sponsorSelected = [];
+                if (this.skipSponsor) sponsorSelected.push("sponsor");
+                if (this.skipIntro) sponsorSelected.push("intro");
+                if (this.skipOutro) sponsorSelected.push("outro");
+                if (this.skipInteraction) sponsorSelected.push("interaction");
+                if (this.skipSelfPromo) sponsorSelected.push("selfpromo");
+                if (this.skipMusicOffTopic)
+                    sponsorSelected.push("music_offtopic");
+                localStorage.setItem("selectedSkip", sponsorSelected);
             }
         },
         sslScore(url) {
