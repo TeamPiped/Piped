@@ -129,7 +129,14 @@ export default {
                 Constants.BASE_URL +
                     "/sponsors/" +
                     this.$route.query.v +
-                    '?category=["sponsor","interaction","selfpromo","music_offtopic"]'
+                    "?category=" +
+                    (localStorage
+                        ? encodeURIComponent(
+                              "[" + localStorage.getItem("selectedSkip") + "]"
+                          )
+                        : encodeURIComponent(
+                              '["sponsor", "interaction", "selfpromo", "music_offtopic"]'
+                          ))
             );
         },
         onChange() {
