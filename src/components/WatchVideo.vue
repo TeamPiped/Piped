@@ -93,7 +93,6 @@ export default {
                 title: "Loading..."
             },
             player: null,
-            audioplayer: null,
             sponsors: null,
             selectedAutoPlay: null,
             showDesc: true
@@ -106,16 +105,14 @@ export default {
     },
     beforeUnmount() {
         if (this.player) {
-            this.player.dispose();
-        }
-        if (this.audioplayer) {
-            this.audioplayer.pause();
+            document.querySelector("video").remove();
+            window.player = undefined;
+            window.ui = undefined;
         }
     },
     watch: {
         "$route.query.v": function(v) {
             if (v) {
-                if (this.audioplayer) this.audioplayer.pause();
                 this.getVideoData();
                 this.getSponsors();
             }
@@ -128,7 +125,7 @@ export default {
             );
         },
         async fetchSponsors() {
-            await this.fetchJson(
+            return await this.fetchJson(
                 Constants.BASE_URL +
                     "/sponsors/" +
                     this.$route.query.v +
@@ -138,6 +135,46 @@ export default {
         onChange() {
             if (localStorage)
                 localStorage.setItem("autoplay", this.selectedAutoPlay);
+        },
+        setPlayerAttrs(player, videoEl, dash, shaka) {
+            player
+                .load(
+                    "data:application/dash+xml;charset=utf-8;base64," +
+                        btoa(dash)
+                )
+                .then(() => {
+                    this.video.subtitles.map(subtitle => {
+                        player.addTextTrack(
+                            subtitle.url,
+                            "eng",
+                            "SUBTITLE",
+                            subtitle.mimeType,
+                            null,
+                            "English"
+                        );
+                        player.setTextTrackVisibility(true);
+                    });
+                    if (localStorage)
+                        videoEl.volume = localStorage.getItem("volume") || 1;
+
+                    const ui =
+                        window.ui ||
+                        (window.ui = new shaka.ui.Overlay(
+                            player,
+                            document.querySelector(
+                                "div[data-shaka-player-container]"
+                            ),
+                            videoEl
+                        ));
+                    const config = {
+                        overflowMenuButtons: [
+                            "quality",
+                            "captions",
+                            "playback_rate"
+                        ]
+                    };
+                    ui.configure(config);
+                });
         },
         async getVideoData() {
             this.fetchVideo()
@@ -168,66 +205,36 @@ export default {
 
                     const videoEl = document.querySelector("video");
 
-                    if (noPrevPlayer) {
-                        setTimeout(function() {
-                            shaka
-                                .then(shaka => shaka.default)
-                                .then(shaka => {
+                    setTimeout(function() {
+                        shaka
+                            .then(shaka => shaka.default)
+                            .then(shaka => {
+                                if (noPrevPlayer) {
                                     shaka.polyfill.installAll();
 
                                     const player = new shaka.Player(videoEl);
 
-                                    player
-                                        .load(
-                                            "data:application/dash+xml;charset=utf-8;base64," +
-                                                btoa(dash)
-                                        )
-                                        .then(() => {
-                                            WatchVideo.video.subtitles.map(
-                                                subtitle => {
-                                                    player.addTextTrack(
-                                                        subtitle.url,
-                                                        "eng",
-                                                        "SUBTITLE",
-                                                        subtitle.mimeType,
-                                                        null,
-                                                        "English"
-                                                    );
-                                                    player.setTextTrackVisibility(
-                                                        true
-                                                    );
-                                                }
-                                            );
-                                            if (localStorage)
-                                                videoEl.volume =
-                                                    localStorage.getItem(
-                                                        "volume"
-                                                    ) || 1;
+                                    WatchVideo.player = player;
+                                    window.player = player;
 
-                                            const ui = new shaka.ui.Overlay(
-                                                player,
-                                                document.querySelector(
-                                                    "div[data-shaka-player-container]"
-                                                ),
-                                                videoEl
-                                            );
-                                            const config = {
-                                                overflowMenuButtons: [
-                                                    "quality",
-                                                    "captions",
-                                                    "playback_rate"
-                                                ]
-                                            };
-                                            ui.configure(config);
-                                        });
-
-                                    videoEl.setAttribute(
-                                        "poster",
-                                        WatchVideo.video.thumbnailUrl
+                                    WatchVideo.setPlayerAttrs(
+                                        player,
+                                        videoEl,
+                                        dash,
+                                        shaka
                                     );
-                                });
-                        }, 0);
-                    }
+                                } else {
+                                    WatchVideo.setPlayerAttrs(
+                                        window.player,
+                                        videoEl,
+                                        dash,
+                                        shaka
+                                    );
+                                }
+                            });
+                    }, 0);
+
+                    videoEl.setAttribute("poster", this.video.thumbnailUrl);
 
                     if (this.$route.query.t)
                         this.player.currentTime(this.$route.query.t);
