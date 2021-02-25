@@ -1,6 +1,13 @@
 <template>
     <div class="uk-container uk-container-xlarge">
-        <video controls></video>
+        <div data-shaka-player-container>
+            <video
+                data-shaka-player
+                controls
+                autoplay
+                style="width: 100%; height: 100%"
+            ></video>
+        </div>
         <h1 class="uk-text-bold">{{ video.title }}</h1>
 
         <img :src="video.uploaderAvatar" loading="lazy" />
@@ -73,7 +80,9 @@
 </template>
 
 <script>
-const shaka = import("shaka-player/dist/shaka-player.compiled.js");
+import "shaka-player/dist/shaka-player.ui.js";
+import("shaka-player/dist/controls.css");
+const shaka = import("shaka-player/dist/shaka-player.ui.js");
 import Constants from "@/Constants.js";
 
 export default {
@@ -194,6 +203,18 @@ export default {
                                                     localStorage.getItem(
                                                         "volume"
                                                     ) || 1;
+
+                                            const ui = new shaka.ui.Overlay(
+                                                player,
+                                                document.querySelector(
+                                                    "div[data-shaka-player-container]"
+                                                ),
+                                                videoEl
+                                            );
+                                            const config = {
+                                                overflowMenuButtons: ["quality"]
+                                            };
+                                            ui.configure(config);
                                         });
 
                                     videoEl.setAttribute(
