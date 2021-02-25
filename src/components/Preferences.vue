@@ -1,6 +1,15 @@
 <template>
     <h1 class="uk-text-bold uk-text-center">Preferences</h1>
     <hr />
+    <h2>SponsorBlock</h2>
+    <b>Enable Sponsorblock</b>
+    <br />
+    <input
+        class="uk-checkbox"
+        v-model="sponsorBlock"
+        @change="onChange($event)"
+        type="checkbox"
+    />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -48,7 +57,8 @@ export default {
     data() {
         return {
             selectedInstance: null,
-            instances: []
+            instances: [],
+            sponsorBlock: true
         };
     },
     mounted() {
@@ -76,15 +86,20 @@ export default {
                 });
             });
 
-        if (localStorage)
+        if (localStorage) {
             this.selectedInstance =
                 localStorage.getItem("instance") ||
                 "https://pipedapi.kavin.rocks";
+
+            this.sponsorBlock = localStorage.getItem("sponsorblock") || true;
+        }
     },
     methods: {
         onChange() {
-            if (localStorage)
+            if (localStorage) {
                 localStorage.setItem("instance", this.selectedInstance);
+                localStorage.setItem("sponsorblock", this.sponsorBlock);
+            }
         },
         sslScore(url) {
             return (
