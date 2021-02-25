@@ -3,7 +3,6 @@
         <div data-shaka-player-container>
             <video
                 data-shaka-player
-                controls
                 autoplay
                 style="width: 100%; height: 100%"
             ></video>
@@ -135,8 +134,7 @@ export default {
                               '["' +
                                   localStorage
                                       .getItem("selectedSkip")
-                                      .split(",")
-                                      .join('","') +
+                                      .replace(",", '","') +
                                   '"]'
                           )
                         : encodeURIComponent(
