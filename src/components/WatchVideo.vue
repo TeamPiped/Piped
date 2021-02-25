@@ -212,7 +212,11 @@ export default {
                                                 videoEl
                                             );
                                             const config = {
-                                                overflowMenuButtons: ["quality"]
+                                                overflowMenuButtons: [
+                                                    "quality",
+                                                    "captions",
+                                                    "playback_rate"
+                                                ]
                                             };
                                             ui.configure(config);
                                         });
