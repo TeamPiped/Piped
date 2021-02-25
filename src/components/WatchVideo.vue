@@ -105,7 +105,7 @@ export default {
     },
     beforeUnmount() {
         if (this.player) {
-            document.querySelector("video").remove();
+            window.player.destroy();
             window.player = undefined;
             window.ui = undefined;
         }
