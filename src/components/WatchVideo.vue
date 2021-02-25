@@ -295,14 +295,9 @@ export default {
                 });
         },
         async getSponsors() {
-            this.fetchSponsors().then(data => (this.sponsors = data));
+            if (!localStorage || localStorage.getItem("sponsorblock") !== false)
+                this.fetchSponsors().then(data => (this.sponsors = data));
         }
     }
 };
 </script>
-
-<style>
-.vjs-current-time {
-    display: block;
-}
-</style>
