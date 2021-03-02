@@ -18,7 +18,7 @@
         "register-service-worker": "^1.7.1",
         "shaka-player": "3.0.8",
         "uikit": "3.6.17",
-        "vue": "^3.0.6",
+        "vue": "^3.0.7",
         "vue-router": "^4.0.4",
         "xml-js": "^1.6.11"
     },
@@ -27,7 +27,7 @@
         "@vue/cli-plugin-eslint": "^4.5.11",
         "@vue/cli-plugin-pwa": "^4.5.11",
         "@vue/cli-service": "^4.5.11",
-        "@vue/compiler-sfc": "^3.0.6",
+        "@vue/compiler-sfc": "^3.0.7",
         "babel-eslint": "^10.1.0",
         "eslint": "^7.21.0",
         "eslint-plugin-vue": "^7.6.0"
