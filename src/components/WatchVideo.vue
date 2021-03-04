@@ -129,7 +129,7 @@ export default {
                     "/sponsors/" +
                     this.$route.query.v +
                     "?category=" +
-                    (localStorage
+                    (localStorage && localStorage.getItem("selectedSkip")
                         ? encodeURIComponent(
                               '["' +
                                   localStorage
