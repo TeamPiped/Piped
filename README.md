@@ -25,13 +25,11 @@ An alternative YouTube frontend which is efficient by design.
 
 ## WIP
 
--   [ ] Proper video support Blocked by NPE[#461](https://github.com/TeamNewPipe/NewPipeExtractor/issues/461)
 -   [ ] Login
 -   [ ] Comments
 -   [ ] Feeds
 -   [ ] 8K support
--   [ ] Custom extractor for streams?
--   [ ] Video Muxing
+-   [ ] Improving UI
 
 ## Development Setup
 
