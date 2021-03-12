@@ -19,7 +19,7 @@
         "shaka-player": "3.0.8",
         "uikit": "3.6.17",
         "vue": "^3.0.7",
-        "vue-router": "^4.0.4",
+        "vue-router": "^4.0.5",
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
