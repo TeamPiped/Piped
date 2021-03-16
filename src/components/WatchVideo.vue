@@ -91,7 +91,6 @@ export default {
             video: {
                 title: "Loading..."
             },
-            player: null,
             sponsors: null,
             selectedAutoPlay: null,
             showDesc: true
@@ -103,7 +102,7 @@ export default {
         this.getSponsors();
     },
     beforeUnmount() {
-        if (this.player) {
+        if (window.player) {
             window.player.destroy();
             window.player = undefined;
             window.ui = undefined;
@@ -181,7 +180,12 @@ export default {
                             "quality",
                             "captions",
                             "playback_rate"
-                        ]
+                        ],
+                        seekBarColors: {
+                            base: "rgba(255, 255, 255, 0.3)",
+                            buffered: "rgba(255, 255, 255, 0.54)",
+                            played: "rgb(255, 0, 0)"
+                        }
                     };
                     ui.configure(config);
                 });
@@ -199,7 +203,7 @@ export default {
                         .replaceAll("https://www.youtube.com", "")
                         .replaceAll("\n", "<br>");
 
-                    const noPrevPlayer = !this.player;
+                    const noPrevPlayer = !window.player;
 
                     var streams = [];
 
@@ -247,7 +251,7 @@ export default {
                     videoEl.setAttribute("poster", this.video.thumbnailUrl);
 
                     if (this.$route.query.t)
-                        this.player.currentTime(this.$route.query.t);
+                        videoEl.currentTime = this.$route.query.t;
 
                     videoEl.addEventListener("loadedmetadata", function() {
                         const track = this.addTextTrack(
