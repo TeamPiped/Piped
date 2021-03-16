@@ -16,7 +16,7 @@
         "less": "3.12.2",
         "less-loader": "^7.3.0",
         "register-service-worker": "^1.7.1",
-        "shaka-player": "3.0.8",
+        "shaka-player": "3.0.9",
         "uikit": "3.6.18",
         "vue": "^3.0.7",
         "vue-router": "^4.0.5",
