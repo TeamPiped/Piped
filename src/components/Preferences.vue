@@ -2,6 +2,9 @@
     <h1 class="uk-text-bold uk-text-center">Preferences</h1>
     <hr />
     <h2>SponsorBlock</h2>
+    <p>
+        Uses the API from <a href="https://sponsor.ajay.app/">sponsor.ajay.app</a>
+    </p>
     <b>Enable Sponsorblock</b>
     <br />
     <input
