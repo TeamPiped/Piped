@@ -7618,10 +7618,10 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-shaka-player@3.0.9:
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-3.0.9.tgz#27f7b7a14e36852e21259c2dd8a3b329fa0c84b9"
-  integrity sha512-eiHp+jYNPD+YOe1GT+OH1uBsUM81WSKNzzhzyns5ujcJSAGPDaLXp1t0IQAPPIUj6gC8ZJPrHX4IAuZXyGLi8g==
+shaka-player@3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-3.0.10.tgz#f5cca848df54694f1aa77097f990881da11dbf68"
+  integrity sha512-kr1OFbihAmsmtsb/QhyDfxkt05wPAdreiW8vF86RN95zxpp+J/thEcTjRrH0E9dkBwPwS4HVv+mm096uqtEMvA==
   dependencies:
     eme-encryption-scheme-polyfill "^2.0.1"
 
