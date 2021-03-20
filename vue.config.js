@@ -8,7 +8,8 @@ module.exports = {
         workboxPluginMode: 'GenerateSW',
         workboxOptions: {
             navigateFallback: 'index.html',
-            skipWaiting: true
+            skipWaiting: true,
+			importWorkboxFrom: 'local'
         }
     }
 }
