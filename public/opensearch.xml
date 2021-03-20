@@ -5,5 +5,5 @@
     <Description>Search for videos, channels, and playlists on Piped</Description>
     <InputEncoding>UTF-8</InputEncoding>
     <Image width="48" height="48" type="image/x-icon">https://piped.kavin.rocks/favicon.ico</Image>
-    <Url type="text/html" method="get" template="https://piped.kavin.rocks/search?q={searchTerms}" />
+    <Url type="text/html" method="get" template="https://piped.kavin.rocks/results?search_query={searchTerms}" />
 </OpenSearchDescription>
