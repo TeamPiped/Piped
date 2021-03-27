@@ -7,6 +7,12 @@
 
 An alternative YouTube frontend which is efficient by design.
 
+# The Problem
+
+YouTube has an extremely invasive privacy policy which relies on using user data in unethical ways. You give them a lot of data - ranging from ideas, music taste, content, political opinions, and much more than you think.
+
+By using Piped, you can freely watch and listen to content freely without the fear of prying eyes watching everything you are doing.
+
 ## Features:
 
 -   [x] No Ads
@@ -30,6 +36,16 @@ An alternative YouTube frontend which is efficient by design.
 -   [ ] Feeds
 -   [ ] 8K support
 -   [ ] Improving UI
+
+## Documentation
+
+The documentation can be found at https://piped-docs.kavin.rocks (accessible via IPNS as well)
+
+## Screenshots
+
+![Screenshot 1](https://cloudflare-ipfs.com/ipfs/bafybeigafumvrgbfyufxjptvufobstrywrfv2kteyuuictfko6kvghjszu)
+![Screenshot 2](https://cloudflare-ipfs.com/ipfs/bafybeiaxhsog7jzydr7xb3xhlemxilqksceqg5fraaiuojzclhocsqrcvq)
+![Screenshot 3](https://cloudflare-ipfs.com/ipfs/bafybeiehs5xjqmmq34gmewxoqm3j3b2ze3pve4sdmanz7ukrxwgrcmxnry)
 
 ## Development Setup
 
