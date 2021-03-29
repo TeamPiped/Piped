@@ -75,7 +75,13 @@ export default {
                 .then(() => (document.title = this.channel.name + " - Piped"));
         },
         handleScroll() {
-            if (this.loading || !this.channel || !this.channel.nextpage) return;
+            if (
+                this.loading ||
+                !this.channel ||
+                !this.channel.nextpage ||
+                !this.channel.nextid
+            )
+                return;
             if (
                 window.innerHeight + window.scrollY >=
                 document.body.offsetHeight - window.innerHeight
@@ -86,7 +92,9 @@ export default {
                         "/nextpage/channels/" +
                         this.$route.params.channelId +
                         "?url=" +
-                        encodeURIComponent(this.channel.nextpage)
+                        encodeURIComponent(this.channel.nextpage) +
+                        "&id=" +
+                        encodeURIComponent(this.channel.nextid)
                 ).then(json => {
                     this.channel.relatedStreams.concat(json.relatedStreams);
                     this.channel.nextpage = json.nextpage;
