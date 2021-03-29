@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faThumbsUp, faThumbsDown, faEye } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faBitcoin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faThumbsUp, faThumbsDown, faEye)
+library.add(faThumbsUp, faThumbsDown, faEye, faGithub, faBitcoin)
 
 import("uikit/src/less/uikit.less")
 import("uikit/dist/js/uikit.min.js")
