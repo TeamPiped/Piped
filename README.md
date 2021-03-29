@@ -47,6 +47,12 @@ The documentation can be found at https://piped-docs.kavin.rocks (accessible via
 ![Screenshot 2](https://cloudflare-ipfs.com/ipfs/bafybeiaxhsog7jzydr7xb3xhlemxilqksceqg5fraaiuojzclhocsqrcvq)
 ![Screenshot 3](https://cloudflare-ipfs.com/ipfs/bafybeiehs5xjqmmq34gmewxoqm3j3b2ze3pve4sdmanz7ukrxwgrcmxnry)
 
+## Donations
+
+Donations can be made at 13MoHioctZkC7LDSZSb4m32TDT8xNmei1p (BTC)
+
+Contributions in any other form are also welcomed.
+
 ## Development Setup
 
 ```
