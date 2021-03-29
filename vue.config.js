@@ -9,7 +9,7 @@ module.exports = {
         workboxOptions: {
             navigateFallback: 'index.html',
             skipWaiting: true,
-			importWorkboxFrom: 'local'
+            importWorkboxFrom: 'local'
         }
     }
 }
