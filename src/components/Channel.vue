@@ -98,6 +98,7 @@ export default {
                 ).then(json => {
                     this.channel.relatedStreams.concat(json.relatedStreams);
                     this.channel.nextpage = json.nextpage;
+                    this.channel.nextid = json.nextid;
                     this.loading = false;
                     json.relatedStreams.map(stream =>
                         this.channel.relatedStreams.push(stream)
