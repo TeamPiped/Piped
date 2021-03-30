@@ -30,7 +30,9 @@
                 </router-link>
                 {{ result.duration ? timeFormat(result.duration) : "" }}
                 <br />
-                {{ "1/1/2020" }}
+                <b>
+                    {{ result.uploadDate }}
+                </b>
                 <b v-if="result.views" class="uk-text-small uk-align-right">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     {{ result.views }} views
