@@ -82,7 +82,12 @@ export default {
                 .then(() => (document.title = this.playlist.name + " - Piped"));
         },
         handleScroll() {
-            if (this.loading || !this.playlist || !this.playlist.nextpage)
+            if (
+                this.loading ||
+                !this.playlist ||
+                !this.playlist.nextpage ||
+                !this.playlist.nextid
+            )
                 return;
             if (
                 window.innerHeight + window.scrollY >=
@@ -94,10 +99,13 @@ export default {
                         "/nextpage/playlists/" +
                         this.$route.query.list +
                         "?url=" +
-                        encodeURIComponent(this.playlist.nextpage)
+                        encodeURIComponent(this.playlist.nextpage) +
+                        "&id=" +
+                        encodeURIComponent(this.playlist.nextid)
                 ).then(json => {
                     this.playlist.relatedStreams.concat(json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
+                    this.playlist.nextid = json.nextid;
                     this.loading = false;
                     json.relatedStreams.map(stream =>
                         this.playlist.relatedStreams.push(stream)
