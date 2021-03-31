@@ -40,9 +40,9 @@
                 </ul>
             </div>
         </nav>
-        <div class="uk-container-expand">
+        <div class="uk-container-expand uk-hidden@s">
             <input
-                class="uk-input uk-hidden@s"
+                class="uk-input"
                 type="text"
                 placeholder="Search"
                 v-model="searchText"
