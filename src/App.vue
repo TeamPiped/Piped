@@ -17,7 +17,7 @@
                     />iped</router-link
                 >
             </div>
-            <div class="uk-navbar-center uk-flex">
+            <div class="uk-navbar-center uk-flex uk-visible@s">
                 <input
                     class="uk-input"
                     type="text"
@@ -40,6 +40,15 @@
                 </ul>
             </div>
         </nav>
+        <div class="uk-container-expand">
+            <input
+                class="uk-input uk-hidden@s"
+                type="text"
+                placeholder="Search"
+                v-model="searchText"
+                @keypress="onChange($event)"
+            />
+        </div>
 
         <router-view />
 
