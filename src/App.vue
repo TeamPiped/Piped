@@ -3,53 +3,7 @@
         class="uk-container uk-container-expand uk-light uk-height-viewport"
         style="background: #0b0e0f"
     >
-        <nav
-            class="uk-navbar-container uk-container-expand uk-light"
-            style="background: #0b0e0f"
-            uk-navbar
-        >
-            <div class="uk-navbar-left">
-                <router-link class="uk-navbar-item uk-logo uk-text-bold" to="/"
-                    ><img
-                        src="../public/img/icons/logo.svg"
-                        height="32"
-                        width="32"
-                    />iped</router-link
-                >
-            </div>
-            <div class="uk-navbar-center uk-flex uk-visible@s">
-                <input
-                    class="uk-input"
-                    type="text"
-                    placeholder="Search"
-                    v-model="searchText"
-                    @keypress="onChange($event)"
-                />
-            </div>
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <li>
-                        <router-link to="/preferences">Preferences</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/login">Login</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/feed">Feed</router-link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="uk-container-expand uk-hidden@s">
-            <input
-                class="uk-input"
-                type="text"
-                placeholder="Search"
-                v-model="searchText"
-                @keypress="onChange($event)"
-            />
-        </div>
-
+        <Navigation />
         <router-view />
 
         <div style="text-align: center">
@@ -70,30 +24,10 @@
 </template>
 
 <script>
-import Constants from "@/Constants.js";
+import Navigation from "@/components/Navigation";
 export default {
-    data() {
-        return {
-            searchText: "",
-            searchSuggestions: []
-        };
-    },
-    methods: {
-        onChange(e) {
-            if (e.key === "Enter") {
-                this.$router.push({
-                    name: "SearchResults",
-                    query: { search_query: this.searchText }
-                });
-                return;
-            }
-
-            this.fetchJson(
-                Constants.BASE_URL +
-                    "/suggestions?query=" +
-                    encodeURI(this.searchText + e.key)
-            );
-        }
+    components: {
+        Navigation
     }
 };
 </script>
