@@ -98,13 +98,6 @@ export default {
         this.getVideoData();
         this.getSponsors();
     },
-    beforeUnmount() {
-        if (window.player) {
-            window.player.destroy();
-            window.player = undefined;
-            window.ui = undefined;
-        }
-    },
     watch: {
         "$route.query.v": function(v) {
             if (v) {

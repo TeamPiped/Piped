@@ -136,6 +136,13 @@ export default {
                     ui.configure(config);
                 });
         }
+    },
+    beforeUnmount() {
+        if (this.player) {
+            this.player.destroy();
+            this.player = undefined;
+            this.ui = undefined;
+        }
     }
 };
 </script>
