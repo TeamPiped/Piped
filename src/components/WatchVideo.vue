@@ -14,10 +14,10 @@
         </router-link>
 
         <p class="uk-dark">
-            <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
+            <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
             <b>{{ video.likes }}</b>
             &nbsp;
-            <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
+            <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
             <b>{{ video.dislikes }}</b>
         </p>
         <p>
