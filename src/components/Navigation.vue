@@ -6,11 +6,7 @@
     >
         <div class="uk-navbar-left">
             <router-link class="uk-navbar-item uk-logo uk-text-bold" to="/"
-                ><img
-                    src="/img/icons/logo.svg"
-                    height="32"
-                    width="32"
-                />iped</router-link
+                ><img src="/img/icons/logo.svg" height="32" width="32" />iped</router-link
             >
         </div>
         <div class="uk-navbar-center uk-flex uk-visible@m">
@@ -19,7 +15,7 @@
                 type="text"
                 placeholder="Search"
                 v-model="searchText"
-                @keypress="onChange($event)"
+                @keydown="onKeyDown"
                 @focus="onInputFocus"
                 @blur="onInputBlur"
             />
@@ -44,20 +40,20 @@
             type="text"
             placeholder="Search"
             v-model="searchText"
-            @keypress="onChange($event)"
+            @keydown="onKeyDown"
             @focus="onInputFocus"
             @blur="onInputBlur"
         />
     </div>
     <SearchSuggestions
-        v-if="searchText && suggestionsVisible && searchSuggestions.length > 0"
-        :searchSuggestions="searchSuggestions"
+        v-show="searchText && suggestionsVisible"
+        :searchText="searchText"
+        @searchchange="onSearchTextChange"
     />
 </template>
 
 <script>
 import SearchSuggestions from "@/components/SearchSuggestions";
-import Constants from "@/Constants.js";
 
 export default {
     components: {
@@ -66,31 +62,29 @@ export default {
     data() {
         return {
             searchText: "",
-            searchSuggestions: [],
             suggestionsVisible: false
         };
     },
     methods: {
-        async onChange(e) {
+        onKeyDown(e) {
             if (e.key === "Enter") {
                 this.$router.push({
                     name: "SearchResults",
                     query: { search_query: this.searchText }
                 });
                 return;
+            } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+                e.preventDefault();
             }
-
-            this.searchSuggestions = await this.fetchJson(
-                Constants.BASE_URL +
-                    "/suggestions?query=" +
-                    encodeURI(this.searchText + e.key)
-            );
         },
         onInputFocus() {
             this.suggestionsVisible = true;
         },
         onInputBlur() {
             this.suggestionsVisible = false;
+        },
+        onSearchTextChange(searchText) {
+            this.searchText = searchText;
         }
     }
 };
