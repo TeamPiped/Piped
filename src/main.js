@@ -1,23 +1,22 @@
-import { createApp } from 'vue'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faThumbsUp, faThumbsDown, faEye } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faBitcoin } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faThumbsUp, faThumbsDown, faEye, faGithub, faBitcoin)
+import { createApp } from "vue";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faThumbsUp, faThumbsDown, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faBitcoin } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faThumbsUp, faThumbsDown, faEye, faGithub, faBitcoin);
 
-import("uikit/src/less/uikit.less")
-import("uikit/dist/js/uikit.min.js")
+import("uikit/src/less/uikit.less");
+import("uikit/dist/js/uikit.min.js");
 
-import router from '@/router/router'
-import App from './App.vue'
+import router from "@/router/router";
+import App from "./App.vue";
 
-import './registerServiceWorker'
+import "./registerServiceWorker";
 
 const mixin = {
     methods: {
-        timeFormat: function (duration) {
-
-            var pad = function (num, size) {
+        timeFormat: function(duration) {
+            var pad = function(num, size) {
                 return ("000" + num).slice(size * -1);
             };
 
@@ -33,19 +32,17 @@ const mixin = {
             str += pad(minutes, 2) + ":" + pad(seconds, 2);
 
             return str;
-
         },
-        fetchJson: function (url, options) {
-            return fetch(url, options)
-                .then(response => {
-                    return response.json();
-                })
-        }
-    }
-}
+        fetchJson: function(url, options) {
+            return fetch(url, options).then(response => {
+                return response.json();
+            });
+        },
+    },
+};
 
-const app = createApp(App)
-app.use(router)
-app.mixin(mixin)
-app.component('font-awesome-icon', FontAwesomeIcon)
-app.mount('#app')
+const app = createApp(App);
+app.use(router);
+app.mixin(mixin);
+app.component("font-awesome-icon", FontAwesomeIcon);
+app.mount("#app");

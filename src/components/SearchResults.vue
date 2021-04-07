@@ -11,21 +11,11 @@
             v-for="result in results.items"
         >
             <div class="uk-text-secondary" style="background: #0b0e0f">
-                <router-link
-                    class="uk-text-emphasis"
-                    v-bind:to="result.url || '/'"
-                >
-                    <img
-                        style="width: 100%"
-                        v-bind:src="result.thumbnail"
-                        loading="lazy"
-                    />
+                <router-link class="uk-text-emphasis" v-bind:to="result.url || '/'">
+                    <img style="width: 100%" v-bind:src="result.thumbnail" loading="lazy" />
                     <p>{{ result.name }}</p>
                 </router-link>
-                <router-link
-                    class="uk-link-muted"
-                    v-bind:to="result.uploaderUrl || '/'"
-                >
+                <router-link class="uk-link-muted" v-bind:to="result.uploaderUrl || '/'">
                     <p>{{ result.uploaderName }}</p>
                 </router-link>
                 {{ result.duration ? timeFormat(result.duration) : "" }}
@@ -48,7 +38,7 @@ import Constants from "@/Constants.js";
 export default {
     data() {
         return {
-            results: null
+            results: null,
         };
     },
     mounted() {
@@ -61,28 +51,21 @@ export default {
     watch: {
         "$route.query.search_query": function(q) {
             if (q) this.updateResults();
-        }
+        },
     },
     methods: {
         async fetchResults() {
             return await await this.fetchJson(
-                Constants.BASE_URL +
-                    "/search?q=" +
-                    encodeURIComponent(this.$route.query.search_query)
+                Constants.BASE_URL + "/search?q=" + encodeURIComponent(this.$route.query.search_query),
             );
         },
         async updateResults() {
             document.title = this.$route.query.search_query + " - Piped";
-            this.results = this.fetchResults().then(
-                json => (this.results = json)
-            );
+            this.results = this.fetchResults().then(json => (this.results = json));
         },
         handleScroll() {
             if (this.loading || !this.results || !this.results.nextpage) return;
-            if (
-                window.innerHeight + window.scrollY >=
-                document.body.offsetHeight - window.innerHeight
-            ) {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(
                     Constants.BASE_URL +
@@ -92,7 +75,7 @@ export default {
                         "&id=" +
                         encodeURIComponent(this.results.id) +
                         "&q=" +
-                        encodeURIComponent(this.$route.query.search_query)
+                        encodeURIComponent(this.$route.query.search_query),
                 ).then(json => {
                     this.results.nextpage = json.nextpage;
                     this.results.id = json.id;
@@ -100,7 +83,7 @@ export default {
                     json.items.map(stream => this.results.items.push(stream));
                 });
             }
-        }
-    }
+        },
+    },
 };
 </script>

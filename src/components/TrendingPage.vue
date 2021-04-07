@@ -11,21 +11,11 @@
             v-for="video in videos"
         >
             <div class="uk-text-secondary" style="background: #0b0e0f">
-                <router-link
-                    class="uk-text-emphasis"
-                    v-bind:to="video.url || '/'"
-                >
-                    <img
-                        style="width: 100%"
-                        v-bind:src="video.thumbnail"
-                        loading="lazy"
-                    />
+                <router-link class="uk-text-emphasis" v-bind:to="video.url || '/'">
+                    <img style="width: 100%" v-bind:src="video.thumbnail" loading="lazy" />
                     <p>{{ video.title }}</p>
                 </router-link>
-                <router-link
-                    class="uk-link-muted"
-                    v-bind:to="video.uploaderUrl || '/'"
-                >
+                <router-link class="uk-link-muted" v-bind:to="video.uploaderUrl || '/'">
                     <p>{{ video.uploaderName }}</p>
                 </router-link>
                 <b class="uk-text-small uk-align-left">
@@ -48,7 +38,7 @@ import Constants from "@/Constants.js";
 export default {
     data() {
         return {
-            videos: []
+            videos: [],
         };
     },
     mounted() {
@@ -59,7 +49,7 @@ export default {
     methods: {
         async fetchTrending() {
             return await this.fetchJson(Constants.BASE_URL + "/trending");
-        }
-    }
+        },
+    },
 };
 </script>

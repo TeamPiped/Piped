@@ -1,14 +1,7 @@
 <template>
     <div v-if="channel">
-        <h1 class="uk-text-center">
-            <img v-bind:src="channel.avatarUrl" />{{ channel.name }}
-        </h1>
-        <img
-            v-if="channel.bannerUrl"
-            v-bind:src="channel.bannerUrl"
-            style="width: 100%"
-            loading="lazy"
-        />
+        <h1 class="uk-text-center"><img v-bind:src="channel.avatarUrl" />{{ channel.name }}</h1>
+        <img v-if="channel.bannerUrl" v-bind:src="channel.bannerUrl" style="width: 100%" loading="lazy" />
         <p v-html="this.channel.description.replaceAll('\n', '<br>')"></p>
 
         <hr />
@@ -19,15 +12,8 @@
                 v-bind:key="item.url"
                 v-for="item in this.channel.relatedStreams"
             >
-                <router-link
-                    class="uk-link-muted uk-text-justify"
-                    v-bind:to="item.url || '/'"
-                >
-                    <img
-                        style="width: 100%"
-                        v-bind:src="item.thumbnail"
-                        loading="lazy"
-                    />
+                <router-link class="uk-link-muted uk-text-justify" v-bind:to="item.url || '/'">
+                    <img style="width: 100%" v-bind:src="item.thumbnail" loading="lazy" />
                     <a>{{ item.title }}</a>
                 </router-link>
                 <br />
@@ -53,7 +39,7 @@ import Constants from "@/Constants.js";
 export default {
     data() {
         return {
-            channel: null
+            channel: null,
         };
     },
     mounted() {
@@ -65,9 +51,7 @@ export default {
     },
     methods: {
         async fetchChannel() {
-            return await this.fetchJson(
-                Constants.BASE_URL + "/channels/" + this.$route.params.channelId
-            );
+            return await this.fetchJson(Constants.BASE_URL + "/channels/" + this.$route.params.channelId);
         },
         async getChannelData() {
             this.fetchChannel()
@@ -75,17 +59,8 @@ export default {
                 .then(() => (document.title = this.channel.name + " - Piped"));
         },
         handleScroll() {
-            if (
-                this.loading ||
-                !this.channel ||
-                !this.channel.nextpage ||
-                !this.channel.nextid
-            )
-                return;
-            if (
-                window.innerHeight + window.scrollY >=
-                document.body.offsetHeight - window.innerHeight
-            ) {
+            if (this.loading || !this.channel || !this.channel.nextpage || !this.channel.nextid) return;
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(
                     Constants.BASE_URL +
@@ -94,18 +69,16 @@ export default {
                         "?url=" +
                         encodeURIComponent(this.channel.nextpage) +
                         "&id=" +
-                        encodeURIComponent(this.channel.nextid)
+                        encodeURIComponent(this.channel.nextid),
                 ).then(json => {
                     this.channel.relatedStreams.concat(json.relatedStreams);
                     this.channel.nextpage = json.nextpage;
                     this.channel.nextid = json.nextid;
                     this.loading = false;
-                    json.relatedStreams.map(stream =>
-                        this.channel.relatedStreams.push(stream)
-                    );
+                    json.relatedStreams.map(stream => this.channel.relatedStreams.push(stream));
                 });
             }
-        }
-    }
+        },
+    },
 };
 </script>
