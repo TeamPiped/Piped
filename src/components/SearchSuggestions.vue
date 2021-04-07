@@ -5,6 +5,8 @@
                 v-for="(suggestion, i) in searchSuggestions"
                 :key="i"
                 :class="{ selected: selected === i }"
+                @mouseover="onMouseOver(i)"
+                @mousedown.stop="onClick(i)"
                 class="uk-margin-remove suggestion"
             >
                 {{ suggestion }}
@@ -30,16 +32,16 @@ export default {
         onKeyUp(e) {
             if (e.key === "ArrowUp") {
                 if (this.selected <= 0) {
-                    this.selected = this.searchSuggestions.length - 1;
+                    this.setSelected(this.searchSuggestions.length - 1);
                 } else {
-                    this.selected -= 1;
+                    this.setSelected(this.selected - 1);
                 }
                 e.preventDefault();
             } else if (e.key === "ArrowDown") {
                 if (this.selected >= this.searchSuggestions.length - 1) {
-                    this.selected = 0;
+                    this.setSelected(0);
                 } else {
-                    this.selected += 1;
+                    this.setSelected(this.selected + 1);
                 }
                 e.preventDefault();
             } else {
@@ -51,20 +53,24 @@ export default {
                 Constants.BASE_URL + "/suggestions?query=" + encodeURI(this.searchText)
             );
             this.searchSuggestions.unshift(this.searchText);
-        }
-    },
-    watch: {
-        selected(newValue, oldValue) {
-            if (newValue !== oldValue && this.searchSuggestions[this.selected]) {
-                this.$emit("searchchange", this.searchSuggestions[this.selected]);
+            this.setSelected(0);
+        },
+        onMouseOver(i) {
+            if (i !== this.selected) {
+                this.selected = i;
             }
+        },
+        onClick(i) {
+            this.setSelected(i);
+            this.$router.push({
+                name: "SearchResults",
+                query: { search_query: this.searchText }
+            });
+        },
+        setSelected(val) {
+            this.selected = val;
+            this.$emit("searchchange", this.searchSuggestions[this.selected]);
         }
-    },
-    mounted() {
-        window.addEventListener("keyup", this.onKeyUp);
-    },
-    beforeUnmount() {
-        window.removeEventListener("keyup", this.onKeyUp);
     }
 };
 </script>

@@ -15,7 +15,7 @@
                 type="text"
                 placeholder="Search"
                 v-model="searchText"
-                @keydown="onKeyDown"
+                @keyup="onKeyUp"
                 @focus="onInputFocus"
                 @blur="onInputBlur"
             />
@@ -40,7 +40,7 @@
             type="text"
             placeholder="Search"
             v-model="searchText"
-            @keydown="onKeyDown"
+            @keyup="onKeyUp"
             @focus="onInputFocus"
             @blur="onInputBlur"
         />
@@ -49,6 +49,7 @@
         v-show="searchText && suggestionsVisible"
         :searchText="searchText"
         @searchchange="onSearchTextChange"
+        ref="searchSuggestions"
     />
 </template>
 
@@ -66,7 +67,7 @@ export default {
         };
     },
     methods: {
-        onKeyDown(e) {
+        onKeyUp(e) {
             if (e.key === "Enter") {
                 this.$router.push({
                     name: "SearchResults",
@@ -76,6 +77,7 @@ export default {
             } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
                 e.preventDefault();
             }
+            this.$refs.searchSuggestions.onKeyUp(e);
         },
         onInputFocus() {
             this.suggestionsVisible = true;
