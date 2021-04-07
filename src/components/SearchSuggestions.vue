@@ -64,7 +64,7 @@ export default {
             this.setSelected(i);
             this.$router.push({
                 name: "SearchResults",
-                query: { search_query: this.searchText }
+                query: { search_query: this.searchSuggestions[i] }
             });
         },
         setSelected(val) {
