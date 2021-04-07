@@ -11,7 +11,7 @@
         </div>
         <div class="uk-navbar-center uk-flex uk-visible@m">
             <input
-                class="uk-input"
+                class="uk-input uk-width-medium"
                 type="text"
                 placeholder="Search"
                 v-model="searchText"
