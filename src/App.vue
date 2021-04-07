@@ -8,15 +8,11 @@
 
         <div style="text-align: center">
             <a href="https://github.com/TeamPiped/Piped">
-                <font-awesome-icon
-                    :icon="['fab', 'github']"
-                ></font-awesome-icon>
+                <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             </a>
             &nbsp;
             <a href="bitcoin://13MoHioctZkC7LDSZSb4m32TDT8xNmei1p">
-                <font-awesome-icon
-                    :icon="['fab', 'bitcoin']"
-                ></font-awesome-icon>
+                <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
                 13MoHioctZkC7LDSZSb4m32TDT8xNmei1p
             </a>
         </div>
