@@ -2,71 +2,34 @@
     <h1 class="uk-text-bold uk-text-center">Preferences</h1>
     <hr />
     <h2>SponsorBlock</h2>
-    <p>
-        Uses the API from <a href="https://sponsor.ajay.app/">sponsor.ajay.app</a>
-    </p>
+    <p>Uses the API from <a href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
     <b>Enable Sponsorblock</b>
     <br />
-    <input
-        class="uk-checkbox"
-        v-model="sponsorBlock"
-        @change="onChange($event)"
-        type="checkbox"
-    />
+    <input class="uk-checkbox" v-model="sponsorBlock" @change="onChange($event)" type="checkbox" />
     <br />
     <b>Skip Sponsors</b>
     <br />
-    <input
-        class="uk-checkbox"
-        v-model="skipSponsor"
-        @change="onChange($event)"
-        type="checkbox"
-    />
+    <input class="uk-checkbox" v-model="skipSponsor" @change="onChange($event)" type="checkbox" />
     <br />
     <b>Skip Intermission/Intro Animation</b>
     <br />
-    <input
-        class="uk-checkbox"
-        v-model="skipIntro"
-        @change="onChange($event)"
-        type="checkbox"
-    />
+    <input class="uk-checkbox" v-model="skipIntro" @change="onChange($event)" type="checkbox" />
     <br />
     <b>Skip Endcards/Credits</b>
     <br />
-    <input
-        class="uk-checkbox"
-        v-model="skipOutro"
-        @change="onChange($event)"
-        type="checkbox"
-    />
+    <input class="uk-checkbox" v-model="skipOutro" @change="onChange($event)" type="checkbox" />
     <br />
     <b>Skip Interaction Reminder (Subscribe)</b>
     <br />
-    <input
-        class="uk-checkbox"
-        v-model="skipInteraction"
-        @change="onChange($event)"
-        type="checkbox"
-    />
+    <input class="uk-checkbox" v-model="skipInteraction" @change="onChange($event)" type="checkbox" />
     <br />
     <b>Skip Unpaid/Self Promotion</b>
     <br />
-    <input
-        class="uk-checkbox"
-        v-model="skipSelfPromo"
-        @change="onChange($event)"
-        type="checkbox"
-    />
+    <input class="uk-checkbox" v-model="skipSelfPromo" @change="onChange($event)" type="checkbox" />
     <br />
     <b>Skip Music: Non-Music Section</b>
     <br />
-    <input
-        class="uk-checkbox"
-        v-model="skipMusicOffTopic"
-        @change="onChange($event)"
-        type="checkbox"
-    />
+    <input class="uk-checkbox" v-model="skipMusicOffTopic" @change="onChange($event)" type="checkbox" />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -83,9 +46,7 @@
                 <td>{{ instance.locations }}</td>
                 <td>{{ instance.cdn }}</td>
                 <td>
-                    <a :href="sslScore(instance.apiurl)" target="_blank"
-                        >Click Here</a
-                    >
+                    <a :href="sslScore(instance.apiurl)" target="_blank">Click Here</a>
                 </td>
             </tr>
         </tbody>
@@ -94,16 +55,8 @@
     <hr />
 
     <b>Instance Selection:</b>
-    <select
-        class="uk-select"
-        v-model="selectedInstance"
-        @change="onChange($event)"
-    >
-        <option
-            v-bind:key="instance.name"
-            v-for="instance in instances"
-            v-bind:value="instance.apiurl"
-        >
+    <select class="uk-select" v-model="selectedInstance" @change="onChange($event)">
+        <option v-bind:key="instance.name" v-for="instance in instances" v-bind:value="instance.apiurl">
             {{ instance.name }}
         </option>
     </select>
@@ -121,13 +74,11 @@ export default {
             skipOutro: false,
             skipInteraction: true,
             skipSelfPromo: true,
-            skipMusicOffTopic: true
+            skipMusicOffTopic: true,
         };
     },
     mounted() {
-        fetch(
-            "https://raw.githubusercontent.com/wiki/TeamPiped/Piped-Frontend/Instances.md"
-        )
+        fetch("https://raw.githubusercontent.com/wiki/TeamPiped/Piped-Frontend/Instances.md")
             .then(resp => resp.text())
             .then(body => {
                 var skipped = 0;
@@ -143,16 +94,14 @@ export default {
                             name: split[0].trim(),
                             apiurl: split[1].trim(),
                             locations: split[2].trim(),
-                            cdn: split[3].trim()
+                            cdn: split[3].trim(),
                         });
                     }
                 });
             });
 
         if (localStorage) {
-            this.selectedInstance =
-                localStorage.getItem("instance") ||
-                "https://pipedapi.kavin.rocks";
+            this.selectedInstance = localStorage.getItem("instance") || "https://pipedapi.kavin.rocks";
 
             this.sponsorBlock = localStorage.getItem("sponsorblock") || true;
             if (localStorage.getItem("selectedSkip")) {
@@ -198,18 +147,13 @@ export default {
                 if (this.skipOutro) sponsorSelected.push("outro");
                 if (this.skipInteraction) sponsorSelected.push("interaction");
                 if (this.skipSelfPromo) sponsorSelected.push("selfpromo");
-                if (this.skipMusicOffTopic)
-                    sponsorSelected.push("music_offtopic");
+                if (this.skipMusicOffTopic) sponsorSelected.push("music_offtopic");
                 localStorage.setItem("selectedSkip", sponsorSelected);
             }
         },
         sslScore(url) {
-            return (
-                "https://www.ssllabs.com/ssltest/analyze.html?d=" +
-                new URL(url).host +
-                "&latest"
-            );
-        }
-    }
+            return "https://www.ssllabs.com/ssltest/analyze.html?d=" + new URL(url).host + "&latest";
+        },
+    },
 };
 </script>

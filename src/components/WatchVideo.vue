@@ -1,11 +1,6 @@
 <template>
     <div class="uk-container uk-container-xlarge">
-        <Player
-            ref="videoPlayer"
-            :video="video"
-            :sponsors="sponsors"
-            :selectedAutoPlay="selectedAutoPlay"
-        />
+        <Player ref="videoPlayer" :video="video" :sponsors="sponsors" :selectedAutoPlay="selectedAutoPlay" />
         <h1 class="uk-text-bold">{{ video.title }}</h1>
 
         <img :src="video.uploaderAvatar" loading="lazy" />
@@ -27,27 +22,16 @@
         <p>
             Uploaded on <b>{{ video.uploadDate }}</b>
         </p>
-        <a
-            class="uk-button uk-button-small"
-            style="background: #222"
-            @click="showDesc = !showDesc"
-        >
+        <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
             {{ showDesc ? "+" : "-" }}
         </a>
         <p v-show="showDesc" class="uk-light" v-html="video.description"></p>
-        <a v-if="sponsors && sponsors.segments"
-            >Sponsors Segments: {{ sponsors.segments.length }}</a
-        >
+        <a v-if="sponsors && sponsors.segments">Sponsors Segments: {{ sponsors.segments.length }}</a>
 
         <hr />
 
         <b>Auto Play next Video:</b>&nbsp;
-        <input
-            class="uk-checkbox"
-            v-model="selectedAutoPlay"
-            @change="onChange($event)"
-            type="checkbox"
-        />
+        <input class="uk-checkbox" v-model="selectedAutoPlay" @change="onChange($event)" type="checkbox" />
 
         <div
             class="uk-tile-default uk-text-secondary"
@@ -57,17 +41,10 @@
         >
             <router-link class="uk-link-muted" v-bind:to="related.url">
                 <p class="uk-text-emphasis">{{ related.title }}</p>
-                <img
-                    style="width: 100%"
-                    v-bind:src="related.thumbnail"
-                    loading="lazy"
-                />
+                <img style="width: 100%" v-bind:src="related.thumbnail" loading="lazy" />
             </router-link>
             <p>
-                <router-link
-                    class="uk-link-muted"
-                    v-bind:to="related.uploaderUrl || '/'"
-                >
+                <router-link class="uk-link-muted" v-bind:to="related.uploaderUrl || '/'">
                     <p>{{ related.uploaderName }}</p>
                 </router-link>
                 <font-awesome-icon icon="eye"></font-awesome-icon>
@@ -86,11 +63,11 @@ export default {
     data() {
         return {
             video: {
-                title: "Loading..."
+                title: "Loading...",
             },
             sponsors: null,
             selectedAutoPlay: null,
-            showDesc: true
+            showDesc: true,
         };
     },
     mounted() {
@@ -104,13 +81,11 @@ export default {
                 this.getVideoData();
                 this.getSponsors();
             }
-        }
+        },
     },
     methods: {
         fetchVideo() {
-            return this.fetchJson(
-                Constants.BASE_URL + "/streams/" + this.$route.query.v
-            );
+            return this.fetchJson(Constants.BASE_URL + "/streams/" + this.$route.query.v);
         },
         async fetchSponsors() {
             return await this.fetchJson(
@@ -119,21 +94,12 @@ export default {
                     this.$route.query.v +
                     "?category=" +
                     (localStorage && localStorage.getItem("selectedSkip")
-                        ? encodeURIComponent(
-                              '["' +
-                                  localStorage
-                                      .getItem("selectedSkip")
-                                      .replace(",", '","') +
-                                  '"]'
-                          )
-                        : encodeURIComponent(
-                              '["sponsor", "interaction", "selfpromo", "music_offtopic"]'
-                          ))
+                        ? encodeURIComponent('["' + localStorage.getItem("selectedSkip").replace(",", '","') + '"]')
+                        : encodeURIComponent('["sponsor", "interaction", "selfpromo", "music_offtopic"]')),
             );
         },
         onChange() {
-            if (localStorage)
-                localStorage.setItem("autoplay", this.selectedAutoPlay);
+            if (localStorage) localStorage.setItem("autoplay", this.selectedAutoPlay);
         },
         async getVideoData() {
             this.fetchVideo()
@@ -154,10 +120,10 @@ export default {
         async getSponsors() {
             if (!localStorage || localStorage.getItem("sponsorblock") !== false)
                 this.fetchSponsors().then(data => (this.sponsors = data));
-        }
+        },
     },
     components: {
-        Player
-    }
+        Player,
+    },
 };
 </script>

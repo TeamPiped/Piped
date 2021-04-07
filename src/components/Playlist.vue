@@ -6,10 +6,7 @@
         </h1>
 
         <b
-            ><router-link
-                class="uk-text-justify"
-                v-bind:to="playlist.uploaderUrl || '/'"
-            >
+            ><router-link class="uk-text-justify" v-bind:to="playlist.uploaderUrl || '/'">
                 <img v-bind:src="playlist.uploaderAvatar" loading="lazy" />
                 {{ playlist.uploader }}</router-link
             ></b
@@ -25,25 +22,16 @@
                 v-bind:key="item.url"
                 v-for="item in this.playlist.relatedStreams"
             >
-                <router-link
-                    class="uk-link-muted uk-text-justify"
-                    v-bind:to="item.url || '/'"
-                >
-                    <img
-                        style="width: 100%"
-                        v-bind:src="item.thumbnail"
-                        loading="lazy"
-                    />
+                <router-link class="uk-link-muted uk-text-justify" v-bind:to="item.url || '/'">
+                    <img style="width: 100%" v-bind:src="item.thumbnail" loading="lazy" />
                     <a>{{ item.title }}</a>
                 </router-link>
                 <br />
                 <div>
                     <b class="uk-text-small uk-align-left">
-                        <router-link
-                            class="uk-text-justify"
-                            v-bind:to="item.uploaderUrl || '/'"
-                            >{{ item.uploaderName }}</router-link
-                        >
+                        <router-link class="uk-text-justify" v-bind:to="item.uploaderUrl || '/'">{{
+                            item.uploaderName
+                        }}</router-link>
                     </b>
                     <b class="uk-text-small uk-align-right">
                         {{ timeFormat(item.duration) }}
@@ -60,7 +48,7 @@ import Constants from "@/Constants.js";
 export default {
     data() {
         return {
-            playlist: null
+            playlist: null,
         };
     },
     mounted() {
@@ -72,9 +60,7 @@ export default {
     },
     methods: {
         async fetchPlaylist() {
-            return await await this.fetchJson(
-                Constants.BASE_URL + "/playlists/" + this.$route.query.list
-            );
+            return await await this.fetchJson(Constants.BASE_URL + "/playlists/" + this.$route.query.list);
         },
         async getPlaylistData() {
             this.fetchPlaylist()
@@ -82,17 +68,8 @@ export default {
                 .then(() => (document.title = this.playlist.name + " - Piped"));
         },
         handleScroll() {
-            if (
-                this.loading ||
-                !this.playlist ||
-                !this.playlist.nextpage ||
-                !this.playlist.nextid
-            )
-                return;
-            if (
-                window.innerHeight + window.scrollY >=
-                document.body.offsetHeight - window.innerHeight
-            ) {
+            if (this.loading || !this.playlist || !this.playlist.nextpage || !this.playlist.nextid) return;
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(
                     Constants.BASE_URL +
@@ -101,18 +78,16 @@ export default {
                         "?url=" +
                         encodeURIComponent(this.playlist.nextpage) +
                         "&id=" +
-                        encodeURIComponent(this.playlist.nextid)
+                        encodeURIComponent(this.playlist.nextid),
                 ).then(json => {
                     this.playlist.relatedStreams.concat(json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
                     this.playlist.nextid = json.nextid;
                     this.loading = false;
-                    json.relatedStreams.map(stream =>
-                        this.playlist.relatedStreams.push(stream)
-                    );
+                    json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
                 });
             }
-        }
-    }
+        },
+    },
 };
 </script>
