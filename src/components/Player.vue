@@ -47,7 +47,7 @@ export default {
 
                         this.player = player;
 
-                        this.setPlayerAttrs(player, videoEl, dash, shaka);
+                        this.setPlayerAttrs(this.player, videoEl, dash, shaka);
                     });
             else this.setPlayerAttrs(this.player, videoEl, dash, this.shaka);
 
@@ -85,28 +85,27 @@ export default {
             player.load("data:application/dash+xml;charset=utf-8;base64," + btoa(dash)).then(() => {
                 this.video.subtitles.map(subtitle => {
                     player.addTextTrack(subtitle.url, "eng", "SUBTITLE", subtitle.mimeType, null, "English");
-                    player.setTextTrackVisibility(true);
                 });
                 if (localStorage) videoEl.volume = localStorage.getItem("volume") || 1;
 
-                const ui =
-                    this.ui ||
-                    (this.ui = new shaka.ui.Overlay(
+                if (!this.ui) {
+                    this.ui = new shaka.ui.Overlay(
                         player,
                         document.querySelector("div[data-shaka-player-container]"),
                         videoEl,
-                    ));
+                    );
 
-                const config = {
-                    overflowMenuButtons: ["quality", "captions", "playback_rate"],
-                    seekBarColors: {
-                        base: "rgba(255, 255, 255, 0.3)",
-                        buffered: "rgba(255, 255, 255, 0.54)",
-                        played: "rgb(255, 0, 0)",
-                    },
-                };
+                    const config = {
+                        overflowMenuButtons: ["quality", "captions", "playback_rate"],
+                        seekBarColors: {
+                            base: "rgba(255, 255, 255, 0.3)",
+                            buffered: "rgba(255, 255, 255, 0.54)",
+                            played: "rgb(255, 0, 0)",
+                        },
+                    };
 
-                ui.configure(config);
+                    this.ui.configure(config);
+                }
             });
         },
     },
