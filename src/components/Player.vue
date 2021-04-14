@@ -88,8 +88,8 @@ export default {
                 });
                 if (localStorage) videoEl.volume = localStorage.getItem("volume") || 1;
 
-                if (!this.ui) {
-                    this.ui = new shaka.ui.Overlay(
+                if (!window.ui) {
+                    window.ui = new shaka.ui.Overlay(
                         player,
                         document.querySelector("div[data-shaka-player-container]"),
                         videoEl,
@@ -104,7 +104,7 @@ export default {
                         },
                     };
 
-                    this.ui.configure(config);
+                    window.ui.configure(config);
                 }
             });
         },
@@ -113,7 +113,7 @@ export default {
         if (this.player) {
             this.player.destroy();
             this.player = undefined;
-            this.ui = undefined;
+            window.ui = undefined;
         }
     },
 };
