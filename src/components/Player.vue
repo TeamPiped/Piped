@@ -115,6 +115,10 @@ export default {
             this.ui.destroy();
             this.player = undefined;
             this.ui = undefined;
+            const videoEl = document.querySelector("video");
+            while (videoEl.firstChild) {
+                videoEl.removeChild(videoEl.firstChild);
+            }
         }
     },
 };
