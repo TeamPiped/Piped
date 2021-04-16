@@ -114,6 +114,7 @@ export default {
             this.player.destroy();
             this.player = undefined;
             window.ui = undefined;
+            document.querySelector("video").remove();
         }
     },
 };
