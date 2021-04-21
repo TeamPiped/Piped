@@ -84,8 +84,14 @@ export default {
         setPlayerAttrs(player, videoEl, dash, shaka) {
             player.load("data:application/dash+xml;charset=utf-8;base64," + btoa(dash)).then(() => {
                 this.video.subtitles.map(subtitle => {
-                    player.addTextTrack(subtitle.url, "eng", "SUBTITLE", subtitle.mimeType, null, "English");
-                    player.setTextTrackVisibility(true);
+                    player.addTextTrack(
+                        subtitle.url,
+                        subtitle.code,
+                        "SUBTITLE",
+                        subtitle.mimeType,
+                        null,
+                        subtitle.name,
+                    );
                 });
                 if (localStorage) videoEl.volume = localStorage.getItem("volume") || 1;
 
