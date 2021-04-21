@@ -93,7 +93,7 @@ export default {
                     "/sponsors/" +
                     this.$route.query.v +
                     "?category=" +
-                    (localStorage && localStorage.getItem("selectedSkip")
+                    (localStorage && localStorage.getItem("selectedSkip") !== null
                         ? encodeURIComponent('["' + localStorage.getItem("selectedSkip").replace(",", '","') + '"]')
                         : encodeURIComponent('["sponsor", "interaction", "selfpromo", "music_offtopic"]')),
             );

@@ -104,7 +104,7 @@ export default {
             this.selectedInstance = localStorage.getItem("instance") || "https://pipedapi.kavin.rocks";
 
             this.sponsorBlock = localStorage.getItem("sponsorblock") || true;
-            if (localStorage.getItem("selectedSkip")) {
+            if (localStorage.getItem("selectedSkip") !== null) {
                 var skipList = localStorage.getItem("selectedSkip").split(",");
                 this.skipSponsor = this.skipIntro = this.skipOutro = this.skipInteraction = this.skipSelfPromo = this.skipMusicOffTopic = false;
                 skipList.forEach(skip => {
