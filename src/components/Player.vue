@@ -116,6 +116,7 @@ export default {
                 case "KeyF":
                     if (document.fullscreenElement) document.exitFullscreen();
                     else this.$refs.container.requestFullscreen();
+                    e.preventDefault();
                     break;
                 case "KeyM":
                     videoEl.muted = !videoEl.muted;
