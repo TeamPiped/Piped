@@ -9,7 +9,11 @@ module.exports = {
         workboxOptions: {
             navigateFallback: 'index.html',
             skipWaiting: true,
-            importWorkboxFrom: 'local'
+            importWorkboxFrom: 'local',
+            runtimeCaching: [{
+                urlPattern: /\.(?:png|svg|ico)$/,
+                handler: 'CacheFirst',
+            }],
         }
     }
 }
