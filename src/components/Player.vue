@@ -1,7 +1,7 @@
 <template>
     <div class="uk-container-expand">
-        <div data-shaka-player-container>
-            <video data-shaka-player autoplay style="width: 100%; height: 100%"></video>
+        <div data-shaka-player-container ref="container">
+            <video data-shaka-player autoplay style="width: 100%; height: 100%" ref="videoEl"></video>
         </div>
     </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     },
     methods: {
         loadVideo() {
-            const videoEl = document.querySelector("video");
+            const videoEl = this.$refs.videoEl;
 
             videoEl.setAttribute("poster", this.video.thumbnailUrl);
 
@@ -95,13 +95,7 @@ export default {
                 });
                 if (localStorage) videoEl.volume = localStorage.getItem("volume") || 1;
 
-                const ui =
-                    this.ui ||
-                    (this.ui = new shaka.ui.Overlay(
-                        player,
-                        document.querySelector("div[data-shaka-player-container]"),
-                        videoEl,
-                    ));
+                const ui = this.ui || (this.ui = new shaka.ui.Overlay(player, this.$refs.container, videoEl));
 
                 const config = {
                     overflowMenuButtons: ["quality", "captions", "playback_rate"],
@@ -115,8 +109,47 @@ export default {
                 ui.configure(config);
             });
         },
+        onKeyPress(e) {
+            if (document.activeElement.tagName === "INPUT" && document.activeElement.type === "text") return;
+            const videoEl = this.$refs.videoEl;
+            switch (e.code) {
+                case "KeyF":
+                    if (document.fullscreenElement) document.exitFullscreen();
+                    else this.$refs.container.requestFullscreen();
+                    break;
+                case "KeyM":
+                    videoEl.muted = !videoEl.muted;
+                    e.preventDefault();
+                    break;
+                case "Space":
+                    if (videoEl.paused) videoEl.play();
+                    else videoEl.pause();
+                    e.preventDefault();
+                    break;
+                case "ArrowUp":
+                    videoEl.volume = Math.min(videoEl.volume + 0.05, 1);
+                    e.preventDefault();
+                    break;
+                case "ArrowDown":
+                    videoEl.volume = Math.max(videoEl.volume - 0.05, 0);
+                    e.preventDefault();
+                    break;
+                case "ArrowLeft":
+                    videoEl.currentTime = Math.max(videoEl.currentTime - 5, 0);
+                    e.preventDefault();
+                    break;
+                case "ArrowRight":
+                    videoEl.currentTime = videoEl.currentTime + 5;
+                    e.preventDefault();
+                    break;
+            }
+        },
+    },
+    mounted() {
+        document.addEventListener("keydown", this.onKeyPress);
     },
     beforeUnmount() {
+        document.removeEventListener("keydown", this.onKeyPress);
         if (this.player) {
             this.player.destroy();
             this.player = undefined;
