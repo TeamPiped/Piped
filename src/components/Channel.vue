@@ -13,7 +13,7 @@
                 v-for="item in this.channel.relatedStreams"
             >
                 <router-link class="uk-link-muted uk-text-justify" v-bind:to="item.url || '/'">
-                    <img style="width: 100%" v-bind:src="item.thumbnail" loading="lazy" />
+                    <img height="94" width="168" style="width: 100%" v-bind:src="item.thumbnail" loading="lazy" />
                     <a>{{ item.title }}</a>
                 </router-link>
                 <br />
