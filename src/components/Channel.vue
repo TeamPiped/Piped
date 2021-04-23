@@ -1,6 +1,6 @@
 <template>
     <div v-if="channel">
-        <h1 class="uk-text-center"><img v-bind:src="channel.avatarUrl" />{{ channel.name }}</h1>
+        <h1 class="uk-text-center"><img height="48" width="48" v-bind:src="channel.avatarUrl" />{{ channel.name }}</h1>
         <img v-if="channel.bannerUrl" v-bind:src="channel.bannerUrl" style="width: 100%" loading="lazy" />
         <p v-html="this.channel.description.replaceAll('\n', '<br>')"></p>
 
