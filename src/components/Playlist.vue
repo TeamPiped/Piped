@@ -1,7 +1,7 @@
 <template>
     <div v-if="playlist">
         <h1 class="uk-text-center">
-            <img v-bind:src="playlist.avatarUrl" loading="lazy" />
+            <img v-bind:src="playlist.avatarUrl" height="48" width="48" loading="lazy" />
             {{ playlist.name }}
         </h1>
 
@@ -23,7 +23,7 @@
                 v-for="item in this.playlist.relatedStreams"
             >
                 <router-link class="uk-link-muted uk-text-justify" v-bind:to="item.url || '/'">
-                    <img style="width: 100%" v-bind:src="item.thumbnail" loading="lazy" />
+                    <img style="width: 100%" height="94" width="168" v-bind:src="item.thumbnail" loading="lazy" />
                     <a>{{ item.title }}</a>
                 </router-link>
                 <br />
