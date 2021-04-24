@@ -5,8 +5,8 @@ import { faGithub, faBitcoin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(faThumbsUp, faThumbsDown, faEye, faGithub, faBitcoin);
 
-import("uikit/src/less/uikit.less");
-import("uikit/dist/js/uikit.min.js");
+import("uikit/dist/css/uikit-core.css");
+import("uikit/dist/js/uikit-core.min");
 
 import router from "@/router/router";
 import App from "./App.vue";
