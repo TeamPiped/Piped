@@ -16,7 +16,7 @@
         "css-loader": "^5.2.4",
         "register-service-worker": "^1.7.1",
         "shaka-player": "3.1.0",
-        "uikit": "3.6.20",
+        "uikit": "3.6.21",
         "vue": "^3.0.11",
         "vue-router": "^4.0.6",
         "xml-js": "^1.6.11"
