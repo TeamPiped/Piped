@@ -8349,10 +8349,10 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
-uikit@3.6.20:
-  version "3.6.20"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.6.20.tgz#140a2523cc1f438a092a78ae4e0a330a935c3a7b"
-  integrity sha512-hq0vjW35JoedfVSjaJx8ZEXrE1hgDF8t1TEBUT6P7V3vepZ5U99rPu3HXl2bzR8c0XC0bdJ9Gcl9i03SsaeFyw==
+uikit@3.6.21:
+  version "3.6.21"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.6.21.tgz#2fcd13181ace58baeb1412ab18ff09225dceaa27"
+  integrity sha512-UeL1rRadB+T7PIvkAIVU4vSTiU0uu+F64ltTD2+1EAyhA99IEX2BJdHEvqMKE/NcaNNYkz1uw4rDxIYERyS/DA==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
