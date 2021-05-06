@@ -16,14 +16,19 @@
                     <p>{{ result.name }}</p>
                 </router-link>
                 <router-link class="uk-link-muted" v-bind:to="result.uploaderUrl || '/'">
-                    <p>{{ result.uploaderName }}</p>
+                    <p>{{ result.uploader }}</p>
                 </router-link>
-                {{ result.duration ? timeFormat(result.duration) : "" }}
-                <br />
+                <b class="uk-text-small uk-align-right uk-text-align-right">
+                    {{ result.duration ? timeFormat(result.duration) : "" }}
+                </b>
+
                 <b>
                     {{ result.uploadDate }}
                 </b>
-                <b v-if="result.views" class="uk-text-small uk-align-right">
+
+                <br />
+
+                <b v-if="result.views" class="uk-text-small">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     {{ result.views }} views
                 </b>
