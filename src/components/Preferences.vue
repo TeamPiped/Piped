@@ -30,6 +30,10 @@
     <b>Skip Music: Non-Music Section</b>
     <br />
     <input class="uk-checkbox" v-model="skipMusicOffTopic" @change="onChange($event)" type="checkbox" />
+    <br />
+    <b>Autoplay Video</b>
+    <br />
+    <input class="uk-checkbox" v-model="autoPlayVideo" @change="onChange($event)" type="checkbox" />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -75,6 +79,7 @@ export default {
             skipInteraction: true,
             skipSelfPromo: true,
             skipMusicOffTopic: true,
+            autoPlayVideo: true,
         };
     },
     mounted() {
@@ -133,6 +138,9 @@ export default {
                     }
                 });
             }
+
+            this.autoPlayVideo =
+                localStorage.getItem("playerAutoPlay") === null || localStorage.getItem("playerAutoPlay") === "true";
         }
     },
     methods: {
@@ -149,6 +157,8 @@ export default {
                 if (this.skipSelfPromo) sponsorSelected.push("selfpromo");
                 if (this.skipMusicOffTopic) sponsorSelected.push("music_offtopic");
                 localStorage.setItem("selectedSkip", sponsorSelected);
+
+                localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
             }
         },
         sslScore(url) {
