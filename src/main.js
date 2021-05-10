@@ -11,12 +11,12 @@ import("uikit/dist/js/uikit-core.min");
 import router from "@/router/router";
 import App from "./App.vue";
 
-import "./registerServiceWorker";
+import("./registerServiceWorker");
 
 const mixin = {
     methods: {
-        timeFormat: function(duration) {
-            var pad = function(num, size) {
+        timeFormat: function (duration) {
+            var pad = function (num, size) {
                 return ("000" + num).slice(size * -1);
             };
 
@@ -33,7 +33,7 @@ const mixin = {
 
             return str;
         },
-        fetchJson: function(url, options) {
+        fetchJson: function (url, options) {
             return fetch(url, options).then(response => {
                 return response.json();
             });

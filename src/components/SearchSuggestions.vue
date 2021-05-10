@@ -20,12 +20,12 @@ import Constants from "@/Constants.js";
 
 export default {
     props: {
-        searchText: String
+        searchText: String,
     },
     data() {
         return {
             selected: 0,
-            searchSuggestions: []
+            searchSuggestions: [],
         };
     },
     methods: {
@@ -50,7 +50,7 @@ export default {
         },
         async refreshSuggestions() {
             this.searchSuggestions = await this.fetchJson(
-                Constants.BASE_URL + "/suggestions?query=" + encodeURI(this.searchText)
+                Constants.BASE_URL + "/suggestions?query=" + encodeURI(this.searchText),
             );
             this.searchSuggestions.unshift(this.searchText);
             this.setSelected(0);
@@ -64,14 +64,14 @@ export default {
             this.setSelected(i);
             this.$router.push({
                 name: "SearchResults",
-                query: { search_query: this.searchSuggestions[i] }
+                query: { search_query: this.searchSuggestions[i] },
             });
         },
         setSelected(val) {
             this.selected = val;
             this.$emit("searchchange", this.searchSuggestions[this.selected]);
-        }
-    }
+        },
+    },
 };
 </script>
 

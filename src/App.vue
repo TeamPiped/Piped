@@ -1,13 +1,10 @@
 <template>
-    <div
-        class="uk-container uk-container-expand uk-light uk-height-viewport"
-        style="background: #0b0e0f"
-    >
+    <div class="uk-container uk-container-expand uk-light uk-height-viewport" style="background: #0b0e0f">
         <Navigation />
         <router-view />
 
         <div style="text-align: center">
-            <a href="https://github.com/TeamPiped/Piped">
+            <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
                 <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             </a>
             &nbsp;
@@ -23,8 +20,8 @@
 import Navigation from "@/components/Navigation";
 export default {
     components: {
-        Navigation
-    }
+        Navigation,
+    },
 };
 </script>
 

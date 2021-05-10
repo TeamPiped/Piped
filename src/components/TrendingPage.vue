@@ -12,7 +12,14 @@
         >
             <div class="uk-text-secondary" style="background: #0b0e0f">
                 <router-link class="uk-text-emphasis" v-bind:to="video.url || '/'">
-                    <img height="118" width="210" style="width: 100%" v-bind:src="video.thumbnail" loading="lazy" />
+                    <img
+                        height="118"
+                        width="210"
+                        style="width: 100%"
+                        v-bind:src="video.thumbnail"
+                        alt="thumbnail"
+                        loading="lazy"
+                    />
                     <p>{{ video.title }}</p>
                 </router-link>
                 <router-link class="uk-link-muted" v-bind:to="video.uploaderUrl || '/'">
