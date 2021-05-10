@@ -18,8 +18,8 @@
                 <router-link class="uk-link-muted" v-bind:to="result.uploaderUrl || '/'">
                     <p>{{ result.uploader }}</p>
                 </router-link>
-                <b class="uk-text-small uk-align-right uk-text-align-right">
-                    {{ result.duration ? timeFormat(result.duration) : "" }}
+                <b v-if="result.duration" class="uk-text-small uk-align-right uk-text-align-right">
+                    {{ timeFormat(result.duration) }}
                 </b>
 
                 <b>
