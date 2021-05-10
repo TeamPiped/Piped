@@ -1,12 +1,12 @@
-<template
-    ><nav
+<template>
+    <nav
         class="uk-navbar-container uk-container-expand uk-position-relative uk-light"
         style="background: #0b0e0f"
         uk-navbar
     >
         <div class="uk-navbar-left">
             <router-link class="uk-navbar-item uk-logo uk-text-bold" to="/"
-                ><img src="/img/icons/logo.svg" height="32" width="32" />iped</router-link
+                ><img alt="logo" src="/img/icons/logo.svg" height="32" width="32" />iped</router-link
             >
         </div>
         <div class="uk-navbar-center uk-flex uk-visible@m">
@@ -58,12 +58,12 @@ import SearchSuggestions from "@/components/SearchSuggestions";
 
 export default {
     components: {
-        SearchSuggestions
+        SearchSuggestions,
     },
     data() {
         return {
             searchText: "",
-            suggestionsVisible: false
+            suggestionsVisible: false,
         };
     },
     methods: {
@@ -71,7 +71,7 @@ export default {
             if (e.key === "Enter") {
                 this.$router.push({
                     name: "SearchResults",
-                    query: { search_query: this.searchText }
+                    query: { search_query: this.searchText },
                 });
                 return;
             } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
@@ -87,8 +87,8 @@ export default {
         },
         onSearchTextChange(searchText) {
             this.searchText = searchText;
-        }
-    }
+        },
+    },
 };
 </script>
 
