@@ -12,7 +12,7 @@
         "@fortawesome/free-brands-svg-icons": "^5.15.3",
         "@fortawesome/free-solid-svg-icons": "^5.15.3",
         "@fortawesome/vue-fontawesome": "^3.0.0-2",
-        "core-js": "^3.12.0",
+        "core-js": "^3.12.1",
         "css-loader": "^5.2.4",
         "register-service-worker": "^1.7.1",
         "shaka-player": "3.1.0",
