@@ -33,23 +33,52 @@
         <b>Auto Play next Video:</b>&nbsp;
         <input class="uk-checkbox" v-model="selectedAutoPlay" @change="onChange($event)" type="checkbox" />
 
-        <div
-            class="uk-tile-default uk-text-secondary"
-            style="background: #0b0e0f; width: 300px"
-            v-bind:key="related.url"
-            v-for="related in video.relatedStreams"
-        >
-            <router-link class="uk-link-muted" v-bind:to="related.url">
-                <p class="uk-text-emphasis">{{ related.title }}</p>
-                <img style="width: 100%" v-bind:src="related.thumbnail" loading="lazy" />
-            </router-link>
-            <p>
-                <router-link class="uk-link-muted" v-bind:to="related.uploaderUrl || '/'">
-                    <p>{{ related.uploaderName }}</p>
+        <hr />
+
+        <div class="uk-grid-match uk-grid-small" uk-grid>
+            <div v-if="comments">
+                <div
+                    class="uk-tile-default uk-align-left uk-width-3-4"
+                    style="background: #0b0e0f"
+                    v-bind:key="comment.commentId"
+                    v-for="comment in comments.comments"
+                >
+                    <div align="left">
+                        <img
+                            :src="comment.thumbnail"
+                            style="width: calc(100% * 1 / 20)"
+                            height="176"
+                            width="176"
+                            loading="lazy"
+                            alt="avatar"
+                        />
+                        <router-link class="uk-link-muted" v-bind:to="comment.commentorUrl">
+                            <p>{{ comment.author }}</p>
+                        </router-link>
+                    </div>
+                    <p>{{ comment.commentText }}</p>
+                    <hr />
+                </div>
+            </div>
+
+            <div
+                class="uk-text-secondary uk-width-auto"
+                style="background: #0b0e0f; width: 300px"
+                v-bind:key="related.url"
+                v-for="related in video.relatedStreams"
+            >
+                <router-link class="uk-link-muted" v-bind:to="related.url">
+                    <p class="uk-text-emphasis">{{ related.title }}</p>
+                    <img style="width: 100%" v-bind:src="related.thumbnail" loading="lazy" />
                 </router-link>
-                <font-awesome-icon icon="eye"></font-awesome-icon>
-                {{ related.views }} views
-            </p>
+                <p>
+                    <router-link class="uk-link-muted" v-bind:to="related.uploaderUrl || '/'">
+                        <p>{{ related.uploaderName }}</p>
+                    </router-link>
+                    <font-awesome-icon icon="eye"></font-awesome-icon>
+                    {{ related.views }} views
+                </p>
+            </div>
         </div>
     </div>
 </template>
@@ -68,18 +97,21 @@ export default {
             sponsors: null,
             selectedAutoPlay: null,
             showDesc: true,
+            comments: null,
         };
     },
     mounted() {
         this.selectedAutoPlay = Constants.AUTO_PLAY;
         this.getVideoData();
         this.getSponsors();
+        this.getComments();
     },
     watch: {
         "$route.query.v": function(v) {
             if (v) {
                 this.getVideoData();
                 this.getSponsors();
+                this.getComments();
             }
         },
     },
@@ -97,6 +129,9 @@ export default {
                         ? encodeURIComponent('["' + localStorage.getItem("selectedSkip").replace(",", '","') + '"]')
                         : encodeURIComponent('["sponsor", "interaction", "selfpromo", "music_offtopic"]')),
             );
+        },
+        fetchComments() {
+            return this.fetchJson(Constants.BASE_URL + "/comments/" + this.$route.query.v);
         },
         onChange() {
             if (localStorage) localStorage.setItem("autoplay", this.selectedAutoPlay);
@@ -120,6 +155,9 @@ export default {
         async getSponsors() {
             if (!localStorage || localStorage.getItem("sponsorblock") !== false)
                 this.fetchSponsors().then(data => (this.sponsors = data));
+        },
+        async getComments() {
+            this.fetchComments().then(data => (this.comments = data));
         },
     },
     components: {
