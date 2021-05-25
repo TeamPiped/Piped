@@ -67,6 +67,14 @@ yarn serve
 
 You can now make changes and see them as soon you save the file!
 
+## Contact
+
+If you would like to contact me personally, you may do so with the following means:
+
+-   Matrix: @kavin1337:matrix.org
+-   Mastodon: https://mastodon.online/@kavin
+-   Email: kavin@kavin.rocks
+
 ## YourKit
 
 <img src="http://www.yourkit.com/images/yklogo.png"></img>
