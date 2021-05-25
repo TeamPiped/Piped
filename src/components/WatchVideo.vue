@@ -35,10 +35,10 @@
 
         <hr />
 
-        <div class="uk-grid-match uk-grid-small" uk-grid>
-            <div v-if="comments">
+        <div uk-grid>
+            <div class="uk-width-4-5" v-if="comments">
                 <div
-                    class="uk-tile-default uk-align-left uk-width-3-4"
+                    class="uk-tile-default uk-align-left uk-width-expand"
                     style="background: #0b0e0f"
                     v-bind:key="comment.commentId"
                     v-for="comment in comments.comments"
@@ -61,23 +61,25 @@
                 </div>
             </div>
 
-            <div
-                class="uk-text-secondary uk-width-auto"
-                style="background: #0b0e0f; width: 300px"
-                v-bind:key="related.url"
-                v-for="related in video.relatedStreams"
-            >
-                <router-link class="uk-link-muted" v-bind:to="related.url">
-                    <p class="uk-text-emphasis">{{ related.title }}</p>
-                    <img style="width: 100%" v-bind:src="related.thumbnail" loading="lazy" />
-                </router-link>
-                <p>
-                    <router-link class="uk-link-muted" v-bind:to="related.uploaderUrl || '/'">
-                        <p>{{ related.uploaderName }}</p>
+            <div class="uk-width-1-5" v-if="video">
+                <div
+                    class="uk-tile-default uk-width-auto"
+                    style="background: #0b0e0f"
+                    v-bind:key="related.url"
+                    v-for="related in video.relatedStreams"
+                >
+                    <router-link class="uk-link-muted" v-bind:to="related.url">
+                        <p class="uk-text-emphasis">{{ related.title }}</p>
+                        <img style="width: 100%" v-bind:src="related.thumbnail" loading="lazy" />
                     </router-link>
-                    <font-awesome-icon icon="eye"></font-awesome-icon>
-                    {{ related.views }} views
-                </p>
+                    <p>
+                        <router-link class="uk-link-muted" v-bind:to="related.uploaderUrl || '/'">
+                            <p>{{ related.uploaderName }}</p>
+                        </router-link>
+                        <font-awesome-icon icon="eye"></font-awesome-icon>
+                        {{ related.views }} views
+                    </p>
+                </div>
             </div>
         </div>
     </div>
