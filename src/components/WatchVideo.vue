@@ -36,7 +36,7 @@
         <hr />
 
         <div uk-grid>
-            <div class="uk-width-4-5@xl uk-width-3-4@l uk-width-2-3" v-if="comments">
+            <div class="uk-width-4-5@xl uk-width-3-4@l uk-width-2-3" v-if="comments" ref="comments">
                 <div
                     class="uk-tile-default uk-align-left uk-width-expand"
                     style="background: #0b0e0f"
@@ -167,7 +167,7 @@ export default {
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+            if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(
                     Constants.BASE_URL +
