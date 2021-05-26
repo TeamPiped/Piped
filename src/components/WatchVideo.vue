@@ -44,6 +44,10 @@
                     v-for="comment in comments.comments"
                 >
                     <div align="left">
+                        <div v-if="comment.pinned">
+                            <font-awesome-icon icon="thumbtack"></font-awesome-icon>&nbsp; Pinned by
+                            {{ video.uploader }}
+                        </div>
                         <img
                             :src="comment.thumbnail"
                             style="width: calc(100% * 1 / 20)"
@@ -52,11 +56,19 @@
                             loading="lazy"
                             alt="avatar"
                         />
+                        <br />
                         <router-link class="uk-link-muted" v-bind:to="comment.commentorUrl">
-                            <p>{{ comment.author }}</p>
-                        </router-link>
+                            {{ comment.author }} </router-link
+                        >&thinsp;<font-awesome-icon v-if="comment.verified" icon="check"></font-awesome-icon>
                     </div>
                     <p>{{ comment.commentText }}</p>
+                    <div>
+                        <b>{{ comment.likeCount }}</b>
+                        &nbsp;
+                        <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
+                        &nbsp;
+                        <font-awesome-icon v-if="comment.hearted" icon="heart"></font-awesome-icon>
+                    </div>
                     <hr />
                 </div>
             </div>
