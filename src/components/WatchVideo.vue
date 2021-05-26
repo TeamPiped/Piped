@@ -36,7 +36,7 @@
         <hr />
 
         <div uk-grid>
-            <div class="uk-width-4-5" v-if="comments">
+            <div class="uk-width-4-5@xl uk-width-3-4@l uk-width-2-3" v-if="comments">
                 <div
                     class="uk-tile-default uk-align-left uk-width-expand"
                     style="background: #0b0e0f"
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="uk-width-1-5" v-if="video">
+            <div class="uk-width-1-5@xl uk-width-1-4@l uk-width-1-3" v-if="video">
                 <div
                     class="uk-tile-default uk-width-auto"
                     style="background: #0b0e0f"
@@ -107,6 +107,10 @@ export default {
         this.getVideoData();
         this.getSponsors();
         this.getComments();
+        window.addEventListener("scroll", this.handleScroll);
+    },
+    unmounted() {
+        window.removeEventListener("scroll", this.handleScroll);
     },
     watch: {
         "$route.query.v": function(v) {
@@ -160,6 +164,23 @@ export default {
         },
         async getComments() {
             this.fetchComments().then(data => (this.comments = data));
+        },
+        handleScroll() {
+            if (this.loading || !this.comments || !this.comments.nextpage) return;
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+                this.loading = true;
+                this.fetchJson(
+                    Constants.BASE_URL +
+                        "/nextpage/comments/" +
+                        this.$route.query.v +
+                        "?url=" +
+                        encodeURIComponent(this.comments.nextpage),
+                ).then(json => {
+                    this.comments.nextpage = json.nextpage;
+                    this.loading = false;
+                    json.comments.map(comment => this.comments.comments.push(comment));
+                });
+            }
         },
     },
     components: {
