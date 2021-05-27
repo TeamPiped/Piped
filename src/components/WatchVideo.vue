@@ -50,7 +50,7 @@
                         </div>
                         <img
                             :src="comment.thumbnail"
-                            style="width: calc(100% * 1 / 20)"
+                            style="width: 10vmin"
                             height="176"
                             width="176"
                             loading="lazy"
