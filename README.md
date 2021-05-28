@@ -77,11 +77,11 @@ If you would like to contact me personally, you may do so with the following mea
 
 ## YourKit
 
-<img src="http://www.yourkit.com/images/yklogo.png"></img>
+<img src="https://www.yourkit.com/images/yklogo.png"></img>
 
 YourKit has given an open source license for their profiler, greatly simplifying the profiling of Piped's performance.
 
 YourKit supports open source projects with its full-featured Java Profiler.
-YourKit, LLC is the creator of <a href="http://www.yourkit.com/java/profiler/index.jsp">YourKit Java Profiler</a>
-and <a href="http://www.yourkit.com/.net/profiler/index.jsp">YourKit .NET Profiler</a>,
+YourKit, LLC is the creator of <a href="https://www.yourkit.com/java/profiler/">YourKit Java Profiler</a>
+and <a href="https://www.yourkit.com/.net/profiler/">YourKit .NET Profiler</a>,
 innovative and intelligent tools for profiling Java and .NET applications.
