@@ -11,20 +11,34 @@
             v-for="result in results.items"
         >
             <div class="uk-text-secondary" style="background: #0b0e0f">
-                <router-link class="uk-text-emphasis" v-bind:to="result.url || '/'">
+                <router-link class="uk-text-emphasis" v-bind:to="result.url">
                     <img style="width: 100%" v-bind:src="result.thumbnail" loading="lazy" />
-                    <p>{{ result.name }}</p>
+                    <p>
+                        {{ result.name }}&thinsp;<font-awesome-icon
+                            v-if="result.verified"
+                            icon="check"
+                        ></font-awesome-icon>
+                    </p>
                 </router-link>
-                <router-link class="uk-link-muted" v-bind:to="result.uploaderUrl || '/'">
-                    <p>{{ result.uploader }}</p>
+                <p v-if="result.description">{{ result.description }}</p>
+                <router-link class="uk-link-muted" v-if="result.uploaderUrl" v-bind:to="result.uploaderUrl">
+                    <p>
+                        {{ result.uploader }}&thinsp;<font-awesome-icon
+                            v-if="result.uploaderVerified"
+                            icon="check"
+                        ></font-awesome-icon>
+                    </p>
                 </router-link>
                 <b v-if="result.duration" class="uk-text-small uk-align-right uk-text-align-right">
                     {{ timeFormat(result.duration) }}
                 </b>
 
-                <b>
+                <b v-if="result.uploadDate">
                     {{ result.uploadDate }}
                 </b>
+
+                <a v-if="result.uploaderName" class="uk-text-muted">{{ result.uploaderName }}</a>
+                <b v-if="result.videos"><br v-if="result.uploaderName" />{{ result.videos }} Videos</b>
 
                 <br />
 
