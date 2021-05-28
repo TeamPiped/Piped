@@ -51,7 +51,14 @@ export default {
     },
     methods: {
         async fetchChannel() {
-            return await this.fetchJson(Constants.BASE_URL + "/channels/" + this.$route.params.channelId);
+            const url =
+                Constants.BASE_URL +
+                (this.$route.params.channelId
+                    ? "/channels/" + this.$route.params.channelId
+                    : this.$route.params.channelC
+                    ? "/c/" + this.$route.params.channelC
+                    : "/user/" + this.$route.params.channelUser);
+            return await this.fetchJson(url);
         },
         async getChannelData() {
             this.fetchChannel()
@@ -65,7 +72,7 @@ export default {
                 this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/channels/" +
-                        this.$route.params.channelId +
+                        this.channel.id +
                         "?url=" +
                         encodeURIComponent(this.channel.nextpage) +
                         "&id=" +

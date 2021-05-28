@@ -13,7 +13,17 @@ const routes = [
     },
     {
         path: "/channel/:channelId",
-        name: "Channel",
+        name: "ChannelId",
+        component: () => import("../components/Channel.vue"),
+    },
+    {
+        path: "/c/:channelC",
+        name: "ChannelC",
+        component: () => import("../components/Channel.vue"),
+    },
+    {
+        path: "/user/:channelUser",
+        name: "ChannelUser",
         component: () => import("../components/Channel.vue"),
     },
     {
