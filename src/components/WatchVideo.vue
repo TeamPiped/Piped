@@ -63,7 +63,7 @@
                     </div>
                     <p>{{ comment.commentText }}</p>
                     <div>
-                        <b>{{ comment.likeCount }}</b>
+                        <b>{{ numberFormat(comment.likeCount) }}</b>
                         &nbsp;
                         <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
                         &nbsp;
