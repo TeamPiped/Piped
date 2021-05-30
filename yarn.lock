@@ -4511,6 +4511,11 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
   integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
+hotkeys-js@^3.8.5:
+  version "3.8.5"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.8.5.tgz#a66030c48b75ceb2f3fc48fd39e7a0b3473a4b19"
+  integrity sha512-beJJ2Y4J6XkSlXlLPOG29BRKxZx3bV0gVi3eUpYdjrecN1i25iqndM/+X1eIDPSeG0XdqSv7Ksek43j5tQrmPQ==
+
 hpack.js@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/hpack.js/-/hpack.js-2.1.6.tgz#87774c0949e513f42e84575b3c45681fade2a0b2"

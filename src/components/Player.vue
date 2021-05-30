@@ -115,53 +115,57 @@ export default {
                 ui.configure(config);
             });
         },
-        onKeyPress(e) {
-            if (document.activeElement.tagName === "INPUT" && document.activeElement.type === "text") return;
-            const videoEl = this.$refs.videoEl;
-            switch (e.code) {
-                case "KeyF":
-                    if (document.fullscreenElement) document.exitFullscreen();
-                    else this.$refs.container.requestFullscreen();
-                    e.preventDefault();
-                    break;
-                case "KeyM":
-                    videoEl.muted = !videoEl.muted;
-                    e.preventDefault();
-                    break;
-                case "Space":
-                    if (videoEl.paused) videoEl.play();
-                    else videoEl.pause();
-                    e.preventDefault();
-                    break;
-                case "ArrowUp":
-                    videoEl.volume = Math.min(videoEl.volume + 0.05, 1);
-                    e.preventDefault();
-                    break;
-                case "ArrowDown":
-                    videoEl.volume = Math.max(videoEl.volume - 0.05, 0);
-                    e.preventDefault();
-                    break;
-                case "ArrowLeft":
-                    videoEl.currentTime = Math.max(videoEl.currentTime - 5, 0);
-                    e.preventDefault();
-                    break;
-                case "ArrowRight":
-                    videoEl.currentTime = videoEl.currentTime + 5;
-                    e.preventDefault();
-                    break;
-            }
-        },
     },
     mounted() {
-        document.addEventListener("keydown", this.onKeyPress);
+        import("hotkeys-js")
+            .then(mod => mod.default)
+            .then(hotkeys => {
+                this.hotkeys = hotkeys;
+                var self = this;
+                hotkeys("f,m,space,up,down,left,right", function(e, handler) {
+                    const videoEl = self.$refs.videoEl;
+                    switch (handler.key) {
+                        case "f":
+                            if (document.fullscreenElement) document.exitFullscreen();
+                            else self.$refs.container.requestFullscreen();
+                            e.preventDefault();
+                            break;
+                        case "m":
+                            videoEl.muted = !videoEl.muted;
+                            e.preventDefault();
+                            break;
+                        case "space":
+                            if (videoEl.paused) videoEl.play();
+                            else videoEl.pause();
+                            e.preventDefault();
+                            break;
+                        case "up":
+                            videoEl.volume = Math.min(videoEl.volume + 0.05, 1);
+                            e.preventDefault();
+                            break;
+                        case "down":
+                            videoEl.volume = Math.max(videoEl.volume - 0.05, 0);
+                            e.preventDefault();
+                            break;
+                        case "left":
+                            videoEl.currentTime = Math.max(videoEl.currentTime - 5, 0);
+                            e.preventDefault();
+                            break;
+                        case "right":
+                            videoEl.currentTime = videoEl.currentTime + 5;
+                            e.preventDefault();
+                            break;
+                    }
+                });
+            });
     },
     beforeUnmount() {
-        document.removeEventListener("keydown", this.onKeyPress);
         if (this.player) {
             this.player.destroy();
             this.player = undefined;
             this.ui = undefined;
         }
+        if (this.hotkeys) this.hotkeys.unbind();
     },
 };
 </script>
