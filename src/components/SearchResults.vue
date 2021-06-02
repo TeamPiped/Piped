@@ -44,7 +44,7 @@
 
                 <b v-if="result.views" class="uk-text-small">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
-                    {{ result.views }} views
+                    {{ numberFormat(result.views) }} views
                 </b>
             </div>
         </div>

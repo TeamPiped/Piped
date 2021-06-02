@@ -27,7 +27,7 @@
                 </router-link>
                 <b class="uk-text-small uk-align-left">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
-                    {{ video.views }} views
+                    {{ numberFormat(video.views) }} views
                     <br />
                     {{ video.uploadedDate }}
                 </b>
