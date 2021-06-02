@@ -49,6 +49,10 @@ const mixin = {
             }
             return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
         },
+        addCommas(num) {
+            num = parseInt(num)
+            return num.toLocaleString('en-US')
+        },
         fetchJson: function (url, options) {
             return fetch(url, options).then(response => {
                 return response.json();
