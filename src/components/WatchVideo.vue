@@ -89,7 +89,7 @@
                             <p>{{ related.uploaderName }}</p>
                         </router-link>
                         <font-awesome-icon icon="eye"></font-awesome-icon>
-                        {{ related.views }} views
+                        {{ numberFormat(related.views) }} views
                     </p>
                 </div>
             </div>

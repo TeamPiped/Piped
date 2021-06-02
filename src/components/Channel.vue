@@ -20,7 +20,7 @@
                 <div>
                     <b class="uk-text-small uk-align-left">
                         <font-awesome-icon icon="eye"></font-awesome-icon>
-                        {{ item.views }} views
+                        {{ numberFormat(item.views) }} views
                         <br />
                         {{ item.uploadedDate }}
                     </b>
