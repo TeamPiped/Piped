@@ -10,14 +10,14 @@
 
         <p class="uk-dark">
             <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
-            <b>{{ video.likes }}</b>
+            <b>{{ addCommas(video.likes) }}</b>
             &nbsp;
             <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
-            <b>{{ video.dislikes }}</b>
+            <b>{{ addCommas(video.dislikes) }}</b>
         </p>
         <p>
             <font-awesome-icon icon="eye"></font-awesome-icon>
-            <b>{{ video.views }}</b> views
+            <b>{{ addCommas(video.views) }}</b> views
         </p>
         <p>
             Uploaded on <b>{{ video.uploadDate }}</b>
