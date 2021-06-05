@@ -68,21 +68,18 @@ export default {
                 .then(() => (document.title = this.playlist.name + " - Piped"));
         },
         handleScroll() {
-            if (this.loading || !this.playlist || !this.playlist.nextpage || !this.playlist.nextbody) return;
+            if (this.loading || !this.playlist || !this.playlist.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/playlists/" +
                         this.$route.query.list +
-                        "?url=" +
-                        encodeURIComponent(this.playlist.nextpage) +
-                        "&id=" +
-                        encodeURIComponent(this.playlist.nextbody),
+                        "?nextpage=" +
+                        encodeURIComponent(this.playlist.nextpage),
                 ).then(json => {
                     this.playlist.relatedStreams.concat(json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
-                    this.playlist.nextbody = json.nextbody;
                     this.loading = false;
                     json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
                 });
