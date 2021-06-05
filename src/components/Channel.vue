@@ -66,21 +66,18 @@ export default {
                 .then(() => (document.title = this.channel.name + " - Piped"));
         },
         handleScroll() {
-            if (this.loading || !this.channel || !this.channel.nextpage || !this.channel.nextbody) return;
+            if (this.loading || !this.channel || !this.channel.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/channels/" +
                         this.channel.id +
-                        "?url=" +
-                        encodeURIComponent(this.channel.nextpage) +
-                        "&id=" +
-                        encodeURIComponent(this.channel.nextbody),
+                        "?nextpage=" +
+                        encodeURIComponent(this.channel.nextpage),
                 ).then(json => {
                     this.channel.relatedStreams.concat(json.relatedStreams);
                     this.channel.nextpage = json.nextpage;
-                    this.channel.nextbody = json.nextbody;
                     this.loading = false;
                     json.relatedStreams.map(stream => this.channel.relatedStreams.push(stream));
                 });
