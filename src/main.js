@@ -11,6 +11,8 @@ import("uikit/dist/js/uikit-core.min");
 import router from "@/router/router";
 import App from "./App.vue";
 
+import DOMPurify from 'dompurify';
+
 import("./registerServiceWorker");
 
 const mixin = {
@@ -58,6 +60,9 @@ const mixin = {
                 return response.json();
             });
         },
+        purifyHTML(original) {
+            return DOMPurify.sanitize(original);
+        }
     },
 };
 

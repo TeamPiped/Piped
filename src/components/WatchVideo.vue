@@ -1,6 +1,6 @@
 <template>
     <div class="uk-container uk-container-xlarge">
-        <ErrorHandler v-if="video.error" :message="video.message" :error="video.error" />
+        <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
             <Player ref="videoPlayer" :video="video" :sponsors="sponsors" :selectedAutoPlay="selectedAutoPlay" />
@@ -169,10 +169,12 @@ export default {
                     if (!this.video.error) {
                         document.title = this.video.title + " - Piped";
 
-                        this.video.description = this.video.description
-                            .replaceAll("http://www.youtube.com", "")
-                            .replaceAll("https://www.youtube.com", "")
-                            .replaceAll("\n", "<br>");
+                        this.video.description = this.purifyHTML(
+                            this.video.description
+                                .replaceAll("http://www.youtube.com", "")
+                                .replaceAll("https://www.youtube.com", "")
+                                .replaceAll("\n", "<br>"),
+                        );
 
                         this.$refs.videoPlayer.loadVideo();
                     }
