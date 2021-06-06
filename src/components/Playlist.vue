@@ -1,5 +1,7 @@
 <template>
-    <div v-if="playlist">
+    <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
+
+    <div v-if="playlist" v-show="!playlist.error">
         <h1 class="uk-text-center">
             <img v-bind:src="playlist.avatarUrl" height="48" width="48" loading="lazy" />
             {{ playlist.name }}
@@ -44,6 +46,7 @@
 
 <script>
 import Constants from "@/Constants.js";
+import ErrorHandler from "@/components/ErrorHandler.vue";
 
 export default {
     data() {
@@ -85,6 +88,9 @@ export default {
                 });
             }
         },
+    },
+    components: {
+        ErrorHandler,
     },
 };
 </script>
