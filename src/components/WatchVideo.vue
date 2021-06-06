@@ -1,31 +1,36 @@
 <template>
     <div class="uk-container uk-container-xlarge">
-        <Player ref="videoPlayer" :video="video" :sponsors="sponsors" :selectedAutoPlay="selectedAutoPlay" />
-        <h1 class="uk-text-bold">{{ video.title }}</h1>
+        <ErrorHandler v-if="video.error" :message="video.message" :error="video.error" />
 
-        <img :src="video.uploaderAvatar" loading="lazy" />
-        <router-link class="uk-text-bold" v-bind:to="video.uploaderUrl || '/'">
-            <a>{{ video.uploader }}</a>
-        </router-link>
+        <div v-show="!video.error">
+            <Player ref="videoPlayer" :video="video" :sponsors="sponsors" :selectedAutoPlay="selectedAutoPlay" />
+            <h1 class="uk-text-bold">{{ video.title }}</h1>
 
-        <p class="uk-dark">
-            <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
-            <b>{{ addCommas(video.likes) }}</b>
-            &nbsp;
-            <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
-            <b>{{ addCommas(video.dislikes) }}</b>
-        </p>
-        <p>
-            <font-awesome-icon icon="eye"></font-awesome-icon>
-            <b>{{ addCommas(video.views) }}</b> views
-        </p>
-        <p>
-            Uploaded on <b>{{ video.uploadDate }}</b>
-        </p>
-        <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
-            {{ showDesc ? "+" : "-" }}
-        </a>
-        <p v-show="showDesc" class="uk-light" v-html="video.description"></p>
+            <img :src="video.uploaderAvatar" loading="lazy" />
+            <router-link class="uk-text-bold" v-bind:to="video.uploaderUrl || '/'">
+                <a>{{ video.uploader }}</a>
+            </router-link>
+
+            <p class="uk-dark">
+                <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
+                <b>{{ addCommas(video.likes) }}</b>
+                &nbsp;
+                <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
+                <b>{{ addCommas(video.dislikes) }}</b>
+            </p>
+            <p>
+                <font-awesome-icon icon="eye"></font-awesome-icon>
+                <b>{{ addCommas(video.views) }}</b> views
+            </p>
+            <p>
+                Uploaded on <b>{{ video.uploadDate }}</b>
+            </p>
+            <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
+                {{ showDesc ? "+" : "-" }}
+            </a>
+            <p v-show="showDesc" class="uk-light" v-html="video.description"></p>
+        </div>
+
         <a v-if="sponsors && sponsors.segments">Sponsors Segments: {{ sponsors.segments.length }}</a>
 
         <hr />
@@ -100,6 +105,7 @@
 <script>
 import Constants from "@/Constants.js";
 import Player from "@/components/Player.vue";
+import ErrorHandler from "@/components/ErrorHandler.vue";
 
 export default {
     name: "App",
@@ -160,14 +166,16 @@ export default {
                     this.video = data;
                 })
                 .then(() => {
-                    document.title = this.video.title + " - Piped";
+                    if (!this.video.error) {
+                        document.title = this.video.title + " - Piped";
 
-                    this.video.description = this.video.description
-                        .replaceAll("http://www.youtube.com", "")
-                        .replaceAll("https://www.youtube.com", "")
-                        .replaceAll("\n", "<br>");
+                        this.video.description = this.video.description
+                            .replaceAll("http://www.youtube.com", "")
+                            .replaceAll("https://www.youtube.com", "")
+                            .replaceAll("\n", "<br>");
 
-                    this.$refs.videoPlayer.loadVideo();
+                        this.$refs.videoPlayer.loadVideo();
+                    }
                 });
         },
         async getSponsors() {
@@ -197,6 +205,7 @@ export default {
     },
     components: {
         Player,
+        ErrorHandler,
     },
 };
 </script>
