@@ -141,13 +141,13 @@ export default {
     },
     methods: {
         fetchVideo() {
-            return this.fetchJson(Constants.BASE_URL + "/streams/" + this.$route.query.v);
+            return this.fetchJson(Constants.BASE_URL + "/streams/" + this.getVideoId());
         },
         async fetchSponsors() {
             return await this.fetchJson(
                 Constants.BASE_URL +
                     "/sponsors/" +
-                    this.$route.query.v +
+                    this.getVideoId() +
                     "?category=" +
                     (localStorage && localStorage.getItem("selectedSkip") !== null
                         ? encodeURIComponent('["' + localStorage.getItem("selectedSkip").replace(",", '","') + '"]')
@@ -155,7 +155,7 @@ export default {
             );
         },
         fetchComments() {
-            return this.fetchJson(Constants.BASE_URL + "/comments/" + this.$route.query.v);
+            return this.fetchJson(Constants.BASE_URL + "/comments/" + this.getVideoId());
         },
         onChange() {
             if (localStorage) localStorage.setItem("autoplay", this.selectedAutoPlay);
@@ -194,7 +194,7 @@ export default {
                 this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/comments/" +
-                        this.$route.query.v +
+                        this.getVideoId() +
                         "?url=" +
                         encodeURIComponent(this.comments.nextpage),
                 ).then(json => {
@@ -203,6 +203,9 @@ export default {
                     json.comments.map(comment => this.comments.comments.push(comment));
                 });
             }
+        },
+        getVideoId() {
+            return this.$route.query.v || this.$route.params.v;
         },
     },
     components: {
