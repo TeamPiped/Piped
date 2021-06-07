@@ -3,7 +3,26 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
     {
         path: "/watch",
-        name: "Watch",
+        component: () => import("../components/WatchVideo.vue"),
+    },
+    {
+        path: "/watch/:v",
+        component: () => import("../components/WatchVideo.vue"),
+    },
+    {
+        path: "/embed/:v",
+        component: () => import("../components/WatchVideo.vue"),
+    },
+    {
+        path: "/w/:v",
+        component: () => import("../components/WatchVideo.vue"),
+    },
+    {
+        path: "/v/:v",
+        component: () => import("../components/WatchVideo.vue"),
+    },
+    {
+        path: "/shorts/:v",
         component: () => import("../components/WatchVideo.vue"),
     },
     {
