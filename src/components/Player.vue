@@ -49,11 +49,9 @@ export default {
                         this.shaka = shaka;
                         shaka.polyfill.installAll();
 
-                        const player = new shaka.Player(videoEl);
+                        const localPlayer = new shaka.Player(videoEl);
 
-                        this.player = player;
-
-                        this.setPlayerAttrs(player, videoEl, dash, shaka);
+                        this.setPlayerAttrs(localPlayer, videoEl, dash, shaka);
                     });
             else this.setPlayerAttrs(this.player, videoEl, dash, this.shaka);
 
@@ -87,7 +85,26 @@ export default {
 
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
-        setPlayerAttrs(player, videoEl, dash, shaka) {
+        setPlayerAttrs(localPlayer, videoEl, dash, shaka) {
+            if (!this.ui) {
+                this.ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
+
+                const config = {
+                    overflowMenuButtons: ["quality", "captions", "playback_rate"],
+                    seekBarColors: {
+                        base: "rgba(255, 255, 255, 0.3)",
+                        buffered: "rgba(255, 255, 255, 0.54)",
+                        played: "rgb(255, 0, 0)",
+                    },
+                };
+
+                this.ui.configure(config);
+            }
+
+            const player = this.ui.getControls().getPlayer();
+
+            this.player = player;
+
             player.load("data:application/dash+xml;charset=utf-8;base64," + btoa(dash)).then(() => {
                 this.video.subtitles.map(subtitle => {
                     player.addTextTrackAsync(
@@ -100,19 +117,6 @@ export default {
                     );
                 });
                 if (localStorage) videoEl.volume = localStorage.getItem("volume") || 1;
-
-                const ui = this.ui || (this.ui = new shaka.ui.Overlay(player, this.$refs.container, videoEl));
-
-                const config = {
-                    overflowMenuButtons: ["quality", "captions", "playback_rate"],
-                    seekBarColors: {
-                        base: "rgba(255, 255, 255, 0.3)",
-                        buffered: "rgba(255, 255, 255, 0.54)",
-                        played: "rgb(255, 0, 0)",
-                    },
-                };
-
-                ui.configure(config);
             });
         },
     },
