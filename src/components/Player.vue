@@ -105,6 +105,8 @@ export default {
 
             this.player = player;
 
+            if (localStorage && localStorage.getItem("audioOnly")) this.player.configure("manifest.disableVideo", true);
+
             player.load("data:application/dash+xml;charset=utf-8;base64," + btoa(dash)).then(() => {
                 this.video.subtitles.map(subtitle => {
                     player.addTextTrackAsync(

@@ -34,6 +34,10 @@
     <b>Autoplay Video</b>
     <br />
     <input class="uk-checkbox" v-model="autoPlayVideo" @change="onChange($event)" type="checkbox" />
+    <br />
+    <b>Audio Only</b>
+    <br />
+    <input class="uk-checkbox" v-model="audioOnly" @change="onChange($event)" type="checkbox" />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -80,6 +84,7 @@ export default {
             skipSelfPromo: true,
             skipMusicOffTopic: true,
             autoPlayVideo: true,
+            audioOnly: false,
         };
     },
     mounted() {
@@ -141,6 +146,7 @@ export default {
 
             this.autoPlayVideo =
                 localStorage.getItem("playerAutoPlay") === null || localStorage.getItem("playerAutoPlay") === "true";
+            this.audioOnly = localStorage.getItem("audioOnly") === "true";
         }
     },
     methods: {
@@ -159,6 +165,7 @@ export default {
                 localStorage.setItem("selectedSkip", sponsorSelected);
 
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
+                localStorage.setItem("audioOnly", this.audioOnly);
             }
         },
         sslScore(url) {
