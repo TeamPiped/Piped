@@ -9,6 +9,8 @@
 <script>
 import("shaka-player/dist/controls.css");
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
+import muxjs from "mux.js";
+window.muxjs = muxjs;
 
 export default {
     props: {
@@ -24,6 +26,7 @@ export default {
     },
     methods: {
         loadVideo() {
+            const component = this;
             const videoEl = this.$refs.videoEl;
 
             videoEl.setAttribute("poster", this.video.thumbnailUrl);
@@ -37,10 +40,18 @@ export default {
             streams.push(...this.video.audioStreams);
             streams.push(...this.video.videoStreams);
 
-            const dash = require("@/utils/DashUtils.js").default.generate_dash_file_from_formats(
-                streams,
-                this.video.duration,
-            );
+            var uri;
+
+            if (this.video.livestream) {
+                uri = this.video.hls;
+            } else {
+                const dash = require("@/utils/DashUtils.js").default.generate_dash_file_from_formats(
+                    streams,
+                    this.video.duration,
+                );
+
+                uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
+            }
 
             if (noPrevPlayer)
                 shaka
@@ -51,9 +62,19 @@ export default {
 
                         const localPlayer = new shaka.Player(videoEl);
 
-                        this.setPlayerAttrs(localPlayer, videoEl, dash, shaka);
+                        localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
+                            const uri = request.uris[0];
+                            var url = new URL(uri);
+                            if (url.host.endsWith(".googlevideo.com")) {
+                                url.searchParams.set("host", url.host);
+                                url.host = new URL(component.video.proxyUrl).host;
+                                request.uris[0] = url.toString();
+                            }
+                        });
+
+                        this.setPlayerAttrs(localPlayer, videoEl, uri, shaka);
                     });
-            else this.setPlayerAttrs(this.player, videoEl, dash, this.shaka);
+            else this.setPlayerAttrs(this.player, videoEl, uri, this.shaka);
 
             if (noPrevPlayer) {
                 videoEl.addEventListener("timeupdate", () => {
@@ -85,7 +106,7 @@ export default {
 
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
-        setPlayerAttrs(localPlayer, videoEl, dash, shaka) {
+        setPlayerAttrs(localPlayer, videoEl, uri, shaka) {
             if (!this.ui) {
                 this.ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
@@ -108,7 +129,7 @@ export default {
             if ((localStorage && localStorage.getItem("audioOnly") === "true") || this.$route.query.listen === "1")
                 this.player.configure("manifest.disableVideo", true);
 
-            player.load("data:application/dash+xml;charset=utf-8;base64," + btoa(dash)).then(() => {
+            player.load(uri).then(() => {
                 this.video.subtitles.map(subtitle => {
                     player.addTextTrackAsync(
                         subtitle.url,
