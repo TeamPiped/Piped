@@ -126,7 +126,10 @@ export default {
 
             this.player = player;
 
-            if ((localStorage && localStorage.getItem("audioOnly") === "true") || this.$route.query.listen === "1")
+            if (
+                ((localStorage && localStorage.getItem("audioOnly") === "true") || this.$route.query.listen === "1") &&
+                !this.video.livestream
+            )
                 this.player.configure("manifest.disableVideo", true);
 
             player.load(uri).then(() => {
