@@ -49,8 +49,10 @@ export default {
             }
         },
         async refreshSuggestions() {
+            let params = new URLSearchParams();
+            params.append("query", this.searchText);
             this.searchSuggestions = await this.fetchJson(
-                Constants.BASE_URL + "/suggestions?query=" + encodeURI(this.searchText),
+                Constants.BASE_URL + "/suggestions?" + params.toString()
             );
             this.searchSuggestions.unshift(this.searchText);
             this.setSelected(0);

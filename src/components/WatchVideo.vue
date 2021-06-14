@@ -144,14 +144,16 @@ export default {
             return this.fetchJson(Constants.BASE_URL + "/streams/" + this.getVideoId());
         },
         async fetchSponsors() {
+            let params = new URLSearchParams();
+            let category = (localStorage && localStorage.getItem("selectedSkip") !== null
+                ? '["' + localStorage.getItem("selectedSkip").replace(",", '","') + '"]'
+                : '["sponsor", "interaction", "selfpromo", "music_offtopic"]');
+            params.append("category", category);
             return await this.fetchJson(
                 Constants.BASE_URL +
                     "/sponsors/" +
                     this.getVideoId() +
-                    "?category=" +
-                    (localStorage && localStorage.getItem("selectedSkip") !== null
-                        ? encodeURIComponent('["' + localStorage.getItem("selectedSkip").replace(",", '","') + '"]')
-                        : encodeURIComponent('["sponsor", "interaction", "selfpromo", "music_offtopic"]')),
+                    "?" + params.toString()
             );
         },
         fetchComments() {
@@ -191,12 +193,13 @@ export default {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
             if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
                 this.loading = true;
+                let params = new URLSearchParams();
+                params.append("url", this.comments.nextpage);
                 this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/comments/" +
                         this.getVideoId() +
-                        "?url=" +
-                        encodeURIComponent(this.comments.nextpage),
+                        "?" + params.toString()
                 ).then(json => {
                     this.comments.nextpage = json.nextpage;
                     this.loading = false;

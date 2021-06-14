@@ -100,12 +100,13 @@ export default {
     },
     methods: {
         async fetchResults() {
+            let params = new URLSearchParams();
+            params.append("q", this.$route.query.search_query);
+            params.append("filter", this.selectedFilter)
             return await await this.fetchJson(
                 Constants.BASE_URL +
-                    "/search?q=" +
-                    encodeURIComponent(this.$route.query.search_query) +
-                    "&filter=" +
-                    this.selectedFilter,
+                    "/search?" +
+                    params.toString()
             );
         },
         async updateResults() {
@@ -116,15 +117,14 @@ export default {
             if (this.loading || !this.results || !this.results.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
+                let params = new URLSearchParams();
+                params.append("nextpage", this.results.nextpage);
+                params.append("q", this.$route.query.search_query);
+                params.append("filter", this.selectedFilter);
                 this.fetchJson(
                     Constants.BASE_URL +
-                        "/nextpage/search" +
-                        "?nextpage=" +
-                        encodeURIComponent(this.results.nextpage) +
-                        "&q=" +
-                        encodeURIComponent(this.$route.query.search_query) +
-                        "&filter=" +
-                        this.selectedFilter,
+                        "/nextpage/search?" +
+                        params.toString()
                 ).then(json => {
                     this.results.nextpage = json.nextpage;
                     this.results.id = json.id;

@@ -74,12 +74,14 @@ export default {
             if (this.loading || !this.playlist || !this.playlist.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
+                let params = new URLSearchParams();
+                params.append("nextpage", this.playlist.nextpage);
                 this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/playlists/" +
                         this.$route.query.list +
-                        "?nextpage=" +
-                        encodeURIComponent(this.playlist.nextpage),
+                        "?" +
+                        params.toString()
                 ).then(json => {
                     this.playlist.relatedStreams.concat(json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;

@@ -74,12 +74,13 @@ export default {
             if (this.loading || !this.channel || !this.channel.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
+                let params = new URLSearchParams();
+                params.append("nextpage", this.channel.nextpage);
                 this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/channels/" +
                         this.channel.id +
-                        "?nextpage=" +
-                        encodeURIComponent(this.channel.nextpage),
+                        "?" + params.toString()
                 ).then(json => {
                     this.channel.relatedStreams.concat(json.relatedStreams);
                     this.channel.nextpage = json.nextpage;
