@@ -57,7 +57,7 @@
 
                 <br />
 
-                <b v-if="result.views" class="uk-text-small">
+                <b v-if="result.views >= 0" class="uk-text-small">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     {{ numberFormat(result.views) }} views
                 </b>
