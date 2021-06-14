@@ -3,6 +3,21 @@
         {{ $route.query.search_query }}
     </h1>
 
+    <b>Filter: </b>
+    <select
+        default="all"
+        class="uk-select uk-width-auto"
+        style="height: 100%"
+        v-model="selectedFilter"
+        @change="updateResults()"
+    >
+        <option v-bind:key="filter" v-for="filter in availableFilters" v-bind:value="filter">
+            {{ filter.replace("_", " ") }}
+        </option>
+    </select>
+
+    <hr />
+
     <div v-if="results" class="uk-grid-xl" uk-grid="parallax: 0">
         <div
             style="background: #0b0e0f"
@@ -38,7 +53,7 @@
                 </b>
 
                 <a v-if="result.uploaderName" class="uk-text-muted">{{ result.uploaderName }}</a>
-                <b v-if="result.videos"><br v-if="result.uploaderName" />{{ result.videos }} Videos</b>
+                <b v-if="result.videos >= 0"><br v-if="result.uploaderName" />{{ result.videos }} Videos</b>
 
                 <br />
 
@@ -58,6 +73,17 @@ export default {
     data() {
         return {
             results: null,
+            availableFilters: [
+                "all",
+                "videos",
+                "channels",
+                "playlists",
+                "music_songs",
+                "music_videos",
+                "music_albums",
+                "music_playlists",
+            ],
+            selectedFilter: "all",
         };
     },
     mounted() {
@@ -75,7 +101,11 @@ export default {
     methods: {
         async fetchResults() {
             return await await this.fetchJson(
-                Constants.BASE_URL + "/search?q=" + encodeURIComponent(this.$route.query.search_query),
+                Constants.BASE_URL +
+                    "/search?q=" +
+                    encodeURIComponent(this.$route.query.search_query) +
+                    "&filter=" +
+                    this.selectedFilter,
             );
         },
         async updateResults() {
@@ -89,12 +119,12 @@ export default {
                 this.fetchJson(
                     Constants.BASE_URL +
                         "/nextpage/search" +
-                        "?url=" +
+                        "?nextpage=" +
                         encodeURIComponent(this.results.nextpage) +
-                        "&id=" +
-                        encodeURIComponent(this.results.id) +
                         "&q=" +
-                        encodeURIComponent(this.$route.query.search_query),
+                        encodeURIComponent(this.$route.query.search_query) +
+                        "&filter=" +
+                        this.selectedFilter,
                 ).then(json => {
                     this.results.nextpage = json.nextpage;
                     this.results.id = json.id;
