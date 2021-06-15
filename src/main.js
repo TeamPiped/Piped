@@ -55,7 +55,12 @@ const mixin = {
             num = parseInt(num)
             return num.toLocaleString('en-US')
         },
-        fetchJson: function (url, options) {
+        fetchJson: function (url, params, options) {
+            if (params) {
+                url = new URL(url);
+                for (var param in params)
+                    url.searchParams.set(param, params[param])
+            }
             return fetch(url, options).then(response => {
                 return response.json();
             });

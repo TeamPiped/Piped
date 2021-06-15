@@ -49,9 +49,9 @@ export default {
             }
         },
         async refreshSuggestions() {
-            this.searchSuggestions = await this.fetchJson(
-                Constants.BASE_URL + "/suggestions?query=" + encodeURI(this.searchText),
-            );
+            this.searchSuggestions = await this.fetchJson(Constants.BASE_URL + "/suggestions", {
+                query: this.searchText,
+            });
             this.searchSuggestions.unshift(this.searchText);
             this.setSelected(0);
         },
