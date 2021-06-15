@@ -74,13 +74,9 @@ export default {
             if (this.loading || !this.playlist || !this.playlist.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(
-                    Constants.BASE_URL +
-                        "/nextpage/playlists/" +
-                        this.$route.query.list +
-                        "?nextpage=" +
-                        encodeURIComponent(this.playlist.nextpage),
-                ).then(json => {
+                this.fetchJson(Constants.BASE_URL + "/nextpage/playlists/" + this.$route.query.list, {
+                    nextpage: this.playlist.nextpage,
+                }).then(json => {
                     this.playlist.relatedStreams.concat(json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
                     this.loading = false;

@@ -74,13 +74,9 @@ export default {
             if (this.loading || !this.channel || !this.channel.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(
-                    Constants.BASE_URL +
-                        "/nextpage/channels/" +
-                        this.channel.id +
-                        "?nextpage=" +
-                        encodeURIComponent(this.channel.nextpage),
-                ).then(json => {
+                this.fetchJson(Constants.BASE_URL + "/nextpage/channels/" + this.channel.id, {
+                    nextpage: this.channel.nextpage,
+                }).then(json => {
                     this.channel.relatedStreams.concat(json.relatedStreams);
                     this.channel.nextpage = json.nextpage;
                     this.loading = false;

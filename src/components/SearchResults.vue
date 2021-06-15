@@ -100,13 +100,10 @@ export default {
     },
     methods: {
         async fetchResults() {
-            return await await this.fetchJson(
-                Constants.BASE_URL +
-                    "/search?q=" +
-                    encodeURIComponent(this.$route.query.search_query) +
-                    "&filter=" +
-                    this.selectedFilter,
-            );
+            return await await this.fetchJson(Constants.BASE_URL + "/search", {
+                q: this.$route.query.search_query,
+                filter: this.selectedFilter,
+            });
         },
         async updateResults() {
             document.title = this.$route.query.search_query + " - Piped";
@@ -116,16 +113,11 @@ export default {
             if (this.loading || !this.results || !this.results.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(
-                    Constants.BASE_URL +
-                        "/nextpage/search" +
-                        "?nextpage=" +
-                        encodeURIComponent(this.results.nextpage) +
-                        "&q=" +
-                        encodeURIComponent(this.$route.query.search_query) +
-                        "&filter=" +
-                        this.selectedFilter,
-                ).then(json => {
+                this.fetchJson(Constants.BASE_URL + "/nextpage/search", {
+                    nextpage: this.results.nextpage,
+                    q: this.$route.query.search_query,
+                    filter: this.selectedFilter,
+                }).then(json => {
                     this.results.nextpage = json.nextpage;
                     this.results.id = json.id;
                     this.loading = false;

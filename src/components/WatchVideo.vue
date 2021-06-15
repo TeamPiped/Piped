@@ -144,15 +144,12 @@ export default {
             return this.fetchJson(Constants.BASE_URL + "/streams/" + this.getVideoId());
         },
         async fetchSponsors() {
-            return await this.fetchJson(
-                Constants.BASE_URL +
-                    "/sponsors/" +
-                    this.getVideoId() +
-                    "?category=" +
-                    (localStorage && localStorage.getItem("selectedSkip") !== null
-                        ? encodeURIComponent('["' + localStorage.getItem("selectedSkip").replace(",", '","') + '"]')
-                        : encodeURIComponent('["sponsor", "interaction", "selfpromo", "music_offtopic"]')),
-            );
+            return await this.fetchJson(Constants.BASE_URL + "/sponsors/" + this.getVideoId(), {
+                category:
+                    localStorage && localStorage.getItem("selectedSkip") !== null
+                        ? '["' + localStorage.getItem("selectedSkip").replace(",", '","') + '"]'
+                        : '["sponsor", "interaction", "selfpromo", "music_offtopic"]',
+            });
         },
         fetchComments() {
             return this.fetchJson(Constants.BASE_URL + "/comments/" + this.getVideoId());
@@ -191,13 +188,9 @@ export default {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
             if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(
-                    Constants.BASE_URL +
-                        "/nextpage/comments/" +
-                        this.getVideoId() +
-                        "?url=" +
-                        encodeURIComponent(this.comments.nextpage),
-                ).then(json => {
+                this.fetchJson(Constants.BASE_URL + "/nextpage/comments/" + this.getVideoId(), {
+                    url: this.comments.nextpage,
+                }).then(json => {
                     this.comments.nextpage = json.nextpage;
                     this.loading = false;
                     json.comments.map(comment => this.comments.comments.push(comment));
