@@ -66,7 +66,7 @@
                             {{ comment.author }} </router-link
                         >&thinsp;<font-awesome-icon v-if="comment.verified" icon="check"></font-awesome-icon>
                     </div>
-                    <p>{{ comment.commentText }}</p>
+                    <p style="white-space: pre-wrap">{{ comment.commentText }}</p>
                     <div>
                         <b>{{ numberFormat(comment.likeCount) }}</b>
                         &nbsp;
