@@ -11,25 +11,10 @@
         <div class="uk-grid-xl" uk-grid="parallax: 0">
             <div
                 class="uk-width-1-2 uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl"
-                v-bind:key="item.url"
-                v-for="item in this.channel.relatedStreams"
+                v-bind:key="video.url"
+                v-for="video in this.channel.relatedStreams"
             >
-                <router-link class="uk-link-muted uk-text-justify" v-bind:to="item.url || '/'">
-                    <img height="94" width="168" style="width: 100%" v-bind:src="item.thumbnail" loading="lazy" />
-                    <a>{{ item.title }}</a>
-                </router-link>
-                <br />
-                <div>
-                    <b class="uk-text-small uk-align-left">
-                        <font-awesome-icon icon="eye"></font-awesome-icon>
-                        {{ numberFormat(item.views) }} views
-                        <br />
-                        {{ item.uploadedDate }}
-                    </b>
-                    <b class="uk-text-small uk-align-right">
-                        {{ timeFormat(item.duration) }}
-                    </b>
-                </div>
+                <VideoItem :video="video" height="94" width="168" hideChannel />
             </div>
         </div>
     </div>
@@ -38,6 +23,7 @@
 <script>
 import Constants from "@/Constants.js";
 import ErrorHandler from "@/components/ErrorHandler.vue";
+import VideoItem from "@/components/VideoItem.vue";
 
 export default {
     data() {
@@ -87,6 +73,7 @@ export default {
     },
     components: {
         ErrorHandler,
+        VideoItem,
     },
 };
 </script>

@@ -21,24 +21,10 @@
         <div class="uk-grid-xl" uk-grid="parallax: 0">
             <div
                 class="uk-width-1-2 uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl"
-                v-bind:key="item.url"
-                v-for="item in this.playlist.relatedStreams"
+                v-bind:key="video.url"
+                v-for="video in this.playlist.relatedStreams"
             >
-                <router-link class="uk-link-muted uk-text-justify" v-bind:to="item.url || '/'">
-                    <img style="width: 100%" height="94" width="168" v-bind:src="item.thumbnail" loading="lazy" />
-                    <a>{{ item.title }}</a>
-                </router-link>
-                <br />
-                <div>
-                    <b class="uk-text-small uk-align-left">
-                        <router-link class="uk-text-justify" v-bind:to="item.uploaderUrl || '/'">{{
-                            item.uploaderName
-                        }}</router-link>
-                    </b>
-                    <b class="uk-text-small uk-align-right">
-                        {{ timeFormat(item.duration) }}
-                    </b>
-                </div>
+                <VideoItem :video="video" height="94" width="168" />
             </div>
         </div>
     </div>
@@ -47,6 +33,7 @@
 <script>
 import Constants from "@/Constants.js";
 import ErrorHandler from "@/components/ErrorHandler.vue";
+import VideoItem from "@/components/VideoItem.vue";
 
 export default {
     data() {
@@ -87,6 +74,7 @@ export default {
     },
     components: {
         ErrorHandler,
+        VideoItem,
     },
 };
 </script>
