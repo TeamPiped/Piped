@@ -23,6 +23,10 @@ By using Piped, you can freely watch and listen to content freely without the fe
 -   [x] 4K support
 -   [x] No connections to Google's servers
 -   [x] Playing just audio
+-   [x] Comments
+-   [x] Playlist support
+-   [x] Captions support
+-   [x] Search Suggestions
 -   [x] Livestreams support with a quality selector
 -   [x] PWA support
 -   [x] Preferences saved locally
@@ -32,7 +36,6 @@ By using Piped, you can freely watch and listen to content freely without the fe
 ## WIP
 
 -   [ ] Login
--   [ ] Comments
 -   [ ] Feeds
 -   [ ] 8K support
 -   [ ] Improving UI
