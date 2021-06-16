@@ -1,9 +1,9 @@
 import { createApp } from "vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faThumbsUp, faThumbsDown, faEye, faThumbtack, faCheck, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp, faThumbsDown, faEye, faThumbtack, faCheck, faHeart, faHeadphones } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(faThumbsUp, faThumbsDown, faEye, faGithub, faBitcoin, faThumbtack, faCheck, faHeart);
+library.add(faThumbsUp, faThumbsDown, faEye, faGithub, faBitcoin, faThumbtack, faCheck, faHeart, faHeadphones);
 
 import("uikit/dist/css/uikit-core.css");
 import("uikit/dist/js/uikit-core.min");

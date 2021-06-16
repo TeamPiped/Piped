@@ -10,37 +10,14 @@
             v-bind:key="video.url"
             v-for="video in videos"
         >
-            <div class="uk-text-secondary" style="background: #0b0e0f">
-                <router-link class="uk-text-emphasis" v-bind:to="video.url || '/'">
-                    <img
-                        height="118"
-                        width="210"
-                        style="width: 100%"
-                        v-bind:src="video.thumbnail"
-                        alt="thumbnail"
-                        loading="lazy"
-                    />
-                    <p>{{ video.title }}</p>
-                </router-link>
-                <router-link class="uk-link-muted" v-bind:to="video.uploaderUrl || '/'">
-                    <p>{{ video.uploaderName }}</p>
-                </router-link>
-                <b class="uk-text-small uk-align-left">
-                    <font-awesome-icon icon="eye"></font-awesome-icon>
-                    {{ numberFormat(video.views) }} views
-                    <br />
-                    {{ video.uploadedDate }}
-                </b>
-                <b class="uk-text-small uk-align-right">
-                    {{ timeFormat(video.duration) }}
-                </b>
-            </div>
+            <VideoItem :video="video" height="118" width="210" />
         </div>
     </div>
 </template>
 
 <script>
 import Constants from "@/Constants.js";
+import VideoItem from "@/components/VideoItem.vue";
 
 export default {
     data() {
@@ -57,6 +34,9 @@ export default {
         async fetchTrending() {
             return await this.fetchJson(Constants.BASE_URL + "/trending");
         },
+    },
+    components: {
+        VideoItem,
     },
 };
 </script>
