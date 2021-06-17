@@ -18,7 +18,7 @@
         "hotkeys-js": "^3.8.7",
         "mux.js": "^5.11.0",
         "register-service-worker": "^1.7.1",
-        "shaka-player": "3.1.0",
+        "shaka-player": "3.1.1",
         "uikit": "3.6.22",
         "vue": "^3.1.1",
         "vue-router": "^4.0.9",
