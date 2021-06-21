@@ -43,15 +43,7 @@
     <br />
     <select class="uk-select" v-model="defaultQuality" @change="onChange($event)">
         <option value="0">Auto</option>
-        <option>144</option>
-        <option>240</option>
-        <option>360</option>
-        <option>480</option>
-        <option>720</option>
-        <option>1080</option>
-        <option>1440</option>
-        <option>2160</option>
-        <option>4320</option>
+        <option :key="resolution" v-for="resolution in resolutions" :value="resolution">{{ resolution }}p</option>
     </select>
     <h2>Instances List</h2>
     <table class="uk-table">
@@ -100,6 +92,7 @@ export default {
             skipMusicOffTopic: true,
             autoPlayVideo: true,
             audioOnly: false,
+            resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
             defaultQuality: 0,
         };
     },
