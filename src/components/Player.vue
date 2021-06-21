@@ -1,7 +1,12 @@
 <template>
     <div class="uk-container-expand">
         <div data-shaka-player-container ref="container">
-            <video data-shaka-player :autoplay="shouldAutoPlay" style="width: 100%; height: 100%; max-height: 75vh; min-height: 250px;" ref="videoEl"></video>
+            <video
+                data-shaka-player
+                :autoplay="shouldAutoPlay"
+                style="width: 100%; height: 100%; max-height: 75vh; min-height: 250px;"
+                ref="videoEl"
+            ></video>
         </div>
     </div>
 </template>
@@ -134,7 +139,27 @@ export default {
             )
                 this.player.configure("manifest.disableVideo", true);
 
+            const quality = Number(localStorage.getItem("quality"));
+            const qualityConds = quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream);
+            if (qualityConds) this.player.configure("abr.enabled", false);
+
             player.load(uri, 0, uri.indexOf("dash+xml") >= 0 ? "application/dash+xml" : "video/mp4").then(() => {
+                if (qualityConds) {
+                    var leastDiff = Number.MAX_VALUE;
+                    var bestStream = null;
+                    player
+                        .getVariantTracks()
+                        .sort((a, b) => a.bandwidth - b.bandwidth)
+                        .forEach(stream => {
+                            const diff = Math.abs(quality - stream.height);
+                            if (diff < leastDiff) {
+                                leastDiff = diff;
+                                bestStream = stream;
+                            }
+                        });
+                    player.selectVariantTrack(bestStream);
+                }
+
                 this.video.subtitles.map(subtitle => {
                     player.addTextTrackAsync(
                         subtitle.url,

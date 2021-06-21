@@ -38,6 +38,21 @@
     <b>Audio Only</b>
     <br />
     <input class="uk-checkbox" v-model="audioOnly" @change="onChange($event)" type="checkbox" />
+    <br />
+    <b>Default Quality</b>
+    <br />
+    <select class="uk-select" v-model="defaultQuality" @change="onChange($event)">
+        <option value="0">Disable</option>
+        <option>144</option>
+        <option>240</option>
+        <option>360</option>
+        <option>480</option>
+        <option>720</option>
+        <option>1080</option>
+        <option>1440</option>
+        <option>2160</option>
+        <option>4320</option>
+    </select>
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -85,6 +100,7 @@ export default {
             skipMusicOffTopic: true,
             autoPlayVideo: true,
             audioOnly: false,
+            defaultQuality: 0,
         };
     },
     mounted() {
@@ -147,6 +163,7 @@ export default {
             this.autoPlayVideo =
                 localStorage.getItem("playerAutoPlay") === null || localStorage.getItem("playerAutoPlay") === "true";
             this.audioOnly = localStorage.getItem("audioOnly") === "true";
+            this.defaultQuality = Number(localStorage.getItem("quality"));
         }
     },
     methods: {
@@ -166,6 +183,7 @@ export default {
 
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
                 localStorage.setItem("audioOnly", this.audioOnly);
+                localStorage.setItem("quality", this.defaultQuality);
             }
         },
         sslScore(url) {
