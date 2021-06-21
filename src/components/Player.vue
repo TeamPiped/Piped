@@ -1,7 +1,7 @@
 <template>
     <div class="uk-container-expand">
         <div data-shaka-player-container ref="container">
-            <video data-shaka-player :autoplay="shouldAutoPlay" style="width: 100%; height: 100%" ref="videoEl"></video>
+            <video data-shaka-player :autoplay="shouldAutoPlay" style="width: 100%; height: 100%; max-height: 75vh; min-height: 250px;" ref="videoEl"></video>
         </div>
     </div>
 </template>
