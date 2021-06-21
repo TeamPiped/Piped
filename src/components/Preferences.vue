@@ -42,7 +42,7 @@
     <b>Default Quality</b>
     <br />
     <select class="uk-select" v-model="defaultQuality" @change="onChange($event)">
-        <option value="0">Disable</option>
+        <option value="0">Auto</option>
         <option>144</option>
         <option>240</option>
         <option>360</option>
