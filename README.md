@@ -78,6 +78,11 @@ If you would like to contact me personally, you may do so with the following mea
 -   Mastodon: https://mastodon.online/@kavin
 -   Email: kavin@kavin.rocks
 
+## Public Chat Rooms
+
+-   #piped:matrix.org (Matrix)
+-   #piped on libera.chat (IRC)
+
 ## YourKit
 
 <img src="https://www.yourkit.com/images/yklogo.png"></img>
