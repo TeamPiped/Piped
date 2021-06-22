@@ -78,6 +78,11 @@ export default {
                             }
                         });
 
+                        localPlayer.configure(
+                            "streaming.bufferingGoal",
+                            Math.max(Number(localStorage.getItem("bufferGoal")), 10),
+                        );
+
                         this.setPlayerAttrs(localPlayer, videoEl, uri, shaka);
                     });
             else this.setPlayerAttrs(this.player, videoEl, uri, this.shaka);
