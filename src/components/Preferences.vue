@@ -41,14 +41,14 @@
     <br />
     <b>Default Quality</b>
     <br />
-    <select class="uk-select" v-model="defaultQuality" @change="onChange($event)">
+    <select class="uk-select uk-width-auto" v-model="defaultQuality" @change="onChange($event)">
         <option value="0">Auto</option>
         <option :key="resolution" v-for="resolution in resolutions" :value="resolution">{{ resolution }}p</option>
     </select>
     <br />
     <b>Buffering Goal</b>
     <br />
-    <input class="uk-input" v-model="bufferingGoal" @change="onChange($event)" type="text" />
+    <input class="uk-input uk-width-auto" v-model="bufferingGoal" @change="onChange($event)" type="text" />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -74,7 +74,8 @@
     <hr />
 
     <b>Instance Selection:</b>
-    <select class="uk-select" v-model="selectedInstance" @change="onChange($event)">
+    <br />
+    <select class="uk-select uk-width-auto" v-model="selectedInstance" @change="onChange($event)">
         <option v-bind:key="instance.name" v-for="instance in instances" v-bind:value="instance.apiurl">
             {{ instance.name }}
         </option>
