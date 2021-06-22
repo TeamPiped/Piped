@@ -45,6 +45,10 @@
         <option value="0">Auto</option>
         <option :key="resolution" v-for="resolution in resolutions" :value="resolution">{{ resolution }}p</option>
     </select>
+    <br />
+    <b>Buffering Goal</b>
+    <br />
+    <input class="uk-input" v-model="bufferingGoal" @change="onChange($event)" type="text" />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -94,6 +98,7 @@ export default {
             audioOnly: false,
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
             defaultQuality: 0,
+            bufferingGoal: 10,
         };
     },
     mounted() {
@@ -157,6 +162,7 @@ export default {
                 localStorage.getItem("playerAutoPlay") === null || localStorage.getItem("playerAutoPlay") === "true";
             this.audioOnly = localStorage.getItem("audioOnly") === "true";
             this.defaultQuality = Number(localStorage.getItem("quality"));
+            this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
         }
     },
     methods: {
@@ -177,6 +183,7 @@ export default {
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
                 localStorage.setItem("audioOnly", this.audioOnly);
                 localStorage.setItem("quality", this.defaultQuality);
+                localStorage.setItem("bufferGoal", this.bufferingGoal);
             }
         },
         sslScore(url) {
