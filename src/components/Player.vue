@@ -2,7 +2,7 @@
     <div class="uk-container-expand">
         <div
             data-shaka-player-container
-            style="width: 100%; height: 100%; max-height: 75vh; min-height: 250px;"
+            style="width: 100%; height: 100%; max-height: 75vh; min-height: 250px; background: #000"
             ref="container"
         >
             <video data-shaka-player class="uk-width-expand" :autoplay="shouldAutoPlay" ref="videoEl"></video>
