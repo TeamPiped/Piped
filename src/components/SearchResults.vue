@@ -20,12 +20,12 @@
 
     <div v-if="results" class="uk-grid-xl" uk-grid="parallax: 0">
         <div
-            style="background: #0b0e0f"
+            :style="[{ background: backgroundColor }]"
             class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
             v-bind:key="result.url"
             v-for="result in results.items"
         >
-            <div class="uk-text-secondary" style="background: #0b0e0f">
+            <div class="uk-text-secondary">
                 <router-link class="uk-text-emphasis" v-bind:to="result.url">
                     <img style="width: 100%" v-bind:src="result.thumbnail" loading="lazy" />
                     <p>

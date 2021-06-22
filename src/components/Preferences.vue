@@ -31,6 +31,13 @@
     <br />
     <input class="uk-checkbox" v-model="skipMusicOffTopic" @change="onChange($event)" type="checkbox" />
     <br />
+    <b>Theme</b>
+    <br />
+    <select class="uk-select uk-width-auto" v-model="selectedTheme" @change="onChange($event)">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+    </select>
+    <br />
     <b>Autoplay Video</b>
     <br />
     <input class="uk-checkbox" v-model="autoPlayVideo" @change="onChange($event)" type="checkbox" />
@@ -95,6 +102,7 @@ export default {
             skipInteraction: true,
             skipSelfPromo: true,
             skipMusicOffTopic: true,
+            selectedTheme: "dark",
             autoPlayVideo: true,
             audioOnly: false,
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
@@ -159,6 +167,7 @@ export default {
                 });
             }
 
+            this.selectedTheme = localStorage.getItem("theme") || "dark";
             this.autoPlayVideo =
                 localStorage.getItem("playerAutoPlay") === null || localStorage.getItem("playerAutoPlay") === "true";
             this.audioOnly = localStorage.getItem("audioOnly") === "true";
@@ -181,6 +190,7 @@ export default {
                 if (this.skipMusicOffTopic) sponsorSelected.push("music_offtopic");
                 localStorage.setItem("selectedSkip", sponsorSelected);
 
+                localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
                 localStorage.setItem("audioOnly", this.audioOnly);
                 localStorage.setItem("quality", this.defaultQuality);

@@ -1,11 +1,11 @@
 <template>
     <nav
-        class="uk-navbar-container uk-container-expand uk-position-relative uk-light"
-        style="background: #0b0e0f"
+        class="uk-navbar-container uk-container-expand uk-position-relative"
+        :style="[{ background: backgroundColor, colour: foregroundColor }]"
         uk-navbar
     >
         <div class="uk-navbar-left">
-            <router-link class="uk-navbar-item uk-logo uk-text-bold" to="/"
+            <router-link class="uk-navbar-item uk-logo uk-text-bold" :style="[{ colour: foregroundColor }]" to="/"
                 ><img alt="logo" src="/img/icons/logo.svg" height="32" width="32" />iped</router-link
             >
         </div>

@@ -1,10 +1,13 @@
 <template>
-    <div class="uk-position-absolute uk-panel uk-box-shadow-large suggestions-container">
+    <div
+        class="uk-position-absolute uk-panel uk-box-shadow-large suggestions-container"
+        :style="[{ background: secondaryBackgroundColor }]"
+    >
         <ul class="uk-list uk-margin-remove uk-text-secondary">
             <li
                 v-for="(suggestion, i) in searchSuggestions"
                 :key="i"
-                :class="{ selected: selected === i }"
+                :style="[selected === i ? { background: secondaryForegroundColor } : {}]"
                 @mouseover="onMouseOver(i)"
                 @mousedown.stop="onClick(i)"
                 class="uk-margin-remove suggestion"
@@ -77,7 +80,6 @@ export default {
 
 <style>
 .suggestions-container {
-    background-color: #242727;
     left: 50%;
     transform: translateX(-50%);
     max-width: 640px;
@@ -87,9 +89,6 @@ export default {
 }
 .suggestion {
     padding: 4px 15px;
-}
-.suggestion.selected {
-    background-color: #393d3d;
 }
 @media screen and (max-width: 959px) {
     .suggestions-container {
