@@ -85,17 +85,7 @@
                     v-bind:key="related.url"
                     v-for="related in video.relatedStreams"
                 >
-                    <router-link class="uk-link-muted" v-bind:to="related.url">
-                        <p class="uk-text-emphasis">{{ related.title }}</p>
-                        <img style="width: 100%" v-bind:src="related.thumbnail" loading="lazy" />
-                    </router-link>
-                    <p>
-                        <router-link class="uk-link-muted" v-bind:to="related.uploaderUrl || '/'">
-                            <p>{{ related.uploaderName }}</p>
-                        </router-link>
-                        <font-awesome-icon icon="eye"></font-awesome-icon>
-                        {{ numberFormat(related.views) }} views
-                    </p>
+                    <VideoItem :video="related" height="94" width="168" />
                 </div>
             </div>
         </div>
@@ -105,6 +95,7 @@
 <script>
 import Constants from "@/Constants.js";
 import Player from "@/components/Player.vue";
+import VideoItem from "@/components/VideoItem.vue";
 import ErrorHandler from "@/components/ErrorHandler.vue";
 
 export default {
@@ -203,6 +194,7 @@ export default {
     },
     components: {
         Player,
+        VideoItem,
         ErrorHandler,
     },
 };
