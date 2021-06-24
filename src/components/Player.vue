@@ -110,8 +110,23 @@ export default {
                 });
 
                 videoEl.addEventListener("ended", () => {
-                    if (this.selectedAutoPlay && this.video.relatedStreams.length > 0)
-                        this.$router.push(this.video.relatedStreams[0].url);
+                    if (this.selectedAutoPlay && this.video.relatedStreams.length > 0) {
+                        const params = this.$route.query;
+                        let url = this.video.relatedStreams[0].url;
+                        const searchParams = new URLSearchParams();
+                        for (var param in params)
+                            switch (param) {
+                                case "v":
+                                case "t":
+                                    break;
+                                default:
+                                    searchParams.set(param, params[param]);
+                                    break;
+                            }
+                        const paramStr = searchParams.toString();
+                        if (paramStr.length > 0) url += "&" + paramStr;
+                        this.$router.push(url);
+                    }
                 });
             }
 
@@ -137,11 +152,10 @@ export default {
 
             this.player = player;
 
-            if (
+            const disableVideo =
                 ((localStorage && localStorage.getItem("audioOnly") === "true") || this.$route.query.listen === "1") &&
-                !this.video.livestream
-            )
-                this.player.configure("manifest.disableVideo", true);
+                !this.video.livestream;
+            this.player.configure("manifest.disableVideo", disableVideo);
 
             const quality = Number(localStorage.getItem("quality"));
             const qualityConds = quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream);
