@@ -40,13 +40,10 @@ export default {
     },
     methods: {
         async fetchChannel() {
-            const url =
-                Constants.BASE_URL +
-                (this.$route.params.channelId
-                    ? "/channels/" + this.$route.params.channelId
-                    : this.$route.params.channelC
-                    ? "/c/" + this.$route.params.channelC
-                    : "/user/" + this.$route.params.channelUser);
+            const url = 
+                Constants.BASE_URL + "/" 
+                + this.$route.params.path + "/" 
+                + this.$route.params.channelId
             return await this.fetchJson(url);
         },
         async getChannelData() {
@@ -60,7 +57,7 @@ export default {
             if (this.loading || !this.channel || !this.channel.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(Constants.BASE_URL + "/nextpage/channels/" + this.channel.id, {
+                this.fetchJson(Constants.BASE_URL + "/nextpage/channel/" + this.channel.id, {
                     nextpage: this.channel.nextpage,
                 }).then(json => {
                     this.channel.relatedStreams.concat(json.relatedStreams);
