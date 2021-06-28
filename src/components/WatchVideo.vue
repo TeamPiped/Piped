@@ -11,7 +11,7 @@
                 <a>{{ video.uploader }}</a>
             </router-link>
 
-            <p class="uk-dark">
+            <p :style="[{ colour: foregroundColor }]">
                 <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
                 <b>{{ addCommas(video.likes) }}</b>
                 &nbsp;
@@ -28,7 +28,7 @@
             <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
                 {{ showDesc ? "+" : "-" }}
             </a>
-            <p v-show="showDesc" class="uk-light" v-html="video.description"></p>
+            <p v-show="showDesc" :style="[{ colour: foregroundColor }]" v-html="video.description"></p>
         </div>
 
         <a v-if="sponsors && sponsors.segments">Sponsors Segments: {{ sponsors.segments.length }}</a>
@@ -44,7 +44,7 @@
             <div class="uk-width-4-5@xl uk-width-3-4@l uk-width-2-3" v-if="comments" ref="comments">
                 <div
                     class="uk-tile-default uk-align-left uk-width-expand"
-                    style="background: #0b0e0f"
+                    :style="[{ background: backgroundColor }]"
                     v-bind:key="comment.commentId"
                     v-for="comment in comments.comments"
                 >
@@ -81,7 +81,7 @@
             <div class="uk-width-1-5@xl uk-width-1-4@l uk-width-1-3" v-if="video">
                 <div
                     class="uk-tile-default uk-width-auto"
-                    style="background: #0b0e0f"
+                    :style="[{ background: backgroundColor }]"
                     v-bind:key="related.url"
                     v-for="related in video.relatedStreams"
                 >
