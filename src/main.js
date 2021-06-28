@@ -69,6 +69,23 @@ const mixin = {
             return DOMPurify.sanitize(original);
         }
     },
+    computed: {
+        backgroundColor() {
+            return localStorage.getItem("theme") === "light" ? "#fff" : "#0b0e0f"
+        },
+        secondaryBackgroundColor() {
+            return localStorage.getItem("theme") === "light" ? "#e5e5e5" : "#242727"
+        },
+        foregroundColor() {
+            return localStorage.getItem("theme") === "light" ? "#15191a" : "#0b0e0f"
+        },
+        secondaryForegroundColor() {
+            return localStorage.getItem("theme") === "light" ? "#666" : "#393d3d"
+        },
+        darkMode() {
+            return localStorage.getItem('theme') !== 'light'
+        }
+    }
 };
 
 const app = createApp(App);

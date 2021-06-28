@@ -1,5 +1,5 @@
 <template>
-    <div class="uk-text-secondary" style="background: #0b0e0f">
+    <div class="uk-text-secondary" :style="[{ background: backgroundColor }]">
         <router-link class="uk-text-emphasis" v-bind:to="video.url">
             <img
                 :height="height"
