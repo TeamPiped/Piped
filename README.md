@@ -80,7 +80,8 @@ If you would like to contact me personally, you may do so with the following mea
 
 ## Public Chat Rooms
 
-You can join us via Matrix at [#piped](https://matrix.to/#/#piped:matrix.org). This room is also bridged to IRC using libera.chat at [#piped](https://web.libera.chat/#piped).
+-   You can join us via Matrix at [#piped](https://matrix.to/#/#piped:matrix.org).
+-   You can also join us at the libera.chat IRC network which is bridged to the Matrix room at [#piped](https://web.libera.chat/#piped).
 
 ## YourKit
 
