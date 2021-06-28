@@ -178,6 +178,10 @@ export default {
     methods: {
         onChange() {
             if (localStorage) {
+                var shouldReload = false;
+
+                if (localStorage.getItem("playerAutoPlay") !== this.autoPlayVideo) shouldReload = true;
+
                 localStorage.setItem("instance", this.selectedInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
 
@@ -195,6 +199,8 @@ export default {
                 localStorage.setItem("audioOnly", this.audioOnly);
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
+
+                if (shouldReload) window.location.reload();
             }
         },
         sslScore(url) {
