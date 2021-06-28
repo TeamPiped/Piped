@@ -26,6 +26,14 @@ export default {
 </script>
 
 <style>
+h1,
+p,
+a,
+b {
+    unicode-bidi: plaintext;
+    text-align: start;
+}
+
 #app {
     background: #0b0e0f;
 }
