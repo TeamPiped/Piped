@@ -1,30 +1,43 @@
 <template>
-    <div class="uk-container uk-container-xlarge">
+    <div class="uk-container uk-container-xlarge" v-if="video">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
             <Player ref="videoPlayer" :video="video" :sponsors="sponsors" :selectedAutoPlay="selectedAutoPlay" />
             <h1 class="uk-text-bold">{{ video.title }}</h1>
 
-            <img :src="video.uploaderAvatar" loading="lazy" />
-            <router-link class="uk-text-bold" v-bind:to="video.uploaderUrl || '/'">
-                <a>{{ video.uploader }}</a>
-            </router-link>
+            <div uk-grid>
+                <div class="uk-width-1-2 uk-text-left">
+                    <img :src="video.uploaderAvatar" loading="lazy" />
+                    <router-link class="uk-text-bold" v-if="video.uploaderUrl" :to="video.uploaderUrl">
+                        <a>{{ video.uploader }}</a>
+                    </router-link>
 
-            <p :style="[{ colour: foregroundColor }]">
-                <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
-                <b>{{ addCommas(video.likes) }}</b>
-                &nbsp;
-                <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
-                <b>{{ addCommas(video.dislikes) }}</b>
-            </p>
-            <p>
-                <font-awesome-icon icon="eye"></font-awesome-icon>
-                <b>{{ addCommas(video.views) }}</b> views
-            </p>
-            <p>
-                Uploaded on <b>{{ video.uploadDate }}</b>
-            </p>
+                    <div :style="[{ colour: foregroundColor }]">
+                        <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
+                        <b>{{ addCommas(video.likes) }}</b>
+                        &nbsp;
+                        <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
+                        <b>{{ addCommas(video.dislikes) }}</b>
+                    </div>
+                    <div>
+                        <font-awesome-icon icon="eye"></font-awesome-icon>
+                        <b>{{ addCommas(video.views) }}</b> views
+                    </div>
+                    <div>
+                        Uploaded on <b>{{ video.uploadDate }}</b>
+                    </div>
+                </div>
+
+                <div class="uk-width-1-2 uk-text-right">
+                    <a :href="'https://youtu.be/' + getVideoId()"
+                        >Watch on <font-awesome-icon :icon="['fab', 'youtube']"></font-awesome-icon
+                    ></a>
+                </div>
+            </div>
+
+            <hr />
+
             <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
                 {{ showDesc ? "+" : "-" }}
             </a>
