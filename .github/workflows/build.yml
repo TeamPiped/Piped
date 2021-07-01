@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - name: Setup Node.js
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2.2.0
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
