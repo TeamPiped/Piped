@@ -14,16 +14,8 @@ jobs:
       - uses: actions/checkout@v2.3.4
       - name: Setup Node.js
         uses: actions/setup-node@v2.2.0
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Node.js modules
-        uses: actions/cache@v2.1.6
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-yarn-
+            cache: 'yarn'
       - run: yarn install --prefer-offline
       - run: yarn build && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist/css/*.css
       - uses: aquiladev/ipfs-action@v0.1.5
