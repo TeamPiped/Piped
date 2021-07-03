@@ -44,7 +44,7 @@
     <br />
     <b>Audio Only</b>
     <br />
-    <input class="uk-checkbox" v-model="audioOnly" @change="onChange($event)" type="checkbox" />
+    <input class="uk-checkbox" v-model="listen" @change="onChange($event)" type="checkbox" />
     <br />
     <b>Default Quality</b>
     <br />
@@ -104,13 +104,15 @@ export default {
             skipMusicOffTopic: true,
             selectedTheme: "dark",
             autoPlayVideo: true,
-            audioOnly: false,
+            listen: false,
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
             defaultQuality: 0,
             bufferingGoal: 10,
         };
     },
     mounted() {
+        if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
+
         fetch("https://raw.githubusercontent.com/wiki/TeamPiped/Piped-Frontend/Instances.md")
             .then(resp => resp.text())
             .then(body => {
@@ -136,7 +138,7 @@ export default {
         if (localStorage) {
             this.selectedInstance = localStorage.getItem("instance") || "https://pipedapi.kavin.rocks";
 
-            this.sponsorBlock = localStorage.getItem("sponsorblock") || true;
+            this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
             if (localStorage.getItem("selectedSkip") !== null) {
                 var skipList = localStorage.getItem("selectedSkip").split(",");
                 this.skipSponsor = this.skipIntro = this.skipOutro = this.skipInteraction = this.skipSelfPromo = this.skipMusicOffTopic = false;
@@ -167,10 +169,9 @@ export default {
                 });
             }
 
-            this.selectedTheme = localStorage.getItem("theme") || "dark";
-            this.autoPlayVideo =
-                localStorage.getItem("playerAutoPlay") === null || localStorage.getItem("playerAutoPlay") === "true";
-            this.audioOnly = localStorage.getItem("audioOnly") === "true";
+            this.selectedTheme = this.getPreferenceString("theme", "dark");
+            this.autoPlayVideo = this.getPreferenceBoolean(localStorage.getItem("playerAutoPlay"), true);
+            this.listen = this.getPreferenceBoolean("listen", false);
             this.defaultQuality = Number(localStorage.getItem("quality"));
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
         }
@@ -180,7 +181,7 @@ export default {
             if (localStorage) {
                 var shouldReload = false;
 
-                if (localStorage.getItem("playerAutoPlay") !== this.autoPlayVideo) shouldReload = true;
+                if (this.getPreferenceString("theme", "dark") !== this.selectedTheme) shouldReload = true;
 
                 localStorage.setItem("instance", this.selectedInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
@@ -196,7 +197,7 @@ export default {
 
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
-                localStorage.setItem("audioOnly", this.audioOnly);
+                localStorage.setItem("listen", this.listen);
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
 
