@@ -125,7 +125,7 @@ export default {
         };
     },
     mounted() {
-        this.selectedAutoPlay = Constants.AUTO_PLAY;
+        this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", true);
         this.getVideoData();
         this.getSponsors();
         this.getComments();
@@ -150,16 +150,19 @@ export default {
         async fetchSponsors() {
             return await this.fetchJson(Constants.BASE_URL + "/sponsors/" + this.getVideoId(), {
                 category:
-                    localStorage && localStorage.getItem("selectedSkip") !== null
-                        ? '["' + localStorage.getItem("selectedSkip").replace(",", '","') + '"]'
-                        : '["sponsor", "interaction", "selfpromo", "music_offtopic"]',
+                    '["' +
+                    this.getPreferenceString("selectedSkip", "sponsor,interaction,selfpromo,music_offtopic").replaceAll(
+                        ",",
+                        '","',
+                    ) +
+                    '"]',
             });
         },
         fetchComments() {
             return this.fetchJson(Constants.BASE_URL + "/comments/" + this.getVideoId());
         },
         onChange() {
-            if (localStorage) localStorage.setItem("autoplay", this.selectedAutoPlay);
+            this.setPreference("autoplay", this.selectedAutoPlay);
         },
         async getVideoData() {
             this.fetchVideo()
@@ -182,7 +185,7 @@ export default {
                 });
         },
         async getSponsors() {
-            if (!localStorage || localStorage.getItem("sponsorblock") !== false)
+            if (this.getPreferenceBoolean("sponsorblock", true))
                 this.fetchSponsors().then(data => (this.sponsors = data));
         },
         async getComments() {

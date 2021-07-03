@@ -152,9 +152,7 @@ export default {
 
             this.player = player;
 
-            const disableVideo =
-                ((localStorage && localStorage.getItem("audioOnly") === "true") || this.$route.query.listen === "1") &&
-                !this.video.livestream;
+            const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
             this.player.configure("manifest.disableVideo", disableVideo);
 
             const quality = Number(localStorage.getItem("quality"));

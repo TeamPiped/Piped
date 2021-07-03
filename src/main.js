@@ -67,23 +67,46 @@ const mixin = {
         },
         purifyHTML(original) {
             return DOMPurify.sanitize(original);
-        }
+        },
+        setPreference(key, value) {
+            if (localStorage) localStorage.setItem(key, value)
+        },
+        getPreferenceBoolean(key, defaultVal) {
+            var value;
+            if ((value = this.$route.query[key]) !== undefined || (localStorage && (value = localStorage.getItem(key)) !== null)) {
+                switch (String(value)) {
+                    case "true":
+                    case "1":
+                    case "on":
+                    case "yes":
+                        return true;
+                    default:
+                        return false;
+                }
+            } else return defaultVal;
+        },
+        getPreferenceString(key, defaultVal) {
+            var value;
+            if ((value = this.$route.query[key]) !== undefined || (localStorage && (value = localStorage.getItem(key)) !== null)) {
+                return value;
+            } else return defaultVal;
+        },
     },
     computed: {
         backgroundColor() {
-            return localStorage.getItem("theme") === "light" ? "#fff" : "#0b0e0f"
+            return this.getPreferenceString("theme", "dark") === "light" ? "#fff" : "#0b0e0f"
         },
         secondaryBackgroundColor() {
-            return localStorage.getItem("theme") === "light" ? "#e5e5e5" : "#242727"
+            return this.getPreferenceString("theme", "dark") === "light" ? "#e5e5e5" : "#242727"
         },
         foregroundColor() {
-            return localStorage.getItem("theme") === "light" ? "#15191a" : "#0b0e0f"
+            return this.getPreferenceString("theme", "dark") === "light" ? "#15191a" : "#0b0e0f"
         },
         secondaryForegroundColor() {
-            return localStorage.getItem("theme") === "light" ? "#666" : "#393d3d"
+            return this.getPreferenceString("theme", "dark") === "light" ? "#666" : "#393d3d"
         },
         darkMode() {
-            return localStorage.getItem('theme') !== 'light'
+            return this.getPreferenceString("theme", "dark") !== 'light'
         }
     }
 };
