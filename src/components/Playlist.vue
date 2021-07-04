@@ -14,7 +14,11 @@
             ></b
         >
 
-        <b class="uk-align-right">{{ playlist.videos }} Videos</b>
+        <div class="uk-align-right">
+            <b>{{ playlist.videos }} Videos</b>
+            <br />
+            <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
+        </div>
 
         <hr />
 
@@ -46,6 +50,11 @@ export default {
     },
     unmounted() {
         window.removeEventListener("scroll", this.handleScroll);
+    },
+    computed: {
+        getRssUrl: _this => {
+            return _this.apiUrl() + "/rss/playlists/" + _this.$route.query.list;
+        },
     },
     methods: {
         async fetchPlaylist() {
