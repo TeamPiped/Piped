@@ -5,7 +5,13 @@
             style="width: 100%; height: 100%; max-height: 75vh; min-height: 250px; background: #000"
             ref="container"
         >
-            <video data-shaka-player class="uk-width-expand" :autoplay="shouldAutoPlay" ref="videoEl"></video>
+            <video
+                data-shaka-player
+                class="uk-width-expand"
+                :autoplay="shouldAutoPlay"
+                :loop="selectedAutoLoop"
+                ref="videoEl"
+            ></video>
         </div>
     </div>
 </template>
@@ -21,6 +27,7 @@ export default {
         video: Object,
         sponsors: Object,
         selectedAutoPlay: Boolean,
+        selectedAutoLoop: Boolean,
     },
     computed: {
         shouldAutoPlay: _this => {
@@ -109,7 +116,7 @@ export default {
                 });
 
                 videoEl.addEventListener("ended", () => {
-                    if (this.selectedAutoPlay && this.video.relatedStreams.length > 0) {
+                    if (!this.selectedAutoLoop && this.selectedAutoPlay && this.video.relatedStreams.length > 0) {
                         const params = this.$route.query;
                         let url = this.video.relatedStreams[0].url;
                         const searchParams = new URLSearchParams();

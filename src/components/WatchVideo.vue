@@ -3,7 +3,13 @@
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
-            <Player ref="videoPlayer" :video="video" :sponsors="sponsors" :selectedAutoPlay="selectedAutoPlay" />
+            <Player
+                ref="videoPlayer"
+                :video="video"
+                :sponsors="sponsors"
+                :selectedAutoPlay="selectedAutoPlay"
+                :selectedAutoLoop="selectedAutoLoop"
+            />
             <h1 class="uk-text-bold">{{ video.title }}</h1>
 
             <div uk-grid>
@@ -48,6 +54,9 @@
 
         <hr />
 
+        <b>Loop this Video:</b>&nbsp;
+        <input class="uk-checkbox" v-model="selectedAutoLoop" @change="onChange($event)" type="checkbox" />
+        <br />
         <b>Auto Play next Video:</b>&nbsp;
         <input class="uk-checkbox" v-model="selectedAutoPlay" @change="onChange($event)" type="checkbox" />
 
@@ -118,6 +127,7 @@ export default {
                 title: "Loading...",
             },
             sponsors: null,
+            selectedAutoLoop: false,
             selectedAutoPlay: null,
             showDesc: true,
             comments: null,
