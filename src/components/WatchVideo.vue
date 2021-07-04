@@ -149,6 +149,7 @@ export default {
                 this.getVideoData();
                 this.getSponsors();
                 this.getComments();
+                window.scrollTo(0, 0);
             }
         },
     },
