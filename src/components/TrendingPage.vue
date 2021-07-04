@@ -34,11 +34,9 @@ export default {
     },
     methods: {
         async fetchTrending(region) {
-            let url = Constants.BASE_URL + "/trending";
-            if (region) {
-                url += "?region=" + region;
-            }
-            return await this.fetchJson(url);
+            return await this.fetchJson(Constants.BASE_URL + "/trending", {
+                region: region || "US",
+            });
         },
     },
     components: {
