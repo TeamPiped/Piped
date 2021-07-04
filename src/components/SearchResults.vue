@@ -67,8 +67,6 @@
 </template>
 
 <script>
-import Constants from "@/Constants.js";
-
 export default {
     data() {
         return {
@@ -100,7 +98,7 @@ export default {
     },
     methods: {
         async fetchResults() {
-            return await await this.fetchJson(Constants.BASE_URL + "/search", {
+            return await await this.fetchJson(this.apiUrl() + "/search", {
                 q: this.$route.query.search_query,
                 filter: this.selectedFilter,
             });
@@ -113,7 +111,7 @@ export default {
             if (this.loading || !this.results || !this.results.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(Constants.BASE_URL + "/nextpage/search", {
+                this.fetchJson(this.apiUrl() + "/nextpage/search", {
                     nextpage: this.results.nextpage,
                     q: this.$route.query.search_query,
                     filter: this.selectedFilter,

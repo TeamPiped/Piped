@@ -106,7 +106,6 @@
 </template>
 
 <script>
-import Constants from "@/Constants.js";
 import Player from "@/components/Player.vue";
 import VideoItem from "@/components/VideoItem.vue";
 import ErrorHandler from "@/components/ErrorHandler.vue";
@@ -145,10 +144,10 @@ export default {
     },
     methods: {
         fetchVideo() {
-            return this.fetchJson(Constants.BASE_URL + "/streams/" + this.getVideoId());
+            return this.fetchJson(this.apiUrl() + "/streams/" + this.getVideoId());
         },
         async fetchSponsors() {
-            return await this.fetchJson(Constants.BASE_URL + "/sponsors/" + this.getVideoId(), {
+            return await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
                 category:
                     '["' +
                     this.getPreferenceString("selectedSkip", "sponsor,interaction,selfpromo,music_offtopic").replaceAll(
@@ -159,7 +158,7 @@ export default {
             });
         },
         fetchComments() {
-            return this.fetchJson(Constants.BASE_URL + "/comments/" + this.getVideoId());
+            return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
         },
         onChange() {
             this.setPreference("autoplay", this.selectedAutoPlay);
@@ -195,7 +194,7 @@ export default {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
             if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(Constants.BASE_URL + "/nextpage/comments/" + this.getVideoId(), {
+                this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.getVideoId(), {
                     url: this.comments.nextpage,
                 }).then(json => {
                     this.comments.nextpage = json.nextpage;
