@@ -23,9 +23,8 @@ export default {
         selectedAutoPlay: Boolean,
     },
     computed: {
-        shouldAutoPlay: () => {
-            const value = localStorage.getItem("playerAutoPlay");
-            return value === null || value === "true";
+        shouldAutoPlay: _this => {
+            return _this.getPreferenceBoolean("playerAutoPlay", true);
         },
     },
     methods: {
@@ -80,7 +79,7 @@ export default {
 
                         localPlayer.configure(
                             "streaming.bufferingGoal",
-                            Math.max(Number(localStorage.getItem("bufferGoal")), 10),
+                            Math.max(this.getPreferenceNumber("bufferGoal", 10), 10),
                         );
 
                         this.setPlayerAttrs(localPlayer, videoEl, uri, shaka);
@@ -106,7 +105,7 @@ export default {
                 });
 
                 videoEl.addEventListener("volumechange", () => {
-                    if (localStorage) localStorage.setItem("volume", videoEl.volume);
+                    this.setPreference("volume", videoEl.volume);
                 });
 
                 videoEl.addEventListener("ended", () => {
@@ -155,7 +154,7 @@ export default {
             const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
             this.player.configure("manifest.disableVideo", disableVideo);
 
-            const quality = Number(localStorage.getItem("quality"));
+            const quality = this.getPreferenceNumber("quality", 0);
             const qualityConds = quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream);
             if (qualityConds) this.player.configure("abr.enabled", false);
 
@@ -186,7 +185,7 @@ export default {
                         subtitle.name,
                     );
                 });
-                if (localStorage) videoEl.volume = localStorage.getItem("volume") || 1;
+                videoEl.volume = this.getPreferenceNumber("volume", 1);
             });
         },
     },

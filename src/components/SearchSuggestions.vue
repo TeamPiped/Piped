@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import Constants from "@/Constants.js";
-
 export default {
     props: {
         searchText: String,
@@ -52,7 +50,7 @@ export default {
             }
         },
         async refreshSuggestions() {
-            this.searchSuggestions = await this.fetchJson(Constants.BASE_URL + "/suggestions", {
+            this.searchSuggestions = await this.fetchJson(this.apiUrl() + "/suggestions", {
                 query: this.searchText,
             });
             this.searchSuggestions.unshift(this.searchText);

@@ -115,6 +115,18 @@ const mixin = {
                 return value;
             } else return defaultVal;
         },
+        getPreferenceNumber(key, defaultVal) {
+            var value;
+            if (
+                (value = this.$route.query[key]) !== undefined ||
+                (localStorage && (value = localStorage.getItem(key)) !== null)
+            ) {
+                return Number(value);
+            } else return defaultVal;
+        },
+        apiUrl() {
+            return this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
+        },
     },
     computed: {
         backgroundColor() {

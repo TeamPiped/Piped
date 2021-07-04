@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import Constants from "@/Constants.js";
 import ErrorHandler from "@/components/ErrorHandler.vue";
 import VideoItem from "@/components/VideoItem.vue";
 
@@ -50,7 +49,7 @@ export default {
     },
     methods: {
         async fetchPlaylist() {
-            return await await this.fetchJson(Constants.BASE_URL + "/playlists/" + this.$route.query.list);
+            return await await this.fetchJson(this.apiUrl() + "/playlists/" + this.$route.query.list);
         },
         async getPlaylistData() {
             this.fetchPlaylist()
@@ -61,7 +60,7 @@ export default {
             if (this.loading || !this.playlist || !this.playlist.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(Constants.BASE_URL + "/nextpage/playlists/" + this.$route.query.list, {
+                this.fetchJson(this.apiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
                     nextpage: this.playlist.nextpage,
                 }).then(json => {
                     this.playlist.relatedStreams.concat(json.relatedStreams);

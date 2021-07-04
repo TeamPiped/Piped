@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import Constants from "@/Constants.js";
 import VideoItem from "@/components/VideoItem.vue";
 
 export default {
@@ -34,7 +33,7 @@ export default {
     },
     methods: {
         async fetchTrending(region) {
-            return await this.fetchJson(Constants.BASE_URL + "/trending", {
+            return await this.fetchJson(this.apiUrl() + "/trending", {
                 region: region || "US",
             });
         },
