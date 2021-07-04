@@ -28,11 +28,17 @@ export default {
     mounted() {
         document.title = "Trending - Piped";
 
-        this.fetchTrending().then(videos => (this.videos = videos));
+        let region = this.$route.query.region;
+
+        this.fetchTrending(region).then(videos => (this.videos = videos));
     },
     methods: {
-        async fetchTrending() {
-            return await this.fetchJson(Constants.BASE_URL + "/trending");
+        async fetchTrending(region) {
+            let url = Constants.BASE_URL + "/trending";
+            if (region) {
+                url += "?region=" + region;
+            }
+            return await this.fetchJson(url);
         },
     },
     components: {
