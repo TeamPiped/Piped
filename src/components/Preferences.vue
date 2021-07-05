@@ -34,6 +34,7 @@
     <b>Theme</b>
     <br />
     <select class="uk-select uk-width-auto" v-model="selectedTheme" @change="onChange($event)">
+        <option value="auto">Auto</option>
         <option value="dark">Dark</option>
         <option value="light">Light</option>
     </select>
