@@ -129,22 +129,29 @@ const mixin = {
         apiUrl() {
             return this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
         },
+        getEffectiveTheme() {
+            var theme = this.getPreferenceString("theme", "dark");
+            if (theme === "auto")
+                theme =
+                    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            return theme;
+        },
     },
     computed: {
         backgroundColor() {
-            return this.getPreferenceString("theme", "dark") === "light" ? "#fff" : "#0b0e0f";
+            return this.getEffectiveTheme() === "light" ? "#fff" : "#0b0e0f";
         },
         secondaryBackgroundColor() {
-            return this.getPreferenceString("theme", "dark") === "light" ? "#e5e5e5" : "#242727";
+            return this.getEffectiveTheme() === "light" ? "#e5e5e5" : "#242727";
         },
         foregroundColor() {
-            return this.getPreferenceString("theme", "dark") === "light" ? "#15191a" : "#0b0e0f";
+            return this.getEffectiveTheme() === "light" ? "#15191a" : "#0b0e0f";
         },
         secondaryForegroundColor() {
-            return this.getPreferenceString("theme", "dark") === "light" ? "#666" : "#393d3d";
+            return this.getEffectiveTheme() === "light" ? "#666" : "#393d3d";
         },
         darkMode() {
-            return this.getPreferenceString("theme", "dark") !== "light";
+            return this.getEffectiveTheme() !== "light";
         },
     },
 };
