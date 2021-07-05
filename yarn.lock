@@ -5813,10 +5813,10 @@ mute-stream@0.0.8:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
-mux.js@^5.11.3:
-  version "5.11.3"
-  resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-5.11.3.tgz#f452c97a6f245b91c8f2218e48fcd66aed80ddc2"
-  integrity sha512-wL7zb7CMthrTVhVFOKiU/HrWeNA9vbPNIIebhkFRz5g2nTDgBsQPsDoHYW8pk4sgHgY9wvuzrqlDvLkhdPPgrw==
+mux.js@^5.12.0:
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-5.12.0.tgz#798b41736b7294024739b74f7f54dbeba3e933c0"
+  integrity sha512-xDvaPG3lkMvUgPqppJPQ4GYc9bx/vriU1rHoT+Y35QG2/t/vWDZ8395zJtu+FDuE0WC/KmsUnCN9S7smURIp5Q==
   dependencies:
     "@babel/runtime" "^7.11.2"
 
