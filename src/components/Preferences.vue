@@ -56,6 +56,12 @@
     <b>Buffering Goal</b>
     <br />
     <input class="uk-input uk-width-auto" v-model="bufferingGoal" @change="onChange($event)" type="text" />
+    <br />
+    <b>Country Selection</b>
+    <br />
+    <select class="uk-select uk-width-auto" v-model="country" @change="onChange($event)">
+        <option :key="country.code" v-for="country in countryMap" :value="country.code">{{ country.name }}</option>
+    </select>
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -90,6 +96,7 @@
 </template>
 
 <script>
+import CountryMap from "@/utils/CountryMap.js";
 export default {
     data() {
         return {
@@ -108,6 +115,8 @@ export default {
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
             defaultQuality: 0,
             bufferingGoal: 10,
+            countryMap: CountryMap.COUNTRIES,
+            country: "US",
         };
     },
     mounted() {
@@ -136,7 +145,7 @@ export default {
             });
 
         if (localStorage) {
-            this.selectedInstance = localStorage.getItem("instance") || "https://pipedapi.kavin.rocks";
+            this.selectedInstance = this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
 
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
             if (localStorage.getItem("selectedSkip") !== null) {
@@ -174,6 +183,7 @@ export default {
             this.listen = this.getPreferenceBoolean("listen", false);
             this.defaultQuality = Number(localStorage.getItem("quality"));
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
+            this.country = this.getPreferenceString("region", "US");
         }
     },
     methods: {
@@ -200,6 +210,7 @@ export default {
                 localStorage.setItem("listen", this.listen);
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
+                localStorage.setItem("region", this.country);
 
                 if (shouldReload) window.location.reload();
             }
