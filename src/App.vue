@@ -5,7 +5,11 @@
         :class="{ 'uk-light': darkMode }"
     >
         <Navigation />
-        <router-view />
+        <router-view v-slot="{ Component }">
+            <keep-alive>
+                <component :key="$route.fullPath" :is="Component" />
+            </keep-alive>
+        </router-view>
 
         <div style="text-align: center">
             <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">

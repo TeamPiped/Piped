@@ -46,9 +46,11 @@ export default {
     },
     mounted() {
         this.getPlaylistData();
+    },
+    activated() {
         window.addEventListener("scroll", this.handleScroll);
     },
-    unmounted() {
+    deactivated() {
         window.removeEventListener("scroll", this.handleScroll);
     },
     computed: {

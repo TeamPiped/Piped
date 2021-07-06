@@ -134,21 +134,24 @@ export default {
         };
     },
     mounted() {
-        this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", true);
-        this.getVideoData();
+        this.getVideoData().then(() => {
+            console.log(this.video.title);
+            this.$refs.videoPlayer.loadVideo();
+        });
         this.getSponsors();
         this.getComments();
+    },
+    activated() {
+        this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", true);
+        if (this.video.duration) this.$refs.videoPlayer.loadVideo();
         window.addEventListener("scroll", this.handleScroll);
     },
-    unmounted() {
+    deactivated() {
         window.removeEventListener("scroll", this.handleScroll);
     },
     watch: {
         "$route.query.v": function(v) {
             if (v) {
-                this.getVideoData();
-                this.getSponsors();
-                this.getComments();
                 window.scrollTo(0, 0);
             }
         },
@@ -175,7 +178,7 @@ export default {
             this.setPreference("autoplay", this.selectedAutoPlay);
         },
         async getVideoData() {
-            this.fetchVideo()
+            await this.fetchVideo()
                 .then(data => {
                     this.video = data;
                 })
@@ -189,8 +192,6 @@ export default {
                                 .replaceAll("https://www.youtube.com", "")
                                 .replaceAll("\n", "<br>"),
                         );
-
-                        this.$refs.videoPlayer.loadVideo();
                     }
                 });
         },

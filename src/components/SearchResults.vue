@@ -86,9 +86,11 @@ export default {
     },
     mounted() {
         this.updateResults();
+    },
+    activated() {
         window.addEventListener("scroll", this.handleScroll);
     },
-    unmounted() {
+    deactivated() {
         window.removeEventListener("scroll", this.handleScroll);
     },
     watch: {
