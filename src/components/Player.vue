@@ -55,11 +55,13 @@ export default {
             streams.push(...this.video.audioStreams);
             streams.push(...this.video.videoStreams);
 
+            const MseSupport = window.MediaSource !== undefined;
+
             var uri;
 
             if (this.video.livestream) {
                 uri = this.video.hls;
-            } else if (this.video.audioStreams.length > 0) {
+            } else if (this.video.audioStreams.length > 0 && MseSupport) {
                 const dash = require("@/utils/DashUtils.js").default.generate_dash_file_from_formats(
                     streams,
                     this.video.duration,
@@ -67,7 +69,7 @@ export default {
 
                 uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
             } else {
-                uri = this.video.videoStreams[0].url;
+                uri = this.video.videoStreams.filter(stream => stream.codec == null)[0].url;
             }
 
             if (noPrevPlayer)
