@@ -105,7 +105,7 @@ export default {
                     if (this.sponsors && this.sponsors.segments) {
                         const time = videoEl.currentTime;
                         this.sponsors.segments.map(segment => {
-                            if (!segment.skipped) {
+                            if (!segment.skipped || this.selectedAutoLoop) {
                                 const end = segment.segment[1];
                                 if (time >= segment.segment[0] && time < end) {
                                     console.log("Skipped segment at " + time);
