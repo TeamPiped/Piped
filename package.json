@@ -14,7 +14,7 @@
         "@fortawesome/vue-fontawesome": "^3.0.0-4",
         "core-js": "^3.15.2",
         "css-loader": "^5.2.6",
-        "dompurify": "^2.2.9",
+        "dompurify": "^2.3.0",
         "hotkeys-js": "^3.8.7",
         "mux.js": "^5.12.0",
         "register-service-worker": "^1.7.1",
