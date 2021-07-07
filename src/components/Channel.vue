@@ -32,9 +32,11 @@ export default {
     },
     mounted() {
         this.getChannelData();
+    },
+    activated() {
         window.addEventListener("scroll", this.handleScroll);
     },
-    unmounted() {
+    deactivated() {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
