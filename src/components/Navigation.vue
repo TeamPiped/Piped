@@ -25,12 +25,6 @@
                 <li>
                     <router-link to="/preferences">Preferences</router-link>
                 </li>
-                <li>
-                    <router-link to="/login">Login</router-link>
-                </li>
-                <li>
-                    <router-link to="/feed">Feed</router-link>
-                </li>
             </ul>
         </div>
     </nav>
