@@ -93,11 +93,6 @@ export default {
     deactivated() {
         window.removeEventListener("scroll", this.handleScroll);
     },
-    watch: {
-        "$route.query.search_query": function(q) {
-            if (q) this.updateResults();
-        },
-    },
     methods: {
         async fetchResults() {
             return await await this.fetchJson(this.apiUrl() + "/search", {

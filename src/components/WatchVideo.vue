@@ -135,7 +135,6 @@ export default {
     },
     mounted() {
         this.getVideoData().then(() => {
-            console.log(this.video.title);
             this.$refs.videoPlayer.loadVideo();
         });
         this.getSponsors();
