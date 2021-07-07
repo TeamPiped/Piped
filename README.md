@@ -29,6 +29,7 @@ By using Piped, you can freely watch and listen to content freely without the fe
 -   [x] Search Suggestions
 -   [x] Livestreams support with a quality selector
 -   [x] PWA support
+-   [x] Support for IOS
 -   [x] Preferences saved locally
 -   [x] Multi-region loadbalancing
 -   [x] Performant by design, designed to handle 1000s of users concurrently
