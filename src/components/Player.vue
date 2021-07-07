@@ -29,6 +29,11 @@ export default {
         selectedAutoPlay: Boolean,
         selectedAutoLoop: Boolean,
     },
+    data() {
+        return {
+            player: null,
+        };
+    },
     computed: {
         shouldAutoPlay: _this => {
             return _this.getPreferenceBoolean("playerAutoPlay", true);
@@ -196,7 +201,7 @@ export default {
             });
         },
     },
-    mounted() {
+    activated() {
         import("hotkeys-js")
             .then(mod => mod.default)
             .then(hotkeys => {
@@ -239,13 +244,18 @@ export default {
                 });
             });
     },
-    beforeUnmount() {
+    deactivated() {
+        if (this.ui) {
+            this.ui.destroy();
+            this.ui = undefined;
+            this.player = undefined;
+        }
         if (this.player) {
             this.player.destroy();
             this.player = undefined;
-            this.ui = undefined;
         }
         if (this.hotkeys) this.hotkeys.unbind();
+        this.$refs.container.querySelectorAll("div").forEach(node => node.remove());
     },
 };
 </script>

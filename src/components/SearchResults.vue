@@ -86,15 +86,12 @@ export default {
     },
     mounted() {
         this.updateResults();
+    },
+    activated() {
         window.addEventListener("scroll", this.handleScroll);
     },
-    unmounted() {
+    deactivated() {
         window.removeEventListener("scroll", this.handleScroll);
-    },
-    watch: {
-        "$route.query.search_query": function(q) {
-            if (q) this.updateResults();
-        },
     },
     methods: {
         async fetchResults() {
