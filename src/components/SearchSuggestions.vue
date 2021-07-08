@@ -84,6 +84,7 @@ export default {
     width: 100%;
     box-sizing: border-box;
     padding: 5px 0;
+    z-index: 1;
 }
 .suggestion {
     padding: 4px 15px;
