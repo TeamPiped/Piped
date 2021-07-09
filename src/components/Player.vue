@@ -39,6 +39,9 @@ export default {
             return _this.getPreferenceBoolean("playerAutoPlay", true);
         },
     },
+    mounted() {
+        if (!this.shaka) this.shakaPromise = shaka.then(shaka => shaka.default).then(shaka => (this.shaka = shaka));
+    },
     methods: {
         loadVideo() {
             const component = this;
@@ -73,31 +76,28 @@ export default {
             }
 
             if (noPrevPlayer)
-                shaka
-                    .then(shaka => shaka.default)
-                    .then(shaka => {
-                        this.shaka = shaka;
-                        shaka.polyfill.installAll();
+                this.shakaPromise.then(() => {
+                    this.shaka.polyfill.installAll();
 
-                        const localPlayer = new shaka.Player(videoEl);
+                    const localPlayer = new this.shaka.Player(videoEl);
 
-                        localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
-                            const uri = request.uris[0];
-                            var url = new URL(uri);
-                            if (url.host.endsWith(".googlevideo.com")) {
-                                url.searchParams.set("host", url.host);
-                                url.host = new URL(component.video.proxyUrl).host;
-                                request.uris[0] = url.toString();
-                            }
-                        });
-
-                        localPlayer.configure(
-                            "streaming.bufferingGoal",
-                            Math.max(this.getPreferenceNumber("bufferGoal", 10), 10),
-                        );
-
-                        this.setPlayerAttrs(localPlayer, videoEl, uri, shaka);
+                    localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
+                        const uri = request.uris[0];
+                        var url = new URL(uri);
+                        if (url.host.endsWith(".googlevideo.com")) {
+                            url.searchParams.set("host", url.host);
+                            url.host = new URL(component.video.proxyUrl).host;
+                            request.uris[0] = url.toString();
+                        }
                     });
+
+                    localPlayer.configure(
+                        "streaming.bufferingGoal",
+                        Math.max(this.getPreferenceNumber("bufferGoal", 10), 10),
+                    );
+
+                    this.setPlayerAttrs(localPlayer, videoEl, uri, this.shaka);
+                });
             else this.setPlayerAttrs(this.player, videoEl, uri, this.shaka);
 
             if (noPrevPlayer) {
