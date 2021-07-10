@@ -150,7 +150,7 @@ export default {
                 this.ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
                 const config = {
-                    overflowMenuButtons: ["quality", "captions", "playback_rate"],
+                    overflowMenuButtons: ["quality", "captions", "picture_in_picture", "playback_rate"],
                     seekBarColors: {
                         base: "rgba(255, 255, 255, 0.3)",
                         buffered: "rgba(255, 255, 255, 0.54)",
