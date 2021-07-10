@@ -72,7 +72,7 @@ export default {
 
                 uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
             } else {
-                uri = this.video.videoStreams.filter(stream => stream.codec == null)[0].url;
+                uri = this.video.videoStreams.filter(stream => stream.codec == null).slice(-1)[0].url;
             }
 
             if (noPrevPlayer)
