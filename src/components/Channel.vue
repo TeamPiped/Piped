@@ -6,6 +6,16 @@
         <img v-if="channel.bannerUrl" v-bind:src="channel.bannerUrl" style="width: 100%" loading="lazy" />
         <p style="white-space: pre-wrap">{{ channel.description }}</p>
 
+        <button
+            v-if="authenticated"
+            @click="subscribeHandler"
+            class="uk-button uk-button-small"
+            style="background: #222"
+            type="button"
+        >
+            Subscribe
+        </button>
+
         <hr />
 
         <div class="uk-grid-xl" uk-grid="parallax: 0">
@@ -29,6 +39,11 @@ export default {
         return {
             channel: null,
         };
+    },
+    computed: {
+        authenticated(_this) {
+            return _this.getAuthToken() !== undefined;
+        },
     },
     mounted() {
         this.getChannelData();
@@ -64,6 +79,22 @@ export default {
                     json.relatedStreams.map(stream => this.channel.relatedStreams.push(stream));
                 });
             }
+        },
+        subscribeHandler() {
+            this.fetchJson(this.apiUrl() + "/subscribe", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    // channelId: this.channel.id,
+                }),
+                headers: {
+                    "Auth-Token": this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            }).then(resp => {
+                if (resp.status === "ok") {
+                    alert("Subscribed!");
+                }
+            });
         },
     },
     components: {

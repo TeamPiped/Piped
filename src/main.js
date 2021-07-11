@@ -136,6 +136,15 @@ const mixin = {
                     window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
             return theme;
         },
+        getAuthToken() {
+            return this.getPreferenceString("authToken" + this.hashCode(this.apiUrl()));
+        },
+        hashCode(s) {
+            return s.split("").reduce(function(a, b) {
+                a = (a << 5) - a + b.charCodeAt(0);
+                return a & a;
+            }, 0);
+        },
     },
     computed: {
         backgroundColor() {

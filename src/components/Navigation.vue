@@ -25,6 +25,12 @@
                 <li>
                     <router-link to="/preferences">Preferences</router-link>
                 </li>
+                <li v-if="shouldShowLogin">
+                    <router-link to="/login">Login</router-link>
+                </li>
+                <li v-if="shouldShowLogin">
+                    <router-link to="/register">Register</router-link>
+                </li>
             </ul>
         </div>
     </nav>
@@ -59,6 +65,11 @@ export default {
             searchText: "",
             suggestionsVisible: false,
         };
+    },
+    computed: {
+        shouldShowLogin(_this) {
+            return _this.getAuthToken() == null;
+        },
     },
     methods: {
         onKeyUp(e) {
