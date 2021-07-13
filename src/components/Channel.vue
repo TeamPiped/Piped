@@ -13,7 +13,7 @@
             style="background: #222"
             type="button"
         >
-            Subscribe
+            {{ subscribed ? "Unsubscribe" : "Subscribe" }}
         </button>
 
         <hr />
@@ -38,12 +38,8 @@ export default {
     data() {
         return {
             channel: null,
+            subscribed: false,
         };
-    },
-    computed: {
-        authenticated(_this) {
-            return _this.getAuthToken() !== undefined;
-        },
     },
     mounted() {
         this.getChannelData();
@@ -55,6 +51,21 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
+        async fetchSubscribedStatus() {
+            this.fetchJson(
+                this.apiUrl() + "/subscribed",
+                {
+                    channelId: this.channel.id,
+                },
+                {
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                },
+            ).then(json => {
+                this.subscribed = json.subscribed;
+            });
+        },
         async fetchChannel() {
             const url = this.apiUrl() + "/" + this.$route.params.path + "/" + this.$route.params.channelId;
             return await this.fetchJson(url);
@@ -63,7 +74,10 @@ export default {
             this.fetchChannel()
                 .then(data => (this.channel = data))
                 .then(() => {
-                    if (!this.channel.error) document.title = this.channel.name + " - Piped";
+                    if (!this.channel.error) {
+                        document.title = this.channel.name + " - Piped";
+                        if (this.authenticated) this.fetchSubscribedStatus();
+                    }
                 });
         },
         handleScroll() {
@@ -81,20 +95,17 @@ export default {
             }
         },
         subscribeHandler() {
-            this.fetchJson(this.apiUrl() + "/subscribe", null, {
+            this.fetchJson(this.apiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
                 method: "POST",
                 body: JSON.stringify({
-                    // channelId: this.channel.id,
+                    channelId: this.channel.id,
                 }),
                 headers: {
-                    "Auth-Token": this.getAuthToken(),
+                    Authorization: this.getAuthToken(),
                     "Content-Type": "application/json",
                 },
-            }).then(resp => {
-                if (resp.status === "ok") {
-                    alert("Subscribed!");
-                }
             });
+            this.subscribed = !this.subscribed;
         },
     },
     components: {

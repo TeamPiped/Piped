@@ -39,6 +39,11 @@ const routes = [
         name: "Register",
         component: () => import("../components/RegisterPage.vue"),
     },
+    {
+        path: "/feed",
+        name: "Feed",
+        component: () => import("../components/FeedPage.vue"),
+    },
 ];
 
 const router = createRouter({

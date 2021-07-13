@@ -34,6 +34,14 @@ import App from "./App.vue";
 
 import DOMPurify from "dompurify";
 
+import TimeAgo from "javascript-time-ago";
+
+import en from "javascript-time-ago/locale/en";
+
+TimeAgo.addDefaultLocale(en);
+
+const timeAgo = new TimeAgo("en-US");
+
 import("./registerServiceWorker");
 
 const mixin = {
@@ -145,6 +153,9 @@ const mixin = {
                 return a & a;
             }, 0);
         },
+        timeAgo(time) {
+            return timeAgo.format(time);
+        },
     },
     computed: {
         backgroundColor() {
@@ -161,6 +172,9 @@ const mixin = {
         },
         darkMode() {
             return this.getEffectiveTheme() !== "light";
+        },
+        authenticated(_this) {
+            return _this.getAuthToken() !== undefined;
         },
     },
 };
