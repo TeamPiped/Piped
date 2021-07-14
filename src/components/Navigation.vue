@@ -63,6 +63,7 @@ export default {
     methods: {
         onKeyUp(e) {
             if (e.key === "Enter") {
+                e.target.blur();
                 this.$router.push({
                     name: "SearchResults",
                     query: { search_query: this.searchText },
