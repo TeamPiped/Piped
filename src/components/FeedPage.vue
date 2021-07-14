@@ -1,6 +1,8 @@
 <template>
     <h1 class="uk-text-bold uk-text-center">Feed</h1>
 
+    <small>You can import subscriptions from <router-link to="/import">here</router-link>.</small>
+
     <hr />
 
     <div class="uk-grid-xl" uk-grid="parallax: 0">

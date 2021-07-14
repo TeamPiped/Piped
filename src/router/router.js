@@ -44,6 +44,11 @@ const routes = [
         name: "Feed",
         component: () => import("../components/FeedPage.vue"),
     },
+    {
+        path: "/import",
+        name: "Import",
+        component: () => import("../components/ImportPage.vue"),
+    },
 ];
 
 const router = createRouter({
