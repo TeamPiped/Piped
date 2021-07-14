@@ -13,7 +13,7 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.3",
         "@fortawesome/vue-fontawesome": "^3.0.0-4",
         "core-js": "^3.15.2",
-        "css-loader": "^5.2.6",
+        "css-loader": "^5.2.7",
         "dompurify": "^2.3.0",
         "hotkeys-js": "^3.8.7",
         "mux.js": "^5.12.1",
