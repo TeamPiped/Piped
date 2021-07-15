@@ -166,10 +166,18 @@ export default {
             this.player = player;
 
             const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
-            this.player.configure("manifest.disableVideo", disableVideo);
+
+            this.player.configure({
+                preferredVideoCodecs: ["av01", "vp9", "avc1"],
+                preferredAudioCodecs: ["opus", "mp4a"],
+                manifest: {
+                    disableVideo: disableVideo,
+                },
+            });
 
             const quality = this.getPreferenceNumber("quality", 0);
-            const qualityConds = quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream);
+            const qualityConds =
+                quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream) && !disableVideo;
             if (qualityConds) this.player.configure("abr.enabled", false);
 
             player.load(uri, 0, uri.indexOf("dash+xml") >= 0 ? "application/dash+xml" : "video/mp4").then(() => {
