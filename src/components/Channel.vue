@@ -6,6 +6,16 @@
         <img v-if="channel.bannerUrl" v-bind:src="channel.bannerUrl" style="width: 100%" loading="lazy" />
         <p style="white-space: pre-wrap">{{ channel.description }}</p>
 
+        <button
+            v-if="authenticated"
+            @click="subscribeHandler"
+            class="uk-button uk-button-small"
+            style="background: #222"
+            type="button"
+        >
+            {{ subscribed ? "Unsubscribe" : "Subscribe" }}
+        </button>
+
         <hr />
 
         <div class="uk-grid-xl" uk-grid="parallax: 0">
@@ -28,6 +38,7 @@ export default {
     data() {
         return {
             channel: null,
+            subscribed: false,
         };
     },
     mounted() {
@@ -40,6 +51,21 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
+        async fetchSubscribedStatus() {
+            this.fetchJson(
+                this.apiUrl() + "/subscribed",
+                {
+                    channelId: this.channel.id,
+                },
+                {
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                },
+            ).then(json => {
+                this.subscribed = json.subscribed;
+            });
+        },
         async fetchChannel() {
             const url = this.apiUrl() + "/" + this.$route.params.path + "/" + this.$route.params.channelId;
             return await this.fetchJson(url);
@@ -48,7 +74,10 @@ export default {
             this.fetchChannel()
                 .then(data => (this.channel = data))
                 .then(() => {
-                    if (!this.channel.error) document.title = this.channel.name + " - Piped";
+                    if (!this.channel.error) {
+                        document.title = this.channel.name + " - Piped";
+                        if (this.authenticated) this.fetchSubscribedStatus();
+                    }
                 });
         },
         handleScroll() {
@@ -64,6 +93,19 @@ export default {
                     json.relatedStreams.map(stream => this.channel.relatedStreams.push(stream));
                 });
             }
+        },
+        subscribeHandler() {
+            this.fetchJson(this.apiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
+                method: "POST",
+                body: JSON.stringify({
+                    channelId: this.channel.id,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+            this.subscribed = !this.subscribed;
         },
     },
     components: {

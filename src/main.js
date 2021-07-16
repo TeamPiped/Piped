@@ -34,6 +34,14 @@ import App from "./App.vue";
 
 import DOMPurify from "dompurify";
 
+import TimeAgo from "javascript-time-ago";
+
+import en from "javascript-time-ago/locale/en";
+
+TimeAgo.addDefaultLocale(en);
+
+const timeAgo = new TimeAgo("en-US");
+
 import("./registerServiceWorker");
 
 const mixin = {
@@ -136,6 +144,18 @@ const mixin = {
                     window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
             return theme;
         },
+        getAuthToken() {
+            return this.getPreferenceString("authToken" + this.hashCode(this.apiUrl()));
+        },
+        hashCode(s) {
+            return s.split("").reduce(function(a, b) {
+                a = (a << 5) - a + b.charCodeAt(0);
+                return a & a;
+            }, 0);
+        },
+        timeAgo(time) {
+            return timeAgo.format(time);
+        },
     },
     computed: {
         backgroundColor() {
@@ -152,6 +172,9 @@ const mixin = {
         },
         darkMode() {
             return this.getEffectiveTheme() !== "light";
+        },
+        authenticated(_this) {
+            return _this.getAuthToken() !== undefined;
         },
     },
 };

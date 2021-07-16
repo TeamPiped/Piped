@@ -29,6 +29,26 @@ const routes = [
         path: "/:path(channel|user|c)/:channelId/:videos?",
         component: () => import("../components/Channel.vue"),
     },
+    {
+        path: "/login",
+        name: "Login",
+        component: () => import("../components/LoginPage.vue"),
+    },
+    {
+        path: "/register",
+        name: "Register",
+        component: () => import("../components/RegisterPage.vue"),
+    },
+    {
+        path: "/feed",
+        name: "Feed",
+        component: () => import("../components/FeedPage.vue"),
+    },
+    {
+        path: "/import",
+        name: "Import",
+        component: () => import("../components/ImportPage.vue"),
+    },
 ];
 
 const router = createRouter({
