@@ -20,7 +20,7 @@
         "javascript-time-ago": "^2.3.8",
         "register-service-worker": "^1.7.1",
         "shaka-player": "3.2.0",
-        "uikit": "3.7.0",
+        "uikit": "3.7.1",
         "vue": "^3.1.4",
         "vue-router": "^4.0.10",
         "xml-js": "^1.6.11"
