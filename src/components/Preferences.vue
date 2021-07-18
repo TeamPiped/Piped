@@ -19,6 +19,10 @@
     <br />
     <input class="uk-checkbox" v-model="skipOutro" @change="onChange($event)" type="checkbox" />
     <br />
+    <b>Skip Preview/Recap</b>
+    <br />
+    <input class="uk-checkbox" v-model="skipPreview" @change="onChange($event)" type="checkbox" />
+    <br />
     <b>Skip Interaction Reminder (Subscribe)</b>
     <br />
     <input class="uk-checkbox" v-model="skipInteraction" @change="onChange($event)" type="checkbox" />
@@ -107,6 +111,7 @@ export default {
             skipSponsor: true,
             skipIntro: false,
             skipOutro: false,
+            skipPreview: false,
             skipInteraction: true,
             skipSelfPromo: true,
             skipMusicOffTopic: true,
@@ -151,7 +156,7 @@ export default {
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
             if (localStorage.getItem("selectedSkip") !== null) {
                 var skipList = localStorage.getItem("selectedSkip").split(",");
-                this.skipSponsor = this.skipIntro = this.skipOutro = this.skipInteraction = this.skipSelfPromo = this.skipMusicOffTopic = false;
+                this.skipSponsor = this.skipIntro = this.skipOutro = this.skipPreview = this.skipInteraction = this.skipSelfPromo = this.skipMusicOffTopic = false;
                 skipList.forEach(skip => {
                     switch (skip) {
                         case "sponsor":
@@ -162,6 +167,9 @@ export default {
                             break;
                         case "outro":
                             this.skipOutro = true;
+                            break;
+                        case "preview":
+                            this.skipPreview = true;
                             break;
                         case "interaction":
                             this.skipInteraction = true;
@@ -201,6 +209,7 @@ export default {
                 if (this.skipSponsor) sponsorSelected.push("sponsor");
                 if (this.skipIntro) sponsorSelected.push("intro");
                 if (this.skipOutro) sponsorSelected.push("outro");
+                if (this.skipPreview) sponsorSelected.push("preview");
                 if (this.skipInteraction) sponsorSelected.push("interaction");
                 if (this.skipSelfPromo) sponsorSelected.push("selfpromo");
                 if (this.skipMusicOffTopic) sponsorSelected.push("music_offtopic");
