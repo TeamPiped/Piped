@@ -67,6 +67,13 @@
     <select class="uk-select uk-width-auto" v-model="country" @change="onChange($event)">
         <option :key="country.code" v-for="country in countryMap" :value="country.code">{{ country.name }}</option>
     </select>
+    <br />
+    <b>Default Homepage</b>
+    <br />
+    <select class="uk-select uk-width-auto" v-model="defaultHomepage" @change="onChange($event)">
+        <option value="trending">Trending</option>
+        <option value="feed">Feed</option>
+    </select>
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -123,6 +130,7 @@ export default {
             bufferingGoal: 10,
             countryMap: CountryMap.COUNTRIES,
             country: "US",
+            defaultHomepage: "trending",
         };
     },
     mounted() {
@@ -193,6 +201,7 @@ export default {
             this.defaultQuality = Number(localStorage.getItem("quality"));
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
             this.country = this.getPreferenceString("region", "US");
+            this.defaultHomepage = this.getPreferenceString("homepage", "trending");
         }
     },
     methods: {
@@ -221,6 +230,7 @@ export default {
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
                 localStorage.setItem("region", this.country);
+                localStorage.setItem("homepage", this.defaultHomepage);
 
                 if (shouldReload) window.location.reload();
             }
