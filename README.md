@@ -18,6 +18,8 @@ By using Piped, you can freely watch and listen to content freely without the fe
 -   [x] No Ads
 -   [x] No Tracking
 -   [x] Infinite Scrolling
+-   [x] Login
+-   [x] Feeds
 -   [x] Integration with SponsorBlock
 -   [x] Integration with LBRY
 -   [x] 4K support
@@ -36,8 +38,6 @@ By using Piped, you can freely watch and listen to content freely without the fe
 
 ## WIP
 
--   [ ] Login
--   [ ] Feeds
 -   [ ] 8K support
 -   [ ] Improving UI
 
@@ -53,7 +53,12 @@ The documentation can be found at https://piped-docs.kavin.rocks (accessible via
 
 ## Donations
 
-Donations can be made at 13MoHioctZkC7LDSZSb4m32TDT8xNmei1p (BTC)
+Donations can be made at:
+
+-   bc1qhq8zjxmu405nvp37njj6zv3s980zg400pu9jfe (BTC)
+-   0x1D77D4cfB1a947514241bcf19B1F04738495e2fD (ETH)
+-   8A5Up8rKgagVAz6TuUduBqHp518H1U6fYc6GqCfWsaEfjGzbSccfYpgMqp5d4oe5Ws5MuFE1iKmhQTadhMhvuk3bHRT5Ebk (XMR, aka Monero)
+-   nano_1ngejzydncche4rdua3iebhj7sa95pw5geq4pb8phugtjf3tku933ktjb4pq (Nano)
 
 Contributions in any other form are also welcomed.
 
