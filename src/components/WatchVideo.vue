@@ -150,7 +150,7 @@ export default {
             this.$refs.videoPlayer.loadVideo();
         });
         this.getSponsors();
-        this.getComments();
+        if (this.getPreferenceBoolean("comments", true)) this.getComments();
     },
     activated() {
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", true);
