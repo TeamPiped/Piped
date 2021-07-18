@@ -74,6 +74,10 @@
         <option value="trending">Trending</option>
         <option value="feed">Feed</option>
     </select>
+    <br />
+    <b>Show Comments</b>
+    <br />
+    <input class="uk-checkbox" v-model="showComments" @change="onChange($event)" type="checkbox" />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -131,6 +135,7 @@ export default {
             countryMap: CountryMap.COUNTRIES,
             country: "US",
             defaultHomepage: "trending",
+            showComments: true,
         };
     },
     mounted() {
@@ -202,6 +207,7 @@ export default {
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
             this.country = this.getPreferenceString("region", "US");
             this.defaultHomepage = this.getPreferenceString("homepage", "trending");
+            this.showComments = this.getPreferenceBoolean("comments", true);
         }
     },
     methods: {
@@ -231,6 +237,7 @@ export default {
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
                 localStorage.setItem("region", this.country);
                 localStorage.setItem("homepage", this.defaultHomepage);
+                localStorage.setItem("comments", this.showComments);
 
                 if (shouldReload) window.location.reload();
             }
