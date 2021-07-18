@@ -11,7 +11,7 @@
                 :selectedAutoLoop="selectedAutoLoop"
             />
             <div class="uk-text-bold uk-margin-small-top uk-text-large uk-text-emphasis">{{ video.title }}</div>
-            
+
             <div class="uk-flex uk-flex-middle">
                 <div class="uk-margin-small-right">{{ addCommas(video.views) }} views</div>
                 <div class="uk-margin-small-right">{{ video.uploadDate }}</div>
@@ -24,7 +24,11 @@
                     <font-awesome-icon class="uk-margin-small-right" icon="thumbs-down"></font-awesome-icon>
                     <b>{{ addCommas(video.dislikes) }}</b>
                 </div>
-                <a :href="'https://youtu.be/' + getVideoId()" class="uk-margin-small-left uk-button uk-button-small" style="background: #222">
+                <a
+                    :href="'https://youtu.be/' + getVideoId()"
+                    class="uk-margin-small-left uk-button uk-button-small"
+                    style="background: #222"
+                >
                     <font-awesome-icon class="uk-margin-small-right" :icon="['fab', 'youtube']"></font-awesome-icon>
                     <b>Watch on</b>
                 </a>
@@ -53,7 +57,9 @@
                 {{ showDesc ? "Minimize Description" : "Show Description" }}
             </a>
             <p v-show="showDesc" :style="[{ colour: foregroundColor }]" v-html="video.description"></p>
-            <div v-if="showDesc && sponsors && sponsors.segments">Sponsors Segments: {{ sponsors.segments.length }}</div>
+            <div v-if="showDesc && sponsors && sponsors.segments">
+                Sponsors Segments: {{ sponsors.segments.length }}
+            </div>
         </div>
 
         <hr />
@@ -190,7 +196,7 @@ export default {
                 .then(() => {
                     if (!this.video.error) {
                         document.title = this.video.title + " - Piped";
-                        this.channelId = this.video.uploaderUrl.split('/')[2];
+                        this.channelId = this.video.uploaderUrl.split("/")[2];
                         this.fetchSubscribedStatus();
 
                         this.video.description = this.purifyHTML(
@@ -215,7 +221,7 @@ export default {
             this.fetchJson(
                 this.apiUrl() + "/subscribed",
                 {
-                    channelId: this.channelId
+                    channelId: this.channelId,
                 },
                 {
                     headers: {
