@@ -10,47 +10,57 @@
                 :selectedAutoPlay="selectedAutoPlay"
                 :selectedAutoLoop="selectedAutoLoop"
             />
-            <h1 class="uk-text-bold">{{ video.title }}</h1>
+            <div class="uk-text-bold uk-margin-small-top uk-text-large uk-text-emphasis">{{ video.title }}</div>
 
-            <div uk-grid>
-                <div class="uk-width-1-2 uk-text-left">
-                    <img :src="video.uploaderAvatar" loading="lazy" />
-                    <router-link class="uk-text-bold" v-if="video.uploaderUrl" :to="video.uploaderUrl">
-                        <a>{{ video.uploader }}</a>
-                    </router-link>
-
-                    <div :style="[{ colour: foregroundColor }]">
-                        <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
-                        <b>{{ addCommas(video.likes) }}</b>
-                        &nbsp;
-                        <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
-                        <b>{{ addCommas(video.dislikes) }}</b>
-                    </div>
-                    <div>
-                        <font-awesome-icon icon="eye"></font-awesome-icon>
-                        <b>{{ addCommas(video.views) }}</b> views
-                    </div>
-                    <div>
-                        Uploaded on <b>{{ video.uploadDate }}</b>
-                    </div>
+            <div class="uk-flex uk-flex-middle">
+                <div class="uk-margin-small-right">{{ addCommas(video.views) }} views</div>
+                <div class="uk-margin-small-right">{{ video.uploadDate }}</div>
+                <div class="uk-flex-1"></div>
+                <div class="uk-margin-small-left">
+                    <font-awesome-icon class="uk-margin-small-right" icon="thumbs-up"></font-awesome-icon>
+                    <b>{{ addCommas(video.likes) }}</b>
                 </div>
-
-                <div class="uk-width-1-2 uk-text-right">
-                    <a :href="'https://youtu.be/' + getVideoId()"
-                        >Watch on <font-awesome-icon :icon="['fab', 'youtube']"></font-awesome-icon
-                    ></a>
+                <div class="uk-margin-small-left">
+                    <font-awesome-icon class="uk-margin-small-right" icon="thumbs-down"></font-awesome-icon>
+                    <b>{{ addCommas(video.dislikes) }}</b>
                 </div>
+                <a
+                    :href="'https://youtu.be/' + getVideoId()"
+                    class="uk-margin-small-left uk-button uk-button-small"
+                    style="background: #222"
+                >
+                    <font-awesome-icon class="uk-margin-small-right" :icon="['fab', 'youtube']"></font-awesome-icon>
+                    <b>Watch on</b>
+                </a>
+            </div>
+
+            <div class="uk-flex uk-flex-middle uk-margin-small-top">
+                <img :src="video.uploaderAvatar" loading="lazy" />
+                <router-link class="uk-text-bold uk-margin-small-left" v-if="video.uploaderUrl" :to="video.uploaderUrl">
+                    <a>{{ video.uploader }}</a>
+                </router-link>
+                <div class="uk-flex-1"></div>
+                <button
+                    v-if="authenticated"
+                    @click="subscribeHandler"
+                    class="uk-button uk-button-small"
+                    style="background: #222"
+                    type="button"
+                >
+                    {{ subscribed ? "Unsubscribe" : "Subscribe" }}
+                </button>
             </div>
 
             <hr />
 
             <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
-                {{ showDesc ? "+" : "-" }}
+                {{ showDesc ? "Minimize Description" : "Show Description" }}
             </a>
             <p v-show="showDesc" :style="[{ colour: foregroundColor }]" v-html="video.description"></p>
+            <div v-if="showDesc && sponsors && sponsors.segments">
+                Sponsors Segments: {{ sponsors.segments.length }}
+            </div>
         </div>
-
-        <a v-if="sponsors && sponsors.segments">Sponsors Segments: {{ sponsors.segments.length }}</a>
 
         <hr />
 
@@ -131,6 +141,8 @@ export default {
             selectedAutoPlay: null,
             showDesc: true,
             comments: null,
+            subscribed: false,
+            channelId: null,
         };
     },
     mounted() {
@@ -184,6 +196,8 @@ export default {
                 .then(() => {
                     if (!this.video.error) {
                         document.title = this.video.title + " - Piped";
+                        this.channelId = this.video.uploaderUrl.split("/")[2];
+                        this.fetchSubscribedStatus();
 
                         this.video.description = this.purifyHTML(
                             this.video.description
@@ -200,6 +214,36 @@ export default {
         },
         async getComments() {
             this.fetchComments().then(data => (this.comments = data));
+        },
+        async fetchSubscribedStatus() {
+            if (!this.channelId) return;
+
+            this.fetchJson(
+                this.apiUrl() + "/subscribed",
+                {
+                    channelId: this.channelId,
+                },
+                {
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                },
+            ).then(json => {
+                this.subscribed = json.subscribed;
+            });
+        },
+        subscribeHandler() {
+            this.fetchJson(this.apiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
+                method: "POST",
+                body: JSON.stringify({
+                    channelId: this.channelId,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+            this.subscribed = !this.subscribed;
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
