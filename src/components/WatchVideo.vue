@@ -63,7 +63,7 @@
         <hr />
 
         <div uk-grid>
-            <div class="uk-width-4-5@xl uk-width-3-4@l uk-width-2-3" v-if="comments" ref="comments">
+            <div class="uk-width-4-5@xl uk-width-3-4@l uk-width-1" v-if="comments" ref="comments">
                 <div
                     class="uk-tile-default uk-align-left uk-width-expand"
                     :style="[{ background: backgroundColor }]"
@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="uk-width-1-5@xl uk-width-1-4@l uk-width-1-3" v-if="video">
+            <div class="uk-width-1-5@xl uk-width-1-4@l uk-width-1 uk-flex-last@l uk-flex-first" v-if="video">
                 <div
                     class="uk-tile-default uk-width-auto"
                     :style="[{ background: backgroundColor }]"
