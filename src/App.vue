@@ -16,9 +16,9 @@
                 <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             </a>
             &nbsp;
-            <a href="bitcoin://13MoHioctZkC7LDSZSb4m32TDT8xNmei1p">
+            <a href="https://github.com/TeamPiped/Piped#donations">
                 <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
-                13MoHioctZkC7LDSZSb4m32TDT8xNmei1p
+                Donations
             </a>
         </div>
     </div>
