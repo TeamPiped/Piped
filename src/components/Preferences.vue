@@ -1,5 +1,9 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">Preferences</h1>
+    <div class="uk-flex uk-flex-between uk-flex-middle">
+        <router-link class="uk-button uk-button-text" to="/"><font-awesome-icon icon="chevron-left" /> &nbsp;Back</router-link>
+        <span><h1 class="uk-text-bold uk-text-center">Preferences</h1></span>
+        <span />
+    </div>
     <hr />
     <h2>SponsorBlock</h2>
     <p>Uses the API from <a href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
