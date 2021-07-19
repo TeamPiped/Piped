@@ -33,7 +33,7 @@
         "@vue/compiler-sfc": "^3.1.5",
         "babel-eslint": "^10.1.0",
         "eslint": "^7.31.0",
-        "eslint-plugin-vue": "^7.13.0"
+        "eslint-plugin-vue": "^7.14.0"
     },
     "eslintConfig": {
         "root": true,
