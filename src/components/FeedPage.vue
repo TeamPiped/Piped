@@ -3,6 +3,10 @@
 
     <small>You can import subscriptions from <router-link to="/import">here</router-link>.</small>
 
+    <div class="uk-align-right">
+        <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
+    </div>
+
     <hr />
 
     <div class="uk-grid-xl" uk-grid="parallax: 0">
@@ -68,6 +72,11 @@ export default {
             return await this.fetchJson(this.apiUrl() + "/feed", {
                 authToken: this.getAuthToken(),
             });
+        },
+    },
+    computed: {
+        getRssUrl(_this) {
+            return _this.apiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
         },
     },
 };
