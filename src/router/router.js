@@ -23,10 +23,12 @@ const routes = [
     },
     {
         path: "/:path(v|w|embed|shorts|watch)/:v?",
+        name: "WatchVideo",
         component: () => import("../components/WatchVideo.vue"),
     },
     {
         path: "/:path(channel|user|c)/:channelId/:videos?",
+        name: "Channel",
         component: () => import("../components/Channel.vue"),
     },
     {
@@ -48,6 +50,10 @@ const routes = [
         path: "/import",
         name: "Import",
         component: () => import("../components/ImportPage.vue"),
+    },
+    {
+        path: "/:videoId([a-zA-Z0-9_-]{11})",
+        component: () => import("../components/VideoRedirect.vue"),
     },
 ];
 
