@@ -20,60 +20,60 @@
 
 <script>
 export default {
-    props: {
-        searchText: String,
+  props: {
+    searchText: String
+  },
+  data () {
+    return {
+      selected: 0,
+      searchSuggestions: []
+    }
+  },
+  methods: {
+    onKeyUp (e) {
+      if (e.key === 'ArrowUp') {
+        if (this.selected <= 0) {
+          this.setSelected(this.searchSuggestions.length - 1)
+        } else {
+          this.setSelected(this.selected - 1)
+        }
+        e.preventDefault()
+      } else if (e.key === 'ArrowDown') {
+        if (this.selected >= this.searchSuggestions.length - 1) {
+          this.setSelected(0)
+        } else {
+          this.setSelected(this.selected + 1)
+        }
+        e.preventDefault()
+      } else {
+        this.refreshSuggestions()
+      }
     },
-    data() {
-        return {
-            selected: 0,
-            searchSuggestions: [],
-        };
+    async refreshSuggestions () {
+      this.searchSuggestions = await this.fetchJson(this.apiUrl() + '/suggestions', {
+        query: this.searchText
+      })
+      this.searchSuggestions.unshift(this.searchText)
+      this.setSelected(0)
     },
-    methods: {
-        onKeyUp(e) {
-            if (e.key === "ArrowUp") {
-                if (this.selected <= 0) {
-                    this.setSelected(this.searchSuggestions.length - 1);
-                } else {
-                    this.setSelected(this.selected - 1);
-                }
-                e.preventDefault();
-            } else if (e.key === "ArrowDown") {
-                if (this.selected >= this.searchSuggestions.length - 1) {
-                    this.setSelected(0);
-                } else {
-                    this.setSelected(this.selected + 1);
-                }
-                e.preventDefault();
-            } else {
-                this.refreshSuggestions();
-            }
-        },
-        async refreshSuggestions() {
-            this.searchSuggestions = await this.fetchJson(this.apiUrl() + "/suggestions", {
-                query: this.searchText,
-            });
-            this.searchSuggestions.unshift(this.searchText);
-            this.setSelected(0);
-        },
-        onMouseOver(i) {
-            if (i !== this.selected) {
-                this.selected = i;
-            }
-        },
-        onClick(i) {
-            this.setSelected(i);
-            this.$router.push({
-                name: "SearchResults",
-                query: { search_query: this.searchSuggestions[i] },
-            });
-        },
-        setSelected(val) {
-            this.selected = val;
-            this.$emit("searchchange", this.searchSuggestions[this.selected]);
-        },
+    onMouseOver (i) {
+      if (i !== this.selected) {
+        this.selected = i
+      }
     },
-};
+    onClick (i) {
+      this.setSelected(i)
+      this.$router.push({
+        name: 'SearchResults',
+        query: { search_query: this.searchSuggestions[i] }
+      })
+    },
+    setSelected (val) {
+      this.selected = val
+      this.$emit('searchchange', this.searchSuggestions[this.selected])
+    }
+  }
+}
 </script>
 
 <style>

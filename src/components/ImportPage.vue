@@ -59,71 +59,71 @@
 
 <script>
 export default {
-    data() {
-        return {
-            subscriptions: [],
-        };
-    },
-    computed: {
-        selectedSubscriptions() {
-            return this.subscriptions.length;
-        },
-    },
-    activated() {
-        if (!this.authenticated) this.$router.push("/login");
-    },
-    methods: {
-        fileChange() {
-            this.$refs.fileSelector.files[0].text().then(text => {
-                this.subscriptions = [];
+  data () {
+    return {
+      subscriptions: []
+    }
+  },
+  computed: {
+    selectedSubscriptions () {
+      return this.subscriptions.length
+    }
+  },
+  activated () {
+    if (!this.authenticated) this.$router.push('/login')
+  },
+  methods: {
+    fileChange () {
+      this.$refs.fileSelector.files[0].text().then(text => {
+        this.subscriptions = []
 
-                // Invidious
-                if (text.indexOf("opml") != -1) {
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(text, "text/xml");
-                    xmlDoc.querySelectorAll("outline[xmlUrl]").forEach(item => {
-                        const url = item.getAttribute("xmlUrl");
-                        const id = url.substr(-24);
-                        this.subscriptions.push(id);
-                    });
-                }
-                // NewPipe
-                if (text.indexOf("app_version") != -1) {
-                    const json = JSON.parse(text);
-                    json.subscriptions
-                        .filter(item => item.service_id == 0)
-                        .forEach(item => {
-                            const url = item.url;
-                            const id = url.substr(-24);
-                            this.subscriptions.push(id);
-                        });
-                }
-                // Invidious JSON
-                if (text.indexOf("thin_mode") != -1) {
-                    const json = JSON.parse(text);
-                    this.subscriptions = json.subscriptions;
-                }
-                // Google Takeout
-                if (text.indexOf("contentDetails") != -1) {
-                    const json = JSON.parse(text);
-                    json.forEach(item => {
-                        const id = item.snippet.resourceId.channelId;
-                        this.subscriptions.push(id);
-                    });
-                }
-            });
-        },
-        handleImport() {
-            this.fetchJson(this.apiUrl() + "/import", null, {
-                method: "POST",
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-                body: JSON.stringify(this.subscriptions),
-            }).then(json => {
-                if (json.message === "ok") window.location = "/feed";
-            });
-        },
+        // Invidious
+        if (text.indexOf('opml') !== -1) {
+          const parser = new DOMParser()
+          const xmlDoc = parser.parseFromString(text, 'text/xml')
+          xmlDoc.querySelectorAll('outline[xmlUrl]').forEach(item => {
+            const url = item.getAttribute('xmlUrl')
+            const id = url.substr(-24)
+            this.subscriptions.push(id)
+          })
+        }
+        // NewPipe
+        if (text.indexOf('app_version') !== -1) {
+          const json = JSON.parse(text)
+          json.subscriptions
+            .filter(item => item.service_id === 0)
+            .forEach(item => {
+              const url = item.url
+              const id = url.substr(-24)
+              this.subscriptions.push(id)
+            })
+        }
+        // Invidious JSON
+        if (text.indexOf('thin_mode') !== -1) {
+          const json = JSON.parse(text)
+          this.subscriptions = json.subscriptions
+        }
+        // Google Takeout
+        if (text.indexOf('contentDetails') !== -1) {
+          const json = JSON.parse(text)
+          json.forEach(item => {
+            const id = item.snippet.resourceId.channelId
+            this.subscriptions.push(id)
+          })
+        }
+      })
     },
-};
+    handleImport () {
+      this.fetchJson(this.apiUrl() + '/import', null, {
+        method: 'POST',
+        headers: {
+          Authorization: this.getAuthToken()
+        },
+        body: JSON.stringify(this.subscriptions)
+      }).then(json => {
+        if (json.message === 'ok') window.location = '/feed'
+      })
+    }
+  }
+}
 </script>

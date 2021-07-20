@@ -57,48 +57,48 @@
 </template>
 
 <script>
-import SearchSuggestions from "@/components/SearchSuggestions";
+import SearchSuggestions from '@/components/SearchSuggestions'
 
 export default {
-    components: {
-        SearchSuggestions,
+  components: {
+    SearchSuggestions
+  },
+  data () {
+    return {
+      searchText: '',
+      suggestionsVisible: false
+    }
+  },
+  computed: {
+    shouldShowLogin (_this) {
+      return _this.getAuthToken() == null
+    }
+  },
+  methods: {
+    onKeyUp (e) {
+      if (e.key === 'Enter') {
+        e.target.blur()
+        this.$router.push({
+          name: 'SearchResults',
+          query: { search_query: this.searchText }
+        })
+        return
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        e.preventDefault()
+      }
+      this.$refs.searchSuggestions.onKeyUp(e)
     },
-    data() {
-        return {
-            searchText: "",
-            suggestionsVisible: false,
-        };
+    onInputFocus () {
+      this.suggestionsVisible = true
     },
-    computed: {
-        shouldShowLogin(_this) {
-            return _this.getAuthToken() == null;
-        },
+    onInputBlur () {
+      this.suggestionsVisible = false
     },
-    methods: {
-        onKeyUp(e) {
-            if (e.key === "Enter") {
-                e.target.blur();
-                this.$router.push({
-                    name: "SearchResults",
-                    query: { search_query: this.searchText },
-                });
-                return;
-            } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-                e.preventDefault();
-            }
-            this.$refs.searchSuggestions.onKeyUp(e);
-        },
-        onInputFocus() {
-            this.suggestionsVisible = true;
-        },
-        onInputBlur() {
-            this.suggestionsVisible = false;
-        },
-        onSearchTextChange(searchText) {
-            this.searchText = searchText;
-        },
-    },
-};
+    onSearchTextChange (searchText) {
+      this.searchText = searchText
+    }
+  }
+}
 </script>
 
 <style></style>

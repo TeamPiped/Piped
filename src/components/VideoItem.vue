@@ -45,11 +45,11 @@
 
 <script>
 export default {
-    props: {
-        video: Object,
-        height: String,
-        width: String,
-        hideChannel: Boolean,
-    },
-};
+  props: {
+    video: Object,
+    height: String,
+    width: String,
+    hideChannel: Boolean
+  }
+}
 </script>

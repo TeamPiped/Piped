@@ -4,56 +4,56 @@ const routes = [
   {
     path: '/',
     name: 'Trending',
-    component: () => import('@/components/TrendingPage.vue')
+    component: () => import('@/components/TrendingPage')
   },
   {
     path: '/preferences',
     name: 'Preferences',
-    component: () => import('@/components/Preferences.vue')
+    component: () => import('@/components/Preferences')
   },
   {
     path: '/results',
     name: 'SearchResults',
-    component: () => import('@/components/SearchResults.vue')
+    component: () => import('@/components/SearchResults')
   },
   {
     path: '/playlist',
     name: 'Playlist',
-    component: () => import('@/components/Playlist.vue')
+    component: () => import('@/components/Playlist')
   },
   {
     path: '/:path(v|w|embed|shorts|watch)/:v?',
     name: 'WatchVideo',
-    component: () => import('@/components/WatchVideo.vue')
+    component: () => import('@/components/WatchVideo')
   },
   {
     path: '/:path(channel|user|c)/:channelId/:videos?',
     name: 'Channel',
-    component: () => import('@/components/Channel.vue')
+    component: () => import('@/components/Channel')
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/components/LoginPage.vue')
+    component: () => import('@/components/LoginPage')
   },
   {
     path: '/register',
     name: 'Register',
-    component: () => import('@/components/RegisterPage.vue')
+    component: () => import('@/components/RegisterPage')
   },
   {
     path: '/feed',
     name: 'Feed',
-    component: () => import('@/components/FeedPage.vue')
+    component: () => import('@/components/FeedPage')
   },
   {
     path: '/import',
     name: 'Import',
-    component: () => import('@/components/ImportPage.vue')
+    component: () => import('@/components/ImportPage')
   },
   {
     path: '/:videoId([a-zA-Z0-9_-]{11})',
-    component: () => import('@/components/VideoRedirect.vue')
+    component: () => import('@/components/VideoRedirect')
   }
 ]
 

@@ -35,56 +35,56 @@
 </template>
 
 <script>
-import ErrorHandler from "@/components/ErrorHandler.vue";
-import VideoItem from "@/components/VideoItem.vue";
+import ErrorHandler from '@/components/ErrorHandler.vue'
+import VideoItem from '@/components/VideoItem.vue'
 
 export default {
-    data() {
-        return {
-            playlist: null,
-        };
+  data () {
+    return {
+      playlist: null
+    }
+  },
+  mounted () {
+    this.getPlaylistData()
+  },
+  activated () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  computed: {
+    getRssUrl: _this => {
+      return _this.apiUrl() + '/rss/playlists/' + _this.$route.query.list
+    }
+  },
+  methods: {
+    async fetchPlaylist () {
+      return await await this.fetchJson(this.apiUrl() + '/playlists/' + this.$route.query.list)
     },
-    mounted() {
-        this.getPlaylistData();
+    async getPlaylistData () {
+      this.fetchPlaylist()
+        .then(data => (this.playlist = data))
+        .then(() => (document.title = this.playlist.name + ' - Piped'))
     },
-    activated() {
-        window.addEventListener("scroll", this.handleScroll);
-    },
-    deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    computed: {
-        getRssUrl: _this => {
-            return _this.apiUrl() + "/rss/playlists/" + _this.$route.query.list;
-        },
-    },
-    methods: {
-        async fetchPlaylist() {
-            return await await this.fetchJson(this.apiUrl() + "/playlists/" + this.$route.query.list);
-        },
-        async getPlaylistData() {
-            this.fetchPlaylist()
-                .then(data => (this.playlist = data))
-                .then(() => (document.title = this.playlist.name + " - Piped"));
-        },
-        handleScroll() {
-            if (this.loading || !this.playlist || !this.playlist.nextpage) return;
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
-                this.loading = true;
-                this.fetchJson(this.apiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
-                    nextpage: this.playlist.nextpage,
-                }).then(json => {
-                    this.playlist.relatedStreams.concat(json.relatedStreams);
-                    this.playlist.nextpage = json.nextpage;
-                    this.loading = false;
-                    json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
-                });
-            }
-        },
-    },
-    components: {
-        ErrorHandler,
-        VideoItem,
-    },
-};
+    handleScroll () {
+      if (this.loading || !this.playlist || !this.playlist.nextpage) return
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+        this.loading = true
+        this.fetchJson(this.apiUrl() + '/nextpage/playlists/' + this.$route.query.list, {
+          nextpage: this.playlist.nextpage
+        }).then(json => {
+          this.playlist.relatedStreams.concat(json.relatedStreams)
+          this.playlist.nextpage = json.nextpage
+          this.loading = false
+          json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream))
+        })
+      }
+    }
+  },
+  components: {
+    ErrorHandler,
+    VideoItem
+  }
+}
 </script>

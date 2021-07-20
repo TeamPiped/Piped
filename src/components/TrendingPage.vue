@@ -16,30 +16,30 @@
 </template>
 
 <script>
-import VideoItem from "@/components/VideoItem.vue";
+import VideoItem from '@/components/VideoItem.vue'
 
 export default {
-    data() {
-        return {
-            videos: [],
-        };
-    },
-    mounted() {
-        document.title = "Trending - Piped";
+  data () {
+    return {
+      videos: []
+    }
+  },
+  mounted () {
+    document.title = 'Trending - Piped'
 
-        let region = this.getPreferenceString("region", "US");
+    const region = this.getPreferenceString('region', 'US')
 
-        this.fetchTrending(region).then(videos => (this.videos = videos));
-    },
-    methods: {
-        async fetchTrending(region) {
-            return await this.fetchJson(this.apiUrl() + "/trending", {
-                region: region || "US",
-            });
-        },
-    },
-    components: {
-        VideoItem,
-    },
-};
+    this.fetchTrending(region).then(videos => (this.videos = videos))
+  },
+  methods: {
+    async fetchTrending (region) {
+      return await this.fetchJson(this.apiUrl() + '/trending', {
+        region: region || 'US'
+      })
+    }
+  },
+  components: {
+    VideoItem
+  }
+}
 </script>

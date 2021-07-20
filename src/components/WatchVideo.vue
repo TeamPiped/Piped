@@ -125,147 +125,146 @@
 </template>
 
 <script>
-import Player from "@/components/Player.vue";
-import VideoItem from "@/components/VideoItem.vue";
-import ErrorHandler from "@/components/ErrorHandler.vue";
+import Player from '@/components/Player.vue'
+import VideoItem from '@/components/VideoItem.vue'
+import ErrorHandler from '@/components/ErrorHandler.vue'
 
 export default {
-    name: "App",
-    data() {
-        return {
-            video: {
-                title: "Loading...",
-            },
-            sponsors: null,
-            selectedAutoLoop: false,
-            selectedAutoPlay: null,
-            showDesc: true,
-            comments: null,
-            subscribed: false,
-            channelId: null,
-        };
+  name: 'App',
+  data () {
+    return {
+      video: {
+        title: 'Loading...'
+      },
+      sponsors: null,
+      selectedAutoLoop: false,
+      selectedAutoPlay: null,
+      showDesc: true,
+      comments: null,
+      subscribed: false,
+      channelId: null
+    }
+  },
+  mounted () {
+    this.getVideoData().then(() => {
+      this.$refs.videoPlayer.loadVideo()
+    })
+    this.getSponsors()
+    if (this.getPreferenceBoolean('comments', true)) this.getComments()
+  },
+  activated () {
+    this.selectedAutoPlay = this.getPreferenceBoolean('autoplay', true)
+    if (this.video.duration) this.$refs.videoPlayer.loadVideo()
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  watch: {
+    '$route.query.v': function (v) {
+      if (v) {
+        window.scrollTo(0, 0)
+      }
+    }
+  },
+  methods: {
+    fetchVideo () {
+      return this.fetchJson(this.apiUrl() + '/streams/' + this.getVideoId())
     },
-    mounted() {
-        this.getVideoData().then(() => {
-            this.$refs.videoPlayer.loadVideo();
-        });
-        this.getSponsors();
-        if (this.getPreferenceBoolean("comments", true)) this.getComments();
-    },
-    activated() {
-        this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", true);
-        if (this.video.duration) this.$refs.videoPlayer.loadVideo();
-        window.addEventListener("scroll", this.handleScroll);
-    },
-    deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    watch: {
-        "$route.query.v": function(v) {
-            if (v) {
-                window.scrollTo(0, 0);
-            }
-        },
-    },
-    methods: {
-        fetchVideo() {
-            return this.fetchJson(this.apiUrl() + "/streams/" + this.getVideoId());
-        },
-        async fetchSponsors() {
-            return await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
-                category:
+    async fetchSponsors () {
+      return await this.fetchJson(this.apiUrl() + '/sponsors/' + this.getVideoId(), {
+        category:
                     '["' +
-                    this.getPreferenceString("selectedSkip", "sponsor,interaction,selfpromo,music_offtopic").replaceAll(
-                        ",",
-                        '","',
+                    this.getPreferenceString('selectedSkip', 'sponsor,interaction,selfpromo,music_offtopic').replaceAll(
+                      ',',
+                      '","'
                     ) +
-                    '"]',
-            });
-        },
-        fetchComments() {
-            return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
-        },
-        onChange() {
-            this.setPreference("autoplay", this.selectedAutoPlay);
-        },
-        async getVideoData() {
-            await this.fetchVideo()
-                .then(data => {
-                    this.video = data;
-                })
-                .then(() => {
-                    if (!this.video.error) {
-                        document.title = this.video.title + " - Piped";
-                        this.channelId = this.video.uploaderUrl.split("/")[2];
-                        this.fetchSubscribedStatus();
-
-                        this.video.description = this.purifyHTML(
-                            this.video.description
-                                .replaceAll("http://www.youtube.com", "")
-                                .replaceAll("https://www.youtube.com", "")
-                                .replaceAll("\n", "<br>"),
-                        );
-                    }
-                });
-        },
-        async getSponsors() {
-            if (this.getPreferenceBoolean("sponsorblock", true))
-                this.fetchSponsors().then(data => (this.sponsors = data));
-        },
-        async getComments() {
-            this.fetchComments().then(data => (this.comments = data));
-        },
-        async fetchSubscribedStatus() {
-            if (!this.channelId) return;
-
-            this.fetchJson(
-                this.apiUrl() + "/subscribed",
-                {
-                    channelId: this.channelId,
-                },
-                {
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                    },
-                },
-            ).then(json => {
-                this.subscribed = json.subscribed;
-            });
-        },
-        subscribeHandler() {
-            this.fetchJson(this.apiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                method: "POST",
-                body: JSON.stringify({
-                    channelId: this.channelId,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            });
-            this.subscribed = !this.subscribed;
-        },
-        handleScroll() {
-            if (this.loading || !this.comments || !this.comments.nextpage) return;
-            if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
-                this.loading = true;
-                this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.getVideoId(), {
-                    url: this.comments.nextpage,
-                }).then(json => {
-                    this.comments.nextpage = json.nextpage;
-                    this.loading = false;
-                    json.comments.map(comment => this.comments.comments.push(comment));
-                });
-            }
-        },
-        getVideoId() {
-            return this.$route.query.v || this.$route.params.v;
-        },
+                    '"]'
+      })
     },
-    components: {
-        Player,
-        VideoItem,
-        ErrorHandler,
+    fetchComments () {
+      return this.fetchJson(this.apiUrl() + '/comments/' + this.getVideoId())
     },
-};
+    onChange () {
+      this.setPreference('autoplay', this.selectedAutoPlay)
+    },
+    async getVideoData () {
+      await this.fetchVideo()
+        .then(data => {
+          this.video = data
+        })
+        .then(() => {
+          if (!this.video.error) {
+            document.title = this.video.title + ' - Piped'
+            this.channelId = this.video.uploaderUrl.split('/')[2]
+            this.fetchSubscribedStatus()
+
+            this.video.description = this.purifyHTML(
+              this.video.description
+                .replaceAll('http://www.youtube.com', '')
+                .replaceAll('https://www.youtube.com', '')
+                .replaceAll('\n', '<br>')
+            )
+          }
+        })
+    },
+    async getSponsors () {
+      if (this.getPreferenceBoolean('sponsorblock', true)) { this.fetchSponsors().then(data => (this.sponsors = data)) }
+    },
+    async getComments () {
+      this.fetchComments().then(data => (this.comments = data))
+    },
+    async fetchSubscribedStatus () {
+      if (!this.channelId) return
+
+      this.fetchJson(
+        this.apiUrl() + '/subscribed',
+        {
+          channelId: this.channelId
+        },
+        {
+          headers: {
+            Authorization: this.getAuthToken()
+          }
+        }
+      ).then(json => {
+        this.subscribed = json.subscribed
+      })
+    },
+    subscribeHandler () {
+      this.fetchJson(this.apiUrl() + (this.subscribed ? '/unsubscribe' : '/subscribe'), null, {
+        method: 'POST',
+        body: JSON.stringify({
+          channelId: this.channelId
+        }),
+        headers: {
+          Authorization: this.getAuthToken(),
+          'Content-Type': 'application/json'
+        }
+      })
+      this.subscribed = !this.subscribed
+    },
+    handleScroll () {
+      if (this.loading || !this.comments || !this.comments.nextpage) return
+      if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
+        this.loading = true
+        this.fetchJson(this.apiUrl() + '/nextpage/comments/' + this.getVideoId(), {
+          url: this.comments.nextpage
+        }).then(json => {
+          this.comments.nextpage = json.nextpage
+          this.loading = false
+          json.comments.map(comment => this.comments.comments.push(comment))
+        })
+      }
+    },
+    getVideoId () {
+      return this.$route.query.v || this.$route.params.v
+    }
+  },
+  components: {
+    Player,
+    VideoItem,
+    ErrorHandler
+  }
+}
 </script>

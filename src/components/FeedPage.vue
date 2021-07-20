@@ -57,27 +57,27 @@
 
 <script>
 export default {
-    data() {
-        return {
-            videos: [],
-        };
-    },
-    mounted() {
-        document.title = "Feed - Piped";
+  data () {
+    return {
+      videos: []
+    }
+  },
+  mounted () {
+    document.title = 'Feed - Piped'
 
-        this.fetchFeed().then(videos => (this.videos = videos));
-    },
-    methods: {
-        async fetchFeed() {
-            return await this.fetchJson(this.apiUrl() + "/feed", {
-                authToken: this.getAuthToken(),
-            });
-        },
-    },
-    computed: {
-        getRssUrl(_this) {
-            return _this.apiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
-        },
-    },
-};
+    this.fetchFeed().then(videos => (this.videos = videos))
+  },
+  methods: {
+    async fetchFeed () {
+      return await this.fetchJson(this.apiUrl() + '/feed', {
+        authToken: this.getAuthToken()
+      })
+    }
+  },
+  computed: {
+    getRssUrl (_this) {
+      return _this.apiUrl() + '/feed/rss?authToken=' + _this.getAuthToken()
+    }
+  }
+}
 </script>

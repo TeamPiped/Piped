@@ -68,58 +68,58 @@
 
 <script>
 export default {
-    data() {
-        return {
-            results: null,
-            availableFilters: [
-                "all",
-                "videos",
-                "channels",
-                "playlists",
-                "music_songs",
-                "music_videos",
-                "music_albums",
-                "music_playlists",
-            ],
-            selectedFilter: "all",
-        };
+  data () {
+    return {
+      results: null,
+      availableFilters: [
+        'all',
+        'videos',
+        'channels',
+        'playlists',
+        'music_songs',
+        'music_videos',
+        'music_albums',
+        'music_playlists'
+      ],
+      selectedFilter: 'all'
+    }
+  },
+  mounted () {
+    this.updateResults()
+  },
+  activated () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    async fetchResults () {
+      return await await this.fetchJson(this.apiUrl() + '/search', {
+        q: this.$route.query.search_query,
+        filter: this.selectedFilter
+      })
     },
-    mounted() {
-        this.updateResults();
+    async updateResults () {
+      document.title = this.$route.query.search_query + ' - Piped'
+      this.results = this.fetchResults().then(json => (this.results = json))
     },
-    activated() {
-        window.addEventListener("scroll", this.handleScroll);
-    },
-    deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    methods: {
-        async fetchResults() {
-            return await await this.fetchJson(this.apiUrl() + "/search", {
-                q: this.$route.query.search_query,
-                filter: this.selectedFilter,
-            });
-        },
-        async updateResults() {
-            document.title = this.$route.query.search_query + " - Piped";
-            this.results = this.fetchResults().then(json => (this.results = json));
-        },
-        handleScroll() {
-            if (this.loading || !this.results || !this.results.nextpage) return;
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
-                this.loading = true;
-                this.fetchJson(this.apiUrl() + "/nextpage/search", {
-                    nextpage: this.results.nextpage,
-                    q: this.$route.query.search_query,
-                    filter: this.selectedFilter,
-                }).then(json => {
-                    this.results.nextpage = json.nextpage;
-                    this.results.id = json.id;
-                    this.loading = false;
-                    json.items.map(stream => this.results.items.push(stream));
-                });
-            }
-        },
-    },
-};
+    handleScroll () {
+      if (this.loading || !this.results || !this.results.nextpage) return
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+        this.loading = true
+        this.fetchJson(this.apiUrl() + '/nextpage/search', {
+          nextpage: this.results.nextpage,
+          q: this.$route.query.search_query,
+          filter: this.selectedFilter
+        }).then(json => {
+          this.results.nextpage = json.nextpage
+          this.results.id = json.id
+          this.loading = false
+          json.items.map(stream => this.results.items.push(stream))
+        })
+      }
+    }
+  }
+}
 </script>

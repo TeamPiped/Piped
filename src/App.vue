@@ -36,7 +36,7 @@ export default {
         case 'trending':
           break
         case 'feed':
-          this.$router.push('/feed')
+          this.$router.replace('/feed')
           break
         default:
           break

@@ -33,34 +33,34 @@
 
 <script>
 export default {
-    data() {
-        return {
-            username: null,
-            password: null,
-        };
-    },
-    mounted() {
-        //TODO: Add Server Side check
-        if (this.getAuthToken()) {
-            this.$router.push("/");
-        }
-    },
-    methods: {
-        register() {
-            console.log("authToken" + this.hashCode(this.apiUrl()));
-            this.fetchJson(this.apiUrl() + "/register", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    username: this.username,
-                    password: this.password,
-                }),
-            }).then(resp => {
-                if (resp.token) {
-                    this.setPreference("authToken" + this.hashCode(this.apiUrl()), resp.token);
-                    window.location = "/"; // done to bypass cache
-                } else alert(resp.error);
-            });
-        },
-    },
-};
+  data () {
+    return {
+      username: null,
+      password: null
+    }
+  },
+  mounted () {
+    // TODO: Add Server Side check
+    if (this.getAuthToken()) {
+      this.$router.push('/')
+    }
+  },
+  methods: {
+    register () {
+      console.log('authToken' + this.hashCode(this.apiUrl()))
+      this.fetchJson(this.apiUrl() + '/register', null, {
+        method: 'POST',
+        body: JSON.stringify({
+          username: this.username,
+          password: this.password
+        })
+      }).then(resp => {
+        if (resp.token) {
+          this.setPreference('authToken' + this.hashCode(this.apiUrl()), resp.token)
+          window.location = '/' // done to bypass cache
+        } else alert(resp.error)
+      })
+    }
+  }
+}
 </script>

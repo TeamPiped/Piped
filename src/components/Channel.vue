@@ -31,86 +31,86 @@
 </template>
 
 <script>
-import ErrorHandler from "@/components/ErrorHandler.vue";
-import VideoItem from "@/components/VideoItem.vue";
+import ErrorHandler from '@/components/ErrorHandler.vue'
+import VideoItem from '@/components/VideoItem.vue'
 
 export default {
-    data() {
-        return {
-            channel: null,
-            subscribed: false,
-        };
-    },
-    mounted() {
-        this.getChannelData();
-    },
-    activated() {
-        window.addEventListener("scroll", this.handleScroll);
-    },
-    deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    methods: {
-        async fetchSubscribedStatus() {
-            this.fetchJson(
-                this.apiUrl() + "/subscribed",
-                {
-                    channelId: this.channel.id,
-                },
-                {
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                    },
-                },
-            ).then(json => {
-                this.subscribed = json.subscribed;
-            });
+  data () {
+    return {
+      channel: null,
+      subscribed: false
+    }
+  },
+  mounted () {
+    this.getChannelData()
+  },
+  activated () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    async fetchSubscribedStatus () {
+      this.fetchJson(
+        this.apiUrl() + '/subscribed',
+        {
+          channelId: this.channel.id
         },
-        async fetchChannel() {
-            const url = this.apiUrl() + "/" + this.$route.params.path + "/" + this.$route.params.channelId;
-            return await this.fetchJson(url);
-        },
-        async getChannelData() {
-            this.fetchChannel()
-                .then(data => (this.channel = data))
-                .then(() => {
-                    if (!this.channel.error) {
-                        document.title = this.channel.name + " - Piped";
-                        if (this.authenticated) this.fetchSubscribedStatus();
-                    }
-                });
-        },
-        handleScroll() {
-            if (this.loading || !this.channel || !this.channel.nextpage) return;
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
-                this.loading = true;
-                this.fetchJson(this.apiUrl() + "/nextpage/channel/" + this.channel.id, {
-                    nextpage: this.channel.nextpage,
-                }).then(json => {
-                    this.channel.relatedStreams.concat(json.relatedStreams);
-                    this.channel.nextpage = json.nextpage;
-                    this.loading = false;
-                    json.relatedStreams.map(stream => this.channel.relatedStreams.push(stream));
-                });
-            }
-        },
-        subscribeHandler() {
-            this.fetchJson(this.apiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                method: "POST",
-                body: JSON.stringify({
-                    channelId: this.channel.id,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            });
-            this.subscribed = !this.subscribed;
-        },
+        {
+          headers: {
+            Authorization: this.getAuthToken()
+          }
+        }
+      ).then(json => {
+        this.subscribed = json.subscribed
+      })
     },
-    components: {
-        ErrorHandler,
-        VideoItem,
+    async fetchChannel () {
+      const url = this.apiUrl() + '/' + this.$route.params.path + '/' + this.$route.params.channelId
+      return await this.fetchJson(url)
     },
-};
+    async getChannelData () {
+      this.fetchChannel()
+        .then(data => (this.channel = data))
+        .then(() => {
+          if (!this.channel.error) {
+            document.title = this.channel.name + ' - Piped'
+            if (this.authenticated) this.fetchSubscribedStatus()
+          }
+        })
+    },
+    handleScroll () {
+      if (this.loading || !this.channel || !this.channel.nextpage) return
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+        this.loading = true
+        this.fetchJson(this.apiUrl() + '/nextpage/channel/' + this.channel.id, {
+          nextpage: this.channel.nextpage
+        }).then(json => {
+          this.channel.relatedStreams.concat(json.relatedStreams)
+          this.channel.nextpage = json.nextpage
+          this.loading = false
+          json.relatedStreams.map(stream => this.channel.relatedStreams.push(stream))
+        })
+      }
+    },
+    subscribeHandler () {
+      this.fetchJson(this.apiUrl() + (this.subscribed ? '/unsubscribe' : '/subscribe'), null, {
+        method: 'POST',
+        body: JSON.stringify({
+          channelId: this.channel.id
+        }),
+        headers: {
+          Authorization: this.getAuthToken(),
+          'Content-Type': 'application/json'
+        }
+      })
+      this.subscribed = !this.subscribed
+    }
+  },
+  components: {
+    ErrorHandler,
+    VideoItem
+  }
+}
 </script>
