@@ -9,6 +9,7 @@ import {
     faHeart,
     faHeadphones,
     faRss,
+    faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -24,6 +25,7 @@ library.add(
     faHeadphones,
     faYoutube,
     faRss,
+    faChevronLeft
 );
 
 import("uikit/dist/css/uikit-core.css");
