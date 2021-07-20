@@ -1,14 +1,21 @@
 <template>
     <div class="uk-text-secondary" :style="[{ background: backgroundColor }]">
         <router-link class="uk-text-emphasis" v-bind:to="video.url">
-            <img
-                :height="height"
-                :width="width"
-                style="width: 100%"
-                v-bind:src="video.thumbnail"
-                alt="thumbnail"
-                loading="lazy"
-            />
+            <div class="uk-position-relative">
+                <img
+                    :height="height"
+                    :width="width"
+                    style="width: 100%"
+                    v-bind:src="video.thumbnail"
+                    alt="thumbnail"
+                    loading="lazy"
+                />
+                <span 
+                    v-if="video.duration"
+                    class="uk-label uk-border-rounded uk-position-absolute uk-dark" 
+                    style="bottom: 5px; right: 5px; opacity: .95;"
+                    >{{ timeFormat(video.duration) }}</span>
+            </div>
             <p>{{ video.title }}</p>
         </router-link>
 
@@ -32,10 +39,6 @@
             </div>
         </b>
         <div class="uk-align-right">
-            <b class="uk-text-small">{{ timeFormat(video.duration) }}</b>
-
-            <br />
-
             <router-link :to="video.url + '&listen=1'">
                 <font-awesome-icon icon="headphones"></font-awesome-icon>
             </router-link>

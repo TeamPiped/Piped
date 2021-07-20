@@ -27,7 +27,14 @@
         >
             <div class="uk-text-secondary">
                 <router-link class="uk-text-emphasis" v-bind:to="result.url">
-                    <img style="width: 100%" v-bind:src="result.thumbnail" loading="lazy" />
+                    <div class="uk-position-relative">
+                        <img style="width: 100%" v-bind:src="result.thumbnail" loading="lazy" />
+                        <span 
+                            v-if="result.duration"
+                            class="uk-label uk-border-rounded uk-position-absolute uk-dark" 
+                            style="bottom: 5px; right: 5px; opacity: .95;"
+                            >{{ timeFormat(result.duration) }}</span>
+                    </div>
                     <p>
                         {{ result.name }}&thinsp;<font-awesome-icon
                             v-if="result.verified"
@@ -44,9 +51,6 @@
                         ></font-awesome-icon>
                     </p>
                 </router-link>
-                <b v-if="result.duration" class="uk-text-small uk-align-right uk-text-align-right">
-                    {{ timeFormat(result.duration) }}
-                </b>
 
                 <b v-if="result.uploadDate">
                     {{ result.uploadDate }}
