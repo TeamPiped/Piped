@@ -167,13 +167,16 @@ export default {
 
             const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
 
+            var preferedVideoCodecs = this.getPreferedVideoCodecs();
+
             this.player.configure({
-                preferredVideoCodecs: ["av01", "vp9", "avc1"],
+                preferredVideoCodecs: preferedVideoCodecs,
                 preferredAudioCodecs: ["opus", "mp4a"],
                 manifest: {
                     disableVideo: disableVideo,
                 },
             });
+
 
             const quality = this.getPreferenceNumber("quality", 0);
             const qualityConds =
@@ -210,6 +213,42 @@ export default {
                 videoEl.volume = this.getPreferenceNumber("volume", 1);
             });
         },
+        checkBrowserVideoMP4Support() {
+            var testEl = document.createElement("video");
+            if ( testEl.canPlayType ) {
+                // Check for MPEG-4 support
+                var av01 = "" !== testEl.canPlayType( 'video/mp4; codecs="av01"' );
+                var vp9 = "" !== testEl.canPlayType( 'video/mp4; codecs="vp9"' );
+                var avc1 = "" !== testEl.canPlayType( 'video/mp4; codecs="avc1"' );
+
+                this.setPreference("SupportsVideoMP4av01", av01);
+                this.setPreference("SupportsVideoMP4vp9", vp9);
+                this.setPreference("SupportsVideoMP4avc1", avc1);
+            }
+        },
+        getPreferedVideoCodecs() {
+            var preferedVideoCodecs = [];
+
+            // First check if need to set local storage params
+            if (this.getPreferenceBoolean("SupportsVideoMP4av01", "notPresent") === "notPresent" || 
+                this.getPreferenceBoolean("SupportsVideoMP4vp9", "notPresent") === "notPresent" || 
+                this.getPreferenceBoolean("SupportsVideoMP4avc1", "notPresent") === "notPresent") {
+                this.checkBrowserVideoMP4Support();
+            }
+    
+            // Populate array with supported codecs
+            if (this.getPreferenceBoolean("SupportsVideoMP4av01")) {
+                preferedVideoCodecs.push("av01");
+            }
+            if (this.getPreferenceBoolean("SupportsVideoMP4vp9")) {
+                preferedVideoCodecs.push("vp9");
+            }
+            if (this.getPreferenceBoolean("SupportsVideoMP4avc1")) {
+                preferedVideoCodecs.push("avc1");
+            }
+
+            return preferedVideoCodecs;
+        }
     },
     activated() {
         import("hotkeys-js")
