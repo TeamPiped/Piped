@@ -143,21 +143,24 @@ export default {
             comments: null,
             subscribed: false,
             channelId: null,
+            active: true,
         };
     },
     mounted() {
         this.getVideoData().then(() => {
-            this.$refs.videoPlayer.loadVideo();
+            if (this.active) this.$refs.videoPlayer.loadVideo();
         });
         this.getSponsors();
         if (this.getPreferenceBoolean("comments", true)) this.getComments();
     },
     activated() {
+        this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", true);
         if (this.video.duration) this.$refs.videoPlayer.loadVideo();
         window.addEventListener("scroll", this.handleScroll);
     },
     deactivated() {
+        this.active = false;
         window.removeEventListener("scroll", this.handleScroll);
     },
     watch: {
