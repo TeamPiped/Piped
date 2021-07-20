@@ -25,24 +25,25 @@
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
+import Navigation from '@/components/Navigation'
 export default {
-    components: {
-        Navigation,
-    },
-    mounted() {
-        if (window.location.pathname === "/" || window.location.pathname.length == 0)
-            switch (this.getPreferenceString("homepage", "trending")) {
-                case "trending":
-                    break;
-                case "feed":
-                    this.$router.push("/feed");
-                    return;
-                default:
-                    break;
-            }
-    },
-};
+  components: {
+    Navigation
+  },
+  mounted () {
+    if (window.location.pathname === '/' || window.location.pathname.length == 0) {
+      switch (this.getPreferenceString('homepage', 'trending')) {
+        case 'trending':
+          break
+        case 'feed':
+          this.$router.push('/feed')
+          break
+        default:
+          break
+      }
+    }
+  }
+}
 </script>
 
 <style>
