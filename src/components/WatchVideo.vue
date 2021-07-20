@@ -216,7 +216,7 @@ export default {
             this.fetchComments().then(data => (this.comments = data));
         },
         async fetchSubscribedStatus() {
-            if (!this.channelId) return;
+            if (!this.channelId || !this.authenticated) return;
 
             this.fetchJson(
                 this.apiUrl() + "/subscribed",
