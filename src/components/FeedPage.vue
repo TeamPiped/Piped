@@ -63,8 +63,6 @@ export default {
         };
     },
     mounted() {
-        document.title = "Feed - Piped";
-
         this.fetchFeed().then(videos => (this.videos = videos));
     },
     methods: {

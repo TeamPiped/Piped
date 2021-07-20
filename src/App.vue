@@ -30,6 +30,22 @@ export default {
     components: {
         Navigation,
     },
+    watch: {
+        $route: {
+            immediate: true,
+            handler(to) {
+                switch(to.path) {
+                    case "/feed":
+                        document.title = "Feed - Piped";
+                        break;
+                    case "/":
+                        document.title = "Trending - Piped";
+                        break;
+                    default:
+                } 
+            }
+        },
+    },
     mounted() {
         if (window.location.pathname === "/" || window.location.pathname.length == 0)
             switch (this.getPreferenceString("homepage", "trending")) {
