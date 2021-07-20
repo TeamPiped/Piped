@@ -1,62 +1,68 @@
 {
-    "name": "piped",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint"
+  "name": "piped",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^3.0.0-4",
+    "@mdi/font": "5.9.55",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.1.0",
+    "dompurify": "^2.3.0",
+    "hotkeys-js": "^3.8.7",
+    "javascript-time-ago": "^2.3.8",
+    "lodash-es": "^4.17.21",
+    "mux.js": "^5.12.2",
+    "register-service-worker": "^1.7.1",
+    "roboto-fontface": "*",
+    "shaka-player": "3.2.0",
+    "uikit": "3.7.1",
+    "vue": "^3.1.5",
+    "vue-router": "^4.0.10",
+    "vuetify": "^3.0.0-alpha.0",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-plugin-pwa": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/compiler-sfc": "^3.1.5",
+    "@vue/eslint-config-standard": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.31.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-vue": "^7.14.0",
+    "sass": "~1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.4.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
     },
-    "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.35",
-        "@fortawesome/free-brands-svg-icons": "^5.15.3",
-        "@fortawesome/free-solid-svg-icons": "^5.15.3",
-        "@fortawesome/vue-fontawesome": "^3.0.0-4",
-        "core-js": "^3.15.2",
-        "css-loader": "^6.1.0",
-        "dompurify": "^2.3.0",
-        "hotkeys-js": "^3.8.7",
-        "javascript-time-ago": "^2.3.8",
-        "lodash-es": "^4.17.21",
-        "mux.js": "^5.12.2",
-        "register-service-worker": "^1.7.1",
-        "shaka-player": "3.2.0",
-        "uikit": "3.7.1",
-        "vue": "^3.1.5",
-        "vue-router": "^4.0.10",
-        "xml-js": "^1.6.11"
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "@vue/standard"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
     },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "^4.5.13",
-        "@vue/cli-plugin-eslint": "^4.5.13",
-        "@vue/cli-plugin-pwa": "^4.5.13",
-        "@vue/cli-service": "^4.5.13",
-        "@vue/compiler-sfc": "^3.1.5",
-        "@vue/eslint-config-standard": "^6.0.0",
-        "babel-eslint": "^10.1.0",
-        "eslint": "^7.31.0",
-        "eslint-config-standard": "^16.0.3",
-        "eslint-plugin-import": "^2.23.4",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-promise": "^5.1.0",
-        "eslint-plugin-vue": "^7.14.0"
-    },
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/vue3-essential",
-            "@vue/standard"
-        ],
-        "parserOptions": {
-            "parser": "babel-eslint"
-        },
-        "rules": {}
-    },
-    "browserslist": [
-        "> 1% in IN",
-        "> 1% in US"
-    ]
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1% in IN",
+    "> 1% in US"
+  ]
 }

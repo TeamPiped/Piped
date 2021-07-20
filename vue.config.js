@@ -15,5 +15,9 @@ module.exports = {
         handler: 'CacheFirst'
       }]
     }
-  }
+  },
+
+  transpileDependencies: [
+    'vuetify'
+  ]
 }

@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import { keys as _keys } from 'lodash-es'
+import vuetify from './plugins/vuetify'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faThumbsUp,
@@ -181,6 +183,7 @@ const mixin = {
 
 const app = createApp(App)
 app.use(router)
+app.use(vuetify)
 app.mixin(mixin)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
