@@ -35,13 +35,27 @@ export default {
             immediate: true,
             handler(to) {
                 switch(to.path) {
+                    case "/register":
+                        document.title = "Register - Piped";
+                        break;
+                    case "/login":
+                        document.title = "Login - Piped";
+                        break;
+                    case "/import":
+                        document.title = "Import - Piped";
+                        break;
+                    case "/preferences":
+                        document.title = "Preferences - Piped";
+                        break;
                     case "/feed":
                         document.title = "Feed - Piped";
                         break;
-                    case "/":
-                        document.title = "Trending - Piped";
+                    case "/watch":
+                        document.title = "Loading.. - Piped";
                         break;
                     default:
+                        document.title = "Trending - Piped";
+                        break;
                 } 
             }
         },
