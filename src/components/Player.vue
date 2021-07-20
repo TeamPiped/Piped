@@ -18,8 +18,8 @@
 
 <script>
 import muxjs from 'mux.js'
+import shaka from 'shaka-player/dist/shaka-player.ui.js'
 import('shaka-player/dist/controls.css')
-const shaka = import('shaka-player/dist/shaka-player.ui.js')
 window.muxjs = muxjs
 
 export default {
