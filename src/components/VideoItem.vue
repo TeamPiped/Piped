@@ -10,11 +10,12 @@
                     alt="thumbnail"
                     loading="lazy"
                 />
-                <span 
+                <span
                     v-if="video.duration"
-                    class="uk-label uk-border-rounded uk-position-absolute video-duration" 
+                    class="uk-label uk-border-rounded uk-position-absolute video-duration"
                     style="bottom: 5px; right: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
-                    >{{ timeFormat(video.duration) }}</span>
+                    >{{ timeFormat(video.duration) }}</span
+                >
             </div>
             <p>{{ video.title }}</p>
         </router-link>
@@ -36,6 +37,9 @@
             </div>
             <div v-if="video.uploadedDate">
                 {{ video.uploadedDate }}
+            </div>
+            <div v-if="video.uploaded">
+                {{ timeAgo(video.uploaded) }}
             </div>
         </b>
         <div class="uk-align-right">

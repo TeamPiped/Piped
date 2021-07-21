@@ -16,50 +16,14 @@
             v-bind:key="video.url"
             v-for="video in videos"
         >
-            <div class="uk-text-secondary" :style="[{ background: backgroundColor }]">
-                <router-link class="uk-text-emphasis" v-bind:to="'/watch?v=' + video.id">
-                    <div class="uk-position-relative">
-                        <img style="width: 100%" v-bind:src="video.thumbnail" alt="thumbnail" loading="lazy" />
-                        <span
-                            v-if="video.duration"
-                            class="uk-label uk-border-rounded uk-position-absolute video-duration"
-                            style="bottom: 5px; right: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
-                            >{{ timeFormat(video.duration) }}</span
-                        >
-                    </div>
-                    <p>{{ video.title }}</p>
-                </router-link>
-
-                <div>
-                    <div>
-                        <router-link class="uk-link-muted" :to="'/channel/' + video.uploader_id">
-                            <a>{{ video.uploader }}</a>
-                        </router-link>
-                        <br />
-                    </div>
-                </div>
-
-                <b class="uk-text-small uk-align-left">
-                    <div v-if="video.views >= 0">
-                        <font-awesome-icon icon="eye"></font-awesome-icon>
-                        {{ numberFormat(video.views) }} views
-                        <br />
-                    </div>
-                    <div>
-                        {{ timeAgo(video.uploaded) }}
-                    </div>
-                </b>
-                <div class="uk-align-right">
-                    <router-link :to="'/watch?v=' + video.id + '&listen=1'">
-                        <font-awesome-icon icon="headphones"></font-awesome-icon>
-                    </router-link>
-                </div>
-            </div>
+            <VideoItem :video="video" />
         </div>
     </div>
 </template>
 
 <script>
+import VideoItem from "@/components/VideoItem.vue";
+
 export default {
     data() {
         return {
@@ -83,6 +47,9 @@ export default {
         getRssUrl(_this) {
             return _this.apiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
         },
+    },
+    components: {
+        VideoItem,
     },
 };
 </script>
