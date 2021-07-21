@@ -131,7 +131,10 @@ export default {
     activated() {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", true);
-        if (this.video.duration) this.$refs.videoPlayer.loadVideo();
+        if (this.video.duration) {
+            document.title = this.video.title + " - Piped";
+            this.$refs.videoPlayer.loadVideo();
+        }
         window.addEventListener("scroll", this.handleScroll);
     },
     deactivated() {
@@ -244,7 +247,7 @@ export default {
         Player,
         VideoItem,
         ErrorHandler,
-        Comment
+        Comment,
     },
 };
 </script>

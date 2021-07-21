@@ -71,6 +71,7 @@ export default {
     },
     activated() {
         if (!this.authenticated) this.$router.push("/login");
+        document.title = "Import - Piped";
     },
     methods: {
         fileChange() {

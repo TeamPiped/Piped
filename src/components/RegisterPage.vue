@@ -45,6 +45,9 @@ export default {
             this.$router.push("/");
         }
     },
+    activated() {
+        document.title = "Register - Piped";
+    },
     methods: {
         register() {
             console.log("authToken" + this.hashCode(this.apiUrl()));

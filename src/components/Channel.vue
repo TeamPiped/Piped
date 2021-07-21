@@ -45,6 +45,7 @@ export default {
         this.getChannelData();
     },
     activated() {
+        if (this.channel && !this.channel.error) document.title = this.channel.name + " - Piped";
         window.addEventListener("scroll", this.handleScroll);
     },
     deactivated() {

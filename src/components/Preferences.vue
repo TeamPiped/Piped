@@ -1,6 +1,8 @@
 <template>
     <div class="uk-flex uk-flex-between uk-flex-middle">
-        <router-link class="uk-button uk-button-text" to="/"><font-awesome-icon icon="chevron-left" /> &nbsp;Back</router-link>
+        <router-link class="uk-button uk-button-text" to="/"
+            ><font-awesome-icon icon="chevron-left" /> &nbsp;Back</router-link
+        >
         <span><h1 class="uk-text-bold uk-text-center">Preferences</h1></span>
         <span />
     </div>
@@ -141,6 +143,9 @@ export default {
             defaultHomepage: "trending",
             showComments: true,
         };
+    },
+    activated() {
+        document.title = "Preferences - Piped";
     },
     mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
