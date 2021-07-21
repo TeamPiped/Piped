@@ -45,6 +45,9 @@ export default {
             this.$router.push("/");
         }
     },
+    activated() {
+        document.title = "Login - Piped";
+    },
     methods: {
         login() {
             console.log("authToken" + this.hashCode(this.apiUrl()));

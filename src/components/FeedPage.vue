@@ -20,11 +20,12 @@
                 <router-link class="uk-text-emphasis" v-bind:to="'/watch?v=' + video.id">
                     <div class="uk-position-relative">
                         <img style="width: 100%" v-bind:src="video.thumbnail" alt="thumbnail" loading="lazy" />
-                        <span 
+                        <span
                             v-if="video.duration"
-                            class="uk-label uk-border-rounded uk-position-absolute video-duration" 
+                            class="uk-label uk-border-rounded uk-position-absolute video-duration"
                             style="bottom: 5px; right: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
-                            >{{ timeFormat(video.duration) }}</span>
+                            >{{ timeFormat(video.duration) }}</span
+                        >
                     </div>
                     <p>{{ video.title }}</p>
                 </router-link>
@@ -66,9 +67,10 @@ export default {
         };
     },
     mounted() {
-        document.title = "Feed - Piped";
-
         this.fetchFeed().then(videos => (this.videos = videos));
+    },
+    activated() {
+        document.title = "Feed - Piped";
     },
     methods: {
         async fetchFeed() {
