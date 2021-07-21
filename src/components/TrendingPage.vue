@@ -25,8 +25,6 @@ export default {
         };
     },
     mounted() {
-        document.title = "Trending - Piped";
-
         let region = this.getPreferenceString("region", "US");
 
         this.fetchTrending(region).then(videos => (this.videos = videos));
