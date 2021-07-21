@@ -12,8 +12,8 @@
                 />
                 <span 
                     v-if="video.duration"
-                    class="uk-label uk-border-rounded uk-position-absolute uk-dark" 
-                    style="bottom: 5px; right: 5px; opacity: .95;"
+                    class="uk-label uk-border-rounded uk-position-absolute video-duration" 
+                    style="bottom: 5px; right: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
                     >{{ timeFormat(video.duration) }}</span>
             </div>
             <p>{{ video.title }}</p>
