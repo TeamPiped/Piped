@@ -3,6 +3,9 @@
 
     <small>You can import subscriptions from <router-link to="/import">here</router-link>.</small>
 
+    <br />
+    <router-link to="/subscriptions" class="uk-text-center">View Subscriptions</router-link>
+
     <div class="uk-align-right">
         <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
     </div>
