@@ -55,6 +55,11 @@ const routes = [
         path: "/:videoId([a-zA-Z0-9_-]{11})",
         component: () => import("../components/VideoRedirect.vue"),
     },
+    {
+        path: "/subscriptions",
+        name: "Subscriptions",
+        component: () => import("../components/SubscriptionsPage.vue"),
+    },
 ];
 
 const router = createRouter({
