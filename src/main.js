@@ -158,6 +158,16 @@ const mixin = {
         timeAgo(time) {
             return timeAgo.format(time);
         },
+        urlify(string) {
+            const regex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+            if (!string) return '';
+            return string.replace(regex, (url) => {
+                if (!url.match('^https?:\\/\\/')) { // If URL does not have http(s), we're adding it manually.
+                    return `<a class="uk-button uk-button-text" href="http://${url}" target="_blank">${url}</a>`
+                }
+                return `<a class="uk-button uk-button-text" href="${url}" target="_blank">${url}</a>`
+            })
+        }
     },
     computed: {
         backgroundColor() {

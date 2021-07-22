@@ -4,7 +4,7 @@
     <div v-if="channel" v-show="!channel.error">
         <h1 class="uk-text-center"><img height="48" width="48" v-bind:src="channel.avatarUrl" />{{ channel.name }}</h1>
         <img v-if="channel.bannerUrl" v-bind:src="channel.bannerUrl" style="width: 100%" loading="lazy" />
-        <p style="white-space: pre-wrap">{{ channel.description }}</p>
+        <p style="white-space: pre-wrap"><span v-html="urlify(channel.description)"></span></p>
 
         <button
             v-if="authenticated"
