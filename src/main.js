@@ -158,6 +158,13 @@ const mixin = {
         timeAgo(time) {
             return timeAgo.format(time);
         },
+        urlify(string) {
+            const regex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+            if (!string) return '';
+            return string.replace(regex, (url) => {
+                return `<a class="uk-button uk-button-text" href="${url}" target="_blank">${url}</a>`
+            })
+        }
     },
     computed: {
         backgroundColor() {
