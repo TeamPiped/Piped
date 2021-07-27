@@ -10,7 +10,7 @@
                 :selectedAutoPlay="selectedAutoPlay"
                 :selectedAutoLoop="selectedAutoLoop"
             />
-            <div class="uk-text-bold uk-margin-small-top uk-text-large uk-text-emphasis">{{ video.title }}</div>
+            <div class="uk-text-bold uk-margin-small-top uk-text-large uk-text-emphasis uk-text-break">{{ video.title }}</div>
 
             <div class="uk-flex uk-flex-middle">
                 <div class="uk-margin-small-right">{{ addCommas(video.views) }} views</div>
