@@ -17,7 +17,7 @@
                     >{{ timeFormat(video.duration) }}</span
                 >
             </div>
-            <p>{{ video.title }}</p>
+            <p class="uk-text-break">{{ video.title }}</p>
         </router-link>
 
         <div :class="{ 'uk-align-left': !(video.views >= 0 || video.uploadedDate) }">
