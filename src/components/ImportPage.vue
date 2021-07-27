@@ -104,13 +104,23 @@ export default {
                     const json = JSON.parse(text);
                     this.subscriptions = json.subscriptions;
                 }
-                // Google Takeout
+                // Google Takeout JSON
                 if (text.indexOf("contentDetails") != -1) {
                     const json = JSON.parse(text);
                     json.forEach(item => {
                         const id = item.snippet.resourceId.channelId;
                         this.subscriptions.push(id);
                     });
+                }
+
+                // Google Takeout CSV
+                if (text.indexOf("Channel Id,") != -1) {
+                    const lines = text.split("\n");
+                    for (let i = 1; i < lines.length; i++) {
+                        const line = lines[i];
+                        const id = line.substr(0, line.indexOf(","));
+                        if (id.length === 24) this.subscriptions.push(id);
+                    }
                 }
             });
         },
