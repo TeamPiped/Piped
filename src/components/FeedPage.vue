@@ -6,6 +6,15 @@
     <br />
     <router-link to="/subscriptions" class="uk-text-center">View Subscriptions</router-link>
 
+    <br />
+    Sort by:
+    <select class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
+        <option value="descending">Most Recent</option>
+        <option value="ascending">Least Recent</option>
+        <option value="channel_ascending">Channel Name (A-Z)</option>
+        <option value="channel_descending">Channel Name (Z-A)</option>
+    </select>
+
     <div class="uk-align-right">
         <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
     </div>
@@ -31,6 +40,7 @@ export default {
     data() {
         return {
             videos: [],
+            selectedSort: "descending",
         };
     },
     mounted() {
@@ -44,6 +54,22 @@ export default {
             return await this.fetchJson(this.apiUrl() + "/feed", {
                 authToken: this.getAuthToken(),
             });
+        },
+        onChange() {
+            switch (this.selectedSort) {
+                case "ascending":
+                    this.videos.sort((a, b) => a.uploaded - b.uploaded);
+                    break;
+                case "descending":
+                    this.videos.sort((a, b) => b.uploaded - a.uploaded);
+                    break;
+                case "channel_ascending":
+                    this.videos.sort((a, b) => a.uploaderName.localeCompare(b.uploaderName));
+                    break;
+                case "channel_descending":
+                    this.videos.sort((a, b) => b.uploaderName.localeCompare(a.uploaderName));
+                    break;
+            }
         },
     },
     computed: {
