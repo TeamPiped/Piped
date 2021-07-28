@@ -71,17 +71,21 @@ export default {
 
             const MseSupport = window.MediaSource !== undefined;
 
+            const lbry = this.video.videoStreams.filter(stream => stream.quality === "LBRY")[0];
+
             var uri;
 
             if (this.video.livestream) {
                 uri = this.video.hls;
-            } else if (this.video.audioStreams.length > 0 && MseSupport) {
+            } else if (this.video.audioStreams.length > 0 && !lbry && MseSupport) {
                 const dash = require("@/utils/DashUtils.js").default.generate_dash_file_from_formats(
                     streams,
                     this.video.duration,
                 );
 
                 uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
+            } else if (lbry) {
+                uri = lbry.url;
             } else {
                 uri = this.video.videoStreams.filter(stream => stream.codec == null).slice(-1)[0].url;
             }
