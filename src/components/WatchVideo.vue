@@ -10,7 +10,9 @@
                 :selectedAutoPlay="selectedAutoPlay"
                 :selectedAutoLoop="selectedAutoLoop"
             />
-            <div class="uk-text-bold uk-margin-small-top uk-text-large uk-text-emphasis uk-text-break">{{ video.title }}</div>
+            <div class="uk-text-bold uk-margin-small-top uk-text-large uk-text-emphasis uk-text-break">
+                {{ video.title }}
+            </div>
 
             <div class="uk-flex uk-flex-middle">
                 <div class="uk-margin-small-right">{{ addCommas(video.views) }} views</div>
@@ -231,7 +233,7 @@ export default {
             if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.getVideoId(), {
-                    url: this.comments.nextpage,
+                    nextpage: this.comments.nextpage,
                 }).then(json => {
                     this.comments.nextpage = json.nextpage;
                     this.loading = false;
