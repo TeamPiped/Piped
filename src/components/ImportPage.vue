@@ -114,7 +114,7 @@ export default {
                 }
 
                 // Google Takeout CSV
-                if (text.indexOf("Channel Id,") != -1) {
+                if (text.indexOf("Channel Id,") != -1 || text.indexOf("Channel ID,") != -1) {
                     const lines = text.split("\n");
                     for (let i = 1; i < lines.length; i++) {
                         const line = lines[i];
