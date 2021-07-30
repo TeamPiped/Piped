@@ -16,6 +16,15 @@
     </div>
 </template>
 
+<style>
+.shaka-text-container > div {
+    height: auto !important;
+    width: auto !important;
+    top: auto !important;
+    left: auto !important;
+}
+</style>
+
 <script>
 import("shaka-player/dist/controls.css");
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
