@@ -84,6 +84,10 @@
     <b>Show Comments</b>
     <br />
     <input class="uk-checkbox" v-model="showComments" @change="onChange($event)" type="checkbox" />
+    <br />
+    <b>Minimize Description by default</b>
+    <br />
+    <input class="uk-checkbox" v-model="minimizeDescription" @change="onChange($event)" type="checkbox" />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -142,6 +146,7 @@ export default {
             country: "US",
             defaultHomepage: "trending",
             showComments: true,
+            minimizeDescription: false,
         };
     },
     activated() {
@@ -217,6 +222,7 @@ export default {
             this.country = this.getPreferenceString("region", "US");
             this.defaultHomepage = this.getPreferenceString("homepage", "trending");
             this.showComments = this.getPreferenceBoolean("comments", true);
+            this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
         }
     },
     methods: {
@@ -247,6 +253,7 @@ export default {
                 localStorage.setItem("region", this.country);
                 localStorage.setItem("homepage", this.defaultHomepage);
                 localStorage.setItem("comments", this.showComments);
+                localStorage.setItem("minimizeDescription", this.minimizeDescription);
 
                 if (shouldReload) window.location.reload();
             }
