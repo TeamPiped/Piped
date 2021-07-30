@@ -133,6 +133,7 @@ export default {
     activated() {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", true);
+        this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         if (this.video.duration) {
             document.title = this.video.title + " - Piped";
             this.$refs.videoPlayer.loadVideo();
