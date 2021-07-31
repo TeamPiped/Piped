@@ -23,6 +23,11 @@
     top: auto !important;
     left: auto !important;
 }
+
+.shaka-text-container * {
+    background-color: rgba(8, 8, 8, 0.75) !important;
+    color: white !important;
+}
 </style>
 
 <script>
