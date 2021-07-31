@@ -1,6 +1,16 @@
 <template>
     <h1 class="uk-text-bold uk-text-center">Subscriptions</h1>
 
+    <button
+        v-if="authenticated"
+        @click="exportHandler"
+        class="uk-button uk-button-small"
+        style="background: #222"
+        type="button"
+    >
+        Export to JSON
+    </button>
+
     <div :key="subscription.url" v-for="subscription in subscriptions">
         <div class="uk-text-primary" :style="[{ background: backgroundColor }]">
             <a :href="subscription.url">
@@ -54,6 +64,32 @@ export default {
                 },
             });
             subscription.subscribed = !subscription.subscribed;
+        },
+        exportHandler() {
+            const subscriptions = [];
+
+            this.subscriptions.forEach(subscription => {
+                subscriptions.push({
+                    url: "https://www.youtube.com" + subscription.url,
+                    name: subscription.name,
+                    service_id: 0,
+                });
+            });
+
+            const json = JSON.stringify({
+                app_version: "",
+                app_version_int: 0,
+                subscriptions: subscriptions,
+            });
+
+            var file = new Blob([json], { type: "application/json" });
+
+            const elem = document.createElement("a");
+
+            elem.href = URL.createObjectURL(file);
+            elem.download = "subscriptions.json";
+            elem.click();
+            elem.remove();
         },
     },
 };
