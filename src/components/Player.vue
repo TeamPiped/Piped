@@ -241,6 +241,27 @@ export default {
         },
     },
     activated() {
+        const videoEl = this.$refs.videoEl;
+        var lastClick = new Date();
+        document.addEventListener("click", function(event) {
+            var t = event.target;
+            while (t && t !== this) {
+                if (t.matches(".shaka-mobile.shaka-video-container")) {
+                    if ((new Date() - lastClick) < 400) {
+                        var videoMiddlePX = videoEl.offsetWidth / 2;
+                        if (videoMiddlePX < event.layerX) {
+                            videoEl.currentTime = videoEl.currentTime + 10;
+                        } else {
+                            videoEl.currentTime = videoEl.currentTime - 10;
+                        }
+                        videoEl.play();
+                    }
+                    lastClick = new Date();
+                }
+                t = t.parentNode;
+            }
+        });
+
         import("hotkeys-js")
             .then(mod => mod.default)
             .then(hotkeys => {
