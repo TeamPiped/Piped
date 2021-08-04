@@ -1,5 +1,16 @@
 <template>
-    <div class="uk-container uk-container-xlarge" v-if="video">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999" v-if="video && isEmbed">
+        <Player
+            ref="videoPlayer"
+            :video="video"
+            :sponsors="sponsors"
+            :selectedAutoPlay="false"
+            :selectedAutoLoop="selectedAutoLoop"
+            :isEmbed="isEmbed"
+        />
+    </div>
+
+    <div class="uk-container uk-container-xlarge" v-if="video && !isEmbed">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
@@ -128,7 +139,7 @@ export default {
             if (this.active) this.$refs.videoPlayer.loadVideo();
         });
         this.getSponsors();
-        if (this.getPreferenceBoolean("comments", true)) this.getComments();
+        if (!this.isEmbed && this.getPreferenceBoolean("comments", true)) this.getComments();
     },
     activated() {
         this.active = true;
@@ -181,7 +192,7 @@ export default {
                     if (!this.video.error) {
                         document.title = this.video.title + " - Piped";
                         this.channelId = this.video.uploaderUrl.split("/")[2];
-                        this.fetchSubscribedStatus();
+                        if (!this.isEmbed) this.fetchSubscribedStatus();
 
                         this.video.description = this.purifyHTML(
                             this.video.description
@@ -244,6 +255,11 @@ export default {
         },
         getVideoId() {
             return this.$route.query.v || this.$route.params.v;
+        },
+    },
+    computed: {
+        isEmbed(_this) {
+            return String(_this.$route.path).indexOf("/embed/") == 0;
         },
     },
     components: {
