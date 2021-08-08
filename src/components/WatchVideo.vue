@@ -42,8 +42,16 @@
                     class="uk-margin-small-left uk-button uk-button-small"
                     style="background: #222"
                 >
+                    <b>Watch on&nbsp;</b>
                     <font-awesome-icon class="uk-margin-small-right" :icon="['fab', 'youtube']"></font-awesome-icon>
-                    <b>Watch on</b>
+                </a>
+                <a
+                    v-if="video.lbryId"
+                    :href="'https://odysee.com/' + video.lbryId"
+                    class="uk-margin-small-left uk-button uk-button-small"
+                    style="background: #222"
+                >
+                    <b>Watch on LBRY</b>
                 </a>
             </div>
 
