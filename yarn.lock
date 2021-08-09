@@ -8303,10 +8303,10 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
-uikit@3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.7.1.tgz#981fe63c47ba14484f76050b5369eaf14d8d43f2"
-  integrity sha512-obWmwtKY6wnvPqwAgvGmn71PpNM4wMNVzfZDTK6/fO2+NyV/+kVnAOBVgIMcC1XPRBApoFej/Q1heU3wA9lPmg==
+uikit@3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.7.2.tgz#d38c2787ce653c1eee5535badd95814f1df64c3e"
+  integrity sha512-r1EUtsm3vCLZPlAi8rWP5diQVtnHYnYiX2NHLciTmC+SIMbRJ/aTOb2A1Vkwa3Kx4Dybx5XRIUwXUrRmssx40Q==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
