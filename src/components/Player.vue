@@ -250,7 +250,7 @@ export default {
             .then(hotkeys => {
                 this.hotkeys = hotkeys;
                 var self = this;
-                hotkeys("f,m,space,up,down,left,right", function(e, handler) {
+                hotkeys("f,m,j,k,l,space,up,down,left,right", function(e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
                         case "f":
@@ -262,6 +262,15 @@ export default {
                             videoEl.muted = !videoEl.muted;
                             e.preventDefault();
                             break;
+                        case "j":
+                            videoEl.currentTime = Math.max(videoEl.currentTime - 15, 0);
+                            e.preventDefault();
+                            break;
+                        case "l":
+                            videoEl.currentTime = videoEl.currentTime + 15;
+                            e.preventDefault();
+                            break;
+                        case "k":
                         case "space":
                             if (videoEl.paused) videoEl.play();
                             else videoEl.pause();
