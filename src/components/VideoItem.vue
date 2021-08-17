@@ -23,7 +23,10 @@
         <div :class="{ 'uk-align-left': !(video.views >= 0 || video.uploadedDate) }">
             <div v-if="video.uploaderUrl && video.uploaderName && !hideChannel">
                 <router-link class="uk-link-muted" :to="video.uploaderUrl">
-                    <a>{{ video.uploaderName }}</a>
+                    {{ video.uploaderName }}&thinsp;<font-awesome-icon
+                        v-if="video.uploaderVerified"
+                        icon="check"
+                    ></font-awesome-icon>
                 </router-link>
                 <br />
             </div>
