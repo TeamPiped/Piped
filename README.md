@@ -21,7 +21,7 @@ By using Piped, you can freely watch and listen to content freely without the fe
 -   [x] Login
 -   [x] Feeds
 -   [x] Integration with SponsorBlock
--   [x] Integration with LBRY
+-   [x] Integration with Odysee
 -   [x] 4K support
 -   [x] No connections to Google's servers
 -   [x] Playing just audio

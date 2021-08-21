@@ -51,7 +51,7 @@
                     class="uk-margin-small-left uk-button uk-button-small"
                     style="background: #222"
                 >
-                    <b>Watch on LBRY</b>
+                    <b>Watch on Odysee</b>
                 </a>
             </div>
 
