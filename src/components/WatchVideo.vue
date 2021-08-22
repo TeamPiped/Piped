@@ -144,6 +144,22 @@ export default {
     },
     mounted() {
         this.getVideoData().then(() => {
+            (async () => {
+                if (window.db) {
+                    var tx = window.db.transaction("watch_history", "readwrite");
+                    var store = tx.objectStore("watch_history");
+                    var video = {
+                        videoId: this.getVideoId(),
+                        title: this.video.title,
+                        duration: this.video.duration,
+                        thumbnail: this.video.thumbnailUrl,
+                        uploaderUrl: this.video.uploaderUrl,
+                        uploaderName: this.video.uploader,
+                        watchedAt: Date.now(),
+                    };
+                    store.add(video);
+                }
+            })();
             if (this.active) this.$refs.videoPlayer.loadVideo();
         });
         this.getSponsors();
@@ -162,13 +178,6 @@ export default {
     deactivated() {
         this.active = false;
         window.removeEventListener("scroll", this.handleScroll);
-    },
-    watch: {
-        "$route.query.v": function(v) {
-            if (v) {
-                window.scrollTo(0, 0);
-            }
-        },
     },
     methods: {
         fetchVideo() {
