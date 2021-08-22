@@ -50,7 +50,6 @@ export default {
     },
     methods: {
         login() {
-            console.log("authToken" + this.hashCode(this.apiUrl()));
             this.fetchJson(this.apiUrl() + "/login", null, {
                 method: "POST",
                 body: JSON.stringify({

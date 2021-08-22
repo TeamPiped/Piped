@@ -1,8 +1,8 @@
 <template>
     <div class="uk-flex uk-flex-between uk-flex-middle">
-        <router-link class="uk-button uk-button-text" to="/"
-            ><font-awesome-icon icon="chevron-left" /> &nbsp;Back</router-link
-        >
+        <button class="uk-button uk-button-text" @click="$router.go(-1) || $router.push('/')">
+            <font-awesome-icon icon="chevron-left" /> &nbsp;Back
+        </button>
         <span><h1 class="uk-text-bold uk-text-center">Preferences</h1></span>
         <span />
     </div>
@@ -88,6 +88,10 @@
     <b>Minimize Description by default</b>
     <br />
     <input class="uk-checkbox" v-model="minimizeDescription" @change="onChange($event)" type="checkbox" />
+    <br />
+    <b>Store Watch History</b>
+    <br />
+    <input class="uk-checkbox" v-model="watchHistory" @change="onChange($event)" type="checkbox" />
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -147,6 +151,7 @@ export default {
             defaultHomepage: "trending",
             showComments: true,
             minimizeDescription: false,
+            watchHistory: false,
         };
     },
     activated() {
@@ -223,6 +228,7 @@ export default {
             this.defaultHomepage = this.getPreferenceString("homepage", "trending");
             this.showComments = this.getPreferenceBoolean("comments", true);
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
+            this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
         }
     },
     methods: {
@@ -230,7 +236,11 @@ export default {
             if (localStorage) {
                 var shouldReload = false;
 
-                if (this.getPreferenceString("theme", "dark") !== this.selectedTheme) shouldReload = true;
+                if (
+                    this.getPreferenceString("theme", "dark") !== this.selectedTheme ||
+                    this.getPreferenceBoolean("watchHistory", false) != this.watchHistory
+                )
+                    shouldReload = true;
 
                 localStorage.setItem("instance", this.selectedInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
@@ -254,6 +264,7 @@ export default {
                 localStorage.setItem("homepage", this.defaultHomepage);
                 localStorage.setItem("comments", this.showComments);
                 localStorage.setItem("minimizeDescription", this.minimizeDescription);
+                localStorage.setItem("watchHistory", this.watchHistory);
 
                 if (shouldReload) window.location.reload();
             }

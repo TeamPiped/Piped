@@ -60,6 +60,11 @@ const routes = [
         name: "Subscriptions",
         component: () => import("../components/SubscriptionsPage.vue"),
     },
+    {
+        path: "/history",
+        name: "Watch History",
+        component: () => import("../components/HistoryPage.vue"),
+    },
 ];
 
 const router = createRouter({

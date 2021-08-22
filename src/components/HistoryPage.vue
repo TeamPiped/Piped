@@ -1,10 +1,5 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">Feed</h1>
-
-    <small>You can import subscriptions from <router-link to="/import">here</router-link>.</small>
-
-    <br />
-    <router-link to="/subscriptions" class="uk-text-center">View Subscriptions</router-link>
+    <h1 class="uk-text-bold uk-text-center">Watch History</h1>
 
     <br />
     Sort by:
@@ -14,10 +9,6 @@
         <option value="channel_ascending">Channel Name (A-Z)</option>
         <option value="channel_descending">Channel Name (Z-A)</option>
     </select>
-
-    <div class="uk-align-right">
-        <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
-    </div>
 
     <hr />
 
@@ -44,28 +35,42 @@ export default {
         };
     },
     mounted() {
-        this.fetchFeed().then(videos => {
-            this.videos = videos;
-            this.updateWatched(this.videos);
-        });
+        (async () => {
+            if (window.db) {
+                var tx = window.db.transaction("watch_history", "readonly");
+                var store = tx.objectStore("watch_history");
+                const cursorRequest = store.openCursor();
+                cursorRequest.onsuccess = e => {
+                    const cursor = e.target.result;
+                    if (cursor) {
+                        const video = cursor.value;
+                        this.videos.push({
+                            url: "/watch?v=" + video.videoId,
+                            title: video.title,
+                            uploaderName: video.uploaderName,
+                            uploaderUrl: video.uploaderUrl,
+                            duration: video.duration,
+                            thumbnail: video.thumbnail,
+                            watchedAt: video.watchedAt,
+                        });
+                        this.videos.sort((a, b) => b.watchedAt - a.watchedAt); // TODO: Optimize
+                        if (this.videos.length < 1000) cursor.continue();
+                    }
+                };
+            }
+        })();
     },
     activated() {
-        document.title = "Feed - Piped";
-        if (this.videos.length > 0) this.updateWatched(this.videos);
+        document.title = "Watch History - Piped";
     },
     methods: {
-        async fetchFeed() {
-            return await this.fetchJson(this.apiUrl() + "/feed", {
-                authToken: this.getAuthToken(),
-            });
-        },
         onChange() {
             switch (this.selectedSort) {
                 case "ascending":
-                    this.videos.sort((a, b) => a.uploaded - b.uploaded);
+                    this.videos.sort((a, b) => a.watchedAt - b.watchedAt);
                     break;
                 case "descending":
-                    this.videos.sort((a, b) => b.uploaded - a.uploaded);
+                    this.videos.sort((a, b) => b.watchedAt - a.watchedAt);
                     break;
                 case "channel_ascending":
                     this.videos.sort((a, b) => a.uploaderName.localeCompare(b.uploaderName));
@@ -74,11 +79,6 @@ export default {
                     this.videos.sort((a, b) => b.uploaderName.localeCompare(a.uploaderName));
                     break;
             }
-        },
-    },
-    computed: {
-        getRssUrl(_this) {
-            return _this.apiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
         },
     },
     components: {

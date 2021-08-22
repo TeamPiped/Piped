@@ -6,7 +6,13 @@
     >
         <div class="uk-navbar-left">
             <router-link class="uk-navbar-item uk-logo uk-text-bold" :style="[{ colour: foregroundColor }]" to="/"
-                ><img alt="logo" src="/img/icons/logo.svg" height="32" width="32" style="margin-bottom: 6px; margin-right: -13px" />iped</router-link
+                ><img
+                    alt="logo"
+                    src="/img/icons/logo.svg"
+                    height="32"
+                    width="32"
+                    style="margin-bottom: 6px; margin-right: -13px"
+                />iped</router-link
             >
         </div>
         <div class="uk-navbar-center uk-flex uk-visible@m">
@@ -30,6 +36,9 @@
                 </li>
                 <li v-if="shouldShowLogin">
                     <router-link to="/register">Register</router-link>
+                </li>
+                <li v-if="shouldShowHistory">
+                    <router-link to="/history">History</router-link>
                 </li>
                 <li v-if="authenticated">
                     <router-link to="/feed">Feed</router-link>
@@ -72,6 +81,9 @@ export default {
     computed: {
         shouldShowLogin(_this) {
             return _this.getAuthToken() == null;
+        },
+        shouldShowHistory(_this) {
+            return _this.getPreferenceBoolean("watchHistory", false);
         },
     },
     methods: {

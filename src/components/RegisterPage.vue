@@ -50,7 +50,6 @@ export default {
     },
     methods: {
         register() {
-            console.log("authToken" + this.hashCode(this.apiUrl()));
             this.fetchJson(this.apiUrl() + "/register", null, {
                 method: "POST",
                 body: JSON.stringify({

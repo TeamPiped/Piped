@@ -47,6 +47,7 @@ export default {
     activated() {
         if (this.channel && !this.channel.error) document.title = this.channel.name + " - Piped";
         window.addEventListener("scroll", this.handleScroll);
+        if (this.channel && !this.channel.error) this.updateWatched(this.channel.relatedStreams);
     },
     deactivated() {
         window.removeEventListener("scroll", this.handleScroll);
@@ -78,6 +79,7 @@ export default {
                     if (!this.channel.error) {
                         document.title = this.channel.name + " - Piped";
                         if (this.authenticated) this.fetchSubscribedStatus();
+                        this.updateWatched(this.channel.relatedStreams);
                     }
                 });
         },
@@ -88,9 +90,9 @@ export default {
                 this.fetchJson(this.apiUrl() + "/nextpage/channel/" + this.channel.id, {
                     nextpage: this.channel.nextpage,
                 }).then(json => {
-                    this.channel.relatedStreams.concat(json.relatedStreams);
                     this.channel.nextpage = json.nextpage;
                     this.loading = false;
+                    this.updateWatched(json.relatedStreams);
                     json.relatedStreams.map(stream => this.channel.relatedStreams.push(stream));
                 });
             }

@@ -27,10 +27,14 @@ export default {
     mounted() {
         let region = this.getPreferenceString("region", "US");
 
-        this.fetchTrending(region).then(videos => (this.videos = videos));
+        this.fetchTrending(region).then(videos => {
+            this.videos = videos;
+            this.updateWatched(this.videos);
+        });
     },
     activated() {
         document.title = "Trending - Piped";
+        if (this.videos.length > 0) this.updateWatched(this.videos);
     },
     methods: {
         async fetchTrending(region) {

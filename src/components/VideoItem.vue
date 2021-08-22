@@ -16,6 +16,12 @@
                     style="bottom: 5px; right: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
                     >{{ timeFormat(video.duration) }}</span
                 >
+                <span
+                    v-if="video.watched"
+                    class="uk-label uk-border-rounded uk-position-absolute video-duration"
+                    style="bottom: 5px; left: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
+                    >Watched</span
+                >
             </div>
             <p class="uk-text-break">{{ video.title }}</p>
         </router-link>
