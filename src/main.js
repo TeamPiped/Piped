@@ -25,7 +25,7 @@ library.add(
     faHeadphones,
     faYoutube,
     faRss,
-    faChevronLeft
+    faChevronLeft,
 );
 
 import("uikit/dist/css/uikit-core.css");
@@ -160,11 +160,25 @@ const mixin = {
         },
         urlify(string) {
             const regex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
-            if (!string) return '';
-            return string.replace(regex, (url) => {
-                return `<a class="uk-button uk-button-text" href="${url}" target="_blank">${url}</a>`
-            })
-        }
+            if (!string) return "";
+            return string.replace(regex, url => {
+                return `<a class="uk-button uk-button-text" href="${url}" target="_blank">${url}</a>`;
+            });
+        },
+        async updateWatched(videos) {
+            if (window.db) {
+                var tx = window.db.transaction("watch_history", "readonly");
+                var store = tx.objectStore("watch_history");
+                videos.map(async video => {
+                    var request = store.get(video.url.substr(-11));
+                    request.onsuccess = function(event) {
+                        if (event.target.result) {
+                            video.watched = true;
+                        }
+                    };
+                });
+            }
+        },
     },
     computed: {
         backgroundColor() {

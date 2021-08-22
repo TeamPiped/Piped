@@ -46,29 +46,12 @@ export default {
     mounted() {
         this.fetchFeed().then(videos => {
             this.videos = videos;
-            (async () => {
-                if (window.db) {
-                    var tx = window.db.transaction("watch_history", "readonly");
-                    var store = tx.objectStore("watch_history");
-                    const cursorRequest = store.openCursor();
-                    cursorRequest.onsuccess = e => {
-                        const cursor = e.target.result;
-                        if (cursor) {
-                            const video = this.videos.filter(
-                                video => video.url.substr(-11) === cursor.value.videoId,
-                            )[0];
-                            if (video != null) {
-                                video.watched = true;
-                            }
-                            cursor.continue();
-                        }
-                    };
-                }
-            })();
+            this.updateWatched(this.videos);
         });
     },
     activated() {
         document.title = "Feed - Piped";
+        if (this.videos.length > 0) this.updateWatched(this.videos);
     },
     methods: {
         async fetchFeed() {
