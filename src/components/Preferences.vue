@@ -64,7 +64,7 @@
         <option :key="resolution" v-for="resolution in resolutions" :value="resolution">{{ resolution }}p</option>
     </select>
     <br />
-    <b>Buffering Goal</b>
+    <b>Buffering Goal (in seconds)</b>
     <br />
     <input class="uk-input uk-width-auto" v-model="bufferingGoal" @change="onChange($event)" type="text" />
     <br />
