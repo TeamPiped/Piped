@@ -122,6 +122,14 @@ export default {
                             url.host = new URL(component.video.proxyUrl).host;
                             request.uris[0] = url.toString();
                         }
+                        if (url.pathname === "/videoplayback") {
+                            const headers = request.headers;
+                            if (headers.Range) {
+                                url.searchParams.set("range", headers.Range.split("=")[1]);
+                                request.headers = {};
+                                request.uris[0] = url.toString();
+                            }
+                        }
                     });
 
                     localPlayer.configure(
