@@ -4,13 +4,45 @@
         "login": "Login",
         "register": "Register",
         "feed": "Feed",
-        "preferences": "Preferences"
+        "preferences": "Preferences",
+        "history": "History"
     },
     "player": {
         "watch_on": "Watch on"
     },
     "actions": {
         "subscribe": "Subscribe",
-        "unsubscribe": "Unsubscribe"
+        "unsubscribe": "Unsubscribe",
+        "view_subscriptions": "View Subscriptions",
+        "sort_by": "Sort by:",
+        "most_recent": "Most Recent",
+        "least_recent": "Least Recent",
+        "channel_name_asc": "Channel Name (A-Z)",
+        "channel_name_desc": "Channel Name (Z-A)",
+        "back": "Back",
+        "uses_api_from": "Uses the API from ",
+        "enable_sponsorblock": "Enable Sponsorblock",
+        "skip_sponsors": "Skip Sponsors",
+        "skip_intro": "Skip Intermission/Intro Animation",
+        "skip_outro": "Skip Endcards/Credits",
+        "skip_preview": "Skip Preview/Recap",
+        "skip_interaction": "Skip Interaction Reminder (Subscribe)",
+        "skip_self_promo": "Skip Unpaid/Self Promotion",
+        "skip_non_music": "Skip Music: Non-Music Section",
+        "theme": "Theme",
+        "auto": "Auto",
+        "dark": "Dark",
+        "light": "Light",
+        "autoplay_video": "Autoplay Video",
+        "audio_only": "Audio Only",
+        "default_quality": "Default Quality",
+        "buffering_goal": "Buffering Goal (in seconds)",
+        "country_selection": "Country Selection",
+        "default_homepage": "Default Homepage",
+        "show_comments": "Show Comments",
+        "minimize_description": "Minimize Description by default",
+        "store_watch_history": "Store Watch History",
+        "language_selection": "Language Selection",
+        "instances_list": "Instances List"
     }
 }
