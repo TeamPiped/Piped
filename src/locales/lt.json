@@ -1,7 +1,38 @@
 {
     "actions": {
         "unsubscribe": "Atšaukti prenumeratą",
-        "subscribe": "Prenumeruoti"
+        "subscribe": "Prenumeruoti",
+        "instances_list": "Perdavimo šaltinių sąrašas",
+        "language_selection": "Kalbos pasirinkimas",
+        "store_watch_history": "Saugoti žiūrėjimo istoriją",
+        "minimize_description": "Suskleisti aprašymą automatiškai",
+        "show_comments": "Rodyti komentarus",
+        "default_homepage": "Numatytasis pagrindinis puslapis",
+        "country_selection": "Šalies pasirinkimas",
+        "buffering_goal": "Užkrovimo tikslas (sekundėmis)",
+        "default_quality": "Numatytoji kokybė",
+        "audio_only": "Tik garsas",
+        "autoplay_video": "Automatiškai leisti vaizdo įrašus",
+        "light": "Šviesi",
+        "auto": "Automatinė",
+        "dark": "Tamsi",
+        "theme": "Tema",
+        "skip_non_music": "Praleisti muziką: ne muzikos įkėlimų pasirinkimas",
+        "skip_self_promo": "Praleisti nemokamą/savireklamą",
+        "skip_interaction": "Praleisti sąveikos priminimą (prenumeruoti)",
+        "skip_preview": "Praleisti peržiūrą/apibendrinimą",
+        "skip_outro": "Praleisti pabaigos užsklandas/padėkas",
+        "skip_intro": "Praleisti pertrauką/įžanginę animaciją",
+        "skip_sponsors": "Praleisti rėmėjus",
+        "enable_sponsorblock": "Įjungti SponsorBlock",
+        "uses_api_from": "Naudoja API iš ",
+        "back": "Atgal",
+        "channel_name_desc": "Kanalo pavadinimas (Z-A)",
+        "channel_name_asc": "Kanalo pavadinimas (A-Z)",
+        "least_recent": "Seniausi",
+        "most_recent": "Naujausi",
+        "sort_by": "Rikiuoti pagal:",
+        "view_subscriptions": "Peržiūrėti prenumeratas"
     },
     "player": {
         "watch_on": "Žiūrėti per"
@@ -11,6 +42,7 @@
         "feed": "Sklaidos kanalas",
         "register": "Registruotis",
         "login": "Prisijungti",
-        "trending": "Tendencijos"
+        "trending": "Tendencijos",
+        "history": "Istorija"
     }
 }
