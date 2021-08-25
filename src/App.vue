@@ -58,6 +58,19 @@ export default {
                     window.db = e.target.result;
                 };
             } else console.log("This browser doesn't support IndexedDB");
+
+        const App = this;
+
+        (async function() {
+            const locale = App.getPreferenceString("hl", "en");
+            if (window.i18n.global.locale.value !== locale) {
+                if (!window.i18n.global.availableLocales.includes(locale)) {
+                    const messages = await import("@/locales/" + locale + ".json").then(module => module.default);
+                    window.i18n.global.setLocaleMessage(locale, messages);
+                }
+                window.i18n.global.locale.value = locale;
+            }
+        })();
     },
 };
 </script>

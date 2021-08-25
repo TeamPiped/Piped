@@ -5,5 +5,12 @@
         "register": "Register",
         "feed": "Feed",
         "preferences": "Preferences"
+    },
+    "player": {
+        "watch_on": "Watch on"
+    },
+    "actions": {
+        "subscribe": "Subscribe",
+        "unsubscribe": "Unsubscribe"
     }
 }

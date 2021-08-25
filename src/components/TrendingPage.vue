@@ -1,5 +1,5 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">{{ $t("titles.trending") }}</h1>
+    <h1 class="uk-text-bold uk-text-center" v-t="'titles.trending'" />
 
     <hr />
 

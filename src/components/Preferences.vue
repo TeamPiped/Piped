@@ -3,7 +3,7 @@
         <button class="uk-button uk-button-text" @click="$router.go(-1) || $router.push('/')">
             <font-awesome-icon icon="chevron-left" /> &nbsp;Back
         </button>
-        <span><h1 class="uk-text-bold uk-text-center">Preferences</h1></span>
+        <span><h1 class="uk-text-bold uk-text-center" v-t="'titles.preferences'"/></span>
         <span />
     </div>
     <hr />
@@ -92,6 +92,12 @@
     <b>Store Watch History</b>
     <br />
     <input class="uk-checkbox" v-model="watchHistory" @change="onChange($event)" type="checkbox" />
+    <br />
+    <b>Language Selection</b>
+    <br />
+    <select class="uk-select uk-width-auto" v-model="selectedLanguage" @change="onChange($event)">
+        <option :key="language.code" v-for="language in languages" :value="language.code">{{ language.name }}</option>
+    </select>
     <h2>Instances List</h2>
     <table class="uk-table">
         <thead>
@@ -152,10 +158,15 @@ export default {
             showComments: true,
             minimizeDescription: false,
             watchHistory: false,
+            selectedLanguage: "en",
+            languages: [
+                { code: "en", name: "English" },
+                { code: "fr", name: "French" },
+            ],
         };
     },
     activated() {
-        document.title = "Preferences - Piped";
+        document.title = this.$t("titles.preferences") + " - Piped";
     },
     mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
@@ -179,6 +190,13 @@ export default {
                             cdn: split[3].trim(),
                         });
                     }
+                    if (this.instances.filter(instance => instance.apiurl == this.apiUrl()).length > 0)
+                        this.instances.push({
+                            name: "Custom Instance",
+                            apiurl: this.apiUrl(),
+                            locations: "Unknown",
+                            cdn: "Unknown",
+                        });
                 });
             });
 
@@ -229,6 +247,7 @@ export default {
             this.showComments = this.getPreferenceBoolean("comments", true);
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
+            this.selectedLanguage = this.getPreferenceString("hl", "en");
         }
     },
     methods: {
@@ -238,7 +257,8 @@ export default {
 
                 if (
                     this.getPreferenceString("theme", "dark") !== this.selectedTheme ||
-                    this.getPreferenceBoolean("watchHistory", false) != this.watchHistory
+                    this.getPreferenceBoolean("watchHistory", false) != this.watchHistory ||
+                    this.getPreferenceString("hl", "en") !== this.selectedLanguage
                 )
                     shouldReload = true;
 
@@ -265,6 +285,7 @@ export default {
                 localStorage.setItem("comments", this.showComments);
                 localStorage.setItem("minimizeDescription", this.minimizeDescription);
                 localStorage.setItem("watchHistory", this.watchHistory);
+                localStorage.setItem("hl", this.selectedLanguage);
 
                 if (shouldReload) window.location.reload();
             }

@@ -107,7 +107,7 @@ const mixin = {
         getPreferenceBoolean(key, defaultVal) {
             var value;
             if (
-                (value = this.$route.query[key]) !== undefined ||
+                (value = new URLSearchParams(window.location.search).get(key)) !== null ||
                 (localStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 switch (String(value).toLowerCase()) {
@@ -124,7 +124,7 @@ const mixin = {
         getPreferenceString(key, defaultVal) {
             var value;
             if (
-                (value = this.$route.query[key]) !== undefined ||
+                (value = new URLSearchParams(window.location.search).get(key)) !== null ||
                 (localStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 return value;
@@ -133,7 +133,7 @@ const mixin = {
         getPreferenceNumber(key, defaultVal) {
             var value;
             if (
-                (value = this.$route.query[key]) !== undefined ||
+                (value = new URLSearchParams(window.location.search).get(key)) !== null ||
                 (localStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 return Number(value);
