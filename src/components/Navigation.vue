@@ -29,7 +29,7 @@
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
                 <li>
-                    <router-link to="/preferences">Preferences</router-link>
+                    <router-link to="/preferences" v-t="'titles.preferences'" />
                 </li>
                 <li v-if="shouldShowLogin">
                     <router-link to="/login" v-t="'titles.login'" />
@@ -38,7 +38,7 @@
                     <router-link to="/register" v-t="'titles.register'" />
                 </li>
                 <li v-if="shouldShowHistory">
-                    <router-link to="/history">History</router-link>
+                    <router-link to="/history" v-t="'titles.history'" />
                 </li>
                 <li v-if="authenticated">
                     <router-link to="/feed" v-t="'titles.feed'" />

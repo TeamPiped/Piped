@@ -1,18 +1,18 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">Feed</h1>
+    <h1 class="uk-text-bold uk-text-center" v-t="'titles.feed'" />
 
     <small>You can import subscriptions from <router-link to="/import">here</router-link>.</small>
 
     <br />
-    <router-link to="/subscriptions" class="uk-text-center">View Subscriptions</router-link>
+    <router-link to="/subscriptions" class="uk-text-center" v-t="'actions.view_subscriptions'" />
 
     <br />
-    Sort by:
+    {{ $t("actions.sort_by") }}
     <select class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
-        <option value="descending">Most Recent</option>
-        <option value="ascending">Least Recent</option>
-        <option value="channel_ascending">Channel Name (A-Z)</option>
-        <option value="channel_descending">Channel Name (Z-A)</option>
+        <option value="descending" v-t="'actions.most_recent'" />
+        <option value="ascending" v-t="'actions.least_recent'" />
+        <option value="channel_ascending" v-t="'actions.channel_name_asc'" />
+        <option value="channel_descending" v-t="'actions.channel_name_desc'" />
     </select>
 
     <div class="uk-align-right">
@@ -50,7 +50,7 @@ export default {
         });
     },
     activated() {
-        document.title = "Feed - Piped";
+        document.title = this.$t("titles.feed") + " - Piped";
         if (this.videos.length > 0) this.updateWatched(this.videos);
     },
     methods: {
