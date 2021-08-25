@@ -1,104 +1,104 @@
 <template>
     <div class="uk-flex uk-flex-between uk-flex-middle">
         <button class="uk-button uk-button-text" @click="$router.go(-1) || $router.push('/')">
-            <font-awesome-icon icon="chevron-left" /> &nbsp;Back
+            <font-awesome-icon icon="chevron-left" /> &nbsp;{{ $t("actions.back") }}
         </button>
         <span><h1 class="uk-text-bold uk-text-center" v-t="'titles.preferences'"/></span>
         <span />
     </div>
     <hr />
     <h2>SponsorBlock</h2>
-    <p>Uses the API from <a href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
-    <b>Enable Sponsorblock</b>
+    <p>{{ $t("actions.uses_api_from") }}<a href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
+    <b v-t="'actions.enable_sponsorblock'" />
     <br />
     <input class="uk-checkbox" v-model="sponsorBlock" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Skip Sponsors</b>
+    <b v-t="'actions.skip_sponsors'" />
     <br />
     <input class="uk-checkbox" v-model="skipSponsor" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Skip Intermission/Intro Animation</b>
+    <b v-t="'actions.skip_intro'" />
     <br />
     <input class="uk-checkbox" v-model="skipIntro" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Skip Endcards/Credits</b>
+    <b v-t="'actions.skip_outro'" />
     <br />
     <input class="uk-checkbox" v-model="skipOutro" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Skip Preview/Recap</b>
+    <b v-t="'actions.skip_preview'" />
     <br />
     <input class="uk-checkbox" v-model="skipPreview" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Skip Interaction Reminder (Subscribe)</b>
+    <b v-t="'actions.skip_interaction'" />
     <br />
     <input class="uk-checkbox" v-model="skipInteraction" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Skip Unpaid/Self Promotion</b>
+    <b v-t="'actions.skip_self_promo'" />
     <br />
     <input class="uk-checkbox" v-model="skipSelfPromo" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Skip Music: Non-Music Section</b>
+    <b v-t="'actions.skip_non_music'" />
     <br />
     <input class="uk-checkbox" v-model="skipMusicOffTopic" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Theme</b>
+    <b v-t="'actions.theme'" />
     <br />
     <select class="uk-select uk-width-auto" v-model="selectedTheme" @change="onChange($event)">
-        <option value="auto">Auto</option>
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
+        <option value="auto" v-t="'actions.auto'" />
+        <option value="dark" v-t="'actions.dark'" />
+        <option value="light" v-t="'actions.light'" />
     </select>
     <br />
-    <b>Autoplay Video</b>
+    <b v-t="'actions.autoplay_video'" />
     <br />
     <input class="uk-checkbox" v-model="autoPlayVideo" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Audio Only</b>
+    <b v-t="'actions.audio_only'" />
     <br />
     <input class="uk-checkbox" v-model="listen" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Default Quality</b>
+    <b v-t="'actions.default_quality'" />
     <br />
     <select class="uk-select uk-width-auto" v-model="defaultQuality" @change="onChange($event)">
-        <option value="0">Auto</option>
+        <option value="0" v-t="'actions.auto'" />
         <option :key="resolution" v-for="resolution in resolutions" :value="resolution">{{ resolution }}p</option>
     </select>
     <br />
-    <b>Buffering Goal (in seconds)</b>
+    <b v-t="'actions.buffering_goal'" />
     <br />
     <input class="uk-input uk-width-auto" v-model="bufferingGoal" @change="onChange($event)" type="text" />
     <br />
-    <b>Country Selection</b>
+    <b v-t="'actions.country_selection'" />
     <br />
     <select class="uk-select uk-width-auto" v-model="country" @change="onChange($event)">
         <option :key="country.code" v-for="country in countryMap" :value="country.code">{{ country.name }}</option>
     </select>
     <br />
-    <b>Default Homepage</b>
+    <b v-t="'actions.default_homepage'" />
     <br />
     <select class="uk-select uk-width-auto" v-model="defaultHomepage" @change="onChange($event)">
-        <option value="trending">Trending</option>
-        <option value="feed">Feed</option>
+        <option value="trending" v-t="'titles.trending'" />
+        <option value="feed" v-t="'titles.feed'" />
     </select>
     <br />
-    <b>Show Comments</b>
+    <b v-t="'actions.show_comments'" />
     <br />
     <input class="uk-checkbox" v-model="showComments" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Minimize Description by default</b>
+    <b v-t="'actions.minimize_description'" />
     <br />
     <input class="uk-checkbox" v-model="minimizeDescription" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Store Watch History</b>
+    <b v-t="'actions.store_watch_history'" />
     <br />
     <input class="uk-checkbox" v-model="watchHistory" @change="onChange($event)" type="checkbox" />
     <br />
-    <b>Language Selection</b>
+    <b v-t="'actions.language_selection'" />
     <br />
     <select class="uk-select uk-width-auto" v-model="selectedLanguage" @change="onChange($event)">
         <option :key="language.code" v-for="language in languages" :value="language.code">{{ language.name }}</option>
     </select>
-    <h2>Instances List</h2>
+    <h2 v-t="'actions.instances_list'" />
     <table class="uk-table">
         <thead>
             <tr>
@@ -162,6 +162,7 @@ export default {
             languages: [
                 { code: "en", name: "English" },
                 { code: "fr", name: "French" },
+                { code: "lt", name: "Lithuanian" },
             ],
         };
     },
@@ -190,14 +191,14 @@ export default {
                             cdn: split[3].trim(),
                         });
                     }
-                    if (this.instances.filter(instance => instance.apiurl == this.apiUrl()).length > 0)
-                        this.instances.push({
-                            name: "Custom Instance",
-                            apiurl: this.apiUrl(),
-                            locations: "Unknown",
-                            cdn: "Unknown",
-                        });
                 });
+                if (this.instances.filter(instance => instance.apiurl == this.apiUrl()).length == 0)
+                    this.instances.push({
+                        name: "Custom Instance",
+                        apiurl: this.apiUrl(),
+                        locations: "Unknown",
+                        cdn: "Unknown",
+                    });
             });
 
         if (localStorage) {
