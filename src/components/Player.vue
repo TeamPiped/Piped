@@ -307,7 +307,7 @@ export default {
             this.player = undefined;
         }
         if (this.hotkeys) this.hotkeys.unbind();
-        this.$refs.container.querySelectorAll("div").forEach(node => node.remove());
+        if (this.$refs.container) this.$refs.container.querySelectorAll("div").forEach(node => node.remove());
     },
 };
 </script>

@@ -1,0 +1,16 @@
+{
+    "titles": {
+        "trending": "Trending",
+        "login": "Login",
+        "register": "Register",
+        "feed": "Feed",
+        "preferences": "Preferences"
+    },
+    "player": {
+        "watch_on": "Watch on"
+    },
+    "actions": {
+        "subscribe": "Subscribe",
+        "unsubscribe": "Unsubscribe"
+    }
+}

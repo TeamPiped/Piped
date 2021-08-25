@@ -32,16 +32,16 @@
                     <router-link to="/preferences">Preferences</router-link>
                 </li>
                 <li v-if="shouldShowLogin">
-                    <router-link to="/login">Login</router-link>
+                    <router-link to="/login" v-t="'titles.login'" />
                 </li>
                 <li v-if="shouldShowLogin">
-                    <router-link to="/register">Register</router-link>
+                    <router-link to="/register" v-t="'titles.register'" />
                 </li>
                 <li v-if="shouldShowHistory">
                     <router-link to="/history">History</router-link>
                 </li>
                 <li v-if="authenticated">
-                    <router-link to="/feed">Feed</router-link>
+                    <router-link to="/feed" v-t="'titles.feed'" />
                 </li>
             </ul>
         </div>

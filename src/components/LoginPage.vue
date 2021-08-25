@@ -46,7 +46,7 @@ export default {
         }
     },
     activated() {
-        document.title = "Login - Piped";
+        document.title = this.$t("titles.login") + " - Piped";
     },
     methods: {
         login() {

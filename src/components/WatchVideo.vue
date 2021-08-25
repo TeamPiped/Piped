@@ -42,7 +42,7 @@
                     class="uk-margin-small-left uk-button uk-button-small"
                     style="background: #222"
                 >
-                    <b>Watch on&nbsp;</b>
+                    <b>{{ $t("player.watch_on") }}&nbsp;</b>
                     <font-awesome-icon class="uk-margin-small-right" :icon="['fab', 'youtube']"></font-awesome-icon>
                 </a>
                 <a
@@ -51,7 +51,7 @@
                     class="uk-margin-small-left uk-button uk-button-small"
                     style="background: #222"
                 >
-                    <b>Watch on LBRY</b>
+                    <b>{{ $t("player.watch_on") }} LBRY</b>
                 </a>
             </div>
 
@@ -68,7 +68,7 @@
                     style="background: #222"
                     type="button"
                 >
-                    {{ subscribed ? "Unsubscribe" : "Subscribe" }}
+                    {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
                 </button>
             </div>
 

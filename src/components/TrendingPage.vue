@@ -1,5 +1,5 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">Trending</h1>
+    <h1 class="uk-text-bold uk-text-center" v-t="'titles.trending'" />
 
     <hr />
 
@@ -33,7 +33,7 @@ export default {
         });
     },
     activated() {
-        document.title = "Trending - Piped";
+        document.title = this.$t("titles.trending") + " - Piped";
         if (this.videos.length > 0) this.updateWatched(this.videos);
     },
     methods: {
