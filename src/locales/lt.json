@@ -1,0 +1,16 @@
+{
+    "actions": {
+        "unsubscribe": "Atšaukti prenumeratą",
+        "subscribe": "Prenumeruoti"
+    },
+    "player": {
+        "watch_on": "Žiūrėti per"
+    },
+    "titles": {
+        "preferences": "Nuostatos",
+        "feed": "Sklaidos kanalas",
+        "register": "Registruotis",
+        "login": "Prisijungti",
+        "trending": "Tendencijos"
+    }
+}

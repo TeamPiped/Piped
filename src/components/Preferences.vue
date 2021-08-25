@@ -162,6 +162,7 @@ export default {
             languages: [
                 { code: "en", name: "English" },
                 { code: "fr", name: "French" },
+                { code: "lt", name: "Lithuanian" },
             ],
         };
     },
