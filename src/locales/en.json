@@ -1,0 +1,9 @@
+{
+    "titles": {
+        "trending": "Trending",
+        "login": "Login",
+        "register": "Register",
+        "feed": "Feed",
+        "preferences": "Preferences"
+    }
+}

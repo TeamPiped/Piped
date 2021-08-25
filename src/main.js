@@ -42,6 +42,9 @@ import en from "javascript-time-ago/locale/en";
 
 TimeAgo.addDefaultLocale(en);
 
+import { createI18n } from "vue-i18n";
+import enLocale from "@/locales/en.json";
+
 const timeAgo = new TimeAgo("en-US");
 
 import("./registerServiceWorker");
@@ -107,7 +110,7 @@ const mixin = {
                 (value = this.$route.query[key]) !== undefined ||
                 (localStorage && (value = localStorage.getItem(key)) !== null)
             ) {
-                switch (String(value)) {
+                switch (String(value).toLowerCase()) {
                     case "true":
                     case "1":
                     case "on":
@@ -202,7 +205,20 @@ const mixin = {
     },
 };
 
+const i18n = createI18n({
+    globalInjection: true,
+    legacy: false,
+    locale: "en",
+    fallbackLocale: "en",
+    messages: {
+        en: enLocale,
+    },
+});
+
+window.i18n = i18n;
+
 const app = createApp(App);
+app.use(i18n);
 app.use(router);
 app.mixin(mixin);
 app.component("font-awesome-icon", FontAwesomeIcon);

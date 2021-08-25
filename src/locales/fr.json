@@ -1,0 +1,9 @@
+{
+    "titles": {
+        "trending": "Tendances",
+        "login": "Connexion",
+        "register": "S'inscrire",
+        "feed": "Abonnements",
+        "preferences": "Préférences"
+    }
+}
