@@ -5,5 +5,12 @@
         "register": "S'inscrire",
         "feed": "Abonnements",
         "preferences": "Préférences"
+    },
+    "actions": {
+        "subscribe": "",
+        "unsubscribe": ""
+    },
+    "player": {
+        "watch_on": ""
     }
 }
