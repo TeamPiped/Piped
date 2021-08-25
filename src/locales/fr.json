@@ -7,10 +7,10 @@
         "preferences": "Préférences"
     },
     "actions": {
-        "subscribe": "",
-        "unsubscribe": ""
+        "subscribe": "S’abonner",
+        "unsubscribe": "Se désabonner"
     },
     "player": {
-        "watch_on": ""
+        "watch_on": "Regarder sur"
     }
 }
