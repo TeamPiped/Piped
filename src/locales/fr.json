@@ -4,7 +4,8 @@
         "login": "Se connecter",
         "register": "S'inscrire",
         "feed": "Abonnements",
-        "preferences": "Préférences"
+        "preferences": "Préférences",
+        "history": "Historique"
     },
     "actions": {
         "subscribe": "S'abonner",
@@ -29,7 +30,17 @@
         "dark": "Sombre",
         "auto": "Auto",
         "theme": "Thème",
-        "enable_sponsorblock": "Activer Sponsorblock"
+        "enable_sponsorblock": "Activer Sponsorblock",
+        "default_quality": "Qualité par défaut",
+        "audio_only": "Audio seulement",
+        "channel_name_desc": "Nom de la chaîne (Z-A)",
+        "view_subscriptions": "Voir les abonnements",
+        "back": "Retour",
+        "uses_api_from": "Utilise l'API de ",
+        "sort_by": "Trier par :",
+        "channel_name_asc": "Nom de la chaîne (A-Z)",
+        "least_recent": "Le moins récent",
+        "most_recent": "Le plus récent"
     },
     "player": {
         "watch_on": "Regarder sur"
