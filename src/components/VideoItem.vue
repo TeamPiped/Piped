@@ -1,15 +1,15 @@
 <template>
     <div class="uk-text-secondary" :style="[{ background: backgroundColor }]">
         <router-link class="uk-text-emphasis" v-bind:to="video.url">
+            <img
+                :height="height"
+                :width="width"
+                style="width: 100%"
+                v-bind:src="video.thumbnail"
+                alt="thumbnail"
+                loading="lazy"
+            />
             <div class="uk-position-relative">
-                <img
-                    :height="height"
-                    :width="width"
-                    style="width: 100%"
-                    v-bind:src="video.thumbnail"
-                    alt="thumbnail"
-                    loading="lazy"
-                />
                 <span
                     v-if="video.duration"
                     class="uk-label uk-border-rounded uk-position-absolute video-duration"
