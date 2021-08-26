@@ -168,6 +168,7 @@ export default {
                 { code: "lt", name: "Lithuanian" },
                 { code: "ml", name: "Malayalam" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
+                { code: "tr", name: "Turkish" },
             ],
         };
     },

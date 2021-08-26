@@ -1,0 +1,48 @@
+{
+    "actions": {
+        "instances_list": "Örnek Listesi",
+        "language_selection": "Dil Seçimi",
+        "store_watch_history": "İzleme Geçmişini Sakla",
+        "minimize_description": "Açıklamayı öntanımlı olarak küçült",
+        "show_comments": "Yorumları Göster",
+        "default_homepage": "Öntanımlı Ana Sayfa",
+        "country_selection": "Ülke Seçimi",
+        "buffering_goal": "Arabelleğe Alma Hedefi (saniye cinsinden)",
+        "default_quality": "Öntanımlı Kalite",
+        "audio_only": "Yalnızca Ses",
+        "autoplay_video": "Videoyu Otomatik Oynat",
+        "light": "Açık",
+        "dark": "Koyu",
+        "auto": "Otomatik",
+        "theme": "Tema",
+        "skip_non_music": "Müziği Atla: Müzik Dışı Bölüm",
+        "skip_self_promo": "Ücretsiz/Kendini Tanıtmayı Atla",
+        "skip_interaction": "Etkileşim Hatırlatıcısını (Abone Ol) Atla",
+        "skip_preview": "Ön İzlemeyi/Özetlemeyi Atla",
+        "skip_outro": "Bitiş/Teşekkür Bölümlerini Atla",
+        "skip_intro": "Ara/Giriş Animasyonunu Atla",
+        "skip_sponsors": "Sponsorları Atla",
+        "enable_sponsorblock": "Sponsorblock'u Etkinleştir",
+        "uses_api_from": "Kullanılan API: ",
+        "back": "Geri",
+        "channel_name_desc": "Kanal Adı (Z-A)",
+        "channel_name_asc": "Kanal Adı (A-Z)",
+        "least_recent": "En Eski",
+        "most_recent": "En Yeni",
+        "sort_by": "Sıralama ölçütü:",
+        "view_subscriptions": "Abonelikleri Görüntüle",
+        "unsubscribe": "Abonelikten çık",
+        "subscribe": "Abone ol"
+    },
+    "player": {
+        "watch_on": "İzle"
+    },
+    "titles": {
+        "history": "Geçmiş",
+        "preferences": "Tercihler",
+        "feed": "Akış",
+        "register": "Kaydol",
+        "login": "Oturum Aç",
+        "trending": "Öne Çıkanlar"
+    }
+}
