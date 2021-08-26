@@ -4,6 +4,7 @@
 [![IPFS Build](https://github.com/TeamPiped/Piped/actions/workflows/build.yml/badge.svg)](https://piped-ipfs.kavin.rocks/)
 [![GitHub Repo stars](https://img.shields.io/github/stars/TeamPiped/Piped-Frontend?style=social)](https://github.com/TeamPiped/Piped/stargazers)
 [![GitHub last commit](https://img.shields.io/github/last-commit/TeamPiped/Piped-Frontend)](https://github.com/TeamPiped/Piped/commits)
+[![Translation status](https://hosted.weblate.org/widgets/piped/-/frontend/svg-badge.svg)](https://hosted.weblate.org/projects/piped/frontend/)
 
 An alternative YouTube frontend which is efficient by design.
 
