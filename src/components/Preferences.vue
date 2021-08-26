@@ -164,6 +164,7 @@ export default {
                 { code: "en", name: "English" },
                 { code: "fr", name: "French" },
                 { code: "de", name: "German" },
+                { code: "el", name: "Greek" },
                 { code: "lt", name: "Lithuanian" },
                 { code: "ml", name: "Malayalam" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },

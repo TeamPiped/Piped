@@ -1,0 +1,48 @@
+{
+    "actions": {
+        "instances_list": "Λίστα διακομιστών",
+        "store_watch_history": "Αποθήκευση ιστορικού παρακολούθησης",
+        "default_homepage": "Προεπιλεγμένη αρχική σελίδα",
+        "country_selection": "Επιλογή χώρας",
+        "audio_only": "Ήχος μόνο",
+        "skip_non_music": "Παράλειψη μουσικής: Μη-μουσικό τμήμα",
+        "skip_self_promo": "Παράλειψη μη-χορηγούμενης/προσωπικής προώθησης",
+        "skip_preview": "Παράλειψη προεπισκόπησης/ανακεφαλαίωσης",
+        "skip_outro": "Παράλειψη τίτλων τέλους/ευσημάτων",
+        "skip_intro": "Παράλειψη διακοπών/εισαγωγής",
+        "skip_sponsors": "Παράλειψη χορηγών",
+        "channel_name_desc": "Όνομα καναλιού (Ζ-Α)",
+        "channel_name_asc": "Όνομα καναλιού (Α-Ζ)",
+        "least_recent": "Λιγότερο πρόσφατα",
+        "most_recent": "Πιο πρόσφατα",
+        "skip_interaction": "Παράλειψη υπενθύμισης αλληλεπίδρασης (Εγγραφή)",
+        "uses_api_from": "Χρήση API από ",
+        "view_subscriptions": "Προβολή συνδρομών",
+        "language_selection": "Επιλογή γλώσσας",
+        "minimize_description": "Ελαχιστοποίηση περιγραφής από προεπιλογή",
+        "show_comments": "Εμφάνιση σχολίων",
+        "buffering_goal": "Στόχος Buffering (σε δευτερόλεπτα)",
+        "default_quality": "Προεπιλεγμένη ποιότητα",
+        "autoplay_video": "Αυτόματη αναπαραγωγή βίντεο",
+        "dark": "Σκούρο",
+        "light": "Φωτεινό",
+        "auto": "Αυτόματο",
+        "theme": "Θέμα",
+        "enable_sponsorblock": "Ενεργοποίηση Sponsorblock",
+        "back": "Επιστροφή",
+        "sort_by": "Ταξινόμηση κατά:",
+        "unsubscribe": "Απεγγραφή",
+        "subscribe": "Εγγραφή"
+    },
+    "titles": {
+        "feed": "Τροφοδοσία",
+        "history": "Ιστορικό",
+        "preferences": "Ρυθμίσεις",
+        "register": "Εγγραφή",
+        "login": "Σύνδεση",
+        "trending": "Τάσεις"
+    },
+    "player": {
+        "watch_on": "Παρακολούθηση σε"
+    }
+}
