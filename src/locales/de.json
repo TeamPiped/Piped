@@ -1,0 +1,48 @@
+{
+    "actions": {
+        "skip_outro": "Nachspann überspringen",
+        "skip_non_music": "Musik überspringen: Nicht-Musik-Bereich",
+        "skip_self_promo": "Unbezahlte Werbung/Eigenwerbung überspringen",
+        "skip_interaction": "Interaktionserinnerung überspringen (Abonnieren)",
+        "skip_preview": "Vorschau/Zusammenfassung überspringen",
+        "instances_list": "Liste der Instanzen",
+        "language_selection": "Sprachauswahl",
+        "store_watch_history": "Wiedergabeverlauf speichern",
+        "minimize_description": "Beschreibung standardmäßig minimieren",
+        "show_comments": "Kommentare anzeigen",
+        "default_homepage": "Standard-Startseite",
+        "country_selection": "Länderauswahl",
+        "buffering_goal": "Pufferungsziel (in Sekunden)",
+        "default_quality": "Standardqualität",
+        "audio_only": "Nur Audio",
+        "autoplay_video": "Video automatisch abspielen",
+        "light": "Hell",
+        "dark": "Dunkel",
+        "auto": "Automatisch",
+        "theme": "Design",
+        "skip_intro": "Pausen-/Einführungsanimation überspringen",
+        "skip_sponsors": "Sponsoren überspringen",
+        "enable_sponsorblock": "Sponsorblock einschalten",
+        "uses_api_from": "Verwendet die API von ",
+        "back": "Zurück",
+        "channel_name_desc": "Kanalname (Z-A)",
+        "channel_name_asc": "Kanalname (A-Z)",
+        "least_recent": "Am wenigsten neu",
+        "most_recent": "Am Neuesten",
+        "sort_by": "Sortieren nach:",
+        "view_subscriptions": "Abonnements anzeigen",
+        "unsubscribe": "Deabonnieren",
+        "subscribe": "Abonnieren"
+    },
+    "player": {
+        "watch_on": "Ansehen auf"
+    },
+    "titles": {
+        "history": "Verlauf",
+        "preferences": "Einstellungen",
+        "feed": "Feed",
+        "register": "Registrieren",
+        "login": "Anmelden",
+        "trending": "Trends"
+    }
+}
