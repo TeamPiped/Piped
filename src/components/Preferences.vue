@@ -160,9 +160,13 @@ export default {
             watchHistory: false,
             selectedLanguage: "en",
             languages: [
+                { code: "zh_Hant", name: "Chinese (Traditional)" },
                 { code: "en", name: "English" },
                 { code: "fr", name: "French" },
+                { code: "de", name: "German" },
                 { code: "lt", name: "Lithuanian" },
+                { code: "ml", name: "Malayalam" },
+                { code: "nb_NO", name: "Norwegian Bokmål" },
             ],
         };
     },

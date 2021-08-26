@@ -1,0 +1,44 @@
+{
+    "titles": {
+        "trending": "പ്രചരിക്കുന്നത്",
+        "register": "രജിസ്റ്റർ ചെയ്യുക",
+        "history": "ചരിത്രം",
+        "preferences": "ക്രമീകരണങ്ങൾ",
+        "feed": "ഫീഡ്",
+        "login": "പ്രവേശിക്കുക"
+    },
+    "actions": {
+        "view_subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ കാണുക",
+        "unsubscribe": "സബ്സ്ക്രൈബ് ചെയ്യേണ്ട",
+        "subscribe": "സബ്സ്ക്രൈബ് ചെയ്യുക",
+        "instances_list": "ഇൻസ്റ്റൻസുകളുടെ പട്ടിക",
+        "minimize_description": "സ്ഥിരമായി വിവരണം ചെറുതാക്കുക",
+        "skip_intro": "ഇടവേള/ആമുഖ ആനിമേഷൻ ഒഴിവാക്കുക",
+        "skip_sponsors": "സ്പോൺസർമാരെ ഒഴിവാക്കുക",
+        "default_quality": "സ്ഥിര വീഡിയോ നിലവാരം",
+        "skip_outro": "എൻഡ്കാർഡുകൾ/ക്രെഡിറ്റുകൾ ഒഴിവാക്കുക",
+        "skip_preview": "പ്രിവ്യൂ/റീക്യാപ്പ് ഒഴിവാക്കുക",
+        "skip_interaction": "ഇടപെടൽ ഓർമ്മപ്പെടുത്തൽ ഒഴിവാക്കുക (സബ്സ്ക്രൈബ് ചെയ്യുക)",
+        "skip_self_promo": "പണം അടയ്ക്കാത്ത/സ്വയം പ്രമോഷൻ ഒഴിവാക്കുക",
+        "auto": "സ്വയം തിരഞ്ഞെടുക്കുക",
+        "theme": "തീം",
+        "dark": "കറുപ്പ് നിറം",
+        "light": "വെള്ള നിറം",
+        "default_homepage": "സ്ഥിര ഹോംപേജ്",
+        "show_comments": "അഭിപ്രായങ്ങൾ കാണിക്കുക",
+        "language_selection": "ഭാഷ തിരഞ്ഞെടുക്കുക",
+        "store_watch_history": "വീഡിയോ ചരിത്രം സംരക്ഷിക്കുക",
+        "country_selection": "രാജ്യം തിരഞ്ഞെടുക്കുക",
+        "audio_only": "ശബ്ദം മാത്രം",
+        "enable_sponsorblock": "Sponsorblock സജ്ജമാക്കുക",
+        "uses_api_from": "ഇതിൽ നിന്ന് എപിഐ ഉപയോഗിക്കുന്നു ",
+        "back": "തിരികെ പോവുക",
+        "channel_name_desc": "ചാനലിൻ്റെ പേര് (Z-A)",
+        "channel_name_asc": "ചാനലിന്റെ പേര് (A-Z)",
+        "most_recent": "ഏറ്റവും പുതിയത്",
+        "sort_by": "ഇങ്ങനെ അടുക്കുക:"
+    },
+    "player": {
+        "watch_on": "ൽ കാണുക"
+    }
+}
