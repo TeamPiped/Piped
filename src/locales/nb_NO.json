@@ -1,0 +1,48 @@
+{
+    "actions": {
+        "instances_list": "Liste over instanser",
+        "minimize_description": "Minimer beskrivelse som forvalg",
+        "country_selection": "Land",
+        "buffering_goal": "Mellomlagringsmål (i sekunder)",
+        "autoplay_video": "Spill video automatisk",
+        "skip_non_music": "Hopp over musikk:Del uten musikk",
+        "auto": "Auto",
+        "skip_self_promo": "Hopp over ubetalt/selvpromotering",
+        "skip_interaction": "Hopp over interaksjonspåminnelse (abonnering)",
+        "skip_preview": "Hopp over forhåndsvisning/reintroduksjon",
+        "skip_outro": "Skru av rulletekst/sluttpresentasjon",
+        "skip_intro": "Hopp over forvideo/introanimasjon",
+        "enable_sponsorblock": "Skru på sponsorblokkering",
+        "language_selection": "Språk",
+        "store_watch_history": "Lagre visningshistorikk",
+        "show_comments": "Vis kommentarer",
+        "default_homepage": "Forvalgt hjemmeside",
+        "default_quality": "Forvalgt kvalitet",
+        "audio_only": "Kun lyd",
+        "light": "Lys",
+        "dark": "Mørk",
+        "theme": "Drakt",
+        "skip_sponsors": "Hopp over sponsorer",
+        "uses_api_from": "Bruker API-et fra ",
+        "back": "Tilbake",
+        "channel_name_desc": "Kanalnavn (Å-A)",
+        "channel_name_asc": "Kanalnavn (A-Å)",
+        "least_recent": "Eldst",
+        "most_recent": "Nyligst",
+        "sort_by": "Sorter etter:",
+        "view_subscriptions": "Vis abonnementer",
+        "unsubscribe": "Opphev abonnement",
+        "subscribe": "Abonner"
+    },
+    "player": {
+        "watch_on": "Vis på"
+    },
+    "titles": {
+        "feed": "Strøm",
+        "history": "HIstorikk",
+        "preferences": "Innstillinger",
+        "register": "Registrering",
+        "login": "Logg inn",
+        "trending": "På vei opp"
+    }
+}
