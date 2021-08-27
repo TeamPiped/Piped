@@ -32,7 +32,8 @@
         "sort_by": "Ordina per:",
         "view_subscriptions": "Visualizza gli abbonamenti",
         "unsubscribe": "Disiscriviti",
-        "subscribe": "Iscriviti"
+        "subscribe": "Iscriviti",
+        "enabled_codecs": "Abilita Codecs (Molteplici)"
     },
     "player": {
         "watch_on": "Guarda su"
