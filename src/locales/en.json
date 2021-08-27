@@ -43,6 +43,7 @@
         "minimize_description": "Minimize Description by default",
         "store_watch_history": "Store Watch History",
         "language_selection": "Language Selection",
-        "instances_list": "Instances List"
+        "instances_list": "Instances List",
+        "enabled_codecs": "Enabled Codecs (Multiple)"
     }
 }
