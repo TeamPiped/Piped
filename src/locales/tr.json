@@ -32,7 +32,8 @@
         "sort_by": "Sıralama ölçütü:",
         "view_subscriptions": "Abonelikleri Görüntüle",
         "unsubscribe": "Abonelikten çık",
-        "subscribe": "Abone ol"
+        "subscribe": "Abone ol",
+        "enabled_codecs": "Etkin Çözücüler (Birden Çok)"
     },
     "player": {
         "watch_on": "İzle"
