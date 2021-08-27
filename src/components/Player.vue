@@ -56,11 +56,19 @@ export default {
         },
         preferredVideoCodecs: _this => {
             var preferredVideoCodecs = [];
+            const enabledCodecs = _this.getPreferenceString("enabledCodecs", "av1,vp9,avc").split(",");
 
-            if (_this.$refs.videoEl.canPlayType('video/mp4; codecs="av01.0.08M.08"') !== "")
+            if (
+                _this.$refs.videoEl.canPlayType('video/mp4; codecs="av01.0.08M.08"') !== "" &&
+                enabledCodecs.includes("av1")
+            )
                 preferredVideoCodecs.push("av01");
-            if (_this.$refs.videoEl.canPlayType('video/webm; codecs="vp9"') !== "") preferredVideoCodecs.push("vp9");
-            if (_this.$refs.videoEl.canPlayType('video/mp4; codecs="avc1.4d401f"') !== "")
+            if (_this.$refs.videoEl.canPlayType('video/webm; codecs="vp9"') !== "" && enabledCodecs.includes("vp9"))
+                preferredVideoCodecs.push("vp9");
+            if (
+                _this.$refs.videoEl.canPlayType('video/mp4; codecs="avc1.4d401f"') !== "" &&
+                enabledCodecs.includes("avc")
+            )
                 preferredVideoCodecs.push("avc1");
 
             return preferredVideoCodecs;

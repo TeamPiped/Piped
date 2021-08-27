@@ -98,6 +98,14 @@
     <select class="uk-select uk-width-auto" v-model="selectedLanguage" @change="onChange($event)">
         <option :key="language.code" v-for="language in languages" :value="language.code">{{ language.name }}</option>
     </select>
+    <br />
+    <b v-t="'actions.enabled_codecs'" />
+    <br />
+    <select class="uk-select uk-width-auto" v-model="enabledCodecs" @change="onChange($event)" multiple>
+        <option value="av1">AV1</option>
+        <option value="vp9">VP9</option>
+        <option value="avc">AVC (h.264)</option>
+    </select>
     <h2 v-t="'actions.instances_list'" />
     <table class="uk-table">
         <thead>
@@ -170,6 +178,7 @@ export default {
                 { code: "nb_NO", name: "Norwegian Bokmål" },
                 { code: "tr", name: "Turkish" },
             ],
+            enabledCodecs: ["av1", "vp9", "avc"],
         };
     },
     activated() {
@@ -255,6 +264,7 @@ export default {
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
             this.selectedLanguage = this.getPreferenceString("hl", "en");
+            this.enabledCodecs = this.getPreferenceString("enabledCodecs", "av1,vp9,avc").split(",");
         }
     },
     methods: {
@@ -265,7 +275,8 @@ export default {
                 if (
                     this.getPreferenceString("theme", "dark") !== this.selectedTheme ||
                     this.getPreferenceBoolean("watchHistory", false) != this.watchHistory ||
-                    this.getPreferenceString("hl", "en") !== this.selectedLanguage
+                    this.getPreferenceString("hl", "en") !== this.selectedLanguage ||
+                    this.getPreferenceString("enabledCodecs", "av1,vp9,avc") !== this.enabledCodecs.join(",")
                 )
                     shouldReload = true;
 
@@ -293,6 +304,7 @@ export default {
                 localStorage.setItem("minimizeDescription", this.minimizeDescription);
                 localStorage.setItem("watchHistory", this.watchHistory);
                 localStorage.setItem("hl", this.selectedLanguage);
+                localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
 
                 if (shouldReload) window.location.reload();
             }
