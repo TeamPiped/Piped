@@ -8,6 +8,9 @@
                 <b>Selected Subscriptions: {{ selectedSubscriptions }}</b>
             </div>
             <div class="uk-form-row">
+                <b>Override: <input class="uk-checkbox" v-model="override" type="checkbox"/></b>
+            </div>
+            <div class="uk-form-row">
                 <a
                     class="uk-width-1-1 uk-button uk-button-primary uk-button-large uk-width-auto"
                     style="background: #222"
@@ -62,6 +65,7 @@ export default {
     data() {
         return {
             subscriptions: [],
+            override: false,
         };
     },
     computed: {
@@ -125,13 +129,19 @@ export default {
             });
         },
         handleImport() {
-            this.fetchJson(this.apiUrl() + "/import", null, {
-                method: "POST",
-                headers: {
-                    Authorization: this.getAuthToken(),
+            this.fetchJson(
+                this.apiUrl() + "/import",
+                {
+                    override: this.override,
                 },
-                body: JSON.stringify(this.subscriptions),
-            }).then(json => {
+                {
+                    method: "POST",
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                    body: JSON.stringify(this.subscriptions),
+                },
+            ).then(json => {
                 if (json.message === "ok") window.location = "/feed";
             });
         },
