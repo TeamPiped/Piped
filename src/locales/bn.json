@@ -1,0 +1,49 @@
+{
+    "titles": {
+        "trending": "জনপ্রিয় ভিডিও",
+        "login": "অ্যাকাউন্টে লগইন",
+        "register": "একাউন্ট বানান",
+        "feed": "আপনার ফিড",
+        "preferences": "পছন্দ অনুযায়ী মানিয়ে নিন",
+        "history": "দেখার ইতিহাস"
+    },
+    "player": {
+        "watch_on": "এখানে দেখুন :"
+    },
+    "actions": {
+        "subscribe": "সদস্যতা নিন",
+        "unsubscribe": "সদস্যতা পরিত্যাগ",
+        "view_subscriptions": "সদস্যতার তালিকা",
+        "sort_by": "কোন ক্রমানুযায়ী ভিডিও গুলো আসবে ",
+        "most_recent": "সবচেয়ে নতুন আগে",
+        "least_recent": "সবচেয়ে পুরোনো আগে",
+        "channel_name_asc": "চ্যানেলের নাম অনুসারে (A-Z)",
+        "channel_name_desc": "চ্যানেলের নাম অনুসারে (Z-A)",
+        "back": " ফেরত যাবেন? ",
+        "uses_api_from": "এই পরিষেবাটি  ব্যবহার  করে : ",
+        "enable_sponsorblock": "আপনি কি স্পনসরব্লক সক্রিয় করতে চান ?",
+        "skip_sponsors": "আপনি কি স্পনসর এড়িয়ে যেতে চান ?",
+        "skip_intro": "আপনি কি সূচনা এবং সাময়িক বিরতি এড়িয়ে যেতে চান ?",
+        "skip_outro": "আপনি কি কৃতিত্ব তালিকা (Credits) এড়িয়ে যেতে চান ?",
+        "skip_preview": "আপনি কি পূর্বদৃশ্য/আগের পর্বের সংক্ষিপ্তসার এড়িয়ে যেতে চান ?",
+        "skip_interaction": "Skip Interaction Reminder (Subscribe)",
+        "skip_self_promo": "আপনি কি আত্মসম্প্রচার এড়িয়ে যেতে চান?",
+        "skip_non_music": "আপনি কি গানের মধ্যে গানহীন অংশ এড়িয়ে যেতে চান?",
+        "theme": "থিম",
+        "auto": "আপনার কম্পিউটার অনুযায়ী । ",
+        "dark": "কৃষ্ণাভ ।",
+        "light": "উজ্জ্বল ।",
+        "autoplay_video": "ভিডিও নিজে থেকে চলবে কি না",
+        "audio_only": "শুধু আওয়াজ শুনবেন কি না",
+        "default_quality": "এই উৎকর্ষের ভিডিওটি লোড করা হবে যদি না আপনি অন্য কোনো পছন্দ করেন । ",
+        "buffering_goal": "Buffering Goal (in seconds)",
+        "country_selection": "দেশ",
+        "default_homepage": "ওয়েবসাইট খোলার পর কি দেখবেন গতানুগতিক",
+        "show_comments": "আপনি কি মন্তব্য দেখতে চান ?",
+        "minimize_description": "আপনি কি স্বাভাবিক ভাবে বিবরণটিকে সংক্ষিপ্ত রাখতে চান ?",
+        "store_watch_history": "আপনি কি দেখার ইতিহাস মজুত রাখতে চান?",
+        "language_selection": "আপনি কোন ভাষায় দেখতে চান ?",
+        "instances_list": "Instances List",
+        "enabled_codecs": "Enabled Codecs (Multiple)"
+    }
+}
