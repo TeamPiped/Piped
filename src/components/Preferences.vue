@@ -177,6 +177,7 @@ export default {
                 { code: "ml", name: "Malayalam" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
                 { code: "tr", name: "Turkish" },
+                { code: 'bn', name: 'Bengali' }
             ],
             enabledCodecs: ["av1", "vp9", "avc"],
         };
