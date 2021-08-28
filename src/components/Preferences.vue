@@ -177,7 +177,7 @@ export default {
                 { code: "ml", name: "Malayalam" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
                 { code: "tr", name: "Turkish" },
-                { code: 'bn', name: 'Bengali' }
+                { code: "bn", name: "Bengali" },
             ],
             enabledCodecs: ["av1", "vp9", "avc"],
         };
@@ -217,7 +217,7 @@ export default {
                     });
             });
 
-        if (localStorage) {
+        if (this.testLocalStorage) {
             this.selectedInstance = this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
 
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
@@ -270,7 +270,7 @@ export default {
     },
     methods: {
         onChange() {
-            if (localStorage) {
+            if (this.testLocalStorage) {
                 var shouldReload = false;
 
                 if (

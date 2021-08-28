@@ -108,7 +108,7 @@ const mixin = {
             var value;
             if (
                 (value = new URLSearchParams(window.location.search).get(key)) !== null ||
-                (localStorage && (value = localStorage.getItem(key)) !== null)
+                (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 switch (String(value).toLowerCase()) {
                     case "true":
@@ -125,7 +125,7 @@ const mixin = {
             var value;
             if (
                 (value = new URLSearchParams(window.location.search).get(key)) !== null ||
-                (localStorage && (value = localStorage.getItem(key)) !== null)
+                (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 return value;
             } else return defaultVal;
@@ -134,7 +134,7 @@ const mixin = {
             var value;
             if (
                 (value = new URLSearchParams(window.location.search).get(key)) !== null ||
-                (localStorage && (value = localStorage.getItem(key)) !== null)
+                (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 return Number(value);
             } else return defaultVal;
@@ -201,6 +201,14 @@ const mixin = {
         },
         authenticated(_this) {
             return _this.getAuthToken() !== undefined;
+        },
+        testLocalStorage() {
+            try {
+                if (window.localStorage !== undefined) localStorage;
+                return true;
+            } catch {
+                return false;
+            }
         },
     },
 };
