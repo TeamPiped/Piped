@@ -40,7 +40,8 @@
         "sort_by": "Trier par :",
         "channel_name_asc": "Nom de la chaîne (A-Z)",
         "least_recent": "Le moins récent",
-        "most_recent": "Le plus récent"
+        "most_recent": "Le plus récent",
+        "enabled_codecs": "Codecs activés (multiples)"
     },
     "player": {
         "watch_on": "Regarder sur"
