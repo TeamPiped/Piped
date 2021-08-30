@@ -32,7 +32,8 @@
         "least_recent": "Seniausi",
         "most_recent": "Naujausi",
         "sort_by": "Rikiuoti pagal:",
-        "view_subscriptions": "Peržiūrėti prenumeratas"
+        "view_subscriptions": "Peržiūrėti prenumeratas",
+        "enabled_codecs": "Įgalinti kodekai (gali būti keli)"
     },
     "player": {
         "watch_on": "Žiūrėti per"

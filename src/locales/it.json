@@ -1,0 +1,49 @@
+{
+    "actions": {
+        "instances_list": "Elenco delle istanze",
+        "language_selection": "Selezione della lingua",
+        "store_watch_history": "Conserva la cronologia di visualizzazione",
+        "minimize_description": "Minimizza la descrizione per impostazione predefinita",
+        "show_comments": "Mostra i commenti",
+        "default_homepage": "Pagina iniziale predefinita",
+        "country_selection": "Selezione del paese",
+        "buffering_goal": "Obiettivo di buffering (in secondi)",
+        "default_quality": "Qualità predefinita",
+        "audio_only": "Solo audio",
+        "autoplay_video": "Riproduzione automatica del video",
+        "light": "Chiaro",
+        "dark": "Scuro",
+        "auto": "Automatico",
+        "theme": "Tema",
+        "skip_non_music": "Ignora la musica: sezione non musicale",
+        "skip_self_promo": "Ignora la promozione non pagata / l'autopromozione",
+        "skip_interaction": "Ignora il promemoria dell'interazione (Iscriviti)",
+        "skip_preview": "Salta l'anteprima / il riepilogo",
+        "skip_outro": "Ignora i crediti",
+        "skip_intro": "Ignora l'intervallo/l'animazione introduttiva",
+        "skip_sponsors": "Ignora gli sponsor",
+        "enable_sponsorblock": "Abilita Sponsorblock",
+        "uses_api_from": "Usa l'API da ",
+        "back": "Indietro",
+        "channel_name_desc": "Nome del canale (Z-A)",
+        "channel_name_asc": "Nome del canale (A-Z)",
+        "most_recent": "Più recente",
+        "least_recent": "Meno recente",
+        "sort_by": "Ordina per:",
+        "view_subscriptions": "Visualizza gli abbonamenti",
+        "unsubscribe": "Disiscriviti",
+        "subscribe": "Iscriviti",
+        "enabled_codecs": "Abilita Codecs (Molteplici)"
+    },
+    "player": {
+        "watch_on": "Guarda su"
+    },
+    "titles": {
+        "history": "Cronologia",
+        "preferences": "Preferenze",
+        "feed": "Abbonammenti",
+        "register": "Registrati",
+        "login": "Accedi",
+        "trending": "Di tendenza"
+    }
+}
