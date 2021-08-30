@@ -1,0 +1,38 @@
+{
+    "actions": {
+        "enabled_codecs": "کدک‌های فعال (چندگانه)",
+        "instances_list": "لیست نمونه‌ها",
+        "language_selection": "انتخاب زبان",
+        "store_watch_history": "ذخیره سابقه تماشا",
+        "minimize_description": "به حداقل رساندن توضیحات به صورت پیش فرض",
+        "show_comments": "نمایش نظرات",
+        "default_homepage": "صفحه خانگی پیش فرض",
+        "country_selection": "انتخاب کشور",
+        "buffering_goal": "هدف بافر (در ثانیه)",
+        "default_quality": "کیفیت پیش فرض",
+        "audio_only": "فقط صدا",
+        "autoplay_video": "پخش خودکار ویدئو",
+        "light": "روشن",
+        "dark": "تاریک",
+        "auto": "خودکار",
+        "theme": "پوسته",
+        "skip_sponsors": "رد کردن حامیان مالی",
+        "enable_sponsorblock": "فعال کردن Sponsorblock",
+        "back": "بازگشت",
+        "channel_name_desc": "نام کانال (ی-الف)",
+        "channel_name_asc": "نام کانال (الف-ی)",
+        "most_recent": "تازه‌ترین‌ها",
+        "sort_by": "مرتب سازی بر اساس:",
+        "view_subscriptions": "مشاهده اشتراک‌ها",
+        "unsubscribe": "لغو اشتراک",
+        "subscribe": "مشترک شدن"
+    },
+    "titles": {
+        "history": "سابقه",
+        "preferences": "تنظیمات",
+        "feed": "خوراک",
+        "register": "ثبت نام",
+        "login": "ورود",
+        "trending": "محبوب"
+    }
+}

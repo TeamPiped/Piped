@@ -32,7 +32,8 @@
         "sort_by": "Sortieren nach:",
         "view_subscriptions": "Abonnements anzeigen",
         "unsubscribe": "Deabonnieren",
-        "subscribe": "Abonnieren"
+        "subscribe": "Abonnieren",
+        "enabled_codecs": "Aktivierte Codecs (mehrere)"
     },
     "player": {
         "watch_on": "Ansehen auf"
@@ -40,7 +41,7 @@
     "titles": {
         "history": "Verlauf",
         "preferences": "Einstellungen",
-        "feed": "Feed",
+        "feed": "Abonnements",
         "register": "Registrieren",
         "login": "Anmelden",
         "trending": "Trends"

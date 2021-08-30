@@ -168,6 +168,7 @@ export default {
             watchHistory: false,
             selectedLanguage: "en",
             languages: [
+                { code: "bn", name: "Bengali" },
                 { code: "zh_Hant", name: "Chinese (Traditional)" },
                 { code: "en", name: "English" },
                 { code: "fr", name: "French" },
@@ -176,8 +177,8 @@ export default {
                 { code: "lt", name: "Lithuanian" },
                 { code: "ml", name: "Malayalam" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
+                { code: "fa", name: "Persian" },
                 { code: "tr", name: "Turkish" },
-                { code: "bn", name: "Bengali" },
             ],
             enabledCodecs: ["av1", "vp9", "avc"],
         };
