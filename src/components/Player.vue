@@ -99,9 +99,9 @@ export default {
 
             var uri;
 
-            if (!this.video.livestream) {
+            if (this.video.livestream) {
                 uri = this.video.hls;
-            } else if (this.video.livestream || (this.video.audioStreams.length > 0 && !lbry && MseSupport)) {
+            } else if (this.video.audioStreams.length > 0 && !lbry && MseSupport) {
                 if (!this.video.dash) {
                     const dash = require("@/utils/DashUtils.js").default.generate_dash_file_from_formats(
                         streams,
