@@ -28,7 +28,6 @@
 
         <span v-if="video.uploaderUrl && video.uploaderName && !hideChannel">
             <router-link class="uk-link-muted" :to="video.uploaderUrl">
-                <img :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle" style="width: 15%; height: 15%"/>
                 {{ video.uploaderName }}&thinsp;<font-awesome-icon
                     v-if="video.uploaderVerified"
                     icon="check"
