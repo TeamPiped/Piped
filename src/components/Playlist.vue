@@ -3,13 +3,13 @@
 
     <div v-if="playlist" v-show="!playlist.error">
         <h1 class="uk-text-center">
-            <img v-bind:src="playlist.avatarUrl" height="48" width="48" loading="lazy" />
+            <img v-bind:src="playlist.avatarUrl" height="48" width="48" loading="lazy"/>
             {{ playlist.name }}
         </h1>
 
         <b
             ><router-link class="uk-text-justify" v-bind:to="playlist.uploaderUrl || '/'">
-                <img v-bind:src="playlist.uploaderAvatar" loading="lazy" />
+                <img v-bind:src="playlist.uploaderAvatar" loading="lazy" class="uk-border-circle" />
                 {{ playlist.uploader }}</router-link
             ></b
         >
