@@ -56,7 +56,7 @@
             </div>
 
             <div class="uk-flex uk-flex-middle uk-margin-small-top">
-                <img :src="video.uploaderAvatar" loading="lazy" />
+                <img :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle" />
                 <router-link class="uk-text-bold uk-margin-small-left" v-if="video.uploaderUrl" :to="video.uploaderUrl">
                     <a>{{ video.uploader }}</a>
                 </router-link>
