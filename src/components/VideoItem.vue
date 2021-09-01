@@ -35,9 +35,11 @@
         </router-link>
 
         <div v-if="video.uploaderUrl && video.uploaderName && !hideChannel" style="display: flex; flex-flow: row; height: 15%">
-            <img :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle"/>
+            <router-link class="uk-link-muted" :to="video.uploaderUrl">
+                <img v-if="video.uploaderAvatar" :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle" style="margin-right: 1rem; width: 32px; height: 32px;" />
+            </router-link>
 
-            <div style="padding-left: 1rem">
+            <div>
                 <router-link class="uk-link-muted" :to="video.uploaderUrl">
                     {{ video.uploaderName }}&thinsp;<font-awesome-icon
                         v-if="video.uploaderVerified"
