@@ -14,7 +14,7 @@
     <div :key="subscription.url" v-for="subscription in subscriptions">
         <div class="uk-text-primary" :style="[{ background: backgroundColor }]">
             <a :href="subscription.url">
-                <img :src="subscription.avatar" class="uk-margin-small-right" width="50" height="50" />
+                <img :src="subscription.avatar" class="uk-margin-small-right uk-border-circle" width="50" height="50" />
                 <span class="uk-text-truncate">{{ subscription.name }}</span>
             </a>
             <button
