@@ -24,19 +24,20 @@
                 >
             </div>
 
-            <div style="display: inline-block; width: 90%">
-                <p class="uk-text-break">{{ video.title }}</p>
-            </div>
-            <div class="uk-align-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
-                <router-link :to="video.url + '&listen=1'">
-                    <font-awesome-icon icon="headphones"></font-awesome-icon>
-                </router-link>
+            <div>
+                <p class="uk-text-break" style="padding-top: 0.5rem; margin-bottom: 0.5rem">{{ video.title }}</p>
             </div>
         </router-link>
 
+        <div class="uk-align-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
+            <router-link :to="video.url + '&listen=1'">
+                <font-awesome-icon icon="headphones"></font-awesome-icon>
+            </router-link>
+        </div>
+
         <div v-if="video.uploaderUrl && video.uploaderName && !hideChannel" style="display: flex; flex-flow: row; height: 15%">
             <router-link class="uk-link-muted" :to="video.uploaderUrl">
-                <img v-if="video.uploaderAvatar" :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle" style="margin-right: 1rem; width: 32px; height: 32px;" />
+                <img v-if="video.uploaderAvatar" :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle" style="margin-right: 0.5rem; margin-top:0.5rem; width: 32px; height: 32px;" />
             </router-link>
 
             <div>
