@@ -26,32 +26,31 @@
             <p class="uk-text-break">{{ video.title }}</p>
         </router-link>
 
-        <div :class="{ 'uk-align-left': !(video.views >= 0 || video.uploadedDate) }">
-            <div v-if="video.uploaderUrl && video.uploaderName && !hideChannel">
-                <router-link class="uk-link-muted" :to="video.uploaderUrl">
-                    {{ video.uploaderName }}&thinsp;<font-awesome-icon
-                        v-if="video.uploaderVerified"
-                        icon="check"
-                    ></font-awesome-icon>
-                </router-link>
-                <br />
-            </div>
-        </div>
+        <span v-if="video.uploaderUrl && video.uploaderName && !hideChannel">
+            <router-link class="uk-link-muted" :to="video.uploaderUrl">
+                <img :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle" style="width: 15%; height: 15%"/>
+                {{ video.uploaderName }}&thinsp;<font-awesome-icon
+                    v-if="video.uploaderVerified"
+                    icon="check"
+                ></font-awesome-icon>
+            </router-link>
+            <br />
+        </span>
 
-        <b v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small uk-align-left">
-            <div v-if="video.views >= 0">
+        <b v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
+            <span v-if="video.views >= 0">
                 <font-awesome-icon icon="eye"></font-awesome-icon>
-                {{ numberFormat(video.views) }} views
-                <br />
-            </div>
-            <div v-if="video.uploadedDate">
+                {{ numberFormat(video.views) }} •
+            </span>
+            <span v-if="video.uploadedDate">
                 {{ video.uploadedDate }}
-            </div>
-            <div v-if="video.uploaded">
+            </span>
+            <span v-if="video.uploaded">
                 {{ timeAgo(video.uploaded) }}
-            </div>
+            </span>
         </b>
-        <div class="uk-align-right">
+
+        <div class="uk-align-right" style="margin-left: 0">
             <router-link :to="video.url + '&listen=1'">
                 <font-awesome-icon icon="headphones"></font-awesome-icon>
             </router-link>
