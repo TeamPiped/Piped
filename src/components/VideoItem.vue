@@ -23,36 +23,43 @@
                     >Watched</span
                 >
             </div>
-            <p class="uk-text-break">{{ video.title }}</p>
+
+            <div style="display: inline-block; width: 90%">
+                <p class="uk-text-break">{{ video.title }}</p>
+            </div>
+            <div class="uk-align-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
+                <router-link :to="video.url + '&listen=1'">
+                    <font-awesome-icon icon="headphones"></font-awesome-icon>
+                </router-link>
+            </div>
         </router-link>
 
-        <span v-if="video.uploaderUrl && video.uploaderName && !hideChannel">
-            <router-link class="uk-link-muted" :to="video.uploaderUrl">
-                {{ video.uploaderName }}&thinsp;<font-awesome-icon
-                    v-if="video.uploaderVerified"
-                    icon="check"
-                ></font-awesome-icon>
-            </router-link>
-            <br />
-        </span>
+        <div v-if="video.uploaderUrl && video.uploaderName && !hideChannel" style="display: flex; flex-flow: row; height: 15%">
+            <img :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle"/>
 
-        <b v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
-            <span v-if="video.views >= 0">
-                <font-awesome-icon icon="eye"></font-awesome-icon>
-                {{ numberFormat(video.views) }} •
-            </span>
-            <span v-if="video.uploadedDate">
-                {{ video.uploadedDate }}
-            </span>
-            <span v-if="video.uploaded">
-                {{ timeAgo(video.uploaded) }}
-            </span>
-        </b>
+            <div style="padding-left: 1rem">
+                <router-link class="uk-link-muted" :to="video.uploaderUrl">
+                    {{ video.uploaderName }}&thinsp;<font-awesome-icon
+                        v-if="video.uploaderVerified"
+                        icon="check"
+                    ></font-awesome-icon>
+                </router-link>
 
-        <div class="uk-align-right" style="margin-left: 0">
-            <router-link :to="video.url + '&listen=1'">
-                <font-awesome-icon icon="headphones"></font-awesome-icon>
-            </router-link>
+                <br />
+
+                <b v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
+                    <span v-if="video.views >= 0">
+                        <font-awesome-icon icon="eye"></font-awesome-icon>
+                        {{ numberFormat(video.views) }} •
+                    </span>
+                    <span v-if="video.uploadedDate">
+                        {{ video.uploadedDate }}
+                    </span>
+                    <span v-if="video.uploaded">
+                        {{ timeAgo(video.uploaded) }}
+                    </span>
+                </b>
+            </div>
         </div>
     </div>
 </template>
