@@ -44,6 +44,8 @@
         "store_watch_history": "Store Watch History",
         "language_selection": "Language Selection",
         "instances_list": "Instances List",
-        "enabled_codecs": "Enabled Codecs (Multiple)"
+        "enabled_codecs": "Enabled Codecs (Multiple)",
+        "disable_lbry": "Disable LBRY for Streaming",
+        "enable_lbry_proxy": "Enable Proxy for LBRY"
     }
 }
