@@ -95,7 +95,9 @@ export default {
 
             const MseSupport = window.MediaSource !== undefined;
 
-            const lbry = this.video.videoStreams.filter(stream => stream.quality === "LBRY")[0];
+            const lbry = this.getPreferenceBoolean("disableLBRY", false)
+                ? null
+                : this.video.videoStreams.filter(stream => stream.quality === "LBRY")[0];
 
             var uri;
 
@@ -112,6 +114,12 @@ export default {
                 } else uri = this.video.dash;
             } else if (lbry) {
                 uri = lbry.url;
+                if (this.getPreferenceBoolean("proxyLBRY", false)) {
+                    const url = new URL(uri);
+                    url.searchParams.set("host", url.host);
+                    url.host = new URL(this.video.proxyUrl).host;
+                    uri = url.toString();
+                }
             } else {
                 uri = this.video.videoStreams.filter(stream => stream.codec == null).slice(-1)[0].url;
             }
