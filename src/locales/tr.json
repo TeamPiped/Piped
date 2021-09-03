@@ -33,7 +33,9 @@
         "view_subscriptions": "Abonelikleri Görüntüle",
         "unsubscribe": "Abonelikten çık",
         "subscribe": "Abone ol",
-        "enabled_codecs": "Etkin Çözücüler (Birden Çok)"
+        "enabled_codecs": "Etkin Çözücüler (Birden Çok)",
+        "enable_lbry_proxy": "LBRY için Vekil Sunucuyu Etkinleştir",
+        "disable_lbry": "Akış için LBRY'yi Devre Dışı Bırak"
     },
     "player": {
         "watch_on": "İzle"
