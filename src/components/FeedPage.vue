@@ -14,7 +14,7 @@
     </button>
 
     <span>
-        <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
+        <a :href="getRssUrl"><font-awesome-icon icon="rss" style="padding-top: 0.2rem"></font-awesome-icon></a>
     </span>
 
     <span class="uk-align-right">
