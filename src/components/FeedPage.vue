@@ -30,16 +30,24 @@
     <hr />
 
     <div class="uk-grid-xl" uk-grid="parallax: 0">
-        <div
-            :style="[{ background: backgroundColor }]"
-            class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
-            v-bind:key="video.url"
-            v-for="video in videos"
-        >
-            <VideoItem :video="video" />
-        </div>
+        <RecycleScroller :items="videos" :item-size="videos.length" key-field="url" v-slot="{ item }" page-mode>
+            <div
+                :style="[{ background: backgroundColor }]"
+                class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
+            >
+                <VideoItem :video="item" />
+            </div>
+        </RecycleScroller>
     </div>
 </template>
+
+<style>
+.vue-recycle-scroller__item-view {
+    position: relative !important;
+    transform: inherit !important;
+    will-change: unset !important;
+}
+</style>
 
 <script>
 import VideoItem from "@/components/VideoItem.vue";

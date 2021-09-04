@@ -47,6 +47,10 @@ import enLocale from "@/locales/en.json";
 
 const timeAgo = new TimeAgo("en-US");
 
+import { RecycleScroller } from "vue-virtual-scroller";
+
+import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
+
 import("./registerServiceWorker");
 
 const mixin = {
@@ -229,5 +233,6 @@ const app = createApp(App);
 app.use(i18n);
 app.use(router);
 app.mixin(mixin);
+app.component("RecycleScroller", RecycleScroller);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");
