@@ -1,14 +1,15 @@
 <template>
     <h1 class="uk-text-bold uk-text-center">Watch History</h1>
 
-    <br />
-    Sort by:
-    <select class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
-        <option value="descending">Most Recent</option>
-        <option value="ascending">Least Recent</option>
-        <option value="channel_ascending">Channel Name (A-Z)</option>
-        <option value="channel_descending">Channel Name (Z-A)</option>
-    </select>
+    <div style="text-align: right">
+        Sort by:
+        <select class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
+            <option value="descending">Most Recent</option>
+            <option value="ascending">Least Recent</option>
+            <option value="channel_ascending">Channel Name (A-Z)</option>
+            <option value="channel_descending">Channel Name (Z-A)</option>
+        </select>
+    </div>
 
     <hr />
 
@@ -22,6 +23,8 @@
             <VideoItem :video="video" />
         </div>
     </div>
+
+    <br />
 </template>
 
 <script>
