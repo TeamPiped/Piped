@@ -8,6 +8,20 @@
         style="background: #222"
         type="button"
     >
+        <router-link to="/import">
+        Import from JSON
+        </router-link>
+    </button>
+
+    <br />
+
+    <button
+        v-if="authenticated"
+        @click="exportHandler"
+        class="uk-button uk-button-small"
+        style="background: #222"
+        type="button"
+    >
         Export to JSON
     </button>
 
