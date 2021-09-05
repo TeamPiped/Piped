@@ -54,7 +54,9 @@
         "auto_play_next_video": "Auto Play next Video",
         "donations": "Donations",
         "minimize_description": "Minimize Description",
-        "show_description": "Show Description"
+        "show_description": "Show Description",
+        "disable_lbry": "Disable LBRY for Streaming",
+        "enable_lbry_proxy": "Enable Proxy for LBRY"
     },
     "comment": {
         "pinned_by": "Pinned by"

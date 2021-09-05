@@ -1,14 +1,16 @@
 <template>
     <h1 class="uk-text-bold uk-text-center">Watch History</h1>
 
-    <br />
-    {{ $t("actions.sort_by") }}
-    <select class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
-        <option value="descending" v-t="'actions.most_recent'" />
-        <option value="ascending" v-t="'actions.least_recent'" />
-        <option value="channel_ascending" v-t="'actions.channel_name_asc'" />
-        <option value="channel_descending" v-t="'actions.channel_name_desc'" />
-    </select>
+
+    <div style="text-align: right">
+        {{ $t("actions.sort_by") }}:
+        <select class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
+            <option value="descending" v-t="'actions.most_recent'" />
+            <option value="ascending" v-t="'actions.least_recent'" />
+            <option value="channel_ascending" v-t="'actions.channel_name_asc'" />
+            <option value="channel_descending" v-t="'actions.channel_name_desc'" />
+        </select>
+    </div>
 
     <hr />
 
@@ -22,6 +24,8 @@
             <VideoItem :video="video" />
         </div>
     </div>
+
+    <br />
 </template>
 
 <script>

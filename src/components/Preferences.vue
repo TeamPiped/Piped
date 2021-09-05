@@ -106,6 +106,14 @@
         <option value="vp9">VP9</option>
         <option value="avc">AVC (h.264)</option>
     </select>
+    <br />
+    <b v-t="'actions.disable_lbry'" />
+    <br />
+    <input class="uk-checkbox" v-model="disableLBRY" @change="onChange($event)" type="checkbox" />
+    <br />
+    <b v-t="'actions.enable_lbry_proxy'" />
+    <br />
+    <input class="uk-checkbox" v-model="proxyLBRY" @change="onChange($event)" type="checkbox" />
     <h2 v-t="'actions.instances_list'" />
     <table class="uk-table">
         <thead>
@@ -181,6 +189,8 @@ export default {
                 { code: "tr", name: "Turkish" },
             ],
             enabledCodecs: ["av1", "vp9", "avc"],
+            disableLBRY: false,
+            proxyLBRY: false,
         };
     },
     activated() {
@@ -267,6 +277,8 @@ export default {
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
             this.selectedLanguage = this.getPreferenceString("hl", "en");
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "av1,vp9,avc").split(",");
+            this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
+            this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
         }
     },
     methods: {
@@ -307,6 +319,8 @@ export default {
                 localStorage.setItem("watchHistory", this.watchHistory);
                 localStorage.setItem("hl", this.selectedLanguage);
                 localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
+                localStorage.setItem("disableLBRY", this.disableLBRY);
+                localStorage.setItem("proxyLBRY", this.proxyLBRY);
 
                 if (shouldReload) window.location.reload();
             }

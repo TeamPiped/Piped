@@ -25,15 +25,11 @@
             v-bind:key="result.url"
             v-for="result in results.items"
         >
-            <div class="uk-text-secondary">
+            <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
+            <div class="uk-text-secondary" v-if="!shouldUseVideoItem(result)">
                 <router-link class="uk-text-emphasis" v-bind:to="result.url">
                     <div class="uk-position-relative">
                         <img style="width: 100%" v-bind:src="result.thumbnail" loading="lazy" />
-                        <span 
-                            v-if="result.duration"
-                            class="uk-label uk-border-rounded uk-position-absolute uk-dark" 
-                            style="bottom: 5px; right: 5px; opacity: .95;"
-                            >{{ timeFormat(result.duration) }}</span>
                     </div>
                     <p>
                         {{ result.name }}&thinsp;<font-awesome-icon
@@ -52,25 +48,18 @@
                     </p>
                 </router-link>
 
-                <b v-if="result.uploadDate">
-                    {{ result.uploadDate }}
-                </b>
-
                 <a v-if="result.uploaderName" class="uk-text-muted">{{ result.uploaderName }}</a>
                 <b v-if="result.videos >= 0"><br v-if="result.uploaderName" />{{ result.videos }} {{ $t("video.videos") }}</b>
 
                 <br />
-
-                <b v-if="result.views >= 0" class="uk-text-small">
-                    <font-awesome-icon icon="eye"></font-awesome-icon>
-                    {{ numberFormat(result.views) }} {{ $t("video.views") }}
-                </b>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import VideoItem from "@/components/VideoItem.vue";
+
 export default {
     data() {
         return {
@@ -124,6 +113,12 @@ export default {
                 });
             }
         },
+        shouldUseVideoItem(item) {
+            return item.title;
+        },
+    },
+    components: {
+        VideoItem,
     },
 };
 </script>

@@ -57,9 +57,9 @@
 
             <div class="uk-flex uk-flex-middle uk-margin-small-top">
                 <img :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle" />
-                <router-link class="uk-text-bold uk-margin-small-left" v-if="video.uploaderUrl" :to="video.uploaderUrl">
-                    <a>{{ video.uploader }}</a>
-                </router-link>
+                <router-link class="uk-link uk-margin-small-left" v-if="video.uploaderUrl" :to="video.uploaderUrl">
+                    {{ video.uploader }} </router-link
+                >&thinsp;<font-awesome-icon v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
                 <div class="uk-flex-1"></div>
                 <button
                     v-if="authenticated"
