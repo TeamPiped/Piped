@@ -36,7 +36,11 @@
         "channel_name_desc": "ചാനലിൻ്റെ പേര് (Z-A)",
         "channel_name_asc": "ചാനലിന്റെ പേര് (A-Z)",
         "most_recent": "ഏറ്റവും പുതിയത്",
-        "sort_by": "ഇങ്ങനെ അടുക്കുക:"
+        "sort_by": "ഇങ്ങനെ അടുക്കുക:",
+        "enable_lbry_proxy": "LBRY- നായി പ്രോക്സി പ്രവർത്തനക്ഷമമാക്കുക",
+        "disable_lbry": "LBRY സ്ട്രീമിംഗ് പ്രവർത്തനരഹിതമാക്കുക",
+        "autoplay_video": "വീഡിയോ സ്വയം പ്ലേ ചെയ്യുക",
+        "least_recent": "പഴയത്"
     },
     "player": {
         "watch_on": "ൽ കാണുക"
