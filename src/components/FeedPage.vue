@@ -18,8 +18,8 @@
     </span>
 
     <span class="uk-align-right">
-        <label for='ddlSortBy'>{{ $t("actions.sort_by") }}</label>
-        <select id='ddlSortBy' class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
+        <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
+        <select id="ddlSortBy" class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
             <option value="descending" v-t="'actions.most_recent'" />
             <option value="ascending" v-t="'actions.least_recent'" />
             <option value="channel_ascending" v-t="'actions.channel_name_asc'" />

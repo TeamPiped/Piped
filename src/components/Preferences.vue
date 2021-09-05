@@ -39,7 +39,7 @@
     <br />
     <label for="chkSkipNonMusic"><b v-t="'actions.skip_non_music'" /></label>
     <br />
-    <input id='chkSkipNonMusic' class="uk-checkbox" v-model="skipMusicOffTopic" @change="onChange($event)" type="checkbox" />
+    <input id="chkSkipNonMusic" class="uk-checkbox" v-model="skipMusicOffTopic" @change="onChange($event)" type="checkbox" />
     <br />
     <label for="ddlTheme"><b v-t="'actions.theme'" /></label>
     <br />
