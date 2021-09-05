@@ -5,7 +5,8 @@
         "register": "S'inscrire",
         "feed": "Abonnements",
         "preferences": "Préférences",
-        "history": "Historique"
+        "history": "Historique",
+        "subscriptions": "Abonnements"
     },
     "actions": {
         "subscribe": "S'abonner",
@@ -51,7 +52,10 @@
         "import_from_json": "Importer depuis le format JSON",
         "export_to_json": "Exporter en JSON",
         "show_more": "Afficher plus",
-        "instance_selection": "Sélection de l'instance"
+        "instance_selection": "Sélection de l'instance",
+        "minimize_description": "Minimiser la description",
+        "no": "Non",
+        "yes": "Oui"
     },
     "player": {
         "watch_on": "Regarder sur"
