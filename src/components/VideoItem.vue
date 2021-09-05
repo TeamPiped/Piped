@@ -20,7 +20,7 @@
                     v-if="video.watched"
                     class="uk-label uk-border-rounded uk-position-absolute video-duration"
                     style="bottom: 5px; left: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
-                    >Watched</span
+                    >{{ $t("video.watched") }}</span
                 >
             </div>
 

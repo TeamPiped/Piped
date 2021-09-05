@@ -21,7 +21,7 @@
         "instances_list": "Liste des instances",
         "language_selection": "Sélection de la langue",
         "store_watch_history": "Conserver l'historique de visionnage",
-        "minimize_description": "Minimiser la description par défaut",
+        "minimize_description_default": "Minimiser la description par défaut",
         "show_comments": "Afficher les commentaires",
         "default_homepage": "Page d'accueil par défaut",
         "country_selection": "Sélection du pays",

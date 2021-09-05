@@ -11,7 +11,7 @@
     <div class="comment-content">
       <div class="comment-header">
         <div v-if="comment.pinned" class="comment-pinned uk-text-meta">
-          <font-awesome-icon icon="thumbtack"></font-awesome-icon>&nbsp; Pinned by
+          <font-awesome-icon icon="thumbtack"></font-awesome-icon>&nbsp; {{ $t("comment.pinned_by") }} 
           {{ uploader }}
         </div>
 

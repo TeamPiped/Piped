@@ -24,7 +24,7 @@
                     class="uk-width-1-1 uk-button uk-button-primary uk-button-large uk-width-auto"
                     style="background: #222"
                     @click="login"
-                    >Login</a
+                    > {{ $t('titles.login') }} </a
                 >
             </div>
         </form>

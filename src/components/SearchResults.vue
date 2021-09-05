@@ -49,7 +49,7 @@
                 </router-link>
 
                 <a v-if="result.uploaderName" class="uk-text-muted">{{ result.uploaderName }}</a>
-                <b v-if="result.videos >= 0"><br v-if="result.uploaderName" />{{ result.videos }} Videos</b>
+                <b v-if="result.videos >= 0"><br v-if="result.uploaderName" />{{ result.videos }} {{ $t("video.videos") }}</b>
 
                 <br />
             </div>
