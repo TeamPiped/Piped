@@ -44,7 +44,9 @@
         "loop_this_video": "Dieses Video wiederholen",
         "import_from_json": "Aus JSON importieren",
         "export_to_json": "Als JSON exportieren",
-        "show_more": "Mehr anzeigen"
+        "show_more": "Mehr anzeigen",
+        "no": "Nein",
+        "yes": "Ja"
     },
     "player": {
         "watch_on": "Ansehen auf"
