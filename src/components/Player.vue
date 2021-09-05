@@ -280,6 +280,19 @@ export default {
                 videoEl.volume = this.getPreferenceNumber("volume", 1);
             });
         },
+        destroy() {
+            if (this.ui) {
+                this.ui.destroy();
+                this.ui = undefined;
+                this.player = undefined;
+            }
+            if (this.player) {
+                this.player.destroy();
+                this.player = undefined;
+            }
+            if (this.hotkeys) this.hotkeys.unbind();
+            if (this.$refs.container) this.$refs.container.querySelectorAll("div").forEach(node => node.remove());
+        },
     },
     activated() {
         import("hotkeys-js")
@@ -334,17 +347,10 @@ export default {
             });
     },
     deactivated() {
-        if (this.ui) {
-            this.ui.destroy();
-            this.ui = undefined;
-            this.player = undefined;
-        }
-        if (this.player) {
-            this.player.destroy();
-            this.player = undefined;
-        }
-        if (this.hotkeys) this.hotkeys.unbind();
-        if (this.$refs.container) this.$refs.container.querySelectorAll("div").forEach(node => node.remove());
+        this.destroy();
+    },
+    unmounted() {
+        this.destroy();
     },
 };
 </script>

@@ -49,7 +49,9 @@
                 </router-link>
 
                 <a v-if="result.uploaderName" class="uk-text-muted">{{ result.uploaderName }}</a>
-                <b v-if="result.videos >= 0"><br v-if="result.uploaderName" />{{ result.videos }} {{ $t("video.videos") }}</b>
+                <b v-if="result.videos >= 0"
+                    ><br v-if="result.uploaderName" />{{ result.videos }} {{ $t("video.videos") }}</b
+                >
 
                 <br />
             </div>
@@ -84,6 +86,9 @@ export default {
         window.addEventListener("scroll", this.handleScroll);
     },
     deactivated() {
+        window.removeEventListener("scroll", this.handleScroll);
+    },
+    unmounted() {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
