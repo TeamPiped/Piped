@@ -1,5 +1,5 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">Subscriptions</h1>
+    <h1 class="uk-text-bold uk-text-center">{{ $t("titles.subscriptions") }}</h1>
 
 
     <div style="text-align: center">
@@ -10,7 +10,7 @@
             type="button"
         >
             <router-link to="/import">
-                Import from JSON
+                {{ $t("actions.import_from_json") }}
             </router-link>
         </button>
 

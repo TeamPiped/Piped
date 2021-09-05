@@ -5,7 +5,8 @@
         "register": "Register",
         "feed": "Feed",
         "preferences": "Preferences",
-        "history": "History"
+        "history": "History",
+        "subscriptions": "Subscriptions"
     },
     "player": {
         "watch_on": "Watch on"
@@ -50,6 +51,7 @@
         "yes": "Yes",
         "no": "No",
         "export_to_json": "Export to JSON",
+        "import_from_json": "Import from JSON",
         "loop_this_video": "Loop this Video",
         "auto_play_next_video": "Auto Play next Video",
         "donations": "Donations",
