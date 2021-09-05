@@ -3,8 +3,9 @@
         {{ $route.query.search_query }}
     </h1>
 
-    <b>Filter: </b>
+    <label for="ddlSearchFilters"><b>Filter: </b></label>
     <select
+        id="ddlSearchFilters"
         default="all"
         class="uk-select uk-width-auto"
         style="height: 100%"
