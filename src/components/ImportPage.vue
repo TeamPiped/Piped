@@ -79,7 +79,8 @@ export default {
     },
     methods: {
         fileChange() {
-            this.$refs.fileSelector.files[0].text().then(text => {
+            const file = this.$refs.fileSelector.files[0]
+            file.text().then(text => {
                 this.subscriptions = [];
 
                 // Invidious
@@ -93,7 +94,7 @@ export default {
                     });
                 }
                 // NewPipe
-                if (text.indexOf("app_version") != -1) {
+                else if (text.indexOf("app_version") != -1) {
                     const json = JSON.parse(text);
                     json.subscriptions
                         .filter(item => item.service_id == 0)
@@ -104,12 +105,12 @@ export default {
                         });
                 }
                 // Invidious JSON
-                if (text.indexOf("thin_mode") != -1) {
+                else if (text.indexOf("thin_mode") != -1) {
                     const json = JSON.parse(text);
                     this.subscriptions = json.subscriptions;
                 }
                 // Google Takeout JSON
-                if (text.indexOf("contentDetails") != -1) {
+                else if (text.indexOf("contentDetails") != -1) {
                     const json = JSON.parse(text);
                     json.forEach(item => {
                         const id = item.snippet.resourceId.channelId;
@@ -118,7 +119,7 @@ export default {
                 }
 
                 // Google Takeout CSV
-                if (text.indexOf("Channel Id,") != -1 || text.indexOf("Channel ID,") != -1) {
+                else if (file.name.length >= 5 && file.name.slice(-4).toLowerCase() == ".csv") {
                     const lines = text.split("\n");
                     for (let i = 1; i < lines.length; i++) {
                         const line = lines[i];
