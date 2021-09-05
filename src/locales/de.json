@@ -8,7 +8,7 @@
         "instances_list": "Liste der Instanzen",
         "language_selection": "Sprachauswahl",
         "store_watch_history": "Wiedergabeverlauf speichern",
-        "minimize_description": "Beschreibung standardmäßig minimieren",
+        "minimize_description_default": "Beschreibung standardmäßig minimieren",
         "show_comments": "Kommentare anzeigen",
         "default_homepage": "Standard-Startseite",
         "country_selection": "Länderauswahl",

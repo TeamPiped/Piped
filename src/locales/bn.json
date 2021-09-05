@@ -40,7 +40,7 @@
         "country_selection": "দেশ",
         "default_homepage": "ওয়েবসাইট খোলার পর কি দেখবেন গতানুগতিক",
         "show_comments": "আপনি কি মন্তব্য দেখতে চান ?",
-        "minimize_description": "আপনি কি স্বাভাবিক ভাবে বিবরণটিকে সংক্ষিপ্ত রাখতে চান ?",
+        "minimize_description_default": "আপনি কি স্বাভাবিক ভাবে বিবরণটিকে সংক্ষিপ্ত রাখতে চান ?",
         "store_watch_history": "আপনি কি দেখার ইতিহাস মজুত রাখতে চান?",
         "language_selection": "আপনি কোন ভাষায় দেখতে চান ?",
         "instances_list": "Instances List",

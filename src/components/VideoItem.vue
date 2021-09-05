@@ -20,7 +20,7 @@
                     v-if="video.watched"
                     class="uk-label uk-border-rounded uk-position-absolute video-duration"
                     style="bottom: 5px; left: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
-                    >Watched</span
+                    >{{ $t("video.watched") }}</span
                 >
             </div>
             <p class="uk-text-break">{{ video.title }}</p>
@@ -41,7 +41,7 @@
         <b v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small uk-align-left">
             <div v-if="video.views >= 0">
                 <font-awesome-icon icon="eye"></font-awesome-icon>
-                {{ numberFormat(video.views) }} views
+                {{ numberFormat(video.views) }} {{ $t("video.views") }}
                 <br />
             </div>
             <div v-if="video.uploadedDate">

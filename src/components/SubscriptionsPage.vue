@@ -8,7 +8,7 @@
         style="background: #222"
         type="button"
     >
-        Export to JSON
+        {{ $t("actions.export_to_json") }}
     </button>
 
     <div :key="subscription.url" v-for="subscription in subscriptions">
@@ -23,7 +23,7 @@
                 type="button"
                 @click="handleButton(subscription)"
             >
-                {{ subscription.subscribed ? "Unsubscribe" : "Subscribe" }}
+                {{ subscription.subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
             </button>
         </div>
     </div>

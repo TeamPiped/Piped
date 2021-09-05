@@ -1,7 +1,7 @@
 {
     "actions": {
         "instances_list": "Liste over instanser",
-        "minimize_description": "Minimer beskrivelse som forvalg",
+        "minimize_description_default": "Minimer beskrivelse som forvalg",
         "country_selection": "Land",
         "buffering_goal": "Mellomlagringsmål (i sekunder)",
         "autoplay_video": "Spill video automatisk",

@@ -75,20 +75,20 @@
             <hr />
 
             <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
-                {{ showDesc ? "Minimize Description" : "Show Description" }}
+                {{ showDesc ? $t("actions.minimize_description") : $t("actions.show_description") }}
             </a>
             <p v-show="showDesc" :style="[{ colour: foregroundColor }]" v-html="video.description"></p>
             <div v-if="showDesc && sponsors && sponsors.segments">
-                Sponsors Segments: {{ sponsors.segments.length }}
+                {{ $t("video.sponsor_segments") }}: {{ sponsors.segments.length }}
             </div>
         </div>
 
         <hr />
 
-        <b>Loop this Video:</b>&nbsp;
+        <b>{{ $t("actions.loop_this_video") }}:</b>&nbsp;
         <input class="uk-checkbox" v-model="selectedAutoLoop" @change="onChange($event)" type="checkbox" />
         <br />
-        <b>Auto Play next Video:</b>&nbsp;
+        <b>{{ $t("actions.auto_play_next_video") }}:</b>&nbsp;
         <input class="uk-checkbox" v-model="selectedAutoPlay" @change="onChange($event)" type="checkbox" />
 
         <hr />

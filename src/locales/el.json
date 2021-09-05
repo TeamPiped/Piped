@@ -19,7 +19,7 @@
         "uses_api_from": "Χρήση API από ",
         "view_subscriptions": "Προβολή συνδρομών",
         "language_selection": "Επιλογή γλώσσας",
-        "minimize_description": "Ελαχιστοποίηση περιγραφής από προεπιλογή",
+        "minimize_description_default": "Ελαχιστοποίηση περιγραφής από προεπιλογή",
         "show_comments": "Εμφάνιση σχολίων",
         "buffering_goal": "Στόχος Buffering (σε δευτερόλεπτα)",
         "default_quality": "Προεπιλεγμένη ποιότητα",

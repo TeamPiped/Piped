@@ -13,7 +13,7 @@
             style="background: #222"
             type="button"
         >
-            {{ subscribed ? "Unsubscribe" : "Subscribe" }}
+            {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
         </button>
 
         <hr />

@@ -3,7 +3,7 @@
         "instances_list": "Örnek Listesi",
         "language_selection": "Dil Seçimi",
         "store_watch_history": "İzleme Geçmişini Sakla",
-        "minimize_description": "Açıklamayı öntanımlı olarak küçült",
+        "minimize_description_default": "Açıklamayı öntanımlı olarak küçült",
         "show_comments": "Yorumları Göster",
         "default_homepage": "Öntanımlı Ana Sayfa",
         "country_selection": "Ülke Seçimi",

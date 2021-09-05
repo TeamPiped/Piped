@@ -18,7 +18,7 @@
             &nbsp;
             <a href="https://github.com/TeamPiped/Piped#donations">
                 <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
-                Donations
+                {{ $t("actions.donations") }}
             </a>
         </div>
     </div>

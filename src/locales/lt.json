@@ -5,7 +5,7 @@
         "instances_list": "Perdavimo šaltinių sąrašas",
         "language_selection": "Kalbos pasirinkimas",
         "store_watch_history": "Saugoti žiūrėjimo istoriją",
-        "minimize_description": "Suskleisti aprašymą automatiškai",
+        "minimize_description_default": "Suskleisti aprašymą automatiškai",
         "show_comments": "Rodyti komentarus",
         "default_homepage": "Numatytasis pagrindinis puslapis",
         "country_selection": "Šalies pasirinkimas",

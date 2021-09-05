@@ -40,10 +40,35 @@
         "country_selection": "Country Selection",
         "default_homepage": "Default Homepage",
         "show_comments": "Show Comments",
-        "minimize_description": "Minimize Description by default",
+        "minimize_description_default": "Minimize Description by default",
         "store_watch_history": "Store Watch History",
         "language_selection": "Language Selection",
         "instances_list": "Instances List",
-        "enabled_codecs": "Enabled Codecs (Multiple)"
+        "enabled_codecs": "Enabled Codecs (Multiple)",
+        "instance_selection": "Instance Selection",
+        "show_more": "Show More",
+        "yes": "Yes",
+        "no": "No",
+        "export_to_json": "Export to JSON",
+        "loop_this_video": "Loop this Video",
+        "auto_play_next_video": "Auto Play next Video",
+        "donations": "Donations",
+        "minimize_description": "Minimize Description",
+        "show_description": "Show Description"
+    },
+    "comment": {
+        "pinned_by": "Pinned by"
+    },
+    "preferences": {
+        "instance_name":"Instance Name",
+        "instance_locations":"Instance Locations",
+        "has_cdn":"Has CDN?",
+        "ssl_score":"SSL Score"
+    },
+    "video": {
+        "videos": "Videos",
+        "views": "views",
+        "watched": "Watched",
+        "sponsor_segments": "Sponsors Segments"
     }
 }
