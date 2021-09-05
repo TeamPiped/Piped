@@ -1,5 +1,6 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">Subscriptions</h1>
+    <h1 class="uk-text-bold uk-text-center">{{ $t("titles.subscriptions") }}</h1>
+
 
     <div style="text-align: center">
         <button
@@ -9,7 +10,7 @@
             type="button"
         >
             <router-link to="/import">
-                Import from JSON
+                {{ $t("actions.import_from_json") }}
             </router-link>
         </button>
 
@@ -20,8 +21,9 @@
             style="background: #222; color: white"
             type="button"
         >
-            Export to JSON
+            {{ $t("actions.export_to_json") }}
         </button>
+
     </div>
         <hr />
 
@@ -38,7 +40,7 @@
                     type="button"
                     @click="handleButton(subscription)"
                 >
-                    {{ subscription.subscribed ? "Unsubscribe" : "Subscribe" }}
+                    {{ subscription.subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
                 </button>
             </div>
             <br />

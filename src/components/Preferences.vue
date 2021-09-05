@@ -85,7 +85,7 @@
     <br />
     <input class="uk-checkbox" v-model="showComments" @change="onChange($event)" type="checkbox" />
     <br />
-    <b v-t="'actions.minimize_description'" />
+    <b v-t="'actions.minimize_description_default'" />
     <br />
     <input class="uk-checkbox" v-model="minimizeDescription" @change="onChange($event)" type="checkbox" />
     <br />
@@ -118,17 +118,17 @@
     <table class="uk-table">
         <thead>
             <tr>
-                <th>Instance Name</th>
-                <th>Instance Locations</th>
-                <th>Has CDN?</th>
-                <th>SSL Score</th>
+                <th>{{ $t("preferences.instance_name") }}</th>
+                <th>{{ $t("preferences.instance_locations") }}</th>
+                <th>{{ $t("preferences.has_cdn") }}</th>
+                <th>{{ $t("preferences.ssl_score") }}</th>
             </tr>
         </thead>
         <tbody v-bind:key="instance.name" v-for="instance in instances">
             <tr>
                 <td>{{ instance.name }}</td>
                 <td>{{ instance.locations }}</td>
-                <td>{{ instance.cdn }}</td>
+                <td>{{ instance.cdn == "Yes"? $t("actions.yes") : $t("actions.no") }}</td>
                 <td>
                     <a :href="sslScore(instance.apiurl)" target="_blank">Click Here</a>
                 </td>
@@ -138,7 +138,7 @@
 
     <hr />
 
-    <b>Instance Selection:</b>
+    <b>{{ $t("actions.instance_selection") }}:</b>
     <br />
     <select class="uk-select uk-width-auto" v-model="selectedInstance" @change="onChange($event)">
         <option v-bind:key="instance.name" v-for="instance in instances" v-bind:value="instance.apiurl">

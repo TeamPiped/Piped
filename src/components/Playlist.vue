@@ -15,7 +15,7 @@
         >
 
         <div class="uk-align-right">
-            <b>{{ playlist.videos }} Videos</b>
+            <b>{{ playlist.videos }} {{ $t("video.videos") }}</b>
             <br />
             <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
         </div>
