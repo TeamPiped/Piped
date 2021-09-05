@@ -32,7 +32,10 @@
         "sort_by": "Sorter etter:",
         "view_subscriptions": "Vis abonnementer",
         "unsubscribe": "Opphev abonnement",
-        "subscribe": "Abonner"
+        "subscribe": "Abonner",
+        "enable_lbry_proxy": "Skru på mellomtjener for LBRY",
+        "disable_lbry": "Skru av LBRY-strømming",
+        "enabled_codecs": "Aktiverte forskjellige kodek"
     },
     "player": {
         "watch_on": "Vis på"

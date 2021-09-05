@@ -1,0 +1,51 @@
+{
+    "actions": {
+        "enable_lbry_proxy": "Povoliť Proxy pre LBRY",
+        "disable_lbry": "Vypnúť LBRY pre Živé Vysielania",
+        "enabled_codecs": "Povolené Kodeky (Viac)",
+        "instances_list": "Zoznam Inštancií",
+        "language_selection": "Výber Jazyka",
+        "store_watch_history": "Ukladať Históriu Pozerania",
+        "minimize_description": "Predvolene Zatvárať Popis",
+        "show_comments": "Zobraziť Komentáre",
+        "default_homepage": "Predvolená Domovská Stránka",
+        "country_selection": "Výber Krajiny",
+        "buffering_goal": "Cieľ Predtáčania (sekundy)",
+        "default_quality": "Predvolená Kvalita",
+        "audio_only": "Len Zvuk",
+        "autoplay_video": "Automaticky Prehrávať Video",
+        "light": "Svetlá",
+        "dark": "Tmavá",
+        "auto": "Automaticky",
+        "theme": "Téma",
+        "skip_non_music": "Preskočiť Hudbu: Časť bez Hudby",
+        "skip_self_promo": "Preskočiť Neplatenú Reklamu/Vlastné Promo",
+        "skip_interaction": "Preskočiť Žiadosť o Interakciu (Odber)",
+        "skip_preview": "Preskočiť Náhľad/Prehľad",
+        "skip_outro": "Preskočiť Záverečné Obrazovky/Titulky",
+        "skip_intro": "Preskočiť Prestávku/Intro Animáciu",
+        "skip_sponsors": "Preskočiť Sponzorov",
+        "enable_sponsorblock": "Povoliť preskakovanie sponzorov",
+        "uses_api_from": "Používa API z ",
+        "back": "Späť",
+        "channel_name_desc": "Meno kanálu (Z-A)",
+        "channel_name_asc": "Meno kanálu (A-Z)",
+        "least_recent": "Najstaršie",
+        "most_recent": "Najnovšie",
+        "sort_by": "Zoradiť podľa:",
+        "view_subscriptions": "Zobraziť odbery",
+        "unsubscribe": "Zrušiť odber",
+        "subscribe": "Odberať"
+    },
+    "player": {
+        "watch_on": "Pozerať na"
+    },
+    "titles": {
+        "history": "História",
+        "preferences": "Nastavenia",
+        "feed": "Odbery",
+        "register": "Registrácia",
+        "login": "Prihlásenie",
+        "trending": "Trendy"
+    }
+}
