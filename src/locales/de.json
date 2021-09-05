@@ -33,7 +33,9 @@
         "view_subscriptions": "Abonnements anzeigen",
         "unsubscribe": "Deabonnieren",
         "subscribe": "Abonnieren",
-        "enabled_codecs": "Aktivierte Codecs (mehrere)"
+        "enabled_codecs": "Aktivierte Codecs (mehrere)",
+        "enable_lbry_proxy": "Proxy für LBRY einschalten",
+        "disable_lbry": "LBRY für Streaming deaktivieren"
     },
     "player": {
         "watch_on": "Ansehen auf"
