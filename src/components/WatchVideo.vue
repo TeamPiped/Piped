@@ -179,7 +179,7 @@ export default {
         this.active = false;
         window.removeEventListener("scroll", this.handleScroll);
     },
-    beforeUnmount() {
+    unmounted() {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
