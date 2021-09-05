@@ -179,6 +179,9 @@ export default {
         this.active = false;
         window.removeEventListener("scroll", this.handleScroll);
     },
+    beforeUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
+    },
     methods: {
         fetchVideo() {
             return this.fetchJson(this.apiUrl() + "/streams/" + this.getVideoId());
