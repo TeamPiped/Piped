@@ -1,11 +1,12 @@
 {
     "titles": {
         "trending": "പ്രചരിക്കുന്നത്",
-        "register": "രജിസ്റ്റർ ചെയ്യുക",
+        "register": "രജിസ്റ്റർ",
         "history": "ചരിത്രം",
-        "preferences": "ക്രമീകരണങ്ങൾ",
+        "preferences": "ക്രമീകരണം",
         "feed": "ഫീഡ്",
-        "login": "പ്രവേശിക്കുക"
+        "login": "പ്രവേശിക്കുക",
+        "subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ"
     },
     "actions": {
         "view_subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ കാണുക",
@@ -40,9 +41,30 @@
         "enable_lbry_proxy": "LBRY- നായി പ്രോക്സി പ്രവർത്തനക്ഷമമാക്കുക",
         "disable_lbry": "LBRY സ്ട്രീമിംഗ് പ്രവർത്തനരഹിതമാക്കുക",
         "autoplay_video": "വീഡിയോ സ്വയം പ്ലേ ചെയ്യുക",
-        "least_recent": "പഴയത്"
+        "least_recent": "പഴയത്",
+        "no": "ഇല്ല",
+        "donations": "സംഭാവനകൾ",
+        "show_description": "വിവരണം കാണിക്കുക",
+        "auto_play_next_video": "അടുത്ത വിഡിയോ സ്വയം പ്ലേ ചെയ്യുക",
+        "loop_this_video": "വിഡിയോ ലൂപ്പ് ചെയ്യുക",
+        "minimize_description": "വിവരണം ചെറുതാക്കുക",
+        "yes": "അതെ",
+        "show_more": "കൂടുതൽ കാണിക്കുക"
     },
     "player": {
-        "watch_on": "ൽ കാണുക"
+        "watch_on": "കാണുക"
+    },
+    "video": {
+        "watched": "കണ്ടതാണ്",
+        "views": "കാഴ്ചകൾ",
+        "videos": "വിഡിയോകൾ"
+    },
+    "comment": {
+        "pinned_by": "പിൻ ചെയ്തിരിക്കുന്നത്"
+    },
+    "preferences": {
+        "ssl_score": "എസ് എസ് എൽ സ്കോർ",
+        "has_cdn": "സിഡിഎൻ ഉപയോഗിക്കിന്നിണ്ടോ?",
+        "instance_name": "ഇൻസ്റ്റ്ൻസിന്റെ പേര്"
     }
 }
