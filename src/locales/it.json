@@ -35,7 +35,18 @@
         "subscribe": "Iscriviti",
         "enabled_codecs": "Abilita Codecs (Molteplici)",
         "enable_lbry_proxy": "Abilita il proxy per LBRY",
-        "disable_lbry": "Disabilita LBRY per lo streaming"
+        "disable_lbry": "Disabilita LBRY per lo streaming",
+        "show_description": "Mostra la descrizione",
+        "minimize_description": "Minimizza la descrizione per impostazione predefinita",
+        "donations": "Donazioni",
+        "auto_play_next_video": "Riproduci automaticamente il prossimo video",
+        "loop_this_video": "Ripeti questo video",
+        "import_from_json": "Importa da JSON",
+        "export_to_json": "Esporta in JSON",
+        "no": "No",
+        "yes": "Sì",
+        "show_more": "Mostra di più",
+        "instance_selection": "Selezione dell'istanza"
     },
     "player": {
         "watch_on": "Guarda su"
@@ -46,6 +57,22 @@
         "feed": "Abbonammenti",
         "register": "Registrati",
         "login": "Accedi",
-        "trending": "Di tendenza"
+        "trending": "Di tendenza",
+        "subscriptions": "Iscrizioni"
+    },
+    "video": {
+        "sponsor_segments": "Segmenti sponsor",
+        "watched": "Guardato",
+        "views": "visualizzazioni",
+        "videos": "Video"
+    },
+    "preferences": {
+        "ssl_score": "Valutazione SSL",
+        "has_cdn": "Ha un CDN?",
+        "instance_locations": "Posizioni istanza",
+        "instance_name": "Nome istanza"
+    },
+    "comment": {
+        "pinned_by": "Appuntato da"
     }
 }
