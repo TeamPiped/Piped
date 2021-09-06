@@ -35,7 +35,16 @@
         "subscribe": "Abonnieren",
         "enabled_codecs": "Aktivierte Codecs (mehrere)",
         "enable_lbry_proxy": "Proxy für LBRY einschalten",
-        "disable_lbry": "LBRY für Streaming deaktivieren"
+        "disable_lbry": "LBRY für Streaming deaktivieren",
+        "instance_selection": "Instanzauswahl",
+        "show_description": "Beschreibung anzeigen",
+        "minimize_description": "Beschreibung minimieren",
+        "donations": "Spenden",
+        "auto_play_next_video": "Nächstes Video automatisch abspielen",
+        "loop_this_video": "Dieses Video wiederholen",
+        "import_from_json": "Aus JSON importieren",
+        "export_to_json": "Als JSON exportieren",
+        "show_more": "Mehr anzeigen"
     },
     "player": {
         "watch_on": "Ansehen auf"
@@ -46,6 +55,22 @@
         "feed": "Abonnements",
         "register": "Registrieren",
         "login": "Anmelden",
-        "trending": "Trends"
+        "trending": "Trends",
+        "subscriptions": "Abonnements"
+    },
+    "video": {
+        "sponsor_segments": "Sponsoren-Segmente",
+        "watched": "Angesehen",
+        "views": "Aufrufe",
+        "videos": "Videos"
+    },
+    "preferences": {
+        "ssl_score": "SSL-Bewertung",
+        "has_cdn": "Hat CDN?",
+        "instance_locations": "Instanzstandorte",
+        "instance_name": "Instanzname"
+    },
+    "comment": {
+        "pinned_by": "Angeheftet von"
     }
 }
