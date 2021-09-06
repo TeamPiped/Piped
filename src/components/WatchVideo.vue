@@ -53,7 +53,9 @@
                 >
                     <b>{{ $t("player.watch_on") }} LBRY</b>
                 </a>
+                
             </div>
+            <b v-if="video.lbryId">Video streaming from LBRY</b>
 
             <div class="uk-flex uk-flex-middle uk-margin-small-top">
                 <img :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle" />
