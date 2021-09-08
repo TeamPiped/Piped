@@ -3,7 +3,7 @@
         "instances_list": "Örnek Listesi",
         "language_selection": "Dil Seçimi",
         "store_watch_history": "İzleme Geçmişini Sakla",
-        "minimize_description_default": "Açıklamayı öntanımlı olarak küçült",
+        "minimize_description_default": "Açıklamayı Öntanımlı Olarak Küçült",
         "show_comments": "Yorumları Göster",
         "default_homepage": "Öntanımlı Ana Sayfa",
         "country_selection": "Ülke Seçimi",
@@ -35,7 +35,18 @@
         "subscribe": "Abone ol",
         "enabled_codecs": "Etkin Çözücüler (Birden Çok)",
         "enable_lbry_proxy": "LBRY için Vekil Sunucuyu Etkinleştir",
-        "disable_lbry": "Akış için LBRY'yi Devre Dışı Bırak"
+        "disable_lbry": "Akış için LBRY'yi Devre Dışı Bırak",
+        "show_description": "Açıklamayı Göster",
+        "minimize_description": "Açıklamayı Küçült",
+        "donations": "Bağışlar",
+        "auto_play_next_video": "Sonraki Videoyu Otomatik Oynat",
+        "loop_this_video": "Bu Videoyu Döngüye Al",
+        "import_from_json": "JSON dosyasından içe aktar",
+        "export_to_json": "JSON Olarak Dışa Aktar",
+        "no": "Hayır",
+        "yes": "Evet",
+        "show_more": "Daha Fazla Göster",
+        "instance_selection": "Örnek Seçimi"
     },
     "player": {
         "watch_on": "İzle"
@@ -46,6 +57,22 @@
         "feed": "Akış",
         "register": "Kaydol",
         "login": "Oturum Aç",
-        "trending": "Öne Çıkanlar"
+        "trending": "Öne Çıkanlar",
+        "subscriptions": "Abonelikler"
+    },
+    "video": {
+        "sponsor_segments": "Sponsorlar Bölümleri",
+        "watched": "İzlendi",
+        "views": "izlenme",
+        "videos": "Videolar"
+    },
+    "preferences": {
+        "ssl_score": "SSL Puanı",
+        "has_cdn": "CDN Var Mı?",
+        "instance_locations": "Örnek Konumları",
+        "instance_name": "Örnek Adı"
+    },
+    "comment": {
+        "pinned_by": "Şunun tarafından sabitlendi"
     }
 }

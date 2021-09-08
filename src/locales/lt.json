@@ -35,7 +35,18 @@
         "view_subscriptions": "Peržiūrėti prenumeratas",
         "enabled_codecs": "Įgalinti kodekai (gali būti keli)",
         "enable_lbry_proxy": "Įjungti įgaliotąjį serverį skirtą LBRY",
-        "disable_lbry": "Išjungti LBRY srautiniam siuntimui"
+        "disable_lbry": "Išjungti LBRY srautiniam siuntimui",
+        "instance_selection": "Perdavimo šaltinio pasirinkimas",
+        "auto_play_next_video": "Automatiškai paleisti sekantį vaizdo įrašą",
+        "donations": "Parama",
+        "loop_this_video": "Sukti ratu šį vaizdo įrašą",
+        "show_description": "Rodyti aprašymą",
+        "minimize_description": "Suskleisti aprašymą",
+        "import_from_json": "Importuoti iš JSON",
+        "export_to_json": "Eksportuoti į JSON",
+        "no": "Ne",
+        "yes": "Taip",
+        "show_more": "Rodyti daugiau"
     },
     "player": {
         "watch_on": "Žiūrėti per"
@@ -46,6 +57,22 @@
         "register": "Registruotis",
         "login": "Prisijungti",
         "trending": "Tendencijos",
-        "history": "Istorija"
+        "history": "Istorija",
+        "subscriptions": "Prenumeratos"
+    },
+    "preferences": {
+        "instance_locations": "Perdavimo šaltinio vietovė",
+        "instance_name": "Perdavimo šaltinio pavadinimas",
+        "ssl_score": "SSL balas",
+        "has_cdn": "Turi CDN?"
+    },
+    "comment": {
+        "pinned_by": "Prisegė"
+    },
+    "video": {
+        "views": "peržiūros",
+        "videos": "Vaizdo įrašai",
+        "sponsor_segments": "Rėmėjų segmentai",
+        "watched": "Žiūrėta"
     }
 }
