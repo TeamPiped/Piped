@@ -32,7 +32,21 @@
         "back": "Επιστροφή",
         "sort_by": "Ταξινόμηση κατά:",
         "unsubscribe": "Απεγγραφή",
-        "subscribe": "Εγγραφή"
+        "subscribe": "Εγγραφή",
+        "loop_this_video": "Επανάληψη αυτού του βίντεο",
+        "instance_selection": "Επιλογή διακομιστή",
+        "enabled_codecs": "Ενεργοποιημένοι κωδικοποητές (Πολλαπλοί)",
+        "disable_lbry": "Απενεργοποίηση του LBRY για ζωντανή μετάδοση",
+        "enable_lbry_proxy": "Ενεργοποίηση Proxy για το LBRY",
+        "minimize_description": "Απόκρυψη περιγραφής",
+        "show_description": "Εμφάνιση περιγραφής",
+        "donations": "Δωρεές",
+        "auto_play_next_video": "Αυτόματη αναπαραγωγή επόμενου βίντεο",
+        "import_from_json": "Εισαγωγή από JSON",
+        "export_to_json": "Εξαγωγή σε JSON",
+        "no": "Όχι",
+        "yes": "Ναι",
+        "show_more": "Εμφάνιση περισσότερων"
     },
     "titles": {
         "feed": "Τροφοδοσία",
@@ -40,9 +54,25 @@
         "preferences": "Ρυθμίσεις",
         "register": "Εγγραφή",
         "login": "Σύνδεση",
-        "trending": "Τάσεις"
+        "trending": "Τάσεις",
+        "subscriptions": "Συνδρομές"
     },
     "player": {
         "watch_on": "Παρακολούθηση στο"
+    },
+    "video": {
+        "watched": "Προβλήθηκε",
+        "sponsor_segments": "Τμήματα χορηγών",
+        "views": "προβολές",
+        "videos": "Βίντεο"
+    },
+    "preferences": {
+        "ssl_score": "SSL σκόρ",
+        "has_cdn": "Υποστηρίζει CDN?",
+        "instance_locations": "Τοποθεσίες διακομιστών",
+        "instance_name": "Όνομα διακομιστή"
+    },
+    "comment": {
+        "pinned_by": "Καρφιτσώθηκε από τον"
     }
 }
