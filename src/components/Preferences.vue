@@ -181,6 +181,7 @@ export default {
                 { code: "en", name: "English" },
                 { code: "fr", name: "français" },
                 { code: "de", name: "Deutsch" },
+                { code: "it", name: "italiano"},
                 { code: "el", name: "Ελληνικά" },
                 { code: "lt", name: "lietuvių kalba" },
                 { code: "ml", name: "മലയാളം" },
