@@ -1551,19 +1551,19 @@
     "@vue/compiler-core" "3.2.11"
     "@vue/shared" "3.2.11"
 
-"@vue/compiler-sfc@3.2.10":
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.2.10.tgz#31372f7fe6554dc5dcfbde3983f4e4a1bf89d6ef"
-  integrity sha512-XEb84jC3roda2Cw6Kx/w0UGigX+qKu8ylIVoh3xl+6n93xzszk8+FEkoBF2Njm2rN9HFfa2kU8lmol8CHlfwBQ==
+"@vue/compiler-sfc@3.2.11":
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.2.11.tgz#628fa12238760d9b9b339ac2e125a759224fadbf"
+  integrity sha512-cUIaS8mgJrQ6yucj2AupWAwBRITK3W/a8wCOn9g5fJGtOl8h4APY8vN3lzP8HIJDyEeRF3I8SfRhL+oX97kSnw==
   dependencies:
     "@babel/parser" "^7.15.0"
     "@babel/types" "^7.15.0"
     "@types/estree" "^0.0.48"
-    "@vue/compiler-core" "3.2.10"
-    "@vue/compiler-dom" "3.2.10"
-    "@vue/compiler-ssr" "3.2.10"
-    "@vue/ref-transform" "3.2.10"
-    "@vue/shared" "3.2.10"
+    "@vue/compiler-core" "3.2.11"
+    "@vue/compiler-dom" "3.2.11"
+    "@vue/compiler-ssr" "3.2.11"
+    "@vue/ref-transform" "3.2.11"
+    "@vue/shared" "3.2.11"
     consolidate "^0.16.0"
     estree-walker "^2.0.2"
     hash-sum "^2.0.0"
@@ -1575,13 +1575,13 @@
     postcss-selector-parser "^6.0.4"
     source-map "^0.6.1"
 
-"@vue/compiler-ssr@3.2.10":
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/@vue/compiler-ssr/-/compiler-ssr-3.2.10.tgz#740132e9ef0cf80ca9642b95e488becaa9a6c535"
-  integrity sha512-o8WQ5hiRwiQsEtz2pBU6InZUa02v6yU8To6AtMjYnFrIPJe+wj7cZQh4nlQdL2N2dA2QOvcZNS6OUB2ue/t1OQ==
+"@vue/compiler-ssr@3.2.11":
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/@vue/compiler-ssr/-/compiler-ssr-3.2.11.tgz#702cef3429651645bdbe09fe5962803b5a621abb"
+  integrity sha512-+ptAdUlFDij+Z0VGCbRRkxQlNev5LkbZAntvkxrFjc08CTMhZmiV4Js48n2hAmuSXaKNEpmGkDGU26c/vf1+xw==
   dependencies:
-    "@vue/compiler-dom" "3.2.10"
-    "@vue/shared" "3.2.10"
+    "@vue/compiler-dom" "3.2.11"
+    "@vue/shared" "3.2.11"
 
 "@vue/component-compiler-utils@^3.1.0", "@vue/component-compiler-utils@^3.1.2":
   version "3.2.2"
@@ -1616,14 +1616,14 @@
   dependencies:
     "@vue/shared" "3.2.11"
 
-"@vue/ref-transform@3.2.10":
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/@vue/ref-transform/-/ref-transform-3.2.10.tgz#2c35ea5401cbd5f543895f2363488cdaa5b21406"
-  integrity sha512-28JheKL6ih5UOpsepkN7NkIuMhU+kl0KM5687um1LP+7KzVFRQwrXPuk4XpGxjg6rZGFI14Beu0Z6V5T9hPAZA==
+"@vue/ref-transform@3.2.11":
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/@vue/ref-transform/-/ref-transform-3.2.11.tgz#4d282b9570d1485a73e7bf5d57cce27b4a7aa690"
+  integrity sha512-7rX0YsfYb7+1PeKPME1tQyUQcQgt0sIXRRnPD1Vw8Zs2KIo90YLy9CrvwalcRCxGw0ScsjBEhVjJtWIT79TElg==
   dependencies:
     "@babel/parser" "^7.15.0"
-    "@vue/compiler-core" "3.2.10"
-    "@vue/shared" "3.2.10"
+    "@vue/compiler-core" "3.2.11"
+    "@vue/shared" "3.2.11"
     estree-walker "^2.0.2"
     magic-string "^0.25.7"
 
