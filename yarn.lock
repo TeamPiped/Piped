@@ -1513,17 +1513,6 @@
     semver "^6.1.0"
     strip-ansi "^6.0.0"
 
-"@vue/compiler-core@3.2.10":
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/@vue/compiler-core/-/compiler-core-3.2.10.tgz#3388b0feac0ec98135f9cf123a2eaae65708b7e8"
-  integrity sha512-KKFxveRE0zm9Je7vlutHOF59JRytUROYBXDuoOpiDOId7kVQWdeIzc1TondASsXUgzDjbYrWkRHXiHAzKFfsHA==
-  dependencies:
-    "@babel/parser" "^7.15.0"
-    "@babel/types" "^7.15.0"
-    "@vue/shared" "3.2.10"
-    estree-walker "^2.0.2"
-    source-map "^0.6.1"
-
 "@vue/compiler-core@3.2.11":
   version "3.2.11"
   resolved "https://registry.yarnpkg.com/@vue/compiler-core/-/compiler-core-3.2.11.tgz#10af3777dba303ee7aae668029f131cb90391bee"
@@ -1534,14 +1523,6 @@
     "@vue/shared" "3.2.11"
     estree-walker "^2.0.2"
     source-map "^0.6.1"
-
-"@vue/compiler-dom@3.2.10":
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/@vue/compiler-dom/-/compiler-dom-3.2.10.tgz#1b342e3a7930c99156945e6def27abe671a6a76a"
-  integrity sha512-WFOWBj9dvIz5ktReYwvw2GMQ8YHtY//cOGTyCw5XSQw58sKm4JCQGe1HXfuEVDmRRI1s4L/gOFR2NgbRfGCtMw==
-  dependencies:
-    "@vue/compiler-core" "3.2.10"
-    "@vue/shared" "3.2.10"
 
 "@vue/compiler-dom@3.2.11":
   version "3.2.11"
@@ -1643,11 +1624,6 @@
     "@vue/runtime-core" "3.2.11"
     "@vue/shared" "3.2.11"
     csstype "^2.6.8"
-
-"@vue/shared@3.2.10":
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.10.tgz#76ffa503019e52463367e25275656d1d299dc91c"
-  integrity sha512-Z5hbCx5jqAK0kscWcsVBpEeS0LfuSjgnkCBewQfsdBRyvHdJWKRUnCAJ7GqJO/iJtjSZHBFJYNoYyP7a/goh2A==
 
 "@vue/shared@3.2.11":
   version "3.2.11"
@@ -3007,10 +2983,10 @@ core-js-compat@^3.14.0, core-js-compat@^3.16.0, core-js-compat@^3.6.5:
     browserslist "^4.16.8"
     semver "7.0.0"
 
-core-js@3.17.2, core-js@^3.6.5:
-  version "3.17.2"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.17.2.tgz#f960eae710dc62c29cca93d5332e3660e289db10"
-  integrity sha512-XkbXqhcXeMHPRk2ItS+zQYliAMilea2euoMsnpRRdDad6b2VY6CQQcwz1K8AnWesfw4p165RzY0bTnr3UrbYiA==
+core-js@3.17.3, core-js@^3.6.5:
+  version "3.17.3"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.17.3.tgz#8e8bd20e91df9951e903cabe91f9af4a0895bc1e"
+  integrity sha512-lyvajs+wd8N1hXfzob1LdOCCHFU4bGMbqqmLn1Q4QlCpDqWPpGf+p0nj+LNrvDDG33j0hZXw2nsvvVpHysxyNw==
 
 core-js@^2.4.0:
   version "2.6.12"
