@@ -1,1 +1,78 @@
-{}
+{
+    "video": {
+        "sponsor_segments": "Sponzorski segmenti",
+        "watched": "Pogledano",
+        "views": "pregleda",
+        "videos": "Videozapisi"
+    },
+    "preferences": {
+        "ssl_score": "SSL ocjena",
+        "has_cdn": "Posjeduje CDN?",
+        "instance_locations": "Lokacije instanca",
+        "instance_name": "Ime instance"
+    },
+    "comment": {
+        "pinned_by": "Prikačio korisnik"
+    },
+    "actions": {
+        "enable_lbry_proxy": "Uključi proxy za LBRY",
+        "disable_lbry": "Isključi reprodukciju LBRY servisa",
+        "minimize_description_default": "Uvijek sakrij prikaz opisa",
+        "minimize_description": "Sakrij opis",
+        "show_description": "Prikaži opis",
+        "donations": "Donacije",
+        "auto_play_next_video": "Automatski reproduciraj idući videozapis",
+        "loop_this_video": "Ponavljanje videozapisa",
+        "import_from_json": "Uvezi u JSON formatu",
+        "export_to_json": "Izvezi u JSON",
+        "no": "Ne",
+        "yes": "Da",
+        "show_more": "Prikaži više",
+        "instance_selection": "Izbor instanci",
+        "enabled_codecs": "Omogućeni kodeci",
+        "instances_list": "Popis instanci",
+        "language_selection": "Izbor jezika",
+        "store_watch_history": "Sačuvaj povijest gledanja",
+        "show_comments": "Prikaži komentare",
+        "default_homepage": "Zadana glavna stranica",
+        "country_selection": "Izbor države",
+        "buffering_goal": "Cilj međuspremnika (u sekundama)",
+        "default_quality": "Zadana kvaliteta",
+        "audio_only": "Samo zvučni zapisi",
+        "autoplay_video": "Automatski reproduciraj video",
+        "light": "Svijetla",
+        "dark": "Tamna",
+        "auto": "Automatski",
+        "theme": "Tema",
+        "skip_non_music": "Preskoči u glazbi: dijelovi bez glazbe",
+        "skip_self_promo": "Preskoči osobnu promociju",
+        "skip_preview": "Preskoči pregled",
+        "uses_api_from": "Koristi API od ",
+        "back": "Natrag",
+        "channel_name_desc": "Ime kanala (Ž-A)",
+        "channel_name_asc": "Ime kanala (A-Ž)",
+        "least_recent": "Najstarije",
+        "most_recent": "Najnovije",
+        "sort_by": "Sortiraj po:",
+        "view_subscriptions": "Pogledaj pretplate",
+        "unsubscribe": "Otkaži pretplatu",
+        "subscribe": "Pretplati se",
+        "skip_interaction": "Preskoči molbu za interakcijom",
+        "skip_outro": "Preskoči odjavnu špicu",
+        "skip_intro": "Preskoči uvodne animacije",
+        "skip_sponsors": "Preskoči sponzore",
+        "enable_sponsorblock": "Uključi Sponsorblock"
+    },
+    "player": {
+        "watch_on": "Gledaj na"
+    },
+    "titles": {
+        "subscriptions": "Pretplate",
+        "history": "Povijest",
+        "preferences": "Postavke",
+        "feed": "Pretplate",
+        "register": "Registracija",
+        "login": "Prijava",
+        "trending": "U trendu"
+    }
+}
