@@ -17,7 +17,7 @@
         <a :href="getRssUrl"><font-awesome-icon icon="rss" style="padding-top: 0.2rem"></font-awesome-icon></a>
     </span>
 
-    <span class="uk-align-right@m">
+    <span class="uk-align-right@m" @scroll="onScroll">
         <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
         <select id="ddlSortBy" class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
             <option value="descending" v-t="'actions.most_recent'" />
@@ -39,10 +39,6 @@
             <VideoItem :video="video" />
         </div>
     </div>
-
-    <br />
-    <br />
-    <div class="uk-button uk-button-small uk-align-center" @click="loadMoreVideos()">Load More</div>
 </template>
 
 <script>
@@ -63,6 +59,7 @@ export default {
             this.videosStore = videos;
             this.loadMoreVideos()
             this.updateWatched(this.videos);
+            this.watchScroll()
         });
     },
     activated() {
@@ -94,6 +91,15 @@ export default {
         loadMoreVideos() {
             this.currentVideoCount = this.currentVideoCount + this.videoStep
             this.videos = this.videosStore.slice(0, this.currentVideoCount);
+        },
+        watchScroll () {
+          window.onscroll = () => {
+            if (document.body.scrollHeight == 
+              document.documentElement.scrollTop +        
+              window.innerHeight) {
+                this.loadMoreVideos()
+            }          
+          }
         },
     },
     computed: {
