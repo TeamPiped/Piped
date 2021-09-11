@@ -57,14 +57,20 @@ export default {
     mounted() {
         this.fetchFeed().then(videos => {
             this.videosStore = videos;
-            this.loadMoreVideos()
+            this.loadMoreVideos();
             this.updateWatched(this.videos);
-            this.watchScroll()
         });
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
         if (this.videos.length > 0) this.updateWatched(this.videos);
+        window.addEventListener("scroll", this.handleScroll);
+    },
+    deactivated() {
+        window.removeEventListener("scroll", this.handleScroll);
+    },
+    unmounted() {
+        window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
         async fetchFeed() {
@@ -89,17 +95,14 @@ export default {
             }
         },
         loadMoreVideos() {
-            this.currentVideoCount = this.currentVideoCount + this.videoStep
-            this.videos = this.videosStore.slice(0, this.currentVideoCount);
+            this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
+            if (this.videos.length != this.videosStore.length)
+                this.videos = this.videosStore.slice(0, this.currentVideoCount);
         },
-        watchScroll () {
-          window.onscroll = () => {
-            if (document.body.scrollHeight == 
-              document.documentElement.scrollTop +        
-              window.innerHeight) {
-                this.loadMoreVideos()
-            }          
-          }
+        handleScroll() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+                this.loadMoreVideos();
+            }
         },
     },
     computed: {
