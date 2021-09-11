@@ -35,7 +35,17 @@
         "subscribe": "Abonner",
         "enable_lbry_proxy": "Skru på mellomtjener for LBRY",
         "disable_lbry": "Skru av LBRY-strømming",
-        "enabled_codecs": "Aktiverte forskjellige kodek"
+        "enabled_codecs": "Aktiverte forskjellige kodek",
+        "show_description": "Vis beskrivelse",
+        "donations": "Donasjoner",
+        "auto_play_next_video": "Autospill neste video",
+        "loop_this_video": "Gjenta denne videoen",
+        "import_from_json": "Importer fra JSON",
+        "export_to_json": "Eksporter til JSON",
+        "no": "Nei",
+        "yes": "Ja",
+        "show_more": "Vis mer",
+        "instance_selection": "Valg av instans"
     },
     "player": {
         "watch_on": "Vis på"
@@ -46,6 +56,22 @@
         "preferences": "Innstillinger",
         "register": "Registrering",
         "login": "Logg inn",
-        "trending": "På vei opp"
+        "trending": "På vei opp",
+        "subscriptions": "Abonnementer"
+    },
+    "video": {
+        "sponsor_segments": "Sponsor-segmenter",
+        "watched": "Sett",
+        "views": "visninger",
+        "videos": "Videoer"
+    },
+    "preferences": {
+        "ssl_score": "SSL-poengsum",
+        "has_cdn": "Har innholdsleveransenettverk?",
+        "instance_locations": "Instansested",
+        "instance_name": "Instansenavn"
+    },
+    "comment": {
+        "pinned_by": "Festet av"
     }
 }
