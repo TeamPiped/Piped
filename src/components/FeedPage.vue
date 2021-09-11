@@ -17,7 +17,7 @@
         <a :href="getRssUrl"><font-awesome-icon icon="rss" style="padding-top: 0.2rem"></font-awesome-icon></a>
     </span>
 
-    <span class="uk-align-right@m" @scroll="onScroll">
+    <span class="uk-align-right@m">
         <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
         <select id="ddlSortBy" class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
             <option value="descending" v-t="'actions.most_recent'" />
