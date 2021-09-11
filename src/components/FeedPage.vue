@@ -17,7 +17,7 @@
         <a :href="getRssUrl"><font-awesome-icon icon="rss" style="padding-top: 0.2rem"></font-awesome-icon></a>
     </span>
 
-    <span class="uk-align-right">
+    <span class="uk-align-right@m">
         <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
         <select id="ddlSortBy" class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
             <option value="descending" v-t="'actions.most_recent'" />
@@ -32,13 +32,17 @@
     <div class="uk-grid-xl" uk-grid="parallax: 0">
         <div
             :style="[{ background: backgroundColor }]"
-            class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
+            class="uk-width-1-1 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
             v-bind:key="video.url"
             v-for="video in videos"
         >
             <VideoItem :video="video" />
         </div>
     </div>
+
+    <br />
+    <br />
+    <div class="uk-button uk-button-small uk-align-center" @click="loadMoreVideos()">Load More</div>
 </template>
 
 <script>
@@ -47,13 +51,17 @@ import VideoItem from "@/components/VideoItem.vue";
 export default {
     data() {
         return {
+            currentVideoCount: 0,
+            videoStep: 100,
+            videosStore: [],
             videos: [],
             selectedSort: "descending",
         };
     },
     mounted() {
         this.fetchFeed().then(videos => {
-            this.videos = videos;
+            this.videosStore = videos;
+            this.loadMoreVideos()
             this.updateWatched(this.videos);
         });
     },
@@ -82,6 +90,10 @@ export default {
                     this.videos.sort((a, b) => b.uploaderName.localeCompare(a.uploaderName));
                     break;
             }
+        },
+        loadMoreVideos() {
+            this.currentVideoCount = this.currentVideoCount + this.videoStep
+            this.videos = this.videosStore.slice(0, this.currentVideoCount);
         },
     },
     computed: {
