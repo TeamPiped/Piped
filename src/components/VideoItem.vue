@@ -25,7 +25,7 @@
             </div>
 
             <div>
-                <p style="padding-top: 0.5rem; margin-bottom: 0.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ video.title }}</p>
+                <p style="padding-top: 0.5rem; margin-bottom: 0.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" :title="video.title">{{ video.title }}</p>
             </div>
         </router-link>
 
