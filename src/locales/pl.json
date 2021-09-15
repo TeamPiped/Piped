@@ -1,0 +1,78 @@
+{
+    "titles": {
+        "trending": "Trendy",
+        "login": "Logowanie",
+        "register": "Rejestracja",
+        "feed": "Kanał",
+        "preferences": "Preferencje",
+        "history": "Historia",
+        "subscriptions": "Subskrypcje"
+    },
+    "player": {
+        "watch_on": "Oglądaj na"
+    },
+    "actions": {
+        "subscribe": "Subskrybuj",
+        "unsubscribe": "Anuluj subskrypcję",
+        "view_subscriptions": "Twoje subskrypcje",
+        "sort_by": "Sortuj:",
+        "most_recent": "Najnowsze",
+        "least_recent": "Najstarsze",
+        "channel_name_asc": "Nazwa kanału (A-Z)",
+        "channel_name_desc": "Nazwa kanału (Z-A)",
+        "back": "Wróć",
+        "uses_api_from": "Używaj API od ",
+        "enable_sponsorblock": "Włącz Sponsorblock",
+        "skip_sponsors": "Pomiń sponsorów",
+        "skip_intro": "Pomiń przerwę/Animację intro",
+        "skip_outro": "Pomiń karty końcowe/obsadę",
+        "skip_preview": "Pomiń podgląd/podsumowanie",
+        "skip_interaction": "Pomiń przypomnienie o interakcji (Subskrybuj)",
+        "skip_self_promo": "Pomiń sponsorów/promocję",
+        "skip_non_music": "Pomiń muzykę: Sekcja niemuzyczna",
+        "theme": "Motyw",
+        "auto": "Auto",
+        "dark": "Ciemny",
+        "light": "Jasny",
+        "autoplay_video": "Automatyczne odtwarzanie",
+        "audio_only": "Tylko audio",
+        "default_quality": "Domyślna jakość",
+        "buffering_goal": "Cel buforowania (w sekundach)",
+        "country_selection": "Wybór kraju",
+        "default_homepage": "Domyślna strona główna",
+        "show_comments": "Pokaż komentarze",
+        "minimize_description_default": "Domyślnie zminimalizuj opis",
+        "store_watch_history": "Zapisz historię oglądania",
+        "language_selection": "Wybór języka",
+        "instances_list": "Lista instancji",
+        "enabled_codecs": "Włączone kodeki (wiele)",
+        "instance_selection": "Wybór instancji",
+        "show_more": "Pokaż więcej",
+        "yes": "Tak",
+        "no": "Nie",
+        "export_to_json": "Eksport do JSON",
+        "import_from_json": "Import z JSON",
+        "loop_this_video": "Zapętlaj ten film",
+        "auto_play_next_video": "Automatyczne odtwarzanie następnego filmu",
+        "donations": "Darowizny",
+        "minimize_description": "Minimalizuj opis",
+        "show_description": "Pokaż opis",
+        "disable_lbry": "Wyłącz LBRY dla streaming-u",
+        "enable_lbry_proxy": "Włącz proxy dla LBRY"
+    },
+    "comment": {
+        "pinned_by": "Przypięty przez"
+    },
+    "preferences": {
+        "instance_name":"Nazwa instancji",
+        "instance_locations":"Lokalizacje instancji",
+        "has_cdn":"Używa CDN?",
+        "ssl_score":"Ocena SSL"
+    },
+    "video": {
+        "videos": "Filmy",
+        "views": "wyświetleń",
+        "watched": "Obejrzane",
+        "sponsor_segments": "Segmenty sponsorskie"
+    }
+}
