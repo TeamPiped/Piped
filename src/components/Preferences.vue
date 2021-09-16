@@ -9,39 +9,63 @@
     <hr />
     <h2>SponsorBlock</h2>
     <p>{{ $t("actions.uses_api_from") }}<a href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
-    <label for="chkEnableSponsorblock"><b v-t="'actions.enable_sponsorblock'" /></label>
+    <label for="chkEnableSponsorblock"><b v-t="'actions.enable_sponsorblock'"/></label>
     <br />
-    <input id="chkEnableSponsorblock" class="uk-checkbox" v-model="sponsorBlock" @change="onChange($event)" type="checkbox" />
+    <input
+        id="chkEnableSponsorblock"
+        class="uk-checkbox"
+        v-model="sponsorBlock"
+        @change="onChange($event)"
+        type="checkbox"
+    />
     <br />
-    <label for="chkSkipSponsors"><b v-t="'actions.skip_sponsors'" /></label>
+    <label for="chkSkipSponsors"><b v-t="'actions.skip_sponsors'"/></label>
     <br />
     <input id="chkSkipSponsors" class="uk-checkbox" v-model="skipSponsor" @change="onChange($event)" type="checkbox" />
     <br />
-    <label for="chkSkipIntro"><b v-t="'actions.skip_intro'" /></label>
+    <label for="chkSkipIntro"><b v-t="'actions.skip_intro'"/></label>
     <br />
     <input id="chkSkipIntro" class="uk-checkbox" v-model="skipIntro" @change="onChange($event)" type="checkbox" />
     <br />
-    <label for="chkSkipOutro"><b v-t="'actions.skip_outro'" /></label>
+    <label for="chkSkipOutro"><b v-t="'actions.skip_outro'"/></label>
     <br />
     <input id="chkSkipOutro" class="uk-checkbox" v-model="skipOutro" @change="onChange($event)" type="checkbox" />
     <br />
-    <label for="chkSkipPreview"><b v-t="'actions.skip_preview'" /></label>
+    <label for="chkSkipPreview"><b v-t="'actions.skip_preview'"/></label>
     <br />
     <input id="chkSkipPreview" class="uk-checkbox" v-model="skipPreview" @change="onChange($event)" type="checkbox" />
     <br />
-    <label for="chkSkipInteraction"><b v-t="'actions.skip_interaction'" /></label>
+    <label for="chkSkipInteraction"><b v-t="'actions.skip_interaction'"/></label>
     <br />
-    <input id="chkSkipInteraction" class="uk-checkbox" v-model="skipInteraction" @change="onChange($event)" type="checkbox" />
+    <input
+        id="chkSkipInteraction"
+        class="uk-checkbox"
+        v-model="skipInteraction"
+        @change="onChange($event)"
+        type="checkbox"
+    />
     <br />
-    <label for="chkSkipSelfPromo"><b v-t="'actions.skip_self_promo'" /></label>
+    <label for="chkSkipSelfPromo"><b v-t="'actions.skip_self_promo'"/></label>
     <br />
-    <input id="chkSkipSelfPromo" class="uk-checkbox" v-model="skipSelfPromo" @change="onChange($event)" type="checkbox" />
+    <input
+        id="chkSkipSelfPromo"
+        class="uk-checkbox"
+        v-model="skipSelfPromo"
+        @change="onChange($event)"
+        type="checkbox"
+    />
     <br />
-    <label for="chkSkipNonMusic"><b v-t="'actions.skip_non_music'" /></label>
+    <label for="chkSkipNonMusic"><b v-t="'actions.skip_non_music'"/></label>
     <br />
-    <input id="chkSkipNonMusic" class="uk-checkbox" v-model="skipMusicOffTopic" @change="onChange($event)" type="checkbox" />
+    <input
+        id="chkSkipNonMusic"
+        class="uk-checkbox"
+        v-model="skipMusicOffTopic"
+        @change="onChange($event)"
+        type="checkbox"
+    />
     <br />
-    <label for="ddlTheme"><b v-t="'actions.theme'" /></label>
+    <label for="ddlTheme"><b v-t="'actions.theme'"/></label>
     <br />
     <select id="ddlTheme" class="uk-select uk-width-auto" v-model="selectedTheme" @change="onChange($event)">
         <option value="auto" v-t="'actions.auto'" />
@@ -49,69 +73,109 @@
         <option value="light" v-t="'actions.light'" />
     </select>
     <br />
-    <label for="chkAutoPlayVideo"><b v-t="'actions.autoplay_video'" /></label>
+    <label for="chkAutoPlayVideo"><b v-t="'actions.autoplay_video'"/></label>
     <br />
-    <input id="chkAutoPlayVideo" class="uk-checkbox" v-model="autoPlayVideo" @change="onChange($event)" type="checkbox" />
+    <input
+        id="chkAutoPlayVideo"
+        class="uk-checkbox"
+        v-model="autoPlayVideo"
+        @change="onChange($event)"
+        type="checkbox"
+    />
     <br />
-    <label for="chkAudioOnly"><b v-t="'actions.audio_only'" /></label>
+    <label for="chkAudioOnly"><b v-t="'actions.audio_only'"/></label>
     <br />
     <input id="chkAudioOnly" class="uk-checkbox" v-model="listen" @change="onChange($event)" type="checkbox" />
     <br />
-    <label for="ddlDefaultQuality"><b v-t="'actions.default_quality'" /></label>
+    <label for="ddlDefaultQuality"><b v-t="'actions.default_quality'"/></label>
     <br />
     <select id="ddlDefaultQuality" class="uk-select uk-width-auto" v-model="defaultQuality" @change="onChange($event)">
         <option value="0" v-t="'actions.auto'" />
         <option :key="resolution" v-for="resolution in resolutions" :value="resolution">{{ resolution }}p</option>
     </select>
     <br />
-    <label for="txtBufferingGoal"><b v-t="'actions.buffering_goal'" /></label>
+    <label for="txtBufferingGoal"><b v-t="'actions.buffering_goal'"/></label>
     <br />
-    <input id="txtBufferingGoal" class="uk-input uk-width-auto" v-model="bufferingGoal" @change="onChange($event)" type="text" />
+    <input
+        id="txtBufferingGoal"
+        class="uk-input uk-width-auto"
+        v-model="bufferingGoal"
+        @change="onChange($event)"
+        type="text"
+    />
     <br />
-    <label for="ddlCountrySelection"><b v-t="'actions.country_selection'" /></label>
+    <label for="ddlCountrySelection"><b v-t="'actions.country_selection'"/></label>
     <br />
     <select id="ddlCountrySelection" class="uk-select uk-width-auto" v-model="country" @change="onChange($event)">
         <option :key="country.code" v-for="country in countryMap" :value="country.code">{{ country.name }}</option>
     </select>
     <br />
-    <label for="ddlDefaultHomepage"><b v-t="'actions.default_homepage'" /></label>
+    <label for="ddlDefaultHomepage"><b v-t="'actions.default_homepage'"/></label>
     <br />
-    <select id="ddlDefaultHomepage" class="uk-select uk-width-auto" v-model="defaultHomepage" @change="onChange($event)">
+    <select
+        id="ddlDefaultHomepage"
+        class="uk-select uk-width-auto"
+        v-model="defaultHomepage"
+        @change="onChange($event)"
+    >
         <option value="trending" v-t="'titles.trending'" />
         <option value="feed" v-t="'titles.feed'" />
     </select>
     <br />
-    <label for="chkShowComments"><b v-t="'actions.show_comments'" /></label>
+    <label for="chkShowComments"><b v-t="'actions.show_comments'"/></label>
     <br />
     <input id="chkShowComments" class="uk-checkbox" v-model="showComments" @change="onChange($event)" type="checkbox" />
     <br />
-    <label for="chkMinimizeDescription"><b v-t="'actions.minimize_description_default'" /></label>
+    <label for="chkMinimizeDescription"><b v-t="'actions.minimize_description_default'"/></label>
     <br />
-    <input id="chkMinimizeDescription" class="uk-checkbox" v-model="minimizeDescription" @change="onChange($event)" type="checkbox" />
+    <input
+        id="chkMinimizeDescription"
+        class="uk-checkbox"
+        v-model="minimizeDescription"
+        @change="onChange($event)"
+        type="checkbox"
+    />
     <br />
-    <label for="chkStoreWatchHistory"><b v-t="'actions.store_watch_history'" /></label>
+    <label for="chkStoreWatchHistory"><b v-t="'actions.store_watch_history'"/></label>
     <br />
-    <input id="chkStoreWatchHistory" class="uk-checkbox" v-model="watchHistory" @change="onChange($event)" type="checkbox" />
+    <input
+        id="chkStoreWatchHistory"
+        class="uk-checkbox"
+        v-model="watchHistory"
+        @change="onChange($event)"
+        type="checkbox"
+    />
     <br />
-    <label for="ddlLanguageSelection"><b v-t="'actions.language_selection'" /></label>
+    <label for="ddlLanguageSelection"><b v-t="'actions.language_selection'"/></label>
     <br />
-    <select id="ddlLanguageSelection" class="uk-select uk-width-auto" v-model="selectedLanguage" @change="onChange($event)">
+    <select
+        id="ddlLanguageSelection"
+        class="uk-select uk-width-auto"
+        v-model="selectedLanguage"
+        @change="onChange($event)"
+    >
         <option :key="language.code" v-for="language in languages" :value="language.code">{{ language.name }}</option>
     </select>
     <br />
-    <label for="ddlEnabledCodecs"><b v-t="'actions.enabled_codecs'" /></label>
+    <label for="ddlEnabledCodecs"><b v-t="'actions.enabled_codecs'"/></label>
     <br />
-    <select id="ddlEnabledCodecs" class="uk-select uk-width-auto" v-model="enabledCodecs" @change="onChange($event)" multiple>
+    <select
+        id="ddlEnabledCodecs"
+        class="uk-select uk-width-auto"
+        v-model="enabledCodecs"
+        @change="onChange($event)"
+        multiple
+    >
         <option value="av1">AV1</option>
         <option value="vp9">VP9</option>
         <option value="avc">AVC (h.264)</option>
     </select>
     <br />
-    <label for="chkDisableLBRY"><b v-t="'actions.disable_lbry'" /></label>
+    <label for="chkDisableLBRY"><b v-t="'actions.disable_lbry'"/></label>
     <br />
     <input id="chkDisableLBRY" class="uk-checkbox" v-model="disableLBRY" @change="onChange($event)" type="checkbox" />
     <br />
-    <label for="chkEnableLBRYProxy"><b v-t="'actions.enable_lbry_proxy'" /></label>
+    <label for="chkEnableLBRYProxy"><b v-t="'actions.enable_lbry_proxy'"/></label>
     <br />
     <input id="chkEnableLBRYProxy" class="uk-checkbox" v-model="proxyLBRY" @change="onChange($event)" type="checkbox" />
     <h2 v-t="'actions.instances_list'" />
@@ -128,7 +192,7 @@
             <tr>
                 <td>{{ instance.name }}</td>
                 <td>{{ instance.locations }}</td>
-                <td>{{ instance.cdn == "Yes"? $t("actions.yes") : $t("actions.no") }}</td>
+                <td>{{ instance.cdn == "Yes" ? $t("actions.yes") : $t("actions.no") }}</td>
                 <td>
                     <a :href="sslScore(instance.apiurl)" target="_blank">Click Here</a>
                 </td>
@@ -138,9 +202,16 @@
 
     <hr />
 
-    <label for="ddlInstanceSelection"><b>{{ $t("actions.instance_selection") }}:</b></label>
+    <label for="ddlInstanceSelection"
+        ><b>{{ $t("actions.instance_selection") }}:</b></label
+    >
     <br />
-    <select id="ddlInstanceSelection" class="uk-select uk-width-auto" v-model="selectedInstance" @change="onChange($event)">
+    <select
+        id="ddlInstanceSelection"
+        class="uk-select uk-width-auto"
+        v-model="selectedInstance"
+        @change="onChange($event)"
+    >
         <option v-bind:key="instance.name" v-for="instance in instances" v-bind:value="instance.apiurl">
             {{ instance.name }}
         </option>
@@ -177,17 +248,18 @@ export default {
             selectedLanguage: "en",
             languages: [
                 { code: "bn", name: "বাংলা" },
-                { code: "zh_Hant", name: "Chinese (Traditional)" },
-                { code: "en", name: "English" },
-                { code: "fr", name: "français" },
                 { code: "de", name: "Deutsch" },
-                { code: "it", name: "italiano"},
                 { code: "el", name: "Ελληνικά" },
+                { code: "es", name: "Español" },
+                { code: "en", name: "English" },
+                { code: "fa", name: "فارسی" },
+                { code: "fr", name: "français" },
+                { code: "it", name: "italiano" },
                 { code: "lt", name: "lietuvių kalba" },
                 { code: "ml", name: "മലയാളം" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
-                { code: "fa", name: "فارسی" },
                 { code: "tr", name: "Türkçe" },
+                { code: "zh_Hant", name: "Chinese (Traditional)" },
             ],
             enabledCodecs: ["av1", "vp9", "avc"],
             disableLBRY: false,
