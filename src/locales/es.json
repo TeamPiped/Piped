@@ -1,0 +1,78 @@
+{
+    "video": {
+        "sponsor_segments": "Segmentos de patrocinio",
+        "watched": "Vistos",
+        "views": "visualizaciones",
+        "videos": "Vídeos"
+    },
+    "preferences": {
+        "ssl_score": "Puntuación SSL",
+        "has_cdn": "¿Tiene CDN?",
+        "instance_locations": "Ubicaciones de las instancias",
+        "instance_name": "Nombre de la instancia"
+    },
+    "comment": {
+        "pinned_by": "Fijado por"
+    },
+    "actions": {
+        "enable_lbry_proxy": "Activar Proxy para LBRY",
+        "disable_lbry": "Desactivar LBRY para el streaming",
+        "show_description": "Mostrar descripción",
+        "minimize_description": "Minimizar descripción",
+        "donations": "Donaciones",
+        "auto_play_next_video": "Reproducción automática del siguiente vídeo",
+        "loop_this_video": "Poner en bucle este vídeo",
+        "import_from_json": "Importar desde JSON",
+        "export_to_json": "Exportar a JSON",
+        "no": "No",
+        "yes": "Sí",
+        "show_more": "Mostrar más",
+        "instance_selection": "Selección de instancias",
+        "enabled_codecs": "Códecs habilitados (múltiples)",
+        "instances_list": "Lista de instancias",
+        "language_selection": "Selección de lenguajes",
+        "store_watch_history": "Recordar historial de visualización",
+        "minimize_description_default": "Minimizar la descripción por defecto",
+        "show_comments": "Mostrar comentarios",
+        "default_homepage": "Página de inicio predeterminada",
+        "country_selection": "Selección de países",
+        "buffering_goal": "Objetivo de amortiguación (en segundos)",
+        "default_quality": "Calidad predeterminada",
+        "audio_only": "Sólo audio",
+        "autoplay_video": "Reproducción automática de video",
+        "light": "Claro",
+        "dark": "Oscuro",
+        "auto": "Automático",
+        "theme": "Tema",
+        "skip_non_music": "Saltar la música: Sección no musical",
+        "skip_self_promo": "Saltar sin pagar/autopromoción",
+        "skip_interaction": "Omitir Recordatorio de interacción (Suscribirse)",
+        "skip_preview": "Saltar la vista previa/resumen",
+        "skip_outro": "Omitir tarjetas finales/créditos",
+        "skip_intro": "Saltar el intermedio/la animación de entrada",
+        "skip_sponsors": "Omitir patrocinadores",
+        "enable_sponsorblock": "Activar SponsorBlock",
+        "uses_api_from": "Utiliza la API de ",
+        "back": "Volver",
+        "channel_name_desc": "Nombre del canal (Z-A)",
+        "channel_name_asc": "Nombre del canal (A-Z)",
+        "least_recent": "Lo menos reciente",
+        "most_recent": "Lo más reciente",
+        "sort_by": "Ordenar por:",
+        "view_subscriptions": "Ver suscripciones",
+        "unsubscribe": "Anular suscripción",
+        "subscribe": "Suscribirme"
+    },
+    "titles": {
+        "feed": "Feed",
+        "subscriptions": "Suscripciones",
+        "history": "Historial",
+        "trending": "En tendencias",
+        "preferences": "Preferencias",
+        "register": "Registrarse",
+        "login": "Iniciar sesión"
+    },
+    "player": {
+        "watch_on": "Ver en"
+    }
+}

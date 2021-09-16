@@ -32,7 +32,7 @@
         "country_selection": "രാജ്യം തിരഞ്ഞെടുക്കുക",
         "audio_only": "ശബ്ദം മാത്രം",
         "enable_sponsorblock": "Sponsorblock സജ്ജമാക്കുക",
-        "uses_api_from": "ഇതിൽ നിന്ന് എപിഐ ഉപയോഗിക്കുന്നു ",
+        "uses_api_from": "ഉപയോഗിക്കുന്ന എപിഐ ",
         "back": "തിരികെ പോവുക",
         "channel_name_desc": "ചാനലിൻ്റെ പേര് (Z-A)",
         "channel_name_asc": "ചാനലിന്റെ പേര് (A-Z)",
@@ -49,7 +49,11 @@
         "loop_this_video": "വിഡിയോ ലൂപ്പ് ചെയ്യുക",
         "minimize_description": "വിവരണം ചെറുതാക്കുക",
         "yes": "അതെ",
-        "show_more": "കൂടുതൽ കാണിക്കുക"
+        "show_more": "കൂടുതൽ കാണിക്കുക",
+        "buffering_goal": "ബഫറിംഗ് ലക്ഷ്യം(സെക്കൻഡുകളിൽ)",
+        "import_from_json": "JSON നിന്ന് ഇറക്കുമതി ചെയ്യൂ",
+        "export_to_json": "JSON-ലേക്ക് എക്സ്പ്പോർട്ട് ചെയ്യുക",
+        "instance_selection": "ഇൻസ്റ്റ്ൻസ് തിരഞ്ഞെടുക്കുക"
     },
     "player": {
         "watch_on": "കാണുക"
@@ -57,7 +61,8 @@
     "video": {
         "watched": "കണ്ടതാണ്",
         "views": "കാഴ്ചകൾ",
-        "videos": "വിഡിയോകൾ"
+        "videos": "വിഡിയോകൾ",
+        "sponsor_segments": "സ്പോൺസർമാരുടെ ഭാഗങ്ങൾ"
     },
     "comment": {
         "pinned_by": "പിൻ ചെയ്തിരിക്കുന്നത്"
@@ -65,6 +70,7 @@
     "preferences": {
         "ssl_score": "എസ് എസ് എൽ സ്കോർ",
         "has_cdn": "സിഡിഎൻ ഉപയോഗിക്കിന്നിണ്ടോ?",
-        "instance_name": "ഇൻസ്റ്റ്ൻസിന്റെ പേര്"
+        "instance_name": "ഇൻസ്റ്റ്ൻസിന്റെ പേര്",
+        "instance_locations": "ഇൻസ്റ്റൻസ് ലൊക്കേഷനുകൾ"
     }
 }
