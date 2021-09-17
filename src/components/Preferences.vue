@@ -341,7 +341,7 @@ export default {
             }
 
             this.selectedTheme = this.getPreferenceString("theme", "dark");
-            this.autoPlayVideo = this.getPreferenceBoolean(localStorage.getItem("playerAutoPlay"), true);
+            this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
             this.listen = this.getPreferenceBoolean("listen", false);
             this.defaultQuality = Number(localStorage.getItem("quality"));
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
