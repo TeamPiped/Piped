@@ -85,11 +85,27 @@
 
         <hr />
 
-        <label for="chkAutoLoop"><b>{{ $t("actions.loop_this_video") }}:</b></label>&nbsp;
-        <input id="chkAutoLoop" class="uk-checkbox" v-model="selectedAutoLoop" @change="onChange($event)" type="checkbox" />
+        <label for="chkAutoLoop"
+            ><b>{{ $t("actions.loop_this_video") }}:</b></label
+        >&nbsp;
+        <input
+            id="chkAutoLoop"
+            class="uk-checkbox"
+            v-model="selectedAutoLoop"
+            @change="onChange($event)"
+            type="checkbox"
+        />
         <br />
-        <label for="chkAutoPlay"><b>{{ $t("actions.auto_play_next_video") }}:</b></label>&nbsp;
-        <input id="chkAutoPlay" class="uk-checkbox" v-model="selectedAutoPlay" @change="onChange($event)" type="checkbox" />
+        <label for="chkAutoPlay"
+            ><b>{{ $t("actions.auto_play_next_video") }}:</b></label
+        >&nbsp;
+        <input
+            id="chkAutoPlay"
+            class="uk-checkbox"
+            v-model="selectedAutoPlay"
+            @change="onChange($event)"
+            type="checkbox"
+        />
 
         <hr />
 
@@ -167,7 +183,7 @@ export default {
     },
     activated() {
         this.active = true;
-        this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", true);
+        this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         if (this.video.duration) {
             document.title = this.video.title + " - Piped";
