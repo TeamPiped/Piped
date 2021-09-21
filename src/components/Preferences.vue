@@ -219,7 +219,7 @@
 </template>
 
 <script>
-import CountryMap from "@/utils/CountryMap.js";
+import CountryMap from "@/utils/CountryMaps/en.json";
 export default {
     data() {
         return {
@@ -239,7 +239,7 @@ export default {
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
             defaultQuality: 0,
             bufferingGoal: 10,
-            countryMap: CountryMap.COUNTRIES,
+            countryMap: CountryMap,
             country: "US",
             defaultHomepage: "trending",
             showComments: true,
@@ -271,7 +271,7 @@ export default {
     activated() {
         document.title = this.$t("titles.preferences") + " - Piped";
     },
-    mounted() {
+    async mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
 
         fetch("https://raw.githubusercontent.com/wiki/TeamPiped/Piped-Frontend/Instances.md")
@@ -354,6 +354,15 @@ export default {
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "av1,vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
+            if (this.selectedLanguage != "en") {
+                try {
+                    this.CountryMap = await import("@/utils/CountryMaps/" + this.selectedLanguage + ".json").then(val => {
+                        this.countryMap = val;
+                    });
+                } catch (e) {
+                    console.error("Countries not translated into " + this.selectedLanguage);
+                }
+            }
         }
     },
     methods: {
