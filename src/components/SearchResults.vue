@@ -3,7 +3,7 @@
         {{ $route.query.search_query }}
     </h1>
 
-    <label for="ddlSearchFilters"><b>Filter: </b></label>
+    <label for="ddlSearchFilters"><b>{{ $t("actions.filter") }}: </b></label>
     <select
         id="ddlSearchFilters"
         default="all"

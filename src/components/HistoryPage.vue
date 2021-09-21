@@ -1,5 +1,5 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">Watch History</h1>
+    <h1 class="uk-text-bold uk-text-center">{{ $t("titles.history") }}</h1>
 
 
     <div style="text-align: right">

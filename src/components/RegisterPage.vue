@@ -7,7 +7,8 @@
                     type="text"
                     v-model="username"
                     autocomplete="username"
-                    placeholder="Username"
+                    :placeholder="$t('login.username')"
+                    :aria-label="$t('login.username')"
                 />
             </div>
             <div class="uk-form-row">
@@ -16,7 +17,8 @@
                     type="password"
                     v-model="password"
                     autocomplete="password"
-                    placeholder="Password"
+                    :placeholder="$t('login.password')"
+                    :aria-label="$t('login.password')"
                 />
             </div>
             <div class="uk-form-row">

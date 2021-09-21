@@ -194,7 +194,7 @@
                 <td>{{ instance.locations }}</td>
                 <td>{{ instance.cdn == "Yes" ? $t("actions.yes") : $t("actions.no") }}</td>
                 <td>
-                    <a :href="sslScore(instance.apiurl)" target="_blank">Click Here</a>
+                    <a :href="sslScore(instance.apiurl)" target="_blank"> {{ $t("actions.view_ssl_score") }}</a>
                 </td>
             </tr>
         </tbody>
