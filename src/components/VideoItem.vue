@@ -30,8 +30,8 @@
         </router-link>
 
         <div class="uk-align-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
-            <router-link :to="video.url + '&listen=1'" :aria-label="'listen to '+video.title">
-                <font-awesome-icon alt="" icon="headphones"></font-awesome-icon>
+            <router-link :to="video.url + '&listen=1'" :aria-label="'listen to '+video.title" :title="'listen to '+video.title">
+                <font-awesome-icon icon="headphones"></font-awesome-icon>
             </router-link>
         </div>
 
