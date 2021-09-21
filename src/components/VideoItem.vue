@@ -6,7 +6,7 @@
                 :width="width"
                 style="width: 100%"
                 v-bind:src="video.thumbnail"
-                alt="thumbnail"
+                alt=""
                 loading="lazy"
             />
             <div class="uk-position-relative">
@@ -30,14 +30,14 @@
         </router-link>
 
         <div class="uk-align-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
-            <router-link :to="video.url + '&listen=1'">
-                <font-awesome-icon icon="headphones"></font-awesome-icon>
+            <router-link :to="video.url + '&listen=1'" :aria-label="'listen to '+video.title">
+                <font-awesome-icon alt="" icon="headphones"></font-awesome-icon>
             </router-link>
         </div>
 
         <div v-if="video.uploaderUrl && video.uploaderName && !hideChannel" style="display: flex; flex-flow: row; height: 15%">
             <router-link class="uk-link-muted" :to="video.uploaderUrl">
-                <img v-if="video.uploaderAvatar" :src="video.uploaderAvatar" loading="lazy" class="uk-border-circle" style="margin-right: 0.5rem; margin-top:0.5rem; width: 32px; height: 32px;" />
+                <img v-if="video.uploaderAvatar" :src="video.uploaderAvatar" loading="lazy" :alt="video.uploaderName" class="uk-border-circle" style="margin-right: 0.5rem; margin-top:0.5rem; width: 32px; height: 32px;" />
             </router-link>
 
             <div>

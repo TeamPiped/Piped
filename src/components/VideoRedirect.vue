@@ -1,7 +1,6 @@
 <template>
-    <div>Loading...</div>
+    <div>{{ $t("actions.loading") }}</div>
 </template>
-
 
 <script>
 export default {
