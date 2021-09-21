@@ -19,7 +19,9 @@
             <input
                 class="uk-input uk-width-medium"
                 type="text"
-                placeholder="Search"
+                role="search"
+                :title="$t('actions.search')"
+                :placeholder="$t('actions.search')"
                 v-model="searchText"
                 @keyup="onKeyUp"
                 @focus="onInputFocus"
@@ -50,7 +52,9 @@
         <input
             class="uk-input"
             type="text"
-            placeholder="Search"
+            role="search"
+            :title="$t('actions.search')"
+            :placeholder="$t('actions.search')"
             v-model="searchText"
             @keyup="onKeyUp"
             @focus="onInputFocus"

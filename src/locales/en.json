@@ -58,7 +58,11 @@
         "minimize_description": "Minimize Description",
         "show_description": "Show Description",
         "disable_lbry": "Disable LBRY for Streaming",
-        "enable_lbry_proxy": "Enable Proxy for LBRY"
+        "enable_lbry_proxy": "Enable Proxy for LBRY",
+        "view_ssl_score": "View SSL Score",
+        "search": "Search",
+        "filter": "Filter",
+        "loading": "Loading..."
     },
     "comment": {
         "pinned_by": "Pinned by"
@@ -68,6 +72,10 @@
         "instance_locations":"Instance Locations",
         "has_cdn":"Has CDN?",
         "ssl_score":"SSL Score"
+    },
+    "login": {
+        "username":"Username",
+        "password":"Password"
     },
     "video": {
         "videos": "Videos",
