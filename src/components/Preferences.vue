@@ -219,7 +219,7 @@
 </template>
 
 <script>
-import CountryMap from "@/utils/CountryMaps/en.js";
+import CountryMap from "@/utils/CountryMaps/en.json";
 export default {
     data() {
         return {
@@ -239,7 +239,7 @@ export default {
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
             defaultQuality: 0,
             bufferingGoal: 10,
-            countryMap: CountryMap.COUNTRIES,
+            countryMap: CountryMap,
             country: "US",
             defaultHomepage: "trending",
             showComments: true,
@@ -356,8 +356,8 @@ export default {
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
             if (this.selectedLanguage != "en") {
                 try {
-                    this.CountryMap = await import("@/utils/CountryMaps/" + this.selectedLanguage + ".js").then(val => {
-                        this.countryMap = val.default.COUNTRIES;
+                    this.CountryMap = await import("@/utils/CountryMaps/" + this.selectedLanguage + ".json").then(val => {
+                        this.countryMap = val;
                     });
                 } catch (e) {
                     console.error("Countries not translated into " + this.selectedLanguage);
