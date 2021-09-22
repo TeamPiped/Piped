@@ -61,7 +61,11 @@
         "sort_by": "Ordenatu honen arabera:",
         "view_subscriptions": "Harpidetzak ikusi",
         "unsubscribe": "Kendu harpidetza",
-        "subscribe": "Harpidetu"
+        "subscribe": "Harpidetu",
+        "loading": "Kargatzen...",
+        "filter": "Iragazi",
+        "search": "Bilatu",
+        "view_ssl_score": "Ikusi SSL puntuazioa"
     },
     "player": {
         "watch_on": "Ikusi hemen"
@@ -74,5 +78,9 @@
         "register": "Erregistratu",
         "login": "Hasi saioa",
         "trending": "Pil-pilean"
+    },
+    "login": {
+        "password": "Pasahitza",
+        "username": "Erabiltzailearen izena"
     }
 }
