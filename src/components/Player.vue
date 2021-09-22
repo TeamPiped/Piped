@@ -305,7 +305,7 @@ export default {
                     switch (handler.key) {
                         case "f":
                             if (document.fullscreenElement) document.exitFullscreen();
-                            else document.querySelector("video[data-shaka-player]").requestFullscreen();
+                            else self.ui.getControls().toggleFullScreen();
                             e.preventDefault();
                             break;
                         case "m":
