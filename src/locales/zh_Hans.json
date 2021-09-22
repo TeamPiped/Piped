@@ -46,7 +46,11 @@
         "sort_by": "排序：",
         "view_subscriptions": "查看订阅",
         "unsubscribe": "取消订阅",
-        "subscribe": "订购"
+        "subscribe": "订购",
+        "loading": "正在加载...",
+        "filter": "筛选",
+        "search": "搜索",
+        "view_ssl_score": "查看 SSL 得分"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -74,5 +78,9 @@
         "register": "注册",
         "trending": "趋势",
         "login": "登录"
+    },
+    "login": {
+        "password": "密码",
+        "username": "帐号"
     }
 }
