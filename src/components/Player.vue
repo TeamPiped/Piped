@@ -304,8 +304,7 @@ export default {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
                         case "f":
-                            if (document.fullscreenElement) document.exitFullscreen();
-                            else self.ui.getControls().toggleFullScreen();
+                            self.ui.getControls().toggleFullScreen();
                             e.preventDefault();
                             break;
                         case "m":
