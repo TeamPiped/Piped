@@ -1,1 +1,66 @@
-{}
+{
+    "video": {
+        "watched": "Katsottu",
+        "views": "näyttökertaa",
+        "videos": "Videot"
+    },
+    "login": {
+        "password": "Salasana",
+        "username": "Käyttäjätunnus"
+    },
+    "preferences": {
+        "ssl_score": "SSL-pisteet"
+    },
+    "actions": {
+        "loading": "Ladataan…",
+        "filter": "Suodata",
+        "search": "Hae",
+        "view_ssl_score": "Näytä SSL-pisteet",
+        "show_description": "Näytä kuvaus",
+        "minimize_description": "Pienennä kuvaus",
+        "donations": "Lahjoitukset",
+        "auto_play_next_video": "Toista seuraava video automaattisesti",
+        "no": "Ei",
+        "yes": "Kyllä",
+        "show_more": "Näytä lisää",
+        "language_selection": "Kielen valinta",
+        "store_watch_history": "Tallenna katseluhistoria",
+        "minimize_description_default": "Pienennä kuvaus oletusarvoisesti",
+        "show_comments": "Näytä kommentit",
+        "default_homepage": "Oletuskotisivu",
+        "country_selection": "Maan valinta",
+        "buffering_goal": "Puskurointitavoite (sekunteina)",
+        "default_quality": "Oletuslaatu",
+        "audio_only": "Vain ääni",
+        "autoplay_video": "Toista video automaattisesti",
+        "light": "Vaalea",
+        "dark": "Tumma",
+        "auto": "Automaattinen",
+        "theme": "Teema",
+        "skip_intro": "Ohita väliaika-/esittelyanimaatio",
+        "skip_sponsors": "Ohita sponsorit",
+        "enable_sponsorblock": "Ota Sponsorblock käyttöön",
+        "uses_api_from": "Käyttää API:ta ohjelmasta ",
+        "back": "Takaisin",
+        "channel_name_desc": "Kanavan nimi (Ö-A)",
+        "channel_name_asc": "Kanavan nimi (A-Ö)",
+        "least_recent": "Vähiten viimeisin",
+        "most_recent": "Viimeisin",
+        "sort_by": "Järjestä:",
+        "view_subscriptions": "Näytä tilaukset",
+        "unsubscribe": "Poistu tilauksesta",
+        "subscribe": "Tilaa"
+    },
+    "player": {
+        "watch_on": "Katso sivustolla"
+    },
+    "titles": {
+        "subscriptions": "Tilaukset",
+        "history": "Historia",
+        "preferences": "Asetukset",
+        "feed": "Syöttö",
+        "register": "Rekisteröidy",
+        "login": "Kirjaudu sisään",
+        "trending": "Nousussa"
+    }
+}
