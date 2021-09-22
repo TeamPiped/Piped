@@ -46,7 +46,11 @@
         "no": "No",
         "yes": "Sì",
         "show_more": "Mostra di più",
-        "instance_selection": "Selezione dell'istanza"
+        "instance_selection": "Selezione dell'istanza",
+        "loading": "Caricamento…",
+        "filter": "Filtra",
+        "search": "Cerca",
+        "view_ssl_score": "Visualizza il punteggio SSL"
     },
     "player": {
         "watch_on": "Guarda su"
@@ -74,5 +78,9 @@
     },
     "comment": {
         "pinned_by": "Appuntato da"
+    },
+    "login": {
+        "password": "Password",
+        "username": "Nome utente"
     }
 }
