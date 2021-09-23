@@ -62,7 +62,7 @@ export default {
         const App = this;
 
         (async function() {
-            const locale = App.getPreferenceString("hl", "en");
+            const locale = App.getPreferenceString("hl", App.defaultLangage);
             if (window.i18n.global.locale.value !== locale) {
                 if (!window.i18n.global.availableLocales.includes(locale)) {
                     const messages = await import("@/locales/" + locale + ".json").then(module => module.default);
