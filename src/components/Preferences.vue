@@ -253,6 +253,7 @@ export default {
                 { code: "es", name: "Español" },
                 { code: "en", name: "English" },
                 { code: "fa", name: "فارسی" },
+                { code: "fi", name: "Suomi" },
                 { code: "fr", name: "français" },
                 { code: "hr", name: "Hrvatski" },
                 { code: "it", name: "italiano" },
@@ -262,6 +263,7 @@ export default {
                 { code: "pl", name: "polski" },
                 { code: "tr", name: "Türkçe" },
                 { code: "zh_Hant", name: "繁體中文" },
+                { code: "zh_Hans", name: "简体中文" },
             ],
             enabledCodecs: ["av1", "vp9", "avc"],
             disableLBRY: false,
@@ -356,9 +358,11 @@ export default {
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
             if (this.selectedLanguage != "en") {
                 try {
-                    this.CountryMap = await import("@/utils/CountryMaps/" + this.selectedLanguage + ".json").then(val => {
-                        this.countryMap = val;
-                    });
+                    this.CountryMap = await import("@/utils/CountryMaps/" + this.selectedLanguage + ".json").then(
+                        val => {
+                            this.countryMap = val;
+                        },
+                    );
                 } catch (e) {
                     console.error("Countries not translated into " + this.selectedLanguage);
                 }
