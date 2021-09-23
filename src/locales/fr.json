@@ -55,7 +55,11 @@
         "instance_selection": "Sélection de l'instance",
         "minimize_description": "Minimiser la description",
         "no": "Non",
-        "yes": "Oui"
+        "yes": "Oui",
+        "loading": "Chargement…",
+        "filter": "Filtrer",
+        "search": "Rechercher",
+        "view_ssl_score": "Afficher le score SSL"
     },
     "player": {
         "watch_on": "Regarder sur"
@@ -74,5 +78,9 @@
     },
     "comment": {
         "pinned_by": "Épinglé par"
+    },
+    "login": {
+        "password": "Mot de passe",
+        "username": "Nom d'utilisateur"
     }
 }

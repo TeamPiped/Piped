@@ -46,7 +46,11 @@
         "no": "Hayır",
         "yes": "Evet",
         "show_more": "Daha Fazla Göster",
-        "instance_selection": "Örnek Seçimi"
+        "instance_selection": "Örnek Seçimi",
+        "loading": "Yükleniyor...",
+        "filter": "Filtrele",
+        "search": "Ara",
+        "view_ssl_score": "SSL Puanını Görüntüle"
     },
     "player": {
         "watch_on": "İzle"
@@ -74,5 +78,9 @@
     },
     "comment": {
         "pinned_by": "Şunun tarafından sabitlendi"
+    },
+    "login": {
+        "password": "Parola",
+        "username": "Kullanıcı adı"
     }
 }

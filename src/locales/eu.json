@@ -1,0 +1,86 @@
+{
+    "video": {
+        "sponsor_segments": "Babesletza-segmentuak",
+        "watched": "Ikusiak",
+        "views": "ikustaldi",
+        "videos": "Bideoak"
+    },
+    "preferences": {
+        "ssl_score": "SSL puntuazioa",
+        "has_cdn": "CDNrik ba al du?",
+        "instance_locations": "Instantziaren kokalekuak",
+        "instance_name": "Instantziaren izena"
+    },
+    "comment": {
+        "pinned_by": "Finkatuta"
+    },
+    "actions": {
+        "enable_lbry_proxy": "Aktibatu Proxy LBRYrako",
+        "disable_lbry": "Desaktibatu LBRY streaming-erako",
+        "show_description": "Erakutsi deskribapena",
+        "minimize_description": "Deskribapena minimizatu",
+        "donations": "Dohaintzak",
+        "auto_play_next_video": "Hurrengo bideoa automatikoki erreproduzitu",
+        "loop_this_video": "Bideo hau begiztan jarri",
+        "import_from_json": "Inportatu JSONetik",
+        "export_to_json": "Esportatu JSONera",
+        "no": "Ez",
+        "yes": "Bai",
+        "show_more": "Erakutsi gehiago",
+        "instance_selection": "Instantzien hautaketa",
+        "enabled_codecs": "Gaitutako kodeak (anizkoitzak)",
+        "instances_list": "Instantzien zerrenda",
+        "language_selection": "Hizkuntzaren hautaketa",
+        "store_watch_history": "Bistaratze-historia gogoratu",
+        "minimize_description_default": "Lehenetsitako deskribapena minimizatu",
+        "show_comments": "Erakutsi iruzkinak",
+        "default_homepage": "Lehenetsitako hasiera-orria",
+        "country_selection": "Herrialdeen hautaketa",
+        "buffering_goal": "Moteltzeko helburua (segundotan)",
+        "default_quality": "Kalitate lehenetsia",
+        "audio_only": "Audioa bakarrik",
+        "autoplay_video": "Bideoaren erreprodukzio automatikoa",
+        "light": "Gai argia",
+        "dark": "Gai iluna",
+        "auto": "Gailuaren gaia (Automatikoa)",
+        "theme": "Gaia",
+        "skip_non_music": "Musika saltatu: sekzio ez musikala",
+        "skip_self_promo": "Ordaindu gabe salto egitea/autosustapena",
+        "skip_interaction": "Ez aipatu interakzioaren oroigarria (Harpidetu)",
+        "skip_preview": "Aurreko bista/laburpena saltatu",
+        "skip_outro": "Amaierako txartelak/kredituak alde batera utzi",
+        "skip_intro": "Bitartekoa/sarrerako animazioa saltatu",
+        "skip_sponsors": "Babesleak alde batera utzi",
+        "enable_sponsorblock": "Aktibatu SponsorBlock",
+        "uses_api_from": "Honako API hau erabiltzen du: ",
+        "back": "Itzuli",
+        "channel_name_desc": "Kanalaren izena (Z-A)",
+        "channel_name_asc": "Kanalaren izena (A-Z)",
+        "least_recent": "Gutxien berriena",
+        "most_recent": "Berriena",
+        "sort_by": "Ordenatu honen arabera:",
+        "view_subscriptions": "Harpidetzak ikusi",
+        "unsubscribe": "Kendu harpidetza",
+        "subscribe": "Harpidetu",
+        "loading": "Kargatzen...",
+        "filter": "Iragazi",
+        "search": "Bilatu",
+        "view_ssl_score": "Ikusi SSL puntuazioa"
+    },
+    "player": {
+        "watch_on": "Ikusi hemen"
+    },
+    "titles": {
+        "subscriptions": "Harpidetzak",
+        "history": "Historia",
+        "preferences": "Ezarpenak",
+        "feed": "Orri nagusia",
+        "register": "Erregistratu",
+        "login": "Hasi saioa",
+        "trending": "Pil-pilean"
+    },
+    "login": {
+        "password": "Pasahitza",
+        "username": "Erabiltzailearen izena"
+    }
+}
