@@ -61,7 +61,11 @@
         "skip_outro": "Preskoči odjavnu špicu",
         "skip_intro": "Preskoči uvodne animacije",
         "skip_sponsors": "Preskoči sponzore",
-        "enable_sponsorblock": "Uključi Sponsorblock"
+        "enable_sponsorblock": "Uključi Sponsorblock",
+        "loading": "Učitavanje …",
+        "filter": "Filtar",
+        "search": "Pretraga",
+        "view_ssl_score": "Prikažij SSL rezultat"
     },
     "player": {
         "watch_on": "Gledaj na"
@@ -74,5 +78,9 @@
         "register": "Registracija",
         "login": "Prijava",
         "trending": "U trendu"
+    },
+    "login": {
+        "password": "Lozinka",
+        "username": "Korisničko ime"
     }
 }

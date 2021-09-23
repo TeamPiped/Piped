@@ -1,0 +1,86 @@
+{
+    "actions": {
+        "auto": "自动",
+        "theme": "主题",
+        "enable_lbry_proxy": "为 LBRY 启用代理",
+        "disable_lbry": "禁用 LBRY 进行流式传输",
+        "show_description": "显示描述",
+        "minimize_description": "折叠描述",
+        "donations": "捐款",
+        "auto_play_next_video": "自动播放下一个视频",
+        "loop_this_video": "循环播放此视频",
+        "import_from_json": "从 JSON 导入",
+        "export_to_json": "导出为 JSON",
+        "no": "否",
+        "yes": "是",
+        "show_more": "显示更多",
+        "instance_selection": "实例选择",
+        "enabled_codecs": "启用的编解码器 (多个)",
+        "instances_list": "实例列表",
+        "language_selection": "语言选择",
+        "store_watch_history": "保存观看历史",
+        "minimize_description_default": "默认情况下折叠描述",
+        "show_comments": "显示评论",
+        "default_homepage": "默认主页",
+        "country_selection": "国家/地区选择",
+        "buffering_goal": "缓冲目标 (以秒为单位)",
+        "default_quality": "默认质量",
+        "audio_only": "仅音频",
+        "autoplay_video": "自动播放视频",
+        "light": "浅色",
+        "dark": "深色",
+        "skip_non_music": "跳过音乐：非音乐部分",
+        "skip_self_promo": "跳过无偿/自我推销",
+        "skip_interaction": "跳过互动提醒 (订阅)",
+        "skip_preview": "跳过预览/回顾",
+        "skip_outro": "跳过片尾插画/演职员表",
+        "skip_intro": "跳过中场休息/介绍动画",
+        "skip_sponsors": "跳过赞助商",
+        "enable_sponsorblock": "启用 SponsorBlock",
+        "uses_api_from": "使用的API来自 ",
+        "back": "返回",
+        "channel_name_desc": "频道名称 (Z-A)",
+        "channel_name_asc": "频道名称 (A-Z)",
+        "least_recent": "最早的",
+        "most_recent": "最新的",
+        "sort_by": "排序：",
+        "view_subscriptions": "查看订阅",
+        "unsubscribe": "取消订阅",
+        "subscribe": "订购",
+        "loading": "正在加载...",
+        "filter": "筛选",
+        "search": "搜索",
+        "view_ssl_score": "查看 SSL 得分"
+    },
+    "video": {
+        "sponsor_segments": "赞助商部分",
+        "watched": "看过",
+        "views": "查看",
+        "videos": "视频"
+    },
+    "preferences": {
+        "ssl_score": "SSL 分数",
+        "has_cdn": "有 CDN 吗？",
+        "instance_locations": "实例位置",
+        "instance_name": "实例名称"
+    },
+    "comment": {
+        "pinned_by": "固定自"
+    },
+    "player": {
+        "watch_on": "观看"
+    },
+    "titles": {
+        "feed": "RSS源",
+        "subscriptions": "订阅",
+        "history": "历史",
+        "preferences": "设置",
+        "register": "注册",
+        "trending": "趋势",
+        "login": "登录"
+    },
+    "login": {
+        "password": "密码",
+        "username": "帐号"
+    }
+}
