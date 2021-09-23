@@ -195,6 +195,9 @@ export default {
                     method: "HEAD",
                 }).then(response => response.headers.get("Content-Type"));
                 mime = contentType;
+            } else if (this.video.hls) {
+                uri = this.video.hls;
+                mime = "application/x-mpegURL";
             } else {
                 uri = this.video.videoStreams.filter(stream => stream.codec == null).slice(-1)[0].url;
                 mime = "video/mp4";
