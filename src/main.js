@@ -210,6 +210,18 @@ const mixin = {
                 return false;
             }
         },
+        defaultLangage() {
+            const languages = window.navigator.languages;
+            for (let i = 0; i < languages.length; i++) {
+                try {
+                    require("@/locales/" + languages[i] + ".json");
+                    return languages[i];
+                } catch {
+                    continue;
+                }
+            }
+            return "en";
+        },
     },
 };
 
