@@ -16,7 +16,7 @@
         "css-loader": "^6.3.0",
         "dompurify": "^2.3.3",
         "hotkeys-js": "^3.8.7",
-        "javascript-time-ago": "^2.3.8",
+        "javascript-time-ago": "^2.3.9",
         "mux.js": "^5.14.0",
         "register-service-worker": "^1.7.1",
         "shaka-player": "3.2.0",
