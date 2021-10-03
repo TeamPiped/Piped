@@ -40,15 +40,13 @@
                 <img v-if="video.uploaderAvatar" :src="video.uploaderAvatar" loading="lazy" :alt="video.uploaderName" class="uk-border-circle" style="margin-right: 0.5rem; margin-top:0.5rem; width: 32px; height: 32px;" />
             </router-link>
 
-            <div>
-                <router-link class="uk-link-muted" :to="video.uploaderUrl">
+            <div style="width: calc(100% - 32px - 8px);">
+                <router-link class="uk-link-muted uk-overflow-hidden" :to="video.uploaderUrl" :title="video.uploaderName" style="display:block; width: 90%">
                     {{ video.uploaderName }}&thinsp;<font-awesome-icon
                         v-if="video.uploaderVerified"
                         icon="check"
                     ></font-awesome-icon>
                 </router-link>
-
-                <br />
 
                 <b v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
                     <span v-if="video.views >= 0">
