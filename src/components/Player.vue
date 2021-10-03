@@ -192,6 +192,10 @@ export default {
                     this.setPreference("volume", videoEl.volume);
                 });
 
+                videoEl.addEventListener("ratechange", () => {
+                    this.setPreference("rate", videoEl.playbackRate);
+                })
+
                 videoEl.addEventListener("ended", () => {
                     if (!this.selectedAutoLoop && this.selectedAutoPlay && this.video.relatedStreams.length > 0) {
                         const params = this.$route.query;
@@ -278,6 +282,7 @@ export default {
                     );
                 });
                 videoEl.volume = this.getPreferenceNumber("volume", 1);
+                videoEl.playbackRate = this.getPreferenceNumber("rate", 1);
             });
         },
         destroy() {
