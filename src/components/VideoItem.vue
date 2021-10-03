@@ -41,7 +41,7 @@
             </router-link>
 
             <div style="width: calc(100% - 32px - 8px);">
-                <router-link class="uk-link-muted uk-overflow-hidden" :to="video.uploaderUrl" style="display:block; width: 90%">
+                <router-link class="uk-link-muted uk-overflow-hidden" :to="video.uploaderUrl" :title="video.uploaderName" style="display:block; width: 90%">
                     {{ video.uploaderName }}&thinsp;<font-awesome-icon
                         v-if="video.uploaderVerified"
                         icon="check"
