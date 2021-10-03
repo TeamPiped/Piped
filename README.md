@@ -42,6 +42,10 @@ By using Piped, you can freely watch and listen to content freely without the fe
 -   [ ] 8K support
 -   [ ] Improving UI
 
+## Self-Hosting
+
+See https://piped-docs.kavin.rocks/docs/self-hosting/ for more details.
+
 ## Documentation
 
 The documentation can be found at https://piped-docs.kavin.rocks (accessible via IPNS as well)
