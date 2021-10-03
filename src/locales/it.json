@@ -38,6 +38,8 @@
         "disable_lbry": "Disabilita LBRY per lo streaming",
         "show_description": "Mostra la descrizione",
         "minimize_description": "Minimizza la descrizione per impostazione predefinita",
+        "minimize_recommendations": "Minimizza consigli",
+        "show_recommendations": "Mostra consigli",
         "donations": "Donazioni",
         "auto_play_next_video": "Riproduci automaticamente il prossimo video",
         "loop_this_video": "Ripeti questo video",

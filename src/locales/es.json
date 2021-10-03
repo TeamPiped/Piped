@@ -65,7 +65,9 @@
         "loading": "Cargando…",
         "filter": "Filtrar",
         "search": "Buscar",
-        "view_ssl_score": "Ver la puntuación SSL"
+        "view_ssl_score": "Ver la puntuación SSL",
+        "minimize_recommendations": "Minimizar recomendaciones",
+        "show_recommendations": "Mostrar recomendaciones"
     },
     "titles": {
         "feed": "Feed",

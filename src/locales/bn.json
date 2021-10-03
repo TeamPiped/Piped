@@ -44,6 +44,8 @@
         "store_watch_history": "আপনি কি দেখার ইতিহাস মজুত রাখতে চান?",
         "language_selection": "আপনি কোন ভাষায় দেখতে চান ?",
         "instances_list": "Instances List",
-        "enabled_codecs": "Enabled Codecs (Multiple)"
+        "enabled_codecs": "Enabled Codecs (Multiple)",
+        "minimize_recommendations": "সুপারিশগুলি ছোট করুন",
+        "show_recommendations": "সুপারিশ দেখান"
     }
 }

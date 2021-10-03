@@ -54,6 +54,8 @@
         "show_more": "Afficher plus",
         "instance_selection": "Sélection de l'instance",
         "minimize_description": "Minimiser la description",
+        "minimize_recommendations": "Minimiser les recommandations",
+        "show_recommendations": "Afficher les recommandations",
         "no": "Non",
         "yes": "Oui",
         "loading": "Chargement…",

@@ -50,7 +50,9 @@
         "loading": "Yükleniyor...",
         "filter": "Filtrele",
         "search": "Ara",
-        "view_ssl_score": "SSL Puanını Görüntüle"
+        "view_ssl_score": "SSL Puanını Görüntüle",
+        "minimize_recommendations": "Önerileri en aza indirin",
+        "show_recommendations": "Önerileri göster"
     },
     "player": {
         "watch_on": "İzle"

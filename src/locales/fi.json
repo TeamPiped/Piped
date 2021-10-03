@@ -49,7 +49,9 @@
         "sort_by": "Järjestä:",
         "view_subscriptions": "Näytä tilaukset",
         "unsubscribe": "Poistu tilauksesta",
-        "subscribe": "Tilaa"
+        "subscribe": "Tilaa",
+        "minimize_recommendations": "Minimoi suositukset",
+        "show_recommendations": "Näytä suositukset"
     },
     "player": {
         "watch_on": "Katso sivustolla"

@@ -25,7 +25,9 @@
         "sort_by": "مرتب سازی بر اساس:",
         "view_subscriptions": "مشاهده اشتراک‌ها",
         "unsubscribe": "لغو اشتراک",
-        "subscribe": "مشترک شدن"
+        "subscribe": "مشترک شدن",
+        "minimize_recommendations": "توصیه ها را کم کنید",
+        "show_recommendations": "نمایش توصیه ها"
     },
     "titles": {
         "history": "سابقه",

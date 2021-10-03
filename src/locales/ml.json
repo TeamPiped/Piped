@@ -48,6 +48,8 @@
         "auto_play_next_video": "അടുത്ത വിഡിയോ സ്വയം പ്ലേ ചെയ്യുക",
         "loop_this_video": "വിഡിയോ ലൂപ്പ് ചെയ്യുക",
         "minimize_description": "വിവരണം ചെറുതാക്കുക",
+        "minimize_recommendations": "ശുപാർശകൾ ചുരുക്കുക",
+        "show_recommendations": "ശുപാർശകൾ കാണിക്കുക",
         "yes": "അതെ",
         "show_more": "കൂടുതൽ കാണിക്കുക",
         "buffering_goal": "ബഫറിംഗ് ലക്ഷ്യം(സെക്കൻഡുകളിൽ)",

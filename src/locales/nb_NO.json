@@ -37,6 +37,8 @@
         "disable_lbry": "Skru av LBRY-strømming",
         "enabled_codecs": "Aktiverte forskjellige kodek",
         "show_description": "Vis beskrivelse",
+        "minimize_recommendations": "Minimere anbefalinger",
+        "show_recommendations": "Vis anbefalinger",
         "donations": "Donasjoner",
         "auto_play_next_video": "Autospill neste video",
         "loop_this_video": "Gjenta denne videoen",
