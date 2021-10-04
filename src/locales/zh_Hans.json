@@ -50,7 +50,9 @@
         "loading": "正在加载...",
         "filter": "筛选",
         "search": "搜索",
-        "view_ssl_score": "查看 SSL 得分"
+        "view_ssl_score": "查看 SSL 得分",
+        "minimize_recommendations": "最小化建议",
+        "show_recommendations": "显示推荐"
     },
     "video": {
         "sponsor_segments": "赞助商部分",

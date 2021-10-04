@@ -40,6 +40,8 @@
         "enable_lbry_proxy": "Ενεργοποίηση Proxy για το LBRY",
         "minimize_description": "Απόκρυψη περιγραφής",
         "show_description": "Εμφάνιση περιγραφής",
+        "minimize_recommendations": "Απόκρυψη συστάσεις",
+        "show_recommendations": "Εμφάνιση συστάσεις",
         "donations": "Δωρεές",
         "auto_play_next_video": "Αυτόματη αναπαραγωγή επόμενου βίντεο",
         "import_from_json": "Εισαγωγή από JSON",

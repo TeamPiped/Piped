@@ -57,6 +57,8 @@
         "donations": "Darowizny",
         "minimize_description": "Minimalizuj opis",
         "show_description": "Pokaż opis",
+        "minimize_recommendations": "Minimalizuj rekomendacje",
+        "show_recommendations": "Pokaż rekomendacje",
         "disable_lbry": "Wyłącz LBRY dla streaming-u",
         "enable_lbry_proxy": "Włącz proxy dla LBRY"
     },

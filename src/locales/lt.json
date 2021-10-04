@@ -42,6 +42,8 @@
         "loop_this_video": "Sukti ratu šį vaizdo įrašą",
         "show_description": "Rodyti aprašymą",
         "minimize_description": "Suskleisti aprašymą",
+        "minimize_recommendations": "Suskleisti rekomendacijas",
+        "show_recommendations": "Rodyti rekomendacijas",
         "import_from_json": "Importuoti iš JSON",
         "export_to_json": "Eksportuoti į JSON",
         "no": "Ne",
