@@ -27,7 +27,13 @@
         "unsubscribe": "لغو اشتراک",
         "subscribe": "مشترک شدن",
         "minimize_recommendations": "توصیه ها را کم کنید",
-        "show_recommendations": "نمایش توصیه ها"
+        "show_recommendations": "نمایش توصیه ها",
+        "uses_api_from": "با استفاده از APIای از ",
+        "instance_selection": "انتخاب نمونه",
+        "show_more": "نمایش بیشتر",
+        "yes": "بله",
+        "no": "خیر",
+        "least_recent": "کهنه‌ترین‌ها"
     },
     "titles": {
         "history": "سابقه",
@@ -35,6 +41,10 @@
         "feed": "خوراک",
         "register": "ثبت نام",
         "login": "ورود",
-        "trending": "محبوب"
+        "trending": "محبوب",
+        "subscriptions": "اشتراک‌ها"
+    },
+    "player": {
+        "watch_on": "تماشا روی"
     }
 }
