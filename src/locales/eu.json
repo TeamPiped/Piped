@@ -65,7 +65,9 @@
         "loading": "Kargatzen...",
         "filter": "Iragazi",
         "search": "Bilatu",
-        "view_ssl_score": "Ikusi SSL puntuazioa"
+        "view_ssl_score": "Ikusi SSL puntuazioa",
+        "minimize_recommendations": "Gomendioak minimizatu",
+        "show_recommendations": "Erakutsi gomendioak"
     },
     "player": {
         "watch_on": "Ikusi hemen"

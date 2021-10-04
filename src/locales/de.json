@@ -39,6 +39,8 @@
         "instance_selection": "Instanzauswahl",
         "show_description": "Beschreibung anzeigen",
         "minimize_description": "Beschreibung minimieren",
+        "show_recommendations": "Empfehlungen anzeigen",
+        "minimize_recommendations": "Empfehlungen minimieren",
         "donations": "Spenden",
         "auto_play_next_video": "Nächstes Video automatisch abspielen",
         "loop_this_video": "Dieses Video wiederholen",

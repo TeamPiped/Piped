@@ -35,7 +35,9 @@
         "sort_by": "Zoradiť podľa:",
         "view_subscriptions": "Zobraziť odbery",
         "unsubscribe": "Zrušiť odber",
-        "subscribe": "Odberať"
+        "subscribe": "Odberať",
+        "minimize_recommendations": "Minimalizujte odporúčania",
+        "show_recommendations": "Zobraziť odporúčania"
     },
     "player": {
         "watch_on": "Pozerať na"

@@ -20,6 +20,8 @@
         "minimize_description_default": "Uvijek sakrij prikaz opisa",
         "minimize_description": "Sakrij opis",
         "show_description": "Prikaži opis",
+        "minimize_recommendations": "Sakrij preporuke",
+        "show_recommendations": "Prikaži preporuke",
         "donations": "Donacije",
         "auto_play_next_video": "Automatski reproduciraj idući videozapis",
         "loop_this_video": "Ponavljanje videozapisa",

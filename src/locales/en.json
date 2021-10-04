@@ -57,6 +57,8 @@
         "donations": "Donations",
         "minimize_description": "Minimize Description",
         "show_description": "Show Description",
+        "minimize_recommendations": "Minimize Recommendations",
+        "show_recommendations": "Show Recommendations",
         "disable_lbry": "Disable LBRY for Streaming",
         "enable_lbry_proxy": "Enable Proxy for LBRY",
         "view_ssl_score": "View SSL Score",
