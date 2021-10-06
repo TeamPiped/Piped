@@ -52,7 +52,8 @@ export default {
     },
     data() {
         return {
-            player: null,
+            $player: null,
+            $ui: null,
         };
     },
     computed: {
@@ -91,7 +92,7 @@ export default {
 
             if (this.$route.query.t) videoEl.currentTime = this.$route.query.t;
 
-            const noPrevPlayer = !this.player;
+            const noPrevPlayer = !this.$player;
 
             var streams = [];
 
@@ -173,7 +174,7 @@ export default {
 
                     this.setPlayerAttrs(localPlayer, videoEl, uri, mime, this.shaka);
                 });
-            else this.setPlayerAttrs(this.player, videoEl, uri, mime, this.shaka);
+            else this.setPlayerAttrs(this.$player, videoEl, uri, mime, this.shaka);
 
             if (noPrevPlayer) {
                 videoEl.addEventListener("timeupdate", () => {
@@ -225,8 +226,8 @@ export default {
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
         setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
-            if (!this.ui) {
-                this.ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
+            if (!this.$ui) {
+                this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
                 const config = {
                     overflowMenuButtons: ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"],
@@ -237,16 +238,16 @@ export default {
                     },
                 };
 
-                this.ui.configure(config);
+                this.$ui.configure(config);
             }
 
-            const player = this.ui.getControls().getPlayer();
+            const player = this.$ui.getControls().getPlayer();
 
-            this.player = player;
+            this.$player = player;
 
             const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
 
-            this.player.configure({
+            this.$player.configure({
                 preferredVideoCodecs: this.preferredVideoCodecs,
                 preferredAudioCodecs: ["opus", "mp4a"],
                 manifest: {
@@ -257,7 +258,7 @@ export default {
             const quality = this.getPreferenceNumber("quality", 0);
             const qualityConds =
                 quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream) && !disableVideo;
-            if (qualityConds) this.player.configure("abr.enabled", false);
+            if (qualityConds) this.$player.configure("abr.enabled", false);
 
             player.load(uri, 0, mime).then(() => {
                 if (qualityConds) {
@@ -291,14 +292,14 @@ export default {
             });
         },
         destroy() {
-            if (this.ui) {
-                this.ui.destroy();
-                this.ui = undefined;
-                this.player = undefined;
+            if (this.$ui) {
+                this.$ui.destroy();
+                this.$ui = undefined;
+                this.$player = undefined;
             }
-            if (this.player) {
-                this.player.destroy();
-                this.player = undefined;
+            if (this.$player) {
+                this.$player.destroy();
+                this.$player = undefined;
             }
             if (this.hotkeys) this.hotkeys.unbind();
             if (this.$refs.container) this.$refs.container.querySelectorAll("div").forEach(node => node.remove());
