@@ -55,8 +55,8 @@
                 </a>
                 <router-link
                     :to="toggleListenUrl"
-                    :aria-label="'listen to ' + video.title"
-                    :title="'listen to ' + video.title"
+                    :aria-label="(isListening ? 'watch ' : 'listen to ') + video.title"
+                    :title="(isListening ? 'watch ' : 'listen to ') + video.title"
                     class="uk-margin-small-left uk-button uk-button-small"
                 >
                     <font-awesome-icon icon="headphones"></font-awesome-icon>
