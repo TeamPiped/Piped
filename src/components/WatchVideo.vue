@@ -53,6 +53,14 @@
                 >
                     <b>{{ $t("player.watch_on") }} LBRY</b>
                 </a>
+                <router-link
+                    :to="toggleListenUrl"
+                    :aria-label="'listen to ' + video.title"
+                    :title="'listen to ' + video.title"
+                    class="uk-margin-small-left uk-button uk-button-small"
+                >
+                    <font-awesome-icon icon="headphones"></font-awesome-icon>
+                </router-link>
             </div>
 
             <div class="uk-flex uk-flex-middle uk-margin-small-top">
@@ -122,7 +130,11 @@
             </div>
 
             <div class="uk-width-1-5@xl uk-width-1-4@s uk-width-1 uk-flex-last@s uk-flex-first" v-if="video">
-                <a class="uk-button uk-button-small uk-margin-small-bottom uk-hidden@s" style="background: #222" @click="showRecs = !showRecs">
+                <a
+                    class="uk-button uk-button-small uk-margin-small-bottom uk-hidden@s"
+                    style="background: #222"
+                    @click="showRecs = !showRecs"
+                >
                     {{ showRecs ? $t("actions.minimize_recommendations") : $t("actions.show_recommendations") }}
                 </a>
                 <div
@@ -134,7 +146,7 @@
                 >
                     <VideoItem :video="related" height="94" width="168" />
                 </div>
-                <hr class="uk-hidden@s"/>
+                <hr class="uk-hidden@s" />
             </div>
         </div>
     </div>
@@ -306,6 +318,16 @@ export default {
         },
     },
     computed: {
+        isListening(_this) {
+            const listenQueryParam = _this.$route.query.listen;
+            return listenQueryParam === "1";
+        },
+        toggleListenUrl(_this) {
+            const newUrl = _this.isListening
+                ? _this.$route.fullPath.replace(/(listen=1&?)|(&?listen=1)/, "")
+                : `${_this.$route.fullPath}&listen=1`;
+            return newUrl;
+        },
         isEmbed(_this) {
             return String(_this.$route.path).indexOf("/embed/") == 0;
         },
