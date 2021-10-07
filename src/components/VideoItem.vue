@@ -25,23 +25,47 @@
             </div>
 
             <div>
-                <p style="padding-top: 0.5rem; margin-bottom: 0.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" :title="video.title">{{ video.title }}</p>
+                <p
+                    style="padding-top: 0.5rem; margin-bottom: 0.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"
+                    :title="video.title"
+                >
+                    {{ video.title }}
+                </p>
             </div>
         </router-link>
 
         <div class="uk-align-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
-            <router-link :to="video.url + '&listen=1'" :aria-label="'listen to '+video.title" :title="'listen to '+video.title">
+            <router-link
+                :to="video.url + '&listen=1'"
+                :aria-label="'Listen to ' + video.title"
+                :title="'Listen to ' + video.title"
+            >
                 <font-awesome-icon icon="headphones"></font-awesome-icon>
             </router-link>
         </div>
 
-        <div v-if="video.uploaderUrl && video.uploaderName && !hideChannel" style="display: flex; flex-flow: row; height: 15%">
+        <div
+            v-if="video.uploaderUrl && video.uploaderName && !hideChannel"
+            style="display: flex; flex-flow: row; height: 15%"
+        >
             <router-link class="uk-link-muted" :to="video.uploaderUrl">
-                <img v-if="video.uploaderAvatar" :src="video.uploaderAvatar" loading="lazy" :alt="video.uploaderName" class="uk-border-circle" style="margin-right: 0.5rem; margin-top:0.5rem; width: 32px; height: 32px;" />
+                <img
+                    v-if="video.uploaderAvatar"
+                    :src="video.uploaderAvatar"
+                    loading="lazy"
+                    :alt="video.uploaderName"
+                    class="uk-border-circle"
+                    style="margin-right: 0.5rem; margin-top:0.5rem; width: 32px; height: 32px;"
+                />
             </router-link>
 
             <div style="width: calc(100% - 32px - 8px);">
-                <router-link class="uk-link-muted uk-overflow-hidden" :to="video.uploaderUrl" :title="video.uploaderName" style="display:block; width: 90%">
+                <router-link
+                    class="uk-link-muted uk-overflow-hidden"
+                    :to="video.uploaderUrl"
+                    :title="video.uploaderName"
+                    style="display:block; width: 90%"
+                >
                     {{ video.uploaderName }}&thinsp;<font-awesome-icon
                         v-if="video.uploaderVerified"
                         icon="check"
