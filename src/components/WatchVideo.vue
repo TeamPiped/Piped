@@ -55,8 +55,8 @@
                 </a>
                 <router-link
                     :to="toggleListenUrl"
-                    :aria-label="(isListening ? 'watch ' : 'listen to ') + video.title"
-                    :title="(isListening ? 'watch ' : 'listen to ') + video.title"
+                    :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
+                    :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
                     class="uk-margin-small-left uk-button uk-button-small"
                 >
                     <font-awesome-icon icon="headphones"></font-awesome-icon>
@@ -318,15 +318,10 @@ export default {
         },
     },
     computed: {
-        isListening(_this) {
-            const listenQueryParam = _this.$route.query.listen;
-            return listenQueryParam === "1";
-        },
         toggleListenUrl(_this) {
-            const newUrl = _this.isListening
-                ? _this.$route.fullPath.replace(/(listen=1&?)|(&?listen=1)/, "")
-                : `${_this.$route.fullPath}&listen=1`;
-            return newUrl;
+            const url = new URL(window.location.href);
+            url.searchParams.set("listen", _this.getPreferenceBoolean("listen", false) ? "0" : "1");
+            return url.href;
         },
         isEmbed(_this) {
             return String(_this.$route.path).indexOf("/embed/") == 0;
