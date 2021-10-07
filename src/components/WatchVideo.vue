@@ -53,6 +53,14 @@
                 >
                     <b>{{ $t("player.watch_on") }} LBRY</b>
                 </a>
+                <router-link
+                    :to="toggleListenUrl"
+                    :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
+                    :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
+                    class="uk-margin-small-left uk-button uk-button-small"
+                >
+                    <font-awesome-icon icon="headphones"></font-awesome-icon>
+                </router-link>
             </div>
 
             <div class="uk-flex uk-flex-middle uk-margin-small-top">
@@ -122,7 +130,11 @@
             </div>
 
             <div class="uk-width-1-5@xl uk-width-1-4@s uk-width-1 uk-flex-last@s uk-flex-first" v-if="video">
-                <a class="uk-button uk-button-small uk-margin-small-bottom uk-hidden@s" style="background: #222" @click="showRecs = !showRecs">
+                <a
+                    class="uk-button uk-button-small uk-margin-small-bottom uk-hidden@s"
+                    style="background: #222"
+                    @click="showRecs = !showRecs"
+                >
                     {{ showRecs ? $t("actions.minimize_recommendations") : $t("actions.show_recommendations") }}
                 </a>
                 <div
@@ -134,7 +146,7 @@
                 >
                     <VideoItem :video="related" height="94" width="168" />
                 </div>
-                <hr class="uk-hidden@s"/>
+                <hr class="uk-hidden@s" />
             </div>
         </div>
     </div>
@@ -306,6 +318,11 @@ export default {
         },
     },
     computed: {
+        toggleListenUrl(_this) {
+            const url = new URL(window.location.href);
+            url.searchParams.set("listen", _this.getPreferenceBoolean("listen", false) ? "0" : "1");
+            return url.href;
+        },
         isEmbed(_this) {
             return String(_this.$route.path).indexOf("/embed/") == 0;
         },
