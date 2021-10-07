@@ -55,7 +55,12 @@
         "buffering_goal": "ബഫറിംഗ് ലക്ഷ്യം(സെക്കൻഡുകളിൽ)",
         "import_from_json": "JSON നിന്ന് ഇറക്കുമതി ചെയ്യൂ",
         "export_to_json": "JSON-ലേക്ക് എക്സ്പ്പോർട്ട് ചെയ്യുക",
-        "instance_selection": "ഇൻസ്റ്റ്ൻസ് തിരഞ്ഞെടുക്കുക"
+        "instance_selection": "ഇൻസ്റ്റ്ൻസ് തിരഞ്ഞെടുക്കുക",
+        "loading": "ലഭ്യമാക്കുന്നു...",
+        "filter": "ഫിൽട്ടർ",
+        "search": "തിരയുക",
+        "view_ssl_score": "എസ്എസ്എൽ സ്കോർ കാണിക്കൂ",
+        "skip_non_music": "പാട്ട് ഒഴിവാക്കുക: Non-Music Section"
     },
     "player": {
         "watch_on": "കാണുക"
@@ -74,5 +79,9 @@
         "has_cdn": "സിഡിഎൻ ഉപയോഗിക്കിന്നിണ്ടോ?",
         "instance_name": "ഇൻസ്റ്റ്ൻസിന്റെ പേര്",
         "instance_locations": "ഇൻസ്റ്റൻസ് ലൊക്കേഷനുകൾ"
+    },
+    "login": {
+        "password": "രഹസ്യവാക്ക്",
+        "username": "ഉപയോക്തൃനാമം"
     }
 }

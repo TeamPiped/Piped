@@ -60,21 +60,27 @@
         "minimize_recommendations": "Minimalizuj rekomendacje",
         "show_recommendations": "Pokaż rekomendacje",
         "disable_lbry": "Wyłącz LBRY dla streaming-u",
-        "enable_lbry_proxy": "Włącz proxy dla LBRY"
+        "enable_lbry_proxy": "Włącz proxy dla LBRY",
+        "filter": "Filtr",
+        "search": "Wyszukaj"
     },
     "comment": {
         "pinned_by": "Przypięty przez"
     },
     "preferences": {
-        "instance_name":"Nazwa instancji",
-        "instance_locations":"Lokalizacje instancji",
-        "has_cdn":"Używa CDN?",
-        "ssl_score":"Ocena SSL"
+        "instance_name": "Nazwa instancji",
+        "instance_locations": "Lokalizacje instancji",
+        "has_cdn": "Używa CDN?",
+        "ssl_score": "Ocena SSL"
     },
     "video": {
         "videos": "Filmy",
         "views": "wyświetleń",
         "watched": "Obejrzane",
         "sponsor_segments": "Segmenty sponsorskie"
+    },
+    "login": {
+        "username": "Nazwa użytkownika",
+        "password": "Hasło"
     }
 }
