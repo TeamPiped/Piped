@@ -1,7 +1,6 @@
 <template>
     <h1 class="uk-text-bold uk-text-center">{{ $t("titles.subscriptions") }}</h1>
 
-
     <div style="text-align: center">
         <button
             v-if="authenticated"
@@ -16,35 +15,37 @@
 
         <button
             v-if="authenticated"
-            @click="exportHandler"
             class="uk-button uk-button-small"
             style="background: #222; color: white"
             type="button"
+            @click="exportHandler"
         >
             {{ $t("actions.export_to_json") }}
         </button>
-
     </div>
-        <hr />
+    <hr />
 
-
-        <div :key="subscription.url" v-for="subscription in subscriptions" style="text-align: center;">
-            <div class="uk-text-primary" :style="[{ background: backgroundColor }]">
-                <a :href="subscription.url">
-                    <img :src="subscription.avatar" class="uk-margin-small-right uk-border-circle" width="96" height="96" />
-                    <span class="uk-text-large" style="width: 30rem; display: inline-block; text-align: center; margin-left: 6rem">{{ subscription.name }}</span>
-                </a>
-                <button
-                    class="uk-button uk-button-large"
-                    style="background: #222; margin-left: 0.5rem; width: 185px"
-                    type="button"
-                    @click="handleButton(subscription)"
+    <div v-for="subscription in subscriptions" :key="subscription.url" style="text-align: center;">
+        <div class="uk-text-primary" :style="[{ background: backgroundColor }]">
+            <a :href="subscription.url">
+                <img :src="subscription.avatar" class="uk-margin-small-right uk-border-circle" width="96" height="96" />
+                <span
+                    class="uk-text-large"
+                    style="width: 30rem; display: inline-block; text-align: center; margin-left: 6rem"
+                    >{{ subscription.name }}</span
                 >
-                    {{ subscription.subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
-                </button>
-            </div>
-            <br />
+            </a>
+            <button
+                class="uk-button uk-button-large"
+                style="background: #222; margin-left: 0.5rem; width: 185px"
+                type="button"
+                @click="handleButton(subscription)"
+            >
+                {{ subscription.subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
+            </button>
         </div>
+        <br />
+    </div>
     <br />
 </template>
 

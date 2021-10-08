@@ -3,16 +3,18 @@
         {{ $route.query.search_query }}
     </h1>
 
-    <label for="ddlSearchFilters"><b>{{ $t("actions.filter") }}: </b></label>
+    <label for="ddlSearchFilters"
+        ><b>{{ $t("actions.filter") }}: </b></label
+    >
     <select
         id="ddlSearchFilters"
+        v-model="selectedFilter"
         default="all"
         class="uk-select uk-width-auto"
         style="height: 100%"
-        v-model="selectedFilter"
         @change="updateResults()"
     >
-        <option v-bind:key="filter" v-for="filter in availableFilters" v-bind:value="filter">
+        <option v-for="filter in availableFilters" :key="filter" :value="filter">
             {{ filter.replace("_", " ") }}
         </option>
     </select>
@@ -21,16 +23,16 @@
 
     <div v-if="results" class="uk-grid-xl" uk-grid="parallax: 0">
         <div
+            v-for="result in results.items"
+            :key="result.url"
             :style="[{ background: backgroundColor }]"
             class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
-            v-bind:key="result.url"
-            v-for="result in results.items"
         >
             <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
-            <div class="uk-text-secondary" v-if="!shouldUseVideoItem(result)">
-                <router-link class="uk-text-emphasis" v-bind:to="result.url">
+            <div v-if="!shouldUseVideoItem(result)" class="uk-text-secondary">
+                <router-link class="uk-text-emphasis" :to="result.url">
                     <div class="uk-position-relative">
-                        <img style="width: 100%" v-bind:src="result.thumbnail" loading="lazy" />
+                        <img style="width: 100%" :src="result.thumbnail" loading="lazy" />
                     </div>
                     <p>
                         {{ result.name }}&thinsp;<font-awesome-icon
@@ -40,7 +42,7 @@
                     </p>
                 </router-link>
                 <p v-if="result.description">{{ result.description }}</p>
-                <router-link class="uk-link-muted" v-if="result.uploaderUrl" v-bind:to="result.uploaderUrl">
+                <router-link v-if="result.uploaderUrl" class="uk-link-muted" :to="result.uploaderUrl">
                     <p>
                         {{ result.uploader }}&thinsp;<font-awesome-icon
                             v-if="result.uploaderVerified"
@@ -64,6 +66,9 @@
 import VideoItem from "@/components/VideoItem.vue";
 
 export default {
+    components: {
+        VideoItem,
+    },
     data() {
         return {
             results: null,
@@ -122,9 +127,6 @@ export default {
         shouldUseVideoItem(item) {
             return item.title;
         },
-    },
-    components: {
-        VideoItem,
     },
 };
 </script>

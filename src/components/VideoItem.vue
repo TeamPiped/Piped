@@ -1,14 +1,7 @@
 <template>
     <div class="uk-text-secondary" :style="[{ background: backgroundColor }]">
-        <router-link class="uk-text-emphasis" v-bind:to="video.url">
-            <img
-                :height="height"
-                :width="width"
-                style="width: 100%"
-                v-bind:src="video.thumbnail"
-                alt=""
-                loading="lazy"
-            />
+        <router-link class="uk-text-emphasis" :to="video.url">
+            <img :height="height" :width="width" style="width: 100%" :src="video.thumbnail" alt="" loading="lazy" />
             <div class="uk-position-relative">
                 <span
                     v-if="video.duration"
@@ -92,10 +85,15 @@
 <script>
 export default {
     props: {
-        video: Object,
-        height: String,
-        width: String,
-        hideChannel: Boolean,
+        video: {
+            type: Object,
+            default: () => {
+                return {};
+            },
+        },
+        height: { type: String, default: "118" },
+        width: { type: String, default: "210" },
+        hideChannel: { type: Boolean, default: false },
     },
 };
 </script>

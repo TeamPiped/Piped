@@ -8,9 +8,9 @@
                 v-for="(suggestion, i) in searchSuggestions"
                 :key="i"
                 :style="[selected === i ? { background: secondaryForegroundColor } : {}]"
+                class="uk-margin-remove suggestion"
                 @mouseover="onMouseOver(i)"
                 @mousedown.stop="onClick(i)"
-                class="uk-margin-remove suggestion"
             >
                 {{ suggestion }}
             </li>
@@ -21,8 +21,9 @@
 <script>
 export default {
     props: {
-        searchText: String,
+        searchText: { type: String, default: "" },
     },
+    emits: ["searchchange"],
     data() {
         return {
             selected: 0,
