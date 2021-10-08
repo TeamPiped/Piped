@@ -3,13 +3,13 @@
 
     <div v-if="playlist" v-show="!playlist.error">
         <h1 class="uk-text-center">
-            <img v-bind:src="playlist.avatarUrl" height="48" width="48" loading="lazy"/>
+            <img :src="playlist.avatarUrl" height="48" width="48" loading="lazy" />
             {{ playlist.name }}
         </h1>
 
         <b
-            ><router-link class="uk-text-justify" v-bind:to="playlist.uploaderUrl || '/'">
-                <img v-bind:src="playlist.uploaderAvatar" loading="lazy" class="uk-border-circle" />
+            ><router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
+                <img :src="playlist.uploaderAvatar" loading="lazy" class="uk-border-circle" />
                 {{ playlist.uploader }}</router-link
             ></b
         >
@@ -24,9 +24,9 @@
 
         <div class="uk-grid-xl" uk-grid="parallax: 0">
             <div
+                v-for="video in playlist.relatedStreams"
+                :key="video.url"
                 class="uk-width-1-2 uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl"
-                v-bind:key="video.url"
-                v-for="video in this.playlist.relatedStreams"
             >
                 <VideoItem :video="video" height="94" width="168" />
             </div>
@@ -39,10 +39,19 @@ import ErrorHandler from "@/components/ErrorHandler.vue";
 import VideoItem from "@/components/VideoItem.vue";
 
 export default {
+    components: {
+        ErrorHandler,
+        VideoItem,
+    },
     data() {
         return {
             playlist: null,
         };
+    },
+    computed: {
+        getRssUrl: _this => {
+            return _this.apiUrl() + "/rss/playlists/" + _this.$route.query.list;
+        },
     },
     mounted() {
         this.getPlaylistData();
@@ -52,11 +61,6 @@ export default {
     },
     deactivated() {
         window.removeEventListener("scroll", this.handleScroll);
-    },
-    computed: {
-        getRssUrl: _this => {
-            return _this.apiUrl() + "/rss/playlists/" + _this.$route.query.list;
-        },
     },
     methods: {
         async fetchPlaylist() {
@@ -81,10 +85,6 @@ export default {
                 });
             }
         },
-    },
-    components: {
-        ErrorHandler,
-        VideoItem,
     },
 };
 </script>

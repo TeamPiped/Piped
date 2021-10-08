@@ -1,40 +1,21 @@
 <template>
     <div class="uk-container-expand">
         <div
+            ref="container"
             data-shaka-player-container
             style="width: 100%; height: 100%; background: #000"
             :style="!isEmbed ? { 'max-height': '75vh', 'min-height': '250px' } : {}"
-            ref="container"
         >
             <video
+                ref="videoEl"
                 data-shaka-player
                 class="uk-width-expand"
                 :autoplay="shouldAutoPlay"
                 :loop="selectedAutoLoop"
-                ref="videoEl"
             ></video>
         </div>
     </div>
 </template>
-
-<style>
-.shaka-text-container > div {
-    height: auto !important;
-    width: auto !important;
-    top: auto !important;
-    left: auto !important;
-}
-
-.shaka-text-container * {
-    background-color: rgba(8, 8, 8, 0.75) !important;
-    color: white !important;
-}
-
-.shaka-video-container:-webkit-full-screen {
-    max-height: none !important;
-}
-
-</style>
 
 <script>
 import("shaka-player/dist/controls.css");
@@ -44,8 +25,18 @@ window.muxjs = muxjs;
 
 export default {
     props: {
-        video: Object,
-        sponsors: Object,
+        video: {
+            type: Object,
+            default: () => {
+                return {};
+            },
+        },
+        sponsors: {
+            type: Object,
+            default: () => {
+                return {};
+            },
+        },
         selectedAutoPlay: Boolean,
         selectedAutoLoop: Boolean,
         isEmbed: Boolean,
@@ -82,6 +73,63 @@ export default {
     },
     mounted() {
         if (!this.shaka) this.shakaPromise = shaka.then(shaka => shaka.default).then(shaka => (this.shaka = shaka));
+    },
+    activated() {
+        import("hotkeys-js")
+            .then(mod => mod.default)
+            .then(hotkeys => {
+                this.hotkeys = hotkeys;
+                var self = this;
+                hotkeys("f,m,j,k,l,space,up,down,left,right", function(e, handler) {
+                    const videoEl = self.$refs.videoEl;
+                    switch (handler.key) {
+                        case "f":
+                            self.$ui.getControls().toggleFullScreen();
+                            e.preventDefault();
+                            break;
+                        case "m":
+                            videoEl.muted = !videoEl.muted;
+                            e.preventDefault();
+                            break;
+                        case "j":
+                            videoEl.currentTime = Math.max(videoEl.currentTime - 15, 0);
+                            e.preventDefault();
+                            break;
+                        case "l":
+                            videoEl.currentTime = videoEl.currentTime + 15;
+                            e.preventDefault();
+                            break;
+                        case "k":
+                        case "space":
+                            if (videoEl.paused) videoEl.play();
+                            else videoEl.pause();
+                            e.preventDefault();
+                            break;
+                        case "up":
+                            videoEl.volume = Math.min(videoEl.volume + 0.05, 1);
+                            e.preventDefault();
+                            break;
+                        case "down":
+                            videoEl.volume = Math.max(videoEl.volume - 0.05, 0);
+                            e.preventDefault();
+                            break;
+                        case "left":
+                            videoEl.currentTime = Math.max(videoEl.currentTime - 5, 0);
+                            e.preventDefault();
+                            break;
+                        case "right":
+                            videoEl.currentTime = videoEl.currentTime + 5;
+                            e.preventDefault();
+                            break;
+                    }
+                });
+            });
+    },
+    deactivated() {
+        this.destroy();
+    },
+    unmounted() {
+        this.destroy();
     },
     methods: {
         async loadVideo() {
@@ -200,7 +248,7 @@ export default {
 
                 videoEl.addEventListener("ratechange", () => {
                     this.setPreference("rate", videoEl.playbackRate);
-                })
+                });
 
                 videoEl.addEventListener("ended", () => {
                     if (!this.selectedAutoLoop && this.selectedAutoPlay && this.video.relatedStreams.length > 0) {
@@ -305,62 +353,23 @@ export default {
             if (this.$refs.container) this.$refs.container.querySelectorAll("div").forEach(node => node.remove());
         },
     },
-    activated() {
-        import("hotkeys-js")
-            .then(mod => mod.default)
-            .then(hotkeys => {
-                this.hotkeys = hotkeys;
-                var self = this;
-                hotkeys("f,m,j,k,l,space,up,down,left,right", function(e, handler) {
-                    const videoEl = self.$refs.videoEl;
-                    switch (handler.key) {
-                        case "f":
-                            self.ui.getControls().toggleFullScreen();
-                            e.preventDefault();
-                            break;
-                        case "m":
-                            videoEl.muted = !videoEl.muted;
-                            e.preventDefault();
-                            break;
-                        case "j":
-                            videoEl.currentTime = Math.max(videoEl.currentTime - 15, 0);
-                            e.preventDefault();
-                            break;
-                        case "l":
-                            videoEl.currentTime = videoEl.currentTime + 15;
-                            e.preventDefault();
-                            break;
-                        case "k":
-                        case "space":
-                            if (videoEl.paused) videoEl.play();
-                            else videoEl.pause();
-                            e.preventDefault();
-                            break;
-                        case "up":
-                            videoEl.volume = Math.min(videoEl.volume + 0.05, 1);
-                            e.preventDefault();
-                            break;
-                        case "down":
-                            videoEl.volume = Math.max(videoEl.volume - 0.05, 0);
-                            e.preventDefault();
-                            break;
-                        case "left":
-                            videoEl.currentTime = Math.max(videoEl.currentTime - 5, 0);
-                            e.preventDefault();
-                            break;
-                        case "right":
-                            videoEl.currentTime = videoEl.currentTime + 5;
-                            e.preventDefault();
-                            break;
-                    }
-                });
-            });
-    },
-    deactivated() {
-        this.destroy();
-    },
-    unmounted() {
-        this.destroy();
-    },
 };
 </script>
+
+<style>
+.shaka-text-container > div {
+    height: auto !important;
+    width: auto !important;
+    top: auto !important;
+    left: auto !important;
+}
+
+.shaka-text-container * {
+    background-color: rgba(8, 8, 8, 0.75) !important;
+    color: white !important;
+}
+
+.shaka-video-container:-webkit-full-screen {
+    max-height: none !important;
+}
+</style>

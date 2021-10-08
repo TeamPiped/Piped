@@ -1,16 +1,16 @@
 <template>
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999" v-if="video && isEmbed">
+    <div v-if="video && isEmbed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999">
         <Player
             ref="videoPlayer"
             :video="video"
             :sponsors="sponsors"
-            :selectedAutoPlay="false"
-            :selectedAutoLoop="selectedAutoLoop"
-            :isEmbed="isEmbed"
+            :selected-auto-play="false"
+            :selected-auto-loop="selectedAutoLoop"
+            :is-embed="isEmbed"
         />
     </div>
 
-    <div class="uk-container uk-container-xlarge" v-if="video && !isEmbed">
+    <div v-if="video && !isEmbed" class="uk-container uk-container-xlarge">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
@@ -18,8 +18,8 @@
                 ref="videoPlayer"
                 :video="video"
                 :sponsors="sponsors"
-                :selectedAutoPlay="selectedAutoPlay"
-                :selectedAutoLoop="selectedAutoLoop"
+                :selected-auto-play="selectedAutoPlay"
+                :selected-auto-loop="selectedAutoLoop"
             />
             <div class="uk-text-bold uk-margin-small-top uk-text-large uk-text-emphasis uk-text-break">
                 {{ video.title }}
@@ -27,7 +27,7 @@
 
             <div class="uk-flex uk-flex-middle">
                 <div class="uk-margin-small-right">{{ addCommas(video.views) }} views</div>
-                <div class="uk-margin-small-right">{{ video.uploadDate }}</div>
+                <div class="uk-margin-small-right">{{ uploadDate }}</div>
                 <div class="uk-flex-1"></div>
                 <div class="uk-margin-small-left">
                     <font-awesome-icon class="uk-margin-small-right" icon="thumbs-up"></font-awesome-icon>
@@ -65,16 +65,16 @@
 
             <div class="uk-flex uk-flex-middle uk-margin-small-top">
                 <img :src="video.uploaderAvatar" alt="" loading="lazy" class="uk-border-circle" />
-                <router-link class="uk-link uk-margin-small-left" v-if="video.uploaderUrl" :to="video.uploaderUrl">
+                <router-link v-if="video.uploaderUrl" class="uk-link uk-margin-small-left" :to="video.uploaderUrl">
                     {{ video.uploader }} </router-link
                 >&thinsp;<font-awesome-icon v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
                 <div class="uk-flex-1"></div>
                 <button
                     v-if="authenticated"
-                    @click="subscribeHandler"
                     class="uk-button uk-button-small"
                     style="background: #222"
                     type="button"
+                    @click="subscribeHandler"
                 >
                     {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
                 </button>
@@ -85,7 +85,8 @@
             <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
                 {{ showDesc ? $t("actions.minimize_description") : $t("actions.show_description") }}
             </a>
-            <p v-show="showDesc" :style="[{ colour: foregroundColor }]" v-html="video.description"></p>
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <p v-show="showDesc" :style="[{ colour: foregroundColor }]" v-html="purifyHTML(video.description)"></p>
             <div v-if="showDesc && sponsors && sponsors.segments">
                 {{ $t("video.sponsor_segments") }}: {{ sponsors.segments.length }}
             </div>
@@ -98,10 +99,10 @@
         >&nbsp;
         <input
             id="chkAutoLoop"
-            class="uk-checkbox"
             v-model="selectedAutoLoop"
-            @change="onChange($event)"
+            class="uk-checkbox"
             type="checkbox"
+            @change="onChange($event)"
         />
         <br />
         <label for="chkAutoPlay"
@@ -109,27 +110,27 @@
         >&nbsp;
         <input
             id="chkAutoPlay"
-            class="uk-checkbox"
             v-model="selectedAutoPlay"
-            @change="onChange($event)"
+            class="uk-checkbox"
             type="checkbox"
+            @change="onChange($event)"
         />
 
         <hr />
 
         <div uk-grid>
-            <div class="uk-width-4-5@xl uk-width-3-4@s uk-width-1" v-if="comments" ref="comments">
+            <div v-if="comments" ref="comments" class="uk-width-4-5@xl uk-width-3-4@s uk-width-1">
                 <div
+                    v-for="comment in comments.comments"
+                    :key="comment.commentId"
                     class="uk-tile-default uk-align-left uk-width-expand"
                     :style="[{ background: backgroundColor }]"
-                    v-bind:key="comment.commentId"
-                    v-for="comment in comments.comments"
                 >
                     <Comment :comment="comment" :uploader="video.uploader" />
                 </div>
             </div>
 
-            <div class="uk-width-1-5@xl uk-width-1-4@s uk-width-1 uk-flex-last@s uk-flex-first" v-if="video">
+            <div v-if="video" class="uk-width-1-5@xl uk-width-1-4@s uk-width-1 uk-flex-last@s uk-flex-first">
                 <a
                     class="uk-button uk-button-small uk-margin-small-bottom uk-hidden@s"
                     style="background: #222"
@@ -138,11 +139,11 @@
                     {{ showRecs ? $t("actions.minimize_recommendations") : $t("actions.show_recommendations") }}
                 </a>
                 <div
+                    v-for="related in video.relatedStreams"
                     v-show="showRecs || !smallView"
+                    :key="related.url"
                     class="uk-tile-default uk-width-auto"
                     :style="[{ background: backgroundColor }]"
-                    v-bind:key="related.url"
-                    v-for="related in video.relatedStreams"
                 >
                     <VideoItem :video="related" height="94" width="168" />
                 </div>
@@ -160,6 +161,12 @@ import Comment from "@/components/Comment.vue";
 
 export default {
     name: "App",
+    components: {
+        Player,
+        VideoItem,
+        ErrorHandler,
+        Comment,
+    },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
         return {
@@ -178,6 +185,26 @@ export default {
             smallViewQuery: smallViewQuery,
             smallView: smallViewQuery.matches,
         };
+    },
+    computed: {
+        isListening(_this) {
+            return _this.getPreferenceBoolean("listen", false);
+        },
+        toggleListenUrl(_this) {
+            const url = new URL(window.location.href);
+            url.searchParams.set("listen", _this.isListening ? "0" : "1");
+            return url.href;
+        },
+        isEmbed(_this) {
+            return String(_this.$route.path).indexOf("/embed/") == 0;
+        },
+        uploadDate(_this) {
+            return new Date(_this.video.uploadDate).toLocaleString(undefined, {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+            });
+        },
     },
     mounted() {
         this.getVideoData().then(() => {
@@ -254,12 +281,10 @@ export default {
                         this.channelId = this.video.uploaderUrl.split("/")[2];
                         if (!this.isEmbed) this.fetchSubscribedStatus();
 
-                        this.video.description = this.purifyHTML(
-                            this.video.description
-                                .replaceAll("http://www.youtube.com", "")
-                                .replaceAll("https://www.youtube.com", "")
-                                .replaceAll("\n", "<br>"),
-                        );
+                        this.video.description = this.video.description
+                            .replaceAll("http://www.youtube.com", "")
+                            .replaceAll("https://www.youtube.com", "")
+                            .replaceAll("\n", "<br>");
                     }
                 });
         },
@@ -316,22 +341,6 @@ export default {
         getVideoId() {
             return this.$route.query.v || this.$route.params.v;
         },
-    },
-    computed: {
-        toggleListenUrl(_this) {
-            const url = new URL(window.location.href);
-            url.searchParams.set("listen", _this.getPreferenceBoolean("listen", false) ? "0" : "1");
-            return url.href;
-        },
-        isEmbed(_this) {
-            return String(_this.$route.path).indexOf("/embed/") == 0;
-        },
-    },
-    components: {
-        Player,
-        VideoItem,
-        ErrorHandler,
-        Comment,
     },
 };
 </script>

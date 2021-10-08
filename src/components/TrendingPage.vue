@@ -1,14 +1,14 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center" v-t="'titles.trending'" />
+    <h1 v-t="'titles.trending'" class="uk-text-bold uk-text-center" />
 
     <hr />
 
     <div class="uk-grid-xl" uk-grid="parallax: 0">
         <div
+            v-for="video in videos"
+            :key="video.url"
             :style="[{ background: backgroundColor }]"
             class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
-            v-bind:key="video.url"
-            v-for="video in videos"
         >
             <VideoItem :video="video" height="118" width="210" />
         </div>
@@ -19,6 +19,9 @@
 import VideoItem from "@/components/VideoItem.vue";
 
 export default {
+    components: {
+        VideoItem,
+    },
     data() {
         return {
             videos: [],
@@ -42,9 +45,6 @@ export default {
                 region: region || "US",
             });
         },
-    },
-    components: {
-        VideoItem,
     },
 };
 </script>

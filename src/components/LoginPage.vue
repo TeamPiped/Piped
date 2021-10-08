@@ -3,9 +3,9 @@
         <form class="uk-panel uk-panel-box">
             <div class="uk-form-row">
                 <input
+                    v-model="username"
                     class="uk-width-1-1 uk-form-large uk-input uk-width-auto"
                     type="text"
-                    v-model="username"
                     autocomplete="username"
                     :placeholder="$t('login.username')"
                     :aria-label="$t('login.username')"
@@ -13,9 +13,9 @@
             </div>
             <div class="uk-form-row">
                 <input
+                    v-model="password"
                     class="uk-width-1-1 uk-form-large uk-input  uk-width-auto"
                     type="password"
-                    v-model="password"
                     autocomplete="password"
                     :placeholder="$t('login.password')"
                     :aria-label="$t('login.password')"
@@ -26,8 +26,9 @@
                     class="uk-width-1-1 uk-button uk-button-primary uk-button-large uk-width-auto"
                     style="background: #222"
                     @click="login"
-                    > {{ $t('titles.login') }} </a
                 >
+                    {{ $t("titles.login") }}
+                </a>
             </div>
         </form>
     </div>

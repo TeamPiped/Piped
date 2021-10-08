@@ -241,5 +241,5 @@ const app = createApp(App);
 app.use(i18n);
 app.use(router);
 app.mixin(mixin);
-app.component("font-awesome-icon", FontAwesomeIcon);
+app.component("FontAwesomeIcon", FontAwesomeIcon);
 app.mount("#app");
