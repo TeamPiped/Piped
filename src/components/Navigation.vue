@@ -17,12 +17,12 @@
         </div>
         <div class="uk-navbar-center uk-flex uk-visible@m">
             <input
+                v-model="searchText"
                 class="uk-input uk-width-medium"
                 type="text"
                 role="search"
                 :title="$t('actions.search')"
                 :placeholder="$t('actions.search')"
-                v-model="searchText"
                 @keyup="onKeyUp"
                 @focus="onInputFocus"
                 @blur="onInputBlur"
@@ -31,31 +31,31 @@
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
                 <li>
-                    <router-link to="/preferences" v-t="'titles.preferences'" />
+                    <router-link v-t="'titles.preferences'" to="/preferences" />
                 </li>
                 <li v-if="shouldShowLogin">
-                    <router-link to="/login" v-t="'titles.login'" />
+                    <router-link v-t="'titles.login'" to="/login" />
                 </li>
                 <li v-if="shouldShowLogin">
-                    <router-link to="/register" v-t="'titles.register'" />
+                    <router-link v-t="'titles.register'" to="/register" />
                 </li>
                 <li v-if="shouldShowHistory">
-                    <router-link to="/history" v-t="'titles.history'" />
+                    <router-link v-t="'titles.history'" to="/history" />
                 </li>
                 <li v-if="authenticated">
-                    <router-link to="/feed" v-t="'titles.feed'" />
+                    <router-link v-t="'titles.feed'" to="/feed" />
                 </li>
             </ul>
         </div>
     </nav>
     <div class="uk-container-expand uk-hidden@m">
         <input
+            v-model="searchText"
             class="uk-input"
             type="text"
             role="search"
             :title="$t('actions.search')"
             :placeholder="$t('actions.search')"
-            v-model="searchText"
             @keyup="onKeyUp"
             @focus="onInputFocus"
             @blur="onInputBlur"
@@ -63,9 +63,9 @@
     </div>
     <SearchSuggestions
         v-show="searchText && suggestionsVisible"
-        :searchText="searchText"
-        @searchchange="onSearchTextChange"
         ref="searchSuggestions"
+        :search-text="searchText"
+        @searchchange="onSearchTextChange"
     />
 </template>
 

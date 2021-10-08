@@ -34,6 +34,8 @@
         "@vue/compiler-sfc": "3.2.19",
         "babel-eslint": "^10.1.0",
         "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-vue": "^7.19.1"
     },
     "eslintConfig": {

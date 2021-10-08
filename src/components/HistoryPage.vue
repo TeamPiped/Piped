@@ -1,14 +1,13 @@
 <template>
     <h1 class="uk-text-bold uk-text-center">{{ $t("titles.history") }}</h1>
 
-
     <div style="text-align: right">
         <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
-        <select id="ddlSortBy" class="uk-select uk-width-auto" v-model="selectedSort" @change="onChange()">
-            <option value="descending" v-t="'actions.most_recent'" />
-            <option value="ascending" v-t="'actions.least_recent'" />
-            <option value="channel_ascending" v-t="'actions.channel_name_asc'" />
-            <option value="channel_descending" v-t="'actions.channel_name_desc'" />
+        <select id="ddlSortBy" v-model="selectedSort" class="uk-select uk-width-auto" @change="onChange()">
+            <option v-t="'actions.most_recent'" value="descending" />
+            <option v-t="'actions.least_recent'" value="ascending" />
+            <option v-t="'actions.channel_name_asc'" value="channel_ascending" />
+            <option v-t="'actions.channel_name_desc'" value="channel_descending" />
         </select>
     </div>
 
@@ -16,10 +15,10 @@
 
     <div class="uk-grid-xl" uk-grid="parallax: 0">
         <div
+            v-for="video in videos"
+            :key="video.url"
             :style="[{ background: backgroundColor }]"
             class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
-            v-bind:key="video.url"
-            v-for="video in videos"
         >
             <VideoItem :video="video" />
         </div>
@@ -32,6 +31,9 @@
 import VideoItem from "@/components/VideoItem.vue";
 
 export default {
+    components: {
+        VideoItem,
+    },
     data() {
         return {
             videos: [],
@@ -84,9 +86,6 @@ export default {
                     break;
             }
         },
-    },
-    components: {
-        VideoItem,
     },
 };
 </script>

@@ -3,17 +3,17 @@
 
     <div v-if="channel" v-show="!channel.error">
         <h1 class="uk-text-center">
-            <img height="48" width="48" class="uk-border-circle" v-bind:src="channel.avatarUrl" />{{ channel.name }}
+            <img height="48" width="48" class="uk-border-circle" :src="channel.avatarUrl" />{{ channel.name }}
         </h1>
-        <img v-if="channel.bannerUrl" v-bind:src="channel.bannerUrl" style="width: 100%" loading="lazy" />
+        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" style="width: 100%" loading="lazy" />
         <p style="white-space: pre-wrap"><span v-html="purifyHTML(urlify(channel.description))"></span></p>
 
         <button
             v-if="authenticated"
-            @click="subscribeHandler"
             class="uk-button uk-button-small"
             style="background: #222"
             type="button"
+            @click="subscribeHandler"
         >
             {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
         </button>
@@ -22,11 +22,11 @@
 
         <div class="uk-grid-xl" uk-grid="parallax: 0">
             <div
+                v-for="video in channel.relatedStreams"
+                :key="video.url"
                 class="uk-width-1-2 uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl"
-                v-bind:key="video.url"
-                v-for="video in this.channel.relatedStreams"
             >
-                <VideoItem :video="video" height="94" width="168" hideChannel />
+                <VideoItem :video="video" height="94" width="168" hide-channel />
             </div>
         </div>
     </div>
@@ -37,6 +37,10 @@ import ErrorHandler from "@/components/ErrorHandler.vue";
 import VideoItem from "@/components/VideoItem.vue";
 
 export default {
+    components: {
+        ErrorHandler,
+        VideoItem,
+    },
     data() {
         return {
             channel: null,
@@ -115,10 +119,6 @@ export default {
             });
             this.subscribed = !this.subscribed;
         },
-    },
-    components: {
-        ErrorHandler,
-        VideoItem,
     },
 };
 </script>
