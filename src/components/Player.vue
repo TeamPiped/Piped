@@ -33,7 +33,6 @@
 .shaka-video-container:-webkit-full-screen {
     max-height: none !important;
 }
-
 </style>
 
 <script>
@@ -200,7 +199,7 @@ export default {
 
                 videoEl.addEventListener("ratechange", () => {
                     this.setPreference("rate", videoEl.playbackRate);
-                })
+                });
 
                 videoEl.addEventListener("ended", () => {
                     if (!this.selectedAutoLoop && this.selectedAutoPlay && this.video.relatedStreams.length > 0) {
@@ -315,7 +314,7 @@ export default {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
                         case "f":
-                            self.ui.getControls().toggleFullScreen();
+                            self.$ui.getControls().toggleFullScreen();
                             e.preventDefault();
                             break;
                         case "m":
