@@ -37,10 +37,7 @@
             </router-link>
         </div>
 
-        <div
-            v-if="video.uploaderUrl && video.uploaderName && !hideChannel"
-            style="display: flex; flex-flow: row; height: 15%"
-        >
+        <div style="display: flex; flex-flow: row; height: 15%">
             <router-link class="uk-link-muted" :to="video.uploaderUrl">
                 <img
                     v-if="video.uploaderAvatar"
@@ -54,6 +51,7 @@
 
             <div style="width: calc(100% - 32px - 8px);">
                 <router-link
+                    v-if="video.uploaderUrl && video.uploaderName && !hideChannel"
                     class="uk-link-muted uk-overflow-hidden"
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
