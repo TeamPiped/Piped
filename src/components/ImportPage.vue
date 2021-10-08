@@ -2,13 +2,13 @@
     <div class="uk-vertical-align uk-text-center uk-height-1-1 ">
         <form class="uk-panel uk-panel-box">
             <div class="uk-form-row">
-                <input type="file" @change="fileChange" ref="fileSelector" />
+                <input ref="fileSelector" type="file" @change="fileChange" />
             </div>
             <div class="uk-form-row">
                 <b>Selected Subscriptions: {{ selectedSubscriptions }}</b>
             </div>
             <div class="uk-form-row">
-                <b>Override: <input class="uk-checkbox" v-model="override" type="checkbox"/></b>
+                <b>Override: <input v-model="override" class="uk-checkbox" type="checkbox"/></b>
             </div>
             <div class="uk-form-row">
                 <a
@@ -79,7 +79,7 @@ export default {
     },
     methods: {
         fileChange() {
-            const file = this.$refs.fileSelector.files[0]
+            const file = this.$refs.fileSelector.files[0];
             file.text().then(text => {
                 this.subscriptions = [];
 

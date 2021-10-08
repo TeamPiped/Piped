@@ -9,8 +9,8 @@
 <script>
 export default {
     props: {
-        error: String,
-        message: String,
+        error: { type: String, default: null },
+        message: { type: String, default: null },
     },
 };
 </script>
