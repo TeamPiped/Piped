@@ -27,7 +27,7 @@
 
             <div class="uk-flex uk-flex-middle">
                 <div class="uk-margin-small-right">{{ addCommas(video.views) }} views</div>
-                <div class="uk-margin-small-right">{{ video.uploadDate }}</div>
+                <div class="uk-margin-small-right">{{ uploadDate }}</div>
                 <div class="uk-flex-1"></div>
                 <div class="uk-margin-small-left">
                     <font-awesome-icon class="uk-margin-small-right" icon="thumbs-up"></font-awesome-icon>
@@ -318,13 +318,23 @@ export default {
         },
     },
     computed: {
+        isListening(_this) {
+            return _this.getPreferenceBoolean("listen", false);
+        },
         toggleListenUrl(_this) {
             const url = new URL(window.location.href);
-            url.searchParams.set("listen", _this.getPreferenceBoolean("listen", false) ? "0" : "1");
+            url.searchParams.set("listen", _this.isListening ? "0" : "1");
             return url.href;
         },
         isEmbed(_this) {
             return String(_this.$route.path).indexOf("/embed/") == 0;
+        },
+        uploadDate(_this) {
+            return new Date(_this.video.uploadDate).toLocaleString(undefined, {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+            });
         },
     },
     components: {
