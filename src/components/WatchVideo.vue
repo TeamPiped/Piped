@@ -85,7 +85,8 @@
             <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
                 {{ showDesc ? $t("actions.minimize_description") : $t("actions.show_description") }}
             </a>
-            <p v-show="showDesc" :style="[{ colour: foregroundColor }]" v-html="video.description"></p>
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <p v-show="showDesc" :style="[{ colour: foregroundColor }]" v-html="purifyHTML(video.description)"></p>
             <div v-if="showDesc && sponsors && sponsors.segments">
                 {{ $t("video.sponsor_segments") }}: {{ sponsors.segments.length }}
             </div>
@@ -280,12 +281,10 @@ export default {
                         this.channelId = this.video.uploaderUrl.split("/")[2];
                         if (!this.isEmbed) this.fetchSubscribedStatus();
 
-                        this.video.description = this.purifyHTML(
-                            this.video.description
-                                .replaceAll("http://www.youtube.com", "")
-                                .replaceAll("https://www.youtube.com", "")
-                                .replaceAll("\n", "<br>"),
-                        );
+                        this.video.description = this.video.description
+                            .replaceAll("http://www.youtube.com", "")
+                            .replaceAll("https://www.youtube.com", "")
+                            .replaceAll("\n", "<br>");
                     }
                 });
         },

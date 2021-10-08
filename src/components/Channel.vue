@@ -6,6 +6,7 @@
             <img height="48" width="48" class="uk-border-circle" :src="channel.avatarUrl" />{{ channel.name }}
         </h1>
         <img v-if="channel.bannerUrl" :src="channel.bannerUrl" style="width: 100%" loading="lazy" />
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <p style="white-space: pre-wrap"><span v-html="purifyHTML(urlify(channel.description))"></span></p>
 
         <button
