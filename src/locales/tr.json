@@ -84,5 +84,8 @@
     "login": {
         "password": "Parola",
         "username": "Kullanıcı adı"
+    },
+    "search": {
+        "did_you_mean": "Bunu mu demek istediniz: "
     }
 }
