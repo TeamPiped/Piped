@@ -1,12 +1,15 @@
 <template>
     <div
         class="uk-flex uk-flex-column uk-flex-middle uk-position-fixed uk-position-top"
-        :class="{ 'uk-height-viewport': collapsed }"
+        :class="{ 'uk-height-viewport': !collapsed }"
         style="padding: 24px 12px; width: 100vw; box-sizing: border-box; z-index: 9999; transition: min-height 40ms, height 400ms; overflow: hidden;"
-        :style="{ backgroundColor: secondaryBackgroundColor, minHeight: 0, height: collapsed ? '70px' : '100vh' }"
+        :style="{ backgroundColor: secondaryBackgroundColor, minHeight: 0, height: !collapsed ? '70px' : '100vh' }"
     >
         <div class="uk-width-1-1 uk-flex uk-flex-middle" style="margin-bottom: 100px; padding: 0 14px; gap: 32px;">
-            <div style="transition: padding 500ms;">
+            <div
+                style="transition: padding 500ms, transform 500ms;"
+                :style="collapsed ? 'transform: rotate(90deg)' : {}"
+            >
                 <font-awesome-icon class="button highlight" @click="toggleCollapsed()" icon="bars" />
             </div>
             <div class="uk-flex uk-flex-middle" style="gap: 12px;" v-if="!hideText">
@@ -72,6 +75,12 @@ export default {
     props: {
         collapsed: Boolean,
         toggleCollapsed: Function,
+
+        searchText: String,
+        onKeyUp: Function,
+        onInputFocus: Function,
+        onInputBlur: Function,
+        onSearchTextChange: Function,
     },
     methods: {
         logout() {
@@ -158,6 +167,6 @@ export default {
     color: #fff;
 }
 .router-link-active {
-    background: linear-gradient(#da22ff, #9733ee);
+    background: linear-gradient(to right, #da22ff, #9733ee);
 }
 </style>

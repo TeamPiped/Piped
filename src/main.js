@@ -232,6 +232,12 @@ const mixin = {
             }
             return "en";
         },
+        data() {
+            return { isMobile: false };
+        },
+        isMobile() {
+            return window.matchMedia("screen and (max-width: 800px)").matches;
+        },
     },
 };
 
