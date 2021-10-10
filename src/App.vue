@@ -8,7 +8,7 @@
         <main
             class="uk-container uk-container-expand"
             style="height: 100vh; overflow: scroll;"
-            :style="[{ background: backgroundColor, colour: foregroundColor }]"
+            :style="{ background: backgroundColor, colour: foregroundColor, marginTop: isMobile ? '70px' : 0 }"
             :class="{ 'uk-light': darkMode }"
         >
             <router-view v-slot="{ Component }">
@@ -33,9 +33,16 @@
 
 <script>
 import Menu from "@/components/Menu";
+
+import { useIsMobile } from "./store";
+
 export default {
     components: {
         Menu,
+    },
+    setup() {
+        const isMobile = useIsMobile();
+        return { isMobile };
     },
     data() {
         return { menuCollapsed: false };
@@ -85,7 +92,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 h1,
 p,
 a,

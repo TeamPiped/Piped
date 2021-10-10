@@ -17,7 +17,7 @@
             <div
                 class="uk-flex uk-flex-middle"
                 style="gap: 16px; transition: transform 300ms, gap 300ms;"
-                :style="collapseText ? 'transform: scale(0); gap: 0;' : 'transition-delay: 150ms'"
+                :style="collapseText ? 'transform: scale(0); gap: 0;' : 'transition-delay: 170ms'"
                 v-if="!hideText"
             >
                 <img src="/img/pipedPlay.svg" :class="{ 'piped-play': !hideText }" />
@@ -147,7 +147,8 @@ export default {
 }
 
 .piped-play {
-    animation: bump 300ms ease-in-out 600ms;
+    animation: bump 300ms ease-in-out;
+    animation-delay: 700ms !important;
 }
 @media (prefers-reduced-motion) {
     .piped-play {
@@ -191,6 +192,6 @@ export default {
     color: #fff;
 }
 .router-link-active {
-    background: linear-gradient(#da22ff, #9733ee);
+    background: linear-gradient(to right, #da22ff, #9733ee);
 }
 </style>
