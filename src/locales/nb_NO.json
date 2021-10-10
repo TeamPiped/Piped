@@ -47,7 +47,11 @@
         "no": "Nei",
         "yes": "Ja",
         "show_more": "Vis mer",
-        "instance_selection": "Valg av instans"
+        "instance_selection": "Valg av instans",
+        "search": "Søk",
+        "filter": "Filter",
+        "loading": "Laster inn …",
+        "view_ssl_score": "Vis SSL-poengsum"
     },
     "player": {
         "watch_on": "Vis på"
@@ -75,5 +79,12 @@
     },
     "comment": {
         "pinned_by": "Festet av"
+    },
+    "login": {
+        "username": "Brukernavn",
+        "password": "Passord"
+    },
+    "search": {
+        "did_you_mean": "Mente du: "
     }
 }
