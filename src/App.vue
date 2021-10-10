@@ -1,34 +1,37 @@
 <template>
-    <div
-        class="uk-container uk-container-expand uk-height-viewport"
-        :style="[{ background: backgroundColor, colour: foregroundColor }]"
-        :class="{ 'uk-light': darkMode }"
-    >
-        <Navigation />
-        <router-view v-slot="{ Component }">
-            <keep-alive :max="5">
-                <component :is="Component" :key="$route.fullPath" />
-            </keep-alive>
-        </router-view>
+    <div class="uk-flex">
+        <Sidebar style="flexShrink: 0" />
+        <main
+            class="uk-container uk-container-expand"
+            style="height: 100vh; overflow: scroll;"
+            :style="[{ background: backgroundColor, colour: foregroundColor }]"
+            :class="{ 'uk-light': darkMode }"
+        >
+            <router-view v-slot="{ Component }">
+                <keep-alive :max="5">
+                    <component :is="Component" :key="$route.fullPath" />
+                </keep-alive>
+            </router-view>
 
-        <div style="text-align: center">
-            <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
-                <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
-            </a>
-            &nbsp;
-            <a href="https://github.com/TeamPiped/Piped#donations">
-                <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
-                {{ $t("actions.donations") }}
-            </a>
-        </div>
+            <div style="text-align: center">
+                <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
+                    <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
+                </a>
+                &nbsp;
+                <a href="https://github.com/TeamPiped/Piped#donations">
+                    <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
+                    {{ $t("actions.donations") }}
+                </a>
+            </div>
+        </main>
     </div>
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
+import Sidebar from "@/components/Sidebar";
 export default {
     components: {
-        Navigation,
+        Sidebar,
     },
     mounted() {
         if (window.location.pathname === "/" || window.location.pathname.length == 0)
@@ -75,7 +78,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 h1,
 p,
 a,
@@ -107,5 +110,9 @@ b {
 
 * {
     scrollbar-color: #15191a #444a4e;
+}
+
+main {
+    background-color: #1d2438;
 }
 </style>

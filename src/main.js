@@ -10,6 +10,10 @@ import {
     faHeadphones,
     faRss,
     faChevronLeft,
+    faBars,
+    faFire,
+    faCog,
+    faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -26,6 +30,10 @@ library.add(
     faYoutube,
     faRss,
     faChevronLeft,
+    faBars,
+    faFire,
+    faCog,
+    faSignOutAlt,
 );
 
 import("uikit/dist/css/uikit-core.css");
@@ -185,10 +193,10 @@ const mixin = {
     },
     computed: {
         backgroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#fff" : "#0b0e0f";
+            return this.getEffectiveTheme() === "light" ? "#fff" : "#1d2438";
         },
         secondaryBackgroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#e5e5e5" : "#242727";
+            return this.getEffectiveTheme() === "light" ? "#e5e5e5" : "#30354b";
         },
         foregroundColor() {
             return this.getEffectiveTheme() === "light" ? "#15191a" : "#0b0e0f";
