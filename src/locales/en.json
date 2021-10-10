@@ -85,5 +85,8 @@
         "views": "views",
         "watched": "Watched",
         "sponsor_segments": "Sponsors Segments"
+    },
+    "search": {
+        "did_you_mean": "Did you mean: "
     }
 }
