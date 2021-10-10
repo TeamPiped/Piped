@@ -1,34 +1,51 @@
 <template>
-    <div
-        class="uk-container uk-container-expand uk-height-viewport"
-        :style="[{ background: backgroundColor, colour: foregroundColor }]"
-        :class="{ 'uk-light': darkMode }"
-    >
-        <Navigation />
-        <router-view v-slot="{ Component }">
-            <keep-alive :max="5">
-                <component :is="Component" :key="$route.fullPath" />
-            </keep-alive>
-        </router-view>
+    <div class="uk-flex">
+        <Menu
+            style="flexShrink: 0"
+            :collapsed="menuCollapsed"
+            :toggleCollapsed="() => (menuCollapsed = !menuCollapsed)"
+        />
+        <main
+            class="uk-container uk-container-expand"
+            style="height: 100vh; overflow: scroll; flex: 1;"
+            :style="{ background: backgroundColor, colour: foregroundColor, marginTop: isMobile ? '70px' : 0 }"
+            :class="{ 'uk-light': darkMode }"
+        >
+            <router-view v-slot="{ Component }">
+                <keep-alive :max="5">
+                    <component :is="Component" :key="$route.fullPath" :menuCollapsed="menuCollapsed" />
+                </keep-alive>
+            </router-view>
 
-        <div style="text-align: center">
-            <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
-                <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
-            </a>
-            &nbsp;
-            <a href="https://github.com/TeamPiped/Piped#donations">
-                <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
-                {{ $t("actions.donations") }}
-            </a>
-        </div>
+            <div style="text-align: center">
+                <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
+                    <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
+                </a>
+                &nbsp;
+                <a href="https://github.com/TeamPiped/Piped#donations">
+                    <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
+                    {{ $t("actions.donations") }}
+                </a>
+            </div>
+        </main>
     </div>
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
+import Menu from "@/components/Menu";
+
+import { useIsMobile } from "./store";
+
 export default {
     components: {
-        Navigation,
+        Menu,
+    },
+    setup() {
+        const isMobile = useIsMobile();
+        return { isMobile };
+    },
+    data() {
+        return { menuCollapsed: false };
     },
     mounted() {
         if (window.location.pathname === "/" || window.location.pathname.length == 0)
@@ -107,5 +124,9 @@ b {
 
 * {
     scrollbar-color: #15191a #444a4e;
+}
+
+main {
+    background-color: #1d2438;
 }
 </style>
