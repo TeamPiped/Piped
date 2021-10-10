@@ -7,7 +7,7 @@
         />
         <main
             class="uk-container uk-container-expand"
-            style="height: 100vh; overflow: scroll;"
+            style="height: 100vh; overflow: scroll; flex: 1;"
             :style="{ background: backgroundColor, colour: foregroundColor, marginTop: isMobile ? '70px' : 0 }"
             :class="{ 'uk-light': darkMode }"
         >
