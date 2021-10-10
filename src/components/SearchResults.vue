@@ -21,6 +21,15 @@
 
     <hr />
 
+    <div v-if="results && results.corrected" style="height: 7vh">
+        {{ $t("search.did_you_mean") }}
+        <i>
+            <router-link :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }">
+                {{ results.suggestion }}
+            </router-link>
+        </i>
+    </div>
+
     <div v-if="results" class="uk-grid-xl" uk-grid="parallax: 0">
         <div
             v-for="result in results.items"

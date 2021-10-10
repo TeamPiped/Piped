@@ -70,19 +70,22 @@
         "pinned_by": "Pinned by"
     },
     "preferences": {
-        "instance_name":"Instance Name",
-        "instance_locations":"Instance Locations",
-        "has_cdn":"Has CDN?",
-        "ssl_score":"SSL Score"
+        "instance_name": "Instance Name",
+        "instance_locations": "Instance Locations",
+        "has_cdn": "Has CDN?",
+        "ssl_score": "SSL Score"
     },
     "login": {
-        "username":"Username",
-        "password":"Password"
+        "username": "Username",
+        "password": "Password"
     },
     "video": {
         "videos": "Videos",
         "views": "views",
         "watched": "Watched",
         "sponsor_segments": "Sponsors Segments"
+    },
+    "search": {
+        "did_you_mean": "Did you mean: "
     }
 }
