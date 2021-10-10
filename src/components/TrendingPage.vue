@@ -1,7 +1,31 @@
 <template>
-    <h1 v-t="'titles.trending'" class="uk-text-bold uk-text-center" />
+    <div class="uk-flex uk-flex-middle uk-flex-between uk-flex-row-reverse" style="padding: 34px 0">
+        <form class="uk-search">
+            <div class="uk-position-relative">
+                <input
+                    class="uk-search-input"
+                    style="border-radius: 9999px; padding: 12px 18px 12px 40px; width: 35ch;"
+                    :style="{ backgroundColor: secondaryBackgroundColor }"
+                    type="search"
+                    :placeholder="$t('actions.search')"
+                />
+                <font-awesome-icon
+                    icon="search"
+                    style="position: absolute; x: 0px; y: 0px;"
+                    class="uk-position-center-left uk-position-small"
+                />
+            </div>
+        </form>
 
-    <hr />
+        <div
+            class="uk-flex uk-flex-middle"
+            style="gap: 16px; transition: transform 400ms; transform-origin: left;"
+            :style="!menuCollapsed ? 'transform: scale(0);' : {}"
+        >
+            <img src="/img/pipedPlay.svg" style="height: 36px;" />
+            <img src="/img/piped.svg" />
+        </div>
+    </div>
 
     <div class="uk-grid-xl" uk-grid="parallax: 0">
         <div
@@ -21,6 +45,9 @@ import VideoItem from "@/components/VideoItem.vue";
 export default {
     components: {
         VideoItem,
+    },
+    props: {
+        menuCollapsed: Boolean,
     },
     data() {
         return {

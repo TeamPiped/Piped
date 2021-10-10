@@ -1,6 +1,10 @@
 <template>
     <div class="uk-flex">
-        <Sidebar style="flexShrink: 0" />
+        <Menu
+            style="flexShrink: 0"
+            :collapsed="menuCollapsed"
+            :toggleCollapsed="() => (menuCollapsed = !menuCollapsed)"
+        />
         <main
             class="uk-container uk-container-expand"
             style="height: 100vh; overflow: scroll;"
@@ -9,7 +13,7 @@
         >
             <router-view v-slot="{ Component }">
                 <keep-alive :max="5">
-                    <component :is="Component" :key="$route.fullPath" />
+                    <component :is="Component" :key="$route.fullPath" :menuCollapsed="menuCollapsed" />
                 </keep-alive>
             </router-view>
 
@@ -28,10 +32,13 @@
 </template>
 
 <script>
-import Sidebar from "@/components/Sidebar";
+import Menu from "@/components/Menu";
 export default {
     components: {
-        Sidebar,
+        Menu,
+    },
+    data() {
+        return { menuCollapsed: false };
     },
     mounted() {
         if (window.location.pathname === "/" || window.location.pathname.length == 0)
