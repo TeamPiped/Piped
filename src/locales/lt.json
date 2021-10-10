@@ -84,5 +84,8 @@
     "login": {
         "password": "Slaptažodis",
         "username": "Vartotojo vardas"
+    },
+    "search": {
+        "did_you_mean": "Ar turėjote omenyje: "
     }
 }
