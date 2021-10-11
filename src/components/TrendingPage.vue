@@ -33,7 +33,7 @@
             v-if="!isMobile"
             class="uk-flex uk-flex-middle"
             style="gap: 16px; transition: transform 400ms; transform-origin: left;"
-            :style="!menuCollapsed ? 'transform: scale(0);' : {}"
+            :style="!menuCollapsed ? 'transform: scale3d(0, 0, 0);' : {}"
         >
             <img src="/img/pipedPlay.svg" style="height: 36px;" />
             <img src="/img/piped.svg" />
