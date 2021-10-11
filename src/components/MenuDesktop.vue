@@ -17,7 +17,7 @@
             <div
                 class="uk-flex uk-flex-middle"
                 style="gap: 16px; transition: transform 300ms, gap 300ms;"
-                :style="collapseText ? 'transform: scale(0); gap: 0;' : 'transition-delay: 170ms'"
+                :style="collapseText ? 'transform: scale3d(0, 0, 0); gap: 0;' : 'transition-delay: 170ms'"
                 v-if="!hideText"
             >
                 <img src="/img/pipedPlay.svg" :class="{ 'piped-play': !hideText }" />
@@ -181,7 +181,7 @@ export default {
 }
 
 .sidebar-link span {
-    transition: font-size 400ms, padding 400ms;
+    transition: font-size 400ms;
 }
 .collapse-text .sidebar-link span {
     font-size: 0;

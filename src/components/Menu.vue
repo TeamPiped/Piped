@@ -1,6 +1,6 @@
 <template>
-    <MenuDesktop :collapsed="collapsed" :toggleCollapsed="toggleCollapsed" v-if="!isMobile" />
-    <MenuMobile :collapsed="collapsed" :toggleCollapsed="toggleCollapsed" v-else />
+    <MenuDesktop :collapsed="collapsed" :toggleCollapsed="toggleCollapsedDebounced" v-if="!isMobile" />
+    <MenuMobile :collapsed="collapsed" :toggleCollapsed="toggleCollapsedDebounced" v-else />
 </template>
 
 <script>
@@ -16,11 +16,25 @@ export default {
     },
     props: {
         collapsed: Boolean,
-        toggleCollapse: Function,
+        toggleCollapsed: Function,
+    },
+    data() {
+        return { toggleCollapsedDisabled: false };
     },
     setup() {
         const isMobile = useIsMobile();
         return { isMobile };
+    },
+    methods: {
+        toggleCollapsedDebounced() {
+            if (!this.toggleCollapsedDisabled) {
+                this.toggleCollapsed();
+                this.toggleCollapsedDisabled = true;
+                setTimeout(() => {
+                    this.toggleCollapsedDisabled = false;
+                }, 500);
+            }
+        },
     },
 };
 </script>
