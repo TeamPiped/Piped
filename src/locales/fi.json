@@ -64,5 +64,8 @@
         "register": "Rekisteröidy",
         "login": "Kirjaudu sisään",
         "trending": "Nousussa"
+    },
+    "search": {
+        "did_you_mean": "Tarkoititko: "
     }
 }
