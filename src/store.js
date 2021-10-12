@@ -9,3 +9,13 @@ export function useIsMobile() {
 
     return isMobile;
 }
+
+const menuCollapsed = ref(false);
+export function useMenuCollapsed() {
+    return {
+        menuCollapsed,
+        toggleCollapsed: () => {
+            menuCollapsed.value = !menuCollapsed.value;
+        },
+    };
+}
