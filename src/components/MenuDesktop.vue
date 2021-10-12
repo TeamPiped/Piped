@@ -130,7 +130,7 @@ export default {
     },
     computed: {
         enableAnimations(_this) {
-            return !_this.getPreferenceBoolean("disableAnimations", true);
+            return !_this.getPreferenceBoolean("disableAnimations", false);
         },
     },
 };
