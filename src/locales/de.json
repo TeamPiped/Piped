@@ -84,5 +84,8 @@
     "login": {
         "password": "Passwort",
         "username": "Anmeldename"
+    },
+    "search": {
+        "did_you_mean": "Meintest du: "
     }
 }
