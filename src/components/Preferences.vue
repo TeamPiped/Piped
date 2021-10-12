@@ -283,7 +283,7 @@ export default {
             enabledCodecs: ["av1", "vp9", "avc"],
             disableLBRY: false,
             proxyLBRY: false,
-            disableAnimations: false,
+            disableAnimations: true,
         };
     },
     activated() {
@@ -372,7 +372,7 @@ export default {
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "av1,vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
-            this.disableAnimations = this.getPreferenceBoolean("disableAnimations", false);
+            this.disableAnimations = this.getPreferenceBoolean("disableAnimations", true);
             if (this.selectedLanguage != "en") {
                 try {
                     this.CountryMap = await import("@/utils/CountryMaps/" + this.selectedLanguage + ".json").then(

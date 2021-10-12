@@ -2,7 +2,7 @@
     <div
         id="menu-desktop"
         class="uk-height-viewport uk-flex uk-flex-column uk-flex-middle"
-        :class="{ 'collapse-text': collapseText }"
+        :class="{ 'collapse-text': collapseText, 'enable-animations': enableAnimations }"
         style="padding: 32px 24px; height: 100vh;"
         :style="{
             width: collapsed ? '78px' : '291px',
@@ -47,7 +47,6 @@
                     <router-link
                         to="/"
                         class="highlight sidebar-link uk-flex"
-                        :class="{ 'enable-animations': enableAnimations }"
                         :style="collapseText ? 'padding: 6px 8px;' : {}"
                     >
                         <font-awesome-icon icon="fire" />
@@ -55,21 +54,13 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link
-                        to="/feed"
-                        class="highlight sidebar-link uk-flex"
-                        :class="{ 'enable-animations': enableAnimations }"
-                    >
+                    <router-link to="/feed" class="highlight sidebar-link uk-flex">
                         <font-awesome-icon icon="rss" />
                         <span v-if="!hideText" v-t="'titles.feed'" />
                     </router-link>
                 </li>
                 <li>
-                    <router-link
-                        to="/subscriptions"
-                        class="highlight sidebar-link uk-flex"
-                        :class="{ 'enable-animations': enableAnimations }"
-                    >
+                    <router-link to="/subscriptions" class="highlight sidebar-link uk-flex">
                         <font-awesome-icon icon="heart" />
                         <span v-if="!hideText" v-t="'titles.subscriptions'" />
                     </router-link>
@@ -80,7 +71,6 @@
         <router-link
             to="/preferences"
             class="highlight sidebar-link uk-width-1-1 uk-flex uk-flex-middle"
-            :class="{ 'enable-animations': enableAnimations }"
             style="text-decoration: none;"
         >
             <font-awesome-icon icon="cog" />
@@ -89,7 +79,6 @@
 
         <button
             class="highlight logout-button button sidebar-link uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"
-            :class="{ 'enable-animations': enableAnimations }"
             :style="{ backgroundColor: backgroundColor }"
             style="border-radius: 9999px; border: none; margin-top: 20px;"
             @click="logout()"
@@ -184,7 +173,7 @@ export default {
     }
 }
 
-#menu-desktop .piped-play.enable-animations {
+#menu-desktop.enable-animations .piped-play {
     animation: bump 300ms ease-in-out;
     animation-delay: 700ms !important;
 }
@@ -211,7 +200,7 @@ export default {
     padding: 10px 12px;
     border-radius: 12px;
 }
-#menu-desktop .sidebar-link.enable-animations {
+#menu-desktop.enable-animations .sidebar-link {
     transition: padding 400ms, gap 400ms;
 }
 
@@ -220,7 +209,7 @@ export default {
     gap: 0px !important;
 }
 
-#menu-desktop .sidebar-link.enable-animations span {
+#menu-desktop.enable-animations .sidebar-link span {
     transition: font-size 400ms;
 }
 .collapse-text .sidebar-link span {

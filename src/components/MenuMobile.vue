@@ -2,14 +2,21 @@
     <div
         id="menu-mobile"
         class="uk-flex uk-flex-column uk-flex-middle uk-position-fixed uk-position-top"
-        :class="{ 'uk-height-viewport': !collapsed }"
-        style="padding: 24px 12px; width: 100vw; box-sizing: border-box; z-index: 9999; transition: min-height 40ms, height 400ms; overflow: hidden;"
-        :style="{ backgroundColor: secondaryBackgroundColor, minHeight: 0, height: !collapsed ? '70px' : '100vh' }"
+        :class="{ 'uk-height-viewport': !collapsed, 'enable-animations': enableAnimations }"
+        style="padding: 24px 12px; width: 100vw; box-sizing: border-box; z-index: 9999; overflow: hidden;"
+        :style="{
+            backgroundColor: secondaryBackgroundColor,
+            minHeight: 0,
+            height: !collapsed ? '70px' : '100vh',
+            transition: enableAnimations ? 'min-height 40ms, height 400ms' : 'none',
+        }"
     >
         <div class="uk-width-1-1 uk-flex uk-flex-middle" style="margin-bottom: 100px; padding: 0 14px; gap: 32px;">
             <div
-                style="transition: padding 500ms, transform 500ms;"
-                :style="collapsed ? 'transform: rotate(90deg)' : {}"
+                :style="{
+                    transform: collapsed ? 'rotate(90deg)' : 'none',
+                    transition: enableAnimations ? 'padding 500ms, transform 500ms' : 'none',
+                }"
             >
                 <font-awesome-icon class="button highlight" @click="toggleCollapsed()" icon="bars" />
             </div>
@@ -57,7 +64,7 @@
             class="highlight logout-button button sidebar-link uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"
             :style="{ backgroundColor: backgroundColor }"
             style="border-radius: 9999px; border: none; margin-top: 20px;"
-            @click="logout"
+            @click="logout()"
         >
             <span v-t="'actions.logout'" />
             <font-awesome-icon icon="sign-out-alt" />
@@ -69,23 +76,9 @@
 import { useMenuCollapsed } from "../store";
 
 export default {
-    data() {
-        return {
-            collapseText: false,
-            hideText: false,
-        };
-    },
-
     setup() {
         const { menuCollapsed, toggleCollapsed } = useMenuCollapsed();
         return { collapsed: menuCollapsed, toggleCollapsed };
-    },
-    props: {
-        searchText: String,
-        onKeyUp: Function,
-        onInputFocus: Function,
-        onInputBlur: Function,
-        onSearchTextChange: Function,
     },
     methods: {
         logout() {
@@ -93,8 +86,8 @@ export default {
         },
     },
     computed: {
-        disableAnimations(_this) {
-            return _this.getPreferenceBoolean("disableAnimations", false);
+        enableAnimations(_this) {
+            return !_this.getPreferenceBoolean("disableAnimations", true);
         },
     },
 };
@@ -137,11 +130,11 @@ export default {
     }
 }
 
-#menu-mobile .piped-play {
+#menu-mobile.enable-animations .piped-play {
     animation: bump 300ms ease-in-out 500ms;
 }
 @media (prefers-reduced-motion) {
-    .piped-play {
+    #menu-mobile .piped-play {
         animation: none;
     }
 }
@@ -163,11 +156,11 @@ export default {
     padding: 10px 12px;
     border-radius: 12px;
 }
-#menu-mobile .sidebar-link.enable-animations {
+#menu-mobile.enable-animations .sidebar-link {
     transition: padding 400ms, gap 400ms;
 }
 
-#menu-mobile .sidebar-link span {
+#menu-mobile.enable-animations .sidebar-link span {
     transition: font-size 500ms, padding 500ms;
 }
 #menu-mobile.collapse-text .sidebar-link span {
