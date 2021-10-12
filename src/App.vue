@@ -3,8 +3,13 @@
         <Menu style="flexShrink: 0" />
         <main
             class="uk-container uk-container-expand"
-            style="height: 100vh; overflow: scroll; flex: 1;"
-            :style="{ background: backgroundColor, colour: foregroundColor, marginTop: isMobile ? '70px' : 0 }"
+            style="overflow-y: scroll; overflow-x: hidden; flex: 1;"
+            :style="{
+                background: backgroundColor,
+                colour: foregroundColor,
+                marginTop: isMobile ? '70px' : 0,
+                height: isMobile ? 'calc(100vh - 70px)' : '100vh',
+            }"
             :class="{ 'uk-light': darkMode }"
         >
             <router-view v-slot="{ Component }">
