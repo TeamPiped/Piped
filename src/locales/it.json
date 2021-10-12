@@ -84,5 +84,8 @@
     "login": {
         "password": "Password",
         "username": "Nome utente"
+    },
+    "search": {
+        "did_you_mean": "Forse intendevi: "
     }
 }
