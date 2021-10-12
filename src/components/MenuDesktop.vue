@@ -13,7 +13,10 @@
         <div
             class="uk-width-1-1 uk-flex uk-flex-middle uk-flex-between"
             style="margin-bottom: 100px; height: 50px;"
-            :style="{ padding: collapseText ? '0' : '0 14px', transition: enableAnimations ? 'padding 400ms;' : '' }"
+            :style="{
+                padding: collapseText ? '0' : '0 26px 0 14px',
+                transition: enableAnimations ? 'padding 400ms;' : '',
+            }"
             :class="{ 'uk-flex uk-flex-center': collapsed }"
         >
             <div
