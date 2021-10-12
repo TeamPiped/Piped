@@ -74,7 +74,8 @@
         "instance_name": "Instance Name",
         "instance_locations": "Instance Locations",
         "has_cdn": "Has CDN?",
-        "ssl_score": "SSL Score"
+        "ssl_score": "SSL Score",
+        "disable_animations": "Disable animations"
     },
     "login": {
         "username": "Username",
