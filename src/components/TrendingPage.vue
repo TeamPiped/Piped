@@ -7,7 +7,7 @@
     />
 
     <div class="uk-flex uk-flex-middle uk-flex-between uk-flex-row-reverse" style="padding: 34px 0">
-        <form
+        <div
             class="uk-search"
             :style="{
                 width: isMobile ? '100%' : '35ch',
@@ -33,7 +33,7 @@
                     class="uk-position-center-left uk-position-small"
                 />
             </div>
-        </form>
+        </div>
         <SearchSuggestions
             v-show="searchText && suggestionsVisible"
             ref="searchSuggestions"
