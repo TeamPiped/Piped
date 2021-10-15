@@ -27,7 +27,7 @@
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^4.5.13",
+        "@vue/cli-plugin-babel": "^4.5.14",
         "@vue/cli-plugin-eslint": "^4.5.13",
         "@vue/cli-plugin-pwa": "^4.5.13",
         "@vue/cli-service": "^4.5.13",
