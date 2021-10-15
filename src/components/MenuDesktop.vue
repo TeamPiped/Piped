@@ -1,26 +1,44 @@
 <template>
     <div
+        id="menu-desktop"
         class="uk-height-viewport uk-flex uk-flex-column uk-flex-middle"
-        :class="{ 'collapse-text': collapseText }"
-        style="transition: width 400ms; padding: 32px 24px; height: 100vh;"
-        :style="{ width: collapsed ? '78px' : '291px', backgroundColor: secondaryBackgroundColor }"
+        :class="{ 'collapse-text': collapseText, 'enable-animations': enableAnimations }"
+        style="padding: 32px 24px; height: 100vh;"
+        :style="{
+            width: collapsed ? '78px' : '291px',
+            backgroundColor: secondaryBackgroundColor,
+            transition: enableAnimations ? 'width 400ms' : 'none',
+        }"
     >
         <div
             class="uk-width-1-1 uk-flex uk-flex-middle uk-flex-between"
-            style="margin-bottom: 100px; height: 50px; transition: padding 400ms; padding: 0 14px;"
-            :style="collapseText ? 'padding: 0;' : {}"
+            style="margin-bottom: 100px; height: 50px;"
+            :style="{
+                padding: collapseText ? '0' : '0 26px 0 14px',
+                transition: enableAnimations ? 'padding 400ms;' : '',
+            }"
             :class="{ 'uk-flex uk-flex-center': collapsed }"
         >
-            <div style="transition: padding 400ms; flex: 1 0 30px;" :style="collapseText ? 'padding: 0 8px;' : {}">
+            <div
+                style="flex: 1 0 30px;"
+                :style="{ padding: collapseText ? '0 8px' : '', transition: enableAnimations ? 'padding 400ms;' : '' }"
+            >
                 <font-awesome-icon class="button highlight" @click="toggleCollapsed()" icon="bars" />
             </div>
             <div
                 class="uk-flex uk-flex-middle"
-                style="gap: 16px; transition: transform 300ms, gap 300ms;"
-                :style="collapseText ? 'transform: scale3d(0, 0, 0); gap: 0;' : 'transition-delay: 170ms'"
+                :style="{
+                    transform: collapseText ? 'scale3d(0, 0, 0)' : 'none',
+                    gap: collapseText ? '0' : '16px',
+                    transitionDelay: !collapseText && enableAnimations ? '170ms' : 'none',
+                    transition: enableAnimations ? 'transform 300ms, gap 300ms' : 'none',
+                }"
                 v-if="!hideText"
             >
-                <img src="/img/pipedPlay.svg" :class="{ 'piped-play': !hideText }" />
+                <img
+                    src="/img/pipedPlay.svg"
+                    :class="{ 'piped-play': !hideText, 'enable-animations': enableAnimations }"
+                />
 
                 <img src="/img/piped.svg" />
             </div>
@@ -66,15 +84,17 @@
             class="highlight logout-button button sidebar-link uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"
             :style="{ backgroundColor: backgroundColor }"
             style="border-radius: 9999px; border: none; margin-top: 20px;"
-            @click="logout"
+            @click="logout()"
         >
-            <span v-if="!hideText">Log out</span>
+            <span v-if="!hideText" v-t="'actions.logout'" />
             <font-awesome-icon icon="sign-out-alt" />
         </button>
     </div>
 </template>
 
 <script>
+import { useMenuCollapsed } from "../store";
+
 export default {
     data() {
         return {
@@ -82,28 +102,38 @@ export default {
             hideText: this.collapsed,
         };
     },
-    props: {
-        collapsed: Boolean,
-        toggleCollapsed: Function,
+    setup() {
+        const { menuCollapsed, toggleCollapsed } = useMenuCollapsed();
+        return { collapsed: menuCollapsed, toggleCollapsed };
+    },
+    watch: {
+        collapsed(_collapsed) {
+            if (this.enableAnimations) {
+                if (_collapsed) {
+                    this.collapseText = true;
+                    setTimeout(() => {
+                        this.hideText = true;
+                    }, 450);
+                } else {
+                    this.hideText = false;
+                    setTimeout(() => {
+                        this.collapseText = false;
+                    }, 0);
+                }
+            } else {
+                this.hideText = _collapsed;
+                this.collapseText = _collapsed;
+            }
+        },
     },
     methods: {
         logout() {
             alert("logging out");
         },
     },
-    watch: {
-        collapsed(collapsed) {
-            if (collapsed) {
-                this.collapseText = true;
-                setTimeout(() => {
-                    this.hideText = true;
-                }, 450);
-            } else {
-                this.hideText = false;
-                setTimeout(() => {
-                    this.collapseText = false;
-                }, 0);
-            }
+    computed: {
+        enableAnimations(_this) {
+            return !_this.getPreferenceBoolean("disableAnimations", false);
         },
     },
 };
@@ -146,52 +176,54 @@ export default {
     }
 }
 
-.piped-play {
+#menu-desktop.enable-animations .piped-play {
     animation: bump 300ms ease-in-out;
     animation-delay: 700ms !important;
 }
 @media (prefers-reduced-motion) {
-    .piped-play {
+    #menu-desktop .piped-play {
         animation: none;
     }
 }
 
-.logout-button {
+#menu-desktop .logout-button {
     white-space: nowrap;
 }
 
-.button:hover {
+#menu-desktop .button:hover {
     cursor: pointer;
 }
 
-.highlight {
+#menu-desktop .highlight {
     color: #abb2c6;
 }
 
-.sidebar-link {
+#menu-desktop .sidebar-link {
     gap: 14px !important;
     padding: 10px 12px;
     border-radius: 12px;
+}
+#menu-desktop.enable-animations .sidebar-link {
     transition: padding 400ms, gap 400ms;
 }
 
-.collapse-text .sidebar-link {
+#menu-desktop.collapse-text .sidebar-link {
     padding: 6px;
     gap: 0px !important;
 }
 
-.sidebar-link span {
+#menu-desktop.enable-animations .sidebar-link span {
     transition: font-size 400ms;
 }
 .collapse-text .sidebar-link span {
     font-size: 0;
 }
 
-.highlight:hover,
-.router-link-active {
+#menu-desktop .highlight:hover,
+#menu-desktop .router-link-active {
     color: #fff;
 }
-.router-link-active {
+#menu-desktop .router-link-active {
     background: linear-gradient(to right, #da22ff, #9733ee);
 }
 </style>

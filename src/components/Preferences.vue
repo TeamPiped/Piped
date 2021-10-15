@@ -176,6 +176,16 @@
         <option value="avc">AVC (h.264)</option>
     </select>
     <br />
+    <label for="disableAnimations"><b v-t="'preferences.disable_animations'"/></label>
+    <br />
+    <input
+        id="disableAnimations"
+        v-model="disableAnimations"
+        class="uk-checkbox"
+        type="checkbox"
+        @change="onChange($event)"
+    />
+    <br />
     <label for="chkDisableLBRY"><b v-t="'actions.disable_lbry'"/></label>
     <br />
     <input id="chkDisableLBRY" v-model="disableLBRY" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
@@ -273,6 +283,7 @@ export default {
             enabledCodecs: ["av1", "vp9", "avc"],
             disableLBRY: false,
             proxyLBRY: false,
+            disableAnimations: false,
         };
     },
     activated() {
@@ -361,6 +372,7 @@ export default {
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "av1,vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
+            this.disableAnimations = this.getPreferenceBoolean("disableAnimations", false);
             if (this.selectedLanguage != "en") {
                 try {
                     this.CountryMap = await import("@/utils/CountryMaps/" + this.selectedLanguage + ".json").then(
@@ -414,6 +426,7 @@ export default {
                 localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
                 localStorage.setItem("disableLBRY", this.disableLBRY);
                 localStorage.setItem("proxyLBRY", this.proxyLBRY);
+                localStorage.setItem("disableAnimations", this.disableAnimations);
 
                 if (shouldReload) window.location.reload();
             }

@@ -1,19 +1,20 @@
 <template>
     <div class="uk-flex">
-        <Menu
-            style="flexShrink: 0"
-            :collapsed="menuCollapsed"
-            :toggleCollapsed="() => (menuCollapsed = !menuCollapsed)"
-        />
+        <Menu style="flexShrink: 0" />
         <main
             class="uk-container uk-container-expand"
-            style="height: 100vh; overflow: scroll; flex: 1;"
-            :style="{ background: backgroundColor, colour: foregroundColor, marginTop: isMobile ? '70px' : 0 }"
+            style="overflow-y: scroll; overflow-x: hidden; flex: 1;"
+            :style="{
+                background: backgroundColor,
+                colour: foregroundColor,
+                marginTop: isMobile ? '70px' : 0,
+                height: isMobile ? 'calc(100vh - 70px)' : '100vh',
+            }"
             :class="{ 'uk-light': darkMode }"
         >
             <router-view v-slot="{ Component }">
                 <keep-alive :max="5">
-                    <component :is="Component" :key="$route.fullPath" :menuCollapsed="menuCollapsed" />
+                    <component :is="Component" :key="$route.fullPath" />
                 </keep-alive>
             </router-view>
 
@@ -43,9 +44,6 @@ export default {
     setup() {
         const isMobile = useIsMobile();
         return { isMobile };
-    },
-    data() {
-        return { menuCollapsed: false };
     },
     mounted() {
         if (window.location.pathname === "/" || window.location.pathname.length == 0)

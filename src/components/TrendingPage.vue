@@ -7,7 +7,7 @@
     />
 
     <div class="uk-flex uk-flex-middle uk-flex-between uk-flex-row-reverse" style="padding: 34px 0">
-        <form
+        <div
             class="uk-search"
             :style="{
                 width: isMobile ? '100%' : '35ch',
@@ -18,8 +18,14 @@
                     class="uk-search-input"
                     style="border-radius: 9999px; padding: 12px 18px 12px 40px;"
                     :style="{ backgroundColor: secondaryBackgroundColor }"
-                    type="search"
+                    v-model="searchText"
+                    type="text"
+                    role="search"
+                    :title="$t('actions.search')"
                     :placeholder="$t('actions.search')"
+                    @keyup="onKeyUp"
+                    @focus="onInputFocus"
+                    @blur="onInputBlur"
                 />
                 <font-awesome-icon
                     icon="search"
@@ -27,7 +33,13 @@
                     class="uk-position-center-left uk-position-small"
                 />
             </div>
-        </form>
+        </div>
+        <SearchSuggestions
+            v-show="searchText && suggestionsVisible"
+            ref="searchSuggestions"
+            :search-text="searchText"
+            @searchchange="onSearchTextChange"
+        />
 
         <div
             v-if="!isMobile"
@@ -54,11 +66,13 @@
 
 <script>
 import VideoItem from "@/components/VideoItem.vue";
+import SearchSuggestions from "@/components/SearchSuggestions";
 
 import { useIsMobile } from "../store";
 
 export default {
     components: {
+        SearchSuggestions,
         VideoItem,
     },
     props: {
@@ -71,8 +85,11 @@ export default {
     data() {
         return {
             videos: [],
+            searchText: "",
+            suggestionsVisible: false,
         };
     },
+
     mounted() {
         let region = this.getPreferenceString("region", "US");
 
@@ -90,6 +107,29 @@ export default {
             return await this.fetchJson(this.apiUrl() + "/trending", {
                 region: region || "US",
             });
+        },
+
+        onKeyUp(e) {
+            if (e.key === "Enter") {
+                e.target.blur();
+                this.$router.push({
+                    name: "SearchResults",
+                    query: { search_query: this.searchText },
+                });
+                return;
+            } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+                e.preventDefault();
+            }
+            this.$refs.searchSuggestions.onKeyUp(e);
+        },
+        onInputFocus() {
+            this.suggestionsVisible = true;
+        },
+        onInputBlur() {
+            this.suggestionsVisible = false;
+        },
+        onSearchTextChange(searchText) {
+            this.searchText = searchText;
         },
     },
 };

@@ -1,14 +1,22 @@
 <template>
     <div
+        id="menu-mobile"
         class="uk-flex uk-flex-column uk-flex-middle uk-position-fixed uk-position-top"
-        :class="{ 'uk-height-viewport': !collapsed }"
-        style="padding: 24px 12px; width: 100vw; box-sizing: border-box; z-index: 9999; transition: min-height 40ms, height 400ms; overflow: hidden;"
-        :style="{ backgroundColor: secondaryBackgroundColor, minHeight: 0, height: !collapsed ? '70px' : '100vh' }"
+        :class="{ 'uk-height-viewport': !collapsed, 'enable-animations': enableAnimations }"
+        style="padding: 24px 12px; width: 100vw; box-sizing: border-box; z-index: 9999; overflow: hidden;"
+        :style="{
+            backgroundColor: secondaryBackgroundColor,
+            minHeight: 0,
+            height: !collapsed ? '70px' : '100vh',
+            transition: enableAnimations ? 'min-height 40ms, height 400ms' : 'none',
+        }"
     >
         <div class="uk-width-1-1 uk-flex uk-flex-middle" style="margin-bottom: 100px; padding: 0 14px; gap: 32px;">
             <div
-                style="transition: padding 500ms, transform 500ms;"
-                :style="collapsed ? 'transform: rotate(90deg)' : {}"
+                :style="{
+                    transform: collapsed ? 'rotate(90deg)' : 'none',
+                    transition: enableAnimations ? 'padding 500ms, transform 500ms' : 'none',
+                }"
             >
                 <font-awesome-icon class="button highlight" @click="toggleCollapsed()" icon="bars" />
             </div>
@@ -56,35 +64,30 @@
             class="highlight logout-button button sidebar-link uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"
             :style="{ backgroundColor: backgroundColor }"
             style="border-radius: 9999px; border: none; margin-top: 20px;"
-            @click="logout"
+            @click="logout()"
         >
-            <span v-t="'actions.logout'">Log out</span>
+            <span v-t="'actions.logout'" />
             <font-awesome-icon icon="sign-out-alt" />
         </button>
     </div>
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            collapseText: false,
-            hideText: false,
-        };
-    },
-    props: {
-        collapsed: Boolean,
-        toggleCollapsed: Function,
+import { useMenuCollapsed } from "../store";
 
-        searchText: String,
-        onKeyUp: Function,
-        onInputFocus: Function,
-        onInputBlur: Function,
-        onSearchTextChange: Function,
+export default {
+    setup() {
+        const { menuCollapsed, toggleCollapsed } = useMenuCollapsed();
+        return { collapsed: menuCollapsed, toggleCollapsed };
     },
     methods: {
         logout() {
             alert("logging out");
+        },
+    },
+    computed: {
+        enableAnimations(_this) {
+            return !_this.getPreferenceBoolean("disableAnimations", false);
         },
     },
 };
@@ -127,46 +130,48 @@ export default {
     }
 }
 
-.piped-play {
+#menu-mobile.enable-animations .piped-play {
     animation: bump 300ms ease-in-out 500ms;
 }
 @media (prefers-reduced-motion) {
-    .piped-play {
+    #menu-mobile .piped-play {
         animation: none;
     }
 }
 
-.logout-button {
+#menu-mobile .logout-button {
     white-space: nowrap;
 }
 
-.button:hover {
+#menu-mobile .button:hover {
     cursor: pointer;
 }
 
-.highlight {
+#menu-mobile .highlight {
     color: #abb2c6;
 }
 
-.sidebar-link {
+#menu-mobile .sidebar-link {
     gap: 14px !important;
     padding: 10px 12px;
     border-radius: 12px;
-    transition: padding 500ms, gap 500ms;
+}
+#menu-mobile.enable-animations .sidebar-link {
+    transition: padding 400ms, gap 400ms;
 }
 
-.sidebar-link span {
+#menu-mobile.enable-animations .sidebar-link span {
     transition: font-size 500ms, padding 500ms;
 }
-.collapse-text .sidebar-link span {
+#menu-mobile.collapse-text .sidebar-link span {
     font-size: 0;
 }
 
-.highlight:hover,
-.router-link-active {
+#menu-mobile .highlight:hover,
+#menu-mobile .router-link-active {
     color: #fff;
 }
-.router-link-active {
+#menu-mobile .router-link-active {
     background: linear-gradient(to right, #da22ff, #9733ee);
 }
 </style>
