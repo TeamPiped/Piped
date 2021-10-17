@@ -59,7 +59,7 @@
                     :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
                     class="uk-margin-small-left uk-button uk-button-small"
                 >
-                    <font-awesome-icon icon="headphones"></font-awesome-icon>
+                    <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'"></font-awesome-icon>
                 </router-link>
             </div>
 
