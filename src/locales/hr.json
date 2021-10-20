@@ -84,5 +84,8 @@
     "login": {
         "password": "Lozinka",
         "username": "Korisničko ime"
+    },
+    "search": {
+        "did_you_mean": "Možda misliš: "
     }
 }
