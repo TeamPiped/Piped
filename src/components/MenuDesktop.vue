@@ -35,12 +35,16 @@
                 }"
                 v-if="!hideText"
             >
-                <img
-                    src="/img/pipedPlay.svg"
-                    :class="{ 'piped-play': !hideText, 'enable-animations': enableAnimations }"
-                />
+                <router-link to="/" style="background: none !important;">
+                    <img
+                        src="/img/pipedPlay.svg"
+                        :class="{ 'piped-play': !hideText, 'enable-animations': enableAnimations }"
+                    />
+                </router-link>
 
-                <img src="/img/piped.svg" />
+                <router-link to="/" style="background: none !important;">
+                    <img src="/img/piped.svg" />
+                </router-link>
             </div>
         </div>
 
