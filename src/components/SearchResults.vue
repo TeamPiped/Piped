@@ -30,12 +30,12 @@
         </i>
     </div>
 
-    <div v-if="results" class="uk-grid-xl" uk-grid="parallax: 0">
+    <div v-if="results" class="uk-grid-xl" uk-grid="parallax: 0" style="padding-left: 25px;">
         <div
             v-for="result in results.items"
             :key="result.url"
-            :style="[{ background: backgroundColor }]"
-            class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
+            :style="[{ background: backgroundColor, paddingLeft: '15px' }]"
+            class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-4@l uk-width-1-5@xl"
         >
             <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
             <div v-if="!shouldUseVideoItem(result)" class="uk-text-secondary">

@@ -5,7 +5,7 @@
         :class="{ 'collapse-text': collapseText, 'enable-animations': enableAnimations }"
         style="padding: 32px 24px; height: 100vh;"
         :style="{
-            width: collapsed ? '78px' : '291px',
+            width: collapsed ? '78px' : '270px',
             backgroundColor: secondaryBackgroundColor,
             transition: enableAnimations ? 'width 400ms' : 'none',
         }"

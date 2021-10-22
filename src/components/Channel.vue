@@ -21,10 +21,11 @@
 
         <hr />
 
-        <div class="uk-grid-xl" uk-grid="parallax: 0">
+        <div class="uk-grid-xl" uk-grid="parallax: 0" style="padding-left: 25px;">
             <div
                 v-for="video in channel.relatedStreams"
                 :key="video.url"
+                style="padding-left: 15px;"
                 class="uk-width-1-2 uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl"
             >
                 <VideoItem :video="video" height="94" width="168" hide-channel />
