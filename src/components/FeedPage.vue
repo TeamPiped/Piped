@@ -1,30 +1,68 @@
 <template>
-    <h1 v-t="'titles.feed'" class="uk-text-bold uk-text-center" />
+    <h1
+        v-if="isMobile"
+        v-t="'titles.trending'"
+        style="margin-bottom: 0; padding-top: 34px; font-weight: bold;"
+        class="uk-heading-small"
+    />
 
-    <button
-        v-if="authenticated"
-        class="uk-button uk-button-small"
-        style="background: #222; margin-right: 0.5rem"
-        type="button"
-        @click="exportHandler"
-    >
-        <router-link to="/subscriptions">
-            Subscriptions
-        </router-link>
-    </button>
+    <div class="uk-flex uk-flex-middle uk-flex-between uk-flex-row-reverse" style="padding: 34px 0">
+        <div
+            class="uk-search"
+            :style="{
+                width: isMobile ? '100%' : '35ch',
+            }"
+        >
+            <div class="uk-position-relative">
+                <input
+                    class="uk-search-input"
+                    style="border-radius: 9999px; padding: 12px 18px 12px 40px;"
+                    :style="{ backgroundColor: secondaryBackgroundColor }"
+                    v-model="searchText"
+                    type="text"
+                    role="search"
+                    :title="$t('actions.search')"
+                    :placeholder="$t('actions.search')"
+                    @keyup="onKeyUp"
+                    @focus="onInputFocus"
+                    @blur="onInputBlur"
+                />
+                <font-awesome-icon
+                    icon="search"
+                    style="position: absolute; x: 0px; y: 0px;"
+                    class="uk-position-center-left uk-position-small"
+                />
+            </div>
+            <span class="uk-align-right@m">
+                <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
+                <select id="ddlSortBy" v-model="selectedSort" class="uk-select uk-width-auto" @change="onChange()">
+                    <option v-t="'actions.most_recent'" value="descending" />
+                    <option v-t="'actions.least_recent'" value="ascending" />
+                    <option v-t="'actions.channel_name_asc'" value="channel_ascending" />
+                    <option v-t="'actions.channel_name_desc'" value="channel_descending" />
+                </select>
+            </span>
+        </div>
+        <SearchSuggestions
+            v-show="searchText && suggestionsVisible"
+            ref="searchSuggestions"
+            :search-text="searchText"
+            @searchchange="onSearchTextChange"
+        />
+
+        <div
+            v-if="!isMobile"
+            class="uk-flex uk-flex-middle"
+            style="gap: 16px; transition: transform 400ms; transform-origin: left;"
+            :style="!menuCollapsed ? 'transform: scale3d(0, 0, 0);' : {}"
+        >
+            <img src="/img/pipedPlay.svg" style="height: 36px;" />
+            <img src="/img/piped.svg" />
+        </div>
+    </div>
 
     <span>
         <a :href="getRssUrl"><font-awesome-icon icon="rss" style="padding-top: 0.2rem"></font-awesome-icon></a>
-    </span>
-
-    <span class="uk-align-right@m">
-        <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
-        <select id="ddlSortBy" v-model="selectedSort" class="uk-select uk-width-auto" @change="onChange()">
-            <option v-t="'actions.most_recent'" value="descending" />
-            <option v-t="'actions.least_recent'" value="ascending" />
-            <option v-t="'actions.channel_name_asc'" value="channel_ascending" />
-            <option v-t="'actions.channel_name_desc'" value="channel_descending" />
-        </select>
     </span>
 
     <hr />
@@ -43,9 +81,11 @@
 
 <script>
 import VideoItem from "@/components/VideoItem.vue";
+import SearchSuggestions from "@/components/SearchSuggestions";
 
 export default {
     components: {
+        SearchSuggestions,
         VideoItem,
     },
     data() {
@@ -55,6 +95,8 @@ export default {
             videosStore: [],
             videos: [],
             selectedSort: "descending",
+            searchText: "",
+            suggestionsVisible: false,
         };
     },
     computed: {
@@ -111,6 +153,28 @@ export default {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loadMoreVideos();
             }
+        },
+        onKeyUp(e) {
+            if (e.key === "Enter") {
+                e.target.blur();
+                this.$router.push({
+                    name: "SearchResults",
+                    query: { search_query: this.searchText },
+                });
+                return;
+            } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+                e.preventDefault();
+            }
+            this.$refs.searchSuggestions.onKeyUp(e);
+        },
+        onInputFocus() {
+            this.suggestionsVisible = true;
+        },
+        onInputBlur() {
+            this.suggestionsVisible = false;
+        },
+        onSearchTextChange(searchText) {
+            this.searchText = searchText;
         },
     },
 };

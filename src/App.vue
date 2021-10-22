@@ -18,14 +18,15 @@
                 </keep-alive>
             </router-view>
 
-            <div style="text-align: center">
+            <div
+                style="text-align: center; position: fixed; bottom: 0px; right: 0px; background: linear-gradient(to right, #da22ff, #9733ee); padding: 10px 15px; -webkit-border-top-left-radius: 15px; -moz-border-radius-topleft: 15px; border-top-left-radius: 15px;"
+            >
                 <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
                     <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
                 </a>
                 &nbsp;
                 <a href="https://github.com/TeamPiped/Piped#donations">
                     <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
-                    {{ $t("actions.donations") }}
                 </a>
             </div>
         </main>
