@@ -33,16 +33,6 @@
             </div>
         </router-link>
 
-        <div class="uk-align-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
-            <router-link
-                :to="video.url + '&listen=1'"
-                :aria-label="'Listen to ' + video.title"
-                :title="'Listen to ' + video.title"
-            >
-                <font-awesome-icon icon="headphones"></font-awesome-icon>
-            </router-link>
-        </div>
-
         <div style="display: flex; flex-flow: row; height: 15%">
             <router-link class="uk-link-muted" :to="video.uploaderUrl">
                 <img
@@ -55,32 +45,34 @@
                 />
             </router-link>
 
-            <div style="width: calc(100% - 32px - 8px);">
+            <div style="width: calc(100% - 32px - 8px);" :style="{ marginLeft: viewsMargin() }">
                 <router-link
                     v-if="video.uploaderUrl && video.uploaderName && !hideChannel"
                     class="uk-link-muted uk-overflow-hidden"
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
-                    style="display:block; width: 90%"
+                    style="display:block; width: 90%; color: #ABB2C6; font-size: 14px; line-height: 18px;"
                 >
                     {{ video.uploaderName }}&thinsp;<font-awesome-icon
+                        :style="[{ marginLeft: '7px' }]"
                         v-if="video.uploaderVerified"
                         icon="check"
                     ></font-awesome-icon>
                 </router-link>
 
-                <b v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
-                    <span v-if="video.views >= 0">
-                        <font-awesome-icon icon="eye"></font-awesome-icon>
-                        {{ numberFormat(video.views) }} •
-                    </span>
+                <span
+                    v-if="video.views >= 0 || video.uploadedDate"
+                    class="uk-text-small"
+                    style="color: #ABB2C6; font-size: 13px;"
+                >
+                    <span v-if="video.views >= 0"> {{ numberFormat(video.views) }} •&nbsp; </span>
                     <span v-if="video.uploadedDate">
                         {{ video.uploadedDate }}
                     </span>
                     <span v-if="video.uploaded">
                         {{ timeAgo(video.uploaded) }}
                     </span>
-                </b>
+                </span>
             </div>
         </div>
     </div>
@@ -98,6 +90,15 @@ export default {
         height: { type: String, default: "118" },
         width: { type: String, default: "210" },
         hideChannel: { type: Boolean, default: false },
+    },
+    methods: {
+        viewsMargin() {
+            if (this.video.uploaderUrl && this.video.uploaderName && !this.hideChannel) {
+                return "10px";
+            } else {
+                return "0px";
+            }
+        },
     },
 };
 </script>
