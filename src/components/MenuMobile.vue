@@ -82,7 +82,8 @@ export default {
     },
     methods: {
         logout() {
-            alert("logging out");
+            this.removePreference("authToken" + this.hashCode(this.apiUrl()));
+            window.location = "/"; // done to bypass cache
         },
     },
     computed: {

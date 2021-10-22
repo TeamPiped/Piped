@@ -114,6 +114,9 @@ const mixin = {
         setPreference(key, value) {
             if (localStorage) localStorage.setItem(key, value);
         },
+        removePreference(key) {
+            if (localStorage) localStorage.removeItem(key);
+        },
         getPreferenceBoolean(key, defaultVal) {
             var value;
             if (

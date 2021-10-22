@@ -60,13 +60,13 @@
                         <span v-if="!hideText" v-t="'titles.trending'" />
                     </router-link>
                 </li>
-                <li>
+                <li v-if="authenticated">
                     <router-link to="/feed" class="highlight sidebar-link uk-flex">
                         <font-awesome-icon icon="rss" />
                         <span v-if="!hideText" v-t="'titles.feed'" />
                     </router-link>
                 </li>
-                <li>
+                <li v-if="authenticated">
                     <router-link to="/subscriptions" class="highlight sidebar-link uk-flex">
                         <font-awesome-icon icon="heart" />
                         <span v-if="!hideText" v-t="'titles.subscriptions'" />
@@ -132,7 +132,8 @@ export default {
     },
     methods: {
         logout() {
-            alert("logging out");
+            this.removePreference("authToken" + this.hashCode(this.apiUrl()));
+            window.location = "/"; // done to bypass cache
         },
     },
     computed: {

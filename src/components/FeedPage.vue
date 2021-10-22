@@ -70,6 +70,19 @@
         >
             <VideoItem :video="video" />
         </div>
+
+        <div
+            v-if="videos.length == 0 && !loading"
+            class="uk-text-center"
+            style="text-align: center; width: 100%; margin-top: 10%;"
+        >
+            <img width="210" src="/img/feed-no-video.png" />
+            <h3 style="font-family: MontserratBold;">No videos in My feed yet</h3>
+            <p class="uk-text-center" style="line-height: 21px;">
+                Subscribe to channels to be<br />
+                the first to see new videos.
+            </p>
+        </div>
     </div>
 </template>
 
@@ -85,6 +98,7 @@ export default {
     data() {
         return {
             currentVideoCount: 0,
+            loading: true,
             videoStep: 100,
             videosStore: [],
             videos: [],
@@ -100,6 +114,7 @@ export default {
     },
     mounted() {
         this.fetchFeed().then(videos => {
+            this.loading = false;
             this.videosStore = videos;
             this.loadMoreVideos();
             this.updateWatched(this.videos);
