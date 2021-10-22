@@ -61,12 +61,6 @@
         </div>
     </div>
 
-    <span>
-        <a :href="getRssUrl"><font-awesome-icon icon="rss" style="padding-top: 0.2rem"></font-awesome-icon></a>
-    </span>
-
-    <hr />
-
     <div class="uk-grid-xl" uk-grid="parallax: 0" style="padding-left: 25px;">
         <div
             v-for="video in videos"
