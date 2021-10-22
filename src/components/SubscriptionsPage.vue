@@ -1,6 +1,4 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">{{ $t("titles.subscriptions") }}</h1>
-
     <div style="text-align: center">
         <button
             v-if="authenticated"
@@ -23,7 +21,6 @@
             {{ $t("actions.export_to_json") }}
         </button>
     </div>
-    <hr />
 
     <div v-for="subscription in subscriptions" :key="subscription.url" style="text-align: center;">
         <div class="uk-text-primary" :style="[{ background: backgroundColor }]">

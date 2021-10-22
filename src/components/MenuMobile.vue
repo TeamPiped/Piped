@@ -35,13 +35,13 @@
                         <span v-t="'titles.trending'" />
                     </router-link>
                 </li>
-                <li>
+                <li v-if="authenticated">
                     <router-link to="/feed" @click="toggleCollapsed()" class="highlight sidebar-link uk-flex">
                         <font-awesome-icon icon="rss" />
                         <span v-t="'titles.feed'" />
                     </router-link>
                 </li>
-                <li>
+                <li v-if="authenticated">
                     <router-link to="/subscriptions" @click="toggleCollapsed()" class="highlight sidebar-link uk-flex">
                         <font-awesome-icon icon="heart" />
                         <span v-t="'titles.subscriptions'" />
