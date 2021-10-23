@@ -33,13 +33,13 @@
                     class="uk-position-center-left uk-position-small"
                 />
             </div>
+            <SearchSuggestions
+                v-show="searchText && suggestionsVisible"
+                ref="searchSuggestions"
+                :search-text="searchText"
+                @searchchange="onSearchTextChange"
+            />
         </div>
-        <SearchSuggestions
-            v-show="searchText && suggestionsVisible"
-            ref="searchSuggestions"
-            :search-text="searchText"
-            @searchchange="onSearchTextChange"
-        />
 
         <div
             v-if="!isMobile"

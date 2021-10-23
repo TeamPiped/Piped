@@ -1,8 +1,15 @@
 <template>
+    <h1
+        v-if="isMobile"
+        v-t="'titles.subscriptions'"
+        style="margin-bottom: 0; padding-top: 34px; font-weight: bold;"
+        class="uk-heading-small"
+    />
     <div class="uk-flex uk-flex-middle uk-flex-between uk-flex-row-reverse" style="padding: 34px 0">
         <div
             class="uk-search"
             :style="{
+                float: isMobile ? 'none' : 'right',
                 width: isMobile ? '100%' : '35ch',
             }"
         >
@@ -24,6 +31,12 @@
                     icon="search"
                     style="position: absolute; x: 0px; y: 0px;"
                     class="uk-position-center-left uk-position-small"
+                />
+                <SearchSuggestions
+                    v-show="searchText && suggestionsVisible"
+                    ref="searchSuggestions"
+                    :search-text="searchText"
+                    @searchchange="onSearchTextChange"
                 />
             </div>
             <div style="text-align: center">
@@ -49,12 +62,6 @@
                 </button>
             </div>
         </div>
-        <SearchSuggestions
-            v-show="searchText && suggestionsVisible"
-            ref="searchSuggestions"
-            :search-text="searchText"
-            @searchchange="onSearchTextChange"
-        />
 
         <div
             v-if="!isMobile"
@@ -105,11 +112,17 @@
 </template>
 
 <script>
+import SearchSuggestions from "@/components/SearchSuggestions";
+
 export default {
+    components: {
+        SearchSuggestions,
+    },
     data() {
         return {
             subscriptions: [],
             loading: true,
+            searchText: "",
         };
     },
     mounted() {
@@ -179,6 +192,28 @@ export default {
             elem.download = "subscriptions.json";
             elem.click();
             elem.remove();
+        },
+        onKeyUp(e) {
+            if (e.key === "Enter") {
+                e.target.blur();
+                this.$router.push({
+                    name: "SearchResults",
+                    query: { search_query: this.searchText },
+                });
+                return;
+            } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+                e.preventDefault();
+            }
+            this.$refs.searchSuggestions.onKeyUp(e);
+        },
+        onInputFocus() {
+            this.suggestionsVisible = true;
+        },
+        onInputBlur() {
+            this.suggestionsVisible = false;
+        },
+        onSearchTextChange(searchText) {
+            this.searchText = searchText;
         },
     },
 };

@@ -1,19 +1,25 @@
 <template>
     <h1
         v-if="isMobile"
-        v-t="'titles.trending'"
+        v-t="'titles.feed'"
         style="margin-bottom: 0; padding-top: 34px; font-weight: bold;"
         class="uk-heading-small"
     />
 
-    <div class="uk-flex uk-flex-middle uk-flex-between uk-flex-row-reverse" style="padding: 34px 0">
+    <div class="" style="padding: 34px 0">
         <div
             class="uk-search"
             :style="{
-                width: isMobile ? '100%' : '35ch',
+                width: '100%',
             }"
         >
-            <div class="uk-position-relative">
+            <div
+                class="uk-position-relative"
+                :style="{
+                    float: isMobile ? 'none' : 'right',
+                    width: isMobile ? '100%' : '35ch',
+                }"
+            >
                 <input
                     class="uk-search-input"
                     style="border-radius: 9999px; padding: 12px 18px 12px 40px;"
@@ -32,9 +38,29 @@
                     style="position: absolute; x: 0px; y: 0px;"
                     class="uk-position-center-left uk-position-small"
                 />
+                <SearchSuggestions
+                    v-show="searchText && suggestionsVisible"
+                    ref="searchSuggestions"
+                    :search-text="searchText"
+                    @searchchange="onSearchTextChange"
+                />
             </div>
-            <span class="uk-align-right@m">
-                <select id="ddlSortBy" v-model="selectedSort" class="uk-select uk-width-auto" @change="onChange()">
+            <span
+                class="uk-align-right@m"
+                :style="{
+                    float: isMobile ? 'none' : 'right',
+                    marginRight: isMobile ? '0px' : '20px',
+                }"
+            >
+                <select
+                    id="ddlSortBy"
+                    v-model="selectedSort"
+                    class="uk-select uk-width-auto"
+                    @change="onChange()"
+                    :style="{
+                        width: isMobile ? '100%' : 'auto',
+                    }"
+                >
                     <option v-t="'actions.most_recent'" value="descending" />
                     <option v-t="'actions.least_recent'" value="ascending" />
                     <option v-t="'actions.channel_name_asc'" value="channel_ascending" />
@@ -42,12 +68,6 @@
                 </select>
             </span>
         </div>
-        <SearchSuggestions
-            v-show="searchText && suggestionsVisible"
-            ref="searchSuggestions"
-            :search-text="searchText"
-            @searchchange="onSearchTextChange"
-        />
 
         <div
             v-if="!isMobile"

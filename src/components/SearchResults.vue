@@ -1,25 +1,68 @@
 <template>
-    <h1 class="uk-text-center">
-        {{ $route.query.search_query }}
-    </h1>
-
-    <label for="ddlSearchFilters"
-        ><b>{{ $t("actions.filter") }}: </b></label
-    >
-    <select
-        id="ddlSearchFilters"
-        v-model="selectedFilter"
-        default="all"
-        class="uk-select uk-width-auto"
-        style="height: 100%"
-        @change="updateResults()"
-    >
-        <option v-for="filter in availableFilters" :key="filter" :value="filter">
-            {{ filter.replace("_", " ") }}
-        </option>
-    </select>
-
-    <hr />
+    <div class="" style="padding: 34px 0">
+        <div
+            class="uk-search"
+            :style="{
+                width: '100%',
+            }"
+        >
+            <div
+                class="uk-position-relative"
+                :style="{
+                    float: isMobile ? 'none' : 'right',
+                    width: isMobile ? '100%' : '35ch',
+                }"
+            >
+                <input
+                    class="uk-search-input"
+                    style="border-radius: 9999px; padding: 12px 18px 12px 40px;"
+                    :style="{ backgroundColor: secondaryBackgroundColor }"
+                    v-model="searchText"
+                    type="text"
+                    role="search"
+                    :title="$t('actions.search')"
+                    :placeholder="$t('actions.search')"
+                    @keyup="onKeyUp"
+                    @focus="onInputFocus"
+                    @blur="onInputBlur"
+                />
+                <font-awesome-icon
+                    icon="search"
+                    style="position: absolute; x: 0px; y: 0px;"
+                    class="uk-position-center-left uk-position-small"
+                />
+                <SearchSuggestions
+                    v-show="searchText && suggestionsVisible"
+                    ref="searchSuggestions"
+                    :search-text="searchText"
+                    @searchchange="onSearchTextChange"
+                />
+            </div>
+            <span
+                class="uk-align-right@m"
+                :style="{
+                    float: isMobile ? 'none' : 'right',
+                    marginRight: isMobile ? '0px' : '20px',
+                }"
+            >
+                <select
+                    id="ddlSearchFilters"
+                    v-model="selectedFilter"
+                    default="all"
+                    class="uk-select uk-width-auto"
+                    style="height: 100%"
+                    @change="updateResults()"
+                    :style="{
+                        width: isMobile ? '100%' : 'auto',
+                    }"
+                >
+                    <option v-for="filter in availableFilters" :key="filter" :value="filter">
+                        {{ filter.replace("_", " ") }}
+                    </option>
+                </select>
+            </span>
+        </div>
+    </div>
 
     <div v-if="results && results.corrected" style="height: 7vh">
         {{ $t("search.did_you_mean") }}
@@ -73,9 +116,11 @@
 
 <script>
 import VideoItem from "@/components/VideoItem.vue";
+import SearchSuggestions from "@/components/SearchSuggestions";
 
 export default {
     components: {
+        SearchSuggestions,
         VideoItem,
     },
     data() {
@@ -92,6 +137,7 @@ export default {
                 "music_playlists",
             ],
             selectedFilter: "all",
+            searchText: this.$route.query.search_query,
         };
     },
     mounted() {
@@ -135,6 +181,28 @@ export default {
         },
         shouldUseVideoItem(item) {
             return item.title;
+        },
+        onKeyUp(e) {
+            if (e.key === "Enter") {
+                e.target.blur();
+                this.$router.push({
+                    name: "SearchResults",
+                    query: { search_query: this.searchText },
+                });
+                return;
+            } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+                e.preventDefault();
+            }
+            this.$refs.searchSuggestions.onKeyUp(e);
+        },
+        onInputFocus() {
+            this.suggestionsVisible = true;
+        },
+        onInputBlur() {
+            this.suggestionsVisible = false;
+        },
+        onSearchTextChange(searchText) {
+            this.searchText = searchText;
         },
     },
 };

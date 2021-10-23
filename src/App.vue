@@ -129,4 +129,16 @@ b {
 main {
     background-color: #1d2438;
 }
+
+.uk-select {
+    background-color: #30354b !important;
+    -webkit-border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+    border-radius: 20px !important;
+    height: auto !important;
+    padding: 12px 50px 12px 30px !important;
+    background-image: url("/img/arrow-down.png") !important;
+    background-size: 30px !important;
+    background-position: calc(100% - 15px) 11px !important;
+}
 </style>
