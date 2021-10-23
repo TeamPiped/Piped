@@ -83,7 +83,8 @@
         "videos": "Videos",
         "views": "views",
         "watched": "Watched",
-        "sponsor_segments": "Sponsors Segments"
+        "sponsor_segments": "Sponsors Segments",
+        "ratings_disabled": "Ratings Disabled"
     },
     "search": {
         "did_you_mean": "Did you mean: "
