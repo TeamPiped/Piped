@@ -77,10 +77,10 @@
             style="text-align: center; width: 100%; margin-top: 10%;"
         >
             <img width="210" src="/img/feed-no-video.png" />
-            <h3 style="font-family: MontserratBold;">No videos in My feed yet</h3>
+            <h3 style="font-family: MontserratBold;">{{ $t("actions.subscribe_to_channels_title") }}</h3>
             <p class="uk-text-center" style="line-height: 21px;">
-                Subscribe to channels to be<br />
-                the first to see new videos.
+                {{ $t("actions.subscribe_to_channels_1") }}<br />
+                {{ $t("actions.subscribe_to_channels_2") }}
             </p>
         </div>
     </div>
