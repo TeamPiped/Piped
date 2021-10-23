@@ -77,10 +77,10 @@
             style="text-align: center; width: 100%; margin-top: 10%;"
         >
             <img width="210" src="/img/feed-no-video.png" />
-            <h3 style="font-family: MontserratBold;">{{ $t("actions.subscribe_to_channels_title") }}</h3>
+            <h3 style="font-family: MontserratBold;">{{ $t("actions.no_videos_in_feed_title") }}</h3>
             <p class="uk-text-center" style="line-height: 21px;">
-                {{ $t("actions.subscribe_to_channels_1") }}<br />
-                {{ $t("actions.subscribe_to_channels_2") }}
+                {{ $t("actions.no_videos_in_feed_1") }}<br />
+                {{ $t("actions.no_videos_in_feed_2") }}
             </p>
         </div>
     </div>

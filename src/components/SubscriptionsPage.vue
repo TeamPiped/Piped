@@ -1,25 +1,70 @@
 <template>
-    <div style="text-align: center">
-        <button
-            v-if="authenticated"
-            class="uk-button uk-button-small"
-            style="background: #222; margin-right: 0.5rem"
-            type="button"
+    <div class="uk-flex uk-flex-middle uk-flex-between uk-flex-row-reverse" style="padding: 34px 0">
+        <div
+            class="uk-search"
+            :style="{
+                width: isMobile ? '100%' : '35ch',
+            }"
         >
-            <router-link to="/import">
-                {{ $t("actions.import_from_json") }}
-            </router-link>
-        </button>
+            <div class="uk-position-relative">
+                <input
+                    class="uk-search-input"
+                    style="border-radius: 9999px; padding: 12px 18px 12px 40px;"
+                    :style="{ backgroundColor: secondaryBackgroundColor }"
+                    v-model="searchText"
+                    type="text"
+                    role="search"
+                    :title="$t('actions.search')"
+                    :placeholder="$t('actions.search')"
+                    @keyup="onKeyUp"
+                    @focus="onInputFocus"
+                    @blur="onInputBlur"
+                />
+                <font-awesome-icon
+                    icon="search"
+                    style="position: absolute; x: 0px; y: 0px;"
+                    class="uk-position-center-left uk-position-small"
+                />
+            </div>
+            <div style="text-align: center">
+                <button
+                    v-if="authenticated"
+                    class="uk-button uk-button-small"
+                    style="background: #222; margin-right: 0.5rem"
+                    type="button"
+                >
+                    <router-link to="/import">
+                        {{ $t("actions.import_from_json") }}
+                    </router-link>
+                </button>
 
-        <button
-            v-if="authenticated"
-            class="uk-button uk-button-small"
-            style="background: #222; color: white"
-            type="button"
-            @click="exportHandler"
+                <button
+                    v-if="authenticated"
+                    class="uk-button uk-button-small"
+                    style="background: #222; color: white"
+                    type="button"
+                    @click="exportHandler"
+                >
+                    {{ $t("actions.export_to_json") }}
+                </button>
+            </div>
+        </div>
+        <SearchSuggestions
+            v-show="searchText && suggestionsVisible"
+            ref="searchSuggestions"
+            :search-text="searchText"
+            @searchchange="onSearchTextChange"
+        />
+
+        <div
+            v-if="!isMobile"
+            class="uk-flex uk-flex-middle"
+            style="gap: 16px; transition: transform 400ms; transform-origin: left;"
+            :style="!menuCollapsed ? 'transform: scale3d(0, 0, 0);' : {}"
         >
-            {{ $t("actions.export_to_json") }}
-        </button>
+            <img src="/img/pipedPlay.svg" style="height: 36px;" />
+            <img src="/img/piped.svg" />
+        </div>
     </div>
 
     <div v-for="subscription in subscriptions" :key="subscription.url" style="text-align: center;">
@@ -43,6 +88,19 @@
         </div>
         <br />
     </div>
+
+    <div
+        v-if="subscriptions.length == 0 && !loading"
+        class="uk-text-center"
+        style="text-align: center; width: 100%; margin-top: 10%;"
+    >
+        <img width="210" src="/img/subscriptions-no-channels.png" />
+        <h3 style="font-family: MontserratBold;">{{ $t("actions.no_subscriptions_in_subscriptions_title") }}</h3>
+        <p class="uk-text-center" style="line-height: 21px;">
+            {{ $t("actions.no_subscriptions_in_subscriptions_1") }}<br />
+            {{ $t("actions.no_subscriptions_in_subscriptions_2") }}
+        </p>
+    </div>
     <br />
 </template>
 
@@ -51,6 +109,7 @@ export default {
     data() {
         return {
             subscriptions: [],
+            loading: true,
         };
     },
     mounted() {
@@ -60,6 +119,7 @@ export default {
                     Authorization: this.getAuthToken(),
                 },
             }).then(json => {
+                this.loading = false;
                 this.subscriptions = json;
                 this.subscriptions.forEach(subscription => (subscription.subscribed = true));
             });

@@ -66,9 +66,12 @@
         "search": "Search",
         "filter": "Filter",
         "loading": "Loading...",
-        "subscribe_to_channels_1": "Subscribe to channels to",
-        "subscribe_to_channels_2": "see videos in this section.",
-        "subscribe_to_channels_title": "No videos in My feed yet"
+        "no_videos_in_feed_1": "Subscribe to channels to",
+        "no_videos_in_feed_2": "see videos in this section.",
+        "no_videos_in_feed_title": "No videos in My feed yet",
+        "no_subscriptions_in_subscriptions_1": "Subscribe to channels to",
+        "no_subscriptions_in_subscriptions_2": "to see your subscriptions here.",
+        "no_subscriptions_in_subscriptions_title": "No subscriptions yet"
     },
     "comment": {
         "pinned_by": "Pinned by"
