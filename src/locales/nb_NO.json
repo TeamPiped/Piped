@@ -51,7 +51,8 @@
         "search": "Søk",
         "filter": "Filter",
         "loading": "Laster inn …",
-        "view_ssl_score": "Vis SSL-poengsum"
+        "view_ssl_score": "Vis SSL-poengsum",
+        "minimize_description": "Minimer beskrivelse"
     },
     "player": {
         "watch_on": "Vis på"
@@ -69,7 +70,8 @@
         "sponsor_segments": "Sponsor-segmenter",
         "watched": "Sett",
         "views": "visninger",
-        "videos": "Videoer"
+        "videos": "Videoer",
+        "ratings_disabled": "Vurderinger avskrudd"
     },
     "preferences": {
         "ssl_score": "SSL-poengsum",
