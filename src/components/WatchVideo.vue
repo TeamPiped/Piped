@@ -1,5 +1,6 @@
 <template>
-    <div v-if="video && isEmbed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999">
+    <br />
+    <div v-if="video && isEmbed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999;">
         <Player
             ref="videoPlayer"
             :video="video"
