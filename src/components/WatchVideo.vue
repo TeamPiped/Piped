@@ -144,7 +144,7 @@
                     v-show="showRecs || !smallView"
                     :key="related.url"
                     class="uk-tile-default uk-width-auto"
-                    :style="[{ background: backgroundColor }]"
+                    :style="[{ background: backgroundColor, marginBottom: '17px' }]"
                 >
                     <VideoItem :video="related" height="94" width="168" />
                 </div>
