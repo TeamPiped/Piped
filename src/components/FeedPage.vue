@@ -34,7 +34,6 @@
                 />
             </div>
             <span class="uk-align-right@m">
-                <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
                 <select id="ddlSortBy" v-model="selectedSort" class="uk-select uk-width-auto" @change="onChange()">
                     <option v-t="'actions.most_recent'" value="descending" />
                     <option v-t="'actions.least_recent'" value="ascending" />

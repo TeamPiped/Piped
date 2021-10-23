@@ -59,7 +59,7 @@
             :style="[{ background: backgroundColor, paddingLeft: '15px' }]"
             class="uk-width-1-1 uk-width-1-2@s uk-width-1-4@m uk-width-1-4@l uk-width-1-5@xl"
         >
-            <VideoItem :video="video" height="118" width="10" />
+            <VideoItem :video="video" height="118" width="210" />
         </div>
     </div>
 </template>
