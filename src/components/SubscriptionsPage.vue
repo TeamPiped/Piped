@@ -141,6 +141,18 @@ export default {
                 },
             });
             subscription.subscribed = !subscription.subscribed;
+
+            var notifText;
+            if (this.subscribed) {
+                notifText = this.$t("notifications.notif_subscribe");
+            } else {
+                notifText = this.$t("notifications.notif_unsubscribe");
+            }
+
+            this.$notify({
+                text: notifText,
+                type: "success",
+            });
         },
         exportHandler() {
             const subscriptions = [];

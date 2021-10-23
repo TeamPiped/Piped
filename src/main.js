@@ -59,6 +59,8 @@ const timeAgo = new TimeAgo("en-US");
 
 import("./registerServiceWorker");
 
+import Notifications from "@kyvg/vue3-notification";
+
 const mixin = {
     methods: {
         timeFormat: function(duration) {
@@ -259,6 +261,7 @@ window.i18n = i18n;
 const app = createApp(App);
 app.use(i18n);
 app.use(router);
+app.use(Notifications);
 app.mixin(mixin);
 app.component("FontAwesomeIcon", FontAwesomeIcon);
 app.mount("#app");

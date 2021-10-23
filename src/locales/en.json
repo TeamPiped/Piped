@@ -73,6 +73,10 @@
         "no_subscriptions_in_subscriptions_2": "to see your subscriptions here.",
         "no_subscriptions_in_subscriptions_title": "No subscriptions yet"
     },
+    "notifications": {
+        "notif_subscribe": "Successfully subscribed!",
+        "notif_unsubscribe": "Successfully unsubscribed!"
+    },
     "comment": {
         "pinned_by": "Pinned by"
     },

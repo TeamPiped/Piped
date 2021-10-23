@@ -1,4 +1,5 @@
 <template>
+    <notifications />
     <div class="uk-flex">
         <Menu style="flexShrink: 0" />
         <main
