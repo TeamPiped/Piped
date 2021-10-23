@@ -31,6 +31,10 @@
                 >
             </div>
         </form>
+
+        <router-link to="/login" style="background: none !important;">
+            Login
+        </router-link>
     </div>
 </template>
 

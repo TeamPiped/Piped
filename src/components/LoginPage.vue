@@ -31,6 +31,10 @@
                 </a>
             </div>
         </form>
+
+        <router-link to="/register" style="background: none !important;">
+            Register
+        </router-link>
     </div>
 </template>
 

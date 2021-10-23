@@ -85,12 +85,24 @@
         </router-link>
 
         <button
+            v-if="authenticated"
             class="highlight logout-button button sidebar-link uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"
             :style="{ backgroundColor: backgroundColor }"
             style="border-radius: 9999px; border: none; margin-top: 20px;"
             @click="logout()"
         >
             <span v-if="!hideText" v-t="'actions.logout'" />
+            <font-awesome-icon icon="sign-out-alt" />
+        </button>
+
+        <button
+            v-if="!authenticated"
+            class="highlight logout-button button sidebar-link uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"
+            :style="{ backgroundColor: backgroundColor }"
+            style="border-radius: 9999px; border: none; margin-top: 20px;"
+            @click="openLogin()"
+        >
+            <span v-if="!hideText" v-t="'actions.login_or_register'" />
             <font-awesome-icon icon="sign-out-alt" />
         </button>
     </div>
@@ -134,6 +146,9 @@ export default {
         logout() {
             this.removePreference("authToken" + this.hashCode(this.apiUrl()));
             window.location = "/"; // done to bypass cache
+        },
+        openLogin() {
+            this.$router.push("/login");
         },
     },
     computed: {

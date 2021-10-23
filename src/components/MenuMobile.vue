@@ -21,9 +21,13 @@
                 <font-awesome-icon class="button highlight" @click="toggleCollapsed()" icon="bars" />
             </div>
             <div class="uk-flex uk-flex-middle" style="gap: 12px;" v-if="!hideText">
-                <img src="/img/pipedPlay.svg" style="height: 26px;" />
+                <router-link to="/" style="background: none !important;">
+                    <img src="/img/pipedPlay.svg" style="height: 26px;" />
+                </router-link>
 
-                <img src="/img/piped.svg" style="height: 22px;" />
+                <router-link to="/" style="background: none !important;">
+                    <img src="/img/piped.svg" style="height: 22px;" />
+                </router-link>
             </div>
         </div>
 
@@ -61,12 +65,24 @@
         </router-link>
 
         <button
+            v-if="authenticated"
             class="highlight logout-button button sidebar-link uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"
             :style="{ backgroundColor: backgroundColor }"
             style="border-radius: 9999px; border: none; margin-top: 20px;"
             @click="logout()"
         >
-            <span v-t="'actions.logout'" />
+            <span v-if="!hideText" v-t="'actions.logout'" />
+            <font-awesome-icon icon="sign-out-alt" />
+        </button>
+
+        <button
+            v-if="!authenticated"
+            class="highlight logout-button button sidebar-link uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"
+            :style="{ backgroundColor: backgroundColor }"
+            style="border-radius: 9999px; border: none; margin-top: 20px;"
+            @click="openLogin()"
+        >
+            <span v-if="!hideText" v-t="'actions.login_or_register'" />
             <font-awesome-icon icon="sign-out-alt" />
         </button>
     </div>
@@ -84,6 +100,9 @@ export default {
         logout() {
             this.removePreference("authToken" + this.hashCode(this.apiUrl()));
             window.location = "/"; // done to bypass cache
+        },
+        openLogin() {
+            window.location = "/login"; // done to bypass cache
         },
     },
     computed: {

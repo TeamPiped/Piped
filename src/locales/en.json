@@ -12,6 +12,7 @@
         "watch_on": "Watch on"
     },
     "actions": {
+        "login_or_register": "Log in or Register",
         "logout": "Log out",
         "subscribe": "Subscribe",
         "unsubscribe": "Unsubscribe",
