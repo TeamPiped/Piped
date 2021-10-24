@@ -70,7 +70,8 @@
         "sponsor_segments": "Segments de sponsors",
         "watched": "Regardée",
         "views": "vues",
-        "videos": "Vidéos"
+        "videos": "Vidéos",
+        "ratings_disabled": "Évaluations désactivées"
     },
     "preferences": {
         "ssl_score": "Score SSL",
