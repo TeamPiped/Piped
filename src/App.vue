@@ -29,7 +29,7 @@
                 <a
                     href="https://github.com/TeamPiped/Piped#donations"
                     :aria-label="$t('actions.donations')"
-                    title="$t('actions.donations')"
+                    :title="$t('actions.donations')"
                 >
                     <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
                 </a>
