@@ -70,7 +70,8 @@
         "sponsor_segments": "Sponsorlar Bölümleri",
         "watched": "İzlendi",
         "views": "izlenme",
-        "videos": "Videolar"
+        "videos": "Videolar",
+        "ratings_disabled": "Derecelendirmeler Devre Dışı"
     },
     "preferences": {
         "ssl_score": "SSL Puanı",
