@@ -336,7 +336,7 @@ export default {
                     );
                 });
                 videoEl.volume = this.getPreferenceNumber("volume", 1);
-                videoEl.playbackRate = videoEl.defaultPlaybackRate = this.getPreferenceNumber("rate", 1);
+                player.trickPlay(this.getPreferenceNumber("rate", 1));
             });
         },
         destroy() {
