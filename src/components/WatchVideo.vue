@@ -216,19 +216,29 @@ export default {
     mounted() {
         this.getVideoData().then(() => {
             (async () => {
+                const videoId = this.getVideoId();
+                const instance = this;
                 if (window.db) {
                     var tx = window.db.transaction("watch_history", "readwrite");
                     var store = tx.objectStore("watch_history");
-                    var video = {
-                        videoId: this.getVideoId(),
-                        title: this.video.title,
-                        duration: this.video.duration,
-                        thumbnail: this.video.thumbnailUrl,
-                        uploaderUrl: this.video.uploaderUrl,
-                        uploaderName: this.video.uploader,
-                        watchedAt: Date.now(),
+                    var request = store.get(videoId);
+                    request.onsuccess = function(event) {
+                        var video = event.target.result;
+                        if (video) {
+                            video.watchedAt = Date.now();
+                        } else {
+                            video = {
+                                videoId: videoId,
+                                title: instance.video.title,
+                                duration: instance.video.duration,
+                                thumbnail: instance.video.thumbnailUrl,
+                                uploaderUrl: instance.video.uploaderUrl,
+                                uploaderName: instance.video.uploader,
+                                watchedAt: Date.now(),
+                            };
+                        }
+                        store.put(video);
                     };
-                    store.add(video);
                 }
             })();
             if (this.active) this.$refs.videoPlayer.loadVideo();
