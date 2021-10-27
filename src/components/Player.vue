@@ -31,6 +31,7 @@ export default {
                 return {};
             },
         },
+        videoId: String,
         sponsors: {
             type: Object,
             default: () => {
@@ -45,6 +46,7 @@ export default {
         return {
             $player: null,
             $ui: null,
+            lastUpdate: new Date().getTime(),
         };
     },
     computed: {
@@ -138,7 +140,19 @@ export default {
 
             videoEl.setAttribute("poster", this.video.thumbnailUrl);
 
-            if (this.$route.query.t) videoEl.currentTime = this.$route.query.t;
+            if (this.$route.query.t) {
+                videoEl.currentTime = this.$route.query.t;
+            } else {
+                var tx = window.db.transaction("watch_history", "readonly");
+                var store = tx.objectStore("watch_history");
+                var request = store.get(this.videoId);
+                request.onsuccess = function(event) {
+                    var video = event.target.result;
+                    if (video && video.currentTime) {
+                        videoEl.currentTime = video.currentTime;
+                    }
+                };
+            }
 
             const noPrevPlayer = !this.$player;
 
@@ -226,8 +240,9 @@ export default {
 
             if (noPrevPlayer) {
                 videoEl.addEventListener("timeupdate", () => {
+                    const time = videoEl.currentTime;
+                    this.updateProgressDatabase(time);
                     if (this.sponsors && this.sponsors.segments) {
-                        const time = videoEl.currentTime;
                         this.sponsors.segments.map(segment => {
                             if (!segment.skipped || this.selectedAutoLoop) {
                                 const end = segment.segment[1];
@@ -338,6 +353,24 @@ export default {
                 videoEl.volume = this.getPreferenceNumber("volume", 1);
                 player.trickPlay(this.getPreferenceNumber("rate", 1));
             });
+        },
+        async updateProgressDatabase(time) {
+            // debounce
+            if (new Date().getTime() - this.lastUpdate < 500) return;
+            this.lastUpdate = new Date().getTime();
+
+            if (!this.videoId) return;
+
+            var tx = window.db.transaction("watch_history", "readwrite");
+            var store = tx.objectStore("watch_history");
+            var request = store.get(this.videoId);
+            request.onsuccess = function(event) {
+                var video = event.target.result;
+                if (video) {
+                    video.currentTime = time;
+                    store.put(video);
+                }
+            };
         },
         destroy() {
             if (this.$ui) {

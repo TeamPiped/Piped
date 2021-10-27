@@ -17,6 +17,7 @@
             <Player
                 ref="videoPlayer"
                 :video="video"
+                :video-id="getVideoId()"
                 :sponsors="sponsors"
                 :selected-auto-play="selectedAutoPlay"
                 :selected-auto-loop="selectedAutoLoop"
