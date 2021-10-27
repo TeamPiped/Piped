@@ -12,6 +12,14 @@
             href="<%= BASE_URL %>opensearch.xml"
         />
         <title><%= htmlWebpackPlugin.options.title %></title>
+        <meta property="og:title" content="Piped" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="<%= BASE_URL %>img/icons/favicon-32x32.png" />
+        <meta property="og:url" content="<%= BASE_URL %>" />
+        <meta
+            property="og:description"
+            content="An alternative privacy-friendly YouTube frontend which is efficient by design."
+        />
     </head>
     <body>
         <noscript>
