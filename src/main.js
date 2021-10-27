@@ -225,6 +225,12 @@ const mixin = {
             return "en";
         },
     },
+    data() {
+        return {
+            TimeAgo: TimeAgo,
+            TimeAgoConfig: timeAgo,
+        };
+    },
 };
 
 const i18n = createI18n({
