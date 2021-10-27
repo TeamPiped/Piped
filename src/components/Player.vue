@@ -142,7 +142,7 @@ export default {
 
             if (this.$route.query.t) {
                 videoEl.currentTime = this.$route.query.t;
-            } else {
+            } else if (window.db) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
                 var request = store.get(this.videoId);
@@ -359,7 +359,7 @@ export default {
             if (new Date().getTime() - this.lastUpdate < 500) return;
             this.lastUpdate = new Date().getTime();
 
-            if (!this.videoId) return;
+            if (!this.videoId || !window.db) return;
 
             var tx = window.db.transaction("watch_history", "readwrite");
             var store = tx.objectStore("watch_history");
