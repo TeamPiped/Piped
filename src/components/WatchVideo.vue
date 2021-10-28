@@ -10,7 +10,7 @@
         />
     </div>
 
-    <div v-if="video && !isEmbed" class="uk-container uk-container-xlarge">
+    <div v-if="video && !isEmbed" class="uk-container uk-container-expand">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
