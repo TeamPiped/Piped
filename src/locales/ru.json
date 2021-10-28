@@ -1,0 +1,92 @@
+{
+    "titles": {
+        "trending": "Тренды",
+        "login": "Логин",
+        "register": "Регистрация",
+        "feed": "Подписки",
+        "preferences": "Настройки",
+        "history": "История просмотров",
+        "subscriptions": "Каналы на которые вы подписаны"
+    },
+    "player": {
+        "watch_on": "Смотреть на Ютубе"
+    },
+    "actions": {
+        "subscribe": "Подписаться",
+        "unsubscribe": "Отписаться",
+        "view_subscriptions": "Просмотреть подписки",
+        "sort_by": "Отсортировать по:",
+        "most_recent": "Самые новые",
+        "least_recent": "Самые старые",
+        "channel_name_asc": "Имя канала (A-Z)",
+        "channel_name_desc": "Имя канала (Z-A)",
+        "back": "Назад",
+        "uses_api_from": "Использовать API из ",
+        "enable_sponsorblock": "Включить Sponsorblock",
+        "skip_sponsors": "Пропускать спонсорскую рекламу",
+        "skip_intro": "Пропускать заставку/интро",
+        "skip_outro": "Пропускать концовку/титры",
+        "skip_preview": "Пропускать краткое содержание текущего эпизода или повтор части прошлого",
+        "skip_interaction": "Пропускать просьбы подписаться",
+        "skip_self_promo": "Пропускать саморекламу",
+        "skip_non_music": "Пропускать тишину в музыкальных роликах",
+        "theme": "Тема",
+        "auto": "Авто",
+        "dark": "Тёмная",
+        "light": "Светлая",
+        "autoplay_video": "Автоматическое проигрывание видео",
+        "audio_only": "Только звук",
+        "default_quality": "Качество по умолчанию",
+        "buffering_goal": "Размер буфера видео (в секундах)",
+        "country_selection": "Выбор страны (для трендов)",
+        "default_homepage": "По умолчанию открывать",
+        "show_comments": "Показывать комментарии",
+        "minimize_description_default": "Не разворачивать описание по умолчанию",
+        "store_watch_history": "Хранить историю просмотренных видео",
+        "language_selection": "Выбор языка",
+        "instances_list": "Список копий сервиса Piped",
+        "enabled_codecs": "Включённые кодеки (Можно выбрать несколько)",
+        "instance_selection": "Выбор копии сервиса Piped",
+        "show_more": "Показать больше",
+        "yes": "Да",
+        "no": "Нет",
+        "export_to_json": "Экспорт в JSON",
+        "import_from_json": "Импорт из JSON",
+        "loop_this_video": "Повтор текущего видео",
+        "auto_play_next_video": "Сразу проигрывать следующее рекомендованное видео",
+        "donations": "Пожертвования",
+        "minimize_description": "Свернуть описание",
+        "show_description": "Показать описание",
+        "minimize_recommendations": "Свернуть рекомендации",
+        "show_recommendations": "Показать рекомендации",
+        "disable_lbry": "Disable LBRY for Streaming",
+        "enable_lbry_proxy": "Проксировать видео с LBRY",
+        "view_ssl_score": "Просмотреть SSL Score",
+        "search": "Поиск",
+        "filter": "Фильтр",
+        "loading": "Загрузка..."
+    },
+    "comment": {
+        "pinned_by": "Прикреплено пользователем"
+    },
+    "preferences": {
+        "instance_name": "Название копии сервиса",
+        "instance_locations": "Местонахождение копии сервиса",
+        "has_cdn": "Есть ли CDN",
+        "ssl_score": "SSL Score"
+    },
+    "login": {
+        "username": "Имя аккаунта Piped",
+        "password": "Пароль"
+    },
+    "video": {
+        "videos": "Видео",
+        "views": "просмотров",
+        "watched": "Просмотренное",
+        "sponsor_segments": "Рекламные сегменты",
+        "ratings_disabled": "Оценки отключены"
+    },
+    "search": {
+        "did_you_mean": "Может быть вы имели в виду: "
+    }
+}
