@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-  build-docker-hotspot:
+  build-docker-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.5
