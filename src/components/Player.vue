@@ -51,7 +51,7 @@ export default {
     },
     computed: {
         shouldAutoPlay: _this => {
-            return _this.getPreferenceBoolean("playerAutoPlay", true);
+            return _this.getPreferenceBoolean("playerAutoPlay", true) && !_this.isEmbed;
         },
         preferredVideoCodecs: _this => {
             var preferredVideoCodecs = [];
