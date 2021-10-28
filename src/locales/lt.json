@@ -79,10 +79,14 @@
         "views": "peržiūros",
         "videos": "Vaizdo įrašai",
         "sponsor_segments": "Rėmėjų segmentai",
-        "watched": "Žiūrėta"
+        "watched": "Žiūrėta",
+        "ratings_disabled": "Įvertinimai išjungti"
     },
     "login": {
         "password": "Slaptažodis",
         "username": "Vartotojo vardas"
+    },
+    "search": {
+        "did_you_mean": "Ar turėjote omenyje: "
     }
 }

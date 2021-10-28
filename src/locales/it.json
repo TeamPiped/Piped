@@ -60,7 +60,7 @@
     "titles": {
         "history": "Cronologia",
         "preferences": "Preferenze",
-        "feed": "Abbonammenti",
+        "feed": "Iscrizioni",
         "register": "Registrati",
         "login": "Accedi",
         "trending": "Di tendenza",
@@ -70,7 +70,8 @@
         "sponsor_segments": "Segmenti sponsor",
         "watched": "Guardato",
         "views": "visualizzazioni",
-        "videos": "Video"
+        "videos": "Video",
+        "ratings_disabled": "Valutazioni disabilitate"
     },
     "preferences": {
         "ssl_score": "Valutazione SSL",
@@ -84,5 +85,8 @@
     "login": {
         "password": "Password",
         "username": "Nome utente"
+    },
+    "search": {
+        "did_you_mean": "Forse intendevi: "
     }
 }

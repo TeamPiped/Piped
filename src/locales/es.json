@@ -84,5 +84,8 @@
     "login": {
         "password": "Contraseña",
         "username": "Nombre de usuario"
+    },
+    "search": {
+        "did_you_mean": "¿Quieres decir: "
     }
 }

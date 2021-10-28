@@ -47,7 +47,12 @@
         "no": "Nei",
         "yes": "Ja",
         "show_more": "Vis mer",
-        "instance_selection": "Valg av instans"
+        "instance_selection": "Valg av instans",
+        "search": "Søk",
+        "filter": "Filter",
+        "loading": "Laster inn …",
+        "view_ssl_score": "Vis SSL-poengsum",
+        "minimize_description": "Minimer beskrivelse"
     },
     "player": {
         "watch_on": "Vis på"
@@ -65,7 +70,8 @@
         "sponsor_segments": "Sponsor-segmenter",
         "watched": "Sett",
         "views": "visninger",
-        "videos": "Videoer"
+        "videos": "Videoer",
+        "ratings_disabled": "Vurderinger avskrudd"
     },
     "preferences": {
         "ssl_score": "SSL-poengsum",
@@ -75,5 +81,12 @@
     },
     "comment": {
         "pinned_by": "Festet av"
+    },
+    "login": {
+        "username": "Brukernavn",
+        "password": "Passord"
+    },
+    "search": {
+        "did_you_mean": "Mente du: "
     }
 }

@@ -1,52 +1,52 @@
 {
     "video": {
         "sponsor_segments": "Sponzorski segmenti",
-        "watched": "Pogledano",
-        "views": "pregleda",
+        "watched": "Gledano",
+        "views": "prikaza",
         "videos": "Videozapisi"
     },
     "preferences": {
         "ssl_score": "SSL ocjena",
-        "has_cdn": "Posjeduje CDN?",
-        "instance_locations": "Lokacije instanca",
+        "has_cdn": "Ima CDN?",
+        "instance_locations": "Lokacije instance",
         "instance_name": "Ime instance"
     },
     "comment": {
         "pinned_by": "Prikačio korisnik"
     },
     "actions": {
-        "enable_lbry_proxy": "Uključi proxy za LBRY",
-        "disable_lbry": "Isključi reprodukciju LBRY servisa",
+        "enable_lbry_proxy": "Omogući proxy za LBRY",
+        "disable_lbry": "Onemogući LBRY za prijenos",
         "minimize_description_default": "Uvijek sakrij prikaz opisa",
         "minimize_description": "Sakrij opis",
         "show_description": "Prikaži opis",
         "minimize_recommendations": "Sakrij preporuke",
         "show_recommendations": "Prikaži preporuke",
         "donations": "Donacije",
-        "auto_play_next_video": "Automatski reproduciraj idući videozapis",
-        "loop_this_video": "Ponavljanje videozapisa",
-        "import_from_json": "Uvezi u JSON formatu",
+        "auto_play_next_video": "Automatski reproduciraj idući video",
+        "loop_this_video": "Ponavljaj ovaj video",
+        "import_from_json": "Uvezi iz JSON formata",
         "export_to_json": "Izvezi u JSON",
         "no": "Ne",
         "yes": "Da",
         "show_more": "Prikaži više",
-        "instance_selection": "Izbor instanci",
-        "enabled_codecs": "Omogućeni kodeci",
+        "instance_selection": "Izbor instance",
+        "enabled_codecs": "Omogućeni kodeki (višestruki)",
         "instances_list": "Popis instanci",
         "language_selection": "Izbor jezika",
-        "store_watch_history": "Sačuvaj povijest gledanja",
+        "store_watch_history": "Spremi povijest gledanja",
         "show_comments": "Prikaži komentare",
         "default_homepage": "Zadana glavna stranica",
-        "country_selection": "Izbor države",
+        "country_selection": "Izbor zemlje",
         "buffering_goal": "Cilj međuspremnika (u sekundama)",
         "default_quality": "Zadana kvaliteta",
-        "audio_only": "Samo zvučni zapisi",
+        "audio_only": "Samo zvuk",
         "autoplay_video": "Automatski reproduciraj video",
         "light": "Svijetla",
         "dark": "Tamna",
         "auto": "Automatski",
         "theme": "Tema",
-        "skip_non_music": "Preskoči u glazbi: dijelovi bez glazbe",
+        "skip_non_music": "Preskoči glazbu: dijelovi bez glazbe",
         "skip_self_promo": "Preskoči osobnu promociju",
         "skip_preview": "Preskoči pregled",
         "uses_api_from": "Koristi API od ",
@@ -56,18 +56,18 @@
         "least_recent": "Najstarije",
         "most_recent": "Najnovije",
         "sort_by": "Sortiraj po:",
-        "view_subscriptions": "Pogledaj pretplate",
+        "view_subscriptions": "Prikaži pretplate",
         "unsubscribe": "Otkaži pretplatu",
         "subscribe": "Pretplati se",
-        "skip_interaction": "Preskoči molbu za interakcijom",
+        "skip_interaction": "Preskoči podsjetnik za interakciju (zahtijeva pretplatu)",
         "skip_outro": "Preskoči odjavnu špicu",
-        "skip_intro": "Preskoči uvodne animacije",
+        "skip_intro": "Preskoči pauzu i uvodnu animaciju",
         "skip_sponsors": "Preskoči sponzore",
-        "enable_sponsorblock": "Uključi Sponsorblock",
-        "loading": "Učitavanje …",
+        "enable_sponsorblock": "Uključi blok sponsora",
+        "loading": "Učitavanje …",
         "filter": "Filtar",
         "search": "Pretraga",
-        "view_ssl_score": "Prikažij SSL rezultat"
+        "view_ssl_score": "Prikaži SSL ocjenu"
     },
     "player": {
         "watch_on": "Gledaj na"
@@ -76,7 +76,7 @@
         "subscriptions": "Pretplate",
         "history": "Povijest",
         "preferences": "Postavke",
-        "feed": "Pretplate",
+        "feed": "Novosti",
         "register": "Registracija",
         "login": "Prijava",
         "trending": "U trendu"
@@ -84,5 +84,8 @@
     "login": {
         "password": "Lozinka",
         "username": "Korisničko ime"
+    },
+    "search": {
+        "did_you_mean": "Možda misliš: "
     }
 }
