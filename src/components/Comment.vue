@@ -3,7 +3,7 @@
         <img
             :src="comment.thumbnail"
             class="comment-avatar uk-border-circle uk-margin-right"
-            style="width: 48px; height: 48px;"
+            style="width: 48px; height: 48px"
             loading="lazy"
             alt="Avatar"
         />
@@ -28,7 +28,7 @@
                 {{ comment.commentText }}
             </div>
             <div class="comment-footer uk-margin-small-top uk-text-meta">
-                <font-awesome-icon icon="thumbs-up" style="margin-right: 4px;"></font-awesome-icon>
+                <font-awesome-icon icon="thumbs-up" style="margin-right: 4px"></font-awesome-icon>
                 <span>{{ numberFormat(comment.likeCount) }}</span>
                 &nbsp;
                 <font-awesome-icon v-if="comment.hearted" icon="heart"></font-awesome-icon>

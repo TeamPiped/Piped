@@ -6,20 +6,27 @@
                 <span
                     v-if="video.duration"
                     class="uk-label uk-border-rounded uk-position-absolute video-duration"
-                    style="bottom: 5px; right: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
+                    style="bottom: 5px; right: 5px; background: rgba(0, 0, 0, 0.75); color: white; padding: 0 5px"
                     >{{ timeFormat(video.duration) }}</span
                 >
                 <span
                     v-if="video.watched"
                     class="uk-label uk-border-rounded uk-position-absolute video-duration"
-                    style="bottom: 5px; left: 5px; background: rgba(0, 0, 0, .75); color: white; padding: 0 5px;"
+                    style="bottom: 5px; left: 5px; background: rgba(0, 0, 0, 0.75); color: white; padding: 0 5px"
                     >{{ $t("video.watched") }}</span
                 >
             </div>
 
             <div>
                 <p
-                    style="padding-top: 0.5rem; margin-bottom: 0.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"
+                    style="
+                        padding-top: 0.5rem;
+                        margin-bottom: 0.5rem;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    "
                     :title="video.title"
                 >
                     {{ video.title }}
@@ -45,17 +52,17 @@
                     loading="lazy"
                     :alt="video.uploaderName"
                     class="uk-border-circle"
-                    style="margin-right: 0.5rem; margin-top:0.5rem; width: 32px; height: 32px;"
+                    style="margin-right: 0.5rem; margin-top: 0.5rem; width: 32px; height: 32px"
                 />
             </router-link>
 
-            <div style="width: calc(100% - 32px - 8px);">
+            <div style="width: calc(100% - 32px - 8px)">
                 <router-link
                     v-if="video.uploaderUrl && video.uploaderName && !hideChannel"
                     class="uk-link-muted uk-overflow-hidden"
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
-                    style="display:block; width: 90%"
+                    style="display: block; width: 90%"
                 >
                     {{ video.uploaderName }}&thinsp;<font-awesome-icon
                         v-if="video.uploaderVerified"

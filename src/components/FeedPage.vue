@@ -8,9 +8,7 @@
         type="button"
         @click="exportHandler"
     >
-        <router-link to="/subscriptions">
-            Subscriptions
-        </router-link>
+        <router-link to="/subscriptions"> Subscriptions </router-link>
     </button>
 
     <span>

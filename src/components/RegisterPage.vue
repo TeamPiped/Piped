@@ -1,5 +1,5 @@
 <template>
-    <div class="uk-vertical-align uk-text-center uk-height-1-1 ">
+    <div class="uk-vertical-align uk-text-center uk-height-1-1">
         <form class="uk-panel uk-panel-box">
             <div class="uk-form-row">
                 <input
@@ -14,7 +14,7 @@
             <div class="uk-form-row">
                 <input
                     v-model="password"
-                    class="uk-width-1-1 uk-form-large uk-input  uk-width-auto"
+                    class="uk-width-1-1 uk-form-large uk-input uk-width-auto"
                     type="password"
                     autocomplete="password"
                     :placeholder="$t('login.password')"

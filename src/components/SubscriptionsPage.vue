@@ -25,7 +25,7 @@
     </div>
     <hr />
 
-    <div v-for="subscription in subscriptions" :key="subscription.url" style="text-align: center;">
+    <div v-for="subscription in subscriptions" :key="subscription.url" style="text-align: center">
         <div class="uk-text-primary" :style="[{ background: backgroundColor }]">
             <a :href="subscription.url">
                 <img :src="subscription.avatar" class="uk-margin-small-right uk-border-circle" width="96" height="96" />
