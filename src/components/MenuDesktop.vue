@@ -118,12 +118,24 @@ export default {
             hideText: this.collapsed,
         };
     },
+    mounted() {
+        if (this.getPreferenceBoolean("menuCollapse", false)) {
+            this.collapsed = true;
+            this.hideText = true;
+            this.collapseText = true;
+        } else {
+            this.collapsed = false;
+            this.hideText = false;
+            this.collapseText = false;
+        }
+    },
     setup() {
         const { menuCollapsed, toggleCollapsed } = useMenuCollapsed();
         return { collapsed: menuCollapsed, toggleCollapsed };
     },
     watch: {
         collapsed(_collapsed) {
+            this.setPreference("menuCollapse", _collapsed);
             if (this.enableAnimations) {
                 if (_collapsed) {
                     this.collapseText = true;
