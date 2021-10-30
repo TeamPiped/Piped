@@ -14,7 +14,7 @@
     <div v-if="video && !isEmbed" class="uk-container uk-container-xlarge">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
-        <div v-show="!video.error">
+        <div v-show="!video.error" id="video-and-info">
             <Player
                 ref="videoPlayer"
                 :video="video"
@@ -121,13 +121,15 @@
 
         <div uk-grid>
             <div v-if="comments" ref="comments" class="uk-width-4-5@xl uk-width-3-4@s uk-width-1">
-                <div
-                    v-for="comment in comments.comments"
-                    :key="comment.commentId"
-                    class="uk-tile-default uk-align-left uk-width-expand"
-                    :style="[{ background: backgroundColor }]"
-                >
-                    <Comment :comment="comment" :uploader="video.uploader" />
+                <div id="videos-comments-container">
+                    <div
+                        v-for="comment in comments.comments"
+                        :key="comment.commentId"
+                        class="uk-tile-default uk-width-expand"
+                        :style="[{ background: backgroundColor, textAlign: 'left', marginBottom: '30px' }]"
+                    >
+                        <Comment :comment="comment" :uploader="video.uploader" />
+                    </div>
                 </div>
             </div>
 
@@ -241,14 +243,17 @@ export default {
             document.title = this.video.title + " - Piped";
             this.$refs.videoPlayer.loadVideo();
         }
-        window.addEventListener("scroll", this.handleScroll);
+        var mainElem = document.getElementsByTagName("main")[0];
+        mainElem.addEventListener("scroll", this.handleScroll);
     },
     deactivated() {
         this.active = false;
-        window.removeEventListener("scroll", this.handleScroll);
+        var mainElem = document.getElementsByTagName("main")[0];
+        mainElem.removeEventListener("scroll", this.handleScroll);
     },
     unmounted() {
-        window.removeEventListener("scroll", this.handleScroll);
+        var mainElem = document.getElementsByTagName("main")[0];
+        mainElem.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
         fetchVideo() {
@@ -340,7 +345,13 @@ export default {
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
-            if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
+            var mainElem = document.getElementsByTagName("main")[0];
+            var videosCommentsContainer = document.getElementById("videos-comments-container");
+            var videoAndInfo = document.getElementById("video-and-info");
+            if (
+                videoAndInfo.offsetHeight + mainElem.scrollTop >=
+                videosCommentsContainer.offsetHeight + videoAndInfo.offsetHeight
+            ) {
                 this.loading = true;
                 this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.getVideoId(), {
                     nextpage: this.comments.nextpage,
