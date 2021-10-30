@@ -1,5 +1,5 @@
 <template>
-    <notifications />
+    <notifications :style="{ top: isMobile ? '5rem' : '0.5rem', width: isMobile ? '100%' : 'auto' }" />
     <div class="uk-flex">
         <Menu style="flexShrink: 0" />
         <main
@@ -97,6 +97,28 @@ export default {
 </script>
 
 <style>
+@font-face {
+    font-family: Montserrat;
+    src: url("/fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: MontserratBold;
+    src: url("/fonts/Montserrat-Bold.ttf");
+}
+
+* {
+    font-family: Montserrat;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: MontserratBold;
+}
+
 h1,
 p,
 a,
