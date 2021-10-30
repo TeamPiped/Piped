@@ -142,13 +142,13 @@ export default {
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
         if (this.videos.length > 0) this.updateWatched(this.videos);
-        window.addEventListener("scroll", this.handleScroll);
+        document.getElementsByTagName("main")[0].addEventListener("scroll", this.handleScroll);
     },
     deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
+        document.getElementsByTagName("main")[0].removeEventListener("scroll", this.handleScroll);
     },
     unmounted() {
-        window.removeEventListener("scroll", this.handleScroll);
+        document.getElementsByTagName("main")[0].removeEventListener("scroll", this.handleScroll);
     },
     methods: {
         async fetchFeed() {
@@ -178,7 +178,8 @@ export default {
                 this.videos = this.videosStore.slice(0, this.currentVideoCount);
         },
         handleScroll() {
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+            var mainElem = document.getElementsByTagName("main")[0];
+            if (mainElem.offsetHeight + mainElem.scrollTop >= mainElem.scrollHeight - mainElem.clientHeight) {
                 this.loadMoreVideos();
             }
         },

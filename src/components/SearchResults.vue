@@ -144,13 +144,13 @@ export default {
         this.updateResults();
     },
     activated() {
-        window.addEventListener("scroll", this.handleScroll);
+        document.getElementsByTagName("main")[0].addEventListener("scroll", this.handleScroll);
     },
     deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
+        document.getElementsByTagName("main")[0].removeEventListener("scroll", this.handleScroll);
     },
     unmounted() {
-        window.removeEventListener("scroll", this.handleScroll);
+        document.getElementsByTagName("main")[0].removeEventListener("scroll", this.handleScroll);
     },
     methods: {
         async fetchResults() {
@@ -165,7 +165,8 @@ export default {
         },
         handleScroll() {
             if (this.loading || !this.results || !this.results.nextpage) return;
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+            var mainElem = document.getElementsByTagName("main")[0];
+            if (mainElem.offsetHeight + mainElem.scrollTop >= mainElem.scrollHeight - mainElem.clientHeight) {
                 this.loading = true;
                 this.fetchJson(this.apiUrl() + "/nextpage/search", {
                     nextpage: this.results.nextpage,

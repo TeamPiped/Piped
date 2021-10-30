@@ -54,14 +54,14 @@ export default {
     },
     activated() {
         if (this.channel && !this.channel.error) document.title = this.channel.name + " - Piped";
-        window.addEventListener("scroll", this.handleScroll);
+        document.getElementsByTagName("main")[0].addEventListener("scroll", this.handleScroll);
         if (this.channel && !this.channel.error) this.updateWatched(this.channel.relatedStreams);
     },
     deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
+        document.getElementsByTagName("main")[0].removeEventListener("scroll", this.handleScroll);
     },
     unmounted() {
-        window.removeEventListener("scroll", this.handleScroll);
+        document.getElementsByTagName("main")[0].removeEventListener("scroll", this.handleScroll);
     },
     methods: {
         async fetchSubscribedStatus() {
@@ -96,7 +96,8 @@ export default {
         },
         handleScroll() {
             if (this.loading || !this.channel || !this.channel.nextpage) return;
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+            var mainElem = document.getElementsByTagName("main")[0];
+            if (mainElem.offsetHeight + mainElem.scrollTop >= mainElem.scrollHeight - mainElem.clientHeight) {
                 this.loading = true;
                 this.fetchJson(this.apiUrl() + "/nextpage/channel/" + this.channel.id, {
                     nextpage: this.channel.nextpage,
