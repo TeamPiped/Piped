@@ -325,6 +325,18 @@ export default {
                 },
             });
             this.subscribed = !this.subscribed;
+
+            var notifText;
+            if (this.subscribed) {
+                notifText = this.$t("notifications.notif_subscribe");
+            } else {
+                notifText = this.$t("notifications.notif_unsubscribe");
+            }
+
+            this.$notify({
+                text: notifText,
+                type: "success",
+            });
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
