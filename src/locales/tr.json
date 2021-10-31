@@ -52,7 +52,8 @@
         "search": "Ara",
         "view_ssl_score": "SSL Puanını Görüntüle",
         "minimize_recommendations": "Önerileri en aza indirin",
-        "show_recommendations": "Önerileri göster"
+        "show_recommendations": "Önerileri göster",
+        "clear_history": "Geçmişi Temizle"
     },
     "player": {
         "watch_on": "İzle"
