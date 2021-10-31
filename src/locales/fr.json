@@ -61,7 +61,8 @@
         "loading": "Chargement…",
         "filter": "Filtrer",
         "search": "Rechercher",
-        "view_ssl_score": "Afficher le score SSL"
+        "view_ssl_score": "Afficher le score SSL",
+        "clear_history": "Effacer l'historique"
     },
     "player": {
         "watch_on": "Regarder sur"
