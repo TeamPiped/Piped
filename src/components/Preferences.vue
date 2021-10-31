@@ -266,6 +266,7 @@ export default {
                 { code: "ml", name: "മലയാളം" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
                 { code: "pl", name: "polski" },
+                { code: "ru", name: "русский" },
                 { code: "tr", name: "Türkçe" },
                 { code: "zh_Hant", name: "繁體中文" },
                 { code: "zh_Hans", name: "简体中文" },
