@@ -1,6 +1,6 @@
 <template>
     <div v-if="video && isEmbed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999">
-        <Player
+        <VideoPlayer
             ref="videoPlayer"
             :video="video"
             :sponsors="sponsors"
@@ -14,7 +14,7 @@
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
-            <Player
+            <VideoPlayer
                 ref="videoPlayer"
                 :video="video"
                 :video-id="getVideoId()"
@@ -123,7 +123,7 @@
                     class="uk-tile-default uk-align-left uk-width-expand"
                     :style="[{ background: backgroundColor }]"
                 >
-                    <Comment :comment="comment" :uploader="video.uploader" />
+                    <CommentItem :comment="comment" :uploader="video.uploader" />
                 </div>
             </div>
 
@@ -147,18 +147,18 @@
 </template>
 
 <script>
-import Player from "@/components/Player.vue";
+import VideoPlayer from "@/components/VideoPlayer.vue";
 import VideoItem from "@/components/VideoItem.vue";
 import ErrorHandler from "@/components/ErrorHandler.vue";
-import Comment from "@/components/Comment.vue";
+import CommentItem from "@/components/CommentItem.vue";
 
 export default {
     name: "App",
     components: {
-        Player,
+        VideoPlayer,
         VideoItem,
         ErrorHandler,
-        Comment,
+        CommentItem,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");

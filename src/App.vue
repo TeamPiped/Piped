@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
+import NavigationBar from "@/components/NavigationBar.vue";
 export default {
     components: {
-        Navigation,
+        NavigationBar,
     },
     mounted() {
         if (window.location.pathname === "/" || window.location.pathname.length == 0)
