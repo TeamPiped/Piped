@@ -3,7 +3,7 @@
 
     <hr />
 
-    <div class="uk-grid-xl" uk-grid="parallax: 0">
+    <div class="uk-grid uk-grid-xl">
         <div
             v-for="video in videos"
             :key="video.url"
