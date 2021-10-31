@@ -30,7 +30,7 @@
         </i>
     </div>
 
-    <div v-if="results" class="uk-grid-xl" uk-grid="parallax: 0">
+    <div v-if="results" class="uk-grid uk-grid-xl">
         <div
             v-for="result in results.items"
             :key="result.url"

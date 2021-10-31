@@ -126,7 +126,7 @@
 
         <hr />
 
-        <div uk-grid>
+        <div class="uk-grid">
             <div v-if="comments" ref="comments" class="uk-width-4-5@xl uk-width-3-4@s uk-width-1">
                 <div
                     v-for="comment in comments.comments"

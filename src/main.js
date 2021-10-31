@@ -31,7 +31,6 @@ library.add(
 );
 
 import("uikit/dist/css/uikit-core.css");
-import("uikit/dist/js/uikit-core.min");
 
 import router from "@/router/router";
 import App from "./App.vue";

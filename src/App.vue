@@ -115,4 +115,8 @@ b {
 * {
     scrollbar-color: #15191a #444a4e;
 }
+
+.uk-grid > div {
+    padding-bottom: 1vh;
+}
 </style>

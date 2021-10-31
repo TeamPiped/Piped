@@ -1,6 +1,6 @@
 <template>
     <nav
-        class="uk-navbar-container uk-container-expand uk-position-relative"
+        class="uk-navbar uk-navbar-container uk-container-expand uk-position-relative"
         :style="[{ background: backgroundColor, colour: foregroundColor }]"
         uk-navbar
     >
