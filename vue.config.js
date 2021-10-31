@@ -18,4 +18,11 @@ module.exports = {
             ],
         },
     },
+    pluginOptions: {
+        i18n: {
+            locale: "en",
+            localeDir: "locales",
+            fullInstall: true,
+        },
+    },
 };

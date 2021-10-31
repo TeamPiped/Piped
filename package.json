@@ -22,11 +22,12 @@
         "shaka-player": "3.2.1",
         "uikit": "3.8.0",
         "vue": "^3.2.20",
-        "vue-i18n": "^9.1.9",
+        "vue-i18n": "^9.2.0-beta.16",
         "vue-router": "^4.0.12",
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
+        "@intlify/vue-i18n-loader": "^4.0.0",
         "@vue/cli-plugin-babel": "^4.5.15",
         "@vue/cli-plugin-eslint": "^4.5.15",
         "@vue/cli-plugin-pwa": "^4.5.15",
@@ -36,7 +37,8 @@
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-vue": "^7.20.0"
+        "eslint-plugin-vue": "^7.20.0",
+        "vue-cli-plugin-i18n": "^2.3.1"
     },
     "eslintConfig": {
         "root": true,
