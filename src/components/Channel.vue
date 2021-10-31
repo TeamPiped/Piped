@@ -9,13 +9,7 @@
         <!-- eslint-disable-next-line vue/no-v-html -->
         <p style="white-space: pre-wrap"><span v-html="purifyHTML(urlify(channel.description))"></span></p>
 
-        <button
-            v-if="authenticated"
-            class="uk-button uk-button-small"
-            style="background: #222"
-            type="button"
-            @click="subscribeHandler"
-        >
+        <button v-if="authenticated" class="uk-button uk-button-small" type="button" @click="subscribeHandler">
             {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
         </button>
 

@@ -119,4 +119,8 @@ b {
 .uk-grid > div {
     padding-bottom: 1vh;
 }
+
+.uk-button {
+    background: #222;
+}
 </style>

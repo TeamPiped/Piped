@@ -45,11 +45,7 @@
                         <b v-t="'video.ratings_disabled'" />
                     </div>
                 </template>
-                <a
-                    :href="'https://youtu.be/' + getVideoId()"
-                    class="uk-margin-small-left uk-button uk-button-small"
-                    style="background: #222"
-                >
+                <a :href="'https://youtu.be/' + getVideoId()" class="uk-margin-small-left uk-button uk-button-small">
                     <b>{{ $t("player.watch_on") }}&nbsp;</b>
                     <font-awesome-icon class="uk-margin-small-right" :icon="['fab', 'youtube']"></font-awesome-icon>
                 </a>
@@ -57,7 +53,6 @@
                     v-if="video.lbryId"
                     :href="'https://odysee.com/' + video.lbryId"
                     class="uk-margin-small-left uk-button uk-button-small"
-                    style="background: #222"
                 >
                     <b>{{ $t("player.watch_on") }} LBRY</b>
                 </a>
@@ -77,20 +72,14 @@
                     {{ video.uploader }} </router-link
                 >&thinsp;<font-awesome-icon v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
                 <div class="uk-flex-1"></div>
-                <button
-                    v-if="authenticated"
-                    class="uk-button uk-button-small"
-                    style="background: #222"
-                    type="button"
-                    @click="subscribeHandler"
-                >
+                <button v-if="authenticated" class="uk-button uk-button-small" type="button" @click="subscribeHandler">
                     {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
                 </button>
             </div>
 
             <hr />
 
-            <a class="uk-button uk-button-small" style="background: #222" @click="showDesc = !showDesc">
+            <a class="uk-button uk-button-small" @click="showDesc = !showDesc">
                 {{ showDesc ? $t("actions.minimize_description") : $t("actions.show_description") }}
             </a>
             <!-- eslint-disable-next-line vue/no-v-html -->
@@ -139,11 +128,7 @@
             </div>
 
             <div v-if="video" class="uk-width-1-5@xl uk-width-1-4@s uk-width-1 uk-flex-last@s uk-flex-first">
-                <a
-                    class="uk-button uk-button-small uk-margin-small-bottom uk-hidden@s"
-                    style="background: #222"
-                    @click="showRecs = !showRecs"
-                >
+                <a class="uk-button uk-button-small uk-margin-small-bottom uk-hidden@s" @click="showRecs = !showRecs">
                     {{ showRecs ? $t("actions.minimize_recommendations") : $t("actions.show_recommendations") }}
                 </a>
                 <div
@@ -219,7 +204,7 @@ export default {
             (async () => {
                 const videoId = this.getVideoId();
                 const instance = this;
-                if (window.db) {
+                if (window.db && !this.video.error) {
                     var tx = window.db.transaction("watch_history", "readwrite");
                     var store = tx.objectStore("watch_history");
                     var request = store.get(videoId);

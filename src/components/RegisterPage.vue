@@ -22,11 +22,7 @@
                 />
             </div>
             <div class="uk-form-row">
-                <a
-                    class="uk-width-1-1 uk-button uk-button-primary uk-button-large uk-width-auto"
-                    style="background: #222"
-                    @click="register"
-                >
+                <a class="uk-width-1-1 uk-button uk-button-large uk-width-auto" @click="register">
                     {{ $t("titles.register") }}</a
                 >
             </div>

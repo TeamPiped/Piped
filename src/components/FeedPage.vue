@@ -4,7 +4,7 @@
     <button
         v-if="authenticated"
         class="uk-button uk-button-small"
-        style="background: #222; margin-right: 0.5rem"
+        style="margin-right: 0.5rem"
         type="button"
         @click="exportHandler"
     >
