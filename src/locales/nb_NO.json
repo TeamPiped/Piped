@@ -52,7 +52,8 @@
         "filter": "Filter",
         "loading": "Laster inn …",
         "view_ssl_score": "Vis SSL-poengsum",
-        "minimize_description": "Minimer beskrivelse"
+        "minimize_description": "Minimer beskrivelse",
+        "clear_history": "Tøm historikk"
     },
     "player": {
         "watch_on": "Vis på"
