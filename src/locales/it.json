@@ -52,7 +52,8 @@
         "loading": "Caricamento…",
         "filter": "Filtra",
         "search": "Cerca",
-        "view_ssl_score": "Visualizza il punteggio SSL"
+        "view_ssl_score": "Visualizza il punteggio SSL",
+        "clear_history": "Cancella la cronologia"
     },
     "player": {
         "watch_on": "Guarda su"
