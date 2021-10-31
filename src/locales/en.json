@@ -64,7 +64,8 @@
         "view_ssl_score": "View SSL Score",
         "search": "Search",
         "filter": "Filter",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "clear_history": "Clear History"
     },
     "comment": {
         "pinned_by": "Pinned by"

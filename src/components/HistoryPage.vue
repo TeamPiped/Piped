@@ -1,6 +1,10 @@
 <template>
     <h1 class="uk-text-bold uk-text-center">{{ $t("titles.history") }}</h1>
 
+    <div style="text-align: left">
+        <button class="uk-button" v-t="'actions.clear_history'" @click="clearHistory"></button>
+    </div>
+
     <div style="text-align: right">
         <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
         <select id="ddlSortBy" v-model="selectedSort" class="uk-select uk-width-auto" @change="onChange()">
@@ -85,6 +89,14 @@ export default {
                     this.videos.sort((a, b) => b.uploaderName.localeCompare(a.uploaderName));
                     break;
             }
+        },
+        clearHistory() {
+            if (window.db) {
+                var tx = window.db.transaction("watch_history", "readwrite");
+                var store = tx.objectStore("watch_history");
+                store.clear();
+            }
+            this.videos = [];
         },
     },
 };
