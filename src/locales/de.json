@@ -52,7 +52,8 @@
         "loading": "Wird geladen …",
         "filter": "Filtern",
         "search": "Suchen",
-        "view_ssl_score": "SSL-Bewertung anzeigen"
+        "view_ssl_score": "SSL-Bewertung anzeigen",
+        "clear_history": "Verlauf löschen"
     },
     "player": {
         "watch_on": "Ansehen auf"
