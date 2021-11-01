@@ -10,6 +10,7 @@ import {
     faHeadphones,
     faRss,
     faChevronLeft,
+    faLevelDownAlt,
     faTv,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
@@ -27,6 +28,7 @@ library.add(
     faYoutube,
     faRss,
     faChevronLeft,
+    faLevelDownAlt,
     faTv,
 );
 

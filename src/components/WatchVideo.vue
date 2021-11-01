@@ -123,7 +123,7 @@
                     class="uk-tile-default uk-align-left uk-width-expand"
                     :style="[{ background: backgroundColor }]"
                 >
-                    <Comment :comment="comment" :uploader="video.uploader" />
+                    <Comment :comment="comment" :uploader="video.uploader" :video-id="getVideoId()" />
                 </div>
             </div>
 
