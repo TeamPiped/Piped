@@ -52,7 +52,8 @@
         "loading": "Įkeliama…",
         "filter": "Filtruoti",
         "search": "Ieškoti",
-        "view_ssl_score": "Peržiūrėti SSL balą"
+        "view_ssl_score": "Peržiūrėti SSL balą",
+        "clear_history": "Išvalyti istoriją"
     },
     "player": {
         "watch_on": "Žiūrėti per"
