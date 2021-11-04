@@ -65,7 +65,10 @@
         "search": "Search",
         "filter": "Filter",
         "loading": "Loading...",
-        "clear_history": "Clear History"
+        "clear_history": "Clear History",
+        "show_replies": "Show Replies",
+        "hide_replies": "Hide Replies",
+        "load_more_replies": "Load more Replies"
     },
     "comment": {
         "pinned_by": "Pinned by"

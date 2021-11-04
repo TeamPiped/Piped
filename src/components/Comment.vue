@@ -35,14 +35,21 @@
                 &nbsp;
                 <font-awesome-icon v-if="comment.hearted" icon="heart"></font-awesome-icon>
             </div>
-            <div v-if="comment.repliesPage && notLoading">
+            <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies">
-                    <a class="uk-link-text">Show Replies</a>
+                    <a class="uk-link-text" v-t="'actions.show_replies'" />
                     &nbsp;
-                    <font-awesome-icon icon="level-down-alt"></font-awesome-icon>
+                    <font-awesome-icon icon="level-down-alt" />
                 </div>
-            </div>
-            <div v-if="replies" class="replies uk-width-4-5@xl uk-width-3-4@s uk-width-1">
+            </template>
+            <template v-if="showingReplies">
+                <div @click="hideReplies">
+                    <a class="uk-link-text" v-t="'actions.hide_replies'" />
+                    &nbsp;
+                    <font-awesome-icon icon="level-up-alt" />
+                </div>
+            </template>
+            <div v-show="showingReplies" v-if="replies" class="replies uk-width-4-5@xl uk-width-3-4@s uk-width-1">
                 <div
                     v-for="reply in replies"
                     :key="reply.commentId"
@@ -52,9 +59,9 @@
                     <Comment :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>
                 <div v-if="nextpage" @click="loadReplies">
-                    <a class="uk-link-text">Load more Replies</a>
+                    <a class="uk-link-text" v-t="'actions.load_more_replies'" />
                     &nbsp;
-                    <font-awesome-icon icon="level-down-alt"></font-awesome-icon>
+                    <font-awesome-icon icon="level-down-alt" />
                 </div>
             </div>
         </div>
@@ -75,20 +82,30 @@ export default {
     },
     data() {
         return {
-            notLoading: true,
+            loadingReplies: false,
+            showingReplies: false,
             replies: [],
             nextpage: null,
         };
     },
     methods: {
-        loadReplies() {
-            this.notLoading = false;
+        async loadReplies() {
+            if (!this.showingReplies && this.loadingReplies) {
+                this.showingReplies = true;
+                return;
+            }
+
+            this.loadingReplies = true;
+            this.showingReplies = true;
             this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.videoId, {
                 nextpage: this.nextpage || this.comment.repliesPage,
             }).then(json => {
                 this.replies = this.replies.concat(json.comments);
                 this.nextpage = json.nextpage;
             });
+        },
+        async hideReplies() {
+            this.showingReplies = false;
         },
     },
 };
