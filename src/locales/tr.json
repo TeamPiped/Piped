@@ -53,7 +53,10 @@
         "view_ssl_score": "SSL Puanını Görüntüle",
         "minimize_recommendations": "Önerileri en aza indirin",
         "show_recommendations": "Önerileri göster",
-        "clear_history": "Geçmişi Temizle"
+        "clear_history": "Geçmişi Temizle",
+        "show_replies": "Yanıtları Göster",
+        "hide_replies": "Yanıtları Gizle",
+        "load_more_replies": "Daha Fazla Yanıt Yükle"
     },
     "player": {
         "watch_on": "İzle"
