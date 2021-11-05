@@ -53,7 +53,10 @@
         "filter": "Filtern",
         "search": "Suchen",
         "view_ssl_score": "SSL-Bewertung anzeigen",
-        "clear_history": "Verlauf löschen"
+        "clear_history": "Verlauf löschen",
+        "show_replies": "Antworten anzeigen",
+        "hide_replies": "Antworten ausblenden",
+        "load_more_replies": "Mehr Antworten laden"
     },
     "player": {
         "watch_on": "Ansehen auf"
