@@ -51,7 +51,10 @@
         "unsubscribe": "Poistu tilauksesta",
         "subscribe": "Tilaa",
         "minimize_recommendations": "Minimoi suositukset",
-        "show_recommendations": "Näytä suositukset"
+        "show_recommendations": "Näytä suositukset",
+        "show_replies": "Näytä vastaukset",
+        "hide_replies": "Piilota vastaukset",
+        "load_more_replies": "Lataa lisää vastauksia"
     },
     "player": {
         "watch_on": "Katso sivustolla"
