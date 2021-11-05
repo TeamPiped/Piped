@@ -62,7 +62,10 @@
         "filter": "Filtrer",
         "search": "Rechercher",
         "view_ssl_score": "Afficher le score SSL",
-        "clear_history": "Effacer l'historique"
+        "clear_history": "Effacer l'historique",
+        "load_more_replies": "Charger plus de réponses",
+        "show_replies": "Afficher les réponses",
+        "hide_replies": "Masquer les réponses"
     },
     "player": {
         "watch_on": "Regarder sur"
