@@ -61,8 +61,10 @@
         "show_recommendations": "Pokaż rekomendacje",
         "disable_lbry": "Wyłącz LBRY dla streaming-u",
         "enable_lbry_proxy": "Włącz proxy dla LBRY",
-        "filter": "Filtr",
-        "search": "Wyszukaj"
+        "filter": "Filtruj",
+        "search": "Szukaj",
+        "loading": "Ładowanie...",
+        "clear_history": "Wyczyść historię"
     },
     "comment": {
         "pinned_by": "Przypięty przez"
@@ -82,5 +84,8 @@
     "login": {
         "username": "Nazwa użytkownika",
         "password": "Hasło"
+    },
+    "search": {
+        "did_you_mean": "Czy chodziło ci o: "
     }
 }

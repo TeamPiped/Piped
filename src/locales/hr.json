@@ -3,7 +3,8 @@
         "sponsor_segments": "Sponzorski segmenti",
         "watched": "Gledano",
         "views": "prikaza",
-        "videos": "Videozapisi"
+        "videos": "Videozapisi",
+        "ratings_disabled": "Ocjenjivanje deaktivirano"
     },
     "preferences": {
         "ssl_score": "SSL ocjena",
