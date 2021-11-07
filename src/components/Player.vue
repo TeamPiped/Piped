@@ -315,6 +315,9 @@ export default {
                 preferredAudioCodecs: ["opus", "mp4a"],
                 manifest: {
                     disableVideo: disableVideo,
+                    hls: {
+                        useFullSegmentsForStartTime: true,
+                    },
                 },
             });
 
