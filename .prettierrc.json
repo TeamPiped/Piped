@@ -7,5 +7,6 @@
     "endOfLine": "lf",
     "printWidth": 120,
     "vueIndentScriptAndStyle": false,
-    "quoteProps": "as-needed"
+    "quoteProps": "as-needed",
+    "arrowParens": "avoid"
 }
