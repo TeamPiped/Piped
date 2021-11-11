@@ -17,7 +17,6 @@
             <Player
                 ref="videoPlayer"
                 :video="video"
-                :video-id="getVideoId()"
                 :sponsors="sponsors"
                 :selected-auto-play="selectedAutoPlay"
                 :selected-auto-loop="selectedAutoLoop"
@@ -277,6 +276,7 @@ export default {
             await this.fetchVideo()
                 .then(data => {
                     this.video = data;
+                    this.video.id = this.getVideoId();
                 })
                 .then(() => {
                     if (!this.video.error) {

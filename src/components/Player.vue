@@ -31,7 +31,6 @@ export default {
                 return {};
             },
         },
-        videoId: String,
         sponsors: {
             type: Object,
             default: () => {
@@ -145,7 +144,7 @@ export default {
             } else if (window.db) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
-                var request = store.get(this.videoId);
+                var request = store.get(this.video.id);
                 request.onsuccess = function(event) {
                     var video = event.target.result;
                     if (video && video.currentTime) {
@@ -292,11 +291,58 @@ export default {
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
         setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
+            const url = "/watch?v=" + this.video.id;
+
             if (!this.$ui) {
+                const OpenButton = class extends shaka.ui.Element {
+                    constructor(parent, controls) {
+                        super(parent, controls);
+
+                        this.newTabButton_ = document.createElement("button");
+                        this.newTabButton_.classList.add("shaka-cast-button");
+                        this.newTabButton_.classList.add("shaka-tooltip");
+                        this.newTabButton_.ariaPressed = "false";
+
+                        this.newTabIcon_ = document.createElement("i");
+                        this.newTabIcon_.classList.add("material-icons-round");
+                        this.newTabIcon_.textContent = "launch";
+                        this.newTabButton_.appendChild(this.newTabIcon_);
+
+                        const label = document.createElement("label");
+                        label.classList.add("shaka-overflow-button-label");
+                        label.classList.add("shaka-overflow-menu-only");
+                        this.newTabNameSpan_ = document.createElement("span");
+                        this.newTabNameSpan_.innerText = "Open in new tab";
+                        label.appendChild(this.newTabNameSpan_);
+
+                        this.newTabButton_.appendChild(label);
+                        this.parent.appendChild(this.newTabButton_);
+
+                        this.eventManager.listen(this.newTabButton_, "click", () => {
+                            this.video.pause();
+                            window.open(url);
+                        });
+                    }
+                };
+
+                OpenButton.Factory = class {
+                    create(rootElement, controls) {
+                        return new OpenButton(rootElement, controls);
+                    }
+                };
+
+                shaka.ui.OverflowMenu.registerElement("open_new_tab", new OpenButton.Factory());
+
                 this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
+                const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"];
+
+                if (this.isEmbed) {
+                    overflowMenuButtons.push("open_new_tab");
+                }
+
                 const config = {
-                    overflowMenuButtons: ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"],
+                    overflowMenuButtons: overflowMenuButtons,
                     seekBarColors: {
                         base: "rgba(255, 255, 255, 0.3)",
                         buffered: "rgba(255, 255, 255, 0.54)",
@@ -365,11 +411,11 @@ export default {
             if (new Date().getTime() - this.lastUpdate < 500) return;
             this.lastUpdate = new Date().getTime();
 
-            if (!this.videoId || !window.db) return;
+            if (!this.video.id || !window.db) return;
 
             var tx = window.db.transaction("watch_history", "readwrite");
             var store = tx.objectStore("watch_history");
-            var request = store.get(this.videoId);
+            var request = store.get(this.video.id);
             request.onsuccess = function(event) {
                 var video = event.target.result;
                 if (video) {
