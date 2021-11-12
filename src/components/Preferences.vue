@@ -262,6 +262,7 @@ export default {
                 { code: "fr", name: "français" },
                 { code: "hr", name: "Hrvatski" },
                 { code: "it", name: "italiano" },
+                { code: "ja", name: "日本語" },
                 { code: "lt", name: "lietuvių kalba" },
                 { code: "ml", name: "മലയാളം" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },

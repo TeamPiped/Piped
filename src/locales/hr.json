@@ -4,7 +4,7 @@
         "watched": "Gledano",
         "views": "prikaza",
         "videos": "Videozapisi",
-        "ratings_disabled": "Ocjenjivanje deaktivirano"
+        "ratings_disabled": "Ocjenjivanje isključeno"
     },
     "preferences": {
         "ssl_score": "SSL ocjena",
@@ -68,7 +68,11 @@
         "loading": "Učitavanje …",
         "filter": "Filtar",
         "search": "Pretraga",
-        "view_ssl_score": "Prikaži SSL ocjenu"
+        "view_ssl_score": "Prikaži SSL ocjenu",
+        "show_replies": "Prikaži odgovore",
+        "hide_replies": "Sakrij odgovore",
+        "load_more_replies": "Prikaži više odgovora",
+        "clear_history": "Obriši povijest"
     },
     "player": {
         "watch_on": "Gledaj na"
@@ -87,6 +91,6 @@
         "username": "Korisničko ime"
     },
     "search": {
-        "did_you_mean": "Možda misliš: "
+        "did_you_mean": "Jeste li mislili: "
     }
 }
