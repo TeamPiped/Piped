@@ -289,7 +289,7 @@ export default {
                 const lines = body.split("\n");
                 lines.map(line => {
                     const split = line.split("|");
-                    if (split.length == 4) {
+                    if (split.length == 5) {
                         if (skipped < 2) {
                             skipped++;
                             return;
