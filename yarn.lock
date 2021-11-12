@@ -8549,10 +8549,10 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
-uikit@3.9.1:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.9.1.tgz#a0982f7d64572d9cd0d428364dc64d8c36c4ad47"
-  integrity sha512-ygHSXI0BEEpk21SA6gyd5ShqkNXjGVj4RKXAOsbfUJm6PS7+eBHhV25RY1+bbUVEXYgN9R3JdRNMFkSjJ9S6cQ==
+uikit@3.9.2:
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.9.2.tgz#aa58dab96b3b43dd0d3480961127c0fec65ea7f1"
+  integrity sha512-5JEg+RzL/GRKbLgNCK/itZR66VfQRDWIBUSTBYqXiBPO8+f85VjKB6i+DxZD0ai5s+ElEQjWpQQ+Qv1AuYDRZg==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
