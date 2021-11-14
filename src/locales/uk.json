@@ -1,1 +1,96 @@
-{}
+{
+    "player": {
+        "watch_on": "Дивитися на Ютуб"
+    },
+    "login": {
+        "username": "Назва аккаунта Piped",
+        "password": "Пароль"
+    },
+    "actions": {
+        "unsubscribe": "Відписатись",
+        "back": "Назад",
+        "skip_intro": "Пропускати заставку/інтро",
+        "dark": "Темна",
+        "view_subscriptions": "Продивитися підписки",
+        "channel_name_asc": "Назва каналу (A-Z)",
+        "uses_api_from": "Використовувати API з ",
+        "enable_sponsorblock": "Увімкнути Sponsorblock",
+        "skip_outro": "Пропускати кінцівку/титри",
+        "skip_preview": "Пропускати короткий вміст поточного епізода або повтор частини минулого",
+        "skip_self_promo": "Пропускати саморекламу",
+        "autoplay_video": "Автоматичний програш відео",
+        "audio_only": "Лише звук",
+        "default_homepage": "За замовчуванням відкривати",
+        "show_comments": "Показувати коментарі",
+        "store_watch_history": "Зберігати історию переглянутих відео",
+        "language_selection": "Вибір мови",
+        "instance_selection": "Вибір копії сервіса Piped",
+        "show_more": "Показати більше",
+        "no": "Ні",
+        "export_to_json": "Експорт в JSON",
+        "minimize_description": "Згорнути опис",
+        "show_recommendations": "Показати рекомендації",
+        "enable_lbry_proxy": "Проксувати відео з LBRY",
+        "search": "Пошук",
+        "clear_history": "Очистити історію перегляду",
+        "show_replies": "Показати відповіді",
+        "load_more_replies": "Завантажити більше відповідей",
+        "subscribe": "Підписатись",
+        "sort_by": "Відсортувати по:",
+        "most_recent": "Найновіші",
+        "channel_name_desc": "Назва каналу (Z-A)",
+        "least_recent": "Найстарші",
+        "minimize_recommendations": "Згорнути рекомендації",
+        "skip_sponsors": "Пропускати спонсорську рекламу",
+        "skip_interaction": "Пропускати прохання підписатися",
+        "skip_non_music": "Пропускати тишу в музикальних відео",
+        "theme": "Тема",
+        "auto": "Авто",
+        "light": "Світла",
+        "buffering_goal": "Розмір буфера відео (в секундах)",
+        "instances_list": "Список копій сервіса Piped",
+        "enabled_codecs": "Увімкнені кодеки (Можно вибрати декілька)",
+        "default_quality": "Якість за замовчуванням",
+        "country_selection": "Вибір країни (для трендів)",
+        "minimize_description_default": "Не розгортати опис за замовчуванням",
+        "yes": "Так",
+        "import_from_json": "Імпорт з JSON",
+        "loop_this_video": "Повтор поточного відео",
+        "auto_play_next_video": "Одразу програвати наступне рекомендоване відео",
+        "donations": "Пожертвування",
+        "show_description": "Показати опис",
+        "disable_lbry": "Вимкнути LBRY для стримінгу",
+        "filter": "Фільтр",
+        "view_ssl_score": "Продивитися оцінку SSL",
+        "loading": "Завантаження...",
+        "hide_replies": "Сховати відповіді"
+    },
+    "titles": {
+        "register": "Реєстрація",
+        "feed": "Підписки",
+        "preferences": "Налаштування",
+        "history": "Історія переглядів",
+        "subscriptions": "Канали, на які ви підписані",
+        "trending": "Тренди",
+        "login": "Логін"
+    },
+    "comment": {
+        "pinned_by": "Прикріплено користувачем"
+    },
+    "preferences": {
+        "instance_locations": "Місцезнаходження копії сервісу",
+        "ssl_score": "Оцінка SSL",
+        "instance_name": "Назва копії сервісу",
+        "has_cdn": "Використовує CDN?"
+    },
+    "video": {
+        "videos": "Відео",
+        "views": "переглядів",
+        "watched": "Переглянуте",
+        "sponsor_segments": "Рекламні сегменти",
+        "ratings_disabled": "Оцінки вимкнені"
+    },
+    "search": {
+        "did_you_mean": "Можливо, ви мали на увазі: "
+    }
+}
