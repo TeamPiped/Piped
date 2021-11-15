@@ -81,7 +81,7 @@ export default {
             .then(hotkeys => {
                 this.hotkeys = hotkeys;
                 var self = this;
-                hotkeys("f,m,j,k,l,space,up,down,left,right", function(e, handler) {
+                hotkeys("f,m,j,k,l,c,space,up,down,left,right", function(e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
                         case "f":
@@ -98,6 +98,10 @@ export default {
                             break;
                         case "l":
                             videoEl.currentTime = videoEl.currentTime + 15;
+                            e.preventDefault();
+                            break;
+                        case "c":
+                            self.$player.setTextTrackVisibility(!self.$player.isTextTrackVisible());
                             e.preventDefault();
                             break;
                         case "k":
