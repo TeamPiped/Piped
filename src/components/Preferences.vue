@@ -269,6 +269,7 @@ export default {
                 { code: "pl", name: "polski" },
                 { code: "ru", name: "русский" },
                 { code: "tr", name: "Türkçe" },
+                { code: "uk", name: "українська" },
                 { code: "zh_Hant", name: "繁體中文" },
                 { code: "zh_Hans", name: "简体中文" },
             ],
