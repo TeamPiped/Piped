@@ -207,7 +207,7 @@ export default {
                     this.shaka.polyfill.installAll();
 
                     const localPlayer = new this.shaka.Player(videoEl);
-                    const proxyURL = new URL(component.video.proxyUrl)
+                    const proxyURL = new URL(component.video.proxyUrl);
                     const proxyHost = proxyURL.host;
                     const proxyPath = proxyURL.pathname;
 
