@@ -222,13 +222,14 @@ export default {
                         ) {
                             url.searchParams.set("host", url.host);
                             url.host = proxyHost;
-                            request.uris[0] = proxyPath + url.toString();
+                            url.pathname = proxyPath + url.pathname;
+                            request.uris[0] = url.toString();
                         }
-                        if (url.pathname === "/videoplayback") {
+                        if (url.pathname === proxyPath + "/videoplayback") {
                             if (headers.Range) {
                                 url.searchParams.set("range", headers.Range.split("=")[1]);
                                 request.headers = {};
-                                request.uris[0] = proxyPath + url.toString();
+                                request.uris[0] = url.toString();
                             }
                         }
                     });
