@@ -207,7 +207,9 @@ export default {
                     this.shaka.polyfill.installAll();
 
                     const localPlayer = new this.shaka.Player(videoEl);
-                    const proxyHost = new URL(component.video.proxyUrl).host;
+                    const proxyURL = new URL(component.video.proxyUrl)
+                    const proxyHost = proxyURL.host;
+                    const proxyPath = proxyURL.pathname;
 
                     localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
                         const uri = request.uris[0];
@@ -220,13 +222,13 @@ export default {
                         ) {
                             url.searchParams.set("host", url.host);
                             url.host = proxyHost;
-                            request.uris[0] = url.toString();
+                            request.uris[0] = proxyPath + url.toString();
                         }
                         if (url.pathname === "/videoplayback") {
                             if (headers.Range) {
                                 url.searchParams.set("range", headers.Range.split("=")[1]);
                                 request.headers = {};
-                                request.uris[0] = url.toString();
+                                request.uris[0] = proxyPath + url.toString();
                             }
                         }
                     });
