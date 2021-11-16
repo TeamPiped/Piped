@@ -186,8 +186,10 @@ export default {
                 uri = lbry.url;
                 if (this.getPreferenceBoolean("proxyLBRY", false)) {
                     const url = new URL(uri);
+                    const proxyURL = new URL(this.video.proxyUrl);
                     url.searchParams.set("host", url.host);
-                    url.host = new URL(this.video.proxyUrl).host;
+                    url.host = proxyURL.host;
+                    url.pathname = proxyURL.pathname + url.pathname;
                     uri = url.toString();
                 }
                 const contentType = await fetch(uri, {
@@ -210,8 +212,6 @@ export default {
                     const proxyURL = new URL(component.video.proxyUrl);
                     const proxyHost = proxyURL.host;
                     const proxyPath = proxyURL.pathname;
-                    console.log("proxyHost", proxyHost);
-                    console.log("proxyPath", proxyPath);
 
                     localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
                         const uri = request.uris[0];
@@ -225,7 +225,6 @@ export default {
                             url.searchParams.set("host", url.host);
                             url.host = proxyHost;
                             url.pathname = proxyPath + url.pathname;
-                            console.log("url.pathname", url.pathname);
                             request.uris[0] = url.toString();
                         }
                         if (url.pathname === proxyPath + "/videoplayback") {
