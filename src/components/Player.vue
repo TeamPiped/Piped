@@ -191,6 +191,9 @@ export default {
                     url.port = proxyURL.port;
                     url.host = proxyURL.host;
                     url.pathname = proxyURL.pathname + url.pathname;
+                    console.log(proxyURL.host);
+                    console.log(url.host);
+                    console.log(proxyURL.pathname);
                     uri = url.toString();
                 }
                 const contentType = await fetch(uri, {
@@ -225,6 +228,9 @@ export default {
                             url.port = proxyURL.port;
                             url.host = proxyURL.host;
                             url.pathname = proxyURL.pathname + url.pathname;
+                            console.log(proxyURL.host);
+                            console.log(url.host);
+                            console.log(proxyURL.pathname);
                             request.uris[0] = url.toString();
                         }
                         if (url.pathname === proxyURL.pathname + "/videoplayback") {
