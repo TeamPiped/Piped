@@ -187,13 +187,11 @@ export default {
                 if (this.getPreferenceBoolean("proxyLBRY", false)) {
                     const url = new URL(uri);
                     const proxyURL = new URL(this.video.proxyUrl);
+                    const proxyPath = proxyURL.pathname === "/" ? "" : proxyURL.pathname;
                     url.searchParams.set("host", url.host);
-                    url.port = proxyURL.port;
+                    url.protocol = proxyURL.protocol;
                     url.host = proxyURL.host;
-                    url.pathname = proxyURL.pathname + url.pathname;
-                    console.log(proxyURL.host);
-                    console.log(url.host);
-                    console.log(proxyURL.pathname);
+                    url.pathname = proxyPath + url.pathname;
                     uri = url.toString();
                 }
                 const contentType = await fetch(uri, {
@@ -214,6 +212,7 @@ export default {
 
                     const localPlayer = new this.shaka.Player(videoEl);
                     const proxyURL = new URL(component.video.proxyUrl);
+                    const proxyPath = proxyURL.pathname === "/" ? "" : proxyURL.pathname;
 
                     localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
                         const uri = request.uris[0];
@@ -225,12 +224,9 @@ export default {
                                 (component.getPreferenceBoolean("proxyLBRY", false) || headers.Range))
                         ) {
                             url.searchParams.set("host", url.host);
-                            url.port = proxyURL.port;
+                            url.protocol = proxyURL.protocol;
                             url.host = proxyURL.host;
-                            url.pathname = proxyURL.pathname + url.pathname;
-                            console.log(proxyURL.host);
-                            console.log(url.host);
-                            console.log(proxyURL.pathname);
+                            url.pathname = proxyPath + url.pathname;
                             request.uris[0] = url.toString();
                         }
                         if (url.pathname === proxyURL.pathname + "/videoplayback") {
