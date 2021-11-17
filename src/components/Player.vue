@@ -188,6 +188,7 @@ export default {
                     const url = new URL(uri);
                     const proxyURL = new URL(this.video.proxyUrl);
                     url.searchParams.set("host", url.host);
+                    url.port = proxyURL.port;
                     url.host = proxyURL.host;
                     url.pathname = proxyURL.pathname + url.pathname;
                     uri = url.toString();
@@ -210,8 +211,6 @@ export default {
 
                     const localPlayer = new this.shaka.Player(videoEl);
                     const proxyURL = new URL(component.video.proxyUrl);
-                    const proxyHost = proxyURL.host;
-                    const proxyPath = proxyURL.pathname;
 
                     localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
                         const uri = request.uris[0];
@@ -223,11 +222,12 @@ export default {
                                 (component.getPreferenceBoolean("proxyLBRY", false) || headers.Range))
                         ) {
                             url.searchParams.set("host", url.host);
-                            url.host = proxyHost;
-                            url.pathname = proxyPath + url.pathname;
+                            url.port = proxyURL.port;
+                            url.host = proxyURL.host;
+                            url.pathname = proxyURL.pathname + url.pathname;
                             request.uris[0] = url.toString();
                         }
-                        if (url.pathname === proxyPath + "/videoplayback") {
+                        if (url.pathname === proxyURL.pathname + "/videoplayback") {
                             if (headers.Range) {
                                 url.searchParams.set("range", headers.Range.split("=")[1]);
                                 request.headers = {};
