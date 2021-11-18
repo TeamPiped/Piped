@@ -187,7 +187,11 @@ export default {
                 if (this.getPreferenceBoolean("proxyLBRY", false)) {
                     const url = new URL(uri);
                     const proxyURL = new URL(this.video.proxyUrl);
-                    const proxyPath = proxyURL.pathname === "/" ? "" : proxyURL.pathname;
+                    let proxyPath = proxyURL.pathname;
+                    if (proxyPath.lastIndexOf("/") === proxyPath.length - 1) {
+                        proxyPath = proxyPath.substring(0, proxyPath.length - 1);
+                    }
+
                     url.searchParams.set("host", url.host);
                     url.protocol = proxyURL.protocol;
                     url.host = proxyURL.host;
@@ -212,7 +216,10 @@ export default {
 
                     const localPlayer = new this.shaka.Player(videoEl);
                     const proxyURL = new URL(component.video.proxyUrl);
-                    const proxyPath = proxyURL.pathname === "/" ? "" : proxyURL.pathname;
+                    let proxyPath = proxyURL.pathname;
+                    if (proxyPath.lastIndexOf("/") === proxyPath.length - 1) {
+                        proxyPath = proxyPath.substring(0, proxyPath.length - 1);
+                    }
 
                     localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
                         const uri = request.uris[0];
