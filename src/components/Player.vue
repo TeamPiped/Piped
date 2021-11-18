@@ -236,7 +236,7 @@ export default {
                             url.pathname = proxyPath + url.pathname;
                             request.uris[0] = url.toString();
                         }
-                        if (url.pathname === proxyURL.pathname + "/videoplayback") {
+                        if (url.pathname === proxyPath + "/videoplayback") {
                             if (headers.Range) {
                                 url.searchParams.set("range", headers.Range.split("=")[1]);
                                 request.headers = {};
