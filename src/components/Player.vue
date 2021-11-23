@@ -81,7 +81,7 @@ export default {
             .then(hotkeys => {
                 this.hotkeys = hotkeys;
                 var self = this;
-                hotkeys("f,m,j,k,l,c,space,up,down,left,right", function(e, handler) {
+                hotkeys("f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9", function(e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
                         case "f":
@@ -124,6 +124,46 @@ export default {
                             break;
                         case "right":
                             videoEl.currentTime = videoEl.currentTime + 5;
+                            e.preventDefault();
+                            break;
+                        case "0":
+                            videoEl.currentTime = 0;
+                            e.preventDefault();
+                            break;
+                        case "1":
+                            videoEl.currentTime = videoEl.duration * 0.1;
+                            e.preventDefault();
+                            break;
+                        case "2":
+                            videoEl.currentTime = videoEl.duration * 0.2;
+                            e.preventDefault();
+                            break;
+                        case "3":
+                            videoEl.currentTime = videoEl.duration * 0.3;
+                            e.preventDefault();
+                            break;
+                        case "4":
+                            videoEl.currentTime = videoEl.duration * 0.4;
+                            e.preventDefault();
+                            break;
+                        case "5":
+                            videoEl.currentTime = videoEl.duration * 0.5;
+                            e.preventDefault();
+                            break;
+                        case "6":
+                            videoEl.currentTime = videoEl.duration * 0.6;
+                            e.preventDefault();
+                            break;
+                        case "7":
+                            videoEl.currentTime = videoEl.duration * 0.7;
+                            e.preventDefault();
+                            break;
+                        case "8":
+                            videoEl.currentTime = videoEl.duration * 0.8;
+                            e.preventDefault();
+                            break;
+                        case "9":
+                            videoEl.currentTime = videoEl.duration * 0.9;
                             e.preventDefault();
                             break;
                     }
