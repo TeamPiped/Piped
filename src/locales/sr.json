@@ -2,7 +2,7 @@
     "video": {
         "videos": "Видео клипови",
         "watched": "Погледано",
-        "sponsor_segments": "Сегмент спонзора",
+        "sponsor_segments": "Број делова видеа са спонзорима",
         "views": "прегледи",
         "ratings_disabled": "Оцене су онемогућене"
     },
@@ -16,7 +16,7 @@
         "channel_name_desc": "Име канала (Z-A)",
         "skip_self_promo": "Прескочи неплаћене промоције или самопромоције",
         "minimize_description_default": "Смањи опис видеа (подразумевано)",
-        "enabled_codecs": "Омогућени видео кодеци (множина/више)",
+        "enabled_codecs": "Омогућени видео кодеци (више)",
         "instance_selection": "Избор инстанце",
         "load_more_replies": "Учитај још одговора",
         "unsubscribe": "Прекини са праћењем",
@@ -62,7 +62,7 @@
         "loop_this_video": "Пуштај видео изнова (бесконачно)",
         "auto_play_next_video": "Аутоматски пусти следећи видео",
         "donations": "Донације",
-        "minimize_description": "Смањи опис",
+        "minimize_description": "Сакриј опис",
         "show_recommendations": "Прикажи препоруке"
     },
     "preferences": {
