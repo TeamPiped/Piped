@@ -268,6 +268,7 @@ export default {
                 { code: "nb_NO", name: "Norwegian Bokmål" },
                 { code: "pl", name: "polski" },
                 { code: "ru", name: "русский" },
+                { code: "sr", name: "Српски" },
                 { code: "tr", name: "Türkçe" },
                 { code: "uk", name: "українська" },
                 { code: "zh_Hant", name: "繁體中文" },
