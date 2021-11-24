@@ -230,8 +230,16 @@ export default {
                 uri = lbry.url;
                 if (this.getPreferenceBoolean("proxyLBRY", false)) {
                     const url = new URL(uri);
+                    const proxyURL = new URL(this.video.proxyUrl);
+                    let proxyPath = proxyURL.pathname;
+                    if (proxyPath.lastIndexOf("/") === proxyPath.length - 1) {
+                        proxyPath = proxyPath.substring(0, proxyPath.length - 1);
+                    }
+
                     url.searchParams.set("host", url.host);
-                    url.host = new URL(this.video.proxyUrl).host;
+                    url.protocol = proxyURL.protocol;
+                    url.host = proxyURL.host;
+                    url.pathname = proxyPath + url.pathname;
                     uri = url.toString();
                 }
                 const contentType = await fetch(uri, {
@@ -251,7 +259,11 @@ export default {
                     this.shaka.polyfill.installAll();
 
                     const localPlayer = new this.shaka.Player(videoEl);
-                    const proxyHost = new URL(component.video.proxyUrl).host;
+                    const proxyURL = new URL(component.video.proxyUrl);
+                    let proxyPath = proxyURL.pathname;
+                    if (proxyPath.lastIndexOf("/") === proxyPath.length - 1) {
+                        proxyPath = proxyPath.substring(0, proxyPath.length - 1);
+                    }
 
                     localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
                         const uri = request.uris[0];
@@ -263,10 +275,12 @@ export default {
                                 (component.getPreferenceBoolean("proxyLBRY", false) || headers.Range))
                         ) {
                             url.searchParams.set("host", url.host);
-                            url.host = proxyHost;
+                            url.protocol = proxyURL.protocol;
+                            url.host = proxyURL.host;
+                            url.pathname = proxyPath + url.pathname;
                             request.uris[0] = url.toString();
                         }
-                        if (url.pathname === "/videoplayback") {
+                        if (url.pathname === proxyPath + "/videoplayback") {
                             if (headers.Range) {
                                 url.searchParams.set("range", headers.Range.split("=")[1]);
                                 request.headers = {};
