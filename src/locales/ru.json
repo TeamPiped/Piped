@@ -9,7 +9,7 @@
         "subscriptions": "Каналы на которые вы подписаны"
     },
     "player": {
-        "watch_on": "Смотреть на Ютубе"
+        "watch_on": "Смотреть на"
     },
     "actions": {
         "subscribe": "Подписаться",
@@ -59,12 +59,16 @@
         "show_description": "Показать описание",
         "minimize_recommendations": "Свернуть рекомендации",
         "show_recommendations": "Показать рекомендации",
-        "disable_lbry": "Disable LBRY for Streaming",
+        "disable_lbry": "Отключить LBRY для стриминга",
         "enable_lbry_proxy": "Проксировать видео с LBRY",
         "view_ssl_score": "Просмотреть SSL Score",
         "search": "Поиск",
         "filter": "Фильтр",
-        "loading": "Загрузка..."
+        "loading": "Загрузка...",
+        "clear_history": "Очистить историю",
+        "show_replies": "Показать ответы",
+        "hide_replies": "Скрыть ответы",
+        "load_more_replies": "Загрузить больше ответов"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем"
@@ -72,7 +76,7 @@
     "preferences": {
         "instance_name": "Название копии сервиса",
         "instance_locations": "Местонахождение копии сервиса",
-        "has_cdn": "Есть ли CDN",
+        "has_cdn": "Есть ли CDN?",
         "ssl_score": "SSL Score"
     },
     "login": {
