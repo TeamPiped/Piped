@@ -1,1 +1,34 @@
-{}
+{
+    "titles": {
+        "login": "Innskrá",
+        "register": "Nýr Notandi",
+        "history": "Áhorfasaga",
+        "subscriptions": "Áskriftir",
+        "preferences": "Stillingar",
+        "trending": "Vinsælt"
+    },
+    "actions": {
+        "sort_by": "Raða eftir:",
+        "back": "Til Baka",
+        "dark": "Dimmt",
+        "light": "Ljóst",
+        "theme": "Þema",
+        "enable_sponsorblock": "Virkja Sponsorblock",
+        "subscribe": "Gerast Áskrifandi",
+        "unsubscribe": "Segja Upp Áskrift",
+        "auto": "Sjálfvirkt",
+        "audio_only": "Aðeins Hljóð",
+        "most_recent": "Nýlegast",
+        "least_recent": "Síðast",
+        "no": "Nei",
+        "yes": "Já",
+        "show_more": "Sýna Meira",
+        "search": "Leita"
+    },
+    "player": {
+        "watch_on": "Horfa á"
+    },
+    "search": {
+        "did_you_mean": "Áttirðu við: "
+    }
+}
