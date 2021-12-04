@@ -131,7 +131,7 @@
                     {{ showRecs ? $t("actions.minimize_recommendations") : $t("actions.show_recommendations") }}
                 </a>
                 <div
-                    v-for="related in video.relatedStreams"
+                    v-for="related in isPlaylist ? playlist.relatedStreams : video.relatedStreams"
                     v-show="showRecs || !smallView"
                     :key="related.url"
                     class="uk-tile-default uk-width-auto"
@@ -165,6 +165,9 @@ export default {
             video: {
                 title: "Loading...",
             },
+            playlist: {
+                title: "Loading...",
+            },
             sponsors: null,
             selectedAutoLoop: false,
             selectedAutoPlay: null,
@@ -189,6 +192,9 @@ export default {
         },
         isEmbed(_this) {
             return String(_this.$route.path).indexOf("/embed/") == 0;
+        },
+        isPlaylist(_this) {
+            return _this.$route.query.list;
         },
         uploadDate(_this) {
             return new Date(_this.video.uploadDate).toLocaleString(undefined, {
@@ -228,6 +234,7 @@ export default {
             })();
             if (this.active) this.$refs.videoPlayer.loadVideo();
         });
+        this.getPlaylistData();
         this.getSponsors();
         if (!this.isEmbed && this.getPreferenceBoolean("comments", true)) this.getComments();
         window.addEventListener("resize", () => {
@@ -265,6 +272,14 @@ export default {
                     ) +
                     '"]',
             });
+        },
+        async fetchPlaylist() {
+            return await await this.fetchJson(this.apiUrl() + "/playlists/" + this.$route.query.list);
+        },
+        async getPlaylistData() {
+            this.fetchPlaylist()
+                .then(data => (this.playlist = data))
+                .then(() => (document.title = this.playlist.name + " - Piped"));
         },
         fetchComments() {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());

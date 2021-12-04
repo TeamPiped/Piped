@@ -69,6 +69,11 @@ export default {
         async getPlaylistData() {
             this.fetchPlaylist()
                 .then(data => (this.playlist = data))
+                .then(() =>
+                    this.playlist.relatedStreams.forEach(video => {
+                        video.url += "&list=" + this.$route.query.list;
+                    }),
+                )
                 .then(() => (document.title = this.playlist.name + " - Piped"));
         },
         handleScroll() {
