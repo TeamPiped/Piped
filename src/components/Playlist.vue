@@ -83,6 +83,13 @@ export default {
                 this.fetchJson(this.apiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
                     nextpage: this.playlist.nextpage,
                 }).then(json => {
+                    json.relatedStreams.forEach((video, i) => {
+                        video.url +=
+                            "&list=" +
+                            this.$route.query.list +
+                            "&index=" +
+                            (this.playlist.relatedStreams.length + i + 1);
+                    });
                     this.playlist.relatedStreams.concat(json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
                     this.loading = false;

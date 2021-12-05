@@ -354,7 +354,9 @@ export default {
                                     } else searchParams.set(param, index + 1);
                                     break;
                                 case "list":
-                                    if (playlistEnded) searchParams.delete("list");
+                                    if (playlistEnded) {
+                                        searchParams.delete("list");
+                                    }
                                     break;
                                 default:
                                     searchParams.set(param, params[param]);

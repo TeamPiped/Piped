@@ -357,6 +357,36 @@ export default {
             this.subscribed = !this.subscribed;
         },
         handleScroll() {
+            if (this.loading || !this.isPlaylist || !this.playlist.nextpage) return;
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+                this.loading = true;
+                this.fetchJson(this.apiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
+                    nextpage: this.playlist.nextpage,
+                }).then(json => {
+                    const params = this.$route.query;
+                    const searchParams = new URLSearchParams();
+                    json.relatedStreams.forEach((video, i) => {
+                        for (var param in params)
+                            switch (param) {
+                                case "v":
+                                case "t":
+                                    break;
+                                case "index":
+                                    searchParams.set(param, i + 1);
+                                    break;
+                                case "list":
+                                    break;
+                                default:
+                                    searchParams.set(param, params[param]);
+                                    break;
+                            }
+                    });
+                    this.playlist.relatedStreams.concat(json.relatedStreams);
+                    this.playlist.nextpage = json.nextpage;
+                    this.loading = false;
+                    json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
+                });
+            }
             if (this.loading || !this.comments || !this.comments.nextpage) return;
             if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
                 this.loading = true;
