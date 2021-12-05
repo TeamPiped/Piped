@@ -374,8 +374,6 @@ export default {
                                 case "index":
                                     searchParams.set(param, i + 1);
                                     break;
-                                case "list":
-                                    break;
                                 default:
                                     searchParams.set(param, params[param]);
                                     break;

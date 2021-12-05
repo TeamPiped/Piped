@@ -337,12 +337,11 @@ export default {
                         const params = this.$route.query;
                         let index = Number(params.index).valueOf();
                         const searchParams = new URLSearchParams();
-                        let isPlaylist = this.isPlaylist;
+                        let playlistEnded = index == this.playlist.videos;
                         let url =
-                            isPlaylist && index > this.playlist.relatedStreams.length
+                            this.isPlaylist && playlistEnded
                                 ? this.playlist.relatedStreams[index].url
                                 : this.video.relatedStreams[0].url;
-                        let playlistEnded = index == this.playlist.relatedStreams.length;
                         for (var param in params)
                             switch (param) {
                                 case "v":
@@ -350,12 +349,14 @@ export default {
                                     break;
                                 case "index":
                                     if (playlistEnded) {
-                                        searchParams.delete("index");
+                                        searchParams.delete(param);
                                     } else searchParams.set(param, index + 1);
                                     break;
                                 case "list":
                                     if (playlistEnded) {
-                                        searchParams.delete("list");
+                                        searchParams.delete(param);
+                                    } else {
+                                        searchParams.set(param, params[param]);
                                     }
                                     break;
                                 default:
