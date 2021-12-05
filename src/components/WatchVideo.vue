@@ -17,6 +17,8 @@
             <Player
                 ref="videoPlayer"
                 :video="video"
+                :playlist="playlist"
+                :isPlaylist="isPlaylist"
                 :sponsors="sponsors"
                 :selected-auto-play="selectedAutoPlay"
                 :selected-auto-loop="selectedAutoLoop"
@@ -131,13 +133,20 @@
                     {{ showRecs ? $t("actions.minimize_recommendations") : $t("actions.show_recommendations") }}
                 </a>
                 <div
-                    v-for="related in isPlaylist ? playlist.relatedStreams : video.relatedStreams"
+                    v-for="(related, index) in isPlaylist ? playlist.relatedStreams : video.relatedStreams"
                     v-show="showRecs || !smallView"
                     :key="related.url"
                     class="uk-tile-default uk-width-auto"
                     :style="[{ background: backgroundColor }]"
                 >
-                    <VideoItem :video="related" height="94" width="168" />
+                    <VideoItem
+                        :video="related"
+                        :playlist="playlist"
+                        :index="index"
+                        height="94"
+                        width="168"
+                        :isPlaylist="isPlaylist"
+                    />
                 </div>
                 <hr class="uk-hidden@s" />
             </div>
@@ -168,6 +177,7 @@ export default {
             playlist: {
                 title: "Loading...",
             },
+            index: null,
             sponsors: null,
             selectedAutoLoop: false,
             selectedAutoPlay: null,
@@ -194,7 +204,7 @@ export default {
             return String(_this.$route.path).indexOf("/embed/") == 0;
         },
         isPlaylist(_this) {
-            return _this.$route.query.list;
+            return !!_this.$route.query.list;
         },
         uploadDate(_this) {
             return new Date(_this.video.uploadDate).toLocaleString(undefined, {
@@ -234,7 +244,10 @@ export default {
             })();
             if (this.active) this.$refs.videoPlayer.loadVideo();
         });
-        this.getPlaylistData();
+        if (this.isPlaylist) {
+            this.getPlaylistData();
+            this.index = this.$route.query.index;
+        }
         this.getSponsors();
         if (!this.isEmbed && this.getPreferenceBoolean("comments", true)) this.getComments();
         window.addEventListener("resize", () => {

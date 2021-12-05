@@ -31,6 +31,12 @@ export default {
                 return {};
             },
         },
+        playlist: {
+            type: Object,
+            default: () => {
+                return {};
+            },
+        },
         sponsors: {
             type: Object,
             default: () => {
@@ -40,6 +46,7 @@ export default {
         selectedAutoPlay: Boolean,
         selectedAutoLoop: Boolean,
         isEmbed: Boolean,
+        isPlaylist: Boolean,
     },
     data() {
         return {
@@ -328,12 +335,26 @@ export default {
                 videoEl.addEventListener("ended", () => {
                     if (!this.selectedAutoLoop && this.selectedAutoPlay && this.video.relatedStreams.length > 0) {
                         const params = this.$route.query;
-                        let url = this.video.relatedStreams[0].url;
+                        let index = Number(params.index).valueOf();
                         const searchParams = new URLSearchParams();
+                        let isPlaylist = this.isPlaylist;
+                        let url =
+                            isPlaylist && index > this.playlist.relatedStreams.length
+                                ? this.playlist.relatedStreams[index].url
+                                : this.video.relatedStreams[0].url;
+                        let playlistEnded = index == this.playlist.relatedStreams.length;
                         for (var param in params)
                             switch (param) {
                                 case "v":
                                 case "t":
+                                    break;
+                                case "index":
+                                    if (playlistEnded) {
+                                        searchParams.delete("index");
+                                    } else searchParams.set(param, index + 1);
+                                    break;
+                                case "list":
+                                    if (playlistEnded) searchParams.delete("list");
                                     break;
                                 default:
                                     searchParams.set(param, params[param]);

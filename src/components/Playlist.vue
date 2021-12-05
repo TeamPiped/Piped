@@ -70,8 +70,8 @@ export default {
             this.fetchPlaylist()
                 .then(data => (this.playlist = data))
                 .then(() =>
-                    this.playlist.relatedStreams.forEach(video => {
-                        video.url += "&list=" + this.$route.query.list;
+                    this.playlist.relatedStreams.forEach((video, i) => {
+                        video.url += "&list=" + this.$route.query.list + "&index=" + (i + 1);
                     }),
                 )
                 .then(() => (document.title = this.playlist.name + " - Piped"));

@@ -1,6 +1,13 @@
 <template>
     <div class="uk-text-secondary" :style="[{ background: backgroundColor }]">
-        <router-link class="uk-text-emphasis" :to="video.url">
+        <router-link
+            class="uk-text-emphasis"
+            :to="
+                isPlaylist
+                    ? video.url + '&list=' + this.$route.query.list + '&index=' + (index.valueOf() + 1)
+                    : video.url
+            "
+        >
             <img :height="height" :width="width" style="width: 100%" :src="video.thumbnail" alt="" loading="lazy" />
             <div class="uk-position-relative">
                 <span
@@ -36,7 +43,7 @@
 
         <div class="uk-align-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
             <router-link
-                :to="video.url + '&listen=1'"
+                :to="video.url + 'en=1'"
                 :aria-label="'Listen to ' + video.title"
                 :title="'Listen to ' + video.title"
             >
@@ -96,6 +103,14 @@ export default {
                 return {};
             },
         },
+        playlist: {
+            type: Object,
+            default: () => {
+                return {};
+            },
+        },
+        isPlaylist: Boolean,
+        index: Number,
         height: { type: String, default: "118" },
         width: { type: String, default: "210" },
         hideChannel: { type: Boolean, default: false },
