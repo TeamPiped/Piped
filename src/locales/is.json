@@ -1,0 +1,96 @@
+{
+    "titles": {
+        "login": "Innskrá",
+        "register": "Nýr Notandi",
+        "history": "Áhorfasaga",
+        "subscriptions": "Áskriftir",
+        "preferences": "Stillingar",
+        "trending": "Vinsælt",
+        "feed": "Straumur"
+    },
+    "actions": {
+        "sort_by": "Raða eftir:",
+        "back": "Til Baka",
+        "dark": "Dimmt",
+        "light": "Ljóst",
+        "theme": "Þema",
+        "enable_sponsorblock": "Virkja Sponsorblock",
+        "subscribe": "Gerast Áskrifandi",
+        "unsubscribe": "Segja Upp Áskrift",
+        "auto": "Sjálfvirkt",
+        "audio_only": "Aðeins Hljóð",
+        "most_recent": "Nýlegast",
+        "least_recent": "Síðast",
+        "no": "Nei",
+        "yes": "Já",
+        "show_more": "Sýna Meira",
+        "search": "Leita",
+        "view_subscriptions": "Skoða Áskriftir",
+        "channel_name_asc": "Rásarnafn (A-Ö)",
+        "channel_name_desc": "Rásarnafn (Ö-A)",
+        "uses_api_from": "Nota forritaskil frá ",
+        "skip_sponsors": "Sleppa Stuðningum",
+        "skip_intro": "Sleppa Kynningu",
+        "skip_outro": "Sleppa Enda",
+        "skip_preview": "Sleppa Forsýningu",
+        "skip_interaction": "Sleppa Beiðnum",
+        "skip_self_promo": "Sleppa Sjálfauglýsingu",
+        "skip_non_music": "Sleppa Hluta Án Tónlist",
+        "autoplay_video": "Sjálfvirkt Spila Myndbönd",
+        "country_selection": "Landsval",
+        "default_homepage": "Sjálfgefin Heimasíða",
+        "show_comments": "Sýna Ummæli",
+        "store_watch_history": "Geyma Áhorfasögu",
+        "language_selection": "Tungumálaval",
+        "minimize_description_default": "Lágmarka Lýsingu Sjálfgefið",
+        "instances_list": "Tilvikalisti",
+        "donations": "Framlög",
+        "minimize_description": "Minnka Lýsingu",
+        "show_description": "Sýna Lýsingu",
+        "minimize_recommendations": "Minnka Tillögur",
+        "show_recommendations": "Sýna Tillögur",
+        "disable_lbry": "Óvirkja LBRY Fyrir Straumspilun",
+        "enable_lbry_proxy": "Virkja Staðgengilsþjón fyrir LBRY",
+        "view_ssl_score": "Skoðaðu SSL Einkunn",
+        "enabled_codecs": "Virkjir Afkóðarar (Marghæft)",
+        "instance_selection": "Tilviksval",
+        "import_from_json": "Flytja inn frá JSON",
+        "loop_this_video": "Endurtaka þetta Myndband",
+        "auto_play_next_video": "Spila Næsta Myndband Sjálfvirkt",
+        "filter": "Sía",
+        "loading": "Hleður...",
+        "clear_history": "Hreinsa Feril",
+        "show_replies": "Sýna Svör",
+        "hide_replies": "Fela Svör",
+        "load_more_replies": "Hlaða Fleiri Svörum",
+        "default_quality": "Sjálfgefin Gæði",
+        "buffering_goal": "Biðminnismarkmið (í sekúndum)",
+        "export_to_json": "Flytja út í JSON"
+    },
+    "player": {
+        "watch_on": "Horfa á"
+    },
+    "search": {
+        "did_you_mean": "Áttirðu við: "
+    },
+    "video": {
+        "ratings_disabled": "Einkunnir Óvirkar",
+        "videos": "Myndbönd",
+        "views": "áhorf",
+        "watched": "Áhorft",
+        "sponsor_segments": "Styrkjarahlutar"
+    },
+    "comment": {
+        "pinned_by": "Fest af"
+    },
+    "preferences": {
+        "instance_name": "Tilviksheiti",
+        "instance_locations": "Tilviksstaðsetning",
+        "has_cdn": "Hefur Efnisflutningarnet (CDN)?",
+        "ssl_score": "SSL Einkunn"
+    },
+    "login": {
+        "password": "Aðgangsorð",
+        "username": "Notandanafn"
+    }
+}
