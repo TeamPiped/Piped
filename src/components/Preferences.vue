@@ -260,6 +260,8 @@ export default {
                 { code: "fa", name: "فارسی" },
                 { code: "fi", name: "Suomi" },
                 { code: "fr", name: "français" },
+                { code: "id", name: "Indonesia" },
+                { code: "is", name: "Íslenska" },
                 { code: "hr", name: "Hrvatski" },
                 { code: "it", name: "italiano" },
                 { code: "ja", name: "日本語" },
