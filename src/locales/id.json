@@ -1,1 +1,96 @@
-{}
+{
+    "titles": {
+        "trending": "Sedang Tren",
+        "login": "Masuk",
+        "register": "Daftar",
+        "feed": "Feed",
+        "preferences": "Preferensi",
+        "history": "Riwayat",
+        "subscriptions": "Langganan"
+    },
+    "player": {
+        "watch_on": "Tonton di"
+    },
+    "actions": {
+        "subscribe": "Berlangganan",
+        "view_subscriptions": "Lihat Langganan",
+        "sort_by": "Sortir bedasarkan oleh:",
+        "least_recent": "Baru",
+        "unsubscribe": "Berhenti Berlangganan",
+        "channel_name_asc": "Nama Saluran (A-Z)",
+        "channel_name_desc": "Nama Saluran (Z-A)",
+        "back": "Kembali",
+        "uses_api_from": "Menggunakan API dari ",
+        "enable_sponsorblock": "Aktifkan SponsorBlock",
+        "skip_sponsors": "Lewatkan Sponsor",
+        "skip_intro": "Lewatkan Animasi Intermisi/Intro",
+        "skip_outro": "Lewatkan Kartu Akhir/Kredit",
+        "skip_preview": "Lewatkan Tampilan/Rekap",
+        "skip_interaction": "Lewatkan Interaksi Pengingat (Berlangganan)",
+        "skip_self_promo": "Lewatkan Promosi Tak Berbayar/Diri",
+        "skip_non_music": "Lewatkan Musik: Bagian Non-Musik",
+        "dark": "Gelap",
+        "light": "Terang",
+        "autoplay_video": "Otomatis Mainkan Video",
+        "audio_only": "Audio Saja",
+        "default_quality": "Kualitas Bawaan",
+        "buffering_goal": "Tujuan Buffering (dalam detik)",
+        "country_selection": "Pemilihan Negara",
+        "default_homepage": "Halaman Beranda Bawaan",
+        "show_comments": "Tampilkan Komentar",
+        "minimize_description_default": "Kecilkan Deskripsi secara default",
+        "language_selection": "Pemilihan Bahasa",
+        "instances_list": "Daftar Instansi",
+        "enabled_codecs": "Kodek yang Diaktifkan (Beberapa)",
+        "instance_selection": "Pemilihan Instansi",
+        "show_more": "Tampilkan Lebih Banyak",
+        "yes": "Iya",
+        "no": "Tidak",
+        "import_from_json": "Impor dari JSON",
+        "loop_this_video": "Ulangi Video ini",
+        "auto_play_next_video": "Mainkan video berikutnya secara otomatis",
+        "donations": "Donasi",
+        "minimize_description": "Kecilkan Deskripsi",
+        "show_description": "Tampilkan Deskripsi",
+        "minimize_recommendations": "Kecilkan Rekomendasi",
+        "show_recommendations": "Tampilkan Rekomendasi",
+        "disable_lbry": "Nonaktifkan LBRY untuk Streaming",
+        "enable_lbry_proxy": "Aktifkan Proksi untuk LBRY",
+        "view_ssl_score": "Tampilkan Skor SSL",
+        "search": "Telusuri",
+        "filter": "Saring",
+        "loading": "Memuat...",
+        "clear_history": "Hapus Riwayat",
+        "show_replies": "Tampilkan Balasan",
+        "hide_replies": "Sembunyikan Balasan",
+        "load_more_replies": "Muat Balasan",
+        "theme": "Tema",
+        "store_watch_history": "Simpan Riwayat Tontonan",
+        "export_to_json": "Ekspor ke JSON",
+        "most_recent": "Paling Baru",
+        "auto": "Otomatis"
+    },
+    "comment": {
+        "pinned_by": "Dipasangi pin oleh"
+    },
+    "preferences": {
+        "instance_name": "Nama Instansi",
+        "ssl_score": "Skor SSL",
+        "instance_locations": "Lokasi Instansi",
+        "has_cdn": "Mempunyai CDN?"
+    },
+    "login": {
+        "username": "Nama Pengguna",
+        "password": "Kata Sandi"
+    },
+    "video": {
+        "videos": "Video",
+        "views": "tampilan",
+        "watched": "Ditonton",
+        "sponsor_segments": "Segmen Sponsor",
+        "ratings_disabled": "Penilaian Dinonaktifkan"
+    },
+    "search": {
+        "did_you_mean": "Apakah Anda maksud: "
+    }
+}
