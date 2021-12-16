@@ -1073,10 +1073,10 @@
     "@intlify/core-base" "9.2.0-beta.23"
     "@intlify/shared" "9.2.0-beta.23"
 
-"@intlify/vue-i18n-loader@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@intlify/vue-i18n-loader/-/vue-i18n-loader-4.0.1.tgz#2bac7b20293bcee9c11ddc34cb4982ed0d64aec9"
-  integrity sha512-xI859YIFDBztdqSQqlfD44ijH0Z4y+DJGDIWbClc4RXSfOgS/Zm2v1Bd3WN9CFYSQOeU6ARTcx4K3izxgtWMVA==
+"@intlify/vue-i18n-loader@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@intlify/vue-i18n-loader/-/vue-i18n-loader-4.1.0.tgz#dc3717640c1dc560b3d8997b3f6746e9ef84ee52"
+  integrity sha512-Khf0CXi2rVjL4dWNk5WemoRSs20t7C7R+WhDrcpIIhAxJ2VQ7bjW4mLEmvvC7dc4uFyXI4q+WYaoFTVFzo90aA==
   dependencies:
     "@intlify/bundle-utils" next
     "@intlify/shared" beta
