@@ -393,7 +393,14 @@ export default {
 
                 this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
-                const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"];
+                const overflowMenuButtons = [
+                    "quality",
+                    "captions",
+                    "picture_in_picture",
+                    "playback_rate",
+                    "airplay",
+                    "cast",
+                ];
 
                 if (this.isEmbed) {
                     overflowMenuButtons.push("open_new_tab");
