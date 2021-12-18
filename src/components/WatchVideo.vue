@@ -29,17 +29,17 @@
                 <div class="uk-margin-small-right">{{ addCommas(video.views) }} views</div>
                 <div class="uk-margin-small-right">{{ uploadDate }}</div>
                 <div class="uk-flex-1"></div>
-                <template v-if="video.likes >= 0 && video.dislikes >= 0">
+                <template v-if="video.likes >= 0">
                     <div class="uk-margin-small-left">
                         <font-awesome-icon class="uk-margin-small-right" icon="thumbs-up"></font-awesome-icon>
                         <b>{{ addCommas(video.likes) }}</b>
                     </div>
                     <div class="uk-margin-small-left">
                         <font-awesome-icon class="uk-margin-small-right" icon="thumbs-down"></font-awesome-icon>
-                        <b>{{ addCommas(video.dislikes) }}</b>
+                        <b>{{ video.dislikes >= 0 ? addCommas(video.dislikes) : "?" }}</b>
                     </div>
                 </template>
-                <template v-if="video.likes < 0 && video.dislikes < 0">
+                <template v-if="video.likes < 0">
                     <div class="uk-margin-small-left">
                         <b v-t="'video.ratings_disabled'" />
                     </div>
