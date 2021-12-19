@@ -18,11 +18,20 @@ module.exports = {
             ],
         },
     },
+    configureWebpack: {
+        resolve: {
+            alias: {
+                "vue-i18n": "vue-i18n/dist/vue-i18n.runtime.esm-bundler.js",
+            },
+        },
+    },
     pluginOptions: {
         i18n: {
             locale: "en",
+            fallbackLocale: "en",
             localeDir: "locales",
             fullInstall: true,
+            enableLegacy: false,
         },
     },
 };
