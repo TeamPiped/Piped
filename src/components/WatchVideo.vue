@@ -89,6 +89,7 @@
             />
             <!-- eslint-disable-next-line vue/no-v-html -->
             <p v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
+            <Chapters :chapters="video.chapters" @seek="navigate" />
             <div
                 v-if="showDesc && sponsors && sponsors.segments"
                 v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
@@ -143,6 +144,7 @@ import Player from "@/components/Player.vue";
 import VideoItem from "@/components/VideoItem.vue";
 import ErrorHandler from "@/components/ErrorHandler.vue";
 import Comment from "@/components/Comment.vue";
+import Chapters from "@/components/Chapters.vue";
 
 export default {
     name: "App",
@@ -151,6 +153,7 @@ export default {
         VideoItem,
         ErrorHandler,
         Comment,
+        Chapters,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
@@ -336,6 +339,9 @@ export default {
         },
         getVideoId() {
             return this.$route.query.v || this.$route.params.v;
+        },
+        navigate(time) {
+            this.$refs.videoPlayer.seek(time);
         },
     },
 };
