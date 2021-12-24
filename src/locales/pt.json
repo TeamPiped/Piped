@@ -1,0 +1,89 @@
+{
+    "titles": {
+        "trending": "Tendências",
+        "preferences": "Preferências",
+        "subscriptions": "Subscrições",
+        "login": "Iniciar sessão",
+        "register": "Registar",
+        "history": "Histórico"
+    },
+    "actions": {
+        "sort_by": "Ordenar por:",
+        "most_recent": "Mais Recente",
+        "least_recent": "Menos Recente",
+        "channel_name_asc": "Nome do Canal (A-Z)",
+        "back": "Para trás",
+        "uses_api_from": "Usa a API de ",
+        "enable_sponsorblock": "Ativar Sponsorblock",
+        "skip_intro": "Saltar Intermissão/Animação introdutória",
+        "skip_outro": "Saltar Cartões finais/Créditos",
+        "skip_preview": "Saltar Pré-visualização/Recap",
+        "auto": "Automático",
+        "dark": "Escuro",
+        "autoplay_video": "Reprodução automática",
+        "audio_only": "Apenas som",
+        "default_quality": "Qualidade padrão",
+        "country_selection": "Seleção de país",
+        "default_homepage": "Página Inicial padrão",
+        "show_comments": "Mostrar comentários",
+        "minimize_description_default": "Minimizar Descrição por defeito",
+        "store_watch_history": "Guardar Histórico de Visualização",
+        "instances_list": "Lista de Instâncias",
+        "enabled_codecs": "Codecs Ativos (vários)",
+        "instance_selection": "Selecão de Instância",
+        "show_more": "Mostrar mais",
+        "import_from_json": "Importar JSON",
+        "export_to_json": "Exportar para JSON",
+        "loop_this_video": "Ver vídeo em ciclo",
+        "auto_play_next_video": "Reproduzir o próximo vídeo automaticamente",
+        "donations": "Doações",
+        "minimize_description": "Minimizar Descrição",
+        "show_description": "Mostrar Descrição",
+        "show_recommendations": "Mostrar Recomendações",
+        "disable_lbry": "Desativar LBRY para Streaming",
+        "enable_lbry_proxy": "Ativar Proxy para LBRY",
+        "view_ssl_score": "Ver valor de SSL",
+        "search": "Pesquisar",
+        "filter": "Filtrar",
+        "loading": "A carregar...",
+        "clear_history": "Limpar Histórico",
+        "show_replies": "Mostrar respostas",
+        "subscribe": "Subscrever",
+        "unsubscribe": "Anular subscrição",
+        "view_subscriptions": "Ver Subscrições",
+        "channel_name_desc": "Nome do Canal (Z-A)",
+        "skip_sponsors": "Saltar Patrocínios",
+        "yes": "Sim",
+        "skip_non_music": "Saltar Música: Secção sem música",
+        "no": "Não",
+        "theme": "Tema",
+        "language_selection": "Seleção de Idioma",
+        "minimize_recommendations": "Minimizar Recomendações",
+        "light": "Claro",
+        "hide_replies": "Esconder respostas",
+        "load_more_replies": "Carregar mais respostas"
+    },
+    "preferences": {
+        "instance_name": "Nome da Instância",
+        "instance_locations": "Localizações da Instância",
+        "ssl_score": "Valor de SSL",
+        "has_cdn": "Tem CDN?"
+    },
+    "login": {
+        "password": "Palavra-passe",
+        "username": "Nome de utilizador"
+    },
+    "video": {
+        "videos": "Vídeos",
+        "views": "visualizações",
+        "watched": "Visto",
+        "sponsor_segments": "Segmentos de Patrocínios",
+        "ratings_disabled": "Avaliações desativadas"
+    },
+    "search": {
+        "did_you_mean": "Quis dizer: "
+    },
+    "player": {
+        "watch_on": "Ver em"
+    }
+}

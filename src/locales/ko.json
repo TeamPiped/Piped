@@ -1,0 +1,96 @@
+{
+    "actions": {
+        "yes": "예",
+        "filter": "필터",
+        "load_more_replies": "답글 더 불러오기",
+        "hide_replies": "답글 숨기기",
+        "skip_interaction": "상호 작용 알림 (구독) 스킵",
+        "show_comments": "댓글 보이기",
+        "unsubscribe": "구독 취소",
+        "view_subscriptions": "구독 보기",
+        "least_recent": "가장 오래된",
+        "theme": "테마",
+        "auto": "자동",
+        "channel_name_desc": "채널 이름 (Z-A)",
+        "back": "돌아가기",
+        "enable_sponsorblock": "Sponsorblock 활성화",
+        "skip_outro": "최종 화면/크레딧 스킵",
+        "skip_preview": "미리보기/요약 스킵",
+        "uses_api_from": "의 API를 사용: ",
+        "skip_non_music": "음악: 음악이 아닌 구간 스킵",
+        "skip_self_promo": "셀프 프로모션 스킵",
+        "buffering_goal": "버퍼링 목표 (초)",
+        "country_selection": "국가 선택",
+        "store_watch_history": "시청 기록 저장",
+        "language_selection": "언어 선택",
+        "no": "아니요",
+        "loop_this_video": "이 영상 반복",
+        "auto_play_next_video": "다음 영상 자동 재생",
+        "minimize_description": "설명 최소화",
+        "show_recommendations": "추천 영상 표시",
+        "sort_by": "정렬:",
+        "most_recent": "가장 최신",
+        "channel_name_asc": "채널 이름 (A-Z)",
+        "subscribe": "구독",
+        "audio_only": "오디오만",
+        "skip_sponsors": "스폰서 스킵",
+        "dark": "다크",
+        "minimize_description_default": "기본적으로 설명 최소화",
+        "enabled_codecs": "활성화된 코덱 (여러 개)",
+        "instance_selection": "인스턴스 선택",
+        "import_from_json": "JSON에서 가져오기",
+        "light": "라이트",
+        "autoplay_video": "영상 자동 재생",
+        "default_quality": "기본 화질",
+        "default_homepage": "기본 홈페이지",
+        "instances_list": "인스턴스 리스트",
+        "show_more": "더 보기",
+        "export_to_json": "JSON으로 내보내기",
+        "donations": "기부",
+        "show_description": "설명 표시",
+        "disable_lbry": "LBRY 스트리밍 비활성화",
+        "enable_lbry_proxy": "LBRY 프록시 활성화",
+        "minimize_recommendations": "추천 영상 최소화",
+        "loading": "로딩...",
+        "view_ssl_score": "SSL 점수 보기",
+        "skip_intro": "중간 휴식/인트로 애니메이션 스킵",
+        "search": "검색",
+        "clear_history": "기록 지우기",
+        "show_replies": "답글 보기"
+    },
+    "titles": {
+        "feed": "피드",
+        "preferences": "설정",
+        "history": "시청 기록",
+        "subscriptions": "구독",
+        "trending": "트렌드",
+        "login": "로그인",
+        "register": "가입"
+    },
+    "player": {
+        "watch_on": "에서 보기"
+    },
+    "comment": {
+        "pinned_by": "에 의해 고정됨"
+    },
+    "preferences": {
+        "has_cdn": "CDN 여부?",
+        "ssl_score": "SSL 점수",
+        "instance_locations": "인스턴스 위치",
+        "instance_name": "인스턴스 이름"
+    },
+    "login": {
+        "username": "유저 이름",
+        "password": "비밀번호"
+    },
+    "video": {
+        "videos": "영상",
+        "views": "조회수",
+        "watched": "시청함",
+        "sponsor_segments": "스폰서 세그먼트",
+        "ratings_disabled": "등급 비활성화됨"
+    },
+    "search": {
+        "did_you_mean": "이것을 찾으셨나요: "
+    }
+}
