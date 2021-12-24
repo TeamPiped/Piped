@@ -118,7 +118,14 @@ Donations can be made at:
 -   nano_1ngejzydncche4rdua3iebhj7sa95pw5geq4pb8phugtjf3tku933ktjb4pq (Nano)
 -   XpzgouDTKCUuE8a92XqjX9b43gKL8oLihw (Dash)
 
+FIAT donations can be made at: https://liberapay.com/kavin
+
 Contributions in any other form are also welcomed.
+
+# Made with Piped
+
+-   [Yattee](https://github.com/yattee/yattee) - an alternative frontend for YouTube, for IOS.
+-   [LibreTube](https://github.com/rimthekid/LibreTube) [WIP] - an alternative frontend for YouTube, for Android.
 
 ## YourKit
 
