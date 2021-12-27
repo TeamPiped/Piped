@@ -12,13 +12,7 @@
     </span>
 
     <span class="md:float-right">
-        <label for="ddlSortBy" v-text="$t('actions.sort_by')" />
-        <select id="ddlSortBy" v-model="selectedSort" class="select w-auto" @change="onChange()">
-            <option v-t="'actions.most_recent'" value="descending" />
-            <option v-t="'actions.least_recent'" value="ascending" />
-            <option v-t="'actions.channel_name_asc'" value="channel_ascending" />
-            <option v-t="'actions.channel_name_desc'" value="channel_descending" />
-        </select>
+        <Sorting by-key="uploaded" @apply="order => videos.sort(order)" />
     </span>
 
     <hr />
@@ -30,10 +24,12 @@
 
 <script>
 import VideoItem from "@/components/VideoItem.vue";
+import Sorting from "@/components/Sorting.vue";
 
 export default {
     components: {
         VideoItem,
+        Sorting,
     },
     data() {
         return {
@@ -41,7 +37,6 @@ export default {
             videoStep: 100,
             videosStore: [],
             videos: [],
-            selectedSort: "descending",
         };
     },
     computed: {
@@ -72,22 +67,6 @@ export default {
             return await this.fetchJson(this.apiUrl() + "/feed", {
                 authToken: this.getAuthToken(),
             });
-        },
-        onChange() {
-            switch (this.selectedSort) {
-                case "ascending":
-                    this.videos.sort((a, b) => a.uploaded - b.uploaded);
-                    break;
-                case "descending":
-                    this.videos.sort((a, b) => b.uploaded - a.uploaded);
-                    break;
-                case "channel_ascending":
-                    this.videos.sort((a, b) => a.uploaderName.localeCompare(b.uploaderName));
-                    break;
-                case "channel_descending":
-                    this.videos.sort((a, b) => b.uploaderName.localeCompare(a.uploaderName));
-                    break;
-            }
         },
         loadMoreVideos() {
             this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
