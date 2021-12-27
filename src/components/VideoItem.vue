@@ -3,12 +3,18 @@
         <router-link :to="video.url">
             <img :height="height" :width="width" class="w-full" :src="video.thumbnail" alt="" loading="lazy" />
             <div class="relative text-sm">
-                <span v-if="video.duration" class="thumbnail-overlay bottom-5px right-5px" style="padding: 0 5px">{{
-                    timeFormat(video.duration)
-                }}</span>
-                <span v-if="video.watched" class="thumbnail-overlay bottom-5px left-5px" style="padding: 0 5px">{{
-                    $t("video.watched")
-                }}</span>
+                <span
+                    v-if="video.duration"
+                    class="thumbnail-overlay bottom-5px right-5px"
+                    style="padding: 0 5px"
+                    v-text="timeFormat(video.duration)"
+                />
+                <span
+                    v-if="video.watched"
+                    class="thumbnail-overlay bottom-5px left-5px"
+                    style="padding: 0 5px"
+                    v-text="$t('video.watched')"
+                />
             </div>
 
             <div>
@@ -16,9 +22,8 @@
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
                     class="my-2 overflow-hidden flex link"
                     :title="video.title"
-                >
-                    {{ video.title }}
-                </p>
+                    v-text="video.title"
+                />
             </div>
         </router-link>
 
@@ -52,21 +57,17 @@
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
                 >
-                    {{ video.uploaderName
-                    }}<font-awesome-icon class="ml-1.5" v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
+                    <span v-text="video.uploaderName" />
+                    <font-awesome-icon class="ml-1.5" v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
                 </router-link>
 
                 <strong v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
                     <span v-if="video.views >= 0">
                         <font-awesome-icon icon="eye"></font-awesome-icon>
-                        {{ numberFormat(video.views) }} •
+                        <span v-text="`${numberFormat(video.views)} •`" />
                     </span>
-                    <span v-if="video.uploadedDate">
-                        {{ video.uploadedDate }}
-                    </span>
-                    <span v-if="video.uploaded">
-                        {{ timeAgo(video.uploaded) }}
-                    </span>
+                    <span v-if="video.uploadedDate" v-text="video.uploadedDate" />
+                    <span v-if="video.uploaded" v-text="timeAgo(video.uploaded)" />
                 </strong>
             </div>
         </div>

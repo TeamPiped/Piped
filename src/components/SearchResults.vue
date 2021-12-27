@@ -1,11 +1,7 @@
 <template>
-    <h1 class="text-center">
-        {{ $route.query.search_query }}
-    </h1>
+    <h1 class="text-center" v-text="$route.query.search_query" />
 
-    <label for="ddlSearchFilters"
-        ><strong>{{ $t("actions.filter") }}: </strong></label
-    >
+    <label for="ddlSearchFilters"><strong v-text="`${$t('actions.filter')}:`" /></label>
     <select
         id="ddlSearchFilters"
         v-model="selectedFilter"
@@ -14,19 +10,18 @@
         style="height: 100%"
         @change="updateResults()"
     >
-        <option v-for="filter in availableFilters" :key="filter" :value="filter">
-            {{ filter.replace("_", " ") }}
-        </option>
+        <option v-for="filter in availableFilters" :key="filter" :value="filter" v-text="filter.replace('_', ' ')" />
     </select>
 
     <hr />
 
     <div v-if="results && results.corrected" style="height: 7vh">
-        {{ $t("search.did_you_mean") }}
+        <span v-text="$t('search.did_you_mean')" />
         <em>
-            <router-link :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }">
-                {{ results.suggestion }}
-            </router-link>
+            <router-link
+                :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }"
+                v-text="results.suggestion"
+            />
         </em>
     </div>
 
@@ -39,15 +34,17 @@
                         <img style="width: 100%" :src="result.thumbnail" loading="lazy" />
                     </div>
                     <p>
-                        {{ result.name
-                        }}<font-awesome-icon class="ml-1.5" v-if="result.verified" icon="check"></font-awesome-icon>
+                        <span v-text="result.name" /><font-awesome-icon
+                            class="ml-1.5"
+                            v-if="result.verified"
+                            icon="check"
+                        ></font-awesome-icon>
                     </p>
                 </router-link>
-                <p v-if="result.description">{{ result.description }}</p>
+                <p v-if="result.description" v-text="result.description" />
                 <router-link v-if="result.uploaderUrl" class="uk-link-muted" :to="result.uploaderUrl">
                     <p>
-                        {{ result.uploader
-                        }}<font-awesome-icon
+                        <span v-text="result.uploader" /><font-awesome-icon
                             class="ml-1.5"
                             v-if="result.uploaderVerified"
                             icon="check"
@@ -55,10 +52,10 @@
                     </p>
                 </router-link>
 
-                <a v-if="result.uploaderName" class="uk-text-muted">{{ result.uploaderName }}</a>
+                <a v-if="result.uploaderName" class="uk-text-muted" v-text="result.uploaderName" />
                 <strong v-if="result.videos >= 0"
-                    ><br v-if="result.uploaderName" />{{ result.videos }} {{ $t("video.videos") }}</strong
-                >
+                    ><br v-if="result.uploaderName" /><span v-text="`${result.videos} ${$t('video.videos')}`"
+                /></strong>
 
                 <br />
             </div>

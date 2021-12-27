@@ -2,22 +2,20 @@
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
     <div v-if="playlist" v-show="!playlist.error">
-        <h1 class="text-center">
-            {{ playlist.name }}
-        </h1>
+        <h1 class="text-center" v-text="playlist.name" />
 
         <div class="grid grid-cols-2">
             <div>
-                <strong
-                    ><router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
+                <strong>
+                    <router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
                         <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
-                        {{ playlist.uploader }}</router-link
-                    ></strong
-                >
+                        <span v-text="playlist.uploader" />
+                    </router-link>
+                </strong>
             </div>
             <div>
                 <div class="right-2vw absolute">
-                    <strong>{{ playlist.videos }} {{ $t("video.videos") }}</strong>
+                    <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
                     <br />
                     <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
                 </div>

@@ -22,7 +22,7 @@
                 />
             </div>
             <div class="uk-form-row">
-                <a class="uk-width-1-1 btn w-auto" @click="register"> {{ $t("titles.register") }}</a>
+                <a class="uk-width-1-1 btn w-auto" @click="register" v-text="$t('titles.register')" />
             </div>
         </form>
     </div>

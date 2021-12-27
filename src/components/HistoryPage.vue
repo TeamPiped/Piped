@@ -1,12 +1,12 @@
 <template>
-    <h1 class="font-bold text-center">{{ $t("titles.history") }}</h1>
+    <h1 class="font-bold text-center" v-text="$t('titles.history')" />
 
     <div style="text-align: left">
         <button class="btn" v-t="'actions.clear_history'" @click="clearHistory"></button>
     </div>
 
     <div style="text-align: right">
-        <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
+        <label for="ddlSortBy" v-text="$t('actions.sort_by')" />
         <select id="ddlSortBy" v-model="selectedSort" class="select w-auto" @change="onChange()">
             <option v-t="'actions.most_recent'" value="descending" />
             <option v-t="'actions.least_recent'" value="ascending" />
