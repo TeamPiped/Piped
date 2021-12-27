@@ -190,6 +190,9 @@ const mixin = {
         },
     },
     computed: {
+        theme() {
+            return this.getEffectiveTheme();
+        },
         backgroundColor() {
             return this.getEffectiveTheme() === "light" ? "#fff" : "#0b0e0f";
         },

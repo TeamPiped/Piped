@@ -81,7 +81,7 @@
 
             <hr />
 
-            <button class="btn" @click="showDesc = !showDesc">
+            <button class="btn mb-2" @click="showDesc = !showDesc">
                 {{ showDesc ? $t("actions.minimize_description") : $t("actions.show_description") }}
             </button>
             <!-- eslint-disable-next-line vue/no-v-html -->

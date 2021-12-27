@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full min-h-screen h-full" :class="{ dark: darkMode, reset: !darkMode }">
+    <div class="w-full min-h-screen h-full p-5 reset" :class="{ dark: darkMode }">
         <Navigation />
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
@@ -110,6 +110,7 @@ b {
 
 * {
     scrollbar-color: #15191a #444a4e;
+    @apply font-sans;
 }
 
 .video-grid {
@@ -122,6 +123,10 @@ b {
 
 .reset {
     @apply text-black bg-white;
+}
+
+.auto {
+    @apply dark:(text-white bg-dark-900);
 }
 
 .dark {
