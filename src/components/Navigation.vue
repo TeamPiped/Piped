@@ -1,9 +1,5 @@
 <template>
-    <nav
-        class="uk-navbar uk-navbar-container uk-container-expand relative"
-        :style="[{ background: backgroundColor, colour: foregroundColor }]"
-        uk-navbar
-    >
+    <nav class="uk-navbar w-100 relative" :style="[{ background: backgroundColor, colour: foregroundColor }]" uk-navbar>
         <div class="uk-navbar-left">
             <router-link
                 class="uk-navbar-item uk-logo font-bold font-2xl font-sans font-bold"
