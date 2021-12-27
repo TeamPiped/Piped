@@ -8,16 +8,16 @@
 
         <div class="grid grid-cols-2">
             <div>
-                <b
+                <strong
                     ><router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
                         <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
                         {{ playlist.uploader }}</router-link
-                    ></b
+                    ></strong
                 >
             </div>
             <div>
                 <div class="right-2vw absolute">
-                    <b>{{ playlist.videos }} {{ $t("video.videos") }}</b>
+                    <strong>{{ playlist.videos }} {{ $t("video.videos") }}</strong>
                     <br />
                     <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
                 </div>

@@ -56,7 +56,7 @@
                     }}<font-awesome-icon class="ml-1.5" v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
                 </router-link>
 
-                <b v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
+                <strong v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
                     <span v-if="video.views >= 0">
                         <font-awesome-icon icon="eye"></font-awesome-icon>
                         {{ numberFormat(video.views) }} •
@@ -67,7 +67,7 @@
                     <span v-if="video.uploaded">
                         {{ timeAgo(video.uploaded) }}
                     </span>
-                </b>
+                </strong>
             </div>
         </div>
     </div>

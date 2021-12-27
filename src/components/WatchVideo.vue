@@ -33,24 +33,24 @@
                     <template v-if="video.likes >= 0">
                         <div>
                             <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
-                            <b class="ml-2">{{ addCommas(video.likes) }}</b>
+                            <strong class="ml-2">{{ addCommas(video.likes) }}</strong>
                         </div>
                         <div>
                             <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
-                            <b class="ml-2">{{ video.dislikes >= 0 ? addCommas(video.dislikes) : "?" }}</b>
+                            <strong class="ml-2">{{ video.dislikes >= 0 ? addCommas(video.dislikes) : "?" }}</strong>
                         </div>
                     </template>
                     <template v-if="video.likes < 0">
                         <div>
-                            <b v-t="'video.ratings_disabled'" />
+                            <strong v-t="'video.ratings_disabled'" />
                         </div>
                     </template>
                     <a :href="'https://youtu.be/' + getVideoId()" class="btn">
-                        <b>{{ $t("player.watch_on") }}</b>
+                        <strong>{{ $t("player.watch_on") }}</strong>
                         <font-awesome-icon class="ml-1.5" :icon="['fab', 'youtube']"></font-awesome-icon>
                     </a>
                     <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
-                        <b>{{ $t("player.watch_on") }} LBRY</b>
+                        <strong>{{ $t("player.watch_on") }} LBRY</strong>
                     </a>
                     <router-link
                         :to="toggleListenUrl"
@@ -90,12 +90,12 @@
         <hr />
 
         <label for="chkAutoLoop"
-            ><b>{{ $t("actions.loop_this_video") }}:</b></label
+            ><strong>{{ $t("actions.loop_this_video") }}:</strong></label
         >
         <input id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" type="checkbox" @change="onChange($event)" />
         <br />
         <label for="chkAutoPlay"
-            ><b>{{ $t("actions.auto_play_next_video") }}:</b></label
+            ><strong>{{ $t("actions.auto_play_next_video") }}:</strong></label
         >
         <input id="chkAutoPlay" v-model="selectedAutoPlay" class="ml-1.5" type="checkbox" @change="onChange($event)" />
 

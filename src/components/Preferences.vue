@@ -3,13 +3,13 @@
         <button class="uk-button uk-button-text" @click="$router.go(-1) || $router.push('/')">
             <font-awesome-icon icon="chevron-left" /><span class="ml-1.5">{{ $t("actions.back") }}</span>
         </button>
-        <span><h1 v-t="'titles.preferences'" class="font-bold text-center"/></span>
+        <span><h1 v-t="'titles.preferences'" class="font-bold text-center" /></span>
         <span />
     </div>
     <hr />
     <h2>SponsorBlock</h2>
     <p>{{ $t("actions.uses_api_from") }}<a href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
-    <label for="chkEnableSponsorblock"><b v-t="'actions.enable_sponsorblock'"/></label>
+    <label for="chkEnableSponsorblock"><strong v-t="'actions.enable_sponsorblock'" /></label>
     <br />
     <input
         id="chkEnableSponsorblock"
@@ -19,23 +19,23 @@
         @change="onChange($event)"
     />
     <br />
-    <label for="chkSkipSponsors"><b v-t="'actions.skip_sponsors'"/></label>
+    <label for="chkSkipSponsors"><strong v-t="'actions.skip_sponsors'" /></label>
     <br />
     <input id="chkSkipSponsors" v-model="skipSponsor" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
     <br />
-    <label for="chkSkipIntro"><b v-t="'actions.skip_intro'"/></label>
+    <label for="chkSkipIntro"><strong v-t="'actions.skip_intro'" /></label>
     <br />
     <input id="chkSkipIntro" v-model="skipIntro" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
     <br />
-    <label for="chkSkipOutro"><b v-t="'actions.skip_outro'"/></label>
+    <label for="chkSkipOutro"><strong v-t="'actions.skip_outro'" /></label>
     <br />
     <input id="chkSkipOutro" v-model="skipOutro" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
     <br />
-    <label for="chkSkipPreview"><b v-t="'actions.skip_preview'"/></label>
+    <label for="chkSkipPreview"><strong v-t="'actions.skip_preview'" /></label>
     <br />
     <input id="chkSkipPreview" v-model="skipPreview" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
     <br />
-    <label for="chkSkipInteraction"><b v-t="'actions.skip_interaction'"/></label>
+    <label for="chkSkipInteraction"><strong v-t="'actions.skip_interaction'" /></label>
     <br />
     <input
         id="chkSkipInteraction"
@@ -45,7 +45,7 @@
         @change="onChange($event)"
     />
     <br />
-    <label for="chkSkipSelfPromo"><b v-t="'actions.skip_self_promo'"/></label>
+    <label for="chkSkipSelfPromo"><strong v-t="'actions.skip_self_promo'" /></label>
     <br />
     <input
         id="chkSkipSelfPromo"
@@ -55,7 +55,7 @@
         @change="onChange($event)"
     />
     <br />
-    <label for="chkSkipNonMusic"><b v-t="'actions.skip_non_music'"/></label>
+    <label for="chkSkipNonMusic"><strong v-t="'actions.skip_non_music'" /></label>
     <br />
     <input
         id="chkSkipNonMusic"
@@ -65,7 +65,7 @@
         @change="onChange($event)"
     />
     <br />
-    <label for="ddlTheme"><b v-t="'actions.theme'"/></label>
+    <label for="ddlTheme"><strong v-t="'actions.theme'" /></label>
     <br />
     <select id="ddlTheme" v-model="selectedTheme" class="select w-auto" @change="onChange($event)">
         <option v-t="'actions.auto'" value="auto" />
@@ -73,7 +73,7 @@
         <option v-t="'actions.light'" value="light" />
     </select>
     <br />
-    <label for="chkAutoPlayVideo"><b v-t="'actions.autoplay_video'"/></label>
+    <label for="chkAutoPlayVideo"><strong v-t="'actions.autoplay_video'" /></label>
     <br />
     <input
         id="chkAutoPlayVideo"
@@ -83,39 +83,39 @@
         @change="onChange($event)"
     />
     <br />
-    <label for="chkAudioOnly"><b v-t="'actions.audio_only'"/></label>
+    <label for="chkAudioOnly"><strong v-t="'actions.audio_only'" /></label>
     <br />
     <input id="chkAudioOnly" v-model="listen" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
     <br />
-    <label for="ddlDefaultQuality"><b v-t="'actions.default_quality'"/></label>
+    <label for="ddlDefaultQuality"><strong v-t="'actions.default_quality'" /></label>
     <br />
     <select id="ddlDefaultQuality" v-model="defaultQuality" class="select w-auto" @change="onChange($event)">
         <option v-t="'actions.auto'" value="0" />
         <option v-for="resolution in resolutions" :key="resolution" :value="resolution">{{ resolution }}p</option>
     </select>
     <br />
-    <label for="txtBufferingGoal"><b v-t="'actions.buffering_goal'"/></label>
+    <label for="txtBufferingGoal"><strong v-t="'actions.buffering_goal'" /></label>
     <br />
     <input id="txtBufferingGoal" v-model="bufferingGoal" class="input w-auto" type="text" @change="onChange($event)" />
     <br />
-    <label for="ddlCountrySelection"><b v-t="'actions.country_selection'"/></label>
+    <label for="ddlCountrySelection"><strong v-t="'actions.country_selection'" /></label>
     <br />
     <select id="ddlCountrySelection" v-model="countrySelected" class="select w-auto" @change="onChange($event)">
         <option v-for="country in countryMap" :key="country.code" :value="country.code">{{ country.name }}</option>
     </select>
     <br />
-    <label for="ddlDefaultHomepage"><b v-t="'actions.default_homepage'"/></label>
+    <label for="ddlDefaultHomepage"><strong v-t="'actions.default_homepage'" /></label>
     <br />
     <select id="ddlDefaultHomepage" v-model="defaultHomepage" class="select w-auto" @change="onChange($event)">
         <option v-t="'titles.trending'" value="trending" />
         <option v-t="'titles.feed'" value="feed" />
     </select>
     <br />
-    <label for="chkShowComments"><b v-t="'actions.show_comments'"/></label>
+    <label for="chkShowComments"><strong v-t="'actions.show_comments'" /></label>
     <br />
     <input id="chkShowComments" v-model="showComments" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
     <br />
-    <label for="chkMinimizeDescription"><b v-t="'actions.minimize_description_default'"/></label>
+    <label for="chkMinimizeDescription"><strong v-t="'actions.minimize_description_default'" /></label>
     <br />
     <input
         id="chkMinimizeDescription"
@@ -125,7 +125,7 @@
         @change="onChange($event)"
     />
     <br />
-    <label for="chkStoreWatchHistory"><b v-t="'actions.store_watch_history'"/></label>
+    <label for="chkStoreWatchHistory"><strong v-t="'actions.store_watch_history'" /></label>
     <br />
     <input
         id="chkStoreWatchHistory"
@@ -135,13 +135,13 @@
         @change="onChange($event)"
     />
     <br />
-    <label for="ddlLanguageSelection"><b v-t="'actions.language_selection'"/></label>
+    <label for="ddlLanguageSelection"><strong v-t="'actions.language_selection'" /></label>
     <br />
     <select id="ddlLanguageSelection" v-model="selectedLanguage" class="select w-auto" @change="onChange($event)">
         <option v-for="language in languages" :key="language.code" :value="language.code">{{ language.name }}</option>
     </select>
     <br />
-    <label for="ddlEnabledCodecs"><b v-t="'actions.enabled_codecs'"/></label>
+    <label for="ddlEnabledCodecs"><strong v-t="'actions.enabled_codecs'" /></label>
     <br />
     <select id="ddlEnabledCodecs" v-model="enabledCodecs" class="select w-auto" multiple @change="onChange($event)">
         <option value="av1">AV1</option>
@@ -149,11 +149,11 @@
         <option value="avc">AVC (h.264)</option>
     </select>
     <br />
-    <label for="chkDisableLBRY"><b v-t="'actions.disable_lbry'"/></label>
+    <label for="chkDisableLBRY"><strong v-t="'actions.disable_lbry'" /></label>
     <br />
     <input id="chkDisableLBRY" v-model="disableLBRY" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
     <br />
-    <label for="chkEnableLBRYProxy"><b v-t="'actions.enable_lbry_proxy'"/></label>
+    <label for="chkEnableLBRYProxy"><strong v-t="'actions.enable_lbry_proxy'" /></label>
     <br />
     <input id="chkEnableLBRYProxy" v-model="proxyLBRY" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
     <h2 v-t="'actions.instances_list'" />
@@ -181,7 +181,7 @@
     <hr />
 
     <label for="ddlInstanceSelection"
-        ><b>{{ $t("actions.instance_selection") }}:</b></label
+        ><strong>{{ $t("actions.instance_selection") }}:</strong></label
     >
     <br />
     <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
@@ -293,7 +293,14 @@ export default {
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
             if (localStorage.getItem("selectedSkip") !== null) {
                 var skipList = localStorage.getItem("selectedSkip").split(",");
-                this.skipSponsor = this.skipIntro = this.skipOutro = this.skipPreview = this.skipInteraction = this.skipSelfPromo = this.skipMusicOffTopic = false;
+                this.skipSponsor =
+                    this.skipIntro =
+                    this.skipOutro =
+                    this.skipPreview =
+                    this.skipInteraction =
+                    this.skipSelfPromo =
+                    this.skipMusicOffTopic =
+                        false;
                 skipList.forEach(skip => {
                     switch (skip) {
                         case "sponsor":
