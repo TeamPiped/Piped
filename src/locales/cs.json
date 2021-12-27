@@ -1,0 +1,96 @@
+{
+    "titles": {
+        "login": "Přihlásit",
+        "trending": "Trendy",
+        "register": "Registrace",
+        "history": "Historie",
+        "subscriptions": "Odběry",
+        "feed": "Feed",
+        "preferences": "Předvolby"
+    },
+    "actions": {
+        "loop_this_video": "Přehrávat video ve smyčce",
+        "subscribe": "Odebírat",
+        "view_subscriptions": "Zobrazit odběry",
+        "sort_by": "Seřadit podle:",
+        "most_recent": "Nejnovější",
+        "least_recent": "Nejstarší",
+        "channel_name_asc": "Název kanálu (A–Z)",
+        "channel_name_desc": "Název kanálu (Z-A)",
+        "back": "Zpět",
+        "uses_api_from": "Použití API od ",
+        "enable_sponsorblock": "Zapnout Sponsorblock",
+        "skip_intro": "Přeskočit přestávku/úvodní animaci",
+        "skip_preview": "Přeskočit Náhled/Rekapitulaci",
+        "skip_interaction": "Přeskočit připomenutí interakce (odebírat)",
+        "dark": "Tmavý",
+        "light": "Světlý",
+        "autoplay_video": "Automatické přehrávání videa",
+        "audio_only": "Pouze zvuk",
+        "default_quality": "Výchozí kvalita",
+        "buffering_goal": "Ukládání do vyrovnávací paměti (v sekundách)",
+        "country_selection": "Výběr země",
+        "default_homepage": "Výchozí Domovská stránka",
+        "show_comments": "Zobrazit komentáře",
+        "minimize_description_default": "Minimalizovat popis jako výchozí",
+        "store_watch_history": "Uložit historii sledování",
+        "language_selection": "Výběr jazyka",
+        "instances_list": "Seznam instancí",
+        "enabled_codecs": "Povolené kodeky (Multiple)",
+        "instance_selection": "Výběr instance",
+        "show_more": "Zobrazit více",
+        "yes": "Ano",
+        "no": "Ne",
+        "export_to_json": "Export do JSON",
+        "import_from_json": "Import z JSON",
+        "auto_play_next_video": "Automaticky přehrát další video",
+        "donations": "Darovat",
+        "show_description": "Ukázat popis",
+        "minimize_recommendations": "Minimalizovat doporučení",
+        "skip_outro": "Přeskočit Endcards/Credits",
+        "auto": "Auto",
+        "show_recommendations": "Zobrazit doporučení",
+        "disable_lbry": "Zakázat LBRY pro streamování",
+        "enable_lbry_proxy": "Povolit proxy pro LBRY",
+        "view_ssl_score": "Zobrazit skóre SSL",
+        "search": "Vyhledat",
+        "filter": "Filtr",
+        "loading": "Načítání...",
+        "clear_history": "Smazat historii",
+        "show_replies": "Zobrazit odpovědi",
+        "hide_replies": "Skrýt odpovědi",
+        "load_more_replies": "Načíst další odpovědi",
+        "unsubscribe": "Zrušit odběr",
+        "skip_sponsors": "Přeskočit sponzory",
+        "minimize_description": "Minimalizovat popis",
+        "skip_non_music": "Přeskočit Hudbu: Nehudební sekce",
+        "skip_self_promo": "Přeskočit Neplacenou/Vlastní propagaci",
+        "theme": "Téma"
+    },
+    "player": {
+        "watch_on": "Sledovat na"
+    },
+    "comment": {
+        "pinned_by": "Připnuto uživatelem"
+    },
+    "preferences": {
+        "instance_name": "Název instance",
+        "instance_locations": "Umístění instancí",
+        "has_cdn": "Má CDN?",
+        "ssl_score": "Skóre SSL"
+    },
+    "login": {
+        "username": "Uživatelské jméno",
+        "password": "Heslo"
+    },
+    "video": {
+        "videos": "Videa",
+        "views": "zhlédnutí",
+        "watched": "Viděno",
+        "sponsor_segments": "Sponzorské segmenty",
+        "ratings_disabled": "Hodnocení zakázáno"
+    },
+    "search": {
+        "did_you_mean": "Myslel jsi: "
+    }
+}
