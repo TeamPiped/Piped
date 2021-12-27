@@ -31,7 +31,7 @@
     </div>
 
     <div v-if="results" class="video-grid">
-        <div v-for="result in results.items" :key="result.url" :style="[{ background: backgroundColor }]">
+        <div v-for="result in results.items" :key="result.url">
             <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
             <div v-if="!shouldUseVideoItem(result)" class="uk-text-secondary">
                 <router-link class="uk-text-emphasis" :to="result.url">
