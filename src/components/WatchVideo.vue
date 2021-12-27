@@ -134,7 +134,7 @@
                     v-for="related in video.relatedStreams"
                     v-show="showRecs || !smallView"
                     :key="related.url"
-                    class="uk-tile-default uk-width-auto"
+                    class="uk-tile-default w-auto"
                     :style="[{ background: backgroundColor }]"
                 >
                     <VideoItem :video="related" height="94" width="168" />

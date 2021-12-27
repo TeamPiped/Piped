@@ -117,14 +117,28 @@ b {
 }
 
 .btn {
-    @apply py-2 px-4 rounded bg-dark-400;
+    @apply py-2 px-4 rounded;
 }
 
 .dark {
     @apply text-white bg-dark-800;
 }
 
+.dark .input,
+.dark .select,
+.dark .btn {
+    @apply text-gray-400 bg-dark-400 w-auto;
+}
+
+.dark hr {
+    @apply border-dark-100;
+}
+
 h1 {
-    @apply text-2xl font-bold;
+    @apply m-0 !text-5xl font-bold;
+}
+
+hr {
+    @apply !mt-2 !mb-3;
 }
 </style>

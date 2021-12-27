@@ -3,18 +3,12 @@
         <router-link class="uk-text-emphasis" :to="video.url">
             <img :height="height" :width="width" style="width: 100%" :src="video.thumbnail" alt="" loading="lazy" />
             <div class="relative">
-                <span
-                    v-if="video.duration"
-                    class="rounded-md absolute video-duration bg-black bg-opacity-75 bottom-5px right-5px"
-                    style="padding: 0 5px"
-                    >{{ timeFormat(video.duration) }}</span
-                >
-                <span
-                    v-if="video.watched"
-                    class="rounded-md absolute video-duration bg-black bg-opacity-75 bottom-5px left-5px"
-                    style="padding: 0 5px"
-                    >{{ $t("video.watched") }}</span
-                >
+                <span v-if="video.duration" class="thumbnail-overlay bottom-5px right-5px" style="padding: 0 5px">{{
+                    timeFormat(video.duration)
+                }}</span>
+                <span v-if="video.watched" class="thumbnail-overlay bottom-5px left-5px" style="padding: 0 5px">{{
+                    $t("video.watched")
+                }}</span>
             </div>
 
             <div>
@@ -34,7 +28,7 @@
             </div>
         </router-link>
 
-        <div class="uk-align-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
+        <div class="float-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
             <router-link
                 :to="video.url + '&listen=1'"
                 :aria-label="'Listen to ' + video.title"
@@ -51,15 +45,14 @@
                     :src="video.uploaderAvatar"
                     loading="lazy"
                     :alt="video.uploaderName"
-                    class="rounded-full"
-                    style="margin-right: 0.5rem; margin-top: 0.5rem; width: 32px; height: 32px"
+                    class="rounded-full mr-0.5 mt-0.5 w-32px h-32px"
                 />
             </router-link>
 
-            <div style="width: calc(100% - 32px - 8px)">
+            <div class="w-[calc(100%-32px-1rem)]">
                 <router-link
                     v-if="video.uploaderUrl && video.uploaderName && !hideChannel"
-                    class="uk-link-muted uk-overflow-hidden"
+                    class="uk-link-muted overflow-hidden block"
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
                     style="display: block; width: 90%"
@@ -86,6 +79,12 @@
         </div>
     </div>
 </template>
+
+<style>
+.thumbnail-overlay {
+    @apply rounded-md absolute bg-black bg-opacity-75;
+}
+</style>
 
 <script>
 export default {
