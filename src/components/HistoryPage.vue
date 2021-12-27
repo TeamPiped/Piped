@@ -1,8 +1,8 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">{{ $t("titles.history") }}</h1>
+    <h1 class="font-bold text-center">{{ $t("titles.history") }}</h1>
 
     <div style="text-align: left">
-        <button class="uk-button" v-t="'actions.clear_history'" @click="clearHistory"></button>
+        <button class="btn" v-t="'actions.clear_history'" @click="clearHistory"></button>
     </div>
 
     <div style="text-align: right">

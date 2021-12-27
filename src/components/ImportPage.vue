@@ -1,5 +1,5 @@
 <template>
-    <div class="uk-vertical-align uk-text-center uk-height-1-1">
+    <div class="uk-vertical-align text-center uk-height-1-1">
         <form class="uk-panel uk-panel-box">
             <div class="uk-form-row">
                 <input ref="fileSelector" type="file" @change="fileChange" />
@@ -11,7 +11,7 @@
                 <b>Override: <input v-model="override" class="uk-checkbox" type="checkbox"/></b>
             </div>
             <div class="uk-form-row">
-                <a class="uk-width-1-1 uk-button uk-button-large uk-width-auto" @click="handleImport">Import</a>
+                <a class="uk-width-1-1 btn uk-button-large uk-width-auto" @click="handleImport">Import</a>
             </div>
         </form>
         <br />

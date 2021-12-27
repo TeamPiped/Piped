@@ -1,20 +1,14 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">{{ $t("titles.subscriptions") }}</h1>
+    <h1 class="font-bold text-center">{{ $t("titles.subscriptions") }}</h1>
 
-    <div style="text-align: center">
-        <button v-if="authenticated" class="uk-button uk-button-small" style=" margin-right: 0.5rem" type="button">
+    <div>
+        <button v-if="authenticated" class="uk-button uk-button-small" style=" margin-right: 0.5rem">
             <router-link to="/import">
                 {{ $t("actions.import_from_json") }}
             </router-link>
         </button>
 
-        <button
-            v-if="authenticated"
-            class="uk-button uk-button-small"
-            style="color: white"
-            type="button"
-            @click="exportHandler"
-        >
+        <button v-if="authenticated" class="uk-button uk-button-small" style="color: white" @click="exportHandler">
             {{ $t("actions.export_to_json") }}
         </button>
     </div>
@@ -23,7 +17,7 @@
     <div v-for="subscription in subscriptions" :key="subscription.url" style="text-align: center">
         <div class="uk-text-primary" :style="[{ background: backgroundColor }]">
             <a :href="subscription.url">
-                <img :src="subscription.avatar" class="uk-margin-small-right uk-border-circle" width="96" height="96" />
+                <img :src="subscription.avatar" class="uk-margin-small-right rounded-full" width="96" height="96" />
                 <span
                     class="uk-text-large"
                     style="width: 30rem; display: inline-block; text-align: center; margin-left: 6rem"
@@ -33,7 +27,6 @@
             <button
                 class="uk-button uk-button-large"
                 style="background: #222; margin-left: 0.5rem; width: 185px"
-                type="button"
                 @click="handleButton(subscription)"
             >
                 {{ subscription.subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}

@@ -10,7 +10,7 @@
         />
     </div>
 
-    <div v-if="video && !isEmbed" class="uk-container uk-container-expand">
+    <div v-if="video && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
@@ -21,7 +21,7 @@
                 :selected-auto-play="selectedAutoPlay"
                 :selected-auto-loop="selectedAutoLoop"
             />
-            <div class="uk-text-bold uk-margin-small-top uk-text-large uk-text-emphasis uk-text-break">
+            <div class="font-bold uk-margin-small-top text-lg break-words">
                 {{ video.title }}
             </div>
 
@@ -66,12 +66,12 @@
             </div>
 
             <div class="uk-flex uk-flex-middle uk-margin-small-top">
-                <img :src="video.uploaderAvatar" alt="" loading="lazy" class="uk-border-circle" />
+                <img :src="video.uploaderAvatar" alt="" loading="lazy" class="rounded-full" />
                 <router-link v-if="video.uploaderUrl" class="uk-link uk-margin-small-left" :to="video.uploaderUrl">
                     {{ video.uploader }} </router-link
                 >&thinsp;<font-awesome-icon v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
                 <div class="uk-flex-1"></div>
-                <button v-if="authenticated" class="uk-button uk-button-small" type="button" @click="subscribeHandler">
+                <button v-if="authenticated" class="uk-button uk-button-small" @click="subscribeHandler">
                     {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
                 </button>
             </div>
@@ -114,8 +114,8 @@
 
         <hr />
 
-        <div class="uk-grid">
-            <div v-if="comments" ref="comments" class="uk-width-4-5@xl uk-width-3-4@s uk-width-1">
+        <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
+            <div v-if="comments" ref="comments" class="xl:col-span-4 sm:col-span-3">
                 <div
                     v-for="comment in comments.comments"
                     :key="comment.commentId"
@@ -127,7 +127,7 @@
             </div>
 
             <div v-if="video" class="uk-width-1-5@xl uk-width-1-4@s uk-width-1 uk-flex-last@s uk-flex-first">
-                <a class="uk-button uk-button-small uk-margin-small-bottom uk-hidden@s" @click="showRecs = !showRecs">
+                <a class="uk-button uk-button-small uk-margin-small-bottom sm:hidden" @click="showRecs = !showRecs">
                     {{ showRecs ? $t("actions.minimize_recommendations") : $t("actions.show_recommendations") }}
                 </a>
                 <div
@@ -139,7 +139,7 @@
                 >
                     <VideoItem :video="related" height="94" width="168" />
                 </div>
-                <hr class="uk-hidden@s" />
+                <hr class="sm:hidden" />
             </div>
         </div>
     </div>

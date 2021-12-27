@@ -1,13 +1,7 @@
 <template>
-    <h1 v-t="'titles.feed'" class="uk-text-bold uk-text-center" />
+    <h1 v-t="'titles.feed'" class="font-bold text-center" />
 
-    <button
-        v-if="authenticated"
-        class="uk-button uk-button-small"
-        style="margin-right: 0.5rem"
-        type="button"
-        @click="exportHandler"
-    >
+    <button v-if="authenticated" class="btn" style="margin-right: 0.5rem" @click="exportHandler">
         <router-link to="/subscriptions"> Subscriptions </router-link>
     </button>
 

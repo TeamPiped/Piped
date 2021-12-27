@@ -2,14 +2,14 @@
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
 
     <div v-if="channel" v-show="!channel.error">
-        <h1 class="uk-text-center">
-            <img height="48" width="48" class="uk-border-circle" :src="channel.avatarUrl" />{{ channel.name }}
+        <h1 class="text-center">
+            <img height="48" width="48" class="rounded-full" :src="channel.avatarUrl" />{{ channel.name }}
         </h1>
         <img v-if="channel.bannerUrl" :src="channel.bannerUrl" style="width: 100%" loading="lazy" />
         <!-- eslint-disable-next-line vue/no-v-html -->
         <p style="white-space: pre-wrap"><span v-html="purifyHTML(urlify(channel.description))"></span></p>
 
-        <button v-if="authenticated" class="uk-button uk-button-small" type="button" @click="subscribeHandler">
+        <button v-if="authenticated" class="btn" @click="subscribeHandler">
             {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
         </button>
 

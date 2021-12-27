@@ -3,7 +3,7 @@
         <button class="uk-button uk-button-text" @click="$router.go(-1) || $router.push('/')">
             <font-awesome-icon icon="chevron-left" /> &nbsp;{{ $t("actions.back") }}
         </button>
-        <span><h1 v-t="'titles.preferences'" class="uk-text-bold uk-text-center"/></span>
+        <span><h1 v-t="'titles.preferences'" class="font-bold text-center"/></span>
         <span />
     </div>
     <hr />

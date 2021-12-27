@@ -9,7 +9,7 @@
             <video
                 ref="videoEl"
                 data-shaka-player
-                class="uk-width-expand"
+                class="w-full"
                 :autoplay="shouldAutoPlay"
                 :loop="selectedAutoLoop"
             ></video>

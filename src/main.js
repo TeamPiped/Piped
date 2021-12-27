@@ -34,7 +34,7 @@ library.add(
     faTv,
 );
 
-import("uikit/dist/css/uikit-core.css");
+// import("uikit/dist/css/uikit-core.css");
 
 import router from "@/router/router";
 import App from "./App.vue";

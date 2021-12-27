@@ -2,17 +2,17 @@
     <div class="uk-text-secondary" :style="[{ background: backgroundColor }]">
         <router-link class="uk-text-emphasis" :to="video.url">
             <img :height="height" :width="width" style="width: 100%" :src="video.thumbnail" alt="" loading="lazy" />
-            <div class="uk-position-relative">
+            <div class="relative">
                 <span
                     v-if="video.duration"
-                    class="uk-label uk-border-rounded uk-position-absolute video-duration"
-                    style="bottom: 5px; right: 5px; background: rgba(0, 0, 0, 0.75); color: white; padding: 0 5px"
+                    class="rounded-md absolute video-duration bg-black bg-opacity-75 bottom-5px right-5px"
+                    style="padding: 0 5px"
                     >{{ timeFormat(video.duration) }}</span
                 >
                 <span
                     v-if="video.watched"
-                    class="uk-label uk-border-rounded uk-position-absolute video-duration"
-                    style="bottom: 5px; left: 5px; background: rgba(0, 0, 0, 0.75); color: white; padding: 0 5px"
+                    class="rounded-md absolute video-duration bg-black bg-opacity-75 bottom-5px left-5px"
+                    style="padding: 0 5px"
                     >{{ $t("video.watched") }}</span
                 >
             </div>
@@ -51,7 +51,7 @@
                     :src="video.uploaderAvatar"
                     loading="lazy"
                     :alt="video.uploaderName"
-                    class="uk-border-circle"
+                    class="rounded-full"
                     style="margin-right: 0.5rem; margin-top: 0.5rem; width: 32px; height: 32px"
                 />
             </router-link>

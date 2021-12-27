@@ -1,6 +1,6 @@
 <template>
     <div
-        class="uk-position-absolute uk-panel uk-box-shadow-large suggestions-container"
+        class="absolute uk-panel uk-box-shadow-large suggestions-container"
         :style="[{ background: secondaryBackgroundColor }]"
     >
         <ul class="uk-list uk-margin-remove uk-text-secondary">
