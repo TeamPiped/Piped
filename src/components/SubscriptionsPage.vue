@@ -1,16 +1,12 @@
 <template>
-    <h1 class="font-bold text-center">{{ $t("titles.subscriptions") }}</h1>
+    <h1 class="font-bold text-center" v-text="$t('titles.subscriptions')" />
 
     <div v-if="authenticated">
         <button class="btn mr-0.5">
-            <router-link to="/import">
-                {{ $t("actions.import_from_json") }}
-            </router-link>
+            <router-link to="/import" v-text="$t('actions.import_from_json')" />
         </button>
 
-        <button class="btn" @click="exportHandler">
-            {{ $t("actions.export_to_json") }}
-        </button>
+        <button class="btn" @click="exportHandler" v-text="$t('actions.export_to_json')" />
     </div>
     <hr />
 
@@ -20,11 +16,13 @@
                 <div class="w-full grid grid-cols-3">
                     <router-link :to="subscription.url" class="col-start-2 block flex text-center font-bold text-4xl">
                         <img :src="subscription.avatar" class="rounded-full" width="48" height="48" />
-                        <span>{{ subscription.name }}</span>
+                        <span v-text="subscription.name" />>
                     </router-link>
-                    <button class="btn !w-min" @click="handleButton(subscription)">
-                        {{ subscription.subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
-                    </button>
+                    <button
+                        class="btn !w-min"
+                        @click="handleButton(subscription)"
+                        v-text="$t(`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`)"
+                    />
                 </div>
             </div>
         </div>

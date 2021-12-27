@@ -13,25 +13,23 @@
             <div class="comment-header">
                 <div v-if="comment.pinned" class="comment-pinned uk-text-meta">
                     <font-awesome-icon icon="thumbtack"></font-awesome-icon
-                    ><span class="ml-1.5">{{ $t("comment.pinned_by") }}</span>
-                    {{ uploader }}
+                    ><span class="ml-1.5" v-text="$t('comment.pinned_by')" />
+                    <span v-text="uploader" />
                 </div>
 
                 <div class="comment-author">
-                    <router-link class="font-bold uk-text-small" :to="comment.commentorUrl">
-                        {{ comment.author }} </router-link
-                    ><font-awesome-icon class="ml-1.5" v-if="comment.verified" icon="check"></font-awesome-icon>
+                    <router-link
+                        class="font-bold uk-text-small"
+                        :to="comment.commentorUrl"
+                        v-text="comment.author"
+                    /><font-awesome-icon class="ml-1.5" v-if="comment.verified" icon="check"></font-awesome-icon>
                 </div>
-                <div class="comment-meta uk-text-meta uk-margin-small-bottom">
-                    {{ comment.commentedTime }}
-                </div>
+                <div class="comment-meta uk-text-meta uk-margin-small-bottom" v-text="comment.commentedTime" />
             </div>
-            <div class="whitespace-pre-wrap">
-                {{ comment.commentText }}
-            </div>
+            <div class="whitespace-pre-wrap" v-text="comment.commentText" />
             <div class="comment-footer uk-margin-small-top uk-text-meta">
                 <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
-                <span class="ml-1">{{ numberFormat(comment.likeCount) }}</span>
+                <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
                 <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart"></font-awesome-icon>
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">

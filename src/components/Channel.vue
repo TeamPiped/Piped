@@ -4,15 +4,18 @@
     <div v-if="channel" v-show="!channel.error">
         <div class="flex justify-center place-items-center">
             <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
-            <h1>{{ channel.name }}</h1>
+            <h1 v-text="channel.name" />
         </div>
         <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
         <!-- eslint-disable-next-line vue/no-v-html -->
         <p style="white-space: pre-wrap"><span v-html="purifyHTML(urlify(channel.description))"></span></p>
 
-        <button v-if="authenticated" class="btn" @click="subscribeHandler">
-            {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
-        </button>
+        <button
+            v-if="authenticated"
+            class="btn"
+            @click="subscribeHandler"
+            v-text="$t(`actions.${subscribed ? 'unsubscribe' : 'subscribe'}`)"
+        />
 
         <hr />
 

@@ -1,5 +1,5 @@
 <template>
-    <div>{{ $t("actions.loading") }}</div>
+    <div v-text="$t('actions.loading')" />
 </template>
 
 <script>

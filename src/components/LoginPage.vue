@@ -22,9 +22,7 @@
                 />
             </div>
             <div class="uk-form-row">
-                <a class="uk-width-1-1 uk-button uk-button-large w-auto" @click="login">
-                    {{ $t("titles.login") }}
-                </a>
+                <a class="uk-width-1-1 uk-button uk-button-large w-auto" @click="login" v-text="$t('titles.login')" />
             </div>
         </form>
     </div>

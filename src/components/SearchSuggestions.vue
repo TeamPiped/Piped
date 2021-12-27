@@ -8,9 +8,8 @@
                 :class="{ 'suggestion-selected': selected === i }"
                 @mouseover="onMouseOver(i)"
                 @mousedown.stop="onClick(i)"
-            >
-                {{ suggestion }}
-            </li>
+                v-text="suggestion"
+            />
         </ul>
     </div>
 </template>

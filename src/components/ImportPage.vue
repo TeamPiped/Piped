@@ -5,7 +5,7 @@
                 <input ref="fileSelector" type="file" @change="fileChange" />
             </div>
             <div class="uk-form-row">
-                <strong>Selected Subscriptions: {{ selectedSubscriptions }}</strong>
+                <strong v-text="`Selected Subscriptions: ${selectedSubscriptions}`" />
             </div>
             <div class="uk-form-row">
                 <strong>Override: <input v-model="override" class="uk-checkbox" type="checkbox" /></strong>

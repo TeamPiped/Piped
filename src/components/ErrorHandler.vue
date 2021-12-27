@@ -1,9 +1,8 @@
 <template>
-    <p>{{ message }}</p>
-    <button @click="toggleTrace" class="btn">
-        {{ $t("actions.show_more") }}
-    </button>
-    <p ref="stacktrace" style="white-space: pre-wrap" hidden>{{ error }}</p>
+    <p v-text="message" />
+    >
+    <button @click="toggleTrace" class="btn" v-text="$t('actions.show_more')" />
+    <p ref="stacktrace" style="white-space: pre-wrap" hidden v-text="error" />
 </template>
 
 <script>

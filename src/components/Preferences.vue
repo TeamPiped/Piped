@@ -1,14 +1,14 @@
 <template>
     <div class="uk-flex uk-flex-between uk-flex-middle">
         <button class="uk-button uk-button-text" @click="$router.go(-1) || $router.push('/')">
-            <font-awesome-icon icon="chevron-left" /><span class="ml-1.5">{{ $t("actions.back") }}</span>
+            <font-awesome-icon icon="chevron-left" /><span class="ml-1.5" v-text="$t('actions.back')" />
         </button>
         <span><h1 v-t="'titles.preferences'" class="font-bold text-center" /></span>
         <span />
     </div>
     <hr />
     <h2>SponsorBlock</h2>
-    <p>{{ $t("actions.uses_api_from") }}<a href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
+    <p><span v-text="$t('actions.uses_api_from')" /><a href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
     <label for="chkEnableSponsorblock"><strong v-t="'actions.enable_sponsorblock'" /></label>
     <br />
     <input
@@ -91,7 +91,7 @@
     <br />
     <select id="ddlDefaultQuality" v-model="defaultQuality" class="select w-auto" @change="onChange($event)">
         <option v-t="'actions.auto'" value="0" />
-        <option v-for="resolution in resolutions" :key="resolution" :value="resolution">{{ resolution }}p</option>
+        <option v-for="resolution in resolutions" :key="resolution" :value="resolution" v-text="`${resolution}p`" />
     </select>
     <br />
     <label for="txtBufferingGoal"><strong v-t="'actions.buffering_goal'" /></label>
@@ -101,7 +101,7 @@
     <label for="ddlCountrySelection"><strong v-t="'actions.country_selection'" /></label>
     <br />
     <select id="ddlCountrySelection" v-model="countrySelected" class="select w-auto" @change="onChange($event)">
-        <option v-for="country in countryMap" :key="country.code" :value="country.code">{{ country.name }}</option>
+        <option v-for="country in countryMap" :key="country.code" :value="country.code" v-text="country.name" />
     </select>
     <br />
     <label for="ddlDefaultHomepage"><strong v-t="'actions.default_homepage'" /></label>
@@ -138,7 +138,7 @@
     <label for="ddlLanguageSelection"><strong v-t="'actions.language_selection'" /></label>
     <br />
     <select id="ddlLanguageSelection" v-model="selectedLanguage" class="select w-auto" @change="onChange($event)">
-        <option v-for="language in languages" :key="language.code" :value="language.code">{{ language.name }}</option>
+        <option v-for="language in languages" :key="language.code" :value="language.code" v-text="language.name" />
     </select>
     <br />
     <label for="ddlEnabledCodecs"><strong v-t="'actions.enabled_codecs'" /></label>
@@ -160,19 +160,19 @@
     <table class="uk-table">
         <thead>
             <tr>
-                <th>{{ $t("preferences.instance_name") }}</th>
-                <th>{{ $t("preferences.instance_locations") }}</th>
-                <th>{{ $t("preferences.has_cdn") }}</th>
-                <th>{{ $t("preferences.ssl_score") }}</th>
+                <th v-text="$t('preferences.instance_name')" />
+                <th v-text="$t('preferences.instance_locations')" />
+                <th v-text="$t('preferences.has_cdn')" />
+                <th v-text="$t('preferences.ssl_score')" />
             </tr>
         </thead>
         <tbody v-for="instance in instances" :key="instance.name">
             <tr>
-                <td>{{ instance.name }}</td>
-                <td>{{ instance.locations }}</td>
-                <td>{{ instance.cdn == "Yes" ? $t("actions.yes") : $t("actions.no") }}</td>
+                <td v-text="instance.name" />
+                <td v-text="instance.locations" />
+                <td v-text="$t(`actions.${instance.cdn === 'Yes' ? 'yes' : 'no'}`)" />
                 <td>
-                    <a :href="sslScore(instance.apiurl)" target="_blank"> {{ $t("actions.view_ssl_score") }}</a>
+                    <a :href="sslScore(instance.apiurl)" target="_blank" v-text="$t('actions.view_ssl_score')" />
                 </td>
             </tr>
         </tbody>
@@ -180,14 +180,10 @@
 
     <hr />
 
-    <label for="ddlInstanceSelection"
-        ><strong>{{ $t("actions.instance_selection") }}:</strong></label
-    >
+    <label for="ddlInstanceSelection"><strong v-text="`${$t('actions.instance_selection')}:`" /></label>
     <br />
     <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
-        <option v-for="instance in instances" :key="instance.name" :value="instance.apiurl">
-            {{ instance.name }}
-        </option>
+        <option v-for="instance in instances" :key="instance.name" :value="instance.apiurl" v-text="instance.name" />
     </select>
 </template>
 

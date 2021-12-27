@@ -13,7 +13,7 @@
             </a>
             <a class="ml-2" href="https://github.com/TeamPiped/Piped#donations">
                 <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
-                {{ $t("actions.donations") }}
+                <span v-text="$t('actions.donations')" />
             </a>
         </footer>
     </div>
