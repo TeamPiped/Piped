@@ -38,7 +38,8 @@
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-vue": "^7.20.0",
-        "vue-cli-plugin-i18n": "^2.3.1"
+        "vue-cli-plugin-i18n": "^2.3.1",
+        "vue-cli-plugin-windicss": "~1.1.2"
     },
     "eslintConfig": {
         "root": true,

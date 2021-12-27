@@ -27,13 +27,8 @@
 
     <hr />
 
-    <div class="uk-grid uk-grid-xl">
-        <div
-            v-for="video in videos"
-            :key="video.url"
-            :style="[{ background: backgroundColor }]"
-            class="uk-width-1-1 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
-        >
+    <div class="video-grid">
+        <div v-for="video in videos" :key="video.url" :style="[{ background: backgroundColor }]">
             <VideoItem :video="video" />
         </div>
     </div>

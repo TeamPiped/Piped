@@ -116,8 +116,8 @@ b {
     scrollbar-color: #15191a #444a4e;
 }
 
-.uk-grid > div {
-    padding-bottom: 1vh;
+.video-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 col-auto gap-x-1vw gap-y-0.2vh;
 }
 
 .uk-button {

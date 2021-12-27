@@ -7,27 +7,28 @@
             {{ playlist.name }}
         </h1>
 
-        <b
-            ><router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
-                <img :src="playlist.uploaderAvatar" loading="lazy" class="uk-border-circle" />
-                {{ playlist.uploader }}</router-link
-            ></b
-        >
-
-        <div class="uk-align-right">
-            <b>{{ playlist.videos }} {{ $t("video.videos") }}</b>
-            <br />
-            <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
+        <div class="grid grid-cols-2">
+            <div>
+                <b
+                    ><router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
+                        <img :src="playlist.uploaderAvatar" loading="lazy" class="uk-border-circle" />
+                        {{ playlist.uploader }}</router-link
+                    ></b
+                >
+            </div>
+            <div>
+                <div class="right-2vw absolute">
+                    <b>{{ playlist.videos }} {{ $t("video.videos") }}</b>
+                    <br />
+                    <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
+                </div>
+            </div>
         </div>
 
         <hr />
 
-        <div class="uk-grid uk-grid-xl">
-            <div
-                v-for="video in playlist.relatedStreams"
-                :key="video.url"
-                class="uk-width-1-2 uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl"
-            >
+        <div class="video-grid">
+            <div v-for="video in playlist.relatedStreams" :key="video.url">
                 <VideoItem :video="video" height="94" width="168" />
             </div>
         </div>
