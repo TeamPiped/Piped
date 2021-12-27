@@ -39,16 +39,16 @@
                         <img style="width: 100%" :src="result.thumbnail" loading="lazy" />
                     </div>
                     <p>
-                        {{ result.name }}&thinsp;<font-awesome-icon
-                            v-if="result.verified"
-                            icon="check"
-                        ></font-awesome-icon>
+                        {{ result.name
+                        }}<font-awesome-icon class="ml-1.5" v-if="result.verified" icon="check"></font-awesome-icon>
                     </p>
                 </router-link>
                 <p v-if="result.description">{{ result.description }}</p>
                 <router-link v-if="result.uploaderUrl" class="uk-link-muted" :to="result.uploaderUrl">
                     <p>
-                        {{ result.uploader }}&thinsp;<font-awesome-icon
+                        {{ result.uploader
+                        }}<font-awesome-icon
+                            class="ml-1.5"
                             v-if="result.uploaderVerified"
                             icon="check"
                         ></font-awesome-icon>

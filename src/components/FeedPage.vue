@@ -22,9 +22,7 @@
     <hr />
 
     <div class="video-grid">
-        <div v-for="video in videos" :key="video.url">
-            <VideoItem :video="video" />
-        </div>
+        <VideoItem v-for="video in videos" :key="video.url" :video="video" />
     </div>
 </template>
 

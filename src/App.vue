@@ -11,8 +11,7 @@
             <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
                 <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             </a>
-            &nbsp;
-            <a href="https://github.com/TeamPiped/Piped#donations">
+            <a class="ml-2" href="https://github.com/TeamPiped/Piped#donations">
                 <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
                 {{ $t("actions.donations") }}
             </a>

@@ -4,9 +4,7 @@
     <hr />
 
     <div class="video-grid">
-        <div v-for="video in videos" :key="video.url">
-            <VideoItem :video="video" height="118" width="210" />
-        </div>
+        <VideoItem v-for="video in videos" :key="video.url" :video="video" height="118" width="210" />
     </div>
 </template>
 

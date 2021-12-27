@@ -56,10 +56,8 @@
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
                 >
-                    {{ video.uploaderName }}&thinsp;<font-awesome-icon
-                        v-if="video.uploaderVerified"
-                        icon="check"
-                    ></font-awesome-icon>
+                    {{ video.uploaderName
+                    }}<font-awesome-icon class="ml-1.5" v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
                 </router-link>
 
                 <b v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
