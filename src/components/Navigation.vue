@@ -1,8 +1,8 @@
 <template>
-    <nav class="uk-navbar w-full relative">
-        <div class="uk-navbar-left">
+    <nav class="grid grid-cols-3 px-2 sm:px-4 py-2.5 w-full relative">
+        <div>
             <router-link
-                class="uk-navbar-item uk-logo font-bold font-2xl font-sans font-bold"
+                class="flex font-bold text-3xl items-center font-sans font-bold"
                 :style="[{ colour: foregroundColor }]"
                 to="/"
                 ><img
@@ -10,14 +10,14 @@
                     src="/img/icons/logo.svg"
                     height="32"
                     width="32"
-                    style="margin-bottom: 6px; margin-right: -13px"
+                    class="w-10 mr-[-0.6rem]"
                 />iped</router-link
             >
         </div>
-        <div class="uk-navbar-center uk-flex <md:hidden">
+        <div class="flex justify-center items-center <md:hidden">
             <input
                 v-model="searchText"
-                class="input uk-width-medium"
+                class="input !w-72 h-10"
                 type="text"
                 role="search"
                 :title="$t('actions.search')"
@@ -28,8 +28,8 @@
                 @blur="onInputBlur"
             />
         </div>
-        <div class="uk-navbar-right">
-            <ul class="uk-navbar-nav">
+        <div>
+            <ul class="flex float-right text-1xl children:pl-3">
                 <li>
                     <router-link v-t="'titles.preferences'" to="/preferences" />
                 </li>

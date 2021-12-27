@@ -127,7 +127,11 @@ b {
 .dark .input,
 .dark .select,
 .dark .btn {
-    @apply text-gray-400 bg-dark-400 w-auto;
+    @apply text-gray-400 bg-dark-400 w-auto h-full;
+}
+
+.input {
+    @apply pl-2.5;
 }
 
 .dark hr {
