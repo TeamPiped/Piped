@@ -1,5 +1,5 @@
 <template>
-    <div class="w-100">
+    <div class="w-full">
         <div
             ref="container"
             data-shaka-player-container

@@ -10,7 +10,7 @@
         id="ddlSearchFilters"
         v-model="selectedFilter"
         default="all"
-        class="uk-select uk-width-auto"
+        class="select w-auto"
         style="height: 100%"
         @change="updateResults()"
     >

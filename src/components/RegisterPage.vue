@@ -4,7 +4,7 @@
             <div class="uk-form-row">
                 <input
                     v-model="username"
-                    class="uk-width-1-1 uk-form-large uk-input uk-width-auto"
+                    class="uk-width-1-1 uk-form-large input w-auto"
                     type="text"
                     autocomplete="username"
                     :placeholder="$t('login.username')"
@@ -14,7 +14,7 @@
             <div class="uk-form-row">
                 <input
                     v-model="password"
-                    class="uk-width-1-1 uk-form-large uk-input uk-width-auto"
+                    class="uk-width-1-1 uk-form-large input w-auto"
                     type="password"
                     autocomplete="password"
                     :placeholder="$t('login.password')"
@@ -22,7 +22,7 @@
                 />
             </div>
             <div class="uk-form-row">
-                <a class="uk-width-1-1 uk-button uk-button-large uk-width-auto" @click="register">
+                <a class="uk-width-1-1 uk-button uk-button-large w-auto" @click="register">
                     {{ $t("titles.register") }}</a
                 >
             </div>

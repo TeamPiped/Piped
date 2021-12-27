@@ -67,7 +67,7 @@
     <br />
     <label for="ddlTheme"><b v-t="'actions.theme'"/></label>
     <br />
-    <select id="ddlTheme" v-model="selectedTheme" class="uk-select uk-width-auto" @change="onChange($event)">
+    <select id="ddlTheme" v-model="selectedTheme" class="select w-auto" @change="onChange($event)">
         <option v-t="'actions.auto'" value="auto" />
         <option v-t="'actions.dark'" value="dark" />
         <option v-t="'actions.light'" value="light" />
@@ -89,40 +89,24 @@
     <br />
     <label for="ddlDefaultQuality"><b v-t="'actions.default_quality'"/></label>
     <br />
-    <select id="ddlDefaultQuality" v-model="defaultQuality" class="uk-select uk-width-auto" @change="onChange($event)">
+    <select id="ddlDefaultQuality" v-model="defaultQuality" class="select w-auto" @change="onChange($event)">
         <option v-t="'actions.auto'" value="0" />
         <option v-for="resolution in resolutions" :key="resolution" :value="resolution">{{ resolution }}p</option>
     </select>
     <br />
     <label for="txtBufferingGoal"><b v-t="'actions.buffering_goal'"/></label>
     <br />
-    <input
-        id="txtBufferingGoal"
-        v-model="bufferingGoal"
-        class="uk-input uk-width-auto"
-        type="text"
-        @change="onChange($event)"
-    />
+    <input id="txtBufferingGoal" v-model="bufferingGoal" class="input w-auto" type="text" @change="onChange($event)" />
     <br />
     <label for="ddlCountrySelection"><b v-t="'actions.country_selection'"/></label>
     <br />
-    <select
-        id="ddlCountrySelection"
-        v-model="countrySelected"
-        class="uk-select uk-width-auto"
-        @change="onChange($event)"
-    >
+    <select id="ddlCountrySelection" v-model="countrySelected" class="select w-auto" @change="onChange($event)">
         <option v-for="country in countryMap" :key="country.code" :value="country.code">{{ country.name }}</option>
     </select>
     <br />
     <label for="ddlDefaultHomepage"><b v-t="'actions.default_homepage'"/></label>
     <br />
-    <select
-        id="ddlDefaultHomepage"
-        v-model="defaultHomepage"
-        class="uk-select uk-width-auto"
-        @change="onChange($event)"
-    >
+    <select id="ddlDefaultHomepage" v-model="defaultHomepage" class="select w-auto" @change="onChange($event)">
         <option v-t="'titles.trending'" value="trending" />
         <option v-t="'titles.feed'" value="feed" />
     </select>
@@ -153,24 +137,13 @@
     <br />
     <label for="ddlLanguageSelection"><b v-t="'actions.language_selection'"/></label>
     <br />
-    <select
-        id="ddlLanguageSelection"
-        v-model="selectedLanguage"
-        class="uk-select uk-width-auto"
-        @change="onChange($event)"
-    >
+    <select id="ddlLanguageSelection" v-model="selectedLanguage" class="select w-auto" @change="onChange($event)">
         <option v-for="language in languages" :key="language.code" :value="language.code">{{ language.name }}</option>
     </select>
     <br />
     <label for="ddlEnabledCodecs"><b v-t="'actions.enabled_codecs'"/></label>
     <br />
-    <select
-        id="ddlEnabledCodecs"
-        v-model="enabledCodecs"
-        class="uk-select uk-width-auto"
-        multiple
-        @change="onChange($event)"
-    >
+    <select id="ddlEnabledCodecs" v-model="enabledCodecs" class="select w-auto" multiple @change="onChange($event)">
         <option value="av1">AV1</option>
         <option value="vp9">VP9</option>
         <option value="avc">AVC (h.264)</option>
@@ -211,12 +184,7 @@
         ><b>{{ $t("actions.instance_selection") }}:</b></label
     >
     <br />
-    <select
-        id="ddlInstanceSelection"
-        v-model="selectedInstance"
-        class="uk-select uk-width-auto"
-        @change="onChange($event)"
-    >
+    <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
         <option v-for="instance in instances" :key="instance.name" :value="instance.apiurl">
             {{ instance.name }}
         </option>

@@ -1,5 +1,9 @@
 <template>
-    <nav class="uk-navbar w-100 relative" :style="[{ background: backgroundColor, colour: foregroundColor }]" uk-navbar>
+    <nav
+        class="uk-navbar w-full relative"
+        :style="[{ background: backgroundColor, colour: foregroundColor }]"
+        uk-navbar
+    >
         <div class="uk-navbar-left">
             <router-link
                 class="uk-navbar-item uk-logo font-bold font-2xl font-sans font-bold"
@@ -17,7 +21,7 @@
         <div class="uk-navbar-center uk-flex md:visible">
             <input
                 v-model="searchText"
-                class="uk-input uk-width-medium"
+                class="input uk-width-medium"
                 type="text"
                 role="search"
                 :title="$t('actions.search')"
@@ -51,7 +55,7 @@
     <div class="w-full md:hidden">
         <input
             v-model="searchText"
-            class="uk-input"
+            class="input"
             type="text"
             role="search"
             :title="$t('actions.search')"
