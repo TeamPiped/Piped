@@ -6,13 +6,7 @@
     </div>
 
     <div style="text-align: right">
-        <label for="ddlSortBy" v-text="$t('actions.sort_by')" />
-        <select id="ddlSortBy" v-model="selectedSort" class="select w-auto" @change="onChange()">
-            <option v-t="'actions.most_recent'" value="descending" />
-            <option v-t="'actions.least_recent'" value="ascending" />
-            <option v-t="'actions.channel_name_asc'" value="channel_ascending" />
-            <option v-t="'actions.channel_name_desc'" value="channel_descending" />
-        </select>
+        <Sorting by-key="watchedAt" @apply="order => videos.sort(order)" />
     </div>
 
     <hr />
@@ -26,15 +20,16 @@
 
 <script>
 import VideoItem from "@/components/VideoItem.vue";
+import Sorting from "@/components/Sorting.vue";
 
 export default {
     components: {
         VideoItem,
+        Sorting,
     },
     data() {
         return {
             videos: [],
-            selectedSort: "descending",
         };
     },
     mounted() {
@@ -67,22 +62,6 @@ export default {
         document.title = "Watch History - Piped";
     },
     methods: {
-        onChange() {
-            switch (this.selectedSort) {
-                case "ascending":
-                    this.videos.sort((a, b) => a.watchedAt - b.watchedAt);
-                    break;
-                case "descending":
-                    this.videos.sort((a, b) => b.watchedAt - a.watchedAt);
-                    break;
-                case "channel_ascending":
-                    this.videos.sort((a, b) => a.uploaderName.localeCompare(b.uploaderName));
-                    break;
-                case "channel_descending":
-                    this.videos.sort((a, b) => b.uploaderName.localeCompare(a.uploaderName));
-                    break;
-            }
-        },
         clearHistory() {
             if (window.db) {
                 var tx = window.db.transaction("watch_history", "readwrite");
