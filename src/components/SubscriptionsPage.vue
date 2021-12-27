@@ -1,38 +1,33 @@
 <template>
     <h1 class="font-bold text-center">{{ $t("titles.subscriptions") }}</h1>
 
-    <div>
-        <button v-if="authenticated" class="uk-button uk-button-small" style=" margin-right: 0.5rem">
+    <div v-if="authenticated">
+        <button class="btn mr-0.5">
             <router-link to="/import">
                 {{ $t("actions.import_from_json") }}
             </router-link>
         </button>
 
-        <button v-if="authenticated" class="uk-button uk-button-small" style="color: white" @click="exportHandler">
+        <button class="btn" @click="exportHandler">
             {{ $t("actions.export_to_json") }}
         </button>
     </div>
     <hr />
 
-    <div v-for="subscription in subscriptions" :key="subscription.url" style="text-align: center">
-        <div class="uk-text-primary" :style="[{ background: backgroundColor }]">
-            <a :href="subscription.url">
-                <img :src="subscription.avatar" class="uk-margin-small-right rounded-full" width="96" height="96" />
-                <span
-                    class="uk-text-large"
-                    style="width: 30rem; display: inline-block; text-align: center; margin-left: 6rem"
-                    >{{ subscription.name }}</span
-                >
-            </a>
-            <button
-                class="uk-button uk-button-large"
-                style="background: #222; margin-left: 0.5rem; width: 185px"
-                @click="handleButton(subscription)"
-            >
-                {{ subscription.subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
-            </button>
+    <div class="grid">
+        <div class="mb-3" v-for="subscription in subscriptions" :key="subscription.url">
+            <div class="flex justify-center place-items-center">
+                <div class="w-full grid grid-cols-3">
+                    <router-link :to="subscription.url" class="col-start-2 block flex text-center font-bold text-4xl">
+                        <img :src="subscription.avatar" class="rounded-full" width="48" height="48" />
+                        <span>{{ subscription.name }}</span>
+                    </router-link>
+                    <button class="btn !w-min" @click="handleButton(subscription)">
+                        {{ subscription.subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
+                    </button>
+                </div>
+            </div>
         </div>
-        <br />
     </div>
     <br />
 </template>
