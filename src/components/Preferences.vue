@@ -253,6 +253,7 @@ export default {
             selectedLanguage: "en",
             languages: [
                 { code: "bn", name: "বাংলা" },
+                { code: "cs", name: "Čeština" },
                 { code: "de", name: "Deutsch" },
                 { code: "el", name: "Ελληνικά" },
                 { code: "es", name: "Español" },
