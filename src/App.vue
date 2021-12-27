@@ -121,7 +121,7 @@ b {
 }
 
 .dark {
-    @apply text-white;
+    @apply text-white bg-dark-800;
 }
 
 h1 {
