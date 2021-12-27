@@ -2,10 +2,11 @@
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
 
     <div v-if="channel" v-show="!channel.error">
-        <h1 class="text-center">
-            <img height="48" width="48" class="rounded-full" :src="channel.avatarUrl" />{{ channel.name }}
-        </h1>
-        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" style="width: 100%" loading="lazy" />
+        <div class="flex justify-center place-items-center">
+            <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
+            <h1>{{ channel.name }}</h1>
+        </div>
+        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
         <!-- eslint-disable-next-line vue/no-v-html -->
         <p style="white-space: pre-wrap"><span v-html="purifyHTML(urlify(channel.description))"></span></p>
 

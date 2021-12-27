@@ -7,7 +7,7 @@
             </keep-alive>
         </router-view>
 
-        <div style="text-align: center">
+        <footer class="text-center">
             <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
                 <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             </a>
@@ -16,7 +16,7 @@
                 <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
                 {{ $t("actions.donations") }}
             </a>
-        </div>
+        </footer>
     </div>
 </template>
 
@@ -113,7 +113,7 @@ b {
 }
 
 .video-grid {
-    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 col-auto gap-x-1vw gap-y-0.2vh;
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 col-auto gap-x-1vw gap-y-1.5 mx-3;
 }
 
 .btn {
@@ -121,7 +121,7 @@ b {
 }
 
 .dark {
-    @apply text-white bg-dark-800;
+    @apply text-white bg-dark-800 bg-opacity-70;
 }
 
 .dark .input,
@@ -140,5 +140,9 @@ h1 {
 
 hr {
     @apply !mt-2 !mb-3;
+}
+
+.link {
+    @apply hover:(text-gray-300 underline underline-gray-300);
 }
 </style>

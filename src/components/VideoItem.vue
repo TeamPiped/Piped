@@ -1,7 +1,7 @@
 <template>
-    <div class="uk-text-secondary" :style="[{ background: backgroundColor }]">
+    <div class="uk-text-secondary">
         <router-link class="uk-text-emphasis" :to="video.url">
-            <img :height="height" :width="width" style="width: 100%" :src="video.thumbnail" alt="" loading="lazy" />
+            <img :height="height" :width="width" class="w-full" :src="video.thumbnail" alt="" loading="lazy" />
             <div class="relative">
                 <span v-if="video.duration" class="thumbnail-overlay bottom-5px right-5px" style="padding: 0 5px">{{
                     timeFormat(video.duration)
@@ -14,13 +14,11 @@
             <div>
                 <p
                     style="
-                        padding-top: 0.5rem;
-                        margin-bottom: 0.5rem;
                         display: -webkit-box;
                         -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
-                        overflow: hidden;
                     "
+                    class="my-2 overflow-hidden flex link"
                     :title="video.title"
                 >
                     {{ video.title }}
@@ -28,7 +26,7 @@
             </div>
         </router-link>
 
-        <div class="float-right" style="margin-left: 0; margin-bottom: 0; display: inline-block; width: 10%">
+        <div class="float-right ml-0 mb-0 inline-block">
             <router-link
                 :to="video.url + '&listen=1'"
                 :aria-label="'Listen to ' + video.title"
@@ -38,7 +36,7 @@
             </router-link>
         </div>
 
-        <div style="display: flex; flex-flow: row; height: 15%">
+        <div class="flex" style="flex-flow: row">
             <router-link class="uk-link-muted" :to="video.uploaderUrl">
                 <img
                     v-if="video.uploaderAvatar"
@@ -55,7 +53,6 @@
                     class="uk-link-muted overflow-hidden block"
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
-                    style="display: block; width: 90%"
                 >
                     {{ video.uploaderName }}&thinsp;<font-awesome-icon
                         v-if="video.uploaderVerified"
