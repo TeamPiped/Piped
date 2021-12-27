@@ -2,15 +2,14 @@
     <div class="comment flex">
         <img
             :src="comment.thumbnail"
-            class="comment-avatar rounded-full uk-margin-right"
+            class="comment-avatar rounded-full w-12 h-12"
             height="48"
             width="48"
-            style="width: 48px; height: 48px"
             loading="lazy"
             alt="Avatar"
         />
 
-        <div class="comment-content">
+        <div class="comment-content pl-2">
             <div class="comment-header">
                 <div v-if="comment.pinned" class="comment-pinned uk-text-meta">
                     <font-awesome-icon icon="thumbtack"></font-awesome-icon>&nbsp; {{ $t("comment.pinned_by") }}
@@ -26,14 +25,13 @@
                     {{ comment.commentedTime }}
                 </div>
             </div>
-            <div class="comment-body" style="white-space: pre-wrap">
+            <div class="whitespace-pre-wrap">
                 {{ comment.commentText }}
             </div>
             <div class="comment-footer uk-margin-small-top uk-text-meta">
-                <font-awesome-icon icon="thumbs-up" style="margin-right: 4px"></font-awesome-icon>
-                <span>{{ numberFormat(comment.likeCount) }}</span>
-                &nbsp;
-                <font-awesome-icon v-if="comment.hearted" icon="heart"></font-awesome-icon>
+                <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
+                <span class="ml-1">{{ numberFormat(comment.likeCount) }}</span>
+                <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart"></font-awesome-icon>
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies">
@@ -49,12 +47,8 @@
                     <font-awesome-icon icon="level-up-alt" />
                 </div>
             </template>
-            <div v-show="showingReplies" v-if="replies" class="replies uk-width-4-5@xl uk-width-3-4@s uk-width-1">
-                <div
-                    v-for="reply in replies"
-                    :key="reply.commentId"
-                    class="uk-tile-default uk-align-left uk-width-expand"
-                >
+            <div v-show="showingReplies" v-if="replies" class="replies">
+                <div v-for="reply in replies" :key="reply.commentId" class="w-full">
                     <Comment :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>
                 <div v-if="nextpage" @click="loadReplies">

@@ -1,6 +1,6 @@
 <template>
-    <nav class="grid grid-cols-3 px-2 sm:px-4 py-2.5 w-full relative">
-        <div>
+    <nav class="container flex flex-wrap items-center justify-between px-2 sm:px-4 py-2.5 w-full relative">
+        <div class="">
             <router-link class="flex font-bold text-3xl items-center font-sans font-bold" to="/"
                 ><img
                     alt="logo"
@@ -11,10 +11,10 @@
                 />iped</router-link
             >
         </div>
-        <div class="flex justify-center items-center <md:hidden">
+        <div class="<md:hidden">
             <input
                 v-model="searchText"
-                class="input !w-72 h-10"
+                class="input !w-72 !h-10"
                 type="text"
                 role="search"
                 :title="$t('actions.search')"
@@ -25,8 +25,8 @@
                 @blur="onInputBlur"
             />
         </div>
-        <div>
-            <ul class="flex float-right text-1xl children:pl-3">
+        <div class="float-right">
+            <ul class="flex text-1xl children:pl-3">
                 <li>
                     <router-link v-t="'titles.preferences'" to="/preferences" />
                 </li>
@@ -48,7 +48,7 @@
     <div class="w-full md:hidden">
         <input
             v-model="searchText"
-            class="input"
+            class="input !h-10 !w-full"
             type="text"
             role="search"
             :title="$t('actions.search')"
