@@ -4,7 +4,7 @@
     </h1>
 
     <label for="ddlSearchFilters"
-        ><b>{{ $t("actions.filter") }}: </b></label
+        ><strong>{{ $t("actions.filter") }}: </strong></label
     >
     <select
         id="ddlSearchFilters"
@@ -23,11 +23,11 @@
 
     <div v-if="results && results.corrected" style="height: 7vh">
         {{ $t("search.did_you_mean") }}
-        <i>
+        <em>
             <router-link :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }">
                 {{ results.suggestion }}
             </router-link>
-        </i>
+        </em>
     </div>
 
     <div v-if="results" class="video-grid">
@@ -56,8 +56,8 @@
                 </router-link>
 
                 <a v-if="result.uploaderName" class="uk-text-muted">{{ result.uploaderName }}</a>
-                <b v-if="result.videos >= 0"
-                    ><br v-if="result.uploaderName" />{{ result.videos }} {{ $t("video.videos") }}</b
+                <strong v-if="result.videos >= 0"
+                    ><br v-if="result.uploaderName" />{{ result.videos }} {{ $t("video.videos") }}</strong
                 >
 
                 <br />
