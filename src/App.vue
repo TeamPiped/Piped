@@ -1,9 +1,5 @@
 <template>
-    <div
-        class="uk-container uk-container-expand uk-height-viewport"
-        :style="[{ background: backgroundColor, colour: foregroundColor }]"
-        :class="{ 'uk-light': darkMode }"
-    >
+    <div class="w-full" :style="[{ background: backgroundColor, colour: foregroundColor }]" :class="{ dark: darkMode }">
         <Navigation />
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
@@ -120,7 +116,15 @@ b {
     @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 col-auto gap-x-1vw gap-y-0.2vh;
 }
 
-.uk-button {
-    background: #222;
+.btn {
+    @apply py-2 px-4 rounded bg-dark-400;
+}
+
+.dark {
+    @apply text-white;
+}
+
+h1 {
+    @apply text-2xl font-bold;
 }
 </style>

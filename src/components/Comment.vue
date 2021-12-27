@@ -1,8 +1,8 @@
 <template>
-    <div class="comment uk-flex">
+    <div class="comment flex">
         <img
             :src="comment.thumbnail"
-            class="comment-avatar uk-border-circle uk-margin-right"
+            class="comment-avatar rounded-full uk-margin-right"
             height="48"
             width="48"
             style="width: 48px; height: 48px"
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="comment-author">
-                    <router-link class="uk-text-bold uk-text-small" :to="comment.commentorUrl">
+                    <router-link class="font-bold uk-text-small" :to="comment.commentorUrl">
                         {{ comment.author }} </router-link
                     >&thinsp;<font-awesome-icon v-if="comment.verified" icon="check"></font-awesome-icon>
                 </div>

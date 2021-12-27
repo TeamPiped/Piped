@@ -1,11 +1,14 @@
 <template>
     <nav
-        class="uk-navbar uk-navbar-container uk-container-expand uk-position-relative"
+        class="uk-navbar uk-navbar-container uk-container-expand relative"
         :style="[{ background: backgroundColor, colour: foregroundColor }]"
         uk-navbar
     >
         <div class="uk-navbar-left">
-            <router-link class="uk-navbar-item uk-logo uk-text-bold" :style="[{ colour: foregroundColor }]" to="/"
+            <router-link
+                class="uk-navbar-item uk-logo font-bold font-2xl font-sans font-bold"
+                :style="[{ colour: foregroundColor }]"
+                to="/"
                 ><img
                     alt="logo"
                     src="/img/icons/logo.svg"
@@ -15,7 +18,7 @@
                 />iped</router-link
             >
         </div>
-        <div class="uk-navbar-center uk-flex uk-visible@m">
+        <div class="uk-navbar-center uk-flex md:visible">
             <input
                 v-model="searchText"
                 class="uk-input uk-width-medium"
@@ -49,7 +52,7 @@
             </ul>
         </div>
     </nav>
-    <div class="uk-container-expand uk-hidden@m">
+    <div class="w-full md:hidden">
         <input
             v-model="searchText"
             class="uk-input"

@@ -2,7 +2,7 @@
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
     <div v-if="playlist" v-show="!playlist.error">
-        <h1 class="uk-text-center">
+        <h1 class="text-center">
             <img :src="playlist.avatarUrl" height="48" width="48" loading="lazy" />
             {{ playlist.name }}
         </h1>
@@ -11,7 +11,7 @@
             <div>
                 <b
                     ><router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
-                        <img :src="playlist.uploaderAvatar" loading="lazy" class="uk-border-circle" />
+                        <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
                         {{ playlist.uploader }}</router-link
                     ></b
                 >

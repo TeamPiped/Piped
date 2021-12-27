@@ -1,5 +1,5 @@
 <template>
-    <h1 class="uk-text-center">
+    <h1 class="text-center">
         {{ $route.query.search_query }}
     </h1>
 
@@ -35,7 +35,7 @@
             <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
             <div v-if="!shouldUseVideoItem(result)" class="uk-text-secondary">
                 <router-link class="uk-text-emphasis" :to="result.url">
-                    <div class="uk-position-relative">
+                    <div class="relative">
                         <img style="width: 100%" :src="result.thumbnail" loading="lazy" />
                     </div>
                     <p>

@@ -1,5 +1,5 @@
 <template>
-    <div class="uk-vertical-align uk-text-center uk-height-1-1">
+    <div class="uk-vertical-align text-center uk-height-1-1">
         <form class="uk-panel uk-panel-box">
             <div class="uk-form-row">
                 <input
