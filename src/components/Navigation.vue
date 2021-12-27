@@ -1,9 +1,5 @@
 <template>
-    <nav
-        class="uk-navbar w-full relative"
-        :style="[{ background: backgroundColor, colour: foregroundColor }]"
-        uk-navbar
-    >
+    <nav class="uk-navbar w-full relative">
         <div class="uk-navbar-left">
             <router-link
                 class="uk-navbar-item uk-logo font-bold font-2xl font-sans font-bold"
@@ -18,7 +14,7 @@
                 />iped</router-link
             >
         </div>
-        <div class="uk-navbar-center uk-flex md:visible">
+        <div class="uk-navbar-center uk-flex <md:hidden">
             <input
                 v-model="searchText"
                 class="input uk-width-medium"
