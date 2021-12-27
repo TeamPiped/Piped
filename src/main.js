@@ -49,6 +49,7 @@ TimeAgo.addDefaultLocale(en);
 
 import { createI18n } from "vue-i18n";
 import enLocale from "@/locales/en.json";
+import "windi.css";
 
 const timeAgo = new TimeAgo("en-US");
 

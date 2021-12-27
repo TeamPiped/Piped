@@ -30,13 +30,8 @@
         </i>
     </div>
 
-    <div v-if="results" class="uk-grid uk-grid-xl">
-        <div
-            v-for="result in results.items"
-            :key="result.url"
-            :style="[{ background: backgroundColor }]"
-            class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
-        >
+    <div v-if="results" class="video-grid">
+        <div v-for="result in results.items" :key="result.url" :style="[{ background: backgroundColor }]">
             <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
             <div v-if="!shouldUseVideoItem(result)" class="uk-text-secondary">
                 <router-link class="uk-text-emphasis" :to="result.url">
