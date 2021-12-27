@@ -17,7 +17,9 @@
                 <div class="right-2vw absolute">
                     <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
                     <br />
-                    <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
+                    <a :href="getRssUrl">
+                        <font-awesome-icon icon="rss" />
+                    </a>
                 </div>
             </div>
         </div>

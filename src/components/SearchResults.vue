@@ -1,7 +1,9 @@
 <template>
     <h1 class="text-center" v-text="$route.query.search_query" />
 
-    <label for="ddlSearchFilters"><strong v-text="`${$t('actions.filter')}:`" /></label>
+    <label for="ddlSearchFilters">
+        <strong v-text="`${$t('actions.filter')}:`" />
+    </label>
     <select
         id="ddlSearchFilters"
         v-model="selectedFilter"
@@ -34,21 +36,15 @@
                         <img style="width: 100%" :src="result.thumbnail" loading="lazy" />
                     </div>
                     <p>
-                        <span v-text="result.name" /><font-awesome-icon
-                            class="ml-1.5"
-                            v-if="result.verified"
-                            icon="check"
-                        ></font-awesome-icon>
+                        <span v-text="result.name" />
+                        <font-awesome-icon class="ml-1.5" v-if="result.verified" icon="check" />
                     </p>
                 </router-link>
                 <p v-if="result.description" v-text="result.description" />
                 <router-link v-if="result.uploaderUrl" class="uk-link-muted" :to="result.uploaderUrl">
                     <p>
-                        <span v-text="result.uploader" /><font-awesome-icon
-                            class="ml-1.5"
-                            v-if="result.uploaderVerified"
-                            icon="check"
-                        ></font-awesome-icon>
+                        <span v-text="result.uploader" />
+                        <font-awesome-icon class="ml-1.5" v-if="result.uploaderVerified" icon="check" />
                     </p>
                 </router-link>
 
