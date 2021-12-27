@@ -85,12 +85,7 @@
                 {{ showDesc ? $t("actions.minimize_description") : $t("actions.show_description") }}
             </button>
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <p
-                v-show="showDesc"
-                class="break-words"
-                :style="[{ colour: foregroundColor }]"
-                v-html="purifyHTML(video.description)"
-            ></p>
+            <p v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)"></p>
             <div v-if="showDesc && sponsors && sponsors.segments">
                 {{ $t("video.sponsor_segments") }}: {{ sponsors.segments.length }}
             </div>
@@ -142,7 +137,6 @@
                     v-show="showRecs || !smallView"
                     :key="related.url"
                     class="uk-tile-default w-auto"
-                    :style="[{ background: backgroundColor }]"
                 >
                     <VideoItem :video="related" height="94" width="168" />
                 </div>

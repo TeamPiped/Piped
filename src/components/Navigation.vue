@@ -1,10 +1,7 @@
 <template>
     <nav class="grid grid-cols-3 px-2 sm:px-4 py-2.5 w-full relative">
         <div>
-            <router-link
-                class="flex font-bold text-3xl items-center font-sans font-bold"
-                :style="[{ colour: foregroundColor }]"
-                to="/"
+            <router-link class="flex font-bold text-3xl items-center font-sans font-bold" to="/"
                 ><img
                     alt="logo"
                     src="/img/icons/logo.svg"

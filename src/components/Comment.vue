@@ -54,7 +54,6 @@
                     v-for="reply in replies"
                     :key="reply.commentId"
                     class="uk-tile-default uk-align-left uk-width-expand"
-                    :style="[{ background: backgroundColor }]"
                 >
                     <Comment :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>

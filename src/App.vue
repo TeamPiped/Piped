@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full" :style="[{ background: backgroundColor, colour: foregroundColor }]" :class="{ dark: darkMode }">
+    <div class="w-full min-h-screen h-full" :class="{ dark: darkMode, reset: !darkMode }">
         <Navigation />
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
@@ -120,8 +120,12 @@ b {
     @apply py-2 px-4 rounded;
 }
 
+.reset {
+    @apply text-black bg-white;
+}
+
 .dark {
-    @apply text-white bg-dark-800 bg-opacity-70;
+    @apply text-white bg-dark-900;
 }
 
 .dark .input,
@@ -147,6 +151,10 @@ hr {
 }
 
 .link {
+    @apply hover:(text-dark-300 underline underline-dark-300);
+}
+
+.dark .link {
     @apply hover:(text-gray-300 underline underline-gray-300);
 }
 </style>
