@@ -17,9 +17,14 @@
         <hr />
 
         <div class="video-grid">
-            <div v-for="video in channel.relatedStreams" :key="video.url">
-                <VideoItem :video="video" height="94" width="168" hide-channel />
-            </div>
+            <VideoItem
+                v-for="video in channel.relatedStreams"
+                :key="video.url"
+                :video="video"
+                height="94"
+                width="168"
+                hide-channel
+            />
         </div>
     </div>
 </template>

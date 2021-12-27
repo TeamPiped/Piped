@@ -1,5 +1,5 @@
 <template>
-    <div class="comment flex">
+    <div class="comment flex mt-1.5">
         <img
             :src="comment.thumbnail"
             class="comment-avatar rounded-full w-12 h-12"
@@ -12,14 +12,15 @@
         <div class="comment-content pl-2">
             <div class="comment-header">
                 <div v-if="comment.pinned" class="comment-pinned uk-text-meta">
-                    <font-awesome-icon icon="thumbtack"></font-awesome-icon>&nbsp; {{ $t("comment.pinned_by") }}
+                    <font-awesome-icon icon="thumbtack"></font-awesome-icon
+                    ><span class="ml-1.5">{{ $t("comment.pinned_by") }}</span>
                     {{ uploader }}
                 </div>
 
                 <div class="comment-author">
                     <router-link class="font-bold uk-text-small" :to="comment.commentorUrl">
                         {{ comment.author }} </router-link
-                    >&thinsp;<font-awesome-icon v-if="comment.verified" icon="check"></font-awesome-icon>
+                    ><font-awesome-icon class="ml-1.5" v-if="comment.verified" icon="check"></font-awesome-icon>
                 </div>
                 <div class="comment-meta uk-text-meta uk-margin-small-bottom">
                     {{ comment.commentedTime }}
@@ -36,15 +37,13 @@
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies">
                     <a class="uk-link-text" v-t="'actions.show_replies'" />
-                    &nbsp;
-                    <font-awesome-icon icon="level-down-alt" />
+                    <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </template>
             <template v-if="showingReplies">
                 <div @click="hideReplies">
                     <a class="uk-link-text" v-t="'actions.hide_replies'" />
-                    &nbsp;
-                    <font-awesome-icon icon="level-up-alt" />
+                    <font-awesome-icon class="ml-1.5" icon="level-up-alt" />
                 </div>
             </template>
             <div v-show="showingReplies" v-if="replies" class="replies">
@@ -53,8 +52,7 @@
                 </div>
                 <div v-if="nextpage" @click="loadReplies">
                     <a class="uk-link-text" v-t="'actions.load_more_replies'" />
-                    &nbsp;
-                    <font-awesome-icon icon="level-down-alt" />
+                    <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </div>
         </div>

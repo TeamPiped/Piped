@@ -45,22 +45,18 @@
                             <b v-t="'video.ratings_disabled'" />
                         </div>
                     </template>
-                    <a :href="'https://youtu.be/' + getVideoId()" class="uk-margin-small-left btn">
-                        <b>{{ $t("player.watch_on") }}&nbsp;</b>
-                        <font-awesome-icon :icon="['fab', 'youtube']"></font-awesome-icon>
+                    <a :href="'https://youtu.be/' + getVideoId()" class="btn">
+                        <b>{{ $t("player.watch_on") }}</b>
+                        <font-awesome-icon class="ml-1.5" :icon="['fab', 'youtube']"></font-awesome-icon>
                     </a>
-                    <a
-                        v-if="video.lbryId"
-                        :href="'https://odysee.com/' + video.lbryId"
-                        class="uk-margin-small-left btn"
-                    >
+                    <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
                         <b>{{ $t("player.watch_on") }} LBRY</b>
                     </a>
                     <router-link
                         :to="toggleListenUrl"
                         :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
                         :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
-                        class="uk-margin-small-left btn"
+                        class="btn"
                     >
                         <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'"></font-awesome-icon>
                     </router-link>
@@ -70,7 +66,7 @@
             <div class="flex">
                 <div class="flex items-center">
                     <img :src="video.uploaderAvatar" alt="" loading="lazy" class="rounded-full" />
-                    <router-link v-if="video.uploaderUrl" class="link" :to="video.uploaderUrl">
+                    <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">
                         {{ video.uploader }} </router-link
                     ><font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
                 </div>
@@ -95,25 +91,13 @@
 
         <label for="chkAutoLoop"
             ><b>{{ $t("actions.loop_this_video") }}:</b></label
-        >&nbsp;
-        <input
-            id="chkAutoLoop"
-            v-model="selectedAutoLoop"
-            class="uk-checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
+        >
+        <input id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" type="checkbox" @change="onChange($event)" />
         <br />
         <label for="chkAutoPlay"
             ><b>{{ $t("actions.auto_play_next_video") }}:</b></label
-        >&nbsp;
-        <input
-            id="chkAutoPlay"
-            v-model="selectedAutoPlay"
-            class="uk-checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
+        >
+        <input id="chkAutoPlay" v-model="selectedAutoPlay" class="ml-1.5" type="checkbox" @change="onChange($event)" />
 
         <hr />
 
@@ -132,14 +116,15 @@
                 <a class="btn mb-2 sm:hidden" @click="showRecs = !showRecs">
                     {{ showRecs ? $t("actions.minimize_recommendations") : $t("actions.show_recommendations") }}
                 </a>
-                <div
+                <VideoItem
                     v-for="related in video.relatedStreams"
+                    class="w-auto"
                     v-show="showRecs || !smallView"
                     :key="related.url"
-                    class="uk-tile-default w-auto"
-                >
-                    <VideoItem :video="related" height="94" width="168" />
-                </div>
+                    :video="related"
+                    height="94"
+                    width="168"
+                />
                 <hr class="sm:hidden" />
             </div>
         </div>

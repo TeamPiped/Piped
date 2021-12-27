@@ -1,7 +1,7 @@
 <template>
     <div class="uk-flex uk-flex-between uk-flex-middle">
         <button class="uk-button uk-button-text" @click="$router.go(-1) || $router.push('/')">
-            <font-awesome-icon icon="chevron-left" /> &nbsp;{{ $t("actions.back") }}
+            <font-awesome-icon icon="chevron-left" /><span class="ml-1.5">{{ $t("actions.back") }}</span>
         </button>
         <span><h1 v-t="'titles.preferences'" class="font-bold text-center"/></span>
         <span />
