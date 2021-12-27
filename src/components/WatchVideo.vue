@@ -33,11 +33,11 @@
                     <template v-if="video.likes >= 0">
                         <div>
                             <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
-                            <b>{{ addCommas(video.likes) }}</b>
+                            <b class="ml-2">{{ addCommas(video.likes) }}</b>
                         </div>
                         <div>
                             <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
-                            <b>{{ video.dislikes >= 0 ? addCommas(video.dislikes) : "?" }}</b>
+                            <b class="ml-2">{{ video.dislikes >= 0 ? addCommas(video.dislikes) : "?" }}</b>
                         </div>
                     </template>
                     <template v-if="video.likes < 0">

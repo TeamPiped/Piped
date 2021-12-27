@@ -3,7 +3,6 @@
 
     <div v-if="playlist" v-show="!playlist.error">
         <h1 class="text-center">
-            <img :src="playlist.avatarUrl" height="48" width="48" loading="lazy" />
             {{ playlist.name }}
         </h1>
 
