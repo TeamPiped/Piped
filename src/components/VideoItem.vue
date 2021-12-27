@@ -33,7 +33,7 @@
                 :aria-label="'Listen to ' + video.title"
                 :title="'Listen to ' + video.title"
             >
-                <font-awesome-icon icon="headphones"></font-awesome-icon>
+                <font-awesome-icon icon="headphones" />
             </router-link>
         </div>
 
@@ -58,12 +58,12 @@
                     :title="video.uploaderName"
                 >
                     <span v-text="video.uploaderName" />
-                    <font-awesome-icon class="ml-1.5" v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
+                    <font-awesome-icon class="ml-1.5" v-if="video.uploaderVerified" icon="check" />
                 </router-link>
 
                 <strong v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
                     <span v-if="video.views >= 0">
-                        <font-awesome-icon icon="eye"></font-awesome-icon>
+                        <font-awesome-icon icon="eye" />
                         <span v-text="`${numberFormat(video.views)} •`" />
                     </span>
                     <span v-if="video.uploadedDate" v-text="video.uploadedDate" />

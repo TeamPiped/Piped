@@ -30,11 +30,11 @@
                 <div class="flex items-center relative ml-auto children:ml-2">
                     <template v-if="video.likes >= 0">
                         <div>
-                            <font-awesome-icon icon="thumbs-up"></font-awesome-icon>
+                            <font-awesome-icon icon="thumbs-up" />
                             <strong class="ml-2" v-text="addCommas(video.likes)" />
                         </div>
                         <div>
-                            <font-awesome-icon icon="thumbs-down"></font-awesome-icon>
+                            <font-awesome-icon icon="thumbs-down" />
                             <strong class="ml-2" v-text="video.dislikes >= 0 ? addCommas(video.dislikes) : '?'" />
                         </div>
                     </template>
@@ -45,7 +45,7 @@
                     </template>
                     <a :href="`https://youtu.be/${getVideoId()}`" class="btn">
                         <strong v-text="$t('player.watch_on')" />
-                        <font-awesome-icon class="ml-1.5" :icon="['fab', 'youtube']"></font-awesome-icon>
+                        <font-awesome-icon class="ml-1.5" :icon="['fab', 'youtube']" />
                     </a>
                     <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
                         <strong v-text="`${$t('player.watch_on')} LBRY`" />
@@ -56,7 +56,7 @@
                         :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
                         class="btn"
                     >
-                        <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'"></font-awesome-icon>
+                        <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'" />
                     </router-link>
                 </div>
             </div>
@@ -69,7 +69,8 @@
                         class="link ml-1.5"
                         :to="video.uploaderUrl"
                         v-text="video.uploader"
-                    /><font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
+                    />
+                    <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
                 </div>
                 <button
                     v-if="authenticated"
@@ -87,7 +88,7 @@
                 v-text="$t(`actions.${showDesc ? 'minimize_description' : 'show_description'}`)"
             />
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <p v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)"></p>
+            <p v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
             <div
                 v-if="showDesc && sponsors && sponsors.segments"
                 v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"

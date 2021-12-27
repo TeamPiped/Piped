@@ -9,10 +9,10 @@
 
         <footer class="text-center">
             <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
-                <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
+                <font-awesome-icon :icon="['fab', 'github']" />
             </a>
             <a class="ml-2" href="https://github.com/TeamPiped/Piped#donations">
-                <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
+                <font-awesome-icon :icon="['fab', 'bitcoin']" />
                 <span v-text="$t('actions.donations')" />
             </a>
         </footer>

@@ -2,7 +2,7 @@
     <h1 class="font-bold text-center" v-text="$t('titles.history')" />
 
     <div style="text-align: left">
-        <button class="btn" v-t="'actions.clear_history'" @click="clearHistory"></button>
+        <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
     </div>
 
     <div style="text-align: right">

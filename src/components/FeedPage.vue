@@ -6,7 +6,9 @@
     </button>
 
     <span>
-        <a :href="getRssUrl"><font-awesome-icon icon="rss" style="padding-top: 0.2rem"></font-awesome-icon></a>
+        <a :href="getRssUrl">
+            <font-awesome-icon icon="rss" style="padding-top: 0.2rem" />
+        </a>
     </span>
 
     <span class="md:float-right">

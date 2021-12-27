@@ -6,13 +6,7 @@
             style="width: 100%; height: 100%; background: #000"
             :style="!isEmbed ? { 'max-height': '75vh', 'min-height': '250px' } : {}"
         >
-            <video
-                ref="videoEl"
-                data-shaka-player
-                class="w-full"
-                :autoplay="shouldAutoPlay"
-                :loop="selectedAutoLoop"
-            ></video>
+            <video ref="videoEl" data-shaka-player class="w-full" :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
         </div>
     </div>
 </template>
