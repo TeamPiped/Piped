@@ -16,7 +16,7 @@
                 <div class="w-full grid grid-cols-3">
                     <router-link :to="subscription.url" class="col-start-2 block flex text-center font-bold text-4xl">
                         <img :src="subscription.avatar" class="rounded-full" width="48" height="48" />
-                        <span v-text="subscription.name" />>
+                        <span v-text="subscription.name" />
                     </router-link>
                     <button
                         class="btn !w-min"
