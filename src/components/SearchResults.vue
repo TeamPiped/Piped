@@ -19,12 +19,10 @@
 
     <div v-if="results && results.corrected" style="height: 7vh">
         <span v-text="$t('search.did_you_mean')" />
-        <em>
-            <router-link
-                :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }"
-                v-text="results.suggestion"
-            />
-        </em>
+
+        <router-link :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }">
+            <em v-text="results.suggestion" />
+        </router-link>
     </div>
 
     <div v-if="results" class="video-grid">
@@ -49,9 +47,10 @@
                 </router-link>
 
                 <a v-if="result.uploaderName" class="uk-text-muted" v-text="result.uploaderName" />
-                <strong v-if="result.videos >= 0"
-                    ><br v-if="result.uploaderName" /><span v-text="`${result.videos} ${$t('video.videos')}`"
-                /></strong>
+                <template v-if="result.videos >= 0">
+                    <br v-if="result.uploaderName" />
+                    <strong v-text="`${result.videos} ${$t('video.videos')}`" />
+                </template>
 
                 <br />
             </div>

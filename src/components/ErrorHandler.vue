@@ -1,6 +1,5 @@
 <template>
     <p v-text="message" />
-    >
     <button @click="toggleTrace" class="btn" v-text="$t('actions.show_more')" />
     <p ref="stacktrace" style="white-space: pre-wrap" hidden v-text="error" />
 </template>

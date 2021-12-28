@@ -6,12 +6,10 @@
 
         <div class="grid grid-cols-2">
             <div>
-                <strong>
-                    <router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
-                        <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
-                        <span v-text="playlist.uploader" />
-                    </router-link>
-                </strong>
+                <router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
+                    <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
+                    <strong v-text="playlist.uploader" />
+                </router-link>
             </div>
             <div>
                 <div class="right-2vw absolute">
