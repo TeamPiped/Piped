@@ -17,7 +17,6 @@
         "hotkeys-js": "^3.8.7",
         "javascript-time-ago": "^2.3.10",
         "mux.js": "^6.0.1",
-        "register-service-worker": "^1.7.1",
         "shaka-player": "3.2.1",
         "uikit": "3.9.4",
         "vue": "^3.2.26",
@@ -35,6 +34,7 @@
         "eslint-plugin-vue": "^7.20.0",
         "prettier": "^2.5.1",
         "vite": "^2.7.8",
+        "vite-plugin-pwa": "^0.11.12",
         "vite-plugin-windicss": "^1.6.1"
     },
     "eslintConfig": {
