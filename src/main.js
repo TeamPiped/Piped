@@ -36,7 +36,7 @@ library.add(
 
 // import("uikit/dist/css/uikit-core.css");
 
-import router from "@/router/router";
+import router from "@/router/router.js";
 import App from "./App.vue";
 
 import DOMPurify from "dompurify";

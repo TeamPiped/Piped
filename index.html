@@ -4,18 +4,13 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-        <link
-            title="Piped"
-            type="application/opensearchdescription+xml"
-            rel="search"
-            href="<%= BASE_URL %>opensearch.xml"
-        />
-        <title><%= htmlWebpackPlugin.options.title %></title>
+        <link rel="icon" href="/favicon.ico" />
+        <link title="Piped" type="application/opensearchdescription+xml" rel="search" href="/opensearch.xml" />
+        <title>Piped</title>
         <meta property="og:title" content="Piped" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="<%= BASE_URL %>img/icons/favicon-32x32.png" />
-        <meta property="og:url" content="<%= BASE_URL %>" />
+        <meta property="og:image" content="/img/icons/favicon-32x32.png" />
+        <meta property="og:url" content="/" />
         <meta
             property="og:description"
             content="An alternative privacy-friendly YouTube frontend which is efficient by design."
@@ -24,10 +19,11 @@
 
     <noscript>
         <strong style="color: #fff"
-            >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
-            Please enable it to continue.</strong
+            >We're sorry but Piped doesn't work properly without JavaScript enabled. Please enable it to
+            continue.</strong
         >
     </noscript>
     <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
     <!-- built files will be auto injected -->
 </html>

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/Navigation.vue";
 export default {
     components: {
         Navigation,
@@ -67,7 +67,7 @@ export default {
             }
             if (window.i18n.global.locale.value !== locale) {
                 if (!window.i18n.global.availableLocales.includes(locale)) {
-                    const messages = await import("@/locales/" + locale + ".json").then(module => module.default);
+                    const messages = await import(`./locales/${locale}.json`).then(module => module.default);
                     window.i18n.global.setLocaleMessage(locale, messages);
                 }
                 window.i18n.global.locale.value = locale;
@@ -88,7 +88,6 @@ b {
 
 ::-webkit-scrollbar {
     background-color: #15191a;
-    color: #c5bcae;
 }
 
 ::-webkit-scrollbar-thumb {

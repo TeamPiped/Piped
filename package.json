@@ -3,9 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint"
+        "serve": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -13,7 +13,6 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/vue-fontawesome": "^3.0.0-5",
         "core-js": "3.20.1",
-        "css-loader": "^6.5.1",
         "dompurify": "^2.3.4",
         "hotkeys-js": "^3.8.7",
         "javascript-time-ago": "^2.3.10",
@@ -27,19 +26,16 @@
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
-        "@intlify/vue-i18n-loader": "^4.1.0",
-        "@vue/cli-plugin-babel": "^4.5.15",
-        "@vue/cli-plugin-eslint": "^4.5.15",
-        "@vue/cli-plugin-pwa": "^4.5.15",
-        "@vue/cli-service": "^4.5.15",
+        "@intlify/vite-plugin-vue-i18n": "^3.2.1",
+        "@vitejs/plugin-vue": "^2.0.1",
         "@vue/compiler-sfc": "3.2.26",
         "babel-eslint": "^10.1.0",
         "eslint": "^7.32.0",
-        "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-vue": "^7.20.0",
-        "vue-cli-plugin-i18n": "^2.3.1",
-        "vue-cli-plugin-windicss": "~1.1.2"
+        "prettier": "^2.5.1",
+        "vite": "^2.7.8",
+        "vite-plugin-windicss": "^1.6.1"
     },
     "eslintConfig": {
         "root": true,

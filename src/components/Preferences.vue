@@ -340,10 +340,8 @@ export default {
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
             if (this.selectedLanguage != "en") {
                 try {
-                    this.CountryMap = await import("@/utils/CountryMaps/" + this.selectedLanguage + ".json").then(
-                        val => {
-                            this.countryMap = val;
-                        },
+                    this.CountryMap = await import(`../utils/CountryMaps/${this.selectedLanguage}.json`).then(
+                        val => val.default,
                     );
                 } catch (e) {
                     console.error("Countries not translated into " + this.selectedLanguage);
