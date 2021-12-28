@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full min-h-screen h-full px-1vw reset" :class="{ dark: darkMode }">
+    <div class="w-full min-h-screen h-full px-1vw reset" :class="[theme]">
         <Navigation />
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
@@ -132,33 +132,65 @@ b {
     @apply text-white bg-dark-900;
 }
 
+.input,
+.select,
+.btn {
+    @apply w-auto h-full text-gray-600 bg-gray-300;
+}
+
 .dark .input,
 .dark .select,
 .dark .btn {
-    @apply text-gray-400 bg-dark-400 w-auto h-full;
+    @apply text-gray-400 bg-dark-400;
+}
+
+.auto .input,
+.auto .select,
+.auto .btn {
+    @apply dark:(text-gray-400 bg-dark-400);
 }
 
 .input {
     @apply pl-2.5;
 }
 
+hr {
+    @apply !mt-2 !mb-3 border-gray-300;
+}
+
 .dark hr {
     @apply border-dark-100;
+}
+
+.auto hr {
+    @apply dark:border-dark-100;
 }
 
 h1 {
     @apply m-0 !text-5xl font-bold;
 }
 
-hr {
-    @apply !mt-2 !mb-3;
-}
-
 .link {
     @apply hover:(text-dark-300 underline underline-dark-300);
 }
 
+.link-secondary {
+    @apply hover:(text-dark-400 underline underline-dark-400);
+}
+
 .dark .link {
     @apply hover:(text-gray-300 underline underline-gray-300);
+}
+
+.auto .link {
+    @apply dark:hover:(text-gray-300 underline underline-gray-300);
+}
+
+.dark .link-secondary {
+    @apply text-gray-300 hover:(text-gray-400 underline underline-gray-400);
+}
+
+.auto .link-secondary {
+    @apply dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
 }
 </style>

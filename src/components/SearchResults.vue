@@ -34,7 +34,7 @@
         <div v-for="result in results.items" :key="result.url">
             <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
             <div v-if="!shouldUseVideoItem(result)" class="uk-text-secondary">
-                <router-link class="uk-text-emphasis" :to="result.url">
+                <router-link :to="result.url">
                     <div class="relative">
                         <img style="width: 100%" :src="result.thumbnail" loading="lazy" />
                     </div>
