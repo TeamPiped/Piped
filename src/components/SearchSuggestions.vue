@@ -1,11 +1,11 @@
 <template>
-    <div class="absolute suggestions-container" :style="[{ background: secondaryBackgroundColor }]">
+    <div class="absolute suggestions-container">
         <ul>
             <li
                 v-for="(suggestion, i) in searchSuggestions"
                 :key="i"
-                :style="[selected === i ? { background: secondaryForegroundColor } : {}]"
                 class="suggestion"
+                :class="{ 'suggestion-selected': selected === i }"
                 @mouseover="onMouseOver(i)"
                 @mousedown.stop="onClick(i)"
             >
@@ -76,7 +76,27 @@ export default {
 
 <style>
 .suggestions-container {
-    @apply left-1/2 translate-x-[-50%] transform-gpu max-w-3xl w-full box-border p-y-1.25 z-10 <md:max-w-[calc(100%-0.5rem)];
+    @apply left-1/2 translate-x-[-50%] transform-gpu max-w-3xl w-full box-border p-y-1.25 z-10 <md:max-w-[calc(100%-0.5rem)] bg-gray-300;
+}
+
+.dark .suggestions-container {
+    @apply bg-dark-400;
+}
+
+.auto .suggestions-container {
+    @apply dark:bg-dark-400;
+}
+
+.suggestion-selected {
+    @apply bg-gray-200;
+}
+
+.dark .suggestion-selected {
+    @apply bg-dark-100;
+}
+
+.auto .suggestion-selected {
+    @apply dark:bg-dark-100;
 }
 
 .suggestion {

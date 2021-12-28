@@ -148,13 +148,6 @@ const mixin = {
         apiUrl() {
             return this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
         },
-        getEffectiveTheme() {
-            var theme = this.getPreferenceString("theme", "dark");
-            if (theme === "auto")
-                theme =
-                    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-            return theme;
-        },
         getAuthToken() {
             return this.getPreferenceString("authToken" + this.hashCode(this.apiUrl()));
         },
@@ -191,22 +184,7 @@ const mixin = {
     },
     computed: {
         theme() {
-            return this.getEffectiveTheme();
-        },
-        backgroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#fff" : "#0b0e0f";
-        },
-        secondaryBackgroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#e5e5e5" : "#242727";
-        },
-        foregroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#15191a" : "#0b0e0f";
-        },
-        secondaryForegroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#666" : "#393d3d";
-        },
-        darkMode() {
-            return this.getEffectiveTheme() !== "light";
+            return this.getPreferenceString("theme", "dark");
         },
         authenticated(_this) {
             return _this.getAuthToken() !== undefined;

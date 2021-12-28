@@ -1,6 +1,6 @@
 <template>
-    <div class="uk-text-secondary">
-        <router-link class="uk-text-emphasis" :to="video.url">
+    <div>
+        <router-link :to="video.url">
             <img :height="height" :width="width" class="w-full" :src="video.thumbnail" alt="" loading="lazy" />
             <div class="relative text-sm">
                 <span v-if="video.duration" class="thumbnail-overlay bottom-5px right-5px" style="padding: 0 5px">{{
@@ -37,7 +37,7 @@
         </div>
 
         <div class="flex" style="flex-flow: row">
-            <router-link class="uk-link-muted" :to="video.uploaderUrl">
+            <router-link :to="video.uploaderUrl">
                 <img
                     v-if="video.uploaderAvatar"
                     :src="video.uploaderAvatar"
@@ -52,7 +52,7 @@
             <div class="w-[calc(100%-32px-1rem)]">
                 <router-link
                     v-if="video.uploaderUrl && video.uploaderName && !hideChannel"
-                    class="uk-link-muted overflow-hidden block"
+                    class="link-secondary overflow-hidden block"
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
                 >
