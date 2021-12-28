@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import SearchSuggestions from "@/components/SearchSuggestions";
+import SearchSuggestions from "@/components/SearchSuggestions.vue";
 
 export default {
     components: {
