@@ -228,10 +228,9 @@ export default {
                 mime = "application/x-mpegURL";
             } else if (this.video.audioStreams.length > 0 && !lbry && MseSupport) {
                 if (!this.video.dash) {
-                    const dash = require("@/utils/DashUtils.js").default.generate_dash_file_from_formats(
-                        streams,
-                        this.video.duration,
-                    );
+                    const dash = (
+                        await import("@/utils/DashUtils.js").then(mod => mod.default)
+                    ).generate_dash_file_from_formats(streams, this.video.duration);
 
                     uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
                 } else uri = this.video.dash;

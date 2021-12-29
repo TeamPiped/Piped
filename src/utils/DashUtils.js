@@ -1,11 +1,13 @@
 // Based of https://github.com/GilgusMaximus/yt-dash-manifest-generator/blob/master/src/DashGenerator.js
 
-const xml = require("xml-js");
+import { Buffer } from "buffer";
+window.Buffer = Buffer;
+import { json2xml } from "xml-js";
 
 const DashUtils = {
     generate_dash_file_from_formats(VideoFormats, VideoLength) {
         const generatedJSON = this.generate_xmljs_json_from_data(VideoFormats, VideoLength);
-        return xml.json2xml(generatedJSON);
+        return json2xml(generatedJSON);
     },
     generate_xmljs_json_from_data(VideoFormatArray, VideoLength) {
         const convertJSON = {
