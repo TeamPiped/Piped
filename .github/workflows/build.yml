@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - name: Setup Node.js
-        uses: actions/setup-node@v2.5.0
+        uses: actions/setup-node@v2.5.1
         with:
             cache: 'yarn'
       - run: yarn install --prefer-offline
