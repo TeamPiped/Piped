@@ -60,7 +60,9 @@
         "filter": "ഫിൽട്ടർ",
         "search": "തിരയുക",
         "view_ssl_score": "എസ്എസ്എൽ സ്കോർ കാണിക്കൂ",
-        "skip_non_music": "പാട്ട് ഒഴിവാക്കുക: Non-Music Section"
+        "skip_non_music": "പാട്ട് ഒഴിവാക്കുക: Non-Music Section",
+        "clear_history": "ചരിത്രം മായ്ക്കുക",
+        "show_replies": "മറുപടികൾ കാണിക്കുക"
     },
     "player": {
         "watch_on": "കാണുക"
