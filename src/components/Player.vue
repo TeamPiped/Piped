@@ -193,7 +193,7 @@ export default {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
                 var request = store.get(this.video.id);
-                request.onsuccess = function(event) {
+                request.onsuccess = function (event) {
                     var video = event.target.result;
                     if (video && video.currentTime) {
                         videoEl.currentTime = video.currentTime;
@@ -477,7 +477,7 @@ export default {
             var tx = window.db.transaction("watch_history", "readwrite");
             var store = tx.objectStore("watch_history");
             var request = store.get(this.video.id);
-            request.onsuccess = function(event) {
+            request.onsuccess = function (event) {
                 var video = event.target.result;
                 if (video) {
                     video.currentTime = time;

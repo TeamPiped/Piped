@@ -40,7 +40,7 @@ export default {
         if (this.getPreferenceBoolean("watchHistory", false))
             if ("indexedDB" in window) {
                 const request = indexedDB.open("piped-db", 1);
-                request.onupgradeneeded = function() {
+                request.onupgradeneeded = function () {
                     const db = request.result;
                     console.log("Upgrading object store.");
                     if (!db.objectStoreNames.contains("watch_history")) {
@@ -56,7 +56,7 @@ export default {
 
         const App = this;
 
-        (async function() {
+        (async function () {
             const locale = App.getPreferenceString("hl", App.defaultLangage);
             if (locale !== App.TimeAgoConfig.locale) {
                 const localeTime = await import("javascript-time-ago/locale/" + locale + ".json").then(

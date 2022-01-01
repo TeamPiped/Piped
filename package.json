@@ -6,7 +6,7 @@
         "serve": "vite",
         "build": "vite build",
         "preview": "vite preview",
-        "lint": "eslint --fix --color --ignore-path .gitignore ."
+        "lint": "eslint --fix --color --ignore-path .gitignore --ext .js,.vue ."
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
