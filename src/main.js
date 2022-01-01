@@ -57,8 +57,8 @@ import("./registerServiceWorker");
 
 const mixin = {
     methods: {
-        timeFormat: function(duration) {
-            var pad = function(num, size) {
+        timeFormat: function (duration) {
+            var pad = function (num, size) {
                 return ("000" + num).slice(size * -1);
             };
 
@@ -95,7 +95,7 @@ const mixin = {
             num = parseInt(num);
             return num.toLocaleString("en-US");
         },
-        fetchJson: function(url, params, options) {
+        fetchJson: function (url, params, options) {
             if (params) {
                 url = new URL(url);
                 for (var param in params) url.searchParams.set(param, params[param]);
@@ -152,7 +152,7 @@ const mixin = {
             return this.getPreferenceString("authToken" + this.hashCode(this.apiUrl()));
         },
         hashCode(s) {
-            return s.split("").reduce(function(a, b) {
+            return s.split("").reduce(function (a, b) {
                 a = (a << 5) - a + b.charCodeAt(0);
                 return a & a;
             }, 0);
@@ -173,7 +173,7 @@ const mixin = {
                 var store = tx.objectStore("watch_history");
                 videos.map(async video => {
                     var request = store.get(video.url.substr(-11));
-                    request.onsuccess = function(event) {
+                    request.onsuccess = function (event) {
                         if (event.target.result) {
                             video.watched = true;
                         }
