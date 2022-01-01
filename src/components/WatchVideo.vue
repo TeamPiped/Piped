@@ -199,7 +199,7 @@ export default {
                     var tx = window.db.transaction("watch_history", "readwrite");
                     var store = tx.objectStore("watch_history");
                     var request = store.get(videoId);
-                    request.onsuccess = function(event) {
+                    request.onsuccess = function (event) {
                         var video = event.target.result;
                         if (video) {
                             video.watchedAt = Date.now();
