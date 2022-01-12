@@ -122,15 +122,16 @@
                     @click="showRecs = !showRecs"
                     v-text="$t(`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`)"
                 />
-                <VideoItem
-                    v-for="related in video.relatedStreams"
-                    class="w-auto"
-                    v-show="showRecs || !smallView"
-                    :key="related.url"
-                    :video="related"
-                    height="94"
-                    width="168"
-                />
+                <hr v-show="showRecs" />
+                <div v-show="showRecs || !smallView">
+                    <VideoItem
+                        v-for="related in video.relatedStreams"
+                        :key="related.url"
+                        :video="related"
+                        height="94"
+                        width="168"
+                    />
+                </div>
                 <hr class="sm:hidden" />
             </div>
         </div>
