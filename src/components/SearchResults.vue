@@ -27,7 +27,7 @@
     <div v-if="results" class="video-grid">
         <div v-for="result in results.items" :key="result.url">
             <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
-            <div v-if="!shouldUseVideoItem(result)" class="uk-text-secondary">
+            <div v-if="!shouldUseVideoItem(result)">
                 <router-link :to="result.url">
                     <div class="relative">
                         <img class="w-full" :src="result.thumbnail" loading="lazy" />
@@ -38,14 +38,14 @@
                     </p>
                 </router-link>
                 <p v-if="result.description" v-text="result.description" />
-                <router-link v-if="result.uploaderUrl" class="uk-link-muted" :to="result.uploaderUrl">
+                <router-link v-if="result.uploaderUrl" class="link" :to="result.uploaderUrl">
                     <p>
                         <span v-text="result.uploader" />
                         <font-awesome-icon class="ml-1.5" v-if="result.uploaderVerified" icon="check" />
                     </p>
                 </router-link>
 
-                <a v-if="result.uploaderName" class="uk-text-muted" v-text="result.uploaderName" />
+                <a v-if="result.uploaderName" class="link" v-text="result.uploaderName" />
                 <template v-if="result.videos >= 0">
                     <br v-if="result.uploaderName" />
                     <strong v-text="`${result.videos} ${$t('video.videos')}`" />

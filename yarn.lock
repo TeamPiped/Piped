@@ -3086,11 +3086,6 @@ type-fest@^0.20.2:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.20.2.tgz#1bf207f4b28f91583666cb5fbd327887301cd5f4"
   integrity sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==
 
-uikit@3.9.4:
-  version "3.9.4"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.9.4.tgz#2565a5c0239f49d3a75bfa89c519d40c006e3c46"
-  integrity sha512-mrOr/k3a/6/VBXgnqmQFg0l2ipZyoTpULZZgJ0RVHZz97HNrc28KQsb24pl8wxtw+BGpD39nfMhSmOznyOZuHw==
-
 unbox-primitive@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/unbox-primitive/-/unbox-primitive-1.0.1.tgz#085e215625ec3162574dc8859abee78a59b14471"

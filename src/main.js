@@ -34,8 +34,6 @@ library.add(
     faTv,
 );
 
-// import("uikit/dist/css/uikit-core.css");
-
 import router from "@/router/router.js";
 import App from "./App.vue";
 
@@ -164,7 +162,7 @@ const mixin = {
             const regex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
             if (!string) return "";
             return string.replace(regex, url => {
-                return `<a class="uk-button uk-button-text" href="${url}" target="_blank">${url}</a>`;
+                return `<a href="${url}" target="_blank">${url}</a>`;
             });
         },
         async updateWatched(videos) {

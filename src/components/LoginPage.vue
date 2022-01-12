@@ -1,28 +1,28 @@
 <template>
-    <div class="uk-vertical-align text-center">
+    <div class="text-center">
         <h1 v-t="'titles.login'" />
-        <form class="uk-panel uk-panel-box children:pb-3">
-            <div class="uk-form-row">
+        <form class="children:pb-3">
+            <div>
                 <input
                     v-model="username"
-                    class="uk-width-1-1 uk-form-large input w-auto"
+                    class="input"
                     type="text"
                     autocomplete="username"
                     :placeholder="$t('login.username')"
                     :aria-label="$t('login.username')"
                 />
             </div>
-            <div class="uk-form-row">
+            <div>
                 <input
                     v-model="password"
-                    class="uk-width-1-1 uk-form-large input w-auto"
+                    class="input"
                     type="password"
                     autocomplete="password"
                     :placeholder="$t('login.password')"
                     :aria-label="$t('login.password')"
                 />
             </div>
-            <div class="uk-form-row">
+            <div>
                 <a class="btn w-auto" @click="login" v-text="$t('titles.login')" />
             </div>
         </form>

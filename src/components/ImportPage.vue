@@ -1,17 +1,17 @@
 <template>
-    <div class="uk-vertical-align text-center uk-height-1-1">
-        <form class="uk-panel uk-panel-box">
-            <div class="uk-form-row">
+    <div class="text-center">
+        <form>
+            <div>
                 <input ref="fileSelector" type="file" @change="fileChange" />
             </div>
-            <div class="uk-form-row">
+            <div>
                 <strong v-text="`Selected Subscriptions: ${selectedSubscriptions}`" />
             </div>
-            <div class="uk-form-row">
+            <div>
                 <strong>Override: <input v-model="override" class="checkbox" type="checkbox" /></strong>
             </div>
-            <div class="uk-form-row">
-                <a class="uk-width-1-1 btn uk-button-large w-auto" @click="handleImport">Import</a>
+            <div>
+                <a class="btn w-auto" @click="handleImport">Import</a>
             </div>
         </form>
         <br />
