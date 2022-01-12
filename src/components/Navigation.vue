@@ -80,6 +80,9 @@ export default {
             suggestionsVisible: false,
         };
     },
+    mounted() {
+        this.onSearchTextChange(new URLSearchParams(window.location.search).get("search_query"));
+    },
     computed: {
         shouldShowLogin(_this) {
             return _this.getAuthToken() == null;
