@@ -59,9 +59,9 @@ export default {
         (async function () {
             const locale = App.getPreferenceString("hl", App.defaultLangage);
             if (locale !== App.TimeAgoConfig.locale) {
-                const localeTime = await import("javascript-time-ago/locale/" + locale + ".json").then(
-                    module => module.default,
-                );
+                const localeTime = await import(
+                    "./../node_modules/javascript-time-ago/locale/" + locale + ".json"
+                ).then(module => module.default);
                 App.TimeAgo.addLocale(localeTime);
                 App.TimeAgoConfig.locale = locale;
             }
