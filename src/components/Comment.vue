@@ -1,67 +1,53 @@
 <template>
-    <div class="comment uk-flex">
+    <div class="comment flex mt-1.5">
         <img
             :src="comment.thumbnail"
-            class="comment-avatar uk-border-circle uk-margin-right"
+            class="comment-avatar rounded-full w-12 h-12"
             height="48"
             width="48"
-            style="width: 48px; height: 48px"
             loading="lazy"
             alt="Avatar"
         />
 
-        <div class="comment-content">
+        <div class="comment-content pl-2">
             <div class="comment-header">
-                <div v-if="comment.pinned" class="comment-pinned uk-text-meta">
-                    <font-awesome-icon icon="thumbtack"></font-awesome-icon>&nbsp; {{ $t("comment.pinned_by") }}
-                    {{ uploader }}
+                <div v-if="comment.pinned" class="comment-pinned">
+                    <font-awesome-icon icon="thumbtack" />
+                    <span class="ml-1.5" v-text="$t('comment.pinned_by')" />
+                    <span v-text="uploader" />
                 </div>
 
                 <div class="comment-author">
-                    <router-link class="uk-text-bold uk-text-small" :to="comment.commentorUrl">
-                        {{ comment.author }} </router-link
-                    >&thinsp;<font-awesome-icon v-if="comment.verified" icon="check"></font-awesome-icon>
+                    <router-link class="font-bold link" :to="comment.commentorUrl" v-text="comment.author" />
+                    <font-awesome-icon class="ml-1.5" v-if="comment.verified" icon="check" />
                 </div>
-                <div class="comment-meta uk-text-meta uk-margin-small-bottom">
-                    {{ comment.commentedTime }}
-                </div>
+                <div class="comment-meta text-sm mb-1.5" v-text="comment.commentedTime" />
             </div>
-            <div class="comment-body" style="white-space: pre-wrap">
-                {{ comment.commentText }}
-            </div>
-            <div class="comment-footer uk-margin-small-top uk-text-meta">
-                <font-awesome-icon icon="thumbs-up" style="margin-right: 4px"></font-awesome-icon>
-                <span>{{ numberFormat(comment.likeCount) }}</span>
-                &nbsp;
-                <font-awesome-icon v-if="comment.hearted" icon="heart"></font-awesome-icon>
+            <div class="whitespace-pre-wrap" v-text="comment.commentText" />
+            <div class="comment-footer mt-1">
+                <font-awesome-icon icon="thumbs-up" />
+                <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
+                <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies">
-                    <a class="uk-link-text" v-t="'actions.show_replies'" />
-                    &nbsp;
-                    <font-awesome-icon icon="level-down-alt" />
+                    <a v-t="'actions.show_replies'" />
+                    <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </template>
             <template v-if="showingReplies">
                 <div @click="hideReplies">
-                    <a class="uk-link-text" v-t="'actions.hide_replies'" />
-                    &nbsp;
-                    <font-awesome-icon icon="level-up-alt" />
+                    <a v-t="'actions.hide_replies'" />
+                    <font-awesome-icon class="ml-1.5" icon="level-up-alt" />
                 </div>
             </template>
-            <div v-show="showingReplies" v-if="replies" class="replies uk-width-4-5@xl uk-width-3-4@s uk-width-1">
-                <div
-                    v-for="reply in replies"
-                    :key="reply.commentId"
-                    class="uk-tile-default uk-align-left uk-width-expand"
-                    :style="[{ background: backgroundColor }]"
-                >
+            <div v-show="showingReplies" v-if="replies" class="replies">
+                <div v-for="reply in replies" :key="reply.commentId" class="w-full">
                     <Comment :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>
                 <div v-if="nextpage" @click="loadReplies">
-                    <a class="uk-link-text" v-t="'actions.load_more_replies'" />
-                    &nbsp;
-                    <font-awesome-icon icon="level-down-alt" />
+                    <a v-t="'actions.load_more_replies'" />
+                    <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </div>
         </div>

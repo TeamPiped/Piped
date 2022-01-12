@@ -2,34 +2,36 @@
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
     <div v-if="playlist" v-show="!playlist.error">
-        <h1 class="uk-text-center">
-            <img :src="playlist.avatarUrl" height="48" width="48" loading="lazy" />
-            {{ playlist.name }}
-        </h1>
+        <h1 class="text-center" v-text="playlist.name" />
 
-        <b
-            ><router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
-                <img :src="playlist.uploaderAvatar" loading="lazy" class="uk-border-circle" />
-                {{ playlist.uploader }}</router-link
-            ></b
-        >
-
-        <div class="uk-align-right">
-            <b>{{ playlist.videos }} {{ $t("video.videos") }}</b>
-            <br />
-            <a :href="getRssUrl"><font-awesome-icon icon="rss"></font-awesome-icon></a>
+        <div class="grid grid-cols-2">
+            <div>
+                <router-link class="link" :to="playlist.uploaderUrl || '/'">
+                    <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
+                    <strong v-text="playlist.uploader" />
+                </router-link>
+            </div>
+            <div>
+                <div class="right-2vw absolute">
+                    <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
+                    <br />
+                    <a :href="getRssUrl">
+                        <font-awesome-icon icon="rss" />
+                    </a>
+                </div>
+            </div>
         </div>
 
         <hr />
 
-        <div class="uk-grid uk-grid-xl">
-            <div
+        <div class="video-grid">
+            <VideoItem
                 v-for="video in playlist.relatedStreams"
                 :key="video.url"
-                class="uk-width-1-2 uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl"
-            >
-                <VideoItem :video="video" height="94" width="168" />
-            </div>
+                :video="video"
+                height="94"
+                width="168"
+            />
         </div>
     </div>
 </template>

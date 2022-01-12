@@ -1,24 +1,20 @@
 <template>
-    <nav
-        class="uk-navbar uk-navbar-container uk-container-expand uk-position-relative"
-        :style="[{ background: backgroundColor, colour: foregroundColor }]"
-        uk-navbar
-    >
-        <div class="uk-navbar-left">
-            <router-link class="uk-navbar-item uk-logo uk-text-bold" :style="[{ colour: foregroundColor }]" to="/"
+    <nav class="flex flex-wrap items-center justify-center px-2 sm:px-4 py-2.5 w-full relative">
+        <div class="flex-1">
+            <router-link class="flex font-bold text-3xl items-center font-sans font-bold" to="/"
                 ><img
                     alt="logo"
                     src="/img/icons/logo.svg"
                     height="32"
                     width="32"
-                    style="margin-bottom: 6px; margin-right: -13px"
+                    class="w-10 mr-[-0.6rem]"
                 />iped</router-link
             >
         </div>
-        <div class="uk-navbar-center uk-flex uk-visible@m">
+        <div class="<md:hidden">
             <input
                 v-model="searchText"
-                class="uk-input uk-width-medium"
+                class="input !w-72 !h-10"
                 type="text"
                 role="search"
                 :title="$t('actions.search')"
@@ -29,8 +25,8 @@
                 @blur="onInputBlur"
             />
         </div>
-        <div class="uk-navbar-right">
-            <ul class="uk-navbar-nav">
+        <div class="flex-1 flex justify-end">
+            <ul class="flex text-1xl children:pl-3">
                 <li>
                     <router-link v-t="'titles.preferences'" to="/preferences" />
                 </li>
@@ -49,10 +45,10 @@
             </ul>
         </div>
     </nav>
-    <div class="uk-container-expand uk-hidden@m">
+    <div class="w-full md:hidden">
         <input
             v-model="searchText"
-            class="uk-input"
+            class="input !h-10 !w-full"
             type="text"
             role="search"
             :title="$t('actions.search')"
@@ -72,7 +68,7 @@
 </template>
 
 <script>
-import SearchSuggestions from "@/components/SearchSuggestions";
+import SearchSuggestions from "@/components/SearchSuggestions.vue";
 
 export default {
     components: {
@@ -83,6 +79,10 @@ export default {
             searchText: "",
             suggestionsVisible: false,
         };
+    },
+    mounted() {
+        const query = new URLSearchParams(window.location.search).get("search_query");
+        if (query) this.onSearchTextChange(query);
     },
     computed: {
         shouldShowLogin(_this) {
@@ -121,5 +121,3 @@ export default {
     },
 };
 </script>
-
-<style></style>

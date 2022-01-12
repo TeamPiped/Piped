@@ -34,9 +34,7 @@ library.add(
     faTv,
 );
 
-import("uikit/dist/css/uikit-core.css");
-
-import router from "@/router/router";
+import router from "@/router/router.js";
 import App from "./App.vue";
 
 import DOMPurify from "dompurify";
@@ -49,6 +47,7 @@ TimeAgo.addDefaultLocale(en);
 
 import { createI18n } from "vue-i18n";
 import enLocale from "@/locales/en.json";
+import "windi.css";
 
 const timeAgo = new TimeAgo("en-US");
 
@@ -56,8 +55,8 @@ import("./registerServiceWorker");
 
 const mixin = {
     methods: {
-        timeFormat: function(duration) {
-            var pad = function(num, size) {
+        timeFormat: function (duration) {
+            var pad = function (num, size) {
                 return ("000" + num).slice(size * -1);
             };
 
@@ -94,7 +93,7 @@ const mixin = {
             num = parseInt(num);
             return num.toLocaleString("en-US");
         },
-        fetchJson: function(url, params, options) {
+        fetchJson: function (url, params, options) {
             if (params) {
                 url = new URL(url);
                 for (var param in params) url.searchParams.set(param, params[param]);
@@ -147,18 +146,11 @@ const mixin = {
         apiUrl() {
             return this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
         },
-        getEffectiveTheme() {
-            var theme = this.getPreferenceString("theme", "dark");
-            if (theme === "auto")
-                theme =
-                    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-            return theme;
-        },
         getAuthToken() {
             return this.getPreferenceString("authToken" + this.hashCode(this.apiUrl()));
         },
         hashCode(s) {
-            return s.split("").reduce(function(a, b) {
+            return s.split("").reduce(function (a, b) {
                 a = (a << 5) - a + b.charCodeAt(0);
                 return a & a;
             }, 0);
@@ -170,7 +162,7 @@ const mixin = {
             const regex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
             if (!string) return "";
             return string.replace(regex, url => {
-                return `<a class="uk-button uk-button-text" href="${url}" target="_blank">${url}</a>`;
+                return `<a href="${url}" target="_blank">${url}</a>`;
             });
         },
         async updateWatched(videos) {
@@ -179,7 +171,7 @@ const mixin = {
                 var store = tx.objectStore("watch_history");
                 videos.map(async video => {
                     var request = store.get(video.url.substr(-11));
-                    request.onsuccess = function(event) {
+                    request.onsuccess = function (event) {
                         if (event.target.result) {
                             video.watched = true;
                         }
@@ -189,20 +181,8 @@ const mixin = {
         },
     },
     computed: {
-        backgroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#fff" : "#0b0e0f";
-        },
-        secondaryBackgroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#e5e5e5" : "#242727";
-        },
-        foregroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#15191a" : "#0b0e0f";
-        },
-        secondaryForegroundColor() {
-            return this.getEffectiveTheme() === "light" ? "#666" : "#393d3d";
-        },
-        darkMode() {
-            return this.getEffectiveTheme() !== "light";
+        theme() {
+            return this.getPreferenceString("theme", "dark");
         },
         authenticated(_this) {
             return _this.getAuthToken() !== undefined;

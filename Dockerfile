@@ -8,7 +8,7 @@ RUN yarn install --prefer-offline
 
 COPY . .
 
-RUN yarn build && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist/css/*.css
+RUN yarn build && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist/assets/*.css
 
 FROM nginx:alpine
 

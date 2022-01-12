@@ -2,27 +2,34 @@
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
 
     <div v-if="channel" v-show="!channel.error">
-        <h1 class="uk-text-center">
-            <img height="48" width="48" class="uk-border-circle" :src="channel.avatarUrl" />{{ channel.name }}
-        </h1>
-        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" style="width: 100%" loading="lazy" />
+        <div class="flex justify-center place-items-center">
+            <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
+            <h1 v-text="channel.name" />
+        </div>
+        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <p style="white-space: pre-wrap"><span v-html="purifyHTML(urlify(channel.description))"></span></p>
+        <p class="whitespace-pre-wrap">
+            <span v-html="purifyHTML(urlify(channel.description))" />
+        </p>
 
-        <button v-if="authenticated" class="uk-button uk-button-small" type="button" @click="subscribeHandler">
-            {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
-        </button>
+        <button
+            v-if="authenticated"
+            class="btn"
+            @click="subscribeHandler"
+            v-text="$t(`actions.${subscribed ? 'unsubscribe' : 'subscribe'}`)"
+        />
 
         <hr />
 
-        <div class="uk-grid uk-grid-xl">
-            <div
+        <div class="video-grid">
+            <VideoItem
                 v-for="video in channel.relatedStreams"
                 :key="video.url"
-                class="uk-width-1-2 uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl"
-            >
-                <VideoItem :video="video" height="94" width="168" hide-channel />
-            </div>
+                :video="video"
+                height="94"
+                width="168"
+                hide-channel
+            />
         </div>
     </div>
 </template>

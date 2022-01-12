@@ -1,69 +1,55 @@
 <template>
-    <h1 class="uk-text-center">
-        {{ $route.query.search_query }}
-    </h1>
+    <h1 class="text-center" v-text="$route.query.search_query" />
 
-    <label for="ddlSearchFilters"
-        ><b>{{ $t("actions.filter") }}: </b></label
-    >
+    <label for="ddlSearchFilters">
+        <strong v-text="`${$t('actions.filter')}:`" />
+    </label>
     <select
         id="ddlSearchFilters"
         v-model="selectedFilter"
         default="all"
-        class="uk-select uk-width-auto"
-        style="height: 100%"
+        class="select w-auto"
         @change="updateResults()"
     >
-        <option v-for="filter in availableFilters" :key="filter" :value="filter">
-            {{ filter.replace("_", " ") }}
-        </option>
+        <option v-for="filter in availableFilters" :key="filter" :value="filter" v-text="filter.replace('_', ' ')" />
     </select>
 
     <hr />
 
     <div v-if="results && results.corrected" style="height: 7vh">
-        {{ $t("search.did_you_mean") }}
-        <i>
-            <router-link :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }">
-                {{ results.suggestion }}
-            </router-link>
-        </i>
+        <span v-text="$t('search.did_you_mean')" />
+
+        <router-link :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }">
+            <em v-text="results.suggestion" />
+        </router-link>
     </div>
 
-    <div v-if="results" class="uk-grid uk-grid-xl">
-        <div
-            v-for="result in results.items"
-            :key="result.url"
-            :style="[{ background: backgroundColor }]"
-            class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
-        >
+    <div v-if="results" class="video-grid">
+        <div v-for="result in results.items" :key="result.url">
             <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
-            <div v-if="!shouldUseVideoItem(result)" class="uk-text-secondary">
-                <router-link class="uk-text-emphasis" :to="result.url">
-                    <div class="uk-position-relative">
-                        <img style="width: 100%" :src="result.thumbnail" loading="lazy" />
+            <div v-if="!shouldUseVideoItem(result)">
+                <router-link :to="result.url">
+                    <div class="relative">
+                        <img class="w-full" :src="result.thumbnail" loading="lazy" />
                     </div>
                     <p>
-                        {{ result.name }}&thinsp;<font-awesome-icon
-                            v-if="result.verified"
-                            icon="check"
-                        ></font-awesome-icon>
+                        <span v-text="result.name" />
+                        <font-awesome-icon class="ml-1.5" v-if="result.verified" icon="check" />
                     </p>
                 </router-link>
-                <p v-if="result.description">{{ result.description }}</p>
-                <router-link v-if="result.uploaderUrl" class="uk-link-muted" :to="result.uploaderUrl">
+                <p v-if="result.description" v-text="result.description" />
+                <router-link v-if="result.uploaderUrl" class="link" :to="result.uploaderUrl">
                     <p>
-                        {{ result.uploader }}&thinsp;<font-awesome-icon
-                            v-if="result.uploaderVerified"
-                            icon="check"
-                        ></font-awesome-icon>
+                        <span v-text="result.uploader" />
+                        <font-awesome-icon class="ml-1.5" v-if="result.uploaderVerified" icon="check" />
                     </p>
                 </router-link>
 
-                <a v-if="result.uploaderName" class="uk-text-muted">{{ result.uploaderName }}</a>
-                <b v-if="result.videos >= 0"
-                    ><br v-if="result.uploaderName" />{{ result.videos }} {{ $t("video.videos") }}</b
-                >
+                <a v-if="result.uploaderName" class="link" v-text="result.uploaderName" />
+                <template v-if="result.videos >= 0">
+                    <br v-if="result.uploaderName" />
+                    <strong v-text="`${result.videos} ${$t('video.videos')}`" />
+                </template>
 
                 <br />
             </div>

@@ -1,31 +1,20 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">{{ $t("titles.history") }}</h1>
+    <h1 class="font-bold text-center" v-text="$t('titles.history')" />
 
-    <div style="text-align: left">
-        <button class="uk-button" v-t="'actions.clear_history'" @click="clearHistory"></button>
-    </div>
+    <div class="flex">
+        <div>
+            <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
+        </div>
 
-    <div style="text-align: right">
-        <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
-        <select id="ddlSortBy" v-model="selectedSort" class="uk-select uk-width-auto" @change="onChange()">
-            <option v-t="'actions.most_recent'" value="descending" />
-            <option v-t="'actions.least_recent'" value="ascending" />
-            <option v-t="'actions.channel_name_asc'" value="channel_ascending" />
-            <option v-t="'actions.channel_name_desc'" value="channel_descending" />
-        </select>
+        <div class="right-1">
+            <Sorting by-key="watchedAt" @apply="order => videos.sort(order)" />
+        </div>
     </div>
 
     <hr />
 
-    <div class="uk-grid uk-grid-xl">
-        <div
-            v-for="video in videos"
-            :key="video.url"
-            :style="[{ background: backgroundColor }]"
-            class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
-        >
-            <VideoItem :video="video" />
-        </div>
+    <div class="video-grid">
+        <VideoItem v-for="video in videos" :key="video.url" :video="video" />
     </div>
 
     <br />
@@ -33,15 +22,16 @@
 
 <script>
 import VideoItem from "@/components/VideoItem.vue";
+import Sorting from "@/components/Sorting.vue";
 
 export default {
     components: {
         VideoItem,
+        Sorting,
     },
     data() {
         return {
             videos: [],
-            selectedSort: "descending",
         };
     },
     mounted() {
@@ -74,22 +64,6 @@ export default {
         document.title = "Watch History - Piped";
     },
     methods: {
-        onChange() {
-            switch (this.selectedSort) {
-                case "ascending":
-                    this.videos.sort((a, b) => a.watchedAt - b.watchedAt);
-                    break;
-                case "descending":
-                    this.videos.sort((a, b) => b.watchedAt - a.watchedAt);
-                    break;
-                case "channel_ascending":
-                    this.videos.sort((a, b) => a.uploaderName.localeCompare(b.uploaderName));
-                    break;
-                case "channel_descending":
-                    this.videos.sort((a, b) => b.uploaderName.localeCompare(a.uploaderName));
-                    break;
-            }
-        },
         clearHistory() {
             if (window.db) {
                 var tx = window.db.transaction("watch_history", "readwrite");

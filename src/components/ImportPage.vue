@@ -1,21 +1,21 @@
 <template>
-    <div class="uk-vertical-align uk-text-center uk-height-1-1">
-        <form class="uk-panel uk-panel-box">
-            <div class="uk-form-row">
+    <div class="text-center">
+        <form>
+            <div>
                 <input ref="fileSelector" type="file" @change="fileChange" />
             </div>
-            <div class="uk-form-row">
-                <b>Selected Subscriptions: {{ selectedSubscriptions }}</b>
+            <div>
+                <strong v-text="`Selected Subscriptions: ${selectedSubscriptions}`" />
             </div>
-            <div class="uk-form-row">
-                <b>Override: <input v-model="override" class="uk-checkbox" type="checkbox"/></b>
+            <div>
+                <strong>Override: <input v-model="override" class="checkbox" type="checkbox" /></strong>
             </div>
-            <div class="uk-form-row">
-                <a class="uk-width-1-1 uk-button uk-button-large uk-width-auto" @click="handleImport">Import</a>
+            <div>
+                <a class="btn w-auto" @click="handleImport">Import</a>
             </div>
         </form>
         <br />
-        <b>Importing Subscriptions from YouTube</b>
+        <strong>Importing Subscriptions from YouTube</strong>
         <br />
         <div>
             Open
@@ -30,7 +30,7 @@
             Select and import the file above.
         </div>
         <br />
-        <b>Importing Subscriptions from Invidious</b>
+        <strong>Importing Subscriptions from Invidious</strong>
         <br />
         <div>
             Open
@@ -41,7 +41,7 @@
             Select and import the file above.
         </div>
         <br />
-        <b>Importing Subscriptions from NewPipe</b>
+        <strong>Importing Subscriptions from NewPipe</strong>
         <br />
         <div>
             Go to the Feed tab.

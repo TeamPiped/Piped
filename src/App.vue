@@ -1,9 +1,5 @@
 <template>
-    <div
-        class="uk-container uk-container-expand uk-height-viewport"
-        :style="[{ background: backgroundColor, colour: foregroundColor }]"
-        :class="{ 'uk-light': darkMode }"
-    >
+    <div class="w-full min-h-screen px-1vw reset" :class="[theme]">
         <Navigation />
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
@@ -11,21 +7,20 @@
             </keep-alive>
         </router-view>
 
-        <div style="text-align: center">
+        <footer class="text-center">
             <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
-                <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
+                <font-awesome-icon :icon="['fab', 'github']" />
             </a>
-            &nbsp;
-            <a href="https://github.com/TeamPiped/Piped#donations">
-                <font-awesome-icon :icon="['fab', 'bitcoin']"></font-awesome-icon>
-                {{ $t("actions.donations") }}
+            <a class="ml-2" href="https://github.com/TeamPiped/Piped#donations">
+                <font-awesome-icon :icon="['fab', 'bitcoin']" />
+                <span v-text="$t('actions.donations')" />
             </a>
-        </div>
+        </footer>
     </div>
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/Navigation.vue";
 export default {
     components: {
         Navigation,
@@ -45,7 +40,7 @@ export default {
         if (this.getPreferenceBoolean("watchHistory", false))
             if ("indexedDB" in window) {
                 const request = indexedDB.open("piped-db", 1);
-                request.onupgradeneeded = function() {
+                request.onupgradeneeded = function () {
                     const db = request.result;
                     console.log("Upgrading object store.");
                     if (!db.objectStoreNames.contains("watch_history")) {
@@ -61,18 +56,18 @@ export default {
 
         const App = this;
 
-        (async function() {
+        (async function () {
             const locale = App.getPreferenceString("hl", App.defaultLangage);
             if (locale !== App.TimeAgoConfig.locale) {
-                const localeTime = await import("javascript-time-ago/locale/" + locale + ".json").then(
-                    module => module.default,
-                );
+                const localeTime = await import(
+                    "./../node_modules/javascript-time-ago/locale/" + locale + ".json"
+                ).then(module => module.default);
                 App.TimeAgo.addLocale(localeTime);
                 App.TimeAgoConfig.locale = locale;
             }
             if (window.i18n.global.locale.value !== locale) {
                 if (!window.i18n.global.availableLocales.includes(locale)) {
-                    const messages = await import("@/locales/" + locale + ".json").then(module => module.default);
+                    const messages = await import(`./locales/${locale}.json`).then(module => module.default);
                     window.i18n.global.setLocaleMessage(locale, messages);
                 }
                 window.i18n.global.locale.value = locale;
@@ -93,7 +88,6 @@ b {
 
 ::-webkit-scrollbar {
     background-color: #15191a;
-    color: #c5bcae;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -114,13 +108,114 @@ b {
 
 * {
     scrollbar-color: #15191a #444a4e;
+    @apply font-sans;
 }
 
-.uk-grid > div {
-    padding-bottom: 1vh;
+.video-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 col-auto <md:gap-x-2.5 md:gap-x-1vw gap-y-1.5 mx-3;
 }
 
-.uk-button {
-    background: #222;
+.btn {
+    @apply py-2 px-4 rounded;
+}
+
+.reset {
+    @apply text-black bg-white;
+}
+
+.auto {
+    @apply dark:(text-white bg-dark-900);
+}
+
+.dark {
+    @apply text-white bg-dark-900;
+}
+
+.input,
+.select,
+.btn {
+    @apply w-auto text-gray-600 bg-gray-300;
+}
+
+.input,
+.select {
+    @apply h-8;
+}
+
+.btn {
+    @apply h-full;
+}
+
+.checkbox {
+    @apply h-4 w-4;
+}
+
+.dark .input,
+.dark .select,
+.dark .btn {
+    @apply text-gray-400 bg-dark-400;
+}
+
+.auto .input,
+.auto .select,
+.auto .btn {
+    @apply dark:(text-gray-400 bg-dark-400);
+}
+
+.input {
+    @apply pl-2.5;
+}
+
+hr {
+    @apply !mt-2 !mb-3 border-gray-300;
+}
+
+.dark hr {
+    @apply border-dark-100;
+}
+
+.auto hr {
+    @apply dark:border-dark-100;
+}
+
+h1,
+h2 {
+    @apply m-0 font-bold;
+}
+
+h1 {
+    @apply !text-5xl;
+}
+
+h2 {
+    @apply !text-3xl;
+}
+
+.table {
+    @apply w-full text-lg text-left font-light border;
+}
+
+.link {
+    @apply hover:(text-dark-300 underline underline-dark-300);
+}
+
+.link-secondary {
+    @apply hover:(text-dark-400 underline underline-dark-400);
+}
+
+.dark .link {
+    @apply hover:(text-gray-300 underline underline-gray-300);
+}
+
+.auto .link {
+    @apply dark:hover:(text-gray-300 underline underline-gray-300);
+}
+
+.dark .link-secondary {
+    @apply text-gray-300 hover:(text-gray-400 underline underline-gray-400);
+}
+
+.auto .link-secondary {
+    @apply dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
 }
 </style>

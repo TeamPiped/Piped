@@ -1,5 +1,5 @@
 <template>
-    <div v-if="video && isEmbed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999">
+    <div v-if="video && isEmbed" class="absolute top-0 left-0 h-full w-full z-50">
         <Player
             ref="videoPlayer"
             :video="video"
@@ -10,7 +10,7 @@
         />
     </div>
 
-    <div v-if="video && !isEmbed" class="uk-container uk-container-expand">
+    <div v-if="video && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
@@ -21,125 +21,118 @@
                 :selected-auto-play="selectedAutoPlay"
                 :selected-auto-loop="selectedAutoLoop"
             />
-            <div class="uk-text-bold uk-margin-small-top uk-text-large uk-text-emphasis uk-text-break">
-                {{ video.title }}
+            <div class="font-bold mt-2 text-2xl break-words" v-text="video.title" />
+
+            <div class="flex mb-1.5">
+                <span v-text="`${addCommas(video.views)} views`" />
+                <span class="ml-2" v-text="uploadDate" />
+
+                <div class="flex items-center relative ml-auto children:ml-2">
+                    <template v-if="video.likes >= 0">
+                        <div>
+                            <font-awesome-icon icon="thumbs-up" />
+                            <strong class="ml-2" v-text="addCommas(video.likes)" />
+                        </div>
+                        <div>
+                            <font-awesome-icon icon="thumbs-down" />
+                            <strong class="ml-2" v-text="video.dislikes >= 0 ? addCommas(video.dislikes) : '?'" />
+                        </div>
+                    </template>
+                    <template v-if="video.likes < 0">
+                        <div>
+                            <strong v-t="'video.ratings_disabled'" />
+                        </div>
+                    </template>
+                    <a :href="`https://youtu.be/${getVideoId()}`" class="btn">
+                        <strong v-text="$t('player.watch_on')" />
+                        <font-awesome-icon class="ml-1.5" :icon="['fab', 'youtube']" />
+                    </a>
+                    <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
+                        <strong v-text="`${$t('player.watch_on')} LBRY`" />
+                    </a>
+                    <router-link
+                        :to="toggleListenUrl"
+                        :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
+                        :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
+                        class="btn"
+                    >
+                        <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'" />
+                    </router-link>
+                </div>
             </div>
 
-            <div class="uk-flex uk-flex-middle">
-                <div class="uk-margin-small-right">{{ addCommas(video.views) }} views</div>
-                <div class="uk-margin-small-right">{{ uploadDate }}</div>
-                <div class="uk-flex-1"></div>
-                <template v-if="video.likes >= 0">
-                    <div class="uk-margin-small-left">
-                        <font-awesome-icon class="uk-margin-small-right" icon="thumbs-up"></font-awesome-icon>
-                        <b>{{ addCommas(video.likes) }}</b>
-                    </div>
-                    <div class="uk-margin-small-left">
-                        <font-awesome-icon class="uk-margin-small-right" icon="thumbs-down"></font-awesome-icon>
-                        <b>{{ video.dislikes >= 0 ? addCommas(video.dislikes) : "?" }}</b>
-                    </div>
-                </template>
-                <template v-if="video.likes < 0">
-                    <div class="uk-margin-small-left">
-                        <b v-t="'video.ratings_disabled'" />
-                    </div>
-                </template>
-                <a :href="'https://youtu.be/' + getVideoId()" class="uk-margin-small-left uk-button uk-button-small">
-                    <b>{{ $t("player.watch_on") }}&nbsp;</b>
-                    <font-awesome-icon class="uk-margin-small-right" :icon="['fab', 'youtube']"></font-awesome-icon>
-                </a>
-                <a
-                    v-if="video.lbryId"
-                    :href="'https://odysee.com/' + video.lbryId"
-                    class="uk-margin-small-left uk-button uk-button-small"
-                >
-                    <b>{{ $t("player.watch_on") }} LBRY</b>
-                </a>
-                <router-link
-                    :to="toggleListenUrl"
-                    :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
-                    :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
-                    class="uk-margin-small-left uk-button uk-button-small"
-                >
-                    <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'"></font-awesome-icon>
-                </router-link>
-            </div>
-
-            <div class="uk-flex uk-flex-middle uk-margin-small-top">
-                <img :src="video.uploaderAvatar" alt="" loading="lazy" class="uk-border-circle" />
-                <router-link v-if="video.uploaderUrl" class="uk-link uk-margin-small-left" :to="video.uploaderUrl">
-                    {{ video.uploader }} </router-link
-                >&thinsp;<font-awesome-icon v-if="video.uploaderVerified" icon="check"></font-awesome-icon>
-                <div class="uk-flex-1"></div>
-                <button v-if="authenticated" class="uk-button uk-button-small" type="button" @click="subscribeHandler">
-                    {{ subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
-                </button>
+            <div class="flex">
+                <div class="flex items-center">
+                    <img :src="video.uploaderAvatar" alt="" loading="lazy" class="rounded-full" />
+                    <router-link
+                        v-if="video.uploaderUrl"
+                        class="link ml-1.5"
+                        :to="video.uploaderUrl"
+                        v-text="video.uploader"
+                    />
+                    <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
+                </div>
+                <button
+                    v-if="authenticated"
+                    class="btn relative ml-auto"
+                    @click="subscribeHandler"
+                    v-text="$t(`actions.${subscribed ? 'unsubscribe' : 'subscribe'}`)"
+                />
             </div>
 
             <hr />
 
-            <a class="uk-button uk-button-small" @click="showDesc = !showDesc">
-                {{ showDesc ? $t("actions.minimize_description") : $t("actions.show_description") }}
-            </a>
+            <button
+                class="btn mb-2"
+                @click="showDesc = !showDesc"
+                v-text="$t(`actions.${showDesc ? 'minimize_description' : 'show_description'}`)"
+            />
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <p v-show="showDesc" :style="[{ colour: foregroundColor }]" v-html="purifyHTML(video.description)"></p>
-            <div v-if="showDesc && sponsors && sponsors.segments">
-                {{ $t("video.sponsor_segments") }}: {{ sponsors.segments.length }}
-            </div>
+            <p v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
+            <div
+                v-if="showDesc && sponsors && sponsors.segments"
+                v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
+            />
         </div>
 
         <hr />
 
-        <label for="chkAutoLoop"
-            ><b>{{ $t("actions.loop_this_video") }}:</b></label
-        >&nbsp;
-        <input
-            id="chkAutoLoop"
-            v-model="selectedAutoLoop"
-            class="uk-checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
+        <label for="chkAutoLoop"><strong v-text="`${$t('actions.loop_this_video')}:`" /></label>
+        <input id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" type="checkbox" @change="onChange($event)" />
         <br />
-        <label for="chkAutoPlay"
-            ><b>{{ $t("actions.auto_play_next_video") }}:</b></label
-        >&nbsp;
-        <input
-            id="chkAutoPlay"
-            v-model="selectedAutoPlay"
-            class="uk-checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
+        <label for="chkAutoPlay"><strong v-text="`${$t('actions.auto_play_next_video')}:`" /></label>
+        <input id="chkAutoPlay" v-model="selectedAutoPlay" class="ml-1.5" type="checkbox" @change="onChange($event)" />
 
         <hr />
 
-        <div class="uk-grid">
-            <div v-if="comments" ref="comments" class="uk-width-4-5@xl uk-width-3-4@s uk-width-1">
-                <div
+        <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
+            <div v-if="comments" ref="comments" class="xl:col-span-4 sm:col-span-3">
+                <Comment
                     v-for="comment in comments.comments"
                     :key="comment.commentId"
-                    class="uk-tile-default uk-align-left uk-width-expand"
-                    :style="[{ background: backgroundColor }]"
-                >
-                    <Comment :comment="comment" :uploader="video.uploader" :video-id="getVideoId()" />
-                </div>
+                    :comment="comment"
+                    :uploader="video.uploader"
+                    :video-id="getVideoId()"
+                />
             </div>
 
-            <div v-if="video" class="uk-width-1-5@xl uk-width-1-4@s uk-width-1 uk-flex-last@s uk-flex-first">
-                <a class="uk-button uk-button-small uk-margin-small-bottom uk-hidden@s" @click="showRecs = !showRecs">
-                    {{ showRecs ? $t("actions.minimize_recommendations") : $t("actions.show_recommendations") }}
-                </a>
-                <div
-                    v-for="related in video.relatedStreams"
-                    v-show="showRecs || !smallView"
-                    :key="related.url"
-                    class="uk-tile-default uk-width-auto"
-                    :style="[{ background: backgroundColor }]"
-                >
-                    <VideoItem :video="related" height="94" width="168" />
+            <div v-if="video" class="order-first sm:order-last">
+                <a
+                    class="btn mb-2 sm:hidden"
+                    @click="showRecs = !showRecs"
+                    v-text="$t(`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`)"
+                />
+                <hr v-show="showRecs" />
+                <div v-show="showRecs || !smallView">
+                    <VideoItem
+                        v-for="related in video.relatedStreams"
+                        :key="related.url"
+                        :video="related"
+                        height="94"
+                        width="168"
+                    />
                 </div>
-                <hr class="uk-hidden@s" />
+                <hr class="sm:hidden" />
             </div>
         </div>
     </div>
@@ -207,7 +200,7 @@ export default {
                     var tx = window.db.transaction("watch_history", "readwrite");
                     var store = tx.objectStore("watch_history");
                     var request = store.get(videoId);
-                    request.onsuccess = function(event) {
+                    request.onsuccess = function (event) {
                         var video = event.target.result;
                         if (video) {
                             video.watchedAt = Date.now();

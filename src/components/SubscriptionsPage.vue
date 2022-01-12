@@ -1,45 +1,31 @@
 <template>
-    <h1 class="uk-text-bold uk-text-center">{{ $t("titles.subscriptions") }}</h1>
+    <h1 class="font-bold text-center" v-text="$t('titles.subscriptions')" />
 
-    <div style="text-align: center">
-        <button v-if="authenticated" class="uk-button uk-button-small" style=" margin-right: 0.5rem" type="button">
-            <router-link to="/import">
-                {{ $t("actions.import_from_json") }}
-            </router-link>
+    <div v-if="authenticated">
+        <button class="btn mr-0.5">
+            <router-link to="/import" v-text="$t('actions.import_from_json')" />
         </button>
 
-        <button
-            v-if="authenticated"
-            class="uk-button uk-button-small"
-            style="color: white"
-            type="button"
-            @click="exportHandler"
-        >
-            {{ $t("actions.export_to_json") }}
-        </button>
+        <button class="btn" @click="exportHandler" v-text="$t('actions.export_to_json')" />
     </div>
     <hr />
 
-    <div v-for="subscription in subscriptions" :key="subscription.url" style="text-align: center">
-        <div class="uk-text-primary" :style="[{ background: backgroundColor }]">
-            <a :href="subscription.url">
-                <img :src="subscription.avatar" class="uk-margin-small-right uk-border-circle" width="96" height="96" />
-                <span
-                    class="uk-text-large"
-                    style="width: 30rem; display: inline-block; text-align: center; margin-left: 6rem"
-                    >{{ subscription.name }}</span
-                >
-            </a>
-            <button
-                class="uk-button uk-button-large"
-                style="background: #222; margin-left: 0.5rem; width: 185px"
-                type="button"
-                @click="handleButton(subscription)"
-            >
-                {{ subscription.subscribed ? $t("actions.unsubscribe") : $t("actions.subscribe") }}
-            </button>
+    <div class="grid">
+        <div class="mb-3" v-for="subscription in subscriptions" :key="subscription.url">
+            <div class="flex justify-center place-items-center">
+                <div class="w-full grid grid-cols-3">
+                    <router-link :to="subscription.url" class="col-start-2 block flex text-center font-bold text-4xl">
+                        <img :src="subscription.avatar" class="rounded-full" width="48" height="48" />
+                        <span v-text="subscription.name" />
+                    </router-link>
+                    <button
+                        class="btn !w-min"
+                        @click="handleButton(subscription)"
+                        v-text="$t(`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`)"
+                    />
+                </div>
+            </div>
         </div>
-        <br />
     </div>
     <br />
 </template>

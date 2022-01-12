@@ -1,50 +1,35 @@
 <template>
-    <h1 v-t="'titles.feed'" class="uk-text-bold uk-text-center" />
+    <h1 v-t="'titles.feed'" class="font-bold text-center" />
 
-    <button
-        v-if="authenticated"
-        class="uk-button uk-button-small"
-        style="margin-right: 0.5rem"
-        type="button"
-        @click="exportHandler"
-    >
-        <router-link to="/subscriptions"> Subscriptions </router-link>
+    <button v-if="authenticated" class="btn mr-2" @click="exportHandler">
+        <router-link to="/subscriptions">Subscriptions</router-link>
     </button>
 
     <span>
-        <a :href="getRssUrl"><font-awesome-icon icon="rss" style="padding-top: 0.2rem"></font-awesome-icon></a>
+        <a :href="getRssUrl">
+            <font-awesome-icon icon="rss" />
+        </a>
     </span>
 
-    <span class="uk-align-right@m">
-        <label for="ddlSortBy">{{ $t("actions.sort_by") }}</label>
-        <select id="ddlSortBy" v-model="selectedSort" class="uk-select uk-width-auto" @change="onChange()">
-            <option v-t="'actions.most_recent'" value="descending" />
-            <option v-t="'actions.least_recent'" value="ascending" />
-            <option v-t="'actions.channel_name_asc'" value="channel_ascending" />
-            <option v-t="'actions.channel_name_desc'" value="channel_descending" />
-        </select>
+    <span class="md:float-right">
+        <Sorting by-key="uploaded" @apply="order => videos.sort(order)" />
     </span>
 
     <hr />
 
-    <div class="uk-grid uk-grid-xl">
-        <div
-            v-for="video in videos"
-            :key="video.url"
-            :style="[{ background: backgroundColor }]"
-            class="uk-width-1-1 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"
-        >
-            <VideoItem :video="video" />
-        </div>
+    <div class="video-grid">
+        <VideoItem v-for="video in videos" :key="video.url" :video="video" />
     </div>
 </template>
 
 <script>
 import VideoItem from "@/components/VideoItem.vue";
+import Sorting from "@/components/Sorting.vue";
 
 export default {
     components: {
         VideoItem,
+        Sorting,
     },
     data() {
         return {
@@ -52,7 +37,6 @@ export default {
             videoStep: 100,
             videosStore: [],
             videos: [],
-            selectedSort: "descending",
         };
     },
     computed: {
@@ -83,22 +67,6 @@ export default {
             return await this.fetchJson(this.apiUrl() + "/feed", {
                 authToken: this.getAuthToken(),
             });
-        },
-        onChange() {
-            switch (this.selectedSort) {
-                case "ascending":
-                    this.videos.sort((a, b) => a.uploaded - b.uploaded);
-                    break;
-                case "descending":
-                    this.videos.sort((a, b) => b.uploaded - a.uploaded);
-                    break;
-                case "channel_ascending":
-                    this.videos.sort((a, b) => a.uploaderName.localeCompare(b.uploaderName));
-                    break;
-                case "channel_descending":
-                    this.videos.sort((a, b) => b.uploaderName.localeCompare(a.uploaderName));
-                    break;
-            }
         },
         loadMoreVideos() {
             this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
