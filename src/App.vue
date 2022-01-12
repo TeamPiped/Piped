@@ -134,7 +134,16 @@ b {
 .input,
 .select,
 .btn {
-    @apply w-auto h-8 text-gray-600 bg-gray-300;
+    @apply w-auto text-gray-600 bg-gray-300;
+}
+
+.input,
+.select {
+    @apply h-8;
+}
+
+.btn {
+    @apply h-full;
 }
 
 .checkbox {

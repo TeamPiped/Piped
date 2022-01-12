@@ -1,13 +1,13 @@
 <template>
     <h1 v-t="'titles.feed'" class="font-bold text-center" />
 
-    <button v-if="authenticated" class="btn" style="margin-right: 0.5rem" @click="exportHandler">
-        <router-link to="/subscriptions"> Subscriptions </router-link>
+    <button v-if="authenticated" class="btn mr-2" @click="exportHandler">
+        <router-link to="/subscriptions">Subscriptions</router-link>
     </button>
 
     <span>
         <a :href="getRssUrl">
-            <font-awesome-icon icon="rss" style="padding-top: 0.2rem" />
+            <font-awesome-icon icon="rss" />
         </a>
     </span>
 

@@ -9,7 +9,6 @@
         v-model="selectedFilter"
         default="all"
         class="select w-auto"
-        style="height: 100%"
         @change="updateResults()"
     >
         <option v-for="filter in availableFilters" :key="filter" :value="filter" v-text="filter.replace('_', ' ')" />
@@ -31,7 +30,7 @@
             <div v-if="!shouldUseVideoItem(result)" class="uk-text-secondary">
                 <router-link :to="result.url">
                     <div class="relative">
-                        <img style="width: 100%" :src="result.thumbnail" loading="lazy" />
+                        <img class="w-full" :src="result.thumbnail" loading="lazy" />
                     </div>
                     <p>
                         <span v-text="result.name" />

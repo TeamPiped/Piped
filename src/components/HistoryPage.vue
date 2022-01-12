@@ -1,12 +1,14 @@
 <template>
     <h1 class="font-bold text-center" v-text="$t('titles.history')" />
 
-    <div style="text-align: left">
-        <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
-    </div>
+    <div class="flex">
+        <div>
+            <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
+        </div>
 
-    <div style="text-align: right">
-        <Sorting by-key="watchedAt" @apply="order => videos.sort(order)" />
+        <div class="right-1">
+            <Sorting by-key="watchedAt" @apply="order => videos.sort(order)" />
+        </div>
     </div>
 
     <hr />

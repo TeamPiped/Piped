@@ -5,14 +5,12 @@
             <div class="relative text-sm">
                 <span
                     v-if="video.duration"
-                    class="thumbnail-overlay bottom-5px right-5px"
-                    style="padding: 0 5px"
+                    class="thumbnail-overlay bottom-5px right-5px px-5px"
                     v-text="timeFormat(video.duration)"
                 />
                 <span
                     v-if="video.watched"
-                    class="thumbnail-overlay bottom-5px left-5px"
-                    style="padding: 0 5px"
+                    class="thumbnail-overlay bottom-5px left-5px px-5px"
                     v-text="$t('video.watched')"
                 />
             </div>
@@ -27,7 +25,7 @@
             </div>
         </router-link>
 
-        <div class="float-right ml-0 mb-0 inline-block">
+        <div class="float-right m-0 inline-block">
             <router-link
                 :to="video.url + '&listen=1'"
                 :aria-label="'Listen to ' + video.title"
@@ -37,7 +35,7 @@
             </router-link>
         </div>
 
-        <div class="flex" style="flex-flow: row">
+        <div class="flex">
             <router-link :to="video.uploaderUrl">
                 <img
                     v-if="video.uploaderAvatar"
