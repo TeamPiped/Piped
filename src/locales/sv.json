@@ -1,0 +1,96 @@
+{
+    "titles": {
+        "preferences": "Inställningar",
+        "trending": "Trendigt",
+        "login": "Logga in",
+        "register": "Registrera",
+        "subscriptions": "Prenumerationer",
+        "feed": "Flöde",
+        "history": "Historik"
+    },
+    "actions": {
+        "subscribe": "Prenumerera",
+        "channel_name_asc": "Kanalnamn (A-Z)",
+        "channel_name_desc": "Kanalnamn (Z-A)",
+        "back": "Tillbaka",
+        "least_recent": "Minst senaste",
+        "skip_sponsors": "Hoppa över sponsorer",
+        "dark": "Mörk",
+        "export_to_json": "Exportera till JSON",
+        "show_description": "Visa beskrivning",
+        "loading": "Laddar...",
+        "unsubscribe": "Avsluta prenumeration",
+        "sort_by": "Sortera efter:",
+        "most_recent": "Senaste",
+        "skip_intro": "Hoppa över paus/introanimering",
+        "skip_self_promo": "Hoppa över obetalt/egen marknadsföring",
+        "theme": "Tema",
+        "default_quality": "Standardkvalitet",
+        "buffering_goal": "Buffertmål (i sekunder)",
+        "show_comments": "Visa kommentarer",
+        "minimize_description_default": "Minimera beskrivningen som standard",
+        "view_subscriptions": "Visa prenumerationer",
+        "auto_play_next_video": "Spela upp nästa video automatiskt",
+        "view_ssl_score": "Visa SSL-poäng",
+        "uses_api_from": "Använder API från ",
+        "skip_outro": "Hoppa över slutkort/medverkande",
+        "skip_interaction": "Hoppa över interaktionspåminnelse (prenumerera)",
+        "auto": "Auto",
+        "light": "Ljust",
+        "audio_only": "Endast ljud",
+        "default_homepage": "Standardhemsida",
+        "store_watch_history": "Spara titthistorik",
+        "instances_list": "Lista över instanser",
+        "enabled_codecs": "Aktivera codecs (flera)",
+        "import_from_json": "Importera från JSON",
+        "donations": "Donationer",
+        "filter": "Filter",
+        "hide_replies": "Dölj svar",
+        "load_more_replies": "Ladda fler svar",
+        "enable_sponsorblock": "Aktivera sponsorblockering",
+        "skip_preview": "Hoppa över förhandsgranskning/sammanfattning",
+        "autoplay_video": "Spela upp video automatiskt",
+        "country_selection": "Val av land",
+        "language_selection": "Val av språk",
+        "skip_non_music": "Hoppa över musik: Icke-musikaliskt avsnitt",
+        "instance_selection": "Val av instans",
+        "show_more": "Visa mer",
+        "yes": "Ja",
+        "no": "Nej",
+        "minimize_recommendations": "Minimera rekommendationer",
+        "loop_this_video": "Loopa den här videon",
+        "minimize_description": "Minimera beskrivning",
+        "show_recommendations": "Visa rekommendationer",
+        "disable_lbry": "Inaktivera LBRY för strömning",
+        "enable_lbry_proxy": "Aktivera proxy för LBRY",
+        "search": "Sök",
+        "clear_history": "Rensa historik",
+        "show_replies": "Visa svar"
+    },
+    "player": {
+        "watch_on": "Titta på"
+    },
+    "preferences": {
+        "instance_name": "Instansnamn",
+        "instance_locations": "Instansplatser",
+        "ssl_score": "SSL-poäng",
+        "has_cdn": "Har CDN?"
+    },
+    "login": {
+        "username": "Användarnamn",
+        "password": "Lösenord"
+    },
+    "video": {
+        "videos": "Videor",
+        "views": "visningar",
+        "watched": "Sett",
+        "sponsor_segments": "Sponsorsegment",
+        "ratings_disabled": "Betyg inaktiverade"
+    },
+    "comment": {
+        "pinned_by": "Fäst av"
+    },
+    "search": {
+        "did_you_mean": "Menade du: "
+    }
+}
