@@ -1,6 +1,6 @@
 <template>
-    <nav class="flex flex-wrap items-center justify-between px-2 sm:px-4 py-2.5 w-full relative">
-        <div>
+    <nav class="flex flex-wrap items-center justify-center px-2 sm:px-4 py-2.5 w-full relative">
+        <div class="flex-1">
             <router-link class="flex font-bold text-3xl items-center font-sans font-bold" to="/"
                 ><img
                     alt="logo"
@@ -25,7 +25,7 @@
                 @blur="onInputBlur"
             />
         </div>
-        <div class="float-right">
+        <div class="flex-1 flex justify-end">
             <ul class="flex text-1xl children:pl-3">
                 <li>
                     <router-link v-t="'titles.preferences'" to="/preferences" />
@@ -81,7 +81,8 @@ export default {
         };
     },
     mounted() {
-        this.onSearchTextChange(new URLSearchParams(window.location.search).get("search_query"));
+        const query = new URLSearchParams(window.location.search).get("search_query");
+        if (query) this.onSearchTextChange(query);
     },
     computed: {
         shouldShowLogin(_this) {

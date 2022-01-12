@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full min-h-screen h-full px-1vw reset" :class="[theme]">
+    <div class="w-full min-h-screen px-1vw reset" :class="[theme]">
         <Navigation />
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
@@ -134,7 +134,11 @@ b {
 .input,
 .select,
 .btn {
-    @apply w-auto h-full text-gray-600 bg-gray-300;
+    @apply w-auto h-8 text-gray-600 bg-gray-300;
+}
+
+.checkbox {
+    @apply h-4 w-4;
 }
 
 .dark .input,
@@ -165,8 +169,21 @@ hr {
     @apply dark:border-dark-100;
 }
 
+h1,
+h2 {
+    @apply m-0 font-bold;
+}
+
 h1 {
-    @apply m-0 !text-5xl font-bold;
+    @apply !text-5xl;
+}
+
+h2 {
+    @apply !text-3xl;
+}
+
+.table {
+    @apply w-full text-lg text-left font-light border;
 }
 
 .link {

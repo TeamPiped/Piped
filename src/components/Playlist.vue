@@ -6,7 +6,7 @@
 
         <div class="grid grid-cols-2">
             <div>
-                <router-link class="uk-text-justify" :to="playlist.uploaderUrl || '/'">
+                <router-link class="link" :to="playlist.uploaderUrl || '/'">
                     <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
                     <strong v-text="playlist.uploader" />
                 </router-link>

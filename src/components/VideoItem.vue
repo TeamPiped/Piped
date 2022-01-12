@@ -61,13 +61,13 @@
                     <font-awesome-icon class="ml-1.5" v-if="video.uploaderVerified" icon="check" />
                 </router-link>
 
-                <strong v-if="video.views >= 0 || video.uploadedDate" class="uk-text-small">
+                <strong v-if="video.views >= 0 || video.uploadedDate" class="text-sm">
                     <span v-if="video.views >= 0">
                         <font-awesome-icon icon="eye" />
-                        <span v-text="`${numberFormat(video.views)} •`" />
+                        <span class="pl-0.5" v-text="`${numberFormat(video.views)} •`" />
                     </span>
-                    <span v-if="video.uploadedDate" v-text="video.uploadedDate" />
-                    <span v-if="video.uploaded" v-text="timeAgo(video.uploaded)" />
+                    <span v-if="video.uploadedDate" class="pl-0.5" v-text="video.uploadedDate" />
+                    <span v-if="video.uploaded" class="pl-0.5" v-text="timeAgo(video.uploaded)" />
                 </strong>
             </div>
         </div>

@@ -1,66 +1,63 @@
 <template>
-    <div class="uk-flex uk-flex-between uk-flex-middle">
-        <button class="uk-button uk-button-text" @click="$router.go(-1) || $router.push('/')">
+    <div class="flex">
+        <button @click="$router.go(-1) || $router.push('/')">
             <font-awesome-icon icon="chevron-left" /><span class="ml-1.5" v-text="$t('actions.back')" />
         </button>
-        <span><h1 v-t="'titles.preferences'" class="font-bold text-center" /></span>
-        <span />
     </div>
+    <h1 v-t="'titles.preferences'" class="font-bold text-center" />
     <hr />
     <h2>SponsorBlock</h2>
-    <p><span v-text="$t('actions.uses_api_from')" /><a href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
+    <p>
+        <span v-text="$t('actions.uses_api_from')" /><a class="link" href="https://sponsor.ajay.app/"
+            >sponsor.ajay.app</a
+        >
+    </p>
     <label for="chkEnableSponsorblock"><strong v-t="'actions.enable_sponsorblock'" /></label>
     <br />
     <input
         id="chkEnableSponsorblock"
         v-model="sponsorBlock"
-        class="uk-checkbox"
+        class="checkbox"
         type="checkbox"
         @change="onChange($event)"
     />
     <br />
     <label for="chkSkipSponsors"><strong v-t="'actions.skip_sponsors'" /></label>
     <br />
-    <input id="chkSkipSponsors" v-model="skipSponsor" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
+    <input id="chkSkipSponsors" v-model="skipSponsor" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
     <label for="chkSkipIntro"><strong v-t="'actions.skip_intro'" /></label>
     <br />
-    <input id="chkSkipIntro" v-model="skipIntro" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
+    <input id="chkSkipIntro" v-model="skipIntro" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
     <label for="chkSkipOutro"><strong v-t="'actions.skip_outro'" /></label>
     <br />
-    <input id="chkSkipOutro" v-model="skipOutro" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
+    <input id="chkSkipOutro" v-model="skipOutro" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
     <label for="chkSkipPreview"><strong v-t="'actions.skip_preview'" /></label>
     <br />
-    <input id="chkSkipPreview" v-model="skipPreview" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
+    <input id="chkSkipPreview" v-model="skipPreview" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
     <label for="chkSkipInteraction"><strong v-t="'actions.skip_interaction'" /></label>
     <br />
     <input
         id="chkSkipInteraction"
         v-model="skipInteraction"
-        class="uk-checkbox"
+        class="checkbox"
         type="checkbox"
         @change="onChange($event)"
     />
     <br />
     <label for="chkSkipSelfPromo"><strong v-t="'actions.skip_self_promo'" /></label>
     <br />
-    <input
-        id="chkSkipSelfPromo"
-        v-model="skipSelfPromo"
-        class="uk-checkbox"
-        type="checkbox"
-        @change="onChange($event)"
-    />
+    <input id="chkSkipSelfPromo" v-model="skipSelfPromo" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
     <label for="chkSkipNonMusic"><strong v-t="'actions.skip_non_music'" /></label>
     <br />
     <input
         id="chkSkipNonMusic"
         v-model="skipMusicOffTopic"
-        class="uk-checkbox"
+        class="checkbox"
         type="checkbox"
         @change="onChange($event)"
     />
@@ -75,17 +72,11 @@
     <br />
     <label for="chkAutoPlayVideo"><strong v-t="'actions.autoplay_video'" /></label>
     <br />
-    <input
-        id="chkAutoPlayVideo"
-        v-model="autoPlayVideo"
-        class="uk-checkbox"
-        type="checkbox"
-        @change="onChange($event)"
-    />
+    <input id="chkAutoPlayVideo" v-model="autoPlayVideo" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
     <label for="chkAudioOnly"><strong v-t="'actions.audio_only'" /></label>
     <br />
-    <input id="chkAudioOnly" v-model="listen" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
+    <input id="chkAudioOnly" v-model="listen" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
     <label for="ddlDefaultQuality"><strong v-t="'actions.default_quality'" /></label>
     <br />
@@ -113,14 +104,14 @@
     <br />
     <label for="chkShowComments"><strong v-t="'actions.show_comments'" /></label>
     <br />
-    <input id="chkShowComments" v-model="showComments" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
+    <input id="chkShowComments" v-model="showComments" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
     <label for="chkMinimizeDescription"><strong v-t="'actions.minimize_description_default'" /></label>
     <br />
     <input
         id="chkMinimizeDescription"
         v-model="minimizeDescription"
-        class="uk-checkbox"
+        class="checkbox"
         type="checkbox"
         @change="onChange($event)"
     />
@@ -130,7 +121,7 @@
     <input
         id="chkStoreWatchHistory"
         v-model="watchHistory"
-        class="uk-checkbox"
+        class="checkbox"
         type="checkbox"
         @change="onChange($event)"
     />
@@ -151,13 +142,13 @@
     <br />
     <label for="chkDisableLBRY"><strong v-t="'actions.disable_lbry'" /></label>
     <br />
-    <input id="chkDisableLBRY" v-model="disableLBRY" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
+    <input id="chkDisableLBRY" v-model="disableLBRY" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
     <label for="chkEnableLBRYProxy"><strong v-t="'actions.enable_lbry_proxy'" /></label>
     <br />
-    <input id="chkEnableLBRYProxy" v-model="proxyLBRY" class="uk-checkbox" type="checkbox" @change="onChange($event)" />
+    <input id="chkEnableLBRYProxy" v-model="proxyLBRY" class="checkbox" type="checkbox" @change="onChange($event)" />
     <h2 v-t="'actions.instances_list'" />
-    <table class="uk-table">
+    <table class="table">
         <thead>
             <tr>
                 <th v-text="$t('preferences.instance_name')" />

@@ -11,33 +11,33 @@
 
         <div class="comment-content pl-2">
             <div class="comment-header">
-                <div v-if="comment.pinned" class="comment-pinned uk-text-meta">
+                <div v-if="comment.pinned" class="comment-pinned">
                     <font-awesome-icon icon="thumbtack" />
                     <span class="ml-1.5" v-text="$t('comment.pinned_by')" />
                     <span v-text="uploader" />
                 </div>
 
                 <div class="comment-author">
-                    <router-link class="font-bold uk-text-small" :to="comment.commentorUrl" v-text="comment.author" />
+                    <router-link class="font-bold link" :to="comment.commentorUrl" v-text="comment.author" />
                     <font-awesome-icon class="ml-1.5" v-if="comment.verified" icon="check" />
                 </div>
-                <div class="comment-meta uk-text-meta uk-margin-small-bottom" v-text="comment.commentedTime" />
+                <div class="comment-meta text-sm mb-1.5" v-text="comment.commentedTime" />
             </div>
             <div class="whitespace-pre-wrap" v-text="comment.commentText" />
-            <div class="comment-footer uk-margin-small-top uk-text-meta">
+            <div class="comment-footer mt-1">
                 <font-awesome-icon icon="thumbs-up" />
                 <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
                 <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies">
-                    <a class="uk-link-text" v-t="'actions.show_replies'" />
+                    <a v-t="'actions.show_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </template>
             <template v-if="showingReplies">
                 <div @click="hideReplies">
-                    <a class="uk-link-text" v-t="'actions.hide_replies'" />
+                    <a v-t="'actions.hide_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-up-alt" />
                 </div>
             </template>
@@ -46,7 +46,7 @@
                     <Comment :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>
                 <div v-if="nextpage" @click="loadReplies">
-                    <a class="uk-link-text" v-t="'actions.load_more_replies'" />
+                    <a v-t="'actions.load_more_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </div>

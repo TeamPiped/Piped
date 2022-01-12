@@ -8,7 +8,7 @@
                 <strong v-text="`Selected Subscriptions: ${selectedSubscriptions}`" />
             </div>
             <div class="uk-form-row">
-                <strong>Override: <input v-model="override" class="uk-checkbox" type="checkbox" /></strong>
+                <strong>Override: <input v-model="override" class="checkbox" type="checkbox" /></strong>
             </div>
             <div class="uk-form-row">
                 <a class="uk-width-1-1 btn uk-button-large w-auto" @click="handleImport">Import</a>

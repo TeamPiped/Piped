@@ -1,6 +1,6 @@
 <template>
     <div class="uk-vertical-align text-center uk-height-1-1">
-        <form class="uk-panel uk-panel-box">
+        <form class="uk-panel uk-panel-box children:pb-3">
             <div class="uk-form-row">
                 <input
                     v-model="username"

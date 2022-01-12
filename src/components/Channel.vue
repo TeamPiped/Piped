@@ -8,7 +8,7 @@
         </div>
         <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <p style="white-space: pre-wrap">
+        <p class="whitespace-pre-wrap">
             <span v-html="purifyHTML(urlify(channel.description))" />
         </p>
 

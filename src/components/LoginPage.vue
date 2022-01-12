@@ -1,6 +1,7 @@
 <template>
-    <div class="uk-vertical-align text-center uk-height-1-1">
-        <form class="uk-panel uk-panel-box">
+    <div class="uk-vertical-align text-center">
+        <h1 v-t="'titles.login'" />
+        <form class="uk-panel uk-panel-box children:pb-3">
             <div class="uk-form-row">
                 <input
                     v-model="username"
@@ -22,7 +23,7 @@
                 />
             </div>
             <div class="uk-form-row">
-                <a class="uk-width-1-1 uk-button uk-button-large w-auto" @click="login" v-text="$t('titles.login')" />
+                <a class="btn w-auto" @click="login" v-text="$t('titles.login')" />
             </div>
         </form>
     </div>
