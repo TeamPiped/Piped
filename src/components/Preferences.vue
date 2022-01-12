@@ -274,6 +274,7 @@ export default {
                 { code: "pt", name: "Português" },
                 { code: "ru", name: "русский" },
                 { code: "sr", name: "Српски" },
+                { code: "sv", name: "svenska" },
                 { code: "tr", name: "Türkçe" },
                 { code: "uk", name: "українська" },
                 { code: "zh_Hant", name: "繁體中文" },
