@@ -188,7 +188,25 @@ export default {
             videoEl.setAttribute("poster", this.video.thumbnailUrl);
 
             if (this.$route.query.t) {
-                videoEl.currentTime = this.$route.query.t;
+                const time = this.$route.query.t;
+                let start = 0;
+                if (/^[\d]*$/g.test(time)) {
+                    start = time;
+                } else {
+                    const hours = /([\d]*)h/gi.exec(time)?.[1];
+                    const minutes = /([\d]*)m/gi.exec(time)?.[1];
+                    const seconds = /([\d]*)s/gi.exec(time)?.[1];
+                    if (hours) {
+                        start += parseInt(hours) * 60 * 60;
+                    }
+                    if (minutes) {
+                        start += parseInt(minutes) * 60;
+                    }
+                    if (seconds) {
+                        start += parseInt(seconds);
+                    }
+                }
+                videoEl.currentTime = start;
             } else if (window.db) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
