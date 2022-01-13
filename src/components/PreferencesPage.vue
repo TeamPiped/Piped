@@ -62,6 +62,14 @@
         @change="onChange($event)"
     />
     <br />
+    <label for="chkSkipHighlight"><strong v-t="'actions.skip_highlight'" /></label>
+    <br />
+    <input id="chkSkipHighlight" v-model="skipHighlight" class="checkbox" type="checkbox" @change="onChange($event)" />
+    <br />
+    <label for="chkSkipFiller"><strong v-t="'actions.skip_filler_tangent'" /></label>
+    <br />
+    <input id="chkSkipFiller" v-model="skipFiller" class="checkbox" type="checkbox" @change="onChange($event)" />
+    <br />
     <label for="ddlTheme"><strong v-t="'actions.theme'" /></label>
     <br />
     <select id="ddlTheme" v-model="selectedTheme" class="select w-auto" @change="onChange($event)">
@@ -193,6 +201,8 @@ export default {
             skipInteraction: true,
             skipSelfPromo: true,
             skipMusicOffTopic: true,
+            skipHighlight: false,
+            skipFiller: false,
             selectedTheme: "dark",
             autoPlayVideo: true,
             listen: false,
@@ -288,6 +298,8 @@ export default {
                     this.skipInteraction =
                     this.skipSelfPromo =
                     this.skipMusicOffTopic =
+                    this.skipHighlight =
+                    this.skipFiller =
                         false;
                 skipList.forEach(skip => {
                     switch (skip) {
@@ -311,6 +323,12 @@ export default {
                             break;
                         case "music_offtopic":
                             this.skipMusicOffTopic = true;
+                            break;
+                        case "poi_highlight":
+                            this.skipHighlight = true;
+                            break;
+                        case "filler":
+                            this.skipFiller = true;
                             break;
                         default:
                             console.log("Unknown sponsor type: " + skip);
@@ -368,6 +386,8 @@ export default {
                 if (this.skipInteraction) sponsorSelected.push("interaction");
                 if (this.skipSelfPromo) sponsorSelected.push("selfpromo");
                 if (this.skipMusicOffTopic) sponsorSelected.push("music_offtopic");
+                if (this.skipHighlight) sponsorSelected.push("poi_highlight");
+                if (this.skipFiller) sponsorSelected.push("filler");
                 localStorage.setItem("selectedSkip", sponsorSelected);
 
                 localStorage.setItem("theme", this.selectedTheme);
