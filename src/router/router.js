@@ -9,7 +9,7 @@ const routes = [
     {
         path: "/preferences",
         name: "Preferences",
-        component: () => import("../components/Preferences.vue"),
+        component: () => import("../components/PreferencesPage.vue"),
     },
     {
         path: "/results",
@@ -19,7 +19,7 @@ const routes = [
     {
         path: "/playlist",
         name: "Playlist",
-        component: () => import("../components/Playlist.vue"),
+        component: () => import("../components/PlaylistPage.vue"),
     },
     {
         path: "/:path(v|w|embed|shorts|watch)/:v?",
@@ -29,7 +29,7 @@ const routes = [
     {
         path: "/:path(channel|user|c)/:channelId/:videos?",
         name: "Channel",
-        component: () => import("../components/Channel.vue"),
+        component: () => import("../components/ChannelPage.vue"),
     },
     {
         path: "/login",
