@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import WindiCSS from "vite-plugin-windicss";
+import legacy from "@vitejs/plugin-legacy";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
@@ -14,10 +15,14 @@ export default defineConfig({
         vueI18n({
             include: path.resolve(__dirname, "./src/locales/**"),
         }),
+        legacy({
+            targets: ["defaults", "not IE 11"],
+        }),
         VitePWA({
             registerType: "autoUpdate",
             workbox: {
                 globPatterns: ["**/*.{js,css,html,ico,svg,png}", "manifest.webmanifest"],
+                globIgnores: ["**/*legacy.*.js"],
                 runtimeCaching: [
                     {
                         urlPattern: /https:\/\/[a-zA-Z./0-9_]*\.(?:otf|ttf)/i,
