@@ -79,7 +79,6 @@ export default {
                     "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+,,shift+.",
                     function (e, handler) {
                         const videoEl = self.$refs.videoEl;
-                        console.log(handler.key);
                         switch (handler.key) {
                             case "f":
                                 self.$ui.getControls().toggleFullScreen();
@@ -502,6 +501,11 @@ export default {
                     store.put(video);
                 }
             };
+        },
+        seek(time) {
+            if (this.$refs.videoEl) {
+                this.$refs.videoEl.currentTime = time;
+            }
         },
         destroy() {
             if (this.$ui) {
