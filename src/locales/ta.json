@@ -1,1 +1,16 @@
-{}
+{
+    "titles": {
+        "trending": "பிரபலமடைபவை",
+        "login": "உள்நுழைய"
+    },
+    "actions": {
+        "unsubscribe": "குழுவில்",
+        "subscribe": "குழுசேர்",
+        "search": "தேடுக",
+        "yes": "ஆம்",
+        "no": "இல்லை"
+    },
+    "video": {
+        "views": "பார்வைகள்"
+    }
+}
