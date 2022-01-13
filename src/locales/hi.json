@@ -1,1 +1,30 @@
-{}
+{
+    "titles": {
+        "trending": "ट्रेंडिंग",
+        "history": "इतिहास",
+        "register": "रजिस्टर करें",
+        "login": "लॉग इन करें"
+    },
+    "actions": {
+        "subscribe": "सदस्यता लें",
+        "back": "वापस जाओ",
+        "unsubscribe": "सदस्यता ले ली है",
+        "no": "नहीं",
+        "show_replies": "जवाब देखें",
+        "hide_replies": "जवाब छिपाएं",
+        "search": "खोजें",
+        "loop_this_video": "इस वीडियो को लूप करें",
+        "loading": "लोड हो रहा है...",
+        "show_description": "विवरण दिखाएं",
+        "minimize_description": "विवरण छिपाएं",
+        "yes": "हां"
+    },
+    "video": {
+        "views": "बार देखा गया",
+        "videos": "वीडियो"
+    },
+    "login": {
+        "password": "पासवर्ड",
+        "username": "उपयोगकर्ता नाम"
+    }
+}
