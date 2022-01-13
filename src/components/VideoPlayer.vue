@@ -40,6 +40,7 @@ export default {
             $player: null,
             $ui: null,
             lastUpdate: new Date().getTime(),
+            initialSeekComplete: false,
         };
     },
     computed: {
@@ -206,6 +207,7 @@ export default {
                     }
                 }
                 videoEl.currentTime = start;
+                this.initialSeekComplete = true;
             } else if (window.db) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
@@ -216,6 +218,12 @@ export default {
                         videoEl.currentTime = video.currentTime;
                     }
                 };
+
+                tx.oncomplete = () => {
+                    this.initialSeekComplete = true;
+                };
+            } else {
+                this.initialSeekComplete = true;
             }
 
             const noPrevPlayer = !this.$player;
@@ -489,7 +497,7 @@ export default {
             if (new Date().getTime() - this.lastUpdate < 500) return;
             this.lastUpdate = new Date().getTime();
 
-            if (!this.video.id || !window.db) return;
+            if (!this.initialSeekComplete || !this.video.id || !window.db) return;
 
             var tx = window.db.transaction("watch_history", "readwrite");
             var store = tx.objectStore("watch_history");
