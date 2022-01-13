@@ -56,7 +56,9 @@
         "clear_history": "Geçmişi Temizle",
         "show_replies": "Yanıtları Göster",
         "hide_replies": "Yanıtları Gizle",
-        "load_more_replies": "Daha Fazla Yanıt Yükle"
+        "load_more_replies": "Daha Fazla Yanıt Yükle",
+        "skip_highlight": "Özeti Atla",
+        "skip_filler_tangent": "Doldurma Sahnelerini Atla"
     },
     "player": {
         "watch_on": "İzle"
@@ -75,7 +77,8 @@
         "watched": "İzlendi",
         "views": "izlenme",
         "videos": "Videolar",
-        "ratings_disabled": "Derecelendirmeler Devre Dışı"
+        "ratings_disabled": "Derecelendirmeler Devre Dışı",
+        "chapters": "Bölümler"
     },
     "preferences": {
         "ssl_score": "SSL Puanı",
