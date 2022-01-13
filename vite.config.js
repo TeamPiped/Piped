@@ -18,6 +18,22 @@ export default defineConfig({
             registerType: "autoUpdate",
             workbox: {
                 globPatterns: ["**/*.{js,css,html,ico,svg,png}", "manifest.webmanifest"],
+                runtimeCaching: [
+                    {
+                        urlPattern: /https:\/\/[a-zA-Z./0-9_]*\.(?:otf|ttf)/i,
+                        handler: "CacheFirst",
+                        options: {
+                            cacheName: "fonts-cache",
+                            expiration: {
+                                maxEntries: 10,
+                                maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+                            },
+                            cacheableResponse: {
+                                statuses: [0, 200],
+                            },
+                        },
+                    },
+                ],
             },
             manifest: {
                 name: "Piped",
