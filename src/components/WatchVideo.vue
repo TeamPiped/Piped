@@ -1,6 +1,6 @@
 <template>
     <div v-if="video && isEmbed" class="absolute top-0 left-0 h-full w-full z-50">
-        <Player
+        <VideoPlayer
             ref="videoPlayer"
             :video="video"
             :sponsors="sponsors"
@@ -14,7 +14,7 @@
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
-            <Player
+            <VideoPlayer
                 ref="videoPlayer"
                 :video="video"
                 :sponsors="sponsors"
@@ -108,7 +108,7 @@
 
         <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
             <div v-if="comments" ref="comments" class="xl:col-span-4 sm:col-span-3">
-                <Comment
+                <CommentItem
                     v-for="comment in comments.comments"
                     :key="comment.commentId"
                     :comment="comment"
@@ -140,19 +140,19 @@
 </template>
 
 <script>
-import Player from "@/components/Player.vue";
+import VideoPlayer from "@/components/VideoPlayer.vue";
 import VideoItem from "@/components/VideoItem.vue";
 import ErrorHandler from "@/components/ErrorHandler.vue";
-import Comment from "@/components/Comment.vue";
+import CommentItem from "@/components/CommentItem.vue";
 import Chapters from "@/components/Chapters.vue";
 
 export default {
     name: "App",
     components: {
-        Player,
+        VideoPlayer,
         VideoItem,
         ErrorHandler,
-        Comment,
+        CommentItem,
         Chapters,
     },
     data() {

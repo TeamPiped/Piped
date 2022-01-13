@@ -43,7 +43,7 @@
             </template>
             <div v-show="showingReplies" v-if="replies" class="replies">
                 <div v-for="reply in replies" :key="reply.commentId" class="w-full">
-                    <Comment :comment="reply" :uploader="uploader" :video-id="videoId" />
+                    <CommentItem :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>
                 <div v-if="nextpage" @click="loadReplies">
                     <a v-t="'actions.load_more_replies'" />

@@ -1,6 +1,6 @@
 <template>
     <div class="w-full min-h-screen px-1vw reset" :class="[theme]">
-        <Navigation />
+        <NavBar />
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
                 <component :is="Component" :key="$route.fullPath" />
@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import Navigation from "@/components/Navigation.vue";
+import NavBar from "@/components/NavBar.vue";
 export default {
     components: {
-        Navigation,
+        NavBar,
     },
     mounted() {
         if (window.location.pathname === "/" || window.location.pathname.length == 0)
