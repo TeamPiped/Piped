@@ -24,7 +24,7 @@
             <div class="font-bold mt-2 text-2xl break-words" v-text="video.title" />
 
             <div class="flex mb-1.5">
-                <span v-text="`${addCommas(video.views)} views`" />
+                <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
                 <span class="ml-2" v-text="uploadDate" />
 
                 <div class="flex items-center relative ml-auto children:ml-2">
@@ -44,11 +44,12 @@
                         </div>
                     </template>
                     <a :href="`https://youtu.be/${getVideoId()}`" class="btn">
-                        <strong v-text="$t('player.watch_on')" />
-                        <font-awesome-icon class="ml-1.5" :icon="['fab', 'youtube']" />
+                        <i18n-t keypath="player.watch_on" tag="strong">
+                            <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
+                        </i18n-t>
                     </a>
                     <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
-                        <strong v-text="`${$t('player.watch_on')} LBRY`" />
+                        <i18n-t keypath="player.watch_on" tag="strong">LBRY</i18n-t>
                     </a>
                     <router-link
                         :to="toggleListenUrl"

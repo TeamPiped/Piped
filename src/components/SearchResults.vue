@@ -16,12 +16,12 @@
 
     <hr />
 
-    <div v-if="results && results.corrected" style="height: 7vh">
-        <span v-text="$t('search.did_you_mean')" />
-
-        <router-link :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }">
-            <em v-text="results.suggestion" />
-        </router-link>
+    <div v-if="results && results.corrected">
+        <i18n-t keypath="search.did_you_mean" tag="div" class="text-lg">
+            <router-link :to="{ name: 'SearchResults', query: { search_query: results.suggestion } }">
+                <em v-text="results.suggestion" />
+            </router-link>
+        </i18n-t>
     </div>
 
     <div v-if="results" class="video-grid">

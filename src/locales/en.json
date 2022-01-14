@@ -9,7 +9,7 @@
         "subscriptions": "Subscriptions"
     },
     "player": {
-        "watch_on": "Watch on"
+        "watch_on": "Watch on {0}"
     },
     "actions": {
         "subscribe": "Subscribe",
@@ -87,13 +87,13 @@
     },
     "video": {
         "videos": "Videos",
-        "views": "views",
+        "views": "{views} views",
         "watched": "Watched",
         "sponsor_segments": "Sponsors Segments",
         "ratings_disabled": "Ratings Disabled",
         "chapters": "Chapters"
     },
     "search": {
-        "did_you_mean": "Did you mean: "
+        "did_you_mean": "Did you mean: {0}?"
     }
 }
