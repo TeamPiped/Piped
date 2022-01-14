@@ -30,13 +30,13 @@
                 <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
-                <div @click="loadReplies">
+                <div @click="loadReplies" class="cursor-pointer">
                     <a v-t="'actions.show_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </template>
             <template v-if="showingReplies">
-                <div @click="hideReplies">
+                <div @click="hideReplies" class="cursor-pointer">
                     <a v-t="'actions.hide_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-up-alt" />
                 </div>
@@ -45,7 +45,7 @@
                 <div v-for="reply in replies" :key="reply.commentId" class="w-full">
                     <CommentItem :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>
-                <div v-if="nextpage" @click="loadReplies">
+                <div v-if="nextpage" @click="loadReplies" class="cursor-pointer">
                     <a v-t="'actions.load_more_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
