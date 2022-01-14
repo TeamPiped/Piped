@@ -214,7 +214,7 @@ export default {
                 var request = store.get(this.video.id);
                 request.onsuccess = function (event) {
                     var video = event.target.result;
-                    if (video && video.currentTime) {
+                    if (video?.currentTime) {
                         videoEl.currentTime = video.currentTime;
                     }
                 };
