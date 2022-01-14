@@ -21,7 +21,7 @@
         "shaka-player": "3.3.0",
         "stream": "^0.0.2",
         "vue": "^3.2.26",
-        "vue-i18n": "^9.2.0-beta.25",
+        "vue-i18n": "^9.2.0-beta.28",
         "vue-router": "^4.0.12",
         "xml-js": "^1.6.11"
     },
