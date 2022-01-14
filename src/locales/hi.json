@@ -58,7 +58,7 @@
         "buffering_goal": "बफरिंग गोल (सेकंड में)"
     },
     "video": {
-        "views": "बार देखा गया",
+        "views": "{views} बार देखा गया",
         "videos": "वीडियो",
         "watched": "पहले ही देखा",
         "ratings_disabled": "रेटिंग अक्षम",
@@ -77,6 +77,9 @@
         "ssl_score": "एसएसएल स्कोर"
     },
     "search": {
-        "did_you_mean": "क्या आपका मतलब यह था: "
+        "did_you_mean": "क्या आपका मतलब यह था: {0}?"
+    },
+    "player": {
+        "watch_on": "{0} में देखें"
     }
 }
