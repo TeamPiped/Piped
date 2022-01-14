@@ -33,7 +33,7 @@
         "show_comments": "கருத்துகளைக் காட்டு"
     },
     "video": {
-        "views": "பார்வைகள்",
+        "views": "{views} பார்வைகள்",
         "ratings_disabled": "மதிப்பீடுகள் முடக்கப்பட்டுள்ளன",
         "watched": "பார்த்தேன்",
         "videos": "வீடியோக்கள்",
@@ -46,5 +46,8 @@
     "preferences": {
         "ssl_score": "SSL மதிப்பெண்",
         "has_cdn": "CDN இருக்கிறதா?"
+    },
+    "player": {
+        "watch_on": "{0} இல் பார்க்கவும்"
     }
 }
