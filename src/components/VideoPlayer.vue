@@ -351,7 +351,8 @@ export default {
 
                 videoEl.addEventListener("ratechange", e => {
                     const rate = videoEl.playbackRate;
-                    if (rate > 0 && !isNaN(videoEl.duration - e.timeStamp / 1000)) this.setPreference("rate", rate);
+                    if (rate > 0 && !isNaN(videoEl.duration) && !isNaN(videoEl.duration - e.timeStamp / 1000))
+                        this.setPreference("rate", rate);
                 });
 
                 videoEl.addEventListener("ended", () => {
