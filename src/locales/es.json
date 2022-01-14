@@ -2,7 +2,7 @@
     "video": {
         "sponsor_segments": "Segmentos de patrocinio",
         "watched": "Vistos",
-        "views": "visualizaciones",
+        "views": "{views} visualizaciones",
         "videos": "Vídeos",
         "ratings_disabled": "Valoraciones Desactivadas",
         "chapters": "Capítulos"
@@ -87,13 +87,13 @@
         "login": "Iniciar sesión"
     },
     "player": {
-        "watch_on": "Ver en"
+        "watch_on": "Ver en {0}"
     },
     "login": {
         "password": "Contraseña",
         "username": "Nombre de usuario"
     },
     "search": {
-        "did_you_mean": "¿Quieres decir: "
+        "did_you_mean": "¿Quisiste decir {0}?"
     }
 }
