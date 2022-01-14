@@ -61,7 +61,7 @@
         "skip_filler_tangent": "Doldurma Sahnelerini Atla"
     },
     "player": {
-        "watch_on": "İzle"
+        "watch_on": "{0} üzerinde izle"
     },
     "titles": {
         "history": "Geçmiş",
@@ -75,7 +75,7 @@
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
         "watched": "İzlendi",
-        "views": "izlenme",
+        "views": "{views} izlenme",
         "videos": "Videolar",
         "ratings_disabled": "Derecelendirmeler Devre Dışı",
         "chapters": "Bölümler"
@@ -94,6 +94,6 @@
         "username": "Kullanıcı adı"
     },
     "search": {
-        "did_you_mean": "Bunu mu demek istediniz: "
+        "did_you_mean": "Bunu mu demek istediniz: {0}?"
     }
 }
