@@ -349,8 +349,10 @@ export default {
                     this.setPreference("volume", videoEl.volume);
                 });
 
-                videoEl.addEventListener("ratechange", () => {
-                    this.setPreference("rate", videoEl.playbackRate);
+                videoEl.addEventListener("ratechange", e => {
+                    const rate = videoEl.playbackRate;
+                    if (rate > 0 && !isNaN(videoEl.duration) && !isNaN(videoEl.duration - e.timeStamp / 1000))
+                        this.setPreference("rate", rate);
                 });
 
                 videoEl.addEventListener("ended", () => {
@@ -489,7 +491,10 @@ export default {
                     );
                 });
                 videoEl.volume = this.getPreferenceNumber("volume", 1);
-                player.trickPlay(this.getPreferenceNumber("rate", 1));
+                const rate = this.getPreferenceNumber("rate", 1);
+                player.trickPlay(rate);
+                player.playbackRate = rate;
+                player.defaultPlaybackRate = rate;
             });
         },
         async updateProgressDatabase(time) {
