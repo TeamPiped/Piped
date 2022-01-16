@@ -1,0 +1,53 @@
+{
+    "titles": {
+        "trending": "பிரபலமடைபவை",
+        "login": "உள்நுழைய",
+        "register": "பதிவு",
+        "preferences": "விருப்பங்கள்",
+        "subscriptions": "சந்தாக்கள்",
+        "history": "வரலாறு"
+    },
+    "actions": {
+        "unsubscribe": "குழுவில்",
+        "subscribe": "குழுசேர்",
+        "search": "தேடுக",
+        "yes": "ஆம்",
+        "no": "இல்லை",
+        "view_subscriptions": "சந்தாக்களைப் பார்க்கவும்",
+        "most_recent": "மிக சமீபத்தியது",
+        "least_recent": "சமீபத்தியது",
+        "channel_name_asc": "சேனல் பெயர் (A-Z)",
+        "channel_name_desc": "சேனல் பெயர் (Z-A)",
+        "back": "திரும்பி போ",
+        "theme": "தீம்",
+        "auto": "தானாக",
+        "dark": "இருள்",
+        "audio_only": "ஆடியோ மட்டும்",
+        "default_quality": "இயல்புநிலை தரம்",
+        "buffering_goal": "இடையக இலக்கு (வினாடிகளில்)",
+        "country_selection": "நாடு தேர்வு",
+        "store_watch_history": "ஸ்டோர் வாட்ச் வரலாறு",
+        "clear_history": "தெளிவான வரலாறு",
+        "uses_api_from": "இருந்து API ஐப் பயன்படுத்துகிறது ",
+        "light": "ஒளி",
+        "show_comments": "கருத்துகளைக் காட்டு"
+    },
+    "video": {
+        "views": "{views} பார்வைகள்",
+        "ratings_disabled": "மதிப்பீடுகள் முடக்கப்பட்டுள்ளன",
+        "watched": "பார்த்தேன்",
+        "videos": "வீடியோக்கள்",
+        "chapters": "அத்தியாயங்கள்"
+    },
+    "login": {
+        "password": "கடவுச்சொல்",
+        "username": "பயனர் பெயர்"
+    },
+    "preferences": {
+        "ssl_score": "SSL மதிப்பெண்",
+        "has_cdn": "CDN இருக்கிறதா?"
+    },
+    "player": {
+        "watch_on": "{0} இல் பார்க்கவும்"
+    }
+}

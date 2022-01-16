@@ -2,9 +2,10 @@
     "video": {
         "sponsor_segments": "Segmentos de patrocinio",
         "watched": "Vistos",
-        "views": "visualizaciones",
+        "views": "{views} visualizaciones",
         "videos": "Vídeos",
-        "ratings_disabled": "Valoraciones Desactivadas"
+        "ratings_disabled": "Valoraciones Desactivadas",
+        "chapters": "Capítulos"
     },
     "preferences": {
         "ssl_score": "Puntuación SSL",
@@ -72,7 +73,9 @@
         "clear_history": "Borrar Historial",
         "show_replies": "Mostrar Respuestas",
         "hide_replies": "Ocultar Respuestas",
-        "load_more_replies": "Cargar más Respuestas"
+        "load_more_replies": "Cargar más Respuestas",
+        "skip_filler_tangent": "Saltar Escenas de Relleno",
+        "skip_highlight": "Saltar Momento Destacado"
     },
     "titles": {
         "feed": "Feed",
@@ -84,13 +87,13 @@
         "login": "Iniciar sesión"
     },
     "player": {
-        "watch_on": "Ver en"
+        "watch_on": "Ver en {0}"
     },
     "login": {
         "password": "Contraseña",
         "username": "Nombre de usuario"
     },
     "search": {
-        "did_you_mean": "¿Quieres decir: "
+        "did_you_mean": "¿Quisiste decir {0}?"
     }
 }

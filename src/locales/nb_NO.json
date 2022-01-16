@@ -53,7 +53,12 @@
         "loading": "Laster inn …",
         "view_ssl_score": "Vis SSL-poengsum",
         "minimize_description": "Minimer beskrivelse",
-        "clear_history": "Tøm historikk"
+        "clear_history": "Tøm historikk",
+        "skip_filler_tangent": "Hopp over fyll",
+        "show_replies": "Vis svar",
+        "hide_replies": "Skjul svar",
+        "skip_highlight": "Hopp over hovedmoment",
+        "load_more_replies": "Last inn flere svar"
     },
     "player": {
         "watch_on": "Vis på"
@@ -72,7 +77,8 @@
         "watched": "Sett",
         "views": "visninger",
         "videos": "Videoer",
-        "ratings_disabled": "Vurderinger avskrudd"
+        "ratings_disabled": "Vurderinger avskrudd",
+        "chapters": "Kapitler"
     },
     "preferences": {
         "ssl_score": "SSL-poengsum",
