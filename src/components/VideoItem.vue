@@ -74,7 +74,7 @@
 
 <style>
 .thumbnail-overlay {
-    @apply rounded-md absolute bg-black bg-opacity-75;
+    @apply rounded-md absolute bg-black text-white bg-opacity-75;
 }
 </style>
 
