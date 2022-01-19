@@ -242,6 +242,7 @@ export default {
                 { code: "sr", name: "Српски" },
                 { code: "sv", name: "svenska" },
                 { code: "ta", name: "தமிழ்" },
+                { code: "th", name: "ไทย" },
                 { code: "tr", name: "Türkçe" },
                 { code: "uk", name: "українська" },
                 { code: "zh_Hant", name: "繁體中文" },
