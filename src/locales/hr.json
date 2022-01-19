@@ -2,9 +2,10 @@
     "video": {
         "sponsor_segments": "Sponzorski segmenti",
         "watched": "Gledano",
-        "views": "prikaza",
+        "views": "{views} prikaza",
         "videos": "Videozapisi",
-        "ratings_disabled": "Ocjenjivanje isključeno"
+        "ratings_disabled": "Ocjenjivanje isključeno",
+        "chapters": "Poglavlja"
     },
     "preferences": {
         "ssl_score": "SSL ocjena",
@@ -72,10 +73,11 @@
         "show_replies": "Prikaži odgovore",
         "hide_replies": "Sakrij odgovore",
         "load_more_replies": "Prikaži više odgovora",
-        "clear_history": "Obriši povijest"
+        "clear_history": "Obriši povijest",
+        "skip_highlight": "Preskoči isticanje"
     },
     "player": {
-        "watch_on": "Gledaj na"
+        "watch_on": "Gledaj na {0}"
     },
     "titles": {
         "subscriptions": "Pretplate",
@@ -91,6 +93,6 @@
         "username": "Korisničko ime"
     },
     "search": {
-        "did_you_mean": "Jeste li mislili: "
+        "did_you_mean": "Misliš li: {0}?"
     }
 }
