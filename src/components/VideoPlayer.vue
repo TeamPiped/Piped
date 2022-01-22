@@ -1,13 +1,6 @@
 <template>
-    <div class="w-full">
-        <div
-            ref="container"
-            data-shaka-player-container
-            style="width: 100%; height: 100%; background: #000"
-            :style="!isEmbed ? { 'max-height': '75vh', 'min-height': '250px' } : {}"
-        >
-            <video ref="videoEl" data-shaka-player class="w-full" :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
-        </div>
+    <div ref="container" data-shaka-player-container :class="{ 'player-container': !isEmbed }">
+        <video ref="videoEl" data-shaka-player class="w-full" :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
     </div>
 </template>
 
@@ -538,6 +531,10 @@ export default {
 </script>
 
 <style>
+.player-container {
+    @apply max-h-75vh min-h-64 bg-black;
+}
+
 .shaka-text-container > div {
     height: auto !important;
     width: auto !important;
