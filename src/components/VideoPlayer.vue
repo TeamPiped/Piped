@@ -375,6 +375,7 @@ export default {
             const url = "/watch?v=" + this.video.id;
 
             if (!this.$ui) {
+                this.destroy();
                 const OpenButton = class extends shaka.ui.Element {
                     constructor(parent, controls) {
                         super(parent, controls);
