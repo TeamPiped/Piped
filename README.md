@@ -125,7 +125,7 @@ Contributions in any other form are also welcomed.
 # Made with Piped
 
 -   [Yattee](https://github.com/yattee/yattee) - an alternative frontend for YouTube, for IOS.
--   [LibreTube](https://github.com/rimthekid/LibreTube) [WIP] - an alternative frontend for YouTube, for Android.
+-   [LibreTube](https://github.com/Libre-tube/LibreTube) [WIP] - an alternative frontend for YouTube, for Android.
 
 ## YourKit
 
