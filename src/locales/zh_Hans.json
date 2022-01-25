@@ -70,7 +70,7 @@
         "pinned_by": "固定自"
     },
     "player": {
-        "watch_on": "观看于 {0}"
+        "watch_on": "在 {0} 观看"
     },
     "titles": {
         "feed": "RSS源",
