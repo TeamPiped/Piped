@@ -1,10 +1,10 @@
 {
     "actions": {
-        "enabled_codecs": "کدک‌های فعال (چندگانه)",
+        "enabled_codecs": "کدک‌های فعال (چندتا)",
         "instances_list": "لیست نمونه‌ها",
         "language_selection": "انتخاب زبان",
         "store_watch_history": "ذخیره سابقه تماشا",
-        "minimize_description_default": "به حداقل رساندن توضیحات به صورت پیش فرض",
+        "minimize_description_default": "بستن توضیحات به صورت پیش فرض",
         "show_comments": "نمایش نظرات",
         "default_homepage": "صفحه خانگی پیش فرض",
         "country_selection": "انتخاب کشور",
@@ -26,7 +26,7 @@
         "view_subscriptions": "مشاهده سابسکرایب ها",
         "unsubscribe": "لغو سابسکرایب",
         "subscribe": "سابسکرایب",
-        "minimize_recommendations": "توصیه ها را کم کنید",
+        "minimize_recommendations": "بستن توصیه ها",
         "show_recommendations": "نمایش توصیه ها",
         "uses_api_from": "با استفاده از APIای از ",
         "instance_selection": "انتخاب نمونه",
@@ -41,7 +41,24 @@
         "skip_preview": "رد کردن پیش نمایش/مرور",
         "skip_interaction": "رد کردن یاداوری سابسکرایب",
         "skip_highlight": "رد کردن نکات برجسته",
-        "skip_filler_tangent": "رد کردن چرندیات نامربوط"
+        "skip_filler_tangent": "رد کردن چرندیات نامربوط",
+        "import_from_json": "وارد کردن از JSON",
+        "export_to_json": "دادن خروجی با فرمت JSON",
+        "show_description": "نمایش توضیحات ویدئو",
+        "donations": "کمک های مالی",
+        "clear_history": "تخلیه تاریخچه",
+        "loop_this_video": "تکرار شدن این ویدئو",
+        "auto_play_next_video": "پخش خودکار ویدئو بعدی",
+        "minimize_description": "بستن توضیحات ویدئو",
+        "view_ssl_score": "دیدن امتیاز SSL",
+        "search": "جست و جو",
+        "filter": "فیلتر",
+        "loading": "در حال بارگذاری...",
+        "show_replies": "نمایش پاسخ ها",
+        "hide_replies": "پنهان کردن پاسخ ها",
+        "load_more_replies": "بارگذاری پاسخ های بیشتر",
+        "disable_lbry": "غیرفعال کردن LBRY برای استریم ها",
+        "enable_lbry_proxy": "فعال کردن پراکسی برای LBRY"
     },
     "titles": {
         "history": "سابقه",
@@ -53,6 +70,30 @@
         "subscriptions": "اشتراک‌ها"
     },
     "player": {
-        "watch_on": "تماشا روی"
+        "watch_on": "تماشا روی {0}"
+    },
+    "search": {
+        "did_you_mean": "منظورتان {0} بود؟"
+    },
+    "video": {
+        "views": "{views} بازدید ها",
+        "videos": "ویدئوها",
+        "watched": "دیده شده",
+        "sponsor_segments": "قسمت های اسپانسری",
+        "ratings_disabled": "رتبه بندی غیرفعال",
+        "chapters": "فصل ها"
+    },
+    "preferences": {
+        "instance_locations": "محل های سرویس",
+        "has_cdn": "CDN دارد؟",
+        "ssl_score": "امتیاز SSL",
+        "instance_name": "نام سرویس"
+    },
+    "comment": {
+        "pinned_by": "سنجاق شده توسط"
+    },
+    "login": {
+        "username": "نام کاربری",
+        "password": "رمز"
     }
 }
