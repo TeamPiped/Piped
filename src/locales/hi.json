@@ -5,7 +5,8 @@
         "register": "रजिस्टर करें",
         "login": "लॉग इन करें",
         "preferences": "प्राथमिकताएँ",
-        "subscriptions": "सदस्यता"
+        "subscriptions": "सदस्यता",
+        "feed": "फ़ीड"
     },
     "actions": {
         "subscribe": "सदस्यता लें",

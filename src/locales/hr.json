@@ -74,7 +74,8 @@
         "hide_replies": "Sakrij odgovore",
         "load_more_replies": "Prikaži više odgovora",
         "clear_history": "Obriši povijest",
-        "skip_highlight": "Preskoči isticanje"
+        "skip_highlight": "Preskoči isticanje",
+        "skip_filler_tangent": "Preskoči nebitne međudijelove"
     },
     "player": {
         "watch_on": "Gledaj na {0}"

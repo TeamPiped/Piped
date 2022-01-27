@@ -65,20 +65,22 @@
         "load_more_replies": "Hlaða Fleiri Svörum",
         "default_quality": "Sjálfgefin Gæði",
         "buffering_goal": "Biðminnismarkmið (í sekúndum)",
-        "export_to_json": "Flytja út í JSON"
+        "export_to_json": "Flytja út í JSON",
+        "skip_highlight": "Sleppa Hápunkti"
     },
     "player": {
-        "watch_on": "Horfa á"
+        "watch_on": "Horfa á {0}"
     },
     "search": {
-        "did_you_mean": "Áttirðu við: "
+        "did_you_mean": "Áttirðu við: {0}?"
     },
     "video": {
         "ratings_disabled": "Einkunnir Óvirkar",
         "videos": "Myndbönd",
-        "views": "áhorf",
+        "views": "{views} áhorf",
         "watched": "Áhorft",
-        "sponsor_segments": "Styrkjarahlutar"
+        "sponsor_segments": "Styrkjarahlutar",
+        "chapters": "Kaflar"
     },
     "comment": {
         "pinned_by": "Fest af"
