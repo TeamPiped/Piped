@@ -23,7 +23,7 @@
                 />
             </div>
             <div>
-                <a class="btn w-auto" @click="login" v-text="$t('titles.login')" />
+                <a class="btn w-auto" @click="login" v-t="'titles.login'" />
             </div>
         </form>
     </div>

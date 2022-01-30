@@ -1,17 +1,13 @@
 <template>
     <div class="flex">
         <button @click="$router.go(-1) || $router.push('/')">
-            <font-awesome-icon icon="chevron-left" /><span class="ml-1.5" v-text="$t('actions.back')" />
+            <font-awesome-icon icon="chevron-left" /><span class="ml-1.5" v-t="'actions.back'" />
         </button>
     </div>
     <h1 v-t="'titles.preferences'" class="font-bold text-center" />
     <hr />
     <h2>SponsorBlock</h2>
-    <p>
-        <span v-text="$t('actions.uses_api_from')" /><a class="link" href="https://sponsor.ajay.app/"
-            >sponsor.ajay.app</a
-        >
-    </p>
+    <p><span v-t="'actions.uses_api_from'" /><a class="link" href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
     <label for="chkEnableSponsorblock"><strong v-t="'actions.enable_sponsorblock'" /></label>
     <br />
     <input
@@ -159,19 +155,19 @@
     <table class="table">
         <thead>
             <tr>
-                <th v-text="$t('preferences.instance_name')" />
-                <th v-text="$t('preferences.instance_locations')" />
-                <th v-text="$t('preferences.has_cdn')" />
-                <th v-text="$t('preferences.ssl_score')" />
+                <th v-t="'preferences.instance_name'" />
+                <th v-t="'preferences.instance_locations'" />
+                <th v-t="'preferences.has_cdn'" />
+                <th v-t="'preferences.ssl_score'" />
             </tr>
         </thead>
         <tbody v-for="instance in instances" :key="instance.name">
             <tr>
                 <td v-text="instance.name" />
                 <td v-text="instance.locations" />
-                <td v-text="$t(`actions.${instance.cdn === 'Yes' ? 'yes' : 'no'}`)" />
+                <td v-t="`actions.${instance.cdn === 'Yes' ? 'yes' : 'no'}`" />
                 <td>
-                    <a :href="sslScore(instance.apiurl)" target="_blank" v-text="$t('actions.view_ssl_score')" />
+                    <a :href="sslScore(instance.apiurl)" target="_blank" v-t="'actions.view_ssl_score'" />
                 </td>
             </tr>
         </tbody>

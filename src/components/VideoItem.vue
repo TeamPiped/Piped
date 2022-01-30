@@ -4,15 +4,14 @@
             <img :height="height" :width="width" class="w-full" :src="video.thumbnail" alt="" loading="lazy" />
             <div class="relative text-sm">
                 <span
-                    v-if="video.duration"
-                    class="thumbnail-overlay bottom-5px right-5px px-5px"
+                    class="thumbnail-overlay thumbnail-right"
+                    v-if="video.duration > 0"
                     v-text="timeFormat(video.duration)"
                 />
-                <span
-                    v-if="video.watched"
-                    class="thumbnail-overlay bottom-5px left-5px px-5px"
-                    v-text="$t('video.watched')"
-                />
+                <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right !bg-red-600" tag="div">
+                    <font-awesome-icon class="!w-3" :icon="['fas', 'broadcast-tower']" />
+                </i18n-t>
+                <span v-if="video.watched" class="thumbnail-overlay bottom-5px left-5px" v-t="'video.watched'" />
             </div>
 
             <div>
@@ -74,7 +73,11 @@
 
 <style>
 .thumbnail-overlay {
-    @apply rounded-md absolute bg-black text-white bg-opacity-75;
+    @apply rounded-md absolute bg-black text-white bg-opacity-75 px-5px;
+}
+
+.thumbnail-right {
+    @apply bottom-5px right-5px;
 }
 </style>
 

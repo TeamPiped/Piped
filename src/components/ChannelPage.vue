@@ -16,7 +16,7 @@
             v-if="authenticated"
             class="btn"
             @click="subscribeHandler"
-            v-text="$t(`actions.${subscribed ? 'unsubscribe' : 'subscribe'}`)"
+            v-t="`actions.${subscribed ? 'unsubscribe' : 'subscribe'}`"
         />
 
         <hr />

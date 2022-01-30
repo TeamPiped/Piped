@@ -1,5 +1,5 @@
 <template>
-    <h1 class="font-bold text-center" v-text="$t('titles.history')" />
+    <h1 class="font-bold text-center" v-t="'titles.history'" />
 
     <div class="flex">
         <div>

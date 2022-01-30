@@ -22,7 +22,7 @@
                 />
             </div>
             <div>
-                <a class="btn w-auto" @click="register" v-text="$t('titles.register')" />
+                <a class="btn w-auto" @click="register" v-t="'titles.register'" />
             </div>
         </form>
     </div>

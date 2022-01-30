@@ -1,5 +1,5 @@
 <template>
-    <div v-text="$t('actions.loading')" />
+    <div v-t="'actions.loading'" />
 </template>
 
 <script>

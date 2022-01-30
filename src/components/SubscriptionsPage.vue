@@ -1,12 +1,12 @@
 <template>
-    <h1 class="font-bold text-center" v-text="$t('titles.subscriptions')" />
+    <h1 class="font-bold text-center" v-t="'titles.subscriptions'" />
 
     <div v-if="authenticated">
         <button class="btn mr-0.5">
-            <router-link to="/import" v-text="$t('actions.import_from_json')" />
+            <router-link to="/import" v-t="'actions.import_from_json'" />
         </button>
 
-        <button class="btn" @click="exportHandler" v-text="$t('actions.export_to_json')" />
+        <button class="btn" @click="exportHandler" v-t="'actions.export_to_json'" />
     </div>
     <hr />
 
@@ -21,7 +21,7 @@
                     <button
                         class="btn !w-min"
                         @click="handleButton(subscription)"
-                        v-text="$t(`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`)"
+                        v-t="`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`"
                     />
                 </div>
             </div>
