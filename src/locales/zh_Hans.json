@@ -52,13 +52,22 @@
         "search": "搜索",
         "view_ssl_score": "查看 SSL 得分",
         "minimize_recommendations": "最小化建议",
-        "show_recommendations": "显示推荐"
+        "show_recommendations": "显示推荐",
+        "clear_history": "清除历史",
+        "skip_highlight": "跳过高亮",
+        "skip_filler_tangent": "跳过与视频主题无关的片段",
+        "show_replies": "显示回复",
+        "hide_replies": "隐藏回复",
+        "load_more_replies": "加载更多回复"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
         "watched": "看过",
         "views": "{views} 次观看",
-        "videos": "视频"
+        "videos": "视频",
+        "live": "{0} 直播",
+        "chapters": "章节",
+        "ratings_disabled": "已禁用评价"
     },
     "preferences": {
         "ssl_score": "SSL 分数",
@@ -84,5 +93,8 @@
     "login": {
         "password": "密码",
         "username": "帐号"
+    },
+    "search": {
+        "did_you_mean": "你是指 {0} 吗？"
     }
 }
