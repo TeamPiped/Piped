@@ -78,7 +78,8 @@
         "views": "{views} izlenme",
         "videos": "Videolar",
         "ratings_disabled": "Derecelendirmeler Devre Dışı",
-        "chapters": "Bölümler"
+        "chapters": "Bölümler",
+        "live": "{0} Canlı"
     },
     "preferences": {
         "ssl_score": "SSL Puanı",
