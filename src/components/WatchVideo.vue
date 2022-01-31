@@ -282,8 +282,11 @@ export default {
                         if (!this.isEmbed) this.fetchSubscribedStatus();
 
                         this.video.description = this.video.description
-                            .replaceAll("http://www.youtube.com", "")
-                            .replaceAll("https://www.youtube.com", "")
+                            .replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9?=&]*)/gm, "$1")
+                            .replaceAll(
+                                /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9?=&]*)/gm,
+                                "/watch?v=$1",
+                            )
                             .replaceAll("\n", "<br>");
                     }
                 });
