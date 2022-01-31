@@ -5,7 +5,8 @@
         "views": "{views} visualizaciones",
         "videos": "Vídeos",
         "ratings_disabled": "Valoraciones Desactivadas",
-        "chapters": "Capítulos"
+        "chapters": "Capítulos",
+        "live": "{0} Directo"
     },
     "preferences": {
         "ssl_score": "Puntuación SSL",
