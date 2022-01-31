@@ -536,11 +536,12 @@ export default {
     @apply max-h-75vh min-h-64 bg-black;
 }
 
-.shaka-text-container > div {
-    height: auto !important;
-    width: auto !important;
-    top: auto !important;
-    left: auto !important;
+.shaka-video-container .material-icons-round {
+    @apply !text-xl;
+}
+
+.shaka-current-time {
+    @apply !text-base;
 }
 
 .shaka-text-container * {
