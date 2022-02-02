@@ -78,7 +78,8 @@
         "views": "{views} vues",
         "videos": "Vidéos",
         "ratings_disabled": "Évaluations désactivées",
-        "chapters": "Chapitres"
+        "chapters": "Chapitres",
+        "live": "{0} en direct"
     },
     "preferences": {
         "ssl_score": "Score SSL",

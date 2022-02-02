@@ -63,7 +63,8 @@
         "videos": "वीडियो",
         "watched": "पहले ही देखा",
         "ratings_disabled": "रेटिंग अक्षम",
-        "chapters": "चैप्टर"
+        "chapters": "चैप्टर",
+        "live": "{0} लाइव"
     },
     "login": {
         "password": "पासवर्ड",

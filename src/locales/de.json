@@ -56,10 +56,11 @@
         "clear_history": "Verlauf löschen",
         "show_replies": "Antworten anzeigen",
         "hide_replies": "Antworten ausblenden",
-        "load_more_replies": "Mehr Antworten laden"
+        "load_more_replies": "Mehr Antworten laden",
+        "skip_highlight": "Hohepunkte überspringen"
     },
     "player": {
-        "watch_on": "Ansehen auf"
+        "watch_on": "Auf {0} ansehen"
     },
     "titles": {
         "history": "Verlauf",
