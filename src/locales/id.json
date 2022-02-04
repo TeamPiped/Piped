@@ -91,7 +91,8 @@
         "watched": "Ditonton",
         "sponsor_segments": "Segmen Sponsor",
         "ratings_disabled": "Penilaian Dinonaktifkan",
-        "chapters": "Bagian"
+        "chapters": "Bagian",
+        "live": "{0} Live"
     },
     "search": {
         "did_you_mean": "Apakah Anda bermaksud: {0}?"
