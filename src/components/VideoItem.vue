@@ -63,8 +63,8 @@
                         <font-awesome-icon icon="eye" />
                         <span class="pl-0.5" v-text="`${numberFormat(video.views)} •`" />
                     </span>
-                    <span v-if="video.uploadedDate" class="pl-0.5" v-text="video.uploadedDate" />
-                    <span v-if="video.uploaded" class="pl-0.5" v-text="timeAgo(video.uploaded)" />
+                    <span v-if="video.uploaded > 0" class="pl-0.5" v-text="timeAgo(video.uploaded)" />
+                    <span v-else-if="video.uploadedDate" class="pl-0.5" v-text="video.uploadedDate" />
                 </strong>
             </div>
         </div>
