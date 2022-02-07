@@ -26,7 +26,7 @@
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
-        "@intlify/vite-plugin-vue-i18n": "^3.2.1",
+        "@intlify/vite-plugin-vue-i18n": "^3.2.2",
         "@vitejs/plugin-legacy": "^1.6.4",
         "@vitejs/plugin-vue": "^2.1.0",
         "@vue/compiler-sfc": "3.2.29",
