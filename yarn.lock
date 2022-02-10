@@ -2393,10 +2393,10 @@ jake@^10.6.1:
     filelist "^1.0.1"
     minimatch "^3.0.4"
 
-javascript-time-ago@^2.3.11:
-  version "2.3.11"
-  resolved "https://registry.yarnpkg.com/javascript-time-ago/-/javascript-time-ago-2.3.11.tgz#b488ae765b7f42ff003f3830977a92411ef1fe92"
-  integrity sha512-R6Ux0IGv7RmAZ7vB04r/gevGaLDJeZY7+6jTYyYsPAF5x4PSv6up+dW2hLK99+OUY8xwdeXPItZFiUppIRUaoQ==
+javascript-time-ago@^2.3.12:
+  version "2.3.12"
+  resolved "https://registry.yarnpkg.com/javascript-time-ago/-/javascript-time-ago-2.3.12.tgz#12c6cccce153d89e36b7e64c81f157570e72b1fe"
+  integrity sha512-GXDLkoejgc4nDE/Q0LpgFVSodq9of8bSAFXiqgVox/HSv8Gykv7YOaFpV5Nf3GeaiKiQiyYDlbghsloVce9rnA==
   dependencies:
     relative-time-format "^1.0.6"
 
