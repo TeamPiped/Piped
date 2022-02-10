@@ -878,10 +878,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.16.4":
-  version "7.16.9"
-  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.16.9.tgz#4236f528bca7c5126678f2757ac14e24e10a53f8"
-  integrity sha512-2xC+uqniw1MNMTxzkfRUD8y0koEav+cGyWNCTVFAMC58Mb6HYfxqzQt+YtdMpSEcNqrDjvatthhyU0v18PNrnA==
+"@babel/standalone@^7.16.12":
+  version "7.17.2"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.17.2.tgz#4c55936b181f230d0ba7c5c38e66b68713cdb114"
+  integrity sha512-Adjbjnlk0IBuBEldyuicdIeq1P/YI5nfm7HnOVd8blGDRetPW2NllESjlrItMKORWVuILWqKe10D+b8yEybeBA==
 
 "@babel/template@^7.16.7":
   version "7.16.7"
@@ -1153,16 +1153,16 @@
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
   integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
-"@vitejs/plugin-legacy@^1.6.4":
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-1.6.4.tgz#36cf0cc10bd1f32902719d62c8f23c9d433eb3a8"
-  integrity sha512-geH2F3hTRN++E4n9NZ0JFumxIWUKqW4FA9PAgM7Q6RvUOUUYW4tlURhEmCBYfZSN24H/yX3mEolX+wFVErsAYQ==
+"@vitejs/plugin-legacy@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-1.7.0.tgz#c24d318d4cacc4252162531c71103517ec05a1e6"
+  integrity sha512-/aXOuxCqXHQLpCTb/qSdZR6lsFoVNuuw9FhSf1T1Rffya4bnXy7/+bpMmAobqcRUDhqg0hRWc1KiWd3B+pUHQg==
   dependencies:
-    "@babel/standalone" "^7.16.4"
-    core-js "^3.19.1"
+    "@babel/standalone" "^7.16.12"
+    core-js "^3.20.3"
     magic-string "^0.25.7"
     regenerator-runtime "^0.13.9"
-    systemjs "^6.11.0"
+    systemjs "^6.12.1"
 
 "@vitejs/plugin-vue@^2.1.0":
   version "2.1.0"
@@ -1553,10 +1553,10 @@ core-js-compat@^3.20.0, core-js-compat@^3.20.2:
     browserslist "^4.19.1"
     semver "7.0.0"
 
-core-js@^3.19.1:
-  version "3.20.2"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.20.2.tgz#46468d8601eafc8b266bd2dd6bf9dee622779581"
-  integrity sha512-nuqhq11DcOAbFBV4zCbKeGbKQsUDRqTX0oqx7AttUBuqe3h20ixsE039QHelbL6P4h+9kytVqyEtyZ6gsiwEYw==
+core-js@^3.20.3:
+  version "3.21.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.21.0.tgz#f479dbfc3dffb035a0827602dd056839a774aa71"
+  integrity sha512-YUdI3fFu4TF/2WykQ2xzSiTQdldLB4KVuL9WeAy5XONZYt5Cun/fpQvctoKbCgvPhmzADeesTk/j2Rdx77AcKQ==
 
 cross-spawn@^7.0.2:
   version "7.0.3"
@@ -3078,10 +3078,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-systemjs@^6.11.0:
-  version "6.11.0"
-  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-6.11.0.tgz#8df8e74fc05822e6c40170aa409b9ca64833315f"
-  integrity sha512-7YPIY44j+BoY+E6cGBSw0oCU8SNTTIHKZgftcBdwWkDzs/M86Fdlr21FrzAyph7Zo8r3CFGscyFe4rrBtixrBg==
+systemjs@^6.12.1:
+  version "6.12.1"
+  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-6.12.1.tgz#47cdd23a6ec9f1b01cf5b5f70562c8550da229d3"
+  integrity sha512-hqTN6kW+pN6/qro6G9OZ7ceDQOcYno020zBQKpZQLsJhYTDMCMNfXi/Y8duF5iW+4WWZr42ry0MMkcRGpbwG2A==
 
 table@^6.0.9:
   version "6.8.0"
