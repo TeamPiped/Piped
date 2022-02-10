@@ -27,6 +27,11 @@ const routes = [
         component: () => import("../components/WatchVideo.vue"),
     },
     {
+        path: "/clip/:clipId",
+        name: "Clips",
+        component: () => import("../components/ClipsPage.vue"),
+    },
+    {
         path: "/:path(channel|user|c)/:channelId/:videos?",
         name: "Channel",
         component: () => import("../components/ChannelPage.vue"),
