@@ -80,7 +80,8 @@
         "views": "{views} áhorf",
         "watched": "Áhorft",
         "sponsor_segments": "Styrkjarahlutar",
-        "chapters": "Kaflar"
+        "chapters": "Kaflar",
+        "live": "{0} Í beinni"
     },
     "comment": {
         "pinned_by": "Fest af"
