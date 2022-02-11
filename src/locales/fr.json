@@ -9,8 +9,8 @@
         "subscriptions": "Abonnements"
     },
     "actions": {
-        "subscribe": "S'abonner",
-        "unsubscribe": "Se désabonner",
+        "subscribe": "S'abonner - {count}",
+        "unsubscribe": "Se désabonner - {count}",
         "buffering_goal": "Objectif de mise en mémoire tampon (en secondes)",
         "skip_non_music": "Ignorer la musique : section non musicale",
         "skip_self_promo": "Ignorer la promotion non rémunérée / l'autopromotion",

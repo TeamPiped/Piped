@@ -17,8 +17,11 @@
             v-if="authenticated"
             class="btn"
             @click="subscribeHandler"
-            v-t="`actions.${subscribed ? 'unsubscribe' : 'subscribe'}`"
-        />
+            v-t="{
+                path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
+                args: { count: numberFormat(channel.subscriberCount) },
+            }"
+        ></button>
 
         <hr />
 

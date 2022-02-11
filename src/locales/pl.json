@@ -12,8 +12,8 @@
         "watch_on": "Oglądaj na"
     },
     "actions": {
-        "subscribe": "Subskrybuj",
-        "unsubscribe": "Anuluj subskrypcję",
+        "subscribe": "Subskrybuj - {count}",
+        "unsubscribe": "Anuluj subskrypcję - {count}",
         "view_subscriptions": "Twoje subskrypcje",
         "sort_by": "Sortuj:",
         "most_recent": "Najnowsze",
