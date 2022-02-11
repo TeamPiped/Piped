@@ -5,7 +5,8 @@
         "views": "{views} prikaza",
         "videos": "Videozapisi",
         "ratings_disabled": "Ocjenjivanje isključeno",
-        "chapters": "Poglavlja"
+        "chapters": "Poglavlja",
+        "live": "{0} uživo"
     },
     "preferences": {
         "ssl_score": "SSL ocjena",
