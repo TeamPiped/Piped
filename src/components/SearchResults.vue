@@ -11,7 +11,7 @@
         class="select w-auto"
         @change="updateResults()"
     >
-        <option v-for="filter in availableFilters" :key="filter" :value="filter" v-text="filter.replace('_', ' ')" />
+        <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`search.${filter}`" />
     </select>
 
     <hr />

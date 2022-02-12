@@ -95,6 +95,14 @@
         "live": "{0} Live"
     },
     "search": {
-        "did_you_mean": "Did you mean: {0}?"
+        "did_you_mean": "Did you mean: {0}?",
+        "all": "YouTube: All",
+        "videos": "YouTube: Videos",
+        "channels": "YouTube: Channels",
+        "playlists": "YouTube: Playlists",
+        "music_songs": "YT Music: Songs",
+        "music_videos": "YT Music: Videos",
+        "music_albums": "YT Music: Albums",
+        "music_playlists": "YT Music: Playlists"
     }
 }
