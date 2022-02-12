@@ -74,9 +74,11 @@
     "video": {
         "sponsor_segments": "Sponsoren-Segmente",
         "watched": "Angesehen",
-        "views": "Aufrufe",
+        "views": "{views} Aufrufe",
         "videos": "Videos",
-        "ratings_disabled": "Bewertungen deaktiviert"
+        "ratings_disabled": "Bewertungen deaktiviert",
+        "live": "{0} Live",
+        "chapters": "Kapitel"
     },
     "preferences": {
         "ssl_score": "SSL-Bewertung",
@@ -92,6 +94,14 @@
         "username": "Anmeldename"
     },
     "search": {
-        "did_you_mean": "Meintest du: "
+        "did_you_mean": "Meintest du: ",
+        "all": "YouTube: Alle",
+        "videos": "YouTube: Videos",
+        "channels": "YouTube: Kanäle",
+        "playlists": "YouTube: Wiedergabelisten",
+        "music_songs": "YT Music: Lieder",
+        "music_videos": "YT Music: Videos",
+        "music_albums": "YT Music: Alben",
+        "music_playlists": "YT Music: Wiedergabelisten"
     }
 }
