@@ -95,6 +95,14 @@
         "username": "Kullanıcı adı"
     },
     "search": {
-        "did_you_mean": "Bunu mu demek istediniz: {0}?"
+        "did_you_mean": "Bunu mu demek istediniz: {0}?",
+        "music_playlists": "YT Müzik: Oynatma listeleri",
+        "channels": "YouTube: Kanallar",
+        "all": "YouTube: Tümü",
+        "playlists": "YouTube: Oynatma listeleri",
+        "videos": "YouTube: Videolar",
+        "music_songs": "YT Müzik: Şarkılar",
+        "music_videos": "YT Müzik: Videolar",
+        "music_albums": "YT Müzik: Albümler"
     }
 }
