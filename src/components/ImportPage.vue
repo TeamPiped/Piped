@@ -104,6 +104,13 @@ export default {
                     const json = JSON.parse(text);
                     this.subscriptions = json.subscriptions;
                 }
+                // FreeTube DB
+                else if (text.indexOf("allChannels") != -1) {
+                    const json = JSON.parse(text);
+                    json.subscriptions.forEach(item => {
+                        this.subscriptions.push(item.id);
+                    });
+                }
                 // Google Takeout JSON
                 else if (text.indexOf("contentDetails") != -1) {
                     const json = JSON.parse(text);
