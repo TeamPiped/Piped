@@ -84,7 +84,7 @@ export default {
                     const xmlDoc = parser.parseFromString(text, "text/xml");
                     xmlDoc.querySelectorAll("outline[xmlUrl]").forEach(item => {
                         const url = item.getAttribute("xmlUrl");
-                        const id = url.substr(-24);
+                        const id = url.slice(-24);
                         this.subscriptions.push(id);
                     });
                 }
@@ -95,7 +95,7 @@ export default {
                         .filter(item => item.service_id == 0)
                         .forEach(item => {
                             const url = item.url;
-                            const id = url.substr(-24);
+                            const id = url.slice(-24);
                             this.subscriptions.push(id);
                         });
                 }
@@ -125,7 +125,7 @@ export default {
                     const lines = text.split("\n");
                     for (let i = 1; i < lines.length; i++) {
                         const line = lines[i];
-                        const id = line.substr(0, line.indexOf(","));
+                        const id = line.slice(0, line.indexOf(","));
                         if (id.length === 24) this.subscriptions.push(id);
                     }
                 }
