@@ -161,11 +161,16 @@ const mixin = {
             return timeAgo.format(time);
         },
         urlify(string) {
-            const regex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
             if (!string) return "";
-            return string.replace(regex, url => {
-                return `<a href="${url}" target="_blank">${url}</a>`;
-            });
+            const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+            const emailRegex = /([\w-\\.]+@(?:[\w-]+\.)+[\w-]{2,4})/g;
+            return string
+                .replace(urlRegex, url => {
+                    return `<a href="${url}" target="_blank">${url}</a>`;
+                })
+                .replace(emailRegex, email => {
+                    return `<a href="mailto:${email}">${email}</a>`;
+                });
         },
         async updateWatched(videos) {
             if (window.db) {
