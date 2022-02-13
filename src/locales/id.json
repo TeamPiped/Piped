@@ -95,6 +95,14 @@
         "live": "{0} Live"
     },
     "search": {
-        "did_you_mean": "Apakah Anda bermaksud: {0}?"
+        "did_you_mean": "Apakah Anda bermaksud: {0}?",
+        "videos": "YouTube: Video",
+        "channels": "YouTube: Saluran",
+        "playlists": "YouTube: Daftar Putar",
+        "music_songs": "YT Music: Lagu",
+        "music_videos": "YT Music: Video",
+        "music_albums": "YT Music: Album",
+        "music_playlists": "YT Music: Daftar Putar",
+        "all": "YouTube: Semua"
     }
 }
