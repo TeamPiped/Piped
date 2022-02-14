@@ -878,7 +878,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.16.12":
+"@babel/standalone@^7.17.2":
   version "7.17.2"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.17.2.tgz#4c55936b181f230d0ba7c5c38e66b68713cdb114"
   integrity sha512-Adjbjnlk0IBuBEldyuicdIeq1P/YI5nfm7HnOVd8blGDRetPW2NllESjlrItMKORWVuILWqKe10D+b8yEybeBA==
@@ -1153,13 +1153,13 @@
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
   integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
-"@vitejs/plugin-legacy@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-1.7.0.tgz#c24d318d4cacc4252162531c71103517ec05a1e6"
-  integrity sha512-/aXOuxCqXHQLpCTb/qSdZR6lsFoVNuuw9FhSf1T1Rffya4bnXy7/+bpMmAobqcRUDhqg0hRWc1KiWd3B+pUHQg==
+"@vitejs/plugin-legacy@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-1.7.1.tgz#6236d2f5ea5f11f6406070bb69e700e781f86125"
+  integrity sha512-RqgILXsGpfV7NHodVCdBVau8ss5+ynMXp6JGF/F7nhSy0bnwSQPlMS3KFqh7twfifXK8VuMriqfU4CxOiqmNnA==
   dependencies:
-    "@babel/standalone" "^7.16.12"
-    core-js "^3.20.3"
+    "@babel/standalone" "^7.17.2"
+    core-js "^3.21.0"
     magic-string "^0.25.7"
     regenerator-runtime "^0.13.9"
     systemjs "^6.12.1"
@@ -1553,7 +1553,7 @@ core-js-compat@^3.20.0, core-js-compat@^3.20.2:
     browserslist "^4.19.1"
     semver "7.0.0"
 
-core-js@^3.20.3:
+core-js@^3.21.0:
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.21.0.tgz#f479dbfc3dffb035a0827602dd056839a774aa71"
   integrity sha512-YUdI3fFu4TF/2WykQ2xzSiTQdldLB4KVuL9WeAy5XONZYt5Cun/fpQvctoKbCgvPhmzADeesTk/j2Rdx77AcKQ==
