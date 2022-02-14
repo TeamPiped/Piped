@@ -31,8 +31,6 @@ export default {
     },
     data() {
         return {
-            $player: null,
-            $ui: null,
             lastUpdate: new Date().getTime(),
             initialSeekComplete: false,
         };
