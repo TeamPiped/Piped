@@ -70,14 +70,6 @@ body:
 
   - type: textarea
     attributes:
-      label: OS
-      placeholder: >-
-        For example, Arch Linux, Windows, macOS, etc.
-    validations:
-      required: true
-
-  - type: textarea
-    attributes:
       label: Additional context
       description: |
         Add any other context about the problem here.
