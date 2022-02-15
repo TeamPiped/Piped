@@ -95,6 +95,14 @@
         "pinned_by": "Fäst av"
     },
     "search": {
-        "did_you_mean": "Menade du: {0}?"
+        "did_you_mean": "Menade du: {0}?",
+        "music_videos": "YT Music: Videor",
+        "music_albums": "YT Music: Album",
+        "music_playlists": "YT Music: Spellistor",
+        "channels": "YouTube: Kanaler",
+        "all": "YouTube: Alla",
+        "videos": "YouTube: Videor",
+        "playlists": "YouTube: Spellistor",
+        "music_songs": "YT Music: Låtar"
     }
 }

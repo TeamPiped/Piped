@@ -95,6 +95,14 @@
         "username": "Nom d'utilisateur"
     },
     "search": {
-        "did_you_mean": "Vouliez-vous dire : {0} ?"
+        "did_you_mean": "Vouliez-vous dire : {0} ?",
+        "all": "YouTube : Tout",
+        "videos": "YouTube : Vidéos",
+        "channels": "YouTube : Chaînes",
+        "playlists": "YouTube : Listes de lecture",
+        "music_songs": "YT Music : Chansons",
+        "music_videos": "YT Music : Vidéos",
+        "music_playlists": "YT Music : Listes de lecture",
+        "music_albums": "YT Music : Albums"
     }
 }

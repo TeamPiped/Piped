@@ -56,10 +56,12 @@
         "clear_history": "Cancella la cronologia",
         "show_replies": "Mostra risposte",
         "load_more_replies": "Carica più risposte",
-        "hide_replies": "Nascondi risposte"
+        "hide_replies": "Nascondi risposte",
+        "skip_filler_tangent": "Ignora Filler",
+        "skip_highlight": "Ignora Momento Saliente"
     },
     "player": {
-        "watch_on": "Guarda su"
+        "watch_on": "Guarda su {0}"
     },
     "titles": {
         "history": "Cronologia",
@@ -73,9 +75,11 @@
     "video": {
         "sponsor_segments": "Segmenti sponsor",
         "watched": "Guardato",
-        "views": "visualizzazioni",
+        "views": "{views} visualizzazioni",
         "videos": "Video",
-        "ratings_disabled": "Valutazioni disabilitate"
+        "ratings_disabled": "Valutazioni disabilitate",
+        "live": "{0} Diretta",
+        "chapters": "Capitoli"
     },
     "preferences": {
         "ssl_score": "Valutazione SSL",
@@ -91,6 +95,14 @@
         "username": "Nome utente"
     },
     "search": {
-        "did_you_mean": "Forse intendevi: "
+        "did_you_mean": "Forse intendevi: {0}?",
+        "playlists": "YouTube: Playlist",
+        "music_videos": "YT Music: Video",
+        "music_playlists": "YT Music: Playlist",
+        "music_albums": "YT Music: Album",
+        "channels": "YouTube: Canali",
+        "music_songs": "YT Music: Canzoni",
+        "all": "YouTube: Tutto",
+        "videos": "YouTube: Video"
     }
 }

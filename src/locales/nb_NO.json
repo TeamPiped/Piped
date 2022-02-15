@@ -78,7 +78,8 @@
         "views": "visninger",
         "videos": "Videoer",
         "ratings_disabled": "Vurderinger avskrudd",
-        "chapters": "Kapitler"
+        "chapters": "Kapitler",
+        "live": "{0} direkte"
     },
     "preferences": {
         "ssl_score": "SSL-poengsum",

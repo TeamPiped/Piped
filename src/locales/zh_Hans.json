@@ -95,6 +95,14 @@
         "username": "帐号"
     },
     "search": {
-        "did_you_mean": "你是指 {0} 吗？"
+        "did_you_mean": "你是指 {0} 吗？",
+        "all": "YouTube：所有",
+        "videos": "YouTube：视频",
+        "channels": "YouTube：频道",
+        "playlists": "YouTube：播放列表",
+        "music_songs": "YT Music：歌曲",
+        "music_videos": "YT Music：视频",
+        "music_albums": "YT Music：专辑",
+        "music_playlists": "YT Music：播放列表"
     }
 }

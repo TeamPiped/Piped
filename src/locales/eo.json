@@ -1,0 +1,45 @@
+{
+    "titles": {
+        "trending": "Tendencoj",
+        "login": "Ensaluti",
+        "register": "Registriĝi",
+        "feed": "Fluo",
+        "preferences": "Agordoj",
+        "history": "Historio",
+        "subscriptions": "Abonoj"
+    },
+    "player": {
+        "watch_on": "Vidi en {0}"
+    },
+    "actions": {
+        "subscribe": "Aboni",
+        "unsubscribe": "Malaboni",
+        "view_subscriptions": "Vidi Abonojn",
+        "sort_by": "Ordigi laŭ:",
+        "most_recent": "Plej Freŝaj",
+        "least_recent": "Malplej Freŝaj",
+        "channel_name_asc": "Kanala Nomo (A-Z)",
+        "channel_name_desc": "Kanala Nomo (Z-A)",
+        "back": "Reen",
+        "uses_api_from": "Uzas la API el ",
+        "enable_sponsorblock": "Ebligi Sponsorblock",
+        "skip_sponsors": "Preterlasi Sponsorojn",
+        "skip_intro": "Preterpasi Interakton/Komencan Animacion",
+        "skip_outro": "Preterpasi Finkartojn/Atribuojn",
+        "skip_preview": "Preterpasi Antaŭvidon/",
+        "theme": "Etoso",
+        "dark": "Malhela",
+        "light": "Hela",
+        "autoplay_video": "Aŭtomate Ludi Videon",
+        "audio_only": "Nur Sono",
+        "default_quality": "Defaŭlta Kvalito",
+        "country_selection": "Landa Elekto",
+        "default_homepage": "Defaŭlta Ĉefpaĝo",
+        "show_comments": "Montri Komentojn",
+        "language_selection": "Lingvo Elekto",
+        "donations": "Donacoj",
+        "show_more": "Montri pli",
+        "yes": "Jes",
+        "no": "Ne"
+    }
+}
