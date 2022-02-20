@@ -61,7 +61,8 @@
         "minimize_recommendations": "Minimizar Recomendações",
         "light": "Claro",
         "hide_replies": "Esconder respostas",
-        "load_more_replies": "Carregar mais respostas"
+        "load_more_replies": "Carregar mais respostas",
+        "skip_highlight": "Saltar Destaque"
     },
     "preferences": {
         "instance_name": "Nome da Instância",
@@ -75,15 +76,28 @@
     },
     "video": {
         "videos": "Vídeos",
-        "views": "visualizações",
+        "views": "{views} visualizações",
         "watched": "Visto",
         "sponsor_segments": "Segmentos de Patrocínios",
-        "ratings_disabled": "Avaliações desativadas"
+        "ratings_disabled": "Avaliações desativadas",
+        "chapters": "Capítulos",
+        "live": "{0} Em Direto"
     },
     "search": {
-        "did_you_mean": "Quis dizer: "
+        "did_you_mean": "Quis dizer: {0}?",
+        "all": "Youtube: Todos",
+        "videos": "Youtube: Vídeos",
+        "channels": "Youtube: Canais",
+        "music_songs": "YT Music: Faixas",
+        "music_videos": "YT MUsic: Vídeos",
+        "music_albums": "YT Music: Álbuns",
+        "music_playlists": "YT Music: Playlists",
+        "playlists": "Youtube: Playlists"
     },
     "player": {
-        "watch_on": "Ver em"
+        "watch_on": "Ver em {0}"
+    },
+    "comment": {
+        "pinned_by": "Afixado por"
     }
 }
