@@ -1,5 +1,5 @@
 <template>
-    <div v-if="video && isEmbed" class="absolute top-0 left-0 h-full w-full z-50">
+    <div v-if="video && isEmbed" class="absolute top-0 left-0 h-full w-full bg-black z-50">
         <VideoPlayer
             ref="videoPlayer"
             :video="video"
