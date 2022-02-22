@@ -1,6 +1,11 @@
 <template>
-    <div ref="container" data-shaka-player-container :class="{ 'player-container': !isEmbed }">
-        <video ref="videoEl" data-shaka-player class="w-full" :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
+    <div
+        ref="container"
+        data-shaka-player-container
+        class="w-full max-h-screen flex justify-center"
+        :class="{ 'player-container': !isEmbed }"
+    >
+        <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
     </div>
 </template>
 
