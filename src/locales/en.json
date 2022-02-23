@@ -79,6 +79,9 @@
         "instance_name": "Instance Name",
         "instance_locations": "Instance Locations",
         "has_cdn": "Has CDN?",
+        "registered_users": "Registered Users",
+        "version": "Version",
+        "up_to_date": "Up to Date?",
         "ssl_score": "SSL Score"
     },
     "login": {
