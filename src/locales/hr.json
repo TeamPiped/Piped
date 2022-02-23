@@ -95,6 +95,14 @@
         "username": "Korisničko ime"
     },
     "search": {
-        "did_you_mean": "Misliš li: {0}?"
+        "did_you_mean": "Misliš li: {0}?",
+        "all": "YouTube: Sve",
+        "videos": "YouTube: Video",
+        "channels": "YouTube: Kanali",
+        "playlists": "YouTube: Zbirke",
+        "music_songs": "YT Music: Pjesme",
+        "music_videos": "YT Music: Video",
+        "music_albums": "YT Music: Albumi",
+        "music_playlists": "YT Music: Zbirke"
     }
 }

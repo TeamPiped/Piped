@@ -1,15 +1,15 @@
 {
     "titles": {
         "trending": "Тренды",
-        "login": "Логин",
-        "register": "Регистрация",
+        "login": "Войти",
+        "register": "Зарегистрироваться",
         "feed": "Подписки",
         "preferences": "Настройки",
         "history": "История просмотров",
-        "subscriptions": "Каналы на которые вы подписаны"
+        "subscriptions": "Ваши подписки"
     },
     "player": {
-        "watch_on": "Смотреть на"
+        "watch_on": "Смотреть на {0}"
     },
     "actions": {
         "subscribe": "Подписаться",
@@ -18,20 +18,20 @@
         "sort_by": "Отсортировать по:",
         "most_recent": "Самые новые",
         "least_recent": "Самые старые",
-        "channel_name_asc": "Имя канала (A-Z)",
-        "channel_name_desc": "Имя канала (Z-A)",
+        "channel_name_asc": "Имя канала (А-Я)",
+        "channel_name_desc": "Имя канала (Я-А)",
         "back": "Назад",
-        "uses_api_from": "Использовать API из ",
+        "uses_api_from": "Использовать API, предоставляемое ",
         "enable_sponsorblock": "Включить Sponsorblock",
         "skip_sponsors": "Пропускать спонсорскую рекламу",
         "skip_intro": "Пропускать заставку/интро",
         "skip_outro": "Пропускать концовку/титры",
-        "skip_preview": "Пропускать краткое содержание текущего эпизода или повтор части прошлого",
+        "skip_preview": "Пропускать краткое содержание текущего эпизода/повтор части прошлого",
         "skip_interaction": "Пропускать просьбы подписаться",
         "skip_self_promo": "Пропускать саморекламу",
         "skip_non_music": "Пропускать тишину в музыкальных роликах",
         "theme": "Тема",
-        "auto": "Авто",
+        "auto": "Автоматически",
         "dark": "Тёмная",
         "light": "Светлая",
         "autoplay_video": "Автоматическое проигрывание видео",
@@ -41,12 +41,12 @@
         "country_selection": "Выбор страны (для трендов)",
         "default_homepage": "По умолчанию открывать",
         "show_comments": "Показывать комментарии",
-        "minimize_description_default": "Не разворачивать описание по умолчанию",
+        "minimize_description_default": "Свернуть описание по умолчанию",
         "store_watch_history": "Хранить историю просмотренных видео",
-        "language_selection": "Выбор языка",
-        "instances_list": "Список копий сервиса Piped",
+        "language_selection": "Язык интерфейса",
+        "instances_list": "Список зеркал сервиса Piped",
         "enabled_codecs": "Включённые кодеки (Можно выбрать несколько)",
-        "instance_selection": "Выбор копии сервиса Piped",
+        "instance_selection": "Выбор зеркала сервиса Piped",
         "show_more": "Показать больше",
         "yes": "Да",
         "no": "Нет",
@@ -61,37 +61,48 @@
         "show_recommendations": "Показать рекомендации",
         "disable_lbry": "Отключить LBRY для стриминга",
         "enable_lbry_proxy": "Проксировать видео с LBRY",
-        "view_ssl_score": "Просмотреть SSL Score",
+        "view_ssl_score": "Посмотреть настройки SSL",
         "search": "Поиск",
         "filter": "Фильтр",
         "loading": "Загрузка...",
         "clear_history": "Очистить историю",
         "show_replies": "Показать ответы",
         "hide_replies": "Скрыть ответы",
-        "load_more_replies": "Загрузить больше ответов"
+        "load_more_replies": "Загрузить больше ответов",
+        "skip_highlight": "Пропускать главную мысль видео",
+        "skip_filler_tangent": "Пропускать не относящееся к сути видео"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем"
     },
     "preferences": {
-        "instance_name": "Название копии сервиса",
-        "instance_locations": "Местонахождение копии сервиса",
-        "has_cdn": "Есть ли CDN?",
-        "ssl_score": "SSL Score"
+        "instance_name": "Название",
+        "instance_locations": "Местоположение",
+        "has_cdn": "Наличие CDN",
+        "ssl_score": "Оценка настроек SSL"
     },
     "login": {
-        "username": "Имя аккаунта Piped",
+        "username": "Аккаунт на Piped",
         "password": "Пароль"
     },
     "video": {
         "videos": "Видео",
-        "views": "просмотров",
+        "views": "{views} просмотров",
         "watched": "Просмотренное",
         "sponsor_segments": "Рекламные сегменты",
         "ratings_disabled": "Оценки отключены",
-        "live": "{0} В эфир"
+        "live": "{0} В эфире",
+        "chapters": "Содержание"
     },
     "search": {
-        "did_you_mean": "Может быть вы имели в виду: {0}?"
+        "did_you_mean": "Может быть вы имели в виду: {0}?",
+        "all": "YouTube: Всё",
+        "videos": "YouTube: Видео",
+        "channels": "YouTube: Каналы",
+        "playlists": "YouTube: Плейлисты",
+        "music_songs": "YT Music: Композиции",
+        "music_videos": "YT Music: Видео",
+        "music_albums": "YT Music: Альбомы",
+        "music_playlists": "YT Music: Плейлисты"
     }
 }
