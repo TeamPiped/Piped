@@ -79,7 +79,10 @@
         "instance_name": "Nama Instansi",
         "ssl_score": "Skor SSL",
         "instance_locations": "Lokasi Instansi",
-        "has_cdn": "Mempunyai CDN?"
+        "has_cdn": "Mempunyai CDN?",
+        "up_to_date": "Sudah Terkini?",
+        "version": "Versi",
+        "registered_users": "Pengguna Terdaftar"
     },
     "login": {
         "username": "Nama Pengguna",
