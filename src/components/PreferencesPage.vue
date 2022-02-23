@@ -158,6 +158,9 @@
                 <th v-t="'preferences.instance_name'" />
                 <th v-t="'preferences.instance_locations'" />
                 <th v-t="'preferences.has_cdn'" />
+                <th v-t="'preferences.registered_users'" />
+                <th v-t="'preferences.version'" />
+                <th v-t="'preferences.up_to_date'" />
                 <th v-t="'preferences.ssl_score'" />
             </tr>
         </thead>
@@ -165,9 +168,12 @@
             <tr>
                 <td v-text="instance.name" />
                 <td v-text="instance.locations" />
-                <td v-t="`actions.${instance.cdn === 'Yes' ? 'yes' : 'no'}`" />
+                <td v-t="`actions.${instance.cdn ? 'yes' : 'no'}`" />
+                <td v-text="instance.registered" />
+                <td v-text="instance.version" />
+                <td v-t="`actions.${instance.up_to_date ? 'yes' : 'no'}`" />
                 <td>
-                    <a :href="sslScore(instance.apiurl)" target="_blank" v-t="'actions.view_ssl_score'" />
+                    <a :href="sslScore(instance.api_url)" target="_blank" v-t="'actions.view_ssl_score'" />
                 </td>
             </tr>
         </tbody>
@@ -178,7 +184,7 @@
     <label for="ddlInstanceSelection"><strong v-text="`${$t('actions.instance_selection')}:`" /></label>
     <br />
     <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
-        <option v-for="instance in instances" :key="instance.name" :value="instance.apiurl" v-text="instance.name" />
+        <option v-for="instance in instances" :key="instance.name" :value="instance.api_url" v-text="instance.name" />
     </select>
 </template>
 
@@ -257,34 +263,16 @@ export default {
     async mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
 
-        fetch("https://raw.githubusercontent.com/wiki/TeamPiped/Piped-Frontend/Instances.md")
-            .then(resp => resp.text())
-            .then(body => {
-                var skipped = 0;
-                const lines = body.split("\n");
-                lines.map(line => {
-                    const split = line.split("|");
-                    if (split.length == 5) {
-                        if (skipped < 2) {
-                            skipped++;
-                            return;
-                        }
-                        this.instances.push({
-                            name: split[0].trim(),
-                            apiurl: split[1].trim(),
-                            locations: split[2].trim(),
-                            cdn: split[3].trim(),
-                        });
-                    }
+        this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
+            this.instances = resp;
+            if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
+                this.instances.push({
+                    name: "Custom Instance",
+                    api_url: this.apiUrl(),
+                    locations: "Unknown",
+                    cdn: false,
                 });
-                if (this.instances.filter(instance => instance.apiurl == this.apiUrl()).length == 0)
-                    this.instances.push({
-                        name: "Custom Instance",
-                        apiurl: this.apiUrl(),
-                        locations: "Unknown",
-                        cdn: "Unknown",
-                    });
-            });
+        });
 
         if (this.testLocalStorage) {
             this.selectedInstance = this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
