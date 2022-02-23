@@ -2,13 +2,12 @@ FROM node:lts-alpine AS build
 
 WORKDIR /app/
 
-COPY package.json yarn.lock ./
-
-RUN yarn install --prefer-offline
-
 COPY . .
 
-RUN yarn build && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist/assets/*.css
+RUN --mount=type=cache,target=/root/.cache/yarn \
+    --mount=type=cache,target=/app/node_modules \
+    yarn install --prefer-offline && \
+    yarn build && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist/assets/*.css
 
 FROM nginx:alpine
 
