@@ -85,7 +85,10 @@
         "ssl_score": "SSL Puanı",
         "has_cdn": "CDN Var Mı?",
         "instance_locations": "Örnek Konumları",
-        "instance_name": "Örnek Adı"
+        "instance_name": "Örnek Adı",
+        "registered_users": "Kayıtlı Kullanıcılar",
+        "version": "Sürüm",
+        "up_to_date": "Güncel mi?"
     },
     "comment": {
         "pinned_by": "Şunun tarafından sabitlendi"
