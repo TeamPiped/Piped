@@ -20,6 +20,7 @@
                 :sponsors="sponsors"
                 :selected-auto-play="selectedAutoPlay"
                 :selected-auto-loop="selectedAutoLoop"
+                :only-audio="isListening"
             />
             <div class="font-bold mt-2 text-2xl break-words" v-text="video.title" />
 

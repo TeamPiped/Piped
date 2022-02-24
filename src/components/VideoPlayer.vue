@@ -33,6 +33,10 @@ export default {
         selectedAutoPlay: Boolean,
         selectedAutoLoop: Boolean,
         isEmbed: Boolean,
+        onlyAudio: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -442,7 +446,7 @@ export default {
 
             this.$player = player;
 
-            const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
+            const disableVideo = this.getPreferenceBoolean("listen", this.onlyAudio) && !this.video.livestream;
 
             this.$player.configure({
                 preferredVideoCodecs: this.preferredVideoCodecs,
