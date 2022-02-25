@@ -12,7 +12,10 @@
         "ssl_score": "SSL ocjena",
         "has_cdn": "Ima CDN?",
         "instance_locations": "Lokacije instance",
-        "instance_name": "Ime instance"
+        "instance_name": "Ime instance",
+        "registered_users": "Registrirani korisnici",
+        "version": "Verzija",
+        "up_to_date": "Najnovija verzija?"
     },
     "comment": {
         "pinned_by": "Prikačio korisnik"
