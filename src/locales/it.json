@@ -85,7 +85,10 @@
         "ssl_score": "Valutazione SSL",
         "has_cdn": "Ha un CDN?",
         "instance_locations": "Posizioni istanza",
-        "instance_name": "Nome istanza"
+        "instance_name": "Nome istanza",
+        "registered_users": "Utenti registrati",
+        "version": "Versione",
+        "up_to_date": "Aggiornato?"
     },
     "comment": {
         "pinned_by": "Appuntato da"
