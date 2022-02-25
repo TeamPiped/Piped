@@ -81,9 +81,11 @@ export default {
         };
     },
     mounted() {
+        if (this.handleRedirect()) return;
         this.updateResults();
     },
     activated() {
+        this.handleRedirect();
         window.addEventListener("scroll", this.handleScroll);
     },
     deactivated() {
@@ -121,6 +123,18 @@ export default {
         },
         shouldUseVideoItem(item) {
             return item.title;
+        },
+        handleRedirect() {
+            const query = this.$route.query.search_query;
+            const url =
+                /(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9?=&]*)/gm.exec(query)?.[1] ??
+                /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9?=&]*)/gm
+                    .exec(query)?.[1]
+                    .replace(/^/, "/watch?v=");
+            if (url) {
+                this.$router.push(url);
+                return true;
+            }
         },
     },
 };
