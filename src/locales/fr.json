@@ -85,7 +85,10 @@
         "ssl_score": "Score SSL",
         "has_cdn": "A un RDC ?",
         "instance_locations": "Localisations de l'instance",
-        "instance_name": "Nom de l'instance"
+        "instance_name": "Nom de l'instance",
+        "up_to_date": "À jour ?",
+        "registered_users": "Utilisateurs enregistrés",
+        "version": "Version"
     },
     "comment": {
         "pinned_by": "Épinglé par"
