@@ -89,7 +89,7 @@
                 v-t="`actions.${showDesc ? 'minimize_description' : 'show_description'}`"
             />
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <p v-show="showDesc" class="break-words" v-html="urlify(purifyHTML(video.description))" />
+            <div v-show="showDesc" class="break-words" v-html="urlify(purifyHTML(video.description))" />
             <Chapters v-if="video?.chapters?.length > 0" :chapters="video.chapters" @seek="navigate" />
             <div
                 v-if="showDesc && sponsors && sponsors.segments"
