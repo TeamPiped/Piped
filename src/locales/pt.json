@@ -68,7 +68,8 @@
         "instance_name": "Nome da Instância",
         "instance_locations": "Localizações da Instância",
         "ssl_score": "Valor de SSL",
-        "has_cdn": "Tem CDN?"
+        "has_cdn": "Tem CDN?",
+        "version": "Versão"
     },
     "login": {
         "password": "Palavra-passe",
