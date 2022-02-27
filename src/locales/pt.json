@@ -69,7 +69,8 @@
         "instance_locations": "Localizações da Instância",
         "ssl_score": "Valor de SSL",
         "has_cdn": "Tem CDN?",
-        "version": "Versão"
+        "version": "Versão",
+        "registered_users": "Utilizadores Registados"
     },
     "login": {
         "password": "Palavra-passe",
