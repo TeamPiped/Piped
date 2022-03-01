@@ -89,7 +89,7 @@
                 v-t="`actions.${showDesc ? 'minimize_description' : 'show_description'}`"
             />
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <p v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
+            <div v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
             <Chapters v-if="video?.chapters?.length > 0" :chapters="video.chapters" @seek="navigate" />
             <div
                 v-if="showDesc && sponsors && sponsors.segments"
@@ -281,7 +281,11 @@ export default {
                         this.channelId = this.video.uploaderUrl.split("/")[2];
                         if (!this.isEmbed) this.fetchSubscribedStatus();
 
-                        this.video.description = this.video.description
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(this.video.description, "text/html");
+                        xmlDoc.querySelectorAll("a").forEach(elem => (elem.outerHTML = elem.getAttribute("href")));
+                        xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
+                        this.video.description = this.urlify(xmlDoc.querySelector("body").innerHTML)
                             .replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9?=&]*)/gm, "$1")
                             .replaceAll(
                                 /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9?=&]*)/gm,
