@@ -76,7 +76,10 @@
         "instance_name": "Nom de la Instància",
         "instance_locations": "Ubicacións de la Instància",
         "has_cdn": "Té CDN?",
-        "ssl_score": "Puntuació SSL"
+        "ssl_score": "Puntuació SSL",
+        "version": "Versió",
+        "up_to_date": "Actualitzat?",
+        "registered_users": "Usuaris Registrats"
     },
     "video": {
         "watched": "Vist",
