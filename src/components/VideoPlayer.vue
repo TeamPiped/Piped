@@ -447,6 +447,12 @@ export default {
                     },
                 };
 
+                if (this.$ui.isMobile()) {
+                    config.controlPanelElements = config.controlPanelElements.filter(
+                        prop => prop != "play_pause" && prop != "volume",
+                    );
+                }
+
                 this.$ui.configure(config);
             }
 
