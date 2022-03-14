@@ -416,18 +416,30 @@ export default {
                     }
                 };
 
-                shaka.ui.OverflowMenu.registerElement("open_new_tab", new OpenButton.Factory());
+                shaka.ui.Controls.registerElement("open_new_tab", new OpenButton.Factory());
 
                 this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
-                const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"];
+                const controlPanelElements = [
+                    "play_pause",
+                    "time_and_duration",
+                    "spacer",
+                    "mute",
+                    "volume",
+                    "captions",
+                    "quality",
+                    "playback_rate",
+                    "picture_in_picture",
+                    "airplay",
+                    "fullscreen",
+                ];
 
                 if (this.isEmbed) {
-                    overflowMenuButtons.push("open_new_tab");
+                    controlPanelElements.push("open_new_tab");
                 }
 
                 const config = {
-                    overflowMenuButtons: overflowMenuButtons,
+                    controlPanelElements: controlPanelElements,
                     seekBarColors: {
                         base: "rgba(255, 255, 255, 0.3)",
                         buffered: "rgba(255, 255, 255, 0.54)",
