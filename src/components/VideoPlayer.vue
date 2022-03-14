@@ -445,12 +445,14 @@ export default {
                         buffered: "rgba(255, 255, 255, 0.54)",
                         played: "rgb(255, 0, 0)",
                     },
+                    enableTooltips: true,
                 };
 
                 if (this.$ui.isMobile()) {
                     config.controlPanelElements = config.controlPanelElements.filter(
                         prop => prop != "play_pause" && prop != "volume",
                     );
+                    config.enableTooltips = false;
                 }
 
                 this.$ui.configure(config);
