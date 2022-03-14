@@ -242,6 +242,7 @@ export default {
                 { code: "nb_NO", name: "Norwegian Bokmål" },
                 { code: "pl", name: "Polski" },
                 { code: "pt", name: "Português" },
+                { code: "pt_PT", name: "Português (Portugal)" },
                 { code: "ru", name: "Русский" },
                 { code: "sr", name: "Српски" },
                 { code: "sv", name: "Svenska" },
