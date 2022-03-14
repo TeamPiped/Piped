@@ -84,7 +84,10 @@
         "ssl_score": "SSL-Bewertung",
         "has_cdn": "Hat CDN?",
         "instance_locations": "Instanzstandorte",
-        "instance_name": "Instanzname"
+        "instance_name": "Instanzname",
+        "registered_users": "Registrierte Benutzer",
+        "version": "Version",
+        "up_to_date": "Auf dem neuesten Stand?"
     },
     "comment": {
         "pinned_by": "Angeheftet von"
@@ -94,7 +97,7 @@
         "username": "Anmeldename"
     },
     "search": {
-        "did_you_mean": "Meintest du: ",
+        "did_you_mean": "Hast du gemeint: {0}?",
         "all": "YouTube: Alle",
         "videos": "YouTube: Videos",
         "channels": "YouTube: Kanäle",

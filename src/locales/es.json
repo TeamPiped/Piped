@@ -12,7 +12,10 @@
         "ssl_score": "Puntuación SSL",
         "has_cdn": "¿Tiene CDN?",
         "instance_locations": "Ubicaciones de las instancias",
-        "instance_name": "Nombre de la instancia"
+        "instance_name": "Nombre de la instancia",
+        "version": "Versión",
+        "up_to_date": "¿Actualizado?",
+        "registered_users": "Usuarios Registrados"
     },
     "comment": {
         "pinned_by": "Fijado por"

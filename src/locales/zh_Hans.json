@@ -73,7 +73,10 @@
         "ssl_score": "SSL 分数",
         "has_cdn": "有 CDN 吗？",
         "instance_locations": "实例位置",
-        "instance_name": "实例名称"
+        "instance_name": "实例名称",
+        "version": "版本",
+        "up_to_date": "最新？",
+        "registered_users": "已注册用户"
     },
     "comment": {
         "pinned_by": "固定自"

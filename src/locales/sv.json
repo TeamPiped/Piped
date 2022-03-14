@@ -76,7 +76,10 @@
         "instance_name": "Instansnamn",
         "instance_locations": "Instansplatser",
         "ssl_score": "SSL-poäng",
-        "has_cdn": "Har CDN?"
+        "has_cdn": "Har CDN?",
+        "registered_users": "Registrerade användare",
+        "version": "Version",
+        "up_to_date": "Uppdaterad?"
     },
     "login": {
         "username": "Användarnamn",

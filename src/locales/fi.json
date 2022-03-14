@@ -2,14 +2,16 @@
     "video": {
         "watched": "Katsottu",
         "views": "näyttökertaa",
-        "videos": "Videot"
+        "videos": "Videot",
+        "live": "{0} live"
     },
     "login": {
         "password": "Salasana",
         "username": "Käyttäjätunnus"
     },
     "preferences": {
-        "ssl_score": "SSL-pisteet"
+        "ssl_score": "SSL-pisteet",
+        "registered_users": "Rekisteröityneet käyttäjät"
     },
     "actions": {
         "loading": "Ladataan…",
@@ -57,7 +59,7 @@
         "load_more_replies": "Lataa lisää vastauksia"
     },
     "player": {
-        "watch_on": "Katso sivustolla"
+        "watch_on": "Katso sivustolla {0}"
     },
     "titles": {
         "subscriptions": "Tilaukset",
@@ -69,6 +71,14 @@
         "trending": "Nousussa"
     },
     "search": {
-        "did_you_mean": "Tarkoititko: "
+        "did_you_mean": "Tarkoititko: {0}?",
+        "all": "YouTube: Kaikki",
+        "videos": "YouTube: Videot",
+        "channels": "YouTube: Kanavat",
+        "playlists": "YouTube: Soittolistat",
+        "music_songs": "YT Musiikki: Kappaleet",
+        "music_videos": "YT Music: Videot",
+        "music_albums": "YT Music: Albumit",
+        "music_playlists": "YT Music: Soittolistat"
     }
 }

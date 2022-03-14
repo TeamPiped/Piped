@@ -1,8 +1,8 @@
 {
     "titles": {
         "trending": "Тренды",
-        "login": "Войти",
-        "register": "Зарегистрироваться",
+        "login": "Вход",
+        "register": "Регистрация",
         "feed": "Подписки",
         "preferences": "Настройки",
         "history": "История просмотров",
@@ -79,7 +79,10 @@
         "instance_name": "Название",
         "instance_locations": "Местоположение",
         "has_cdn": "Наличие CDN",
-        "ssl_score": "Оценка настроек SSL"
+        "ssl_score": "Оценка настроек SSL",
+        "registered_users": "Зарегистрировано пользователей",
+        "version": "Версия",
+        "up_to_date": "Версия актуальна?"
     },
     "login": {
         "username": "Аккаунт на Piped",
