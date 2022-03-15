@@ -9,7 +9,7 @@
         "unsubscribe": "取消訂閱",
         "subscribe": "訂閱",
         "sort_by": "排序依據：",
-        "view_subscriptions": "檢視訂閱項目",
+        "view_subscriptions": "檢視訂閱內容",
         "language_selection": "選擇語言",
         "skip_non_music": "跳過音樂中的非音樂片段",
         "theme": "主題",
@@ -60,7 +60,7 @@
         "trending": "趨勢",
         "register": "註冊",
         "login": "登入",
-        "subscriptions": "訂閱項目"
+        "subscriptions": "訂閱內容"
     },
     "preferences": {
         "registered_users": "已註冊的使用者",
