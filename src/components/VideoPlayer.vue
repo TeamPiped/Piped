@@ -183,8 +183,9 @@ export default {
 
             videoEl.setAttribute("poster", this.video.thumbnailUrl);
 
-            if (this.$route.query.t) {
-                const time = this.$route.query.t;
+            const time = this.$route.query.t ?? this.$route.query.start;
+
+            if (time) {
                 let start = 0;
                 if (/^[\d]*$/g.test(time)) {
                     start = time;
