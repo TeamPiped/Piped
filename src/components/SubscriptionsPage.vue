@@ -15,7 +15,7 @@
             <div class="flex justify-center place-items-center">
                 <div class="w-full grid grid-cols-3">
                     <router-link :to="subscription.url" class="col-start-2 block flex text-center font-bold text-4xl">
-                        <img :src="subscription.avatar" class="rounded-full" width="48" height="48" />
+                        <img :src="subscription.avatar" class="rounded-full channel" width="48" height="48" />
                         <span v-text="subscription.name" />
                     </router-link>
                     <button
@@ -95,3 +95,8 @@ export default {
     },
 };
 </script>
+<style>
+img.rounded-full.channel {
+    height: fit-content;
+}
+</style>
