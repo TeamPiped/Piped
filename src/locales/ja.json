@@ -68,7 +68,9 @@
         "clear_history": "履歴を消去",
         "show_replies": "返信を表示",
         "hide_replies": "返信を非表示",
-        "load_more_replies": "もっと見る"
+        "load_more_replies": "もっと見る",
+        "skip_filler_tangent": "無関係なコンテンツをスキップ",
+        "skip_highlight": "要点をスキップ"
     },
     "comment": {
         "pinned_by": "固定されたコメント"
@@ -77,7 +79,10 @@
         "instance_name": "インスタンス名",
         "instance_locations": "インスタンスの場所",
         "has_cdn": "CDNの有無",
-        "ssl_score": "SSLスコア"
+        "ssl_score": "SSLスコア",
+        "registered_users": "登録済みユーザー",
+        "version": "バージョン",
+        "up_to_date": "最新か否か"
     },
     "login": {
         "username": "ユーザー名",
@@ -85,12 +90,22 @@
     },
     "video": {
         "videos": "ビデオ",
-        "views": "視聴",
+        "views": "{views}視聴",
         "watched": "視聴済み",
         "sponsor_segments": "スポンサーによる広告",
-        "ratings_disabled": "評価は無効化されています"
+        "ratings_disabled": "評価は無効化されています",
+        "chapters": "チャプター",
+        "live": "{0}ライブ"
     },
     "search": {
-        "did_you_mean": "もしかして: "
+        "did_you_mean": "もしかして: {0}?",
+        "all": "Youtube: 全て",
+        "videos": "Youtube: ビデオ",
+        "channels": "Youtube: チャンネル",
+        "playlists": "Youtube: 再生リスト",
+        "music_songs": "YT Music: 音楽",
+        "music_videos": "YT Music: ビデオ",
+        "music_albums": "YT Music: アルバム",
+        "music_playlists": "YT Music: 再生リスト"
     }
 }

@@ -1,16 +1,57 @@
 {
     "actions": {
-        "skip_intro": "跳過中場休息/介紹動畫",
-        "skip_sponsors": "跳過贊助商",
+        "skip_intro": "跳過中場休息／開場動畫",
+        "skip_sponsors": "跳過贊助廣告",
         "enable_sponsorblock": "啟用 SponsorBlock",
-        "country_selection": "國家/地區選擇",
-        "channel_name_desc": "通道名稱 (Z-A)",
-        "channel_name_asc": "通道名稱 (A-Z)",
+        "country_selection": "選擇國家",
+        "channel_name_desc": "頻道名 (Z-A)",
+        "channel_name_asc": "頻道名 (A-Z)",
         "unsubscribe": "取消訂閱",
         "subscribe": "訂閱",
-        "sort_by": "排序方式:",
-        "view_subscriptions": "查看訂閱",
-        "language_selection": "語言選擇"
+        "sort_by": "排序依據：",
+        "view_subscriptions": "檢視訂閱內容",
+        "language_selection": "選擇語言",
+        "skip_non_music": "跳過音樂中的非音樂片段",
+        "theme": "主題",
+        "show_description": "顯示說明",
+        "least_recent": "最早",
+        "skip_interaction": "跳過互動（訂閱）提醒",
+        "skip_self_promo": "跳過無酬／自我行銷",
+        "audio_only": "僅聲音",
+        "default_quality": "預設品質",
+        "show_comments": "顯示留言",
+        "default_homepage": "預設首頁",
+        "store_watch_history": "儲存觀看記錄",
+        "minimize_description": "最小化說明",
+        "search": "搜尋",
+        "show_recommendations": "顯示推薦",
+        "minimize_recommendations": "最小化推薦",
+        "most_recent": "最新",
+        "back": "返回",
+        "skip_outro": "跳過片尾插圖／工作人員名單",
+        "skip_preview": "跳過預覽／回顧",
+        "autoplay_video": "自動播放影片",
+        "buffering_goal": "緩衝目標（秒）",
+        "skip_highlight": "跳過精采整理",
+        "auto": "自動",
+        "dark": "暗色",
+        "light": "亮色",
+        "minimize_description_default": "預設情況下最小化影片說明",
+        "enabled_codecs": "已啟用的轉碼器（可複選）",
+        "show_more": "顯示詳情",
+        "yes": "是",
+        "no": "否",
+        "export_to_json": "以 JSON 匯出",
+        "import_from_json": "從 JSON 匯入",
+        "loop_this_video": "循環播放此影片",
+        "auto_play_next_video": "自動播放下一部影片",
+        "donations": "捐款",
+        "filter": "篩選",
+        "loading": "載入中……",
+        "clear_history": "清除記錄",
+        "show_replies": "顯示回覆",
+        "hide_replies": "隱藏回覆",
+        "load_more_replies": "載入更多回覆"
     },
     "titles": {
         "history": "歷史記錄",
@@ -18,6 +59,37 @@
         "feed": "摘要",
         "trending": "趨勢",
         "register": "註冊",
-        "login": "登錄"
+        "login": "登入",
+        "subscriptions": "訂閱內容"
+    },
+    "preferences": {
+        "registered_users": "已註冊的使用者",
+        "version": "版本",
+        "has_cdn": "是否有 CDN？"
+    },
+    "login": {
+        "username": "使用者名",
+        "password": "密碼"
+    },
+    "video": {
+        "videos": "影片",
+        "watched": "有看過",
+        "sponsor_segments": "贊助廣告片段",
+        "ratings_disabled": "評價已停用",
+        "chapters": "章節"
+    },
+    "search": {
+        "did_you_mean": "您是否想找 {0}？",
+        "music_playlists": "YT Music：播放清單",
+        "videos": "YouTube：影片",
+        "channels": "YouTube：頻道",
+        "all": "YouTube：所有",
+        "playlists": "YouTube：播放清單",
+        "music_songs": "YT Music：歌曲",
+        "music_videos": "YT Music：影片",
+        "music_albums": "YT Music：專輯"
+    },
+    "comment": {
+        "pinned_by": "置頂者："
     }
 }
