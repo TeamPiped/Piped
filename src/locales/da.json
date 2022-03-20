@@ -1,1 +1,18 @@
-{}
+{
+    "titles": {
+        "login": "Log ind",
+        "register": "Registrer",
+        "feed": "Strøm",
+        "preferences": "Indstillinger",
+        "history": "Historik",
+        "subscriptions": "Abonnementer",
+        "trending": "På vei op"
+    },
+    "player": {
+        "watch_on": "Kig på"
+    },
+    "actions": {
+        "subscribe": "Abonner",
+        "unsubscribe": "Ophæv abonnement"
+    }
+}
