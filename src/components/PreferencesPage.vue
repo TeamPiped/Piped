@@ -222,6 +222,7 @@ export default {
                 { code: "bn", name: "বাংলা" },
                 { code: "ca", name: "Català" },
                 { code: "cs", name: "Čeština" },
+                { code: "da", name: "Dansk" },
                 { code: "de", name: "Deutsch" },
                 { code: "el", name: "Ελληνικά" },
                 { code: "es", name: "Español" },
