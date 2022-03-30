@@ -9,9 +9,9 @@
         "feed": "फ़ीड"
     },
     "actions": {
-        "subscribe": "सदस्यता लें",
+        "subscribe": "सदस्यता लें - {count}",
         "back": "वापस जाओ",
-        "unsubscribe": "सदस्यता ले ली है",
+        "unsubscribe": "सदस्यता ले ली है - {count}",
         "no": "नहीं",
         "show_replies": "जवाब देखें",
         "hide_replies": "जवाब छिपाएं",

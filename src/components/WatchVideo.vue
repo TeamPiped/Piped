@@ -77,7 +77,10 @@
                     v-if="authenticated"
                     class="btn relative ml-auto"
                     @click="subscribeHandler"
-                    v-t="`actions.${subscribed ? 'unsubscribe' : 'subscribe'}`"
+                    v-t="{
+                        path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
+                        args: { count: numberFormat(video.uploaderSubscriberCount) },
+                    }"
                 />
             </div>
 

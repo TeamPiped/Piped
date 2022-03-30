@@ -12,8 +12,8 @@
         "watch_on": "দেখুন"
     },
     "actions": {
-        "subscribe": "সদস্যতা নিন",
-        "unsubscribe": "সদস্যতা পরিত্যাগ",
+        "subscribe": "সদস্যতা নিন - {count}",
+        "unsubscribe": "সদস্যতা পরিত্যাগ - {count}",
         "view_subscriptions": "সদস্যতার তালিকা",
         "sort_by": "ভিডিও গুলোর বিন্যাস:",
         "most_recent": "সবচেয়ে সাম্প্রতিক",

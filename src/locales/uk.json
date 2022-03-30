@@ -7,7 +7,7 @@
         "password": "Пароль"
     },
     "actions": {
-        "unsubscribe": "Відписатись",
+        "unsubscribe": "Відписатись - {count}",
         "back": "Назад",
         "skip_intro": "Пропускати заставку/інтро",
         "dark": "Темна",
@@ -35,7 +35,7 @@
         "clear_history": "Очистити історію перегляду",
         "show_replies": "Показати відповіді",
         "load_more_replies": "Завантажити більше відповідей",
-        "subscribe": "Підписатись",
+        "subscribe": "Підписатись - {count}",
         "sort_by": "Відсортувати по:",
         "most_recent": "Найновіші",
         "channel_name_desc": "Назва каналу (Z-A)",

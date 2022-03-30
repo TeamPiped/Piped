@@ -12,8 +12,8 @@
         "watch_on": "Watch on {0}"
     },
     "actions": {
-        "subscribe": "Subscribe",
-        "unsubscribe": "Unsubscribe",
+        "subscribe": "Subscribe - {count}",
+        "unsubscribe": "Unsubscribe - {count}",
         "view_subscriptions": "View Subscriptions",
         "sort_by": "Sort by:",
         "most_recent": "Most Recent",

@@ -12,8 +12,8 @@
         "watch_on": "Смотреть на {0}"
     },
     "actions": {
-        "subscribe": "Подписаться",
-        "unsubscribe": "Отписаться",
+        "subscribe": "Подписаться - {count}",
+        "unsubscribe": "Отписаться - {count}",
         "view_subscriptions": "Просмотреть подписки",
         "sort_by": "Отсортировать по:",
         "most_recent": "Самые новые",

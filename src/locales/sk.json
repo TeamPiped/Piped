@@ -34,8 +34,8 @@
         "most_recent": "Najnovšie",
         "sort_by": "Zoradiť podľa:",
         "view_subscriptions": "Zobraziť odbery",
-        "unsubscribe": "Zrušiť odber",
-        "subscribe": "Odberať",
+        "unsubscribe": "Zrušiť odber - {count}",
+        "subscribe": "Odberať - {count}",
         "minimize_recommendations": "Minimalizujte odporúčania",
         "show_recommendations": "Zobraziť odporúčania"
     },

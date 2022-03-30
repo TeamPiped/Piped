@@ -12,11 +12,11 @@
         "watch_on": "Tonton di {0}"
     },
     "actions": {
-        "subscribe": "Berlangganan",
+        "subscribe": "Berlangganan - {count}",
         "view_subscriptions": "Lihat Langganan",
         "sort_by": "Sortir bedasarkan oleh:",
         "least_recent": "Baru",
-        "unsubscribe": "Berhenti Berlangganan",
+        "unsubscribe": "Berhenti Berlangganan - {count}",
         "channel_name_asc": "Nama Saluran (A-Z)",
         "channel_name_desc": "Nama Saluran (Z-A)",
         "back": "Kembali",
