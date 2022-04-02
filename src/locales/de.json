@@ -1,10 +1,10 @@
 {
     "actions": {
-        "skip_outro": "Nachspann überspringen",
+        "skip_outro": "Abspann überspringen",
         "skip_non_music": "Musik überspringen: Nicht-Musik-Bereich",
         "skip_self_promo": "Unbezahlte Werbung/Eigenwerbung überspringen",
         "skip_interaction": "Interaktionserinnerung überspringen (Abonnieren)",
-        "skip_preview": "Vorschau/Zusammenfassung überspringen",
+        "skip_preview": "Vorschau/Rückschau überspringen",
         "instances_list": "Liste der Instanzen",
         "language_selection": "Sprachauswahl",
         "store_watch_history": "Wiedergabeverlauf speichern",
@@ -20,7 +20,7 @@
         "dark": "Dunkel",
         "auto": "Automatisch",
         "theme": "Farbschema",
-        "skip_intro": "Pausen-/Einführungsanimation überspringen",
+        "skip_intro": "Pausen-/Intro-Animation überspringen",
         "skip_sponsors": "Sponsoren überspringen",
         "enable_sponsorblock": "Sponsorblock einschalten",
         "uses_api_from": "Verwendet die API von ",
@@ -57,7 +57,8 @@
         "show_replies": "Antworten anzeigen",
         "hide_replies": "Antworten ausblenden",
         "load_more_replies": "Mehr Antworten laden",
-        "skip_highlight": "Hohepunkte überspringen"
+        "skip_highlight": "Höhepunkt überspringen",
+        "skip_filler_tangent": "Lückenfüller überspringen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
