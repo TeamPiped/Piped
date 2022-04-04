@@ -15,18 +15,18 @@
         "auto": "Tự động",
         "buffering_goal": "Bộ nhớ đệm (tính bằng giây)",
         "least_recent": "Ít nhất gần đây",
-        "skip_intro": "Bỏ qua Intermission/Giới thiệu Animation",
-        "skip_outro": "Bỏ qua Endcards/Tín dụng",
+        "skip_intro": "Bỏ qua gián đoạn/Giới thiệu hoạt ảnh",
+        "skip_outro": "Bỏ qua màn hình kết thúc/Tín dụng",
         "skip_interaction": "Bỏ qua lời nhắc tương tác (Đăng ký)",
         "skip_preview": "Bỏ qua xem trước/Tóm tắt",
-        "skip_self_promo": "Bỏ qua Unpaid/Tự quảng cáo",
+        "skip_self_promo": "Bỏ qua thanh toán/Tự quảng cáo",
         "skip_non_music": "Bỏ qua âm nhạc: Phần không phải âm nhạc",
         "skip_highlight": "Bỏ qua phần đánh dấu",
-        "skip_filler_tangent": "Bỏ qua Filler Tangent",
+        "skip_filler_tangent": "Bỏ qua những đoạn không liên quan",
         "country_selection": "Lựa chọn quốc gia",
         "default_homepage": "Trang chủ mặc định",
         "show_comments": "Hiển thị bình luận",
-        "store_watch_history": "Lịch sử xem Store",
+        "store_watch_history": "Lịch sử xem trên cửa hàng",
         "language_selection": "Lựa chọn ngôn ngữ",
         "instances_list": "Danh sách phiên bản",
         "show_more": "Hiện thị nhiều hơn",
@@ -66,7 +66,8 @@
         "history": "Lịch sử",
         "subscriptions": "Đăng ký",
         "trending": "Xu hướng",
-        "login": "Đăng nhập"
+        "login": "Đăng nhập",
+        "feed": "Cập nhật thường xuyên"
     },
     "player": {
         "watch_on": "Xem trên {0}"
