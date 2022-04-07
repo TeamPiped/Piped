@@ -73,15 +73,21 @@
                     />
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
                 </div>
-                <button
-                    v-if="authenticated"
-                    class="btn relative ml-auto"
-                    @click="subscribeHandler"
-                    v-t="{
-                        path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                        args: { count: numberFormat(video.uploaderSubscriberCount) },
-                    }"
-                />
+                <div class="relative ml-auto children:mx-2">
+                    <button class="btn" v-if="authenticated" @click="showModal = !showModal">
+                        {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
+                    </button>
+                    <button
+                        class="btn"
+                        v-if="authenticated"
+                        @click="subscribeHandler"
+                        v-t="{
+                            path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
+                            args: { count: numberFormat(video.uploaderSubscriberCount) },
+                        }"
+                    />
+                </div>
+                <PlaylistAddModal v-if="showModal" :video-id="getVideoId()" @close="showModal = !showModal" />
             </div>
 
             <hr />
@@ -149,6 +155,7 @@ import VideoItem from "@/components/VideoItem.vue";
 import ErrorHandler from "@/components/ErrorHandler.vue";
 import CommentItem from "@/components/CommentItem.vue";
 import Chapters from "@/components/Chapters.vue";
+import PlaylistAddModal from "./PlaylistAddModal.vue";
 
 export default {
     name: "App",
@@ -158,6 +165,7 @@ export default {
         ErrorHandler,
         CommentItem,
         Chapters,
+        PlaylistAddModal,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
@@ -176,6 +184,7 @@ export default {
             active: true,
             smallViewQuery: smallViewQuery,
             smallView: smallViewQuery.matches,
+            showModal: false,
         };
     },
     computed: {
