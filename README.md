@@ -27,6 +27,7 @@ By using Piped, you can freely watch and listen to content freely without the fe
 -   [x] Light/Dark themes
 -   [x] Login
 -   [x] Feeds
+-   [x] Playlists
 -   [x] Integration with SponsorBlock
 -   [x] Integration with [LBRY](https://lbry.com/) for streaming
 -   [x] 4K support
