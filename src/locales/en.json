@@ -6,7 +6,8 @@
         "feed": "Feed",
         "preferences": "Preferences",
         "history": "History",
-        "subscriptions": "Subscriptions"
+        "subscriptions": "Subscriptions",
+        "playlists": "Playlists"
     },
     "player": {
         "watch_on": "Watch on {0}"
@@ -70,7 +71,15 @@
         "clear_history": "Clear History",
         "show_replies": "Show Replies",
         "hide_replies": "Hide Replies",
-        "load_more_replies": "Load more Replies"
+        "load_more_replies": "Load more Replies",
+        "add_to_playlist": "Add to playlist",
+        "remove_from_playlist": "Remove from playlist",
+        "delete_playlist_video_confirm": "Are you sure you would like to remove this video from this playlist?",
+        "create_playlist": "Create Playlist",
+        "delete_playlist": "Delete Playlist",
+        "select_playlist": "Select a Playlist",
+        "delete_playlist_confirm": "Are you sure you want to delete this playlist?",
+        "please_select_playlist": "Please select a playlist"
     },
     "comment": {
         "pinned_by": "Pinned by"

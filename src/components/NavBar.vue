@@ -40,6 +40,9 @@
                     <router-link v-t="'titles.history'" to="/history" />
                 </li>
                 <li v-if="authenticated">
+                    <router-link v-t="'titles.playlists'" to="/playlists" />
+                </li>
+                <li v-if="authenticated">
                     <router-link v-t="'titles.feed'" to="/feed" />
                 </li>
             </ul>
