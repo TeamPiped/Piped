@@ -55,6 +55,7 @@ export default {
     },
     mounted() {
         this.fetchPlaylists();
+        this.selectedPlaylist = this.getPreferenceString("selectedPlaylist" + this.hashCode(this.apiUrl()));
     },
     methods: {
         handleClick(playlistId) {
@@ -76,6 +77,7 @@ export default {
                     "Content-Type": "application/json",
                 },
             }).then(json => {
+                this.setPreference("selectedPlaylist" + this.hashCode(this.apiUrl()), playlistId);
                 this.$emit("close");
                 if (json.error) alert(json.error);
             });
