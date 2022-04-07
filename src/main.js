@@ -14,6 +14,9 @@ import {
     faTv,
     faLevelUpAlt,
     faBroadcastTower,
+    faCirclePlus,
+    faCircleMinus,
+    faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -34,6 +37,9 @@ library.add(
     faLevelUpAlt,
     faTv,
     faBroadcastTower,
+    faCirclePlus,
+    faCircleMinus,
+    faXmark,
 );
 
 import router from "@/router/router.js";

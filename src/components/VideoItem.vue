@@ -24,7 +24,7 @@
             </div>
         </router-link>
 
-        <div class="float-right m-0 inline-block">
+        <div class="float-right m-0 inline-block children:px-1">
             <router-link
                 :to="video.url + '&listen=1'"
                 :aria-label="'Listen to ' + video.title"
@@ -32,6 +32,18 @@
             >
                 <font-awesome-icon icon="headphones" />
             </router-link>
+            <button v-if="authenticated" :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
+                <font-awesome-icon icon="circle-plus" />
+            </button>
+            <button
+                v-if="admin"
+                :title="$t('actions.remove_from_playlist')"
+                ref="removeButton"
+                @click="removeVideo(video.url.substr(-11))"
+            >
+                <font-awesome-icon icon="circle-minus" />
+            </button>
+            <PlaylistAddModal v-if="showModal" :video-id="video.url.substr(-11)" @close="showModal = !showModal" />
         </div>
 
         <div class="flex">
@@ -82,6 +94,8 @@
 </style>
 
 <script>
+import PlaylistAddModal from "./PlaylistAddModal.vue";
+
 export default {
     props: {
         video: {
@@ -93,6 +107,36 @@ export default {
         height: { type: String, default: "118" },
         width: { type: String, default: "210" },
         hideChannel: { type: Boolean, default: false },
+        index: { type: Number, default: -1 },
+        playlistId: { type: String, default: null },
+        admin: { type: Boolean, default: false },
     },
+    data() {
+        return {
+            showModal: false,
+        };
+    },
+    methods: {
+        removeVideo() {
+            if (confirm(this.$t("actions.delete_playlist_video_confirm"))) {
+                this.$refs.removeButton.disabled = true;
+                this.fetchJson(this.apiUrl() + "/user/playlists/remove", null, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        playlistId: this.playlistId,
+                        index: this.index,
+                    }),
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                        "Content-Type": "application/json",
+                    },
+                }).then(json => {
+                    if (json.error) alert(json.error);
+                    else this.$emit("remove");
+                });
+            }
+        },
+    },
+    components: { PlaylistAddModal },
 };
 </script>

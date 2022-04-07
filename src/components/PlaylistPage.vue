@@ -26,9 +26,13 @@
 
         <div class="video-grid">
             <VideoItem
-                v-for="video in playlist.relatedStreams"
+                v-for="(video, index) in playlist.relatedStreams"
                 :key="video.url"
                 :video="video"
+                :index="index"
+                :playlist-id="$route.query.list"
+                :admin="admin"
+                @remove="removeVideo(index)"
                 height="94"
                 width="168"
             />
@@ -48,6 +52,7 @@ export default {
     data() {
         return {
             playlist: null,
+            admin: false,
         };
     },
     computed: {
@@ -57,6 +62,16 @@ export default {
     },
     mounted() {
         this.getPlaylistData();
+        const playlistId = this.$route.query.list;
+        if (this.authenticated && playlistId?.length == 36)
+            this.fetchJson(this.apiUrl() + "/user/playlists", null, {
+                headers: {
+                    Authorization: this.getAuthToken(),
+                },
+            }).then(json => {
+                if (json.error) alert(json.error);
+                else if (json.filter(playlist => playlist.id === playlistId).length > 0) this.admin = true;
+            });
     },
     activated() {
         window.addEventListener("scroll", this.handleScroll);
@@ -86,6 +101,9 @@ export default {
                     json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
                 });
             }
+        },
+        removeVideo(index) {
+            this.playlist.relatedStreams.splice(index, 1);
         },
     },
 };
