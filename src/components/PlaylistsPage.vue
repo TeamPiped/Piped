@@ -64,19 +64,20 @@ export default {
         },
         createPlaylist() {
             const name = prompt(this.$t("actions.create_playlist"));
-            this.fetchJson(this.apiUrl() + "/user/playlists/create", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    name: name,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            }).then(json => {
-                if (json.error) alert(json.error);
-                else this.fetchPlaylists();
-            });
+            if (name)
+                this.fetchJson(this.apiUrl() + "/user/playlists/create", null, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        name: name,
+                    }),
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                        "Content-Type": "application/json",
+                    },
+                }).then(json => {
+                    if (json.error) alert(json.error);
+                    else this.fetchPlaylists();
+                });
         },
     },
 };
