@@ -58,7 +58,15 @@
         "hide_replies": "Yanıtları Gizle",
         "load_more_replies": "Daha Fazla Yanıt Yükle",
         "skip_highlight": "Özeti Atla",
-        "skip_filler_tangent": "Doldurma Sahnelerini Atla"
+        "skip_filler_tangent": "Doldurma Sahnelerini Atla",
+        "delete_playlist_confirm": "Bu oynatma listesini silmek istediğinizden emin misiniz?",
+        "delete_playlist_video_confirm": "Bu videoyu bu oynatma listesinden kaldırmak istediğinizden emin misiniz?",
+        "remove_from_playlist": "Oynatma listesinden kaldır",
+        "delete_playlist": "Oynatma Listesini Sil",
+        "add_to_playlist": "Oynatma listesine ekle",
+        "create_playlist": "Oynatma Listesi Oluştur",
+        "select_playlist": "Oynatma Listesi Seç",
+        "please_select_playlist": "Lütfen bir oynatma listesi seçin"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
@@ -70,7 +78,8 @@
         "register": "Kaydol",
         "login": "Oturum Aç",
         "trending": "Öne Çıkanlar",
-        "subscriptions": "Abonelikler"
+        "subscriptions": "Abonelikler",
+        "playlists": "Oynatma Listeleri"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
