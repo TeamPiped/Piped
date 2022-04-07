@@ -251,6 +251,7 @@ export default {
                 { code: "th", name: "ไทย" },
                 { code: "tr", name: "Türkçe" },
                 { code: "uk", name: "Українська" },
+                { code: "vi", name: "Tiếng Việt" },
                 { code: "zh_Hant", name: "繁體中文" },
                 { code: "zh_Hans", name: "简体中文" },
             ],
