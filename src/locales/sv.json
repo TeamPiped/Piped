@@ -6,7 +6,8 @@
         "register": "Registrera",
         "subscriptions": "Prenumerationer",
         "feed": "Flöde",
-        "history": "Historik"
+        "history": "Historik",
+        "playlists": "Spellistor"
     },
     "actions": {
         "subscribe": "Prenumerera - {count}",
@@ -67,7 +68,15 @@
         "clear_history": "Rensa historik",
         "show_replies": "Visa svar",
         "skip_filler_tangent": "Hoppa över påfyllningstangent",
-        "skip_highlight": "Hoppa över höjdpunkt"
+        "skip_highlight": "Hoppa över höjdpunkt",
+        "add_to_playlist": "Lägg till i spellistan",
+        "remove_from_playlist": "Ta bort från spellistan",
+        "please_select_playlist": "Välj en spellista",
+        "select_playlist": "Välj en spellista",
+        "delete_playlist_video_confirm": "Är du säker på att du vill ta bort den här videon från den här spellistan?",
+        "create_playlist": "Skapa spellista",
+        "delete_playlist": "Ta bort spellista",
+        "delete_playlist_confirm": "Är du säker på att du vill ta bort den här spellistan?"
     },
     "player": {
         "watch_on": "Titta på {0}"
