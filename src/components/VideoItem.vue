@@ -1,6 +1,15 @@
 <template>
     <div>
-        <router-link :to="video.url">
+        <router-link
+            :to="{
+                path: '/watch',
+                query: {
+                    v: video.url.substr(-11),
+                    ...(playlistId && { list: playlistId }),
+                    ...(index >= 0 && { index: index + 1 }),
+                },
+            }"
+        >
             <img :height="height" :width="width" class="w-full" :src="video.thumbnail" alt="" loading="lazy" />
             <div class="relative text-sm">
                 <span
@@ -26,7 +35,15 @@
 
         <div class="float-right m-0 inline-block children:px-1">
             <router-link
-                :to="video.url + '&listen=1'"
+                :to="{
+                    path: '/watch',
+                    query: {
+                        v: video.url.substr(-11),
+                        ...(playlistId && { list: playlistId }),
+                        ...(index >= 0 && { index: index + 1 }),
+                        listen: '1',
+                    },
+                }"
                 :aria-label="'Listen to ' + video.title"
                 :title="'Listen to ' + video.title"
             >
