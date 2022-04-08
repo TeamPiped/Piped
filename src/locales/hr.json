@@ -70,7 +70,7 @@
         "skip_intro": "Preskoči pauzu i uvodnu animaciju",
         "skip_sponsors": "Preskoči sponzore",
         "enable_sponsorblock": "Uključi blok sponsora",
-        "loading": "Učitavanje …",
+        "loading": "Učitavanje…",
         "filter": "Filtar",
         "search": "Pretraga",
         "view_ssl_score": "Prikaži SSL ocjenu",
@@ -112,8 +112,8 @@
         "videos": "YouTube: Video",
         "channels": "YouTube: Kanali",
         "playlists": "YouTube: popisi snimaka",
-        "music_songs": "YT Music: Pjesme",
-        "music_videos": "YT Music: Video",
+        "music_songs": "YT Music: Glazbe",
+        "music_videos": "YT Music: Video snimci",
         "music_albums": "YT Music: Albumi",
         "music_playlists": "YT Music: popisi snimaka"
     }
