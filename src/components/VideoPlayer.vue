@@ -379,8 +379,6 @@ export default {
                                         searchParams.set("index", this.index + 1);
                                     break;
                                 case "list":
-                                    console.log(this.index);
-                                    console.log(this.playlist.relatedStreams.length);
                                     if (this.index < this.playlist.relatedStreams.length)
                                         searchParams.set("list", params.list);
                                     break;
