@@ -93,7 +93,7 @@
         "watch_on": "在 {0} 观看"
     },
     "titles": {
-        "feed": "RSS源",
+        "feed": "RSS 订阅源",
         "subscriptions": "订阅",
         "history": "历史",
         "preferences": "设置",
