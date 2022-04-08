@@ -58,7 +58,15 @@
         "hide_replies": "Antworten ausblenden",
         "load_more_replies": "Mehr Antworten laden",
         "skip_highlight": "Höhepunkt überspringen",
-        "skip_filler_tangent": "Lückenfüller überspringen"
+        "skip_filler_tangent": "Lückenfüller überspringen",
+        "delete_playlist_confirm": "Sind Sie sicher, dass Sie diese Wiedergabeliste löschen möchten?",
+        "remove_from_playlist": "Aus Wiedergabeliste entfernen",
+        "add_to_playlist": "Zur Wiedergabeliste hinzufügen",
+        "create_playlist": "Wiedergabeliste erstellen",
+        "delete_playlist_video_confirm": "Sind Sie sicher, dass Sie dieses Video aus dieser Wiedergabeliste entfernen möchten?",
+        "delete_playlist": "Wiedergabeliste löschen",
+        "please_select_playlist": "Bitte wählen Sie eine Wiedergabeliste",
+        "select_playlist": "Wählen Sie eine Wiedergabeliste"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -70,7 +78,8 @@
         "register": "Registrieren",
         "login": "Anmelden",
         "trending": "Trends",
-        "subscriptions": "Abonnements"
+        "subscriptions": "Abonnements",
+        "playlists": "Wiedergabelisten"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Segmente",
