@@ -75,6 +75,7 @@ export default {
     },
     activated() {
         window.addEventListener("scroll", this.handleScroll);
+        if (this.playlist) this.updateTitle();
     },
     deactivated() {
         window.removeEventListener("scroll", this.handleScroll);
@@ -86,7 +87,10 @@ export default {
         async getPlaylistData() {
             this.fetchPlaylist()
                 .then(data => (this.playlist = data))
-                .then(() => (document.title = this.playlist.name + " - Piped"));
+                .then(() => this.updateTitle());
+        },
+        async updateTitle() {
+            document.title = this.playlist.name + " - Piped";
         },
         handleScroll() {
             if (this.loading || !this.playlist || !this.playlist.nextpage) return;

@@ -4,6 +4,8 @@
             ref="videoPlayer"
             :video="video"
             :sponsors="sponsors"
+            :playlist="playlist"
+            :index="index"
             :selected-auto-play="false"
             :selected-auto-loop="selectedAutoLoop"
             :is-embed="isEmbed"
@@ -18,6 +20,8 @@
                 ref="videoPlayer"
                 :video="video"
                 :sponsors="sponsors"
+                :playlist="playlist"
+                :index="index"
                 :selected-auto-play="selectedAutoPlay"
                 :selected-auto-loop="selectedAutoLoop"
             />
@@ -128,6 +132,12 @@
             </div>
 
             <div v-if="video" class="order-first sm:order-last">
+                <PlaylistVideos
+                    v-if="playlist"
+                    :playlist-id="playlistId"
+                    :playlist="playlist"
+                    :selected-index="index"
+                />
                 <a
                     class="btn mb-2 sm:hidden"
                     @click="showRecs = !showRecs"
@@ -156,6 +166,7 @@ import ErrorHandler from "./ErrorHandler.vue";
 import CommentItem from "./CommentItem.vue";
 import Chapters from "./Chapters.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
+import PlaylistVideos from "./PlaylistVideos.vue";
 
 export default {
     name: "App",
@@ -166,6 +177,7 @@ export default {
         CommentItem,
         Chapters,
         PlaylistAddModal,
+        PlaylistVideos,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
@@ -173,6 +185,9 @@ export default {
             video: {
                 title: "Loading...",
             },
+            playlistId: null,
+            playlist: null,
+            index: null,
             sponsors: null,
             selectedAutoLoop: false,
             selectedAutoPlay: null,
@@ -237,6 +252,9 @@ export default {
             })();
             if (this.active) this.$refs.videoPlayer.loadVideo();
         });
+        this.playlistId = this.$route.query.list;
+        this.index = Number(this.$route.query.index);
+        this.getPlaylistData();
         this.getSponsors();
         if (!this.isEmbed && this.getPreferenceBoolean("comments", true)) this.getComments();
         window.addEventListener("resize", () => {
@@ -306,6 +324,36 @@ export default {
                             .replaceAll("\n", "<br>");
                     }
                 });
+        },
+        async getPlaylistData() {
+            if (this.playlistId) {
+                await this.fetchJson(this.apiUrl() + "/playlists/" + this.playlistId).then(data => {
+                    this.playlist = data;
+                });
+                await this.fetchPlaylistPages().then(() => {
+                    if (!(this.index >= 0)) {
+                        for (let i = 0; i < this.playlist.relatedStreams.length; i++)
+                            if (this.playlist.relatedStreams[i].url.substr(-11) == this.getVideoId()) {
+                                this.index = i + 1;
+                                this.$router.replace({
+                                    query: { ...this.$route.query, index: this.index },
+                                });
+                                break;
+                            }
+                    }
+                });
+            }
+        },
+        async fetchPlaylistPages() {
+            if (this.playlist.nextpage) {
+                await this.fetchJson(this.apiUrl() + "/nextpage/playlists/" + this.playlistId, {
+                    nextpage: this.playlist.nextpage,
+                }).then(json => {
+                    this.playlist.relatedStreams = this.playlist.relatedStreams.concat(json.relatedStreams);
+                    this.playlist.nextpage = json.nextpage;
+                });
+                await this.fetchPlaylistPages();
+            }
         },
         async getSponsors() {
             if (this.getPreferenceBoolean("sponsorblock", true))

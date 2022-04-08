@@ -7,7 +7,7 @@ export default {
     activated() {
         const videoId = this.$route.params.videoId;
         if (videoId)
-            this.$router.push({
+            this.$router.replace({
                 path: "/watch",
                 query: { v: videoId },
             });

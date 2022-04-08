@@ -24,6 +24,14 @@ export default {
                 return {};
             },
         },
+        playlist: {
+            type: Object,
+            default: null,
+        },
+        index: {
+            type: Number,
+            default: -1,
+        },
         sponsors: {
             type: Object,
             default: () => {
@@ -38,6 +46,7 @@ export default {
         return {
             lastUpdate: new Date().getTime(),
             initialSeekComplete: false,
+            destroying: false,
         };
     },
     computed: {
@@ -171,9 +180,11 @@ export default {
         });
     },
     deactivated() {
+        this.destroying = true;
         this.destroy(true);
     },
     unmounted() {
+        this.destroying = true;
         this.destroy(true);
     },
     methods: {
@@ -281,6 +292,7 @@ export default {
 
             if (noPrevPlayer)
                 this.shakaPromise.then(() => {
+                    if (this.destroying) return;
                     this.shaka.polyfill.installAll();
 
                     const localPlayer = new this.shaka.Player(videoEl);
@@ -355,12 +367,22 @@ export default {
                 videoEl.addEventListener("ended", () => {
                     if (!this.selectedAutoLoop && this.selectedAutoPlay && this.video.relatedStreams.length > 0) {
                         const params = this.$route.query;
-                        let url = this.video.relatedStreams[0].url;
+                        let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
                         const searchParams = new URLSearchParams();
                         for (var param in params)
                             switch (param) {
                                 case "v":
                                 case "t":
+                                    break;
+                                case "index":
+                                    if (this.index < this.playlist.relatedStreams.length)
+                                        searchParams.set("index", this.index + 1);
+                                    break;
+                                case "list":
+                                    console.log(this.index);
+                                    console.log(this.playlist.relatedStreams.length);
+                                    if (this.index < this.playlist.relatedStreams.length)
+                                        searchParams.set("list", params.list);
                                     break;
                                 default:
                                     searchParams.set(param, params[param]);
