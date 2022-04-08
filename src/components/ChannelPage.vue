@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import ErrorHandler from "@/components/ErrorHandler.vue";
-import VideoItem from "@/components/VideoItem.vue";
+import ErrorHandler from "./ErrorHandler.vue";
+import VideoItem from "./VideoItem.vue";
 
 export default {
     components: {

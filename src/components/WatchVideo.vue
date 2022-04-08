@@ -150,11 +150,11 @@
 </template>
 
 <script>
-import VideoPlayer from "@/components/VideoPlayer.vue";
-import VideoItem from "@/components/VideoItem.vue";
-import ErrorHandler from "@/components/ErrorHandler.vue";
-import CommentItem from "@/components/CommentItem.vue";
-import Chapters from "@/components/Chapters.vue";
+import VideoPlayer from "./VideoPlayer.vue";
+import VideoItem from "./VideoItem.vue";
+import ErrorHandler from "./ErrorHandler.vue";
+import CommentItem from "./CommentItem.vue";
+import Chapters from "./Chapters.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 
 export default {

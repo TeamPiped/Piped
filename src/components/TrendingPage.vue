@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import VideoItem from "@/components/VideoItem.vue";
+import VideoItem from "./VideoItem.vue";
 
 export default {
     components: {

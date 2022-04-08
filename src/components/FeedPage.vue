@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import VideoItem from "@/components/VideoItem.vue";
-import Sorting from "@/components/Sorting.vue";
+import VideoItem from "./VideoItem.vue";
+import Sorting from "./Sorting.vue";
 
 export default {
     components: {
