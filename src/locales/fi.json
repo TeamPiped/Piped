@@ -56,7 +56,19 @@
         "show_recommendations": "Näytä suositukset",
         "show_replies": "Näytä vastaukset",
         "hide_replies": "Piilota vastaukset",
-        "load_more_replies": "Lataa lisää vastauksia"
+        "load_more_replies": "Lataa lisää vastauksia",
+        "instance_selection": "Instanssin valinta",
+        "delete_playlist_confirm": "Haluatko varmasti poistaa tämän soittolistan?",
+        "please_select_playlist": "Valitse soittolista",
+        "add_to_playlist": "Lisää soittolistaan",
+        "delete_playlist_video_confirm": "Haluatko varmasti poistaa tämän videon tästä soittolistasta?",
+        "skip_preview": "Ohita esikatselu/toistelu",
+        "export_to_json": "Vie JSON-muotoon",
+        "remove_from_playlist": "Poista soittolistalta",
+        "import_from_json": "Tuo JSON:sta",
+        "delete_playlist": "Poista soittolista",
+        "create_playlist": "Luo soittolista",
+        "select_playlist": "Valitse soittolista"
     },
     "player": {
         "watch_on": "Katso sivustolla {0}"
@@ -68,7 +80,8 @@
         "feed": "Syöttö",
         "register": "Rekisteröidy",
         "login": "Kirjaudu sisään",
-        "trending": "Nousussa"
+        "trending": "Nousussa",
+        "playlists": "Soittolistat"
     },
     "search": {
         "did_you_mean": "Tarkoititko: {0}?",
