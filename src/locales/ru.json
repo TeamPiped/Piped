@@ -15,7 +15,7 @@
         "subscribe": "Подписаться - {count}",
         "unsubscribe": "Отписаться - {count}",
         "view_subscriptions": "Просмотреть подписки",
-        "sort_by": "Отсортировать по:",
+        "sort_by": "Сортировка по:",
         "most_recent": "Самые новые",
         "least_recent": "Самые старые",
         "channel_name_asc": "Имя канала (А-Я)",
@@ -78,7 +78,7 @@
     "preferences": {
         "instance_name": "Название",
         "instance_locations": "Местоположение",
-        "has_cdn": "Наличие CDN",
+        "has_cdn": "Имеется CDN?",
         "ssl_score": "Оценка настроек SSL",
         "registered_users": "Зарегистрировано пользователей",
         "version": "Версия",

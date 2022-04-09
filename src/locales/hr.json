@@ -70,7 +70,7 @@
         "skip_intro": "Preskoči pauzu i uvodnu animaciju",
         "skip_sponsors": "Preskoči sponzore",
         "enable_sponsorblock": "Uključi blok sponsora",
-        "loading": "Učitavanje …",
+        "loading": "Učitavanje…",
         "filter": "Filtar",
         "search": "Pretraga",
         "view_ssl_score": "Prikaži SSL ocjenu",
@@ -79,7 +79,15 @@
         "load_more_replies": "Prikaži više odgovora",
         "clear_history": "Obriši povijest",
         "skip_highlight": "Preskoči isticanje",
-        "skip_filler_tangent": "Preskoči nebitne međudijelove"
+        "skip_filler_tangent": "Preskoči nebitne međudijelove",
+        "delete_playlist_confirm": "Stvarno želiš izbrisati ovaj popis snimaka?",
+        "remove_from_playlist": "Ukloni iz popisa snimaka",
+        "create_playlist": "Stvori popis snimaka",
+        "delete_playlist": "Izbriši popis snimaka",
+        "add_to_playlist": "Dodaj u popis snimaka",
+        "select_playlist": "Odaberi popis snimaka",
+        "please_select_playlist": "Odaberi popis snimaka",
+        "delete_playlist_video_confirm": "Stvarno želiš ukloniti ovaj video iz ovog popisa snimaka?"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -91,7 +99,8 @@
         "feed": "Novosti",
         "register": "Registracija",
         "login": "Prijava",
-        "trending": "U trendu"
+        "trending": "U trendu",
+        "playlists": "Popisi snimaka"
     },
     "login": {
         "password": "Lozinka",
@@ -102,10 +111,10 @@
         "all": "YouTube: Sve",
         "videos": "YouTube: Video",
         "channels": "YouTube: Kanali",
-        "playlists": "YouTube: Zbirke",
-        "music_songs": "YT Music: Pjesme",
-        "music_videos": "YT Music: Video",
+        "playlists": "YouTube: popisi snimaka",
+        "music_songs": "YT Music: Glazbe",
+        "music_videos": "YT Music: Video snimci",
         "music_albums": "YT Music: Albumi",
-        "music_playlists": "YT Music: Zbirke"
+        "music_playlists": "YT Music: popisi snimaka"
     }
 }

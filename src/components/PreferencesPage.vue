@@ -220,6 +220,7 @@ export default {
             selectedLanguage: "en",
             languages: [
                 { code: "bn", name: "বাংলা" },
+                { code: "bs", name: "Bosanski" },
                 { code: "ca", name: "Català" },
                 { code: "cs", name: "Čeština" },
                 { code: "da", name: "Dansk" },
@@ -241,6 +242,7 @@ export default {
                 { code: "lt", name: "Lietuvių kalba" },
                 { code: "ml", name: "മലയാളം" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
+                { code: "nl", name: "Nederlands" },
                 { code: "pl", name: "Polski" },
                 { code: "pt", name: "Português" },
                 { code: "pt_PT", name: "Português (Portugal)" },

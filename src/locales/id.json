@@ -6,7 +6,8 @@
         "feed": "Feed",
         "preferences": "Preferensi",
         "history": "Riwayat",
-        "subscriptions": "Langganan"
+        "subscriptions": "Langganan",
+        "playlists": "Daftar Putar"
     },
     "player": {
         "watch_on": "Tonton di {0}"
@@ -70,7 +71,15 @@
         "most_recent": "Paling Baru",
         "auto": "Otomatis",
         "skip_highlight": "Lewati Highlight",
-        "skip_filler_tangent": "Lewati Pengisi Tangent"
+        "skip_filler_tangent": "Lewati Pengisi Tangent",
+        "add_to_playlist": "Tambahkan ke daftar putar",
+        "delete_playlist_video_confirm": "Apakah Anda yakin Anda ingin menghapus video ini dari daftar putar ini?",
+        "create_playlist": "Buat Daftar Putar",
+        "delete_playlist": "Hapus Daftar Putar",
+        "select_playlist": "Pilih sebuah Daftar Putar",
+        "please_select_playlist": "Mohon pilih sebuah daftar putar",
+        "delete_playlist_confirm": "Apakah Anda yakin Anda ingin menghapus daftar putar ini?",
+        "remove_from_playlist": "Hapus dari daftar putar"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh"

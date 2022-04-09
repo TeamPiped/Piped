@@ -58,7 +58,15 @@
         "skip_filler_tangent": "跳过与视频主题无关的片段",
         "show_replies": "显示回复",
         "hide_replies": "隐藏回复",
-        "load_more_replies": "加载更多回复"
+        "load_more_replies": "加载更多回复",
+        "create_playlist": "创建播放列表",
+        "select_playlist": "选择播放列表",
+        "add_to_playlist": "添加至播放列表",
+        "delete_playlist_video_confirm": "你确定要从此播放列表中删除此视频吗？",
+        "delete_playlist": "删除播放列表",
+        "remove_from_playlist": "从播放列表删除",
+        "delete_playlist_confirm": "你确定你想删除此播放列表吗？",
+        "please_select_playlist": "请选择一个播放列表"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -85,13 +93,14 @@
         "watch_on": "在 {0} 观看"
     },
     "titles": {
-        "feed": "RSS源",
+        "feed": "RSS 订阅源",
         "subscriptions": "订阅",
         "history": "历史",
         "preferences": "设置",
         "register": "注册",
         "trending": "趋势",
-        "login": "登录"
+        "login": "登录",
+        "playlists": "播放列表"
     },
     "login": {
         "password": "密码",
