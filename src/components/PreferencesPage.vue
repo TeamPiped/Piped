@@ -138,7 +138,7 @@
     <br />
     <label for="ddlEnabledCodecs"><strong v-t="'actions.enabled_codecs'" /></label>
     <br />
-    <select id="ddlEnabledCodecs" v-model="enabledCodecs" class="select w-auto" multiple @change="onChange($event)">
+    <select id="ddlEnabledCodecs" v-model="enabledCodecs" class="select w-auto h-auto" multiple @change="onChange($event)">
         <option value="av1">AV1</option>
         <option value="vp9">VP9</option>
         <option value="avc">AVC (h.264)</option>
