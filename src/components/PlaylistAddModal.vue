@@ -51,20 +51,37 @@ export default {
         return {
             playlists: [],
             selectedPlaylist: null,
+            processing: false,
         };
     },
     mounted() {
         this.fetchPlaylists();
         this.selectedPlaylist = this.getPreferenceString("selectedPlaylist" + this.hashCode(this.apiUrl()));
+        window.addEventListener("keydown", this.handleKeyDown);
+        window.blur();
+    },
+    unmounted() {
+        window.removeEventListener("keydown", this.handleKeyDown);
     },
     methods: {
+        handleKeyDown(event) {
+            if (event.code === "Escape") {
+                this.$emit("close");
+            } else if (event.code === "Enter") {
+                this.handleClick(this.selectedPlaylist);
+            } else return;
+            event.preventDefault();
+        },
         handleClick(playlistId) {
             if (!playlistId) {
                 alert(this.$t("actions.please_select_playlist"));
                 return;
             }
 
+            if (this.processing) return;
+
             this.$refs.addButton.disabled = true;
+            this.processing = true;
 
             this.fetchJson(this.apiUrl() + "/user/playlists/add", null, {
                 method: "POST",
