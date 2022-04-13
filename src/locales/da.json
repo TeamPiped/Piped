@@ -73,7 +73,10 @@
         "show_recommendations": "Vis anbefalinger",
         "clear_history": "Tøm historik",
         "add_to_playlist": "Tilføj til afspilningsliste",
-        "remove_from_playlist": "Fjern fra afspilningsliste"
+        "remove_from_playlist": "Fjern fra afspilningsliste",
+        "create_playlist": "Lav afspilningsliste",
+        "delete_playlist": "Slet afspilningsliste",
+        "select_playlist": "Vælg en afspilningsliste"
     },
     "comment": {
         "pinned_by": "Fastgjort af"
