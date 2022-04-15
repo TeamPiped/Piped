@@ -27,7 +27,7 @@
     },
     "devDependencies": {
         "@intlify/vite-plugin-vue-i18n": "^3.4.0",
-        "@vitejs/plugin-legacy": "^1.8.0",
+        "@vitejs/plugin-legacy": "^1.8.1",
         "@vitejs/plugin-vue": "^2.3.1",
         "@vue/compiler-sfc": "3.2.33",
         "babel-eslint": "^10.1.0",
