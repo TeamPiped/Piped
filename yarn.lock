@@ -3289,10 +3289,10 @@ vite-plugin-windicss@^1.8.3:
     kolorist "^1.5.1"
     windicss "^3.5.1"
 
-vite@^2.9.1:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.9.1.tgz#84bce95fae210a7beb566a0af06246748066b48f"
-  integrity sha512-vSlsSdOYGcYEJfkQ/NeLXgnRv5zZfpAsdztkIrs7AZHV8RCMZQkwjo4DS5BnrYTqoWqLoUe1Cah4aVO4oNNqCQ==
+vite@^2.9.5:
+  version "2.9.5"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.9.5.tgz#08ef37ac7a6d879c96f328b791732c9a00ea25ea"
+  integrity sha512-dvMN64X2YEQgSXF1lYabKXw3BbN6e+BL67+P3Vy4MacnY+UzT1AfkHiioFSi9+uiDUiaDy7Ax/LQqivk6orilg==
   dependencies:
     esbuild "^0.14.27"
     postcss "^8.4.12"
