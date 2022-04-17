@@ -58,7 +58,15 @@
         "load_more_replies": "Carica più risposte",
         "hide_replies": "Nascondi risposte",
         "skip_filler_tangent": "Ignora Filler",
-        "skip_highlight": "Ignora Momento Saliente"
+        "skip_highlight": "Ignora Momento Saliente",
+        "delete_playlist": "Elimina la playlist",
+        "add_to_playlist": "Aggiungi alla playlist",
+        "create_playlist": "Crea una playlist",
+        "please_select_playlist": "Seleziona una playlist",
+        "delete_playlist_confirm": "Vuoi davvero eliminare questa playlist?",
+        "remove_from_playlist": "Rimuovi dalla playlist",
+        "delete_playlist_video_confirm": "Vuoi davvero rimuovere questo video da questa playlist?",
+        "select_playlist": "Seleziona una playlist"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -70,7 +78,8 @@
         "register": "Registrati",
         "login": "Accedi",
         "trending": "Di tendenza",
-        "subscriptions": "Iscrizioni"
+        "subscriptions": "Iscrizioni",
+        "playlists": "Playlist"
     },
     "video": {
         "sponsor_segments": "Segmenti sponsor",

@@ -6,7 +6,8 @@
         "feed": "Abonnements",
         "preferences": "Préférences",
         "history": "Historique",
-        "subscriptions": "Abonnements"
+        "subscriptions": "Abonnements",
+        "playlists": "Listes de lecture"
     },
     "actions": {
         "subscribe": "S'abonner - {count}",
@@ -67,7 +68,15 @@
         "show_replies": "Afficher les réponses",
         "hide_replies": "Masquer les réponses",
         "skip_highlight": "Ignorer les temps forts",
-        "skip_filler_tangent": "Ignorer la tangente de remplissage"
+        "skip_filler_tangent": "Ignorer la tangente de remplissage",
+        "delete_playlist": "Retirer la liste de lecture",
+        "please_select_playlist": "Veuillez sélectionner une liste de lecture",
+        "delete_playlist_video_confirm": "Voulez-vous vraiment retirer cette vidéo de cette liste de lecture ?",
+        "remove_from_playlist": "Retirer de la liste de lecture",
+        "select_playlist": "Sélectionnez une liste de lecture",
+        "add_to_playlist": "Ajouter à la liste de lecture",
+        "create_playlist": "Créer une liste de lecture",
+        "delete_playlist_confirm": "Voulez-vous vraiment supprimer cette liste de lecture ?"
     },
     "player": {
         "watch_on": "Regarder sur {0}"

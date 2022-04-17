@@ -6,7 +6,8 @@
         "login": "Entrar",
         "register": "Registrar",
         "history": "Histórico",
-        "feed": "Feed"
+        "feed": "Feed",
+        "playlists": "Playlists"
     },
     "actions": {
         "sort_by": "Classificar por:",
@@ -67,7 +68,15 @@
         "skip_interaction": "Pular Lembrete de Interação (Se Inscrever)",
         "skip_self_promo": "Pular Promoção Não Remunerada/Autopromoção",
         "buffering_goal": "Meta de Carregamento (Em Segundos)",
-        "skip_filler_tangent": "Pular Cenas Desnecessárias"
+        "skip_filler_tangent": "Pular Cenas Desnecessárias",
+        "add_to_playlist": "Adicionar à Playlist",
+        "delete_playlist": "Apagar Playlist",
+        "select_playlist": "Selecione uma Playlist",
+        "delete_playlist_confirm": "Tem certeza que quer apagar esta playlist?",
+        "please_select_playlist": "Por favor, selecione uma playlist",
+        "delete_playlist_video_confirm": "Tem certeza de que gostaria de remover este vídeo desta playlist?",
+        "remove_from_playlist": "Remover da Playlist",
+        "create_playlist": "Criar Playlist"
     },
     "preferences": {
         "instance_name": "Nome da Instância",

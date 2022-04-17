@@ -6,7 +6,8 @@
         "login": "लॉग इन करें",
         "preferences": "प्राथमिकताएँ",
         "subscriptions": "सदस्यता",
-        "feed": "फ़ीड"
+        "feed": "फ़ीड",
+        "playlists": "प्लेलिस्ट"
     },
     "actions": {
         "subscribe": "सदस्यता लें - {count}",
@@ -56,7 +57,15 @@
         "clear_history": "स्पष्ट इतिहास",
         "load_more_replies": "और जवाब लोड करें",
         "enabled_codecs": "सक्षम कोडेक्स (एकाधिक)",
-        "buffering_goal": "बफरिंग गोल (सेकंड में)"
+        "buffering_goal": "बफरिंग गोल (सेकंड में)",
+        "delete_playlist_confirm": "क्या आप वाकई इस प्लेलिस्ट को हटाना चाहते हैं?",
+        "add_to_playlist": "प्लेलिस्ट में जोड़ें",
+        "remove_from_playlist": "प्लेलिस्ट से निकाले",
+        "delete_playlist_video_confirm": "क्या आप वाकई इस प्लेलिस्ट से इस वीडियो को निकालना चाहेंगे?",
+        "create_playlist": "प्लेलिस्ट बनायें",
+        "select_playlist": "एक प्लेलिस्ट चुनें",
+        "please_select_playlist": "कृपया एक प्लेलिस्ट चुनें",
+        "delete_playlist": "प्लेलिस्ट हटाएं"
     },
     "video": {
         "views": "{views} बार देखा गया",

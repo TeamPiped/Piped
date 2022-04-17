@@ -6,7 +6,8 @@
         "history": "Historial",
         "subscriptions": "Subscripcions",
         "trending": "Tendències",
-        "register": "Registrar-se"
+        "register": "Registrar-se",
+        "playlists": "Llistes de reproducció"
     },
     "actions": {
         "channel_name_desc": "Nom del Canal (Z-A)",
@@ -67,7 +68,15 @@
         "uses_api_from": "Utilitza l'API de ",
         "minimize_recommendations": "Minimitza Recomanacions",
         "show_recommendations": "Mostra Recomanacions",
-        "auto_play_next_video": "Reprodueix automàticament el pròxim vídeo"
+        "auto_play_next_video": "Reprodueix automàticament el pròxim vídeo",
+        "add_to_playlist": "Afegir a la llista de reproducció",
+        "remove_from_playlist": "Suprimeix de la llista de reproducció",
+        "create_playlist": "Crear llista de reproducció",
+        "delete_playlist": "Suprimir llista de reproducció",
+        "please_select_playlist": "Selecciona una llista de reproducció",
+        "delete_playlist_confirm": "Eliminar aquesta llista de reproducció?",
+        "delete_playlist_video_confirm": "Eliminar aquest vídeo de la llista de reproducció?",
+        "select_playlist": "Selecciona una llista de reproducció"
     },
     "comment": {
         "pinned_by": "Fixat per"

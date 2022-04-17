@@ -6,13 +6,14 @@
         "preferences": "Indstillinger",
         "history": "Historik",
         "subscriptions": "Abonnementer",
-        "trending": "På vei op"
+        "trending": "På vei op",
+        "playlists": "Afspilningslister"
     },
     "player": {
         "watch_on": "Kig på"
     },
     "actions": {
-        "subscribe": "Abonner",
+        "subscribe": "Abonnér",
         "unsubscribe": "Ophæv abonnement",
         "sort_by": "Sorter efter:",
         "most_recent": "Seneste",
@@ -70,7 +71,12 @@
         "show_replies": "Vis svar",
         "minimize_recommendations": "Minimer anbefalinger",
         "show_recommendations": "Vis anbefalinger",
-        "clear_history": "Tøm historik"
+        "clear_history": "Tøm historik",
+        "add_to_playlist": "Tilføj til afspilningsliste",
+        "remove_from_playlist": "Fjern fra afspilningsliste",
+        "create_playlist": "Lav afspilningsliste",
+        "delete_playlist": "Slet afspilningsliste",
+        "select_playlist": "Vælg en afspilningsliste"
     },
     "comment": {
         "pinned_by": "Fastgjort af"
