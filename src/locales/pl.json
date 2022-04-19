@@ -64,7 +64,7 @@
         "show_recommendations": "Pokaż rekomendacje",
         "disable_lbry": "Wyłącz LBRY dla streaming-u",
         "enable_lbry_proxy": "Włącz proxy dla LBRY",
-        "view_ssl_score": "View SSL Score",
+        "view_ssl_score": "Pokaż ocenę SSL",
         "search": "Szukaj",
         "filter": "Filtruj",
         "loading": "Ładowanie...",
