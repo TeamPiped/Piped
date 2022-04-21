@@ -11,7 +11,7 @@
         v-model="selectedFilter"
         default="all"
         class="uk-select uk-width-auto"
-        style="height: 100%"
+        style="height: auto"
         @change="updateResults()"
     >
         <option v-for="filter in availableFilters" :key="filter" :value="filter">
