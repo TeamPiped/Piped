@@ -1137,10 +1137,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@rollup/pluginutils@^4.1.0", "@rollup/pluginutils@^4.1.1":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-4.2.0.tgz#a14bbd058fdbba0a5647143b16ed0d86fb60bd08"
-  integrity sha512-2WUyJNRkyH5p487pGnn4tWAsxhEFKN/pT8CMgHshd5H+IXkOnKvKZwsz5ZWz+YCXkleZRAU5kwbfgF8CPfDRqA==
+"@rollup/pluginutils@^4.1.0", "@rollup/pluginutils@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-4.2.1.tgz#e6c6c3aba0744edce3fb2074922d3776c0af2a6d"
+  integrity sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==
   dependencies:
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
@@ -2894,7 +2894,7 @@ rollup-plugin-terser@^7.0.0:
     serialize-javascript "^4.0.0"
     terser "^5.0.0"
 
-rollup@^2.43.1, rollup@^2.56.3, rollup@^2.59.0, rollup@^2.70.2:
+rollup@^2.43.1, rollup@^2.59.0, rollup@^2.70.2:
   version "2.70.2"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.70.2.tgz#808d206a8851628a065097b7ba2053bd83ba0c0d"
   integrity sha512-EitogNZnfku65I1DD5Mxe8JYRUCy0hkK5X84IlDtUs+O6JRMpRciXTzyCUuX11b5L5pvjH+OmFXiQ3XjabcXgg==
@@ -3264,13 +3264,13 @@ v8-compile-cache@^2.0.3:
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==
 
-vite-plugin-eslint@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-eslint/-/vite-plugin-eslint-1.4.0.tgz#bd89d4f5e7267536d2659b40d382e18fa5b0869c"
-  integrity sha512-EeA09UuA2E66WbbcgOFkfvEZ/SJVrTxP+syRwrX+L+jeMMPpi1W1ZIR5mMtPr4I8evaD4WrszWkPZPOW8amFpw==
+vite-plugin-eslint@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-eslint/-/vite-plugin-eslint-1.5.2.tgz#562bae1e999451d5973f287eed499c06498f1e5c"
+  integrity sha512-/nvLd+vC+GJc9QIR4FXImgTY7Y1ME2YQMJiTP4FW6BXKEGddsRrWgzkofqZmDkPiS+G8P1AtCH9W+YRunhWSZQ==
   dependencies:
-    "@rollup/pluginutils" "^4.1.1"
-    rollup "^2.56.3"
+    "@rollup/pluginutils" "^4.2.1"
+    rollup "^2.70.2"
 
 vite-plugin-pwa@^0.12.0:
   version "0.12.0"
