@@ -3264,10 +3264,10 @@ v8-compile-cache@^2.0.3:
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==
 
-vite-plugin-eslint@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/vite-plugin-eslint/-/vite-plugin-eslint-1.5.2.tgz#562bae1e999451d5973f287eed499c06498f1e5c"
-  integrity sha512-/nvLd+vC+GJc9QIR4FXImgTY7Y1ME2YQMJiTP4FW6BXKEGddsRrWgzkofqZmDkPiS+G8P1AtCH9W+YRunhWSZQ==
+vite-plugin-eslint@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-eslint/-/vite-plugin-eslint-1.6.0.tgz#6fc7e258c81893ecbc21e82d192e33c146be7c30"
+  integrity sha512-knoNx2jksnqSO645OGgA++xQigTfA+CgvoeJV6554y5DOc+mXbwUm4oR6ijycsD5IrPMDEnwj3NqnFTgjAAJCQ==
   dependencies:
     "@rollup/pluginutils" "^4.2.1"
     rollup "^2.70.2"
