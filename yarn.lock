@@ -2243,10 +2243,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hotkeys-js@^3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.9.0.tgz#f8d3c3c163fd14ec70a0931b68c12c5c8428d185"
-  integrity sha512-nnZ6Kbitubo52W40/lrEDr5r9gSCNHl1utn/fB/hEHsg+6mjyiBqjwBAfXsX/MMuvxuoI3YwMYAJFT0DvR4VHg==
+hotkeys-js@^3.9.2:
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.9.2.tgz#ce4960d86113aef791db394c9bc1a35e3c612b41"
+  integrity sha512-SIetKi4uYzILto+4AeTBToNlW5ioUIVqGyMm/BczlXWProewwDvcNhwIxTUg7JLXY/mr0l0d+kwEF5JQ6Um/EA==
 
 idb@^6.1.4:
   version "6.1.5"
