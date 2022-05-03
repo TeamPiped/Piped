@@ -2243,10 +2243,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hotkeys-js@^3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.9.0.tgz#f8d3c3c163fd14ec70a0931b68c12c5c8428d185"
-  integrity sha512-nnZ6Kbitubo52W40/lrEDr5r9gSCNHl1utn/fB/hEHsg+6mjyiBqjwBAfXsX/MMuvxuoI3YwMYAJFT0DvR4VHg==
+hotkeys-js@^3.9.3:
+  version "3.9.3"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.9.3.tgz#4b755cc695b388d7f93a83aff4b0c2a45719996c"
+  integrity sha512-s+f0xyvDmf6+DyrFQ2SY+eA7lbvMbjqkqi0I0SpMgnN5tZx7DeH8nsWhkJR4KEq3pxDPHJppDUhdt1rZFW5LeQ==
 
 idb@^6.1.4:
   version "6.1.5"
@@ -2947,10 +2947,10 @@ serialize-javascript@^4.0.0:
   dependencies:
     randombytes "^2.1.0"
 
-shaka-player@3.3.4:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-3.3.4.tgz#7d137a18fc0f55c50852a4348c8319495b5fa546"
-  integrity sha512-8PrUBA8aOABGvhQVa59XMoPo5myAoQF4ptx6gvZWPOBtdsyVaamqQKELY77ikZJ1ejup7BmHf42MXGFmxQfcaA==
+shaka-player@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.0.0.tgz#fba2de295a57ae644159426351e2e3a8ec922592"
+  integrity sha512-Pi7rEkNb50vuZIGCxbuiDmIE50o6OwhhS68F3IV4azrkCBvONv2yaY2R/4y953Sbx54tbm9TlfyueKnfA2XehQ==
   dependencies:
     eme-encryption-scheme-polyfill "^2.0.3"
 
