@@ -59,7 +59,7 @@
         "load_more_replies": "Įkelti daugiau atsakymų"
     },
     "player": {
-        "watch_on": "Žiūrėti per"
+        "watch_on": "Žiūrėti per {0}"
     },
     "titles": {
         "preferences": "Nuostatos",
@@ -80,7 +80,7 @@
         "pinned_by": "Prisegė"
     },
     "video": {
-        "views": "peržiūros",
+        "views": "{views} peržiūros",
         "videos": "Vaizdo įrašai",
         "sponsor_segments": "Rėmėjų segmentai",
         "watched": "Žiūrėta",
@@ -91,6 +91,6 @@
         "username": "Vartotojo vardas"
     },
     "search": {
-        "did_you_mean": "Ar turėjote omenyje: "
+        "did_you_mean": "Ar turėjote omenyje: {0}?"
     }
 }

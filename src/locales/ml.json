@@ -76,11 +76,11 @@
         "delete_playlist_confirm": "ഈ പ്ലേലിസ്റ്റ് ഇല്ലാതാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടൊ?"
     },
     "player": {
-        "watch_on": "കാണുക"
+        "watch_on": "കാണുക {0}"
     },
     "video": {
         "watched": "കണ്ടതാണ്",
-        "views": "കാഴ്ചകൾ",
+        "views": "{views} കാഴ്ചകൾ",
         "videos": "വിഡിയോകൾ",
         "sponsor_segments": "സ്പോൺസർമാരുടെ ഭാഗങ്ങൾ"
     },

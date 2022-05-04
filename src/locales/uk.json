@@ -85,12 +85,12 @@
     },
     "video": {
         "videos": "Відео",
-        "views": "переглядів",
+        "views": "{views} переглядів",
         "watched": "Переглянуте",
         "sponsor_segments": "Рекламні сегменти",
         "ratings_disabled": "Оцінки вимкнені"
     },
     "search": {
-        "did_you_mean": "Можливо, ви мали на увазі: "
+        "did_you_mean": "Можливо, ви мали на увазі: {0}?"
     }
 }
