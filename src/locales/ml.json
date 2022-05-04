@@ -6,7 +6,8 @@
         "preferences": "ക്രമീകരണം",
         "feed": "ഫീഡ്",
         "login": "പ്രവേശിക്കുക",
-        "subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ"
+        "subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ",
+        "playlists": "പ്ലേലിസ്റ്റുകൾ"
     },
     "actions": {
         "view_subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ കാണുക",
@@ -62,14 +63,24 @@
         "view_ssl_score": "എസ്എസ്എൽ സ്കോർ കാണിക്കൂ",
         "skip_non_music": "പാട്ട് ഒഴിവാക്കുക: Non-Music Section",
         "clear_history": "ചരിത്രം മായ്ക്കുക",
-        "show_replies": "മറുപടികൾ കാണിക്കുക"
+        "show_replies": "മറുപടികൾ കാണിക്കുക",
+        "hide_replies": "മറുപടികൾ മറയ്ക്കുക",
+        "load_more_replies": "കൂടുതൽ മറുപടികൽ ലഭ്യമാക്കുക",
+        "add_to_playlist": "പ്ലേലിസ്റ്റിലേക്ക് ചേർക്കൂ",
+        "remove_from_playlist": "പ്ലേലിസ്റ്റിൽ നിന്ന് ഒഴിവാക്കൂ",
+        "create_playlist": "പ്ലേലിസ്റ്റ് നിർമ്മിക്കൂ",
+        "delete_playlist": "പ്ലേലിസ്റ്റ് ഇല്ലാതാക്കൂ",
+        "select_playlist": "ഒരു പ്ലേലിസ്റ്റ് തിരഞ്ഞെടുക്കൂ",
+        "please_select_playlist": "ഒരു പ്ലേലിസ്റ്റ് തിരഞ്ഞെടുക്കുക",
+        "delete_playlist_video_confirm": "ഈ പ്ലേലിസ്റ്റിൽ നിന്ന് ഈ വീഡിയോ ഒഴിവാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?",
+        "delete_playlist_confirm": "ഈ പ്ലേലിസ്റ്റ് ഇല്ലാതാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടൊ?"
     },
     "player": {
-        "watch_on": "കാണുക"
+        "watch_on": "കാണുക {0}"
     },
     "video": {
         "watched": "കണ്ടതാണ്",
-        "views": "കാഴ്ചകൾ",
+        "views": "{views} കാഴ്ചകൾ",
         "videos": "വിഡിയോകൾ",
         "sponsor_segments": "സ്പോൺസർമാരുടെ ഭാഗങ്ങൾ"
     },
@@ -80,7 +91,8 @@
         "ssl_score": "എസ് എസ് എൽ സ്കോർ",
         "has_cdn": "സിഡിഎൻ ഉപയോഗിക്കിന്നിണ്ടോ?",
         "instance_name": "ഇൻസ്റ്റ്ൻസിന്റെ പേര്",
-        "instance_locations": "ഇൻസ്റ്റൻസ് ലൊക്കേഷനുകൾ"
+        "instance_locations": "ഇൻസ്റ്റൻസ് ലൊക്കേഷനുകൾ",
+        "version": "പതിപ്പ്"
     },
     "login": {
         "password": "രഹസ്യവാക്ക്",

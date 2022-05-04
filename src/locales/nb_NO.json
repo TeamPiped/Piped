@@ -61,7 +61,7 @@
         "load_more_replies": "Last inn flere svar"
     },
     "player": {
-        "watch_on": "Vis på"
+        "watch_on": "Vis på {0}"
     },
     "titles": {
         "feed": "Strøm",
@@ -75,7 +75,7 @@
     "video": {
         "sponsor_segments": "Sponsor-segmenter",
         "watched": "Sett",
-        "views": "visninger",
+        "views": "{views} visninger",
         "videos": "Videoer",
         "ratings_disabled": "Vurderinger avskrudd",
         "chapters": "Kapitler",
@@ -95,6 +95,6 @@
         "password": "Passord"
     },
     "search": {
-        "did_you_mean": "Mente du: "
+        "did_you_mean": "Mente du: {0}?"
     }
 }

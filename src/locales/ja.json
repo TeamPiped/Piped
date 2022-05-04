@@ -9,7 +9,7 @@
         "subscriptions": "サブスクリプション"
     },
     "player": {
-        "watch_on": "Youtubeで見る"
+        "watch_on": "{0}で見る"
     },
     "actions": {
         "subscribe": "チャンネル登録 - {count}",
@@ -90,7 +90,7 @@
     },
     "video": {
         "videos": "ビデオ",
-        "views": "{views}視聴",
+        "views": "{views} 視聴",
         "watched": "視聴済み",
         "sponsor_segments": "スポンサーによる広告",
         "ratings_disabled": "評価は無効化されています",

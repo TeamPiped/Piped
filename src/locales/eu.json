@@ -2,7 +2,7 @@
     "video": {
         "sponsor_segments": "Babesletza-segmentuak",
         "watched": "Ikusiak",
-        "views": "ikustaldi",
+        "views": "{views} ikustaldi",
         "videos": "Bideoak"
     },
     "preferences": {
@@ -70,7 +70,7 @@
         "show_recommendations": "Erakutsi gomendioak"
     },
     "player": {
-        "watch_on": "Ikusi hemen"
+        "watch_on": "Ikusi hemen {0}"
     },
     "titles": {
         "subscriptions": "Harpidetzak",

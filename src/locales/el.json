@@ -64,12 +64,12 @@
         "subscriptions": "Συνδρομές"
     },
     "player": {
-        "watch_on": "Παρακολούθηση στο"
+        "watch_on": "Παρακολούθηση στο {0}"
     },
     "video": {
         "watched": "Προβλήθηκε",
         "sponsor_segments": "Τμήματα χορηγών",
-        "views": "προβολές",
+        "views": "{views} προβολές",
         "videos": "Βίντεο"
     },
     "preferences": {

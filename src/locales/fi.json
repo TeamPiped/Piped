@@ -1,7 +1,7 @@
 {
     "video": {
         "watched": "Katsottu",
-        "views": "näyttökertaa",
+        "views": "{views} näyttökertaa",
         "videos": "Videot",
         "live": "{0} live"
     },

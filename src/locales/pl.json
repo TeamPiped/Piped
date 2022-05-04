@@ -10,7 +10,7 @@
         "playlists": "Playlisty"
     },
     "player": {
-        "watch_on": "Obejrzyj na"
+        "watch_on": "Obejrzyj na {0}"
     },
     "actions": {
         "subscribe": "Subskrybuj - {count}",
@@ -99,19 +99,15 @@
     },
     "video": {
         "videos": "Filmy",
-        "views": "wyświetleń",
+        "views": "{views} wyświetleń",
         "watched": "Obejrzane",
         "sponsor_segments": "Segmenty sponsorowane",
         "ratings_disabled": "Ocenianie wyłączone",
         "chapters": "Rozdziały",
         "live": "{0} Na żywo"
     },
-    "login": {
-        "username": "Nazwa użytkownika",
-        "password": "Hasło"
-    },
     "search": {
-        "did_you_mean": "Czy chodziło ci o: ",
+        "did_you_mean": "Czy chodziło ci o: {0}?",
         "all": "YouTube: Wszystko",
         "videos": "YouTube: Filmy",
         "channels": "YouTube: Kanały",

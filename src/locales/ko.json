@@ -68,7 +68,7 @@
         "register": "가입"
     },
     "player": {
-        "watch_on": "에서 보기"
+        "watch_on": "에서 보기 {0}"
     },
     "comment": {
         "pinned_by": "에 의해 고정됨"
@@ -85,12 +85,12 @@
     },
     "video": {
         "videos": "영상",
-        "views": "조회수",
+        "views": "{views} 조회수",
         "watched": "시청함",
         "sponsor_segments": "스폰서 세그먼트",
         "ratings_disabled": "등급 비활성화됨"
     },
     "search": {
-        "did_you_mean": "이것을 찾으셨나요: "
+        "did_you_mean": "이것을 찾으셨나요: {0}?"
     }
 }

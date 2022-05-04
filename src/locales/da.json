@@ -10,7 +10,7 @@
         "playlists": "Afspilningslister"
     },
     "player": {
-        "watch_on": "Kig på"
+        "watch_on": "Kig på {0}"
     },
     "actions": {
         "subscribe": "Abonnér",

@@ -9,7 +9,7 @@
         "subscriptions": "সাবস্ক্রিপশন"
     },
     "player": {
-        "watch_on": "দেখুন"
+        "watch_on": "দেখুন {0}"
     },
     "actions": {
         "subscribe": "সদস্যতা নিন - {count}",
@@ -74,7 +74,7 @@
         "watched": "দেখা হয়েছে",
         "sponsor_segments": "স্পনসর সেগমেন্ট",
         "videos": "ভিডিও",
-        "views": "ভিউজ",
+        "views": "{views} ভিউজ",
         "ratings_disabled": "রেটিং নিষ্ক্রিয় আছে"
     },
     "login": {

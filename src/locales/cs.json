@@ -68,7 +68,7 @@
         "theme": "Téma"
     },
     "player": {
-        "watch_on": "Sledovat na"
+        "watch_on": "Sledovat na {0}"
     },
     "comment": {
         "pinned_by": "Připnuto uživatelem"
@@ -85,7 +85,7 @@
     },
     "video": {
         "videos": "Videa",
-        "views": "zhlédnutí",
+        "views": "{views} zhlédnutí",
         "watched": "Viděno",
         "sponsor_segments": "Sponzorské segmenty",
         "ratings_disabled": "Hodnocení zakázáno"
