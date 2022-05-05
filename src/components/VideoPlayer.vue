@@ -281,8 +281,8 @@ export default {
                 const contentType = await fetch(uri, {
                     method: "HEAD",
                 }).then(response => {
-                    response.headers.get("Content-Type");
                     uri = response.url;
+                    return response.headers.get("Content-Type");
                 });
                 mime = contentType;
             } else if (this.video.hls) {
