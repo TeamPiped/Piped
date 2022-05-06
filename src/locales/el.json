@@ -52,7 +52,21 @@
         "loading": "Φόρτωση...",
         "filter": "Φίλτρο",
         "search": "Αναζήτηση",
-        "view_ssl_score": "Αξιολόγηση SSL"
+        "view_ssl_score": "Αξιολόγηση SSL",
+        "skip_highlight": "Παράλειψη επισήμανσης",
+        "hide_replies": "Απόκρυψη απαντήσεων",
+        "load_more_replies": "Φόρτωση περισσότερων απαντήσεων",
+        "remove_from_playlist": "Αφαίρεση απο την λίστα αναπαραγωγής",
+        "skip_filler_tangent": "Παράλειψη εφαπτόμενου συμπληρώματος",
+        "create_playlist": "Δημιουργία λίστας αναπαραγωγής",
+        "delete_playlist": "Διαγραφή λίστας αναπαραγωγής",
+        "select_playlist": "Επιλογή μίας λίστας αναπαραγωγής",
+        "please_select_playlist": "Παρακαλώ επιλέξτε μία λίστα αναπαραγωγής",
+        "add_to_playlist": "Προσθήκη στη λίστα αναπαραγωγής",
+        "clear_history": "Καθαρισμός ιστορικού",
+        "show_replies": "Εμφάνιση απαντήσεων",
+        "delete_playlist_video_confirm": "Είστε σίγουρος οτι θέλετε να αφαιρέσετε αυτό το βίντεο απο την λίστα αναπαραγωγής;",
+        "delete_playlist_confirm": "Είστε σίγουρος οτι θέλετε να διαγράψετε αυτή την λίστα αναπαραγωγής;"
     },
     "titles": {
         "feed": "Τροφοδοσία",
@@ -61,7 +75,8 @@
         "register": "Εγγραφή",
         "login": "Σύνδεση",
         "trending": "Τάσεις",
-        "subscriptions": "Συνδρομές"
+        "subscriptions": "Συνδρομές",
+        "playlists": "Λίστες αναπαραγωγής"
     },
     "player": {
         "watch_on": "Παρακολούθηση στο {0}"
@@ -70,13 +85,19 @@
         "watched": "Προβλήθηκε",
         "sponsor_segments": "Τμήματα χορηγών",
         "views": "{views} προβολές",
-        "videos": "Βίντεο"
+        "videos": "Βίντεο",
+        "live": "{0} Ζωντανή μετάδοση",
+        "ratings_disabled": "Οι αξιολογήσεις είναι απενεργοποιημένες",
+        "chapters": "Κεφάλαια"
     },
     "preferences": {
         "ssl_score": "SSL σκόρ",
         "has_cdn": "Υποστηρίζει CDN?",
         "instance_locations": "Τοποθεσίες διακομιστών",
-        "instance_name": "Όνομα διακομιστή"
+        "instance_name": "Όνομα διακομιστή",
+        "registered_users": "Εγγεγραμμένοι χρήστες",
+        "version": "Έκδοση",
+        "up_to_date": "Ενημερωμένο;"
     },
     "comment": {
         "pinned_by": "Καρφιτσώθηκε από τον"
@@ -84,5 +105,16 @@
     "login": {
         "password": "Κωδικός πρόσβασης",
         "username": "Όνομα χρήστη"
+    },
+    "search": {
+        "did_you_mean": "Μήπως εννοείτε: {0};",
+        "all": "YouTube: Όλα",
+        "videos": "YouTube: Βίντεο",
+        "playlists": "YouTube: Λίστες αναπαραγωγής",
+        "music_albums": "YT Music: Άμπουμ",
+        "music_songs": "YT Music: Τραγούδια",
+        "music_videos": "YT Music: Βίντεο",
+        "channels": "YouTube: Κανάλια",
+        "music_playlists": "YT Music: Λίστες αναπαραγωγής"
     }
 }
