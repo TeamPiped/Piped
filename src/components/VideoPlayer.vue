@@ -485,16 +485,30 @@ export default {
                 if (qualityConds) {
                     var leastDiff = Number.MAX_VALUE;
                     var bestStream = null;
+
+                    var bestAudio = 0;
+
+                    // Choose the best audio stream
+                    if (qualityConds >= 480)
+                        player.getVariantTracks().forEach(track => {
+                            const audioBandwidth = track.audioBandwidth;
+                            if (audioBandwidth > bestAudio) bestAudio = audioBandwidth;
+                        });
+
+                    // Find best matching stream based on resolution and bitrate
                     player
                         .getVariantTracks()
                         .sort((a, b) => a.bandwidth - b.bandwidth)
                         .forEach(stream => {
+                            if (stream.audioBandwidth < bestAudio) return;
+
                             const diff = Math.abs(quality - stream.height);
                             if (diff < leastDiff) {
                                 leastDiff = diff;
                                 bestStream = stream;
                             }
                         });
+
                     player.selectVariantTrack(bestStream);
                 }
 
