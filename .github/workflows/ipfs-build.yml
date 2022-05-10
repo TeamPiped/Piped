@@ -22,7 +22,10 @@ jobs:
         id: ipfs-add
         with:
           path: ./dist
-          service: infura
+          service: pinata
+          pinataKey: ${{ secrets.PINATA_API_KEY }}
+          pinataSecret: ${{ secrets.PINATA_API_SECRET }}
+          pinataPinName: piped
       - name: Update DNSLink
         run: npx dnslink-cloudflare -d kavin.rocks -l /ipfs/${{ steps.ipfs-add.outputs.hash }} -r _dnslink.piped-ipfs
         env:
