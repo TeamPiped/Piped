@@ -63,14 +63,14 @@
             <PlaylistAddModal v-if="showModal" :video-id="video.url.substr(-11)" @close="showModal = !showModal" />
         </div>
 
-        <div class="flex">
+        <div class="flex" style="column-gap: 8px">
             <router-link :to="video.uploaderUrl">
                 <img
                     v-if="video.uploaderAvatar"
                     :src="video.uploaderAvatar"
                     loading="lazy"
                     :alt="video.uploaderName"
-                    class="rounded-full mr-0.5 mt-0.5 w-32px h-32px"
+                    class="rounded-full mr-0.5 mt-0.5 w-40px h-40px"
                     width="68"
                     height="68"
                 />
@@ -83,18 +83,28 @@
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
                 >
-                    <span v-text="video.uploaderName" />
+                    <strong v-text="video.uploaderName" style="font-size: 14px" />
                     <font-awesome-icon class="ml-1.5" v-if="video.uploaderVerified" icon="check" />
                 </router-link>
 
-                <strong v-if="video.views >= 0 || video.uploadedDate" class="text-sm">
+                <span v-if="video.views >= 0 || video.uploadedDate" class="text-sm">
                     <span v-if="video.views >= 0">
-                        <font-awesome-icon icon="eye" />
-                        <span class="pl-0.5" v-text="`${numberFormat(video.views)} •`" />
+                        <font-awesome-icon icon="eye" style="font-size: 13.5px" />
+                        <span class="pl-0.5" v-text="`${numberFormat(video.views)} •`" style="font-size: 13.5px" />
                     </span>
-                    <span v-if="video.uploaded > 0" class="pl-0.5" v-text="timeAgo(video.uploaded)" />
-                    <span v-else-if="video.uploadedDate" class="pl-0.5" v-text="video.uploadedDate" />
-                </strong>
+                    <span
+                        v-if="video.uploaded > 0"
+                        class="pl-0.5"
+                        v-text="timeAgo(video.uploaded)"
+                        style="font-size: 13.5px"
+                    />
+                    <span
+                        v-else-if="video.uploadedDate"
+                        class="pl-0.5"
+                        v-text="video.uploadedDate"
+                        style="font-size: 13.5px"
+                    />
+                </span>
             </div>
         </div>
     </div>

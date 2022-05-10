@@ -102,6 +102,8 @@ b {
 
 .video-grid {
     @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 col-auto <md:gap-x-2.5 md:gap-x-1vw gap-y-1.5;
+    grid-gap: 45px 45px !important;
+    margin: 20px 2% 5% 2% !important;
 }
 
 .btn {
