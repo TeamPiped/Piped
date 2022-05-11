@@ -1,6 +1,6 @@
 {
     "player": {
-        "watch_on": "Дивитися на Ютуб"
+        "watch_on": "Дивитися на {0}"
     },
     "login": {
         "username": "Назва аккаунта Piped",
@@ -63,7 +63,17 @@
         "filter": "Фільтр",
         "view_ssl_score": "Продивитися оцінку SSL",
         "loading": "Завантаження...",
-        "hide_replies": "Сховати відповіді"
+        "hide_replies": "Сховати відповіді",
+        "skip_highlight": "Пропустити Хайлайт",
+        "remove_from_playlist": "Видалити з плейлісту",
+        "add_to_playlist": "Додати до плейлісту",
+        "create_playlist": "Створити Плейліст",
+        "delete_playlist_confirm": "Чи ви певні що хочете видалити цей плейліст?",
+        "skip_filler_tangent": "Пропускати Нерелевантне",
+        "delete_playlist_video_confirm": "Чи певні ви що хочете видалити це відео з плейлісту?",
+        "delete_playlist": "Видалити Плейліст",
+        "select_playlist": "Вибрати Плейліст",
+        "please_select_playlist": "Будь ласка виберіть плейліст"
     },
     "titles": {
         "register": "Реєстрація",
@@ -72,7 +82,8 @@
         "history": "Історія переглядів",
         "subscriptions": "Канали, на які ви підписані",
         "trending": "Тренди",
-        "login": "Логін"
+        "login": "Логін",
+        "playlists": "Плейлісти"
     },
     "comment": {
         "pinned_by": "Прикріплено користувачем"
@@ -81,16 +92,29 @@
         "instance_locations": "Місцезнаходження копії сервісу",
         "ssl_score": "Оцінка SSL",
         "instance_name": "Назва копії сервісу",
-        "has_cdn": "Використовує CDN?"
+        "has_cdn": "Використовує CDN?",
+        "version": "Версія",
+        "up_to_date": "Версія Актуальна?",
+        "registered_users": "Зареєстровано Користувачей"
     },
     "video": {
         "videos": "Відео",
         "views": "{views} переглядів",
         "watched": "Переглянуте",
         "sponsor_segments": "Рекламні сегменти",
-        "ratings_disabled": "Оцінки вимкнені"
+        "ratings_disabled": "Оцінки вимкнені",
+        "chapters": "Розділи",
+        "live": "{0} Наживо"
     },
     "search": {
-        "did_you_mean": "Можливо, ви мали на увазі: {0}?"
+        "did_you_mean": "Можливо, ви мали на увазі: {0}?",
+        "music_playlists": "YT Music: Плейлісти",
+        "all": "YouTube: Все",
+        "videos": "YouTube: Відео",
+        "channels": "YouTube: Канали",
+        "music_songs": "YT Music: Пісні",
+        "music_videos": "TY Music: Відео",
+        "playlists": "YouTube: Плейлісти",
+        "music_albums": "YT Music: Альбоми"
     }
 }
