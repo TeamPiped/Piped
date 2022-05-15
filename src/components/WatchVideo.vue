@@ -121,7 +121,13 @@
         <hr />
 
         <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
-            <div v-if="comments" ref="comments" class="xl:col-span-4 sm:col-span-3">
+            <div v-if="!comments" class="xl:col-span-4 sm:col-span-3">
+                <p class="text-center mt-8">Comments are loading...</p>
+            </div>
+            <div v-else-if="comments.disabled" class="xl:col-span-4 sm:col-span-3">
+                <p class="text-center mt-8">Comments are turned off.</p>
+            </div>
+            <div v-else ref="comments" class="xl:col-span-4 sm:col-span-3">
                 <CommentItem
                     v-for="comment in comments.comments"
                     :key="comment.commentId"
