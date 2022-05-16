@@ -25,7 +25,7 @@
             <br />
             Create the export and download the zip file.
             <br />
-            Extract subscriptions.json from the zip file.
+            Extract subscriptions.csv from the zip file.
             <br />
             Select and import the file above.
         </div>
