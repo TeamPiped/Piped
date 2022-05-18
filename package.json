@@ -18,7 +18,7 @@
         "hotkeys-js": "^3.9.3",
         "javascript-time-ago": "^2.3.13",
         "mux.js": "^6.0.1",
-        "shaka-player": "4.0.0",
+        "shaka-player": "4.0.1",
         "stream": "^0.0.2",
         "vue": "^3.2.33",
         "vue-i18n": "^9.2.0-beta.35",
