@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="comment-author">
-                    <router-link class="font-bold link" :to="comment.commentorUrl" v-text="comment.author" />
+                    <router-link class="font-bold link" :to="comment.commentorUrl">{{ comment.author }}</router-link>
                     <font-awesome-icon class="ml-1.5" v-if="comment.verified" icon="check" />
                 </div>
                 <div class="comment-meta text-sm mb-1.5" v-text="comment.commentedTime" />
