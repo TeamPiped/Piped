@@ -7,7 +7,7 @@
         </div>
 
         <div class="right-1">
-            <Sorting by-key="watchedAt" @apply="order => videos.sort(order)" />
+            <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" />
         </div>
     </div>
 
@@ -22,12 +22,12 @@
 
 <script>
 import VideoItem from "./VideoItem.vue";
-import Sorting from "./Sorting.vue";
+import SortingSelector from "./SortingSelector.vue";
 
 export default {
     components: {
         VideoItem,
-        Sorting,
+        SortingSelector,
     },
     data() {
         return {

@@ -12,7 +12,7 @@
     </span>
 
     <span class="md:float-right">
-        <Sorting by-key="uploaded" @apply="order => videos.sort(order)" />
+        <SortingSelector by-key="uploaded" @apply="order => videos.sort(order)" />
     </span>
 
     <hr />
@@ -24,12 +24,12 @@
 
 <script>
 import VideoItem from "./VideoItem.vue";
-import Sorting from "./Sorting.vue";
+import SortingSelector from "./SortingSelector.vue";
 
 export default {
     components: {
         VideoItem,
-        Sorting,
+        SortingSelector,
     },
     data() {
         return {

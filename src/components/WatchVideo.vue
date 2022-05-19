@@ -69,12 +69,9 @@
             <div class="flex">
                 <div class="flex items-center">
                     <img :src="video.uploaderAvatar" alt="" loading="lazy" class="rounded-full" />
-                    <router-link
-                        v-if="video.uploaderUrl"
-                        class="link ml-1.5"
-                        :to="video.uploaderUrl"
-                        v-text="video.uploader"
-                    />
+                    <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">{{
+                        video.uploader
+                    }}</router-link>
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
                 </div>
                 <div class="relative ml-auto children:mx-2">
@@ -103,7 +100,7 @@
             />
             <!-- eslint-disable-next-line vue/no-v-html -->
             <div v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
-            <Chapters v-if="video?.chapters?.length > 0" :chapters="video.chapters" @seek="navigate" />
+            <ChaptersBar v-if="video?.chapters?.length > 0" :chapters="video.chapters" @seek="navigate" />
             <div
                 v-if="showDesc && sponsors && sponsors.segments"
                 v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
@@ -170,7 +167,7 @@ import VideoPlayer from "./VideoPlayer.vue";
 import VideoItem from "./VideoItem.vue";
 import ErrorHandler from "./ErrorHandler.vue";
 import CommentItem from "./CommentItem.vue";
-import Chapters from "./Chapters.vue";
+import ChaptersBar from "./ChaptersBar.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
 
@@ -181,7 +178,7 @@ export default {
         VideoItem,
         ErrorHandler,
         CommentItem,
-        Chapters,
+        ChaptersBar,
         PlaylistAddModal,
         PlaylistVideos,
     },
