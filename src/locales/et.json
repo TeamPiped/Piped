@@ -1,1 +1,11 @@
-{}
+{
+    "titles": {
+        "login": "Logi sisse",
+        "feed": "Tellimused",
+        "preferences": "Seaded",
+        "trending": "Populaarsed",
+        "register": "Registreeri",
+        "subscriptions": "Tellimused",
+        "history": "Ajalugu"
+    }
+}
