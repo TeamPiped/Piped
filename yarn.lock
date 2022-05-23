@@ -2478,12 +2478,12 @@ jake@^10.8.5:
     filelist "^1.0.1"
     minimatch "^3.0.4"
 
-javascript-time-ago@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/javascript-time-ago/-/javascript-time-ago-2.5.1.tgz#b91c6e780d1f62f60ce3529f81d064986cb1a142"
-  integrity sha512-jB5PlImQRpWoniY+lMzb4cLaU878yHkNSU6heB9gIdNBYqZmu9NuVlLyeI82cvtzv4pLuF8Xo9giVo2YIC9L0w==
+javascript-time-ago@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/javascript-time-ago/-/javascript-time-ago-2.5.2.tgz#7a3768e4b98a7c42d0fedb13aeedeaa7b40d857d"
+  integrity sha512-YvVhsRDwfwoA11ODy+Rp1j9OBPVTH9K59BwIOk14fsSoNWPaSgtCmWqtIOs6sqqRKdsFMhts6thTnfjVNeh2jg==
   dependencies:
-    relative-time-format "^1.0.8"
+    relative-time-format "^1.1.2"
 
 jest-worker@^26.2.1:
   version "26.6.2"
@@ -2913,10 +2913,10 @@ regjsparser@^0.8.2:
   dependencies:
     jsesc "~0.5.0"
 
-relative-time-format@^1.0.8:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/relative-time-format/-/relative-time-format-1.1.1.tgz#5082dcc5becaa2d178ecc50d05d01a14fab23209"
-  integrity sha512-Gj3cF5mOYANOq9pbgO4xEXbyfB2nFqUBwe15ficeAwXE6EaTX/nBR1MnuIpQO6mqTL4BqH22Lg2AbnNGxobMDQ==
+relative-time-format@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/relative-time-format/-/relative-time-format-1.1.2.tgz#65d811ffbfdafc1c6ca7f311a8fac97cb0e5c7f0"
+  integrity sha512-sMNgiPKLIJb+jeB44YEkgGC5ngyFnLs0gAEdwARV8f501B0w8qJNtIEGcdikWeX5xVgqP7JwJICAZPqW4J9/vg==
 
 require-from-string@^2.0.2:
   version "2.0.2"
