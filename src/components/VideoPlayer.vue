@@ -74,11 +74,12 @@ export default {
         },
     },
     mounted() {
-        if (!this.shaka) this.shakaPromise = shaka.then(shaka => shaka.default).then(shaka => (this.shaka = shaka));
+        if (!this.$shaka) this.shakaPromise = shaka.then(shaka => shaka.default).then(shaka => (this.$shaka = shaka));
         if (!this.$hotkeys)
             this.hotkeysPromise = hotkeys.then(mod => mod.default).then(hotkeys => (this.$hotkeys = hotkeys));
     },
     activated() {
+        this.destroying = false;
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
@@ -296,9 +297,9 @@ export default {
             if (noPrevPlayer)
                 this.shakaPromise.then(() => {
                     if (this.destroying) return;
-                    this.shaka.polyfill.installAll();
+                    this.$shaka.polyfill.installAll();
 
-                    const localPlayer = new this.shaka.Player(videoEl);
+                    const localPlayer = new this.$shaka.Player(videoEl);
                     const proxyURL = new URL(component.video.proxyUrl);
                     let proxyPath = proxyURL.pathname;
                     if (proxyPath.lastIndexOf("/") === proxyPath.length - 1) {
@@ -334,9 +335,9 @@ export default {
                         Math.max(this.getPreferenceNumber("bufferGoal", 10), 10),
                     );
 
-                    this.setPlayerAttrs(localPlayer, videoEl, uri, mime, this.shaka);
+                    this.setPlayerAttrs(localPlayer, videoEl, uri, mime, this.$shaka);
                 });
-            else this.setPlayerAttrs(this.$player, videoEl, uri, mime, this.shaka);
+            else this.setPlayerAttrs(this.$player, videoEl, uri, mime, this.$shaka);
 
             if (noPrevPlayer) {
                 videoEl.addEventListener("timeupdate", () => {
