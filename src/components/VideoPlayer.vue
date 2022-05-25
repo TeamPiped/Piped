@@ -80,6 +80,7 @@ export default {
     },
     activated() {
         this.destroying = false;
+        this.sponsors?.segments.forEach(segment => (segment.skipped = false));
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
