@@ -157,7 +157,7 @@
     <label for="chkEnableLBRYProxy"><strong v-t="'actions.enable_lbry_proxy'" /></label>
     <br />
     <input id="chkEnableLBRYProxy" v-model="proxyLBRY" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <h2 v-t="'actions.instances_list'" />
+    <h2 id="instancesList" v-t="'actions.instances_list'" />
     <table class="table">
         <thead>
             <tr>
