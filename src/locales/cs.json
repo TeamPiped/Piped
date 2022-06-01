@@ -1,12 +1,13 @@
 {
     "titles": {
-        "login": "Přihlásit",
-        "trending": "Trendy",
+        "login": "Přihlásit se",
+        "trending": "Populární",
         "register": "Registrace",
         "history": "Historie",
         "subscriptions": "Odběry",
-        "feed": "Feed",
-        "preferences": "Předvolby"
+        "feed": "Odběry",
+        "preferences": "Předvolby",
+        "playlists": "Playlisty"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
@@ -18,10 +19,10 @@
         "channel_name_asc": "Název kanálu (A–Z)",
         "channel_name_desc": "Název kanálu (Z-A)",
         "back": "Zpět",
-        "uses_api_from": "Použití API od ",
+        "uses_api_from": "Používá API od ",
         "enable_sponsorblock": "Zapnout Sponsorblock",
         "skip_intro": "Přeskočit přestávku/úvodní animaci",
-        "skip_preview": "Přeskočit Náhled/Rekapitulaci",
+        "skip_preview": "Přeskočit Náhled/Shrnutí",
         "skip_interaction": "Přeskočit připomenutí interakce (odebírat)",
         "dark": "Tmavý",
         "light": "Světlý",
@@ -32,27 +33,27 @@
         "country_selection": "Výběr země",
         "default_homepage": "Výchozí Domovská stránka",
         "show_comments": "Zobrazit komentáře",
-        "minimize_description_default": "Minimalizovat popis jako výchozí",
+        "minimize_description_default": "Automaticky minimalizovat popis",
         "store_watch_history": "Uložit historii sledování",
         "language_selection": "Výběr jazyka",
         "instances_list": "Seznam instancí",
-        "enabled_codecs": "Povolené kodeky (Multiple)",
+        "enabled_codecs": "Povolené kodeky (Více)",
         "instance_selection": "Výběr instance",
         "show_more": "Zobrazit více",
         "yes": "Ano",
         "no": "Ne",
-        "export_to_json": "Export do JSON",
-        "import_from_json": "Import z JSON",
+        "export_to_json": "Exportovat do JSON",
+        "import_from_json": "Importovat z JSON",
         "auto_play_next_video": "Automaticky přehrát další video",
         "donations": "Darovat",
         "show_description": "Ukázat popis",
         "minimize_recommendations": "Minimalizovat doporučení",
-        "skip_outro": "Přeskočit Endcards/Credits",
+        "skip_outro": "Přeskočit Doporučená videa/Závěrečné titulky",
         "auto": "Auto",
         "show_recommendations": "Zobrazit doporučení",
         "disable_lbry": "Zakázat LBRY pro streamování",
         "enable_lbry_proxy": "Povolit proxy pro LBRY",
-        "view_ssl_score": "Zobrazit skóre SSL",
+        "view_ssl_score": "Zobrazit stav SSL",
         "search": "Vyhledat",
         "filter": "Filtr",
         "loading": "Načítání...",
@@ -65,7 +66,17 @@
         "minimize_description": "Minimalizovat popis",
         "skip_non_music": "Přeskočit Hudbu: Nehudební sekce",
         "skip_self_promo": "Přeskočit Neplacenou/Vlastní propagaci",
-        "theme": "Téma"
+        "theme": "Téma",
+        "skip_highlight": "Přeskočit Highlight",
+        "skip_filler_tangent": "Přeskočit výplňový obsah",
+        "add_to_playlist": "Přidat do playlistu",
+        "remove_from_playlist": "Odstranit z playlistu",
+        "delete_playlist_confirm": "Opravdu si přejete odstranit tento playlist?",
+        "please_select_playlist": "Prosím vyberte playlist",
+        "create_playlist": "Vytvořit Playlist",
+        "delete_playlist": "Odstranit Playlist",
+        "select_playlist": "Vybrat Playlist",
+        "delete_playlist_video_confirm": "Opravdu si přejete odstranit toto video z tohoto playlistu?"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
@@ -75,9 +86,12 @@
     },
     "preferences": {
         "instance_name": "Název instance",
-        "instance_locations": "Umístění instancí",
-        "has_cdn": "Má CDN?",
-        "ssl_score": "Skóre SSL"
+        "instance_locations": "Umístění instance",
+        "has_cdn": "Používá CDN?",
+        "ssl_score": "Stav SSL",
+        "registered_users": "Registrovaní uživatelé",
+        "up_to_date": "Aktualizovaný?",
+        "version": "Verze"
     },
     "login": {
         "username": "Uživatelské jméno",
@@ -86,11 +100,21 @@
     "video": {
         "videos": "Videa",
         "views": "{views} zhlédnutí",
-        "watched": "Viděno",
+        "watched": "Shlédnuto",
         "sponsor_segments": "Sponzorské segmenty",
-        "ratings_disabled": "Hodnocení zakázáno"
+        "ratings_disabled": "Hodnocení zakázáno",
+        "chapters": "Kapitoly",
+        "live": "{0} Živě"
     },
     "search": {
-        "did_you_mean": "Myslel jsi: "
+        "did_you_mean": "Mysleli jste: {0}?",
+        "all": "YouTube: Vše",
+        "videos": "YouTube: Videa",
+        "channels": "YouTube: Kanály",
+        "music_songs": "YT Music: Skladby",
+        "playlists": "YouTube: Playlisty",
+        "music_videos": "YT Music: Videa",
+        "music_albums": "YT Music: Alba",
+        "music_playlists": "YT Music: Playlisty"
     }
 }
