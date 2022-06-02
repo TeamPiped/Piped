@@ -225,6 +225,7 @@ export default {
             watchHistory: false,
             selectedLanguage: "en",
             languages: [
+                { code: "az", name: "Azərbaycan" },
                 { code: "bn", name: "বাংলা" },
                 { code: "bs", name: "Bosanski" },
                 { code: "ca", name: "Català" },
@@ -235,6 +236,7 @@ export default {
                 { code: "es", name: "Español" },
                 { code: "en", name: "English" },
                 { code: "eo", name: "Esperanto" },
+                { code: "et", name: "Eesti" },
                 { code: "fa", name: "فارسی" },
                 { code: "fi", name: "Suomi" },
                 { code: "fr", name: "Français" },
