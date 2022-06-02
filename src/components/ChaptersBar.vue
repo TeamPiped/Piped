@@ -1,6 +1,6 @@
 <template>
     <h2 v-t="'video.chapters'" />
-    <div :key="chapter.start" v-for="chapter in props.chapters" @click="$emit('seek', chapter.start)" class="chapter">
+    <div :key="chapter.start" v-for="chapter in chapters" @click="$emit('seek', chapter.start)" class="chapter">
         <img :src="chapter.image" :alt="chapter.title" class="h-12" />
         <div class="ml-1">
             <span class="text-xl" v-text="chapter.title" />
