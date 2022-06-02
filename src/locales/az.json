@@ -13,8 +13,8 @@
         "watch_on": "{0} saytında baxın"
     },
     "actions": {
-        "subscribe": "Abunə Olun - {rəqəm}",
-        "unsubscribe": "Abunəlikdən Çıxın- {rəqəm}",
+        "subscribe": "Abunə Olun - {count}",
+        "unsubscribe": "Abunəlikdən Çıxın- {count}",
         "view_subscriptions": "Abunəliklərə Baxın",
         "sort_by": "Sıralama qaydası:",
         "most_recent": "Ən son",
@@ -99,7 +99,7 @@
     },
     "video": {
         "videos": "Videolar",
-        "views": "{Baxış} Baxış",
+        "views": "{views} Baxış",
         "watched": "Baxıldı",
         "sponsor_segments": "Sponsorlar Seqmentləri",
         "ratings_disabled": "Reytinqlər Deaktivdir",
