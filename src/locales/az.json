@@ -79,7 +79,8 @@
         "no": "Xeyr",
         "store_watch_history": "Baxış Tarixçəsini Saxlayın",
         "enabled_codecs": "Aktiv Kodeklər (Birdən çox)",
-        "yes": "Bəli"
+        "yes": "Bəli",
+        "show_markers": "Oynadıcıda Markerləri Göstərin"
     },
     "comment": {
         "pinned_by": "Tərəfindən Sabitləndi"
