@@ -127,8 +127,8 @@ export default {
         handleRedirect() {
             const query = this.$route.query.search_query;
             const url =
-                /(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&]*)/gm.exec(query)?.[1] ??
-                /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&]*)/gm
+                /(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm.exec(query)?.[1] ??
+                /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm
                     .exec(query)?.[1]
                     .replace(/^/, "/watch?v=");
             if (url) {
