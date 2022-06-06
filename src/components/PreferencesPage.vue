@@ -270,7 +270,7 @@ export default {
                 { code: "zh_Hant", name: "繁體中文" },
                 { code: "zh_Hans", name: "简体中文" },
             ],
-            enabledCodecs: ["av1", "vp9", "avc"],
+            enabledCodecs: ["vp9", "avc"],
             disableLBRY: false,
             proxyLBRY: false,
         };
@@ -356,7 +356,7 @@ export default {
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
             this.selectedLanguage = this.getPreferenceString("hl", this.defaultLangage);
-            this.enabledCodecs = this.getPreferenceString("enabledCodecs", "av1,vp9,avc").split(",");
+            this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
             if (this.selectedLanguage != "en") {

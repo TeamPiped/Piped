@@ -55,7 +55,7 @@ export default {
         },
         preferredVideoCodecs: _this => {
             var preferredVideoCodecs = [];
-            const enabledCodecs = _this.getPreferenceString("enabledCodecs", "av1,vp9,avc").split(",");
+            const enabledCodecs = _this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
 
             if (
                 _this.$refs.videoEl.canPlayType('video/mp4; codecs="av01.0.08M.08"') !== "" &&
