@@ -66,6 +66,10 @@
     <br />
     <input id="chkSkipFiller" v-model="skipFiller" class="checkbox" type="checkbox" @change="onChange($event)" />
     <br />
+    <label for="chkShowMarkers"><strong v-t="'actions.show_markers'" /></label>
+    <br />
+    <input id="chkShowMarkers" v-model="showMarkers" class="checkbox" type="checkbox" @change="onChange($event)" />
+    <br />
     <label for="ddlTheme"><strong v-t="'actions.theme'" /></label>
     <br />
     <select id="ddlTheme" v-model="selectedTheme" class="select w-auto" @change="onChange($event)">
@@ -211,6 +215,7 @@ export default {
             skipMusicOffTopic: true,
             skipHighlight: false,
             skipFiller: false,
+            showMarkers: true,
             selectedTheme: "dark",
             autoPlayVideo: true,
             listen: false,
@@ -339,6 +344,7 @@ export default {
                 });
             }
 
+            this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
             this.listen = this.getPreferenceBoolean("listen", false);
@@ -392,6 +398,7 @@ export default {
                 if (this.skipFiller) sponsorSelected.push("filler");
                 localStorage.setItem("selectedSkip", sponsorSelected);
 
+                localStorage.setItem("showMarkers", this.showMarkers);
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
                 localStorage.setItem("listen", this.listen);

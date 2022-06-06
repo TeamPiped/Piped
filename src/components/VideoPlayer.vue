@@ -464,6 +464,8 @@ export default {
                 this.$ui.configure(config);
             }
 
+            this.updateMarkers();
+
             const player = this.$ui.getControls().getPlayer();
 
             this.$player = player;
@@ -554,6 +556,58 @@ export default {
                 this.$refs.videoEl.currentTime = time;
             }
         },
+        updateMarkers() {
+            const markers = this.$refs.container.querySelector(".shaka-ad-markers");
+            const array = ["to right"];
+            this.sponsors?.segments.forEach(segment => {
+                const start = (segment.segment[0] / this.video.duration) * 100;
+                const end = (segment.segment[1] / this.video.duration) * 100;
+
+                var color;
+                switch (segment.category) {
+                    case "sponsor":
+                        color = "#00d400";
+                        break;
+                    case "selfpromo":
+                        color = "#ffff00";
+                        break;
+                    case "interaction":
+                        color = "#cc00ff";
+                        break;
+                    case "poi_highlight":
+                        color = "#ff1684";
+                        break;
+                    case "intro":
+                        color = "#00ffff";
+                        break;
+                    case "outro":
+                        color = "#0202ed";
+                        break;
+                    case "preview":
+                        color = "#008fd6";
+                        break;
+                    case "filler":
+                        color = "#7300FF";
+                        break;
+                    case "music_offtopic":
+                        color = "#ff9900";
+                        break;
+                    default:
+                        color = "white";
+                }
+
+                array.push(`transparent ${start}%`);
+                array.push(`${color} ${start}%`);
+                array.push(`${color} ${end}%`);
+                array.push(`transparent ${end}%`);
+            });
+
+            if (array.length <= 1) {
+                return;
+            }
+
+            markers.style.background = `linear-gradient(${array.join(",")})`;
+        },
         destroy(hotkeys) {
             if (this.$ui) {
                 this.$ui.destroy();
@@ -566,6 +620,15 @@ export default {
             }
             if (this.$hotkeys && hotkeys) this.$hotkeys.unbind();
             if (this.$refs.container) this.$refs.container.querySelectorAll("div").forEach(node => node.remove());
+        },
+    },
+    watch: {
+        sponsors() {
+            if (this.getPreferenceBoolean("showMarkers", true)) {
+                this.shakaPromise.then(() => {
+                    this.updateMarkers();
+                });
+            }
         },
     },
 };

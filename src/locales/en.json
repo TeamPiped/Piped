@@ -33,6 +33,7 @@
         "skip_non_music": "Skip Music: Non-Music Section",
         "skip_highlight": "Skip Highlight",
         "skip_filler_tangent": "Skip Filler Tangent",
+        "show_markers": "Show Markers on Player",
         "theme": "Theme",
         "auto": "Auto",
         "dark": "Dark",
