@@ -1,10 +1,10 @@
 {
     "titles": {
-        "trending": "Reytinqli",
+        "trending": "Trendlər",
         "login": "Daxil olun",
         "register": "Qeydiyyatdan keçin",
         "feed": "Axın",
-        "preferences": "Üstünlüklər",
+        "preferences": "Seçimlər",
         "history": "Tarixçə",
         "subscriptions": "Abunəliklər",
         "playlists": "Pleylistlər"
@@ -17,22 +17,22 @@
         "unsubscribe": "Abunəlikdən Çıxın- {count}",
         "view_subscriptions": "Abunəliklərə Baxın",
         "sort_by": "Sıralama qaydası:",
-        "most_recent": "Ən son",
+        "most_recent": "Ən Yeni",
         "least_recent": "Ən Köhnə",
         "channel_name_asc": "Kanal Adı (A-Z)",
         "channel_name_desc": "Kanal Adı (Z-A)",
         "back": "Geri",
         "uses_api_from": "API-dən istifadə edir ",
-        "enable_sponsorblock": "SponsorBlock'u Aktivləşdirin",
+        "enable_sponsorblock": "SponsorBlok'u Aktivləşdirin",
         "skip_sponsors": "Sponsorları Ötürün",
         "skip_intro": "Fasilə/Giriş Animasiyasını Ötür",
-        "skip_outro": "Bitiş Kartları/Töhfəçilər Seqmentlərini Ötür",
-        "skip_preview": "Önbaxışı/Xülasəni Ötürün",
+        "skip_outro": "Bitiş Kartları/Kanal Nişanı Seqmentlərini Ötür",
+        "skip_preview": "Önbaxışı/Anonsu Ötürün",
         "skip_interaction": "İnteraksiya Xatırlatıcısını Ötürün(Abunə Olun)",
-        "skip_self_promo": "Ödənişsiz/Özünü Tanıtmanı ötürün",
-        "skip_non_music": "Musiqiqisiz Bölüm: Musiqi Olmayan Bölmə",
-        "skip_highlight": "Xülasəni Keçin",
-        "skip_filler_tangent": "Doldurucu Səhnələri keçin",
+        "skip_self_promo": "Ödənişsiz/Özünü Reklamı Ötürün",
+        "skip_non_music": "Musiqisizliyi Ötür: Musiqi Olmayan Bölmə",
+        "skip_highlight": "Anonsu Ötür",
+        "skip_filler_tangent": "Doldurucu Səhnələri Ötür",
         "theme": "Mövzu",
         "auto": "Avtomatik",
         "dark": "Tünd",
@@ -48,11 +48,11 @@
         "donations": "İanələr",
         "minimize_description": "Açıqlamanı Kiçildin",
         "show_description": "Açıqlamanı Göstərin",
-        "minimize_recommendations": "Tövsiyələri minimuma endirin",
-        "show_recommendations": "Tövsiyələri göstərin",
-        "disable_lbry": "Yayım üçün LBRY-ni söndürün",
-        "enable_lbry_proxy": "LBRY üçün Proksi-ni aktivləşdirin",
-        "view_ssl_score": "SSL Nəticəsinə baxın",
+        "minimize_recommendations": "Tövsiyələri ən aza endirin",
+        "show_recommendations": "Tövsiyələri Göstərin",
+        "disable_lbry": "Yayım üçün LBRY-ni Söndürün",
+        "enable_lbry_proxy": "LBRY üçün Proksi-ni Aktivləşdirin",
+        "view_ssl_score": "SSL Nəticəsinə Baxın",
         "search": "Axtarın",
         "filter": "Filtr",
         "loading": "Yüklənir...",
@@ -65,7 +65,7 @@
         "delete_playlist_video_confirm": "Bu videonu bu pleylistdən silmək istədiyinizə əminsiniz?",
         "create_playlist": "Pleylist Yaradın",
         "delete_playlist": "Pleylisti Silin",
-        "select_playlist": "Pleylist seçin",
+        "select_playlist": "Pleylist Seçin",
         "delete_playlist_confirm": "Bu pleylisti silmək istədiyinizə əminsiniz?",
         "please_select_playlist": "Lütfən, Pleylist Seçin",
         "country_selection": "Ölkə Seçimi",
@@ -75,14 +75,15 @@
         "minimize_description_default": "Açıqlamanı Defolt Olaraq Kiçildin",
         "language_selection": "Dil Seçimi",
         "instances_list": "Nümunələr Siyahısı",
-        "show_more": "Daha Çox göstər",
+        "show_more": "Daha Çox Göstər",
         "no": "Xeyr",
         "store_watch_history": "Baxış Tarixçəsini Saxlayın",
         "enabled_codecs": "Aktiv Kodeklər (Birdən çox)",
-        "yes": "Bəli"
+        "yes": "Bəli",
+        "show_markers": "Oynadıcıda Markerləri Göstərin"
     },
     "comment": {
-        "pinned_by": "Onun Tərəfindən Sabitləndi"
+        "pinned_by": "Tərəfindən Sabitləndi"
     },
     "preferences": {
         "instance_name": "Nümunə Adı",
@@ -95,7 +96,7 @@
     },
     "login": {
         "username": "İstifadəçi Adı",
-        "password": "Parol"
+        "password": "Şifrə"
     },
     "video": {
         "videos": "Videolar",

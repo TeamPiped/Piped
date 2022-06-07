@@ -66,7 +66,8 @@
         "add_to_playlist": "Oynatma listesine ekle",
         "create_playlist": "Oynatma Listesi Oluştur",
         "select_playlist": "Oynatma Listesi Seç",
-        "please_select_playlist": "Lütfen bir oynatma listesi seçin"
+        "please_select_playlist": "Lütfen bir oynatma listesi seçin",
+        "show_markers": "Oynatıcıda İşaretçileri Göster"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"

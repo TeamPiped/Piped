@@ -87,7 +87,8 @@
         "add_to_playlist": "Añadir a la lista de reproducción",
         "delete_playlist_video_confirm": "¿Está seguro/a de que desea eliminar este vídeo de esta lista de reproducción?",
         "please_select_playlist": "Seleccione una lista de reproducción",
-        "select_playlist": "Seleccione una lista de reproducción"
+        "select_playlist": "Seleccione una lista de reproducción",
+        "show_markers": "Mostrar Marcadores en Reproductor"
     },
     "titles": {
         "feed": "Feed",
