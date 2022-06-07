@@ -1,1 +1,16 @@
-{}
+{
+    "actions": {
+        "view_subscriptions": "Ver inscrições",
+        "back": "Voltar",
+        "most_recent": "Mais recente",
+        "least_recent": "Menos recente",
+        "sort_by": "Ordenar por:"
+    },
+    "titles": {
+        "history": "Histórico",
+        "trending": "Em alta",
+        "preferences": "Preferências",
+        "register": "Registrar",
+        "login": "Entrar"
+    }
+}
