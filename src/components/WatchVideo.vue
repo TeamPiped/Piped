@@ -37,10 +37,6 @@
                             <font-awesome-icon icon="thumbs-up" />
                             <strong class="ml-2" v-text="addCommas(video.likes)" />
                         </div>
-                        <div>
-                            <font-awesome-icon icon="thumbs-down" />
-                            <strong class="ml-2" v-text="video.dislikes >= 0 ? addCommas(video.dislikes) : '?'" />
-                        </div>
                     </template>
                     <template v-if="video.likes < 0">
                         <div>
