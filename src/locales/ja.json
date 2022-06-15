@@ -43,7 +43,7 @@
         "default_homepage": "デフォルトのホームページ",
         "show_comments": "コメントを表示",
         "minimize_description_default": "デフォルトで詳細を最小化",
-        "store_watch_history": "視聴履歴を空にする",
+        "store_watch_history": "視聴履歴を記録する",
         "language_selection": "言語の選択",
         "instances_list": "インスタンス一覧",
         "enabled_codecs": "コーデックの有効化 (複数選択)",
