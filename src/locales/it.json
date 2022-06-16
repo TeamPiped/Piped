@@ -57,8 +57,8 @@
         "show_replies": "Mostra risposte",
         "load_more_replies": "Carica più risposte",
         "hide_replies": "Nascondi risposte",
-        "skip_filler_tangent": "Ignora Filler",
-        "skip_highlight": "Ignora Momento Saliente",
+        "skip_filler_tangent": "Ignora i filler",
+        "skip_highlight": "Ignora i momenti salienti",
         "delete_playlist": "Elimina la playlist",
         "add_to_playlist": "Aggiungi alla playlist",
         "create_playlist": "Crea una playlist",
@@ -66,7 +66,8 @@
         "delete_playlist_confirm": "Vuoi davvero eliminare questa playlist?",
         "remove_from_playlist": "Rimuovi dalla playlist",
         "delete_playlist_video_confirm": "Vuoi davvero rimuovere questo video da questa playlist?",
-        "select_playlist": "Seleziona una playlist"
+        "select_playlist": "Seleziona una playlist",
+        "show_markers": "Mostra i marcatori sul lettore"
     },
     "player": {
         "watch_on": "Guarda su {0}"

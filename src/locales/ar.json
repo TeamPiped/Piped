@@ -1,0 +1,53 @@
+{
+    "titles": {
+        "trending": "محتوى رائج",
+        "login": "تسجيل الدخول",
+        "register": "إنشاء حساب",
+        "preferences": "الإعدادات",
+        "history": "تاريخ التصفح",
+        "subscriptions": "الاشتراكات",
+        "playlists": "قوائم التشغيل"
+    },
+    "player": {
+        "watch_on": "شاهد عبر"
+    },
+    "actions": {
+        "subscribe": "اشتراك - {count}",
+        "view_subscriptions": "عرض الاشتراكات",
+        "most_recent": "الأحدث",
+        "least_recent": "الأقدم",
+        "unsubscribe": "إلغاء اشتراك - {count}",
+        "channel_name_asc": "إسم القناة (أبجدي تصاعدي)",
+        "sort_by": "ترتيب النتائج:",
+        "back": "رجوع",
+        "skip_intro": "تخطي الفواصل/ المقدمة",
+        "light": "مضيء",
+        "clear_history": "مسح تاريخ المشاهدات",
+        "hide_replies": "إخفاء التعليقات",
+        "show_replies": "عرض التعليقات",
+        "create_playlist": "إنشاء قائمة",
+        "delete_playlist": "مسح القائمة",
+        "select_playlist": "اختر قائمة",
+        "delete_playlist_confirm": "هل أنت متأكد من مسح القائمة؟",
+        "please_select_playlist": "فضلًا اختر قائمة",
+        "channel_name_desc": "إسم القناة (أبجدي تنازلي)",
+        "uses_api_from": "اختيار المُشغل: ",
+        "skip_sponsors": "تخطي الإعلان",
+        "enable_sponsorblock": "تفعيل مانع الإعلانات",
+        "auto": "تلقائي",
+        "dark": "داكن",
+        "search": "بحث",
+        "autoplay_video": "تشغيل تلقائي",
+        "audio_only": "صوت فقط",
+        "default_quality": "الجودة الأساسية",
+        "yes": "نعم",
+        "no": "لا"
+    },
+    "video": {
+        "sponsor_segments": "المقاطع الإعلانية",
+        "ratings_disabled": "التقييم غير متاح",
+        "chapters": "فصول الفيديو",
+        "watched": "تمت مشاهدته",
+        "views": "{views} عدد المشاهدات"
+    }
+}

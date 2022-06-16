@@ -79,7 +79,8 @@
         "please_select_playlist": "Пожалуйста, выберите плейлист",
         "select_playlist": "Выбрать плейлист",
         "delete_playlist_confirm": "Вы точно хотите удалить этот плейлист?",
-        "delete_playlist_video_confirm": "Вы точно хотите удалить это видео из плейлиста?"
+        "delete_playlist_video_confirm": "Вы точно хотите удалить это видео из плейлиста?",
+        "show_markers": "Показать Mаркеры Hа Проигрывателе"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем"

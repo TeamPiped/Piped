@@ -6,7 +6,8 @@
         "feed": "フィード",
         "preferences": "設定",
         "history": "履歴",
-        "subscriptions": "サブスクリプション"
+        "subscriptions": "サブスクリプション",
+        "playlists": "再生リスト"
     },
     "player": {
         "watch_on": "{0}で見る"
@@ -42,7 +43,7 @@
         "default_homepage": "デフォルトのホームページ",
         "show_comments": "コメントを表示",
         "minimize_description_default": "デフォルトで詳細を最小化",
-        "store_watch_history": "視聴履歴を空にする",
+        "store_watch_history": "視聴履歴を記録する",
         "language_selection": "言語の選択",
         "instances_list": "インスタンス一覧",
         "enabled_codecs": "コーデックの有効化 (複数選択)",
@@ -70,7 +71,16 @@
         "hide_replies": "返信を非表示",
         "load_more_replies": "もっと見る",
         "skip_filler_tangent": "無関係なコンテンツをスキップ",
-        "skip_highlight": "要点をスキップ"
+        "skip_highlight": "要点をスキップ",
+        "add_to_playlist": "再生リストに追加",
+        "create_playlist": "新しい再生リストを作成",
+        "remove_from_playlist": "再生リストから削除",
+        "delete_playlist_video_confirm": "再生リストからこの動画を削除してもよろしいですか？",
+        "delete_playlist": "再生リストを削除",
+        "please_select_playlist": "再生リストを選択してください",
+        "show_markers": "プレーヤーにマーカーを表示",
+        "select_playlist": "再生リストを選択",
+        "delete_playlist_confirm": "再生リストを削除してもよろしいですか？"
     },
     "comment": {
         "pinned_by": "固定されたコメント"

@@ -76,7 +76,8 @@
         "select_playlist": "Sélectionnez une liste de lecture",
         "add_to_playlist": "Ajouter à la liste de lecture",
         "create_playlist": "Créer une liste de lecture",
-        "delete_playlist_confirm": "Voulez-vous vraiment supprimer cette liste de lecture ?"
+        "delete_playlist_confirm": "Voulez-vous vraiment supprimer cette liste de lecture ?",
+        "show_markers": "Afficher les marqueurs sur le lecteur"
     },
     "player": {
         "watch_on": "Regarder sur {0}"

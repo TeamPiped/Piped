@@ -230,6 +230,7 @@ export default {
             watchHistory: false,
             selectedLanguage: "en",
             languages: [
+                { code: "ar", name: "Arabic" },
                 { code: "az", name: "Azərbaycan" },
                 { code: "bn", name: "বাংলা" },
                 { code: "bs", name: "Bosanski" },
@@ -259,6 +260,7 @@ export default {
                 { code: "pl", name: "Polski" },
                 { code: "pt", name: "Português" },
                 { code: "pt_PT", name: "Português (Portugal)" },
+                { code: "pt_BR", name: "Português (Brasil)" },
                 { code: "ru", name: "Русский" },
                 { code: "sr", name: "Српски" },
                 { code: "sv", name: "Svenska" },

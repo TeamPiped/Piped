@@ -66,7 +66,8 @@
         "delete_playlist_video_confirm": "Sind Sie sicher, dass Sie dieses Video aus dieser Wiedergabeliste entfernen möchten?",
         "delete_playlist": "Wiedergabeliste löschen",
         "please_select_playlist": "Bitte wählen Sie eine Wiedergabeliste",
-        "select_playlist": "Wählen Sie eine Wiedergabeliste"
+        "select_playlist": "Wählen Sie eine Wiedergabeliste",
+        "show_markers": "Markierungen auf dem Player anzeigen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
