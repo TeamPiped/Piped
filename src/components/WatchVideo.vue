@@ -25,6 +25,7 @@
                 :selected-auto-play="selectedAutoPlay"
                 :selected-auto-loop="selectedAutoLoop"
             />
+            <ChaptersBar v-if="video?.chapters?.length > 0" :chapters="video.chapters" @seek="navigate" />
             <div class="font-bold mt-2 text-2xl break-words" v-text="video.title" />
 
             <div class="flex mb-1.5">
@@ -100,7 +101,6 @@
             />
             <!-- eslint-disable-next-line vue/no-v-html -->
             <div v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
-            <ChaptersBar v-if="video?.chapters?.length > 0" :chapters="video.chapters" @seek="navigate" />
             <div
                 v-if="showDesc && sponsors && sponsors.segments"
                 v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
