@@ -5,7 +5,7 @@
             <img :src="chapter.image" :alt="chapter.title" class="" />
             <div class="m-1 flex">
                 <span class="text-truncate text-sm" :title="chapter.title" v-text="chapter.title" />
-                <span class="text-sm font-bold text-yellow-500" v-text="timeFormat(chapter.start)" />
+                <span class="text-sm font-bold text-blue-500" v-text="timeFormat(chapter.start)" />
             </div>
         </div>
     </div>
