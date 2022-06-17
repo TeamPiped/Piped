@@ -10,11 +10,23 @@
                 },
             }"
         >
-            <img :height="height" :width="width" class="w-full" :src="video.thumbnail" alt="" loading="lazy" />
+            <img
+                :style="`max-height: ${height}px; max-width: ${width}px`"
+                class="w-full"
+                :src="video.thumbnail"
+                :alt="video.title"
+                loading="lazy"
+            />
             <div class="relative text-sm">
                 <span
                     class="thumbnail-overlay thumbnail-right"
                     v-if="video.duration > 0"
+                    v-text="timeFormat(video.duration)"
+                />
+                <span class="thumbnail-overlay thumbnail-right" v-if="video.duration <= 60" v-text="`SHORTS`" />
+                <span
+                    class="thumbnail-overlay thumbnail-right"
+                    v-else-if="video.duration >= 60"
                     v-text="timeFormat(video.duration)"
                 />
                 <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right !bg-red-600" tag="div">
