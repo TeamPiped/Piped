@@ -63,6 +63,15 @@
                     >
                         <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'" />
                     </router-link>
+                    <button
+                        class="btn"
+                        :title="
+                            theaterMode ? this.$t('actions.exit_theater_mode') : this.$t('actions.enter_theater_mode')
+                        "
+                        v-on:click="theaterMode = !theaterMode"
+                    >
+                        <font-awesome-icon icon="panorama" />
+                    </button>
                 </div>
             </div>
 
@@ -117,14 +126,14 @@
 
         <hr />
 
-        <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
-            <div v-if="!comments" class="xl:col-span-4 sm:col-span-3">
+        <div class="grid sm:grid-cols-4 grid-cols-1 gap-6">
+            <div v-if="!comments" class="col-span-3">
                 <p class="text-center mt-8">Comments are loading...</p>
             </div>
-            <div v-else-if="comments.disabled" class="xl:col-span-4 sm:col-span-3">
+            <div v-else-if="comments.disabled" class="col-span-3">
                 <p class="text-center mt-8">Comments are turned off.</p>
             </div>
-            <div v-else ref="comments" class="xl:col-span-4 sm:col-span-3">
+            <div v-else ref="comments" class="col-span-3">
                 <CommentItem
                     v-for="comment in comments.comments"
                     :key="comment.commentId"
@@ -203,6 +212,7 @@ export default {
             smallViewQuery: smallViewQuery,
             smallView: smallViewQuery.matches,
             showModal: false,
+            theaterMode: false,
         };
     },
     computed: {
@@ -268,6 +278,7 @@ export default {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
+        this.theaterMode = this.getPreferenceBoolean("defaultTheaterMode", false);
         if (this.video.duration) {
             document.title = this.video.title + " - Piped";
             this.$refs.videoPlayer.loadVideo();
@@ -276,6 +287,7 @@ export default {
     },
     deactivated() {
         this.active = false;
+        document.body.classList.remove("theater-mode");
         window.removeEventListener("scroll", this.handleScroll);
     },
     unmounted() {
@@ -413,6 +425,12 @@ export default {
         },
         navigate(time) {
             this.$refs.videoPlayer.seek(time);
+        },
+    },
+    watch: {
+        theaterMode() {
+            if (this.theaterMode) document.body.classList.add("wide");
+            else document.body.classList.remove("wide");
         },
     },
 };

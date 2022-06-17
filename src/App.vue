@@ -63,6 +63,21 @@ export default {
             }
         })();
     },
+    watch: {
+        $route: {
+            handler(to) {
+                console.log(to.name);
+                // Pages that should be displayed without margin at the sides
+                if (
+                    ["Trending", "SearchResults", "Playlist", "Channel", "Feed", "Watch History", "Playlists"].includes(
+                        to.name,
+                    )
+                )
+                    document.body.classList.add("wide");
+                else document.body.classList.remove("wide");
+            },
+        },
+    },
 };
 </script>
 
@@ -206,5 +221,10 @@ h2 {
 
 .auto .link-secondary {
     @apply dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
+}
+
+body:not(.wide) {
+    max-width: 1250px;
+    margin: 0 auto;
 }
 </style>

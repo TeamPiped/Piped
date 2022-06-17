@@ -80,7 +80,10 @@
         "delete_playlist": "Delete Playlist",
         "select_playlist": "Select a Playlist",
         "delete_playlist_confirm": "Are you sure you want to delete this playlist?",
-        "please_select_playlist": "Please select a playlist"
+        "please_select_playlist": "Please select a playlist",
+        "enter_theater_mode": "Enter Theater Mode",
+        "exit_theater_mode": "Exit Theater Mode",
+        "default_theater_mode": "Use the Theater Mode by default"
     },
     "comment": {
         "pinned_by": "Pinned by"

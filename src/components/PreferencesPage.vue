@@ -124,6 +124,16 @@
         @change="onChange($event)"
     />
     <br />
+    <label for="chkDefaultTheaterMode"><strong v-t="'actions.default_theater_mode'" /></label>
+    <br />
+    <input
+        id="chkDefaultTheaterMode"
+        v-model="defaultTheaterMode"
+        class="checkbox"
+        type="checkbox"
+        @change="onChange($event)"
+    />
+    <br />
     <label for="chkStoreWatchHistory"><strong v-t="'actions.store_watch_history'" /></label>
     <br />
     <input
@@ -227,6 +237,7 @@ export default {
             defaultHomepage: "trending",
             showComments: true,
             minimizeDescription: false,
+            defaultTheaterMode: false,
             watchHistory: false,
             selectedLanguage: "en",
             languages: [
@@ -356,6 +367,7 @@ export default {
             this.defaultHomepage = this.getPreferenceString("homepage", "trending");
             this.showComments = this.getPreferenceBoolean("comments", true);
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
+            this.defaultTheaterMode = this.getPreferenceBoolean("defaultTheaterMode", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
             this.selectedLanguage = this.getPreferenceString("hl", this.defaultLangage);
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
@@ -410,6 +422,7 @@ export default {
                 localStorage.setItem("homepage", this.defaultHomepage);
                 localStorage.setItem("comments", this.showComments);
                 localStorage.setItem("minimizeDescription", this.minimizeDescription);
+                localStorage.setItem("defaultTheaterMode", this.defaultTheaterMode);
                 localStorage.setItem("watchHistory", this.watchHistory);
                 localStorage.setItem("hl", this.selectedLanguage);
                 localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));

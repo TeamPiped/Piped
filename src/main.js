@@ -17,6 +17,7 @@ import {
     faCirclePlus,
     faCircleMinus,
     faXmark,
+    faPanorama,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -40,6 +41,7 @@ library.add(
     faCirclePlus,
     faCircleMinus,
     faXmark,
+    faPanorama,
 );
 
 import router from "@/router/router.js";

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-6">
         <router-link
             :to="{
                 path: '/watch',
@@ -26,7 +26,7 @@
             <div>
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="my-2 overflow-hidden flex link"
+                    class="my-1 overflow-hidden flex link"
                     :title="video.title"
                     v-text="video.title"
                 />

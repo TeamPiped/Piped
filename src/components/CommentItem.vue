@@ -1,8 +1,8 @@
 <template>
-    <div class="comment flex mt-1.5">
+    <div class="comment flex mb-5">
         <img
             :src="comment.thumbnail"
-            class="comment-avatar rounded-full w-12 h-12"
+            class="comment-avatar rounded-full w-12 h-12 mr-1 lg:mr-3"
             height="48"
             width="48"
             loading="lazy"
@@ -36,7 +36,7 @@
                 </div>
             </template>
             <template v-if="showingReplies">
-                <div @click="hideReplies" class="cursor-pointer">
+                <div @click="hideReplies" class="cursor-pointer mb-3">
                     <a v-t="'actions.hide_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-up-alt" />
                 </div>
