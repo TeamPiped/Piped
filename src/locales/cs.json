@@ -76,7 +76,8 @@
         "create_playlist": "Vytvořit Playlist",
         "delete_playlist": "Odstranit Playlist",
         "select_playlist": "Vybrat Playlist",
-        "delete_playlist_video_confirm": "Opravdu si přejete odstranit toto video z tohoto playlistu?"
+        "delete_playlist_video_confirm": "Opravdu si přejete odstranit toto video z tohoto playlistu?",
+        "show_markers": "Zobrazit značky na přehrávači"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
