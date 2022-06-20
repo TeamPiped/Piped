@@ -962,10 +962,10 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.1.1"
 
-"@fortawesome/vue-fontawesome@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-3.0.0.tgz#33b1853a18282f7022d18b7156bde6f9ac861c9f"
-  integrity sha512-VAnPH09+DTrdLmmOVP6Xw3+0psJViPjIqVEieXeihMvlpsTE9N/yWEDqkKmaHxjCkeUjoPEg90TNQbhTmtQK/A==
+"@fortawesome/vue-fontawesome@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-3.0.1.tgz#ced35cefc52b364f7db973f2fe9f50c3dd160715"
+  integrity sha512-CdXZJoCS+aEPec26ZP7hWWU3SaJlQPZSCGdgpQ2qGl2HUmtUUNrI3zC4XWdn1JUmh3t5OuDeRG1qB4eGRNSD4A==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
