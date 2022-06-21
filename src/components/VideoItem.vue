@@ -24,7 +24,7 @@
                     v-text="timeFormat(video.duration)"
                 />
                 <!-- shorts thumbnail -->
-                <span class="thumbnail-overlay thumbnail-left" v-if="video.duration <= 60" v-t="SHORTS" />
+                <span class="thumbnail-overlay thumbnail-left" v-if="video.duration <= 60" v-t="'shorts'" />
                 <span
                     class="thumbnail-overlay thumbnail-right"
                     v-else-if="video.duration >= 60"
@@ -126,6 +126,7 @@
     background-color: #f40407;
     font-size: 10px;
     font-weight: bold;
+    text-transform: uppercase;
 }
 </style>
 
