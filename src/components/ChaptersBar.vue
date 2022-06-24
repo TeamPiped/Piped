@@ -1,6 +1,6 @@
 <template>
     <!-- desktop view -->
-    <div v-if="mobileLayout == false" class="flex-col <lg:hidden" style="overflow-y: scroll; max-height: 29.3em">
+    <div v-if="!mobileLayout" class="flex-col overflow-y-scroll max-h-75vh min-h-64 <lg:hidden">
         <h2 v-t="'video.chapters'" class="mb-2 bg-gray-500/50 p-2" />
         <div
             :key="chapter.start"
