@@ -16,16 +16,23 @@
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
-            <VideoPlayer
-                ref="videoPlayer"
-                :video="video"
-                :sponsors="sponsors"
-                :playlist="playlist"
-                :index="index"
-                :selected-auto-play="selectedAutoPlay"
-                :selected-auto-loop="selectedAutoLoop"
-            />
-            <ChaptersBar v-if="video?.chapters?.length > 0" :chapters="video.chapters" @seek="navigate" />
+            <div :class="isMobile ? 'flex-col' : 'flex'">
+                <VideoPlayer
+                    ref="videoPlayer"
+                    :video="video"
+                    :sponsors="sponsors"
+                    :playlist="playlist"
+                    :index="index"
+                    :selected-auto-play="selectedAutoPlay"
+                    :selected-auto-loop="selectedAutoLoop"
+                />
+                <ChaptersBar
+                    :mobileLayout="isMobile"
+                    v-if="video?.chapters?.length > 0"
+                    :chapters="video.chapters"
+                    @seek="navigate"
+                />
+            </div>
             <div class="font-bold mt-2 text-2xl break-words" v-text="video.title" />
 
             <div class="flex mb-1.5">
@@ -203,6 +210,7 @@ export default {
             smallViewQuery: smallViewQuery,
             smallView: smallViewQuery.matches,
             showModal: false,
+            isMobile: true,
         };
     },
     computed: {
@@ -226,6 +234,18 @@ export default {
         },
     },
     mounted() {
+        // check screen size
+        if (window.innerWidth >= 1024) {
+            this.isMobile = false;
+        }
+        // add an event listener to watch for screen size changes
+        window.addEventListener("resize", () => {
+            if (window.innerWidth >= 1024) {
+                this.isMobile = false;
+            } else {
+                this.isMobile = true;
+            }
+        });
         this.getVideoData().then(() => {
             (async () => {
                 const videoId = this.getVideoId();
