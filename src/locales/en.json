@@ -105,7 +105,8 @@
         "sponsor_segments": "Sponsors Segments",
         "ratings_disabled": "Ratings Disabled",
         "chapters": "Chapters",
-        "live": "{0} Live"
+        "live": "{0} Live",
+        "shorts": "Shorts"
     },
     "search": {
         "did_you_mean": "Did you mean: {0}?",
