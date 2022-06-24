@@ -20,10 +20,10 @@
     <!-- mobile view -->
     <div v-else class="flex overflow-x-auto">
         <div :key="chapter.start" v-for="chapter in chapters" @click="$emit('seek', chapter.start)" class="chapter">
-            <img :src="chapter.image" :alt="chapter.title" class="" />
+            <img :src="chapter.image" :alt="chapter.title" />
             <div class="m-1 flex">
                 <span class="text-truncate text-sm" :title="chapter.title" v-text="chapter.title" />
-                <span class="text-sm font-bold text-blue-500" v-text="timeFormat(chapter.start)" />
+                <span class="px-1 text-sm font-bold text-blue-500" v-text="timeFormat(chapter.start)" />
             </div>
         </div>
     </div>
@@ -34,32 +34,22 @@
     height: 5px;
 }
 .chapter {
-    @apply cursor-pointer;
-    align-self: center;
-    padding: 10px;
+    @apply cursor-pointer self-center p-2.5;
     img {
-        width: 100%;
-        height: 100%;
+        @apply w-full h-full;
     }
 }
 .chapter-vertical {
-    @apply cursor-pointer;
-    align-self: center;
-    padding: 10px;
+    @apply cursor-pointer self-center p-2.5;
     img {
-        width: 30%;
-        height: 30%;
+        @apply w-3/10 h-3/10;
     }
 }
 .chapter-vertical:hover {
     @apply bg-gray-500;
 }
 .text-truncate {
-    white-space: nowrap;
-    width: 10em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
+    @apply truncate overflow-hidden inline-block w-10em;
 }
 </style>
 
