@@ -10,11 +10,24 @@
                 },
             }"
         >
-            <img :height="height" :width="width" class="w-full" :src="video.thumbnail" alt="" loading="lazy" />
+            <img
+                class="w-full"
+                :src="video.thumbnail"
+                :alt="video.title"
+                :class="{ 'shorts-img': short }"
+                loading="lazy"
+            />
             <div class="relative text-sm">
                 <span
                     class="thumbnail-overlay thumbnail-right"
                     v-if="video.duration > 0"
+                    v-text="timeFormat(video.duration)"
+                />
+                <!-- shorts thumbnail -->
+                <span class="thumbnail-overlay thumbnail-left" v-if="short" v-t="'video.shorts'" />
+                <span
+                    class="thumbnail-overlay thumbnail-right"
+                    v-else-if="video.duration >= 60"
                     v-text="timeFormat(video.duration)"
                 />
                 <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right !bg-red-600" tag="div">
@@ -108,6 +121,13 @@
 .thumbnail-right {
     @apply bottom-5px right-5px;
 }
+.thumbnail-left {
+    @apply bottom-5px left-5px text-xs font-bold bg-red-600 uppercase;
+}
+
+.shorts-img {
+    @apply max-h-[17.5vh] w-full object-contain;
+}
 </style>
 
 <script>
@@ -152,6 +172,11 @@ export default {
                     else this.$emit("remove");
                 });
             }
+        },
+    },
+    computed: {
+        short() {
+            return this.video.duration > 0 && this.video.duration <= 60;
         },
     },
     components: { PlaylistAddModal },
