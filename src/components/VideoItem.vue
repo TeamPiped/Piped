@@ -11,7 +11,7 @@
             }"
         >
             <img
-                :style="`max-height: ${height}px; max-width: ${width}px`"
+                :style="`max-height: ${height}px; max-width: ${width}px; object-fit: contain`"
                 class="w-full"
                 :src="video.thumbnail"
                 :alt="video.title"
