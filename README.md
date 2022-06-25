@@ -85,7 +85,7 @@ You can help by translating the project to a language you speak at https://hoste
 -   Stage your files `git add .`
 -   Commit your changes `git commit -am 'Add awesome new feature'`
 -   Push to the branch `git push origin my-awesome-feature`
--   Create a new pull request: https://github.com/TeamPiped/Piped-Redirects/compare
+-   Create a new pull request: https://github.com/TeamPiped/Piped/compare
 
 ### Development Setup
 
