@@ -80,7 +80,7 @@ export default {
     },
     activated() {
         this.destroying = false;
-        this.sponsors?.segments.forEach(segment => (segment.skipped = false));
+        this.sponsors?.segments?.forEach(segment => (segment.skipped = false));
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
@@ -606,7 +606,7 @@ export default {
                 return;
             }
 
-            markers.style.background = `linear-gradient(${array.join(",")})`;
+            markers?.style.background = `linear-gradient(${array.join(",")})`;
         },
         destroy(hotkeys) {
             if (this.$ui) {
@@ -618,8 +618,8 @@ export default {
                 this.$player.destroy();
                 this.$player = undefined;
             }
-            if (this.$hotkeys && hotkeys) this.$hotkeys.unbind();
-            if (this.$refs.container) this.$refs.container.querySelectorAll("div").forEach(node => node.remove());
+            if (hotkeys) this.$hotkeys?.unbind();
+            this.$refs.container?.querySelectorAll("div").forEach(node => node.remove());
         },
     },
     watch: {
