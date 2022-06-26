@@ -46,7 +46,8 @@ export default {
         const App = this;
 
         (async function () {
-            const locale = App.getPreferenceString("hl", App.defaultLangage);
+            const defaultLang = await App.defaultLangage;
+            const locale = App.getPreferenceString("hl", defaultLang);
             if (locale !== App.TimeAgoConfig.locale) {
                 const localeTime = await import(
                     "./../node_modules/javascript-time-ago/locale/" + locale + ".json"

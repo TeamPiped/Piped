@@ -357,7 +357,7 @@ export default {
             this.showComments = this.getPreferenceBoolean("comments", true);
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
-            this.selectedLanguage = this.getPreferenceString("hl", this.defaultLangage);
+            this.selectedLanguage = this.getPreferenceString("hl", await this.defaultLangage);
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
@@ -373,14 +373,14 @@ export default {
         }
     },
     methods: {
-        onChange() {
+        async onChange() {
             if (this.testLocalStorage) {
                 var shouldReload = false;
 
                 if (
                     this.getPreferenceString("theme", "dark") !== this.selectedTheme ||
                     this.getPreferenceBoolean("watchHistory", false) != this.watchHistory ||
-                    this.getPreferenceString("hl", this.defaultLangage) !== this.selectedLanguage ||
+                    this.getPreferenceString("hl", await this.defaultLangage) !== this.selectedLanguage ||
                     this.getPreferenceString("enabledCodecs", "av1,vp9,avc") !== this.enabledCodecs.join(",")
                 )
                     shouldReload = true;
