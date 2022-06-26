@@ -105,7 +105,8 @@
         "sponsor_segments": "Sponsorlar Seqmentləri",
         "ratings_disabled": "Reytinqlər Deaktivdir",
         "chapters": "Bölümlər",
-        "live": "{0} Canlı"
+        "live": "{0} Canlı",
+        "shorts": "Qısa videolar"
     },
     "search": {
         "did_you_mean": "Bunu nəzərdə tutursunuz: {0}?",
