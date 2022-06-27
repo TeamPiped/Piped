@@ -39,7 +39,7 @@
         "vite": "^2.9.12",
         "vite-plugin-eslint": "^1.6.1",
         "vite-plugin-pwa": "^0.12.0",
-        "vite-plugin-windicss": "^1.8.4"
+        "vite-plugin-windicss": "^1.8.5"
     },
     "eslintConfig": {
         "root": true,
