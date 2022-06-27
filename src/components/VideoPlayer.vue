@@ -606,7 +606,7 @@ export default {
                 return;
             }
 
-            markers?.style.background = `linear-gradient(${array.join(",")})`;
+            if (markers) markers.style.background = `linear-gradient(${array.join(",")})`;
         },
         destroy(hotkeys) {
             if (this.$ui) {
