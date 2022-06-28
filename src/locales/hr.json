@@ -6,7 +6,8 @@
         "videos": "Videozapisi",
         "ratings_disabled": "Ocjenjivanje isključeno",
         "chapters": "Poglavlja",
-        "live": "{0} uživo"
+        "live": "{0} uživo",
+        "shorts": "Kratki video pregled"
     },
     "preferences": {
         "ssl_score": "SSL ocjena",
@@ -110,7 +111,7 @@
     "search": {
         "did_you_mean": "Misliš li: {0}?",
         "all": "YouTube: Sve",
-        "videos": "YouTube: Video",
+        "videos": "YouTube: Videa",
         "channels": "YouTube: Kanali",
         "playlists": "YouTube: popisi snimaka",
         "music_songs": "YT Music: Glazbe",
