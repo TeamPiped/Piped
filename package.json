@@ -33,7 +33,7 @@
         "babel-eslint": "^10.1.0",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.5.0",
-        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-prettier": "^4.1.0",
         "eslint-plugin-vue": "^9.1.1",
         "prettier": "^2.7.1",
         "vite": "^2.9.13",
