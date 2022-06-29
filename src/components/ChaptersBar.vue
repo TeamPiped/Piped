@@ -1,14 +1,17 @@
 <template>
     <!-- desktop view -->
     <div v-if="!mobileLayout" class="flex-col overflow-y-scroll max-h-75vh min-h-64 <lg:hidden">
-        <h2 v-t="'video.chapters'" class="mb-2 bg-gray-500/50 p-2" />
+        <h2 class="mb-2 bg-gray-500/50 p-2" aria-label="chapters" title="chapters">
+            {{ $t("video.chapters") }} ({{ chapters.length }})
+        </h2>
         <div
             :key="chapter.start"
-            v-for="chapter in chapters"
+            v-for="(chapter, index) in chapters"
             @click="$emit('seek', chapter.start)"
             class="chapter-vertical"
         >
             <div class="flex">
+                <span class="mt-5 mr-2 text-current" v-text="index + 1" />
                 <img :src="chapter.image" :alt="chapter.title" />
                 <div class="flex flex-col m-2">
                     <span class="text-truncate text-sm" :title="chapter.title" v-text="chapter.title" />
