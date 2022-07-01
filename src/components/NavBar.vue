@@ -17,6 +17,7 @@
                 class="input !w-72 !h-10"
                 type="text"
                 role="search"
+                ref="videoSearch"
                 :title="$t('actions.search')"
                 :placeholder="$t('actions.search')"
                 @keyup="onKeyUp"
@@ -72,7 +73,7 @@
 
 <script>
 import SearchSuggestions from "./SearchSuggestions.vue";
-
+import hotkeys from "hotkeys-js";
 export default {
     components: {
         SearchSuggestions,
@@ -86,6 +87,7 @@ export default {
     mounted() {
         const query = new URLSearchParams(window.location.search).get("search_query");
         if (query) this.onSearchTextChange(query);
+        this.focusOnSearchBar();
     },
     computed: {
         shouldShowLogin(_this) {
@@ -96,6 +98,13 @@ export default {
         },
     },
     methods: {
+        // focus on search bar when Ctrl+k is pressed
+        focusOnSearchBar() {
+            hotkeys("ctrl+k", event => {
+                event.preventDefault();
+                this.$refs.videoSearch.focus();
+            });
+        },
         onKeyUp(e) {
             if (e.key === "ArrowUp" || e.key === "ArrowDown") {
                 e.preventDefault();
@@ -124,3 +133,9 @@ export default {
     },
 };
 </script>
+<style>
+.input:focus {
+    @apply border-2 border-red-500;
+    box-shadow: 0 0 15px rgba(239, 68, 68, var(--tw-border-opacity));
+}
+</style>
