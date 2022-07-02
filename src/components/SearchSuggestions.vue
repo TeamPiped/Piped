@@ -47,9 +47,11 @@ export default {
             }
         },
         async refreshSuggestions() {
-            this.searchSuggestions = await this.fetchJson(this.apiUrl() + "/suggestions", {
-                query: this.searchText,
-            });
+            this.searchSuggestions = (
+                await this.fetchJson(this.apiUrl() + "/opensearch/suggestions", {
+                    query: this.searchText,
+                })
+            )?.[1];
             this.searchSuggestions.unshift(this.searchText);
             this.setSelected(0);
         },
