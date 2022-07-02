@@ -35,8 +35,8 @@
         "skip_filler_tangent": "Doldurucu Səhnələri Ötür",
         "theme": "Mövzu",
         "auto": "Avtomatik",
-        "dark": "Tünd",
-        "light": "Açıq",
+        "dark": "Qaranlıq",
+        "light": "İşıqlı",
         "autoplay_video": "Videonu Avto-oynat",
         "audio_only": "Yalnız Səs",
         "default_quality": "Defolt Keyfiyyət",
@@ -100,12 +100,13 @@
     },
     "video": {
         "videos": "Videolar",
-        "views": "{views} Baxış",
-        "watched": "Baxıldı",
+        "views": "{views} baxış",
+        "watched": "Baxılmış",
         "sponsor_segments": "Sponsorlar Seqmentləri",
         "ratings_disabled": "Reytinqlər Deaktivdir",
         "chapters": "Bölümlər",
-        "live": "{0} Canlı"
+        "live": "{0} Canlı",
+        "shorts": "Qısa videolar"
     },
     "search": {
         "did_you_mean": "Bunu nəzərdə tutursunuz: {0}?",

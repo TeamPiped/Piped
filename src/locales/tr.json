@@ -89,7 +89,8 @@
         "videos": "Videolar",
         "ratings_disabled": "Derecelendirmeler Devre Dışı",
         "chapters": "Bölümler",
-        "live": "{0} Canlı"
+        "live": "{0} Canlı",
+        "shorts": "Kısa çekimler"
     },
     "preferences": {
         "ssl_score": "SSL Puanı",

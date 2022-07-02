@@ -76,7 +76,8 @@
         "videos": "视频",
         "live": "{0} 直播",
         "chapters": "章节",
-        "ratings_disabled": "已禁用评价"
+        "ratings_disabled": "已禁用评价",
+        "shorts": "短视频"
     },
     "preferences": {
         "ssl_score": "SSL 分数",

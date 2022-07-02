@@ -89,7 +89,8 @@
         "videos": "Vidéos",
         "ratings_disabled": "Évaluations désactivées",
         "chapters": "Chapitres",
-        "live": "{0} en direct"
+        "live": "{0} en direct",
+        "shorts": "Courtes"
     },
     "preferences": {
         "ssl_score": "Score SSL",

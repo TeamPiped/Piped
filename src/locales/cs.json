@@ -105,7 +105,8 @@
         "sponsor_segments": "Sponzorské segmenty",
         "ratings_disabled": "Hodnocení zakázáno",
         "chapters": "Kapitoly",
-        "live": "{0} Živě"
+        "live": "{0} Živě",
+        "shorts": "Shorts"
     },
     "search": {
         "did_you_mean": "Mysleli jste: {0}?",
