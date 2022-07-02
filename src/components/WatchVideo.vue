@@ -75,12 +75,25 @@
             </div>
 
             <div class="flex">
+                <!-- Channel Image & Info -->
                 <div class="flex items-center">
                     <img :src="video.uploaderAvatar" alt="" loading="lazy" class="rounded-full" />
                     <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">{{
                         video.uploader
                     }}</router-link>
+                    <!-- Verified Badge -->
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
+                    <!-- RSS Feed button -->
+                    <a
+                        aria-label="RSS feed"
+                        title="RSS feed"
+                        role="button"
+                        v-if="video.uploaderUrl"
+                        :href="`https://www.youtube.com/feeds/videos.xml?channel_id=${video.uploaderUrl.split('/')[2]}`"
+                        target="_blank"
+                    >
+                        <font-awesome-icon class="ml-3" icon="rss" />
+                    </a>
                 </div>
                 <div class="relative ml-auto children:mx-2">
                     <button class="btn" v-if="authenticated" @click="showModal = !showModal">
