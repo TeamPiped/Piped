@@ -106,7 +106,7 @@ b {
 }
 
 .btn {
-    @apply py-2 px-4 rounded;
+    @apply py-2 px-4 rounded cursor-pointer;
 }
 
 .reset {
