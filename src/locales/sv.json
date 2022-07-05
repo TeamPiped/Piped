@@ -102,7 +102,8 @@
         "sponsor_segments": "Sponsorsegment",
         "ratings_disabled": "Betyg inaktiverade",
         "chapters": "Kapitel",
-        "live": "{0} Live"
+        "live": "{0} Live",
+        "shorts": "Shorts"
     },
     "comment": {
         "pinned_by": "Fäst av"
