@@ -176,7 +176,7 @@ export default {
     },
     computed: {
         short() {
-            return this.video.duration > 0 && this.video.duration <= 60;
+            return this.video.duration > 0 && this.video.duration <= 61;
         },
     },
     components: { PlaylistAddModal },
