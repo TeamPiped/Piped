@@ -33,13 +33,17 @@
                     @seek="navigate"
                 />
             </div>
+            <!-- video title -->
             <div class="font-bold mt-2 text-2xl break-words" v-text="video.title" />
-
-            <div class="flex mb-1.5">
-                <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
-                <span class="ml-2" v-text="uploadDate" />
-
-                <div class="flex items-center relative ml-auto children:ml-2">
+            <div class="flex flex-wrap mt-3 mb-3">
+                <!-- views / date -->
+                <div class="flex flex-auto children:ml-2">
+                    <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
+                    <span> | </span>
+                    <span v-text="uploadDate" />
+                </div>
+                <!-- Likes/dilikes -->
+                <div class="flex children:mr-2">
                     <template v-if="video.likes >= 0">
                         <div>
                             <font-awesome-icon icon="thumbs-up" />
@@ -55,25 +59,9 @@
                             <strong v-t="'video.ratings_disabled'" />
                         </div>
                     </template>
-                    <a :href="`https://youtu.be/${getVideoId()}`" class="btn">
-                        <i18n-t keypath="player.watch_on" tag="strong">
-                            <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
-                        </i18n-t>
-                    </a>
-                    <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
-                        <i18n-t keypath="player.watch_on" tag="strong">LBRY</i18n-t>
-                    </a>
-                    <router-link
-                        :to="toggleListenUrl"
-                        :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
-                        :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
-                        class="btn"
-                    >
-                        <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'" />
-                    </router-link>
                 </div>
             </div>
-
+            <!-- Channel info & options flex container -->
             <div class="flex">
                 <!-- Channel Image & Info -->
                 <div class="flex items-center">
@@ -83,17 +71,6 @@
                     }}</router-link>
                     <!-- Verified Badge -->
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
-                    <!-- RSS Feed button -->
-                    <a
-                        aria-label="RSS feed"
-                        title="RSS feed"
-                        role="button"
-                        v-if="video.uploaderUrl"
-                        :href="`https://www.youtube.com/feeds/videos.xml?channel_id=${video.uploaderUrl.split('/')[2]}`"
-                        target="_blank"
-                    >
-                        <font-awesome-icon class="ml-3" icon="rss" />
-                    </a>
                 </div>
                 <div class="relative ml-auto children:mx-2">
                     <button class="btn" v-if="authenticated" @click="showModal = !showModal">
@@ -110,6 +87,47 @@
                     />
                 </div>
                 <PlaylistAddModal v-if="showModal" :video-id="getVideoId()" @close="showModal = !showModal" />
+                <div class="flex <lg:basis-7/12">
+                    <div class="self-center children:mr-1">
+                        <!-- RSS Feed button -->
+                        <a
+                            aria-label="RSS feed"
+                            title="RSS feed"
+                            role="button"
+                            v-if="video.uploaderUrl"
+                            :href="`https://www.youtube.com/feeds/videos.xml?channel_id=${
+                                video.uploaderUrl.split('/')[2]
+                            }`"
+                            target="_blank"
+                            class="btn flex-col"
+                        >
+                            <font-awesome-icon icon="rss" />
+                        </a>
+                        <!-- watch on youtube button -->
+                        <a :href="`https://youtu.be/${getVideoId()}`" class="btn <lg:hidden">
+                            <i18n-t keypath="player.watch_on" tag="strong">
+                                <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
+                            </i18n-t>
+                        </a>
+                        <!-- only visible on small screens -->
+                        <a :href="`https://youtu.be/${getVideoId()}`" class="btn sm:hidden">
+                            <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
+                        </a>
+                        <!-- LBRY -->
+                        <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
+                            <i18n-t keypath="player.watch_on" tag="strong">LBRY</i18n-t>
+                        </a>
+                        <!-- listen / watch toggle -->
+                        <router-link
+                            :to="toggleListenUrl"
+                            :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
+                            :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
+                            class="btn flex-col"
+                        >
+                            <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'" />
+                        </router-link>
+                    </div>
+                </div>
             </div>
 
             <hr />
