@@ -22,7 +22,7 @@
         "stream": "^0.0.2",
         "vue": "^3.2.37",
         "vue-i18n": "^9.2.0-beta.36",
-        "vue-router": "^4.1.0",
+        "vue-router": "^4.1.1",
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
