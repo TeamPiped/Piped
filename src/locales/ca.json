@@ -76,7 +76,8 @@
         "please_select_playlist": "Selecciona una llista de reproducció",
         "delete_playlist_confirm": "Eliminar aquesta llista de reproducció?",
         "delete_playlist_video_confirm": "Eliminar aquest vídeo de la llista de reproducció?",
-        "select_playlist": "Selecciona una llista de reproducció"
+        "select_playlist": "Selecciona una llista de reproducció",
+        "show_markers": "Mostra Marcadors al Reproductor"
     },
     "comment": {
         "pinned_by": "Fixat per"
@@ -97,7 +98,8 @@
         "chapters": "Capítols",
         "live": "{0} En Directe",
         "videos": "Vídeos",
-        "views": "{views} visualitzacions"
+        "views": "{views} visualitzacions",
+        "shorts": "Curts"
     },
     "search": {
         "did_you_mean": "Volies dir: {0}?",
