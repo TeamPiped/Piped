@@ -6,7 +6,8 @@
         "live": "{0} live",
         "chapters": "Luvut",
         "sponsor_segments": "Sponsorien Segmentit",
-        "ratings_disabled": "Arvioinnit poistettu käytöstä"
+        "ratings_disabled": "Arvioinnit poistettu käytöstä",
+        "shorts": "Shorts"
     },
     "login": {
         "password": "Salasana",
@@ -88,7 +89,8 @@
         "skip_self_promo": "Ohita palkaton/itsepromootio",
         "skip_highlight": "Ohita kohokohta",
         "skip_filler_tangent": "Ohita epäolennainen",
-        "enabled_codecs": "Käytössä olevat koodekit (useita)"
+        "enabled_codecs": "Käytössä olevat koodekit (useita)",
+        "show_markers": "Näytä merkit soittimessa"
     },
     "player": {
         "watch_on": "Katso sivustolla {0}"
