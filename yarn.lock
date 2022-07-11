@@ -2687,10 +2687,10 @@ ms@2.1.2:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-mux.js@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-6.1.0.tgz#b2dd3f10d5355b01cb3c3bc432cf8f0521999a17"
-  integrity sha512-9Ay5vGzAnJnrA+xGpj93YuVIJSqOGOXxvLn/sc0bD4Li1N4s8ED9jn00WyQfPlLRbqNJ0jN4ZZPvJzbIdgYk5Q==
+mux.js@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-6.2.0.tgz#158a4fcf5d83b087ab9037d325527ea993f830a3"
+  integrity sha512-SKuxIcbmK/aJoz78aQNuoXY8R/uEPm1gQMqWTXL6DNl7oF8UPjdt/AunXGkPQpBouGWKDgL/TzSl2VV5NuboRg==
   dependencies:
     "@babel/runtime" "^7.11.2"
     global "^4.4.0"
