@@ -36,7 +36,7 @@
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-vue": "^9.2.0",
         "prettier": "^2.7.1",
-        "vite": "^2.9.13",
+        "vite": "^2.9.14",
         "vite-plugin-eslint": "^1.6.1",
         "vite-plugin-pwa": "^0.12.2",
         "vite-plugin-windicss": "^1.8.6"
