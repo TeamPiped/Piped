@@ -25,11 +25,13 @@
                     :index="index"
                     :selected-auto-play="selectedAutoPlay"
                     :selected-auto-loop="selectedAutoLoop"
+                    @timeupdate="onTimeUpdate"
                 />
                 <ChaptersBar
                     :mobileLayout="isMobile"
                     v-if="video?.chapters?.length > 0"
                     :chapters="video.chapters"
+                    :player-position="currentTime"
                     @seek="navigate"
                 />
             </div>
@@ -242,6 +244,7 @@ export default {
             smallView: smallViewQuery.matches,
             showModal: false,
             isMobile: true,
+            currentTime: 0,
         };
     },
     computed: {
@@ -464,6 +467,9 @@ export default {
         },
         navigate(time) {
             this.$refs.videoPlayer.seek(time);
+        },
+        onTimeUpdate(time) {
+            this.currentTime = time;
         },
     },
 };

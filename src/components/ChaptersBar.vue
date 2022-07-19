@@ -69,24 +69,21 @@
     @apply truncate overflow-hidden inline-block w-10em;
 }
 </style>
-<script type="text/javascript">
-export default {
-    emits: ["seek"],
-    props: {
-        chapters: Object,
-        mobileLayout: {
-            type: Boolean,
-            default: () => true,
-        },
+
+<script setup>
+import { defineProps, defineEmits } from "vue";
+
+defineProps({
+    chapters: Object,
+    mobileLayout: {
+        type: Boolean,
+        default: () => true,
     },
-    data() {
-        return { playerPosition: 0 };
+    playerPosition: {
+        type: Number,
+        default: () => 0,
     },
-    mounted() {
-        // get current video position in regular intervals
-        setInterval(() => {
-            this.playerPosition = document.querySelector("video").currentTime;
-        }, 2000);
-    },
-};
+});
+
+defineEmits(["seek"]);
 </script>
