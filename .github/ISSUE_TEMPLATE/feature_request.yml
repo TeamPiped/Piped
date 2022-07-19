@@ -1,0 +1,61 @@
+name: Feature Request
+description: Suggest a feature you would like to see added
+labels: [enhancement]
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a new feature! Please follow these steps:
+        1. Make sure that nobody else [suggested the feature yet][issue search].
+        2. Write a short and informative title.
+        3. Fill in all the requested information in this form.
+        
+        [issue search]: ../search?q=is%3Aissue&type=issues    
+        
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the feature
+      description: A clear and concise description of what the feature is and how it should work.
+      placeholder: Option to ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Why would this be useful to add?
+      description: Explain why this feature would be useful to you.
+      placeholder: This would make it easier to ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: concepts
+    attributes:
+      label: Concept(s)
+      description: Post concepts or drawings to better explain the feature here.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context about the feature here.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      description: Your issue will be closed if you don't follow these steps.
+      options:
+        - label: I have searched the existing issues and this is **NOT** a duplicate or related to another open issue.
+          required: true
+        - label: I have written a short but informative title.
+          required: true
+        - label: I filled out all of the requested information in this form.
+          required: true
