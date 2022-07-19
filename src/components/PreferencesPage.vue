@@ -124,6 +124,16 @@
         @change="onChange($event)"
     />
     <br />
+    <label for="chkMinimizeRecommendations"><strong v-t="'actions.minimize_recommendations_default'" /></label>
+    <br />
+    <input
+        id="chkMinimizeRecommendations"
+        v-model="minimizeRecommendations"
+        class="checkbox"
+        type="checkbox"
+        @change="onChange($event)"
+    />
+    <br />
     <label for="chkStoreWatchHistory"><strong v-t="'actions.store_watch_history'" /></label>
     <br />
     <input
@@ -250,6 +260,7 @@ export default {
             defaultHomepage: "trending",
             showComments: true,
             minimizeDescription: false,
+            minimizeRecommendations: false,
             watchHistory: false,
             selectedLanguage: "en",
             languages: [
@@ -380,6 +391,7 @@ export default {
             this.defaultHomepage = this.getPreferenceString("homepage", "trending");
             this.showComments = this.getPreferenceBoolean("comments", true);
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
+            this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
             this.selectedLanguage = this.getPreferenceString("hl", await this.defaultLangage);
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
@@ -434,6 +446,7 @@ export default {
                 localStorage.setItem("homepage", this.defaultHomepage);
                 localStorage.setItem("comments", this.showComments);
                 localStorage.setItem("minimizeDescription", this.minimizeDescription);
+                localStorage.setItem("minimizeRecommendations", this.minimizeRecommendations);
                 localStorage.setItem("watchHistory", this.watchHistory);
                 localStorage.setItem("hl", this.selectedLanguage);
                 localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
