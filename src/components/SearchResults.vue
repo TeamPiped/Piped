@@ -4,13 +4,7 @@
     <label for="ddlSearchFilters">
         <strong v-text="`${$t('actions.filter')}:`" />
     </label>
-    <select
-        id="ddlSearchFilters"
-        v-model="selectedFilter"
-        default="all"
-        class="select w-auto"
-        @change="updateResults()"
-    >
+    <select id="ddlSearchFilters" v-model="selectedFilter" default="all" class="select w-auto" @change="updateFilter()">
         <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`search.${filter}`" />
     </select>
 
@@ -77,7 +71,7 @@ export default {
                 "music_albums",
                 "music_playlists",
             ],
-            selectedFilter: "all",
+            selectedFilter: this.$route.query.filter ?? "all",
         };
     },
     mounted() {
@@ -98,12 +92,20 @@ export default {
         async fetchResults() {
             return await await this.fetchJson(this.apiUrl() + "/search", {
                 q: this.$route.query.search_query,
-                filter: this.selectedFilter,
+                filter: this.$route.query.filter ?? "all",
             });
         },
         async updateResults() {
             document.title = this.$route.query.search_query + " - Piped";
             this.results = this.fetchResults().then(json => (this.results = json));
+        },
+        updateFilter() {
+            this.$router.replace({
+                query: {
+                    search_query: this.$route.query.search_query,
+                    filter: this.selectedFilter,
+                },
+            });
         },
         handleScroll() {
             if (this.loading || !this.results || !this.results.nextpage) return;
@@ -112,7 +114,7 @@ export default {
                 this.fetchJson(this.apiUrl() + "/nextpage/search", {
                     nextpage: this.results.nextpage,
                     q: this.$route.query.search_query,
-                    filter: this.selectedFilter,
+                    filter: this.$route.query.filter ?? "all",
                 }).then(json => {
                     this.results.nextpage = json.nextpage;
                     this.results.id = json.id;
