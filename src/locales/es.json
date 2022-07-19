@@ -6,7 +6,8 @@
         "videos": "Vídeos",
         "ratings_disabled": "Valoraciones Desactivadas",
         "chapters": "Capítulos",
-        "live": "{0} Directo"
+        "live": "{0} Directo",
+        "shorts": "Cortos"
     },
     "preferences": {
         "ssl_score": "Puntuación SSL",

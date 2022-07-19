@@ -105,7 +105,8 @@
         "sponsor_segments": "Segmen Sponsor",
         "ratings_disabled": "Penilaian Dinonaktifkan",
         "chapters": "Bagian",
-        "live": "{0} Live"
+        "live": "{0} Live",
+        "shorts": "Shorts"
     },
     "search": {
         "did_you_mean": "Apakah Anda bermaksud: {0}?",

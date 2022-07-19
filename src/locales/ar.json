@@ -6,7 +6,8 @@
         "preferences": "الإعدادات",
         "history": "تاريخ التصفح",
         "subscriptions": "الاشتراكات",
-        "playlists": "قوائم التشغيل"
+        "playlists": "قوائم التشغيل",
+        "feed": "التغذية"
     },
     "player": {
         "watch_on": "شاهد عبر"
@@ -41,13 +42,81 @@
         "audio_only": "صوت فقط",
         "default_quality": "الجودة الأساسية",
         "yes": "نعم",
-        "no": "لا"
+        "no": "لا",
+        "skip_interaction": "تخطي تذكير التفاعل (اشتراك)",
+        "skip_non_music": "تخطي الموسيقى: قسم غير الموسيقى",
+        "theme": "السمة",
+        "instance_selection": "تحديد المثيل",
+        "export_to_json": "تصدير إلى JSON",
+        "show_more": "اظهار المزيد",
+        "skip_outro": "تخطي بطاقات النهاية / الاعتمادات",
+        "skip_preview": "تخطي المعاينة/الملخص",
+        "skip_self_promo": "تخطي الترويج غير المدفوع / الذاتي",
+        "skip_highlight": "تخطي التمييز",
+        "skip_filler_tangent": "تخطي المحتوى الغير مهم",
+        "show_markers": "إظهار العلامات على المشغل",
+        "buffering_goal": "هدف التخزين المؤقت (بالثواني)",
+        "country_selection": "اختيار البلد",
+        "default_homepage": "الصفحة الرئيسية الافتراضية",
+        "show_comments": "إظهار التعليقات",
+        "minimize_description_default": "تصغير الوصف بشكل افتراضي",
+        "store_watch_history": "تخزين سجل المشاهدة",
+        "language_selection": "اختيار اللغة",
+        "instances_list": "قائمة المثيلات",
+        "enabled_codecs": "برامج الترميز الممكنة (متعددة)",
+        "import_from_json": "استيراد من JSON",
+        "loop_this_video": "تكرار هذا الفيديو",
+        "auto_play_next_video": "التشغيل التلقائي للفيديو التالي",
+        "donations": "التبرعات",
+        "minimize_description": "تصغير الوصف",
+        "show_description": "عرض الوصف",
+        "minimize_recommendations": "تقليل التوصيات",
+        "show_recommendations": "إظهار التوصيات",
+        "disable_lbry": "تعطيل LBRY للبث",
+        "enable_lbry_proxy": "تمكين الوكيل ل LBRY",
+        "view_ssl_score": "عرض نقاط طبقة المقابس الآمنة (SSL)",
+        "loading": "تحميل...",
+        "filter": "المرشحات",
+        "load_more_replies": "تحميل المزيد من الردود",
+        "add_to_playlist": "إضافة إلى قائمة التشغيل",
+        "remove_from_playlist": "إزالة من قائمة التشغيل",
+        "delete_playlist_video_confirm": "هل أنت متأكد من رغبتك في إزالة هذا الفيديو من قائمة التشغيل هذه؟"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
         "ratings_disabled": "التقييم غير متاح",
         "chapters": "فصول الفيديو",
         "watched": "تمت مشاهدته",
-        "views": "{views} عدد المشاهدات"
+        "views": "{views} عدد المشاهدات",
+        "shorts": "فديوهات قصيرة",
+        "videos": "الفيديوات",
+        "live": "{0} مباشر"
+    },
+    "search": {
+        "channels": "يوتيوب: القنوات",
+        "all": "يوتيوب: الكل",
+        "videos": "يوتيوب: مقاطع الفيديو",
+        "playlists": "يوتيوب: قوائم التشغيل",
+        "music_songs": "YT Music: الأغاني",
+        "music_videos": "YT Music: مقاطع فيديو",
+        "did_you_mean": "هل تقصد: {0}؟",
+        "music_playlists": "YT Music: قوائم التشغيل",
+        "music_albums": "YT Music: ألبومات"
+    },
+    "preferences": {
+        "version": "الإصدار",
+        "registered_users": "المستخدمون المسجلون",
+        "instance_name": "اسم المثيل",
+        "instance_locations": "مواقع المثيل",
+        "has_cdn": "لديه CDN؟",
+        "ssl_score": "نقاط طبقة المقابس الآمنة",
+        "up_to_date": "اخر أصدار؟"
+    },
+    "comment": {
+        "pinned_by": "مثبت بواسطة"
+    },
+    "login": {
+        "username": "اسم المستخدم",
+        "password": "كلمة السر"
     }
 }
