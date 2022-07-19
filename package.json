@@ -38,7 +38,7 @@
         "prettier": "^2.7.1",
         "vite": "^2.9.14",
         "vite-plugin-eslint": "^1.6.1",
-        "vite-plugin-pwa": "^0.12.2",
+        "vite-plugin-pwa": "^0.12.3",
         "vite-plugin-windicss": "^1.8.6"
     },
     "eslintConfig": {
