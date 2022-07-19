@@ -251,7 +251,7 @@ export default {
         toggleListenUrl(_this) {
             const url = new URL(window.location.href);
             url.searchParams.set("listen", _this.isListening ? "0" : "1");
-            return url.href;
+            return url.pathname + url.search;
         },
         isEmbed(_this) {
             return String(_this.$route.path).indexOf("/embed/") == 0;
