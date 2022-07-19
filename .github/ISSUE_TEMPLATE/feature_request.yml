@@ -7,9 +7,12 @@ body:
     attributes:
       value: |
         Thanks for taking the time to suggest a new feature! Please follow these steps:
-        1. Make sure that nobody else suggested the feature yet.
+        1. Make sure that nobody else [suggested the feature yet][issue search].
         2. Write a short and informative title.
         3. Fill in all the requested information in this form.
+        
+        [issue search]: ../search?q=is%3Aissue&type=issues    
+        
   - type: textarea
     id: description
     attributes:
