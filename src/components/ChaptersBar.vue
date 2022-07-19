@@ -9,6 +9,11 @@
             v-for="(chapter, index) in chapters"
             @click="$emit('seek', chapter.start)"
             class="chapter-vertical"
+            :class="
+                playerPosition >= chapter.start && playerPosition < chapters[index + 1].start
+                    ? 'chapter-vertical bg-red-500/50'
+                    : 'chapter-vertical'
+            "
         >
             <div class="flex">
                 <span class="mt-5 mr-2 text-current" v-text="index + 1" />
@@ -22,7 +27,16 @@
     </div>
     <!-- mobile view -->
     <div v-else class="flex overflow-x-auto">
-        <div :key="chapter.start" v-for="chapter in chapters" @click="$emit('seek', chapter.start)" class="chapter">
+        <div
+            :key="chapter.start"
+            v-for="(chapter, index) in chapters"
+            @click="$emit('seek', chapter.start)"
+            :class="
+                playerPosition >= chapter.start && playerPosition < chapters[index + 1].start
+                    ? 'chapter bg-red-500/50'
+                    : 'chapter'
+            "
+        >
             <img :src="chapter.image" :alt="chapter.title" />
             <div class="m-1 flex">
                 <span class="text-truncate text-sm" :title="chapter.title" v-text="chapter.title" />
@@ -64,6 +78,10 @@ defineProps({
     mobileLayout: {
         type: Boolean,
         default: () => true,
+    },
+    playerPosition: {
+        type: Number,
+        default: () => 0,
     },
 });
 

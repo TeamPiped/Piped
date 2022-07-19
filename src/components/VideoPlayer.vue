@@ -42,6 +42,7 @@ export default {
         selectedAutoLoop: Boolean,
         isEmbed: Boolean,
     },
+    emits: ["timeupdate"],
     data() {
         return {
             lastUpdate: new Date().getTime(),
@@ -343,6 +344,7 @@ export default {
             if (noPrevPlayer) {
                 videoEl.addEventListener("timeupdate", () => {
                     const time = videoEl.currentTime;
+                    this.$emit("timeupdate", time);
                     this.updateProgressDatabase(time);
                     if (this.sponsors && this.sponsors.segments) {
                         this.sponsors.segments.map(segment => {
