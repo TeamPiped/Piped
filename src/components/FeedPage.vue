@@ -45,11 +45,13 @@ export default {
         },
     },
     mounted() {
-        this.fetchFeed().then(videos => {
-            this.videosStore = videos;
-            this.loadMoreVideos();
-            this.updateWatched(this.videos);
-        });
+        if (this.authenticated)
+            this.fetchFeed().then(videos => {
+                this.videosStore = videos;
+                this.loadMoreVideos();
+                this.updateWatched(this.videos);
+            });
+        else this.$router.push("/login");
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
