@@ -182,12 +182,12 @@
                     :selected-index="index"
                 />
                 <a
-                    class="btn mb-2 sm:hidden"
+                    class="btn mb-2"
                     @click="showRecs = !showRecs"
                     v-t="`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`"
                 />
                 <hr v-show="showRecs" />
-                <div v-show="showRecs || !smallView">
+                <div v-show="showRecs">
                     <VideoItem
                         v-for="related in video.relatedStreams"
                         :key="related.url"
