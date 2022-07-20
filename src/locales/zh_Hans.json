@@ -62,10 +62,10 @@
         "create_playlist": "创建播放列表",
         "select_playlist": "选择播放列表",
         "add_to_playlist": "添加至播放列表",
-        "delete_playlist_video_confirm": "你确定要从此播放列表中删除此视频吗？",
+        "delete_playlist_video_confirm": "从播放列表中删除视频吗？",
         "delete_playlist": "删除播放列表",
         "remove_from_playlist": "从播放列表删除",
-        "delete_playlist_confirm": "你确定你想删除此播放列表吗？",
+        "delete_playlist_confirm": "删除此播放列表吗？",
         "please_select_playlist": "请选择一个播放列表",
         "show_markers": "在播放器上显示标识",
         "delete_account": "删除账户",
@@ -92,7 +92,10 @@
         "registered_users": "已注册用户"
     },
     "comment": {
-        "pinned_by": "固定自"
+        "pinned_by": "固定自",
+        "disabled": "上传者禁用了评论。",
+        "loading": "加载评论中…",
+        "user_disabled": "评论在设置中被禁用。"
     },
     "player": {
         "watch_on": "在 {0} 观看"
