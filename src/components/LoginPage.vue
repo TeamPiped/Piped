@@ -1,6 +1,7 @@
 <template>
+    <h1 v-t="'titles.login'" class="font-bold text-center my-4" />
+    <hr />
     <div class="text-center">
-        <h1 v-t="'titles.login'" />
         <form class="children:pb-3">
             <div>
                 <input

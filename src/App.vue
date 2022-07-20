@@ -7,13 +7,13 @@
             </keep-alive>
         </router-view>
 
-        <footer class="text-center">
+        <footer class="text-center my-2">
             <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
                 <font-awesome-icon :icon="['fab', 'github']" />
             </a>
             <a class="ml-2" href="https://github.com/TeamPiped/Piped#donations">
                 <font-awesome-icon :icon="['fab', 'bitcoin']" />
-                <span v-t="'actions.donations'" />
+                <span class="ml-1" v-t="'actions.donations'" />
             </a>
         </footer>
     </div>

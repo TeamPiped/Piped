@@ -1,5 +1,5 @@
 <template>
-    <h1 v-t="'titles.trending'" class="font-bold text-center" />
+    <h1 v-t="'titles.trending'" class="font-bold text-center my-4" />
 
     <hr />
 

@@ -1,5 +1,5 @@
 <template>
-    <h1 class="font-bold text-center" v-t="'titles.playlists'" />
+    <h1 class="font-bold text-center my-4" v-t="'titles.playlists'" />
 
     <hr />
 
