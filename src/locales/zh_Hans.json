@@ -67,7 +67,9 @@
         "remove_from_playlist": "从播放列表删除",
         "delete_playlist_confirm": "你确定你想删除此播放列表吗？",
         "please_select_playlist": "请选择一个播放列表",
-        "show_markers": "在播放器上显示标识"
+        "show_markers": "在播放器上显示标识",
+        "delete_account": "删除账户",
+        "logout": "退出登录"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
