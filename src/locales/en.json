@@ -82,9 +82,9 @@
         "delete_playlist_confirm": "Are you sure you want to delete this playlist?",
         "please_select_playlist": "Please select a playlist",
         "delete_account": "Delete Account",
-        "logout": "Log out this device",
+        "logout": "Logout from this device",
         "minimize_recommendations_default": "Minimize Recommendations by default",
-        "invalidate_session": "Log out all devices"
+        "invalidate_session": "Logout all devices"
     },
     "comment": {
         "pinned_by": "Pinned by"
