@@ -6,7 +6,8 @@
         "views": "{views} приказа",
         "ratings_disabled": "Оцене су онемогућене",
         "chapters": "Поглавља",
-        "live": "{0} Уживо"
+        "live": "{0} Уживо",
+        "shorts": "Kratki video snimci"
     },
     "actions": {
         "view_ssl_score": "Погледај SSL скор/оцену",
@@ -75,7 +76,11 @@
         "delete_playlist": "Избришите попис снимака",
         "add_to_playlist": "Додај у попис снимака",
         "delete_playlist_confirm": "Зар стварно желите избрисати овај попис снимака?",
-        "please_select_playlist": "Молим вас одаберите попис снимака"
+        "please_select_playlist": "Молим вас одаберите попис снимака",
+        "show_markers": "Prikaži obeleživače na plejeru",
+        "delete_account": "Obriši nalog",
+        "logout": "Odjava",
+        "minimize_recommendations_default": "Umanji preporuke kao podrazumevano"
     },
     "preferences": {
         "instance_locations": "Локација инстанце",
