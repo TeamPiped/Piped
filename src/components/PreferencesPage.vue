@@ -196,6 +196,29 @@
     <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
         <option v-for="instance in instances" :key="instance.name" :value="instance.api_url" v-text="instance.name" />
     </select>
+    <br />
+    <!-- options that are visible only when logged in -->
+    <div v-if="this.authenticated">
+        <label for="txtDeleteAccountPassword"><strong v-t="'actions.delete_account'" /></label>
+        <br />
+        <div>
+            <input
+                id="txtDeleteAccountPassword"
+                ref="txtDeleteAccountPassword"
+                v-model="password"
+                v-on:keyup.enter="deleteAccount"
+                :placeholder="$t('login.password')"
+                :aria-label="$t('login.password')"
+                class="input w-auto"
+                type="password"
+            />
+            <a class="btn w-auto" style="margin-left: 0.5em" @click="deleteAccount" v-t="'actions.delete_account'" />
+            <br />
+        </div>
+        <br />
+        <a class="btn w-auto" @click="logout" v-t="'actions.logout'" />
+        <br />
+    </div>
 </template>
 
 <script>
@@ -275,6 +298,7 @@ export default {
             enabledCodecs: ["vp9", "avc"],
             disableLBRY: false,
             proxyLBRY: false,
+            password: null,
         };
     },
     activated() {
@@ -421,6 +445,27 @@ export default {
         },
         sslScore(url) {
             return "https://www.ssllabs.com/ssltest/analyze.html?d=" + new URL(url).host + "&latest";
+        },
+        async deleteAccount() {
+            this.fetchJson(this.apiUrl() + "/user/delete", null, {
+                method: "POST",
+                headers: {
+                    Authorization: this.getAuthToken(),
+                },
+                body: JSON.stringify({
+                    password: this.password,
+                }),
+            }).then(resp => {
+                if (!resp.error) {
+                    this.logout();
+                } else alert(resp.error);
+            });
+        },
+        logout() {
+            // reset the auth token
+            localStorage.removeItem("authToken" + this.hashCode(this.apiUrl()), this.getAuthToken());
+            // redirect to trending page
+            window.location = "/";
         },
     },
 };
