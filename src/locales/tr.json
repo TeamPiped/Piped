@@ -51,8 +51,8 @@
         "filter": "Filtrele",
         "search": "Ara",
         "view_ssl_score": "SSL Puanını Görüntüle",
-        "minimize_recommendations": "Önerileri en aza indirin",
-        "show_recommendations": "Önerileri göster",
+        "minimize_recommendations": "Önerileri Küçült",
+        "show_recommendations": "Önerileri Göster",
         "clear_history": "Geçmişi Temizle",
         "show_replies": "Yanıtları Göster",
         "hide_replies": "Yanıtları Gizle",
@@ -67,7 +67,10 @@
         "create_playlist": "Oynatma Listesi Oluştur",
         "select_playlist": "Oynatma Listesi Seç",
         "please_select_playlist": "Lütfen bir oynatma listesi seçin",
-        "show_markers": "Oynatıcıda İşaretçileri Göster"
+        "show_markers": "Oynatıcıda İşaretçileri Göster",
+        "delete_account": "Hesabı Sil",
+        "logout": "Oturumu Kapat",
+        "minimize_recommendations_default": "Önerileri Öntanımlı Olarak Küçült"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
