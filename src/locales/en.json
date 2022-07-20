@@ -86,7 +86,10 @@
         "minimize_recommendations_default": "Minimize Recommendations by default"
     },
     "comment": {
-        "pinned_by": "Pinned by"
+        "pinned_by": "Pinned by",
+        "disabled": "Comments are disabled by the uploader.",
+        "loading": "Comments are loading ...",
+        "user_disabled": "Comments are disabled in the settings."
     },
     "preferences": {
         "instance_name": "Instance Name",

@@ -158,11 +158,14 @@
         <hr />
 
         <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
-            <div v-if="!comments" class="xl:col-span-4 sm:col-span-3">
-                <p class="text-center mt-8">Comments are loading...</p>
+            <div v-if="!commentsEnabled" class="xl:col-span-4 sm:col-span-3">
+                <p class="text-center mt-8" v-t="'comment.user_disabled'"></p>
+            </div>
+            <div v-else-if="!comments" class="xl:col-span-4 sm:col-span-3">
+                <p class="text-center mt-8" v-t="'comment.loading'"></p>
             </div>
             <div v-else-if="comments.disabled" class="xl:col-span-4 sm:col-span-3">
-                <p class="text-center mt-8">Comments are turned off.</p>
+                <p class="text-center mt-8" v-t="'comment.disabled'"></p>
             </div>
             <div v-else ref="comments" class="xl:col-span-4 sm:col-span-3">
                 <CommentItem
@@ -266,6 +269,9 @@ export default {
                 year: "numeric",
             });
         },
+        commentsEnabled() {
+            return this.getPreferenceBoolean("comments", true);
+        },
     },
     mounted() {
         // check screen size
@@ -313,7 +319,7 @@ export default {
         this.index = Number(this.$route.query.index);
         this.getPlaylistData();
         this.getSponsors();
-        if (!this.isEmbed && this.getPreferenceBoolean("comments", true)) this.getComments();
+        if (!this.isEmbed && this.commentsEnabled) this.getComments();
         window.addEventListener("resize", () => {
             this.smallView = this.smallViewQuery.matches;
         });
