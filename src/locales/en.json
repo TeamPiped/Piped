@@ -82,7 +82,8 @@
         "delete_playlist_confirm": "Are you sure you want to delete this playlist?",
         "please_select_playlist": "Please select a playlist",
         "delete_account": "Delete Account",
-        "logout": "Logout"
+        "logout": "Logout",
+        "minimize_recommendations_default": "Minimize Recommendations by default"
     },
     "comment": {
         "pinned_by": "Pinned by"
