@@ -75,11 +75,11 @@
         "load_more_replies": "Load more Replies",
         "add_to_playlist": "Add to playlist",
         "remove_from_playlist": "Remove from playlist",
-        "delete_playlist_video_confirm": "Are you sure you would like to remove this video from this playlist?",
+        "delete_playlist_video_confirm": "Remove video from playlist?",
         "create_playlist": "Create Playlist",
         "delete_playlist": "Delete Playlist",
         "select_playlist": "Select a Playlist",
-        "delete_playlist_confirm": "Are you sure you want to delete this playlist?",
+        "delete_playlist_confirm": "Delete this playlist?",
         "please_select_playlist": "Please select a playlist",
         "delete_account": "Delete Account",
         "logout": "Logout from this device",
@@ -91,7 +91,7 @@
     "comment": {
         "pinned_by": "Pinned by",
         "disabled": "Comments are disabled by the uploader.",
-        "loading": "Comments are loading ...",
+        "loading": "Loading comments...",
         "user_disabled": "Comments are disabled in the settings."
     },
     "preferences": {
@@ -100,7 +100,7 @@
         "has_cdn": "Has CDN?",
         "registered_users": "Registered Users",
         "version": "Version",
-        "up_to_date": "Up to Date?",
+        "up_to_date": "Up to date?",
         "ssl_score": "SSL Score"
     },
     "login": {
