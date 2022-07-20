@@ -69,7 +69,8 @@
         "please_select_playlist": "请选择一个播放列表",
         "show_markers": "在播放器上显示标识",
         "delete_account": "删除账户",
-        "logout": "退出登录"
+        "logout": "退出登录",
+        "minimize_recommendations_default": "默认最小化推荐"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
