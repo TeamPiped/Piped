@@ -80,7 +80,10 @@
         "load_more_replies": "تحميل المزيد من الردود",
         "add_to_playlist": "إضافة إلى قائمة التشغيل",
         "remove_from_playlist": "إزالة من قائمة التشغيل",
-        "delete_playlist_video_confirm": "هل أنت متأكد من رغبتك في إزالة هذا الفيديو من قائمة التشغيل هذه؟"
+        "delete_playlist_video_confirm": "هل أنت متأكد من رغبتك في إزالة هذا الفيديو من قائمة التشغيل هذه؟",
+        "delete_account": "حذف الحساب",
+        "logout": "تسجيل الخروج",
+        "minimize_recommendations_default": "تقليل التوصيات بشكل افتراضي"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
@@ -113,7 +116,10 @@
         "up_to_date": "اخر أصدار؟"
     },
     "comment": {
-        "pinned_by": "مثبت بواسطة"
+        "pinned_by": "مثبت بواسطة",
+        "disabled": "يتم تعطيل التعليقات بواسطة القائم بالتحميل.",
+        "user_disabled": "التعليقات معطلة في الإعدادات.",
+        "loading": "يتم تحميل التعليقات ..."
     },
     "login": {
         "username": "اسم المستخدم",
