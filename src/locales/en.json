@@ -80,7 +80,9 @@
         "delete_playlist": "Delete Playlist",
         "select_playlist": "Select a Playlist",
         "delete_playlist_confirm": "Are you sure you want to delete this playlist?",
-        "please_select_playlist": "Please select a playlist"
+        "please_select_playlist": "Please select a playlist",
+        "delete_account": "Delete Account",
+        "logout": "Logout"
     },
     "comment": {
         "pinned_by": "Pinned by"
