@@ -31,7 +31,6 @@ export default {
     activated() {
         document.title = this.$t("titles.trending") + " - Piped";
         if (this.videos.length > 0) this.updateWatched(this.videos);
-        console.log(this.$route.path);
         if (this.$route.path == "/") {
             switch (this.getPreferenceString("homepage", "trending")) {
                 case "trending":
