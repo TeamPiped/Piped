@@ -58,7 +58,19 @@
         "show_replies": "Vis svar",
         "hide_replies": "Skjul svar",
         "skip_highlight": "Hopp over hovedmoment",
-        "load_more_replies": "Last inn flere svar"
+        "load_more_replies": "Last inn flere svar",
+        "create_playlist": "Opprett spilleliste",
+        "delete_playlist_confirm": "Slett denne spillelisten?",
+        "delete_playlist": "Slett spilleliste",
+        "select_playlist": "Velg en spilleliste",
+        "please_select_playlist": "Velg en spilleliste",
+        "delete_playlist_video_confirm": "Fjern video fra spilleliste?",
+        "show_markers": "Vis markører i avspiller",
+        "add_to_playlist": "Legg til i spilleliste",
+        "remove_from_playlist": "Fjern fra spilleliste",
+        "delete_account": "Slett konto",
+        "logout": "Logg ut",
+        "minimize_recommendations_default": "Minimer anbefalinger som forvalg"
     },
     "player": {
         "watch_on": "Vis på {0}"
@@ -70,7 +82,8 @@
         "register": "Registrering",
         "login": "Logg inn",
         "trending": "På vei opp",
-        "subscriptions": "Abonnementer"
+        "subscriptions": "Abonnementer",
+        "playlists": "Spillelister"
     },
     "video": {
         "sponsor_segments": "Sponsor-segmenter",
@@ -79,22 +92,37 @@
         "videos": "Videoer",
         "ratings_disabled": "Vurderinger avskrudd",
         "chapters": "Kapitler",
-        "live": "{0} direkte"
+        "live": "{0} direkte",
+        "shorts": "Korte"
     },
     "preferences": {
         "ssl_score": "SSL-poengsum",
         "has_cdn": "Har innholdsleveransenettverk?",
         "instance_locations": "Instansested",
-        "instance_name": "Instansenavn"
+        "instance_name": "Instansenavn",
+        "registered_users": "Registrerte brukere",
+        "up_to_date": "Oppdatert?",
+        "version": "Versjon"
     },
     "comment": {
-        "pinned_by": "Festet av"
+        "pinned_by": "Festet av",
+        "user_disabled": "Kommentarer er avskrudd i innstillingene.",
+        "disabled": "Kommentarer er avskrudd av opplasteren.",
+        "loading": "Laster inn kommentarer …"
     },
     "login": {
         "username": "Brukernavn",
         "password": "Passord"
     },
     "search": {
-        "did_you_mean": "Mente du: {0}?"
+        "did_you_mean": "Mente du: {0}?",
+        "music_playlists": "YT musikk: Spillelister",
+        "all": "YouTube: Alle",
+        "videos": "YouTube: Videoer",
+        "music_songs": "YT musikk: Sanger",
+        "channels": "YouTube: Kanaler",
+        "playlists": "YouTube: Spillelister",
+        "music_videos": "YT musikk: Videoer",
+        "music_albums": "YT musikk: Album"
     }
 }
