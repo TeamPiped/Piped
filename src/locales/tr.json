@@ -59,8 +59,8 @@
         "load_more_replies": "Daha Fazla Yanıt Yükle",
         "skip_highlight": "Özeti Atla",
         "skip_filler_tangent": "Doldurma Sahnelerini Atla",
-        "delete_playlist_confirm": "Bu oynatma listesini silmek istediğinizden emin misiniz?",
-        "delete_playlist_video_confirm": "Bu videoyu bu oynatma listesinden kaldırmak istediğinizden emin misiniz?",
+        "delete_playlist_confirm": "Bu oynatma listesi silinsin mi?",
+        "delete_playlist_video_confirm": "Video oynatma listesinden kaldırılsın mı?",
         "remove_from_playlist": "Oynatma listesinden kaldır",
         "delete_playlist": "Oynatma Listesini Sil",
         "add_to_playlist": "Oynatma listesine ekle",
@@ -69,8 +69,11 @@
         "please_select_playlist": "Lütfen bir oynatma listesi seçin",
         "show_markers": "Oynatıcıda İşaretçileri Göster",
         "delete_account": "Hesabı Sil",
-        "logout": "Oturumu Kapat",
-        "minimize_recommendations_default": "Önerileri Öntanımlı Olarak Küçült"
+        "logout": "Bu aygıttan oturumu kapat",
+        "minimize_recommendations_default": "Önerileri Öntanımlı Olarak Küçült",
+        "different_auth_instance": "Kimlik doğrulama için farklı bir örnek kullan",
+        "invalidate_session": "Tüm aygıtlardan oturumu kapat",
+        "instance_auth_selection": "Kimlik Doğrulama Örneği Seçimi"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
