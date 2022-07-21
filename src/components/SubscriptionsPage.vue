@@ -39,7 +39,7 @@ export default {
     },
     mounted() {
         if (this.authenticated)
-            this.fetchJson(this.apiUrl() + "/subscriptions", null, {
+            this.fetchJson(this.authApiUrl() + "/subscriptions", null, {
                 headers: {
                     Authorization: this.getAuthToken(),
                 },
@@ -54,7 +54,7 @@ export default {
     },
     methods: {
         handleButton(subscription) {
-            this.fetchJson(this.apiUrl() + (subscription.subscribed ? "/unsubscribe" : "/subscribe"), null, {
+            this.fetchJson(this.authApiUrl() + (subscription.subscribed ? "/unsubscribe" : "/subscribe"), null, {
                 method: "POST",
                 body: JSON.stringify({
                     channelId: subscription.url.split("/")[2],

@@ -38,7 +38,7 @@ export default {
     },
     methods: {
         fetchPlaylists() {
-            this.fetchJson(this.apiUrl() + "/user/playlists", null, {
+            this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
                 headers: {
                     Authorization: this.getAuthToken(),
                 },
@@ -48,7 +48,7 @@ export default {
         },
         deletePlaylist(id) {
             if (confirm(this.$t("actions.delete_playlist_confirm")))
-                this.fetchJson(this.apiUrl() + "/user/playlists/delete", null, {
+                this.fetchJson(this.authApiUrl() + "/user/playlists/delete", null, {
                     method: "POST",
                     body: JSON.stringify({
                         playlistId: id,
@@ -65,7 +65,7 @@ export default {
         createPlaylist() {
             const name = prompt(this.$t("actions.create_playlist"));
             if (name)
-                this.fetchJson(this.apiUrl() + "/user/playlists/create", null, {
+                this.fetchJson(this.authApiUrl() + "/user/playlists/create", null, {
                     method: "POST",
                     body: JSON.stringify({
                         name: name,

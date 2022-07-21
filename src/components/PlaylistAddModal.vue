@@ -56,7 +56,7 @@ export default {
     },
     mounted() {
         this.fetchPlaylists();
-        this.selectedPlaylist = this.getPreferenceString("selectedPlaylist" + this.hashCode(this.apiUrl()));
+        this.selectedPlaylist = this.getPreferenceString("selectedPlaylist" + this.hashCode(this.authApiUrl()));
         window.addEventListener("keydown", this.handleKeyDown);
         window.blur();
     },
@@ -83,7 +83,7 @@ export default {
             this.$refs.addButton.disabled = true;
             this.processing = true;
 
-            this.fetchJson(this.apiUrl() + "/user/playlists/add", null, {
+            this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
                 method: "POST",
                 body: JSON.stringify({
                     playlistId: playlistId,
@@ -94,13 +94,13 @@ export default {
                     "Content-Type": "application/json",
                 },
             }).then(json => {
-                this.setPreference("selectedPlaylist" + this.hashCode(this.apiUrl()), playlistId);
+                this.setPreference("selectedPlaylist" + this.hashCode(this.authApiUrl()), playlistId);
                 this.$emit("close");
                 if (json.error) alert(json.error);
             });
         },
         async fetchPlaylists() {
-            this.fetchJson(this.apiUrl() + "/user/playlists", null, {
+            this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
                 headers: {
                     Authorization: this.getAuthToken(),
                 },

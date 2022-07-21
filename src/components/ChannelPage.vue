@@ -70,7 +70,7 @@ export default {
     methods: {
         async fetchSubscribedStatus() {
             this.fetchJson(
-                this.apiUrl() + "/subscribed",
+                this.authApiUrl() + "/subscribed",
                 {
                     channelId: this.channel.id,
                 },
@@ -113,7 +113,7 @@ export default {
             }
         },
         subscribeHandler() {
-            this.fetchJson(this.apiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
+            this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
                 method: "POST",
                 body: JSON.stringify({
                     channelId: this.channel.id,

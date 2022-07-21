@@ -57,14 +57,14 @@ export default {
     },
     computed: {
         getRssUrl: _this => {
-            return _this.apiUrl() + "/rss/playlists/" + _this.$route.query.list;
+            return _this.authApiUrl() + "/rss/playlists/" + _this.$route.query.list;
         },
     },
     mounted() {
         this.getPlaylistData();
         const playlistId = this.$route.query.list;
         if (this.authenticated && playlistId?.length == 36)
-            this.fetchJson(this.apiUrl() + "/user/playlists", null, {
+            this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
                 headers: {
                     Authorization: this.getAuthToken(),
                 },
@@ -82,7 +82,7 @@ export default {
     },
     methods: {
         async fetchPlaylist() {
-            return await await this.fetchJson(this.apiUrl() + "/playlists/" + this.$route.query.list);
+            return await await this.fetchJson(this.authApiUrl() + "/playlists/" + this.$route.query.list);
         },
         async getPlaylistData() {
             this.fetchPlaylist()
@@ -96,7 +96,7 @@ export default {
             if (this.loading || !this.playlist || !this.playlist.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(this.apiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
+                this.fetchJson(this.authApiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
                     nextpage: this.playlist.nextpage,
                 }).then(json => {
                     this.playlist.relatedStreams.concat(json.relatedStreams);
