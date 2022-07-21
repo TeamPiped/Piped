@@ -41,7 +41,7 @@ export default {
     },
     computed: {
         getRssUrl(_this) {
-            return _this.apiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
+            return _this.authApiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
         },
     },
     mounted() {
@@ -66,7 +66,7 @@ export default {
     },
     methods: {
         async fetchFeed() {
-            return await this.fetchJson(this.apiUrl() + "/feed", {
+            return await this.fetchJson(this.authApiUrl() + "/feed", {
                 authToken: this.getAuthToken(),
             });
         },

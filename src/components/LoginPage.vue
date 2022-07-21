@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         login() {
-            this.fetchJson(this.apiUrl() + "/login", null, {
+            this.fetchJson(this.authApiUrl() + "/login", null, {
                 method: "POST",
                 body: JSON.stringify({
                     username: this.username,
@@ -57,7 +57,7 @@ export default {
                 }),
             }).then(resp => {
                 if (resp.token) {
-                    this.setPreference("authToken" + this.hashCode(this.apiUrl()), resp.token);
+                    this.setPreference("authToken" + this.hashCode(this.authApiUrl()), resp.token);
                     window.location = "/"; // done to bypass cache
                 } else alert(resp.error);
             });

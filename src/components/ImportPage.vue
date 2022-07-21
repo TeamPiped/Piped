@@ -133,7 +133,7 @@ export default {
         },
         handleImport() {
             this.fetchJson(
-                this.apiUrl() + "/import",
+                this.authApiUrl() + "/import",
                 {
                     override: this.override,
                 },

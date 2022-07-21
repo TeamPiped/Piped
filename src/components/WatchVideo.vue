@@ -430,7 +430,7 @@ export default {
             if (!this.channelId || !this.authenticated) return;
 
             this.fetchJson(
-                this.apiUrl() + "/subscribed",
+                this.authApiUrl() + "/subscribed",
                 {
                     channelId: this.channelId,
                 },
@@ -444,7 +444,7 @@ export default {
             });
         },
         subscribeHandler() {
-            this.fetchJson(this.apiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
+            this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
                 method: "POST",
                 body: JSON.stringify({
                     channelId: this.channelId,

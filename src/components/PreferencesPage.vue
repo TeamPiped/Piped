@@ -203,11 +203,33 @@
 
     <label for="ddlInstanceSelection"><strong v-text="`${$t('actions.instance_selection')}:`" /></label>
     <br />
-    <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
+    <select id="ddlInstanceSelection" v-model="selectedAuthInstance" class="select w-auto" @change="onChange($event)">
         <option v-for="instance in instances" :key="instance.name" :value="instance.api_url" v-text="instance.name" />
     </select>
     <br />
+    <label for="chkAuthInstance"><strong v-text="`${$t('actions.different_auth_instance')}:`" /></label>
+    <br />
+    <input id="chkAuthInstance" v-model="authInstance" class="checkbox" type="checkbox" @change="onChange($event)" />
+    <template v-if="authInstance">
+        <br />
+        <label for="ddlAuthInstanceSelection"><strong v-text="`${$t('actions.instance_auth_selection')}:`" /></label>
+        <br />
+        <select
+            id="ddlAuthInstanceSelection"
+            v-model="selectedAuthInstance"
+            class="select w-auto"
+            @change="onChange($event)"
+        >
+            <option
+                v-for="instance in instances"
+                :key="instance.name"
+                :value="instance.api_url"
+                v-text="instance.name"
+            />
+        </select>
+    </template>
     <!-- options that are visible only when logged in -->
+    <br />
     <div v-if="this.authenticated">
         <label for="txtDeleteAccountPassword"><strong v-t="'actions.delete_account'" /></label>
         <br />
@@ -243,6 +265,8 @@ export default {
     data() {
         return {
             selectedInstance: null,
+            authInstance: false,
+            selectedAuthInstance: null,
             instances: [],
             sponsorBlock: true,
             skipSponsor: true,
@@ -337,6 +361,8 @@ export default {
 
         if (this.testLocalStorage) {
             this.selectedInstance = this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
+            this.authInstance = this.getPreferenceBoolean("authInstance", false);
+            this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
 
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
             if (localStorage.getItem("selectedSkip") !== null) {
@@ -428,6 +454,8 @@ export default {
                     shouldReload = true;
 
                 localStorage.setItem("instance", this.selectedInstance);
+                localStorage.setItem("authInstance", this.authInstance);
+                localStorage.setItem("auth_instance_url", this.selectedAuthInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
 
                 var sponsorSelected = [];
@@ -466,7 +494,7 @@ export default {
             return "https://www.ssllabs.com/ssltest/analyze.html?d=" + new URL(url).host + "&latest";
         },
         async deleteAccount() {
-            this.fetchJson(this.apiUrl() + "/user/delete", null, {
+            this.fetchJson(this.authApiUrl() + "/user/delete", null, {
                 method: "POST",
                 headers: {
                     Authorization: this.getAuthToken(),
@@ -482,12 +510,12 @@ export default {
         },
         logout() {
             // reset the auth token
-            localStorage.removeItem("authToken" + this.hashCode(this.apiUrl()), this.getAuthToken());
+            localStorage.removeItem("authToken" + this.hashCode(this.authApiUrl()));
             // redirect to trending page
             window.location = "/";
         },
         async invalidateSession() {
-            this.fetchJson(this.apiUrl() + "/logout", null, {
+            this.fetchJson(this.authApiUrl() + "/logout", null, {
                 method: "POST",
                 headers: {
                     Authorization: this.getAuthToken(),

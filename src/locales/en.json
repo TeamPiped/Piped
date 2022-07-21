@@ -84,7 +84,9 @@
         "delete_account": "Delete Account",
         "logout": "Logout from this device",
         "minimize_recommendations_default": "Minimize Recommendations by default",
-        "invalidate_session": "Logout all devices"
+        "invalidate_session": "Logout all devices",
+        "different_auth_instance": "Use a different instance for authentication",
+        "instance_auth_selection": "Autentication Instance Selection"
     },
     "comment": {
         "pinned_by": "Pinned by",
