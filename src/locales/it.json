@@ -63,11 +63,17 @@
         "add_to_playlist": "Aggiungi alla playlist",
         "create_playlist": "Crea una playlist",
         "please_select_playlist": "Seleziona una playlist",
-        "delete_playlist_confirm": "Vuoi davvero eliminare questa playlist?",
+        "delete_playlist_confirm": "Eliminare questa playlist?",
         "remove_from_playlist": "Rimuovi dalla playlist",
-        "delete_playlist_video_confirm": "Vuoi davvero rimuovere questo video da questa playlist?",
+        "delete_playlist_video_confirm": "Rimuovere il video dalla playlist?",
         "select_playlist": "Seleziona una playlist",
-        "show_markers": "Mostra i marcatori sul lettore"
+        "show_markers": "Mostra i marcatori sul lettore",
+        "delete_account": "Elimina l'account",
+        "logout": "Disconnetti da questo dispositivo",
+        "minimize_recommendations_default": "Riduci al minimo le raccomandazioni per impostazione predefinita",
+        "different_auth_instance": "Usa un'istanza diversa per l'autenticazione",
+        "invalidate_session": "Disconnetti su tutti i dispositivi",
+        "instance_auth_selection": "Selezione dell'istanza di autenticazione"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -102,7 +108,10 @@
         "up_to_date": "Aggiornato?"
     },
     "comment": {
-        "pinned_by": "Appuntato da"
+        "pinned_by": "Appuntato da",
+        "disabled": "I commenti sono disabilitati dall'autore.",
+        "loading": "Caricamento dei commenti…",
+        "user_disabled": "I commenti sono disabilitati nelle impostazioni."
     },
     "login": {
         "password": "Password",
