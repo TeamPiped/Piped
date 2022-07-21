@@ -71,19 +71,28 @@
         "skip_filler_tangent": "Přeskočit výplňový obsah",
         "add_to_playlist": "Přidat do playlistu",
         "remove_from_playlist": "Odstranit z playlistu",
-        "delete_playlist_confirm": "Opravdu si přejete odstranit tento playlist?",
+        "delete_playlist_confirm": "Odstranit tento playlist?",
         "please_select_playlist": "Prosím vyberte playlist",
         "create_playlist": "Vytvořit playlist",
         "delete_playlist": "Odstranit playlist",
         "select_playlist": "Vyberte playlist",
-        "delete_playlist_video_confirm": "Opravdu si přejete odstranit toto video z tohoto playlistu?",
-        "show_markers": "Zobrazit značky na přehrávači"
+        "delete_playlist_video_confirm": "Odebrat video z playlistu?",
+        "show_markers": "Zobrazit značky na přehrávači",
+        "delete_account": "Odstranit účet",
+        "logout": "Odhlásit se z tohoto zařízení",
+        "minimize_recommendations_default": "Ve výchozím nastavení minimalizovat doporučení",
+        "invalidate_session": "Odhlásit se ze všech zařízení",
+        "different_auth_instance": "Použít jinou instanci pro autentizaci",
+        "instance_auth_selection": "Výběr autentizační instance"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
     },
     "comment": {
-        "pinned_by": "Připnuto uživatelem"
+        "pinned_by": "Připnuto uživatelem",
+        "loading": "Načítání komentářů...",
+        "disabled": "Komentáře jsou zakázány autorem videa.",
+        "user_disabled": "Komentáře jsou zakázány v nastavení."
     },
     "preferences": {
         "instance_name": "Název instance",
