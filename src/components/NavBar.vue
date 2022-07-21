@@ -28,6 +28,9 @@
         </div>
         <div class="flex-1 flex justify-end">
             <ul class="flex text-1xl children:pl-3">
+                <li v-if="shouldShowTrending">
+                    <router-link v-t="'titles.trending'" to="/trending" />
+                </li>
                 <li>
                     <router-link v-t="'titles.preferences'" to="/preferences" />
                 </li>
@@ -95,6 +98,9 @@ export default {
         },
         shouldShowHistory(_this) {
             return _this.getPreferenceBoolean("watchHistory", false);
+        },
+        shouldShowTrending(_this) {
+            return _this.getPreferenceString("homepage", "trending") != "trending";
         },
     },
     methods: {
