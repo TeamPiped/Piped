@@ -1,5 +1,5 @@
 <template>
-    <h1 v-t="'titles.feed'" class="font-bold text-center" />
+    <h1 v-t="'titles.feed'" class="font-bold text-center my-4" />
 
     <button v-if="authenticated" class="btn mr-2" @click="exportHandler">
         <router-link to="/subscriptions">Subscriptions</router-link>
