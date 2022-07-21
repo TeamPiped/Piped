@@ -227,6 +227,12 @@
         </div>
         <br />
         <a class="btn w-auto" @click="logout" v-t="'actions.logout'" />
+        <a
+            class="btn w-auto"
+            style="margin-left: 0.5em"
+            @click="invalidateSession"
+            v-t="'actions.invalidate_session'"
+        />
         <br />
     </div>
 </template>
@@ -479,6 +485,18 @@ export default {
             localStorage.removeItem("authToken" + this.hashCode(this.apiUrl()), this.getAuthToken());
             // redirect to trending page
             window.location = "/";
+        },
+        async invalidateSession() {
+            this.fetchJson(this.apiUrl() + "/logout", null, {
+                method: "POST",
+                headers: {
+                    Authorization: this.getAuthToken(),
+                },
+            }).then(resp => {
+                if (!resp.error) {
+                    this.logout();
+                } else alert(resp.error);
+            });
         },
     },
 };
