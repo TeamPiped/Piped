@@ -71,13 +71,19 @@
         "skip_filler_tangent": "Ignorer la tangente de remplissage",
         "delete_playlist": "Retirer la liste de lecture",
         "please_select_playlist": "Veuillez sélectionner une liste de lecture",
-        "delete_playlist_video_confirm": "Voulez-vous vraiment retirer cette vidéo de cette liste de lecture ?",
+        "delete_playlist_video_confirm": "Retirer la vidéo de la liste de lecture ?",
         "remove_from_playlist": "Retirer de la liste de lecture",
         "select_playlist": "Sélectionnez une liste de lecture",
         "add_to_playlist": "Ajouter à la liste de lecture",
         "create_playlist": "Créer une liste de lecture",
-        "delete_playlist_confirm": "Voulez-vous vraiment supprimer cette liste de lecture ?",
-        "show_markers": "Afficher les marqueurs sur le lecteur"
+        "delete_playlist_confirm": "Supprimer cette liste de lecture ?",
+        "show_markers": "Afficher les marqueurs sur le lecteur",
+        "delete_account": "Supprimer le compte",
+        "logout": "Se déconnecter de cet appareil",
+        "minimize_recommendations_default": "Minimiser les recommandations par défaut",
+        "invalidate_session": "Se déconnecter de tous les appareils",
+        "different_auth_instance": "Utiliser une instance différente pour l'authentification",
+        "instance_auth_selection": "Sélection de l'instance d'authentification"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
@@ -102,7 +108,10 @@
         "version": "Version"
     },
     "comment": {
-        "pinned_by": "Épinglé par"
+        "pinned_by": "Épinglé par",
+        "loading": "Chargement des commentaires…",
+        "disabled": "Les commentaires sont désactivés par l'auteur.",
+        "user_disabled": "Les commentaires sont désactivés dans les paramètres."
     },
     "login": {
         "password": "Mot de passe",
