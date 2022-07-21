@@ -59,15 +59,18 @@
         "load_more_replies": "Mehr Antworten laden",
         "skip_highlight": "Höhepunkt überspringen",
         "skip_filler_tangent": "Lückenfüller überspringen",
-        "delete_playlist_confirm": "Sind Sie sicher, dass Sie diese Wiedergabeliste löschen möchten?",
+        "delete_playlist_confirm": "Diese Wiedergabeliste löschen?",
         "remove_from_playlist": "Aus Wiedergabeliste entfernen",
         "add_to_playlist": "Zur Wiedergabeliste hinzufügen",
         "create_playlist": "Wiedergabeliste erstellen",
-        "delete_playlist_video_confirm": "Sind Sie sicher, dass Sie dieses Video aus dieser Wiedergabeliste entfernen möchten?",
+        "delete_playlist_video_confirm": "Video aus Wiedergabeliste entfernen?",
         "delete_playlist": "Wiedergabeliste löschen",
         "please_select_playlist": "Bitte wählen Sie eine Wiedergabeliste",
         "select_playlist": "Wählen Sie eine Wiedergabeliste",
-        "show_markers": "Markierungen auf dem Player anzeigen"
+        "show_markers": "Markierungen auf dem Player anzeigen",
+        "delete_account": "Account löschen",
+        "logout": "Ausloggen",
+        "minimize_recommendations_default": "Empfehlungen standardmäßig minimieren"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -89,7 +92,8 @@
         "videos": "Videos",
         "ratings_disabled": "Bewertungen deaktiviert",
         "live": "{0} Live",
-        "chapters": "Kapitel"
+        "chapters": "Kapitel",
+        "shorts": "Shorts"
     },
     "preferences": {
         "ssl_score": "SSL-Bewertung",
@@ -101,7 +105,10 @@
         "up_to_date": "Auf dem neuesten Stand?"
     },
     "comment": {
-        "pinned_by": "Angeheftet von"
+        "pinned_by": "Angeheftet von",
+        "user_disabled": "Kommentare wurden in den Einstellungen deaktiviert.",
+        "disabled": "Kommentare wurden vom Uploader deaktiviert.",
+        "loading": "Lade Kommentare..."
     },
     "login": {
         "password": "Passwort",
