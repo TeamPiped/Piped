@@ -244,7 +244,7 @@
                 class="input w-auto"
                 type="password"
             />
-            <a class="btn w-auto" style="margin-left: 0.5em" @click="deleteAccount" v-t="'actions.delete_account'" />
+            <a class="btn w-auto ml-2" @click="deleteAccount" v-t="'actions.delete_account'" />
             <br />
         </div>
         <br />

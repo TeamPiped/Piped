@@ -2,7 +2,7 @@
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
     <div v-if="playlist" v-show="!playlist.error">
-        <h1 class="text-center" v-text="playlist.name" />
+        <h1 class="text-center my-4" v-text="playlist.name" />
 
         <div class="grid grid-cols-2">
             <div>
@@ -15,7 +15,10 @@
                 <div class="right-2vw absolute">
                     <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
                     <br />
-                    <a :href="getRssUrl">
+                    <button class="btn mr-1" v-if="authenticated && !isPipedPlaylist" @click="clonePlaylist">
+                        {{ $t("actions.clone_playlist") }}<font-awesome-icon class="ml-3" icon="clone" />
+                    </button>
+                    <a class="btn" :href="getRssUrl">
                         <font-awesome-icon icon="rss" />
                     </a>
                 </div>
@@ -58,6 +61,10 @@ export default {
     computed: {
         getRssUrl: _this => {
             return _this.authApiUrl() + "/rss/playlists/" + _this.$route.query.list;
+        },
+        isPipedPlaylist() {
+            // FIXME: this checks whether it's a YouTube or a Piped playlist
+            return this.$route.query.list.includes("-");
         },
     },
     mounted() {
@@ -108,6 +115,22 @@ export default {
         },
         removeVideo(index) {
             this.playlist.relatedStreams.splice(index, 1);
+        },
+        async clonePlaylist() {
+            const playlistId = this.$route.query.list;
+            this.fetchJson(this.authApiUrl() + "/import/playlist", null, {
+                method: "POST",
+                headers: {
+                    Authorization: this.getAuthToken(),
+                },
+                body: JSON.stringify({
+                    playlistId: playlistId,
+                }),
+            }).then(resp => {
+                if (!resp.error) {
+                    alert(this.$t("actions.clone_playlist_success"));
+                } else alert(resp.error);
+            });
         },
     },
 };

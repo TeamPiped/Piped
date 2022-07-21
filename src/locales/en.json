@@ -86,7 +86,9 @@
         "minimize_recommendations_default": "Minimize Recommendations by default",
         "invalidate_session": "Logout all devices",
         "different_auth_instance": "Use a different instance for authentication",
-        "instance_auth_selection": "Autentication Instance Selection"
+        "instance_auth_selection": "Autentication Instance Selection",
+        "clone_playlist": "Clone Playlist",
+        "clone_playlist_success": "Successfully cloned!"
     },
     "comment": {
         "pinned_by": "Pinned by",
