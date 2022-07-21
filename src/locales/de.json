@@ -68,9 +68,12 @@
         "please_select_playlist": "Bitte wählen Sie eine Wiedergabeliste",
         "select_playlist": "Wählen Sie eine Wiedergabeliste",
         "show_markers": "Markierungen auf dem Player anzeigen",
-        "delete_account": "Account löschen",
-        "logout": "Ausloggen",
-        "minimize_recommendations_default": "Empfehlungen standardmäßig minimieren"
+        "delete_account": "Konto löschen",
+        "logout": "Von diesem Gerät abmelden",
+        "minimize_recommendations_default": "Empfehlungen standardmäßig minimieren",
+        "invalidate_session": "Von allen Geräte abmelden",
+        "different_auth_instance": "Eine andere Instanz für die Authentifizierung verwenden",
+        "instance_auth_selection": "Auswahl der Autentifizierungsinstanz"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -107,8 +110,8 @@
     "comment": {
         "pinned_by": "Angeheftet von",
         "user_disabled": "Kommentare wurden in den Einstellungen deaktiviert.",
-        "disabled": "Kommentare wurden vom Uploader deaktiviert.",
-        "loading": "Lade Kommentare..."
+        "disabled": "Kommentare wurden vom Autor deaktiviert.",
+        "loading": "Kommentare werden geladen …"
     },
     "login": {
         "password": "Passwort",
