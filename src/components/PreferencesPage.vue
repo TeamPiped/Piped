@@ -203,7 +203,7 @@
 
     <label for="ddlInstanceSelection"><strong v-text="`${$t('actions.instance_selection')}:`" /></label>
     <br />
-    <select id="ddlInstanceSelection" v-model="selectedAuthInstance" class="select w-auto" @change="onChange($event)">
+    <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
         <option v-for="instance in instances" :key="instance.name" :value="instance.api_url" v-text="instance.name" />
     </select>
     <br />
