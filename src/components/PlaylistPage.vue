@@ -64,8 +64,9 @@ export default {
         },
         isPipedPlaylist: _this => {
             // regex to determine whether it's a Piped plalylist
-            const regex = new RegExp("[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}");
-            return regex.test(_this.$route.query.list);
+            return /[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}/.test(
+                _this.$route.query.list,
+            );
         },
     },
     mounted() {
