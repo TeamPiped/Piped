@@ -74,7 +74,7 @@
                     <!-- Verified Badge -->
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
                 </div>
-                <div class="relative ml-auto children:mx-2">
+                <div class="flex relative ml-auto children:mx-1">
                     <button class="btn" v-if="authenticated" @click="showModal = !showModal">
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
                     </button>
@@ -89,8 +89,8 @@
                     />
                 </div>
                 <PlaylistAddModal v-if="showModal" :video-id="getVideoId()" @close="showModal = !showModal" />
-                <div class="flex <lg:basis-7/12">
-                    <div class="self-center children:mr-1">
+                <div class="flex">
+                    <div class="self-center children:mr-1 my-1">
                         <!-- RSS Feed button -->
                         <a
                             aria-label="RSS feed"
@@ -112,7 +112,7 @@
                             </i18n-t>
                         </a>
                         <!-- only visible on small screens -->
-                        <a :href="`https://youtu.be/${getVideoId()}`" class="btn sm:hidden">
+                        <a :href="`https://youtu.be/${getVideoId()}`" class="btn lg:hidden">
                             <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
                         </a>
                         <!-- LBRY -->
