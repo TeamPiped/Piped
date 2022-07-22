@@ -58,7 +58,11 @@
         </ul>
     </nav>
     <!-- navigation bar for mobile devices -->
-    <ul v-if="showTopNav" class="flex flex-col justify-center items-end mb-4 children:(my-0.5 mr-5)">
+    <ul
+        v-if="showTopNav"
+        class="flex flex-col justify-center items-end mb-4 children:(my-0.5 mr-5)"
+        @click="showTopNav = false"
+    >
         <li v-if="shouldShowTrending">
             <router-link v-t="'titles.trending'" to="/trending" />
         </li>
@@ -81,7 +85,8 @@
             <router-link v-t="'titles.feed'" to="/feed" />
         </li>
     </ul>
-    <div class="w-full md:hidden">
+    <!-- search suggestions for mobile devices -->
+    <div class="w-{full - 4} md:hidden mx-2">
         <input
             v-model="searchText"
             class="input !h-10 !w-full"
