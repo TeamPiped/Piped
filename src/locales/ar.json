@@ -29,7 +29,7 @@
         "create_playlist": "إنشاء قائمة",
         "delete_playlist": "مسح القائمة",
         "select_playlist": "اختر قائمة",
-        "delete_playlist_confirm": "هل أنت متأكد من مسح القائمة؟",
+        "delete_playlist_confirm": "حذف قائمة التشغيل هذه؟",
         "please_select_playlist": "فضلًا اختر قائمة",
         "channel_name_desc": "إسم القناة (أبجدي تنازلي)",
         "uses_api_from": "اختيار المُشغل: ",
@@ -80,10 +80,13 @@
         "load_more_replies": "تحميل المزيد من الردود",
         "add_to_playlist": "إضافة إلى قائمة التشغيل",
         "remove_from_playlist": "إزالة من قائمة التشغيل",
-        "delete_playlist_video_confirm": "هل أنت متأكد من رغبتك في إزالة هذا الفيديو من قائمة التشغيل هذه؟",
+        "delete_playlist_video_confirm": "إزالة الفيديو من قائمة التشغيل؟",
         "delete_account": "حذف الحساب",
-        "logout": "تسجيل الخروج",
-        "minimize_recommendations_default": "تقليل التوصيات بشكل افتراضي"
+        "logout": "تسجيل الخروج من هذا الجهاز",
+        "minimize_recommendations_default": "تقليل التوصيات بشكل افتراضي",
+        "invalidate_session": "تسجيل الخروج من جميع الأجهزة",
+        "different_auth_instance": "استخدام مثيل مختلف للمصادقة",
+        "instance_auth_selection": "تحديد مثيل Autentication"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
@@ -113,13 +116,13 @@
         "instance_locations": "مواقع المثيل",
         "has_cdn": "لديه CDN؟",
         "ssl_score": "نقاط طبقة المقابس الآمنة",
-        "up_to_date": "اخر أصدار؟"
+        "up_to_date": "حديث؟"
     },
     "comment": {
         "pinned_by": "مثبت بواسطة",
         "disabled": "يتم تعطيل التعليقات بواسطة القائم بالتحميل.",
         "user_disabled": "التعليقات معطلة في الإعدادات.",
-        "loading": "يتم تحميل التعليقات ..."
+        "loading": "تحميل التعليقات..."
     },
     "login": {
         "username": "اسم المستخدم",
