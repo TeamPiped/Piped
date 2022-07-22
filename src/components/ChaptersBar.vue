@@ -29,7 +29,7 @@
     <div v-else class="flex overflow-x-auto">
         <div
             :key="chapter.start"
-            v-for="chapter in chapters"
+            v-for="(chapter, index) in chapters"
             @click="$emit('seek', chapter.start)"
             :class="isCurrentChapter(chapters, index, playerPosition) ? 'chapter bg-red-500/50' : 'chapter'"
         >
