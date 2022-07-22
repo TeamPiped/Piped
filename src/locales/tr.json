@@ -73,7 +73,9 @@
         "minimize_recommendations_default": "Önerileri Öntanımlı Olarak Küçült",
         "different_auth_instance": "Kimlik doğrulama için farklı bir örnek kullan",
         "invalidate_session": "Tüm aygıtlardan oturumu kapat",
-        "instance_auth_selection": "Kimlik Doğrulama Örneği Seçimi"
+        "instance_auth_selection": "Kimlik Doğrulama Örneği Seçimi",
+        "clone_playlist": "Oynatma Listesini Kopyala",
+        "clone_playlist_success": "Başarıyla kopyalandı!"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
