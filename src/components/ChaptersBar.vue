@@ -70,9 +70,11 @@
 export default {
     methods: {
         isCurrentChapter(chapters, index, playerPosition) {
-            if (index + 1 === chapters.length && playerPosition >= chapters[index].start) return true;
-            else if (index + 1 === chapters.length) return false;
-            else if (playerPosition >= chapters[index].start && playerPosition < chapters[index + 1].start) return true;
+            if (index + 1 == chapters.length) {
+                if (playerPosition >= chapters[index].start) return true;
+                else return false;
+            } else if (playerPosition >= chapters[index].start && playerPosition < chapters[index + 1].start)
+                return true;
             return false;
         },
     },
