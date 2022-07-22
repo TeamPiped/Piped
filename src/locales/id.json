@@ -73,24 +73,35 @@
         "skip_highlight": "Lewatkan Highlight",
         "skip_filler_tangent": "Lewatkan Pengisi Tangent",
         "add_to_playlist": "Tambahkan ke daftar putar",
-        "delete_playlist_video_confirm": "Apakah Anda yakin Anda ingin menghapus video ini dari daftar putar ini?",
+        "delete_playlist_video_confirm": "Hapus video dari daftar putar?",
         "create_playlist": "Buat Daftar Putar",
         "delete_playlist": "Hapus Daftar Putar",
         "select_playlist": "Pilih sebuah Daftar Putar",
         "please_select_playlist": "Mohon pilih sebuah daftar putar",
-        "delete_playlist_confirm": "Apakah Anda yakin Anda ingin menghapus daftar putar ini?",
+        "delete_playlist_confirm": "Hapus daftar putar ini?",
         "remove_from_playlist": "Hapus dari daftar putar",
-        "show_markers": "Tampilkan Penanda pada Pemain"
+        "show_markers": "Tampilkan Penanda pada Pemain",
+        "delete_account": "Hapus Akun",
+        "logout": "Keluar dari perangkat ini",
+        "minimize_recommendations_default": "Kecilkan Rekomendasi secara bawaan",
+        "invalidate_session": "Keluarkan semua perangkat",
+        "instance_auth_selection": "Pemilihan Instansi Otentikasi",
+        "different_auth_instance": "Gunakan instansi lain untuk otentikasi",
+        "clone_playlist_success": "Berhasil disalin!",
+        "clone_playlist": "Salin Daftar Putar"
     },
     "comment": {
-        "pinned_by": "Dipasangi pin oleh"
+        "pinned_by": "Dipasangi pin oleh",
+        "disabled": "Komentar dinonaktifkan oleh pengunggah.",
+        "user_disabled": "Komentar dinonaktifkan di pengaturan.",
+        "loading": "Memuat komentar..."
     },
     "preferences": {
         "instance_name": "Nama Instansi",
         "ssl_score": "Skor SSL",
         "instance_locations": "Lokasi Instansi",
         "has_cdn": "Mempunyai CDN?",
-        "up_to_date": "Sudah Terkini?",
+        "up_to_date": "Sudah terkini?",
         "version": "Versi",
         "registered_users": "Pengguna Terdaftar"
     },
