@@ -73,7 +73,9 @@
         "minimize_recommendations_default": "默认最小化推荐",
         "invalidate_session": "注销所有设备",
         "different_auth_instance": "使用不同的实例进行身份验证",
-        "instance_auth_selection": "身份验证实例选择"
+        "instance_auth_selection": "身份验证实例选择",
+        "clone_playlist": "克隆播放列表",
+        "clone_playlist_success": "克隆成功！"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
