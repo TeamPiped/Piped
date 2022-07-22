@@ -62,9 +62,10 @@ export default {
         getRssUrl: _this => {
             return _this.authApiUrl() + "/rss/playlists/" + _this.$route.query.list;
         },
-        isPipedPlaylist() {
-            // FIXME: this checks whether it's a YouTube or a Piped playlist
-            return this.$route.query.list.includes("-");
+        isPipedPlaylist: _this => {
+            // regex to determine whether it's a Piped plalylist
+            const regex = new RegExp("[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}");
+            return regex.test(_this.$route.query.list);
         },
     },
     mounted() {
@@ -117,14 +118,13 @@ export default {
             this.playlist.relatedStreams.splice(index, 1);
         },
         async clonePlaylist() {
-            const playlistId = this.$route.query.list;
             this.fetchJson(this.authApiUrl() + "/import/playlist", null, {
                 method: "POST",
                 headers: {
                     Authorization: this.getAuthToken(),
                 },
                 body: JSON.stringify({
-                    playlistId: playlistId,
+                    playlistId: this.$route.query.list,
                 }),
             }).then(resp => {
                 if (!resp.error) {
