@@ -1,16 +1,16 @@
 {
     "video": {
-        "sponsor_segments": "Sponzorski segmenti",
+        "sponsor_segments": "Segmenti sponzora",
         "watched": "Gledano",
         "views": "{views} prikaza",
-        "videos": "Videozapisi",
+        "videos": "Videa",
         "ratings_disabled": "Ocjenjivanje isključeno",
         "chapters": "Poglavlja",
         "live": "{0} uživo",
-        "shorts": "Kratki video pregled"
+        "shorts": "Kratki prikaz videa"
     },
     "preferences": {
-        "ssl_score": "SSL ocjena",
+        "ssl_score": "SSL rezultat",
         "has_cdn": "Ima CDN?",
         "instance_locations": "Lokacije instance",
         "instance_name": "Ime instance",
@@ -19,7 +19,10 @@
         "up_to_date": "Najnovija verzija?"
     },
     "comment": {
-        "pinned_by": "Prikačio korisnik"
+        "pinned_by": "Prikačio korisnik",
+        "disabled": "Prijenosnik onemogućuje komentare.",
+        "loading": "Učitavanje komentara …",
+        "user_disabled": "Komentari su isključeni u postavkama."
     },
     "actions": {
         "enable_lbry_proxy": "Omogući proxy za LBRY",
@@ -81,15 +84,23 @@
         "clear_history": "Obriši povijest",
         "skip_highlight": "Preskoči isticanje",
         "skip_filler_tangent": "Preskoči nebitne međudijelove",
-        "delete_playlist_confirm": "Stvarno želiš izbrisati ovaj popis snimaka?",
-        "remove_from_playlist": "Ukloni iz popisa snimaka",
-        "create_playlist": "Stvori popis snimaka",
-        "delete_playlist": "Izbriši popis snimaka",
-        "add_to_playlist": "Dodaj u popis snimaka",
-        "select_playlist": "Odaberi popis snimaka",
-        "please_select_playlist": "Odaberi popis snimaka",
-        "delete_playlist_video_confirm": "Stvarno želiš ukloniti ovaj video iz ovog popisa snimaka?",
-        "show_markers": "Prikaži oznake na playeru"
+        "delete_playlist_confirm": "Izbrisati ovu playlistu?",
+        "remove_from_playlist": "Ukloni iz playliste",
+        "create_playlist": "Stvori playlistu",
+        "delete_playlist": "Izbriši playlistu",
+        "add_to_playlist": "Dodaj u playlistu",
+        "select_playlist": "Odaberi playlistu",
+        "please_select_playlist": "Odaberi playlistu",
+        "delete_playlist_video_confirm": "Ukloniti video iz playliste?",
+        "show_markers": "Prikaži oznake na playeru",
+        "delete_account": "Izbriši račun",
+        "logout": "Odjavi se s ovog uređaja",
+        "minimize_recommendations_default": "Standardno minimiziraj preporuke",
+        "invalidate_session": "Odjavi sve uređaje",
+        "different_auth_instance": "Koristi drugu instancu za autentifikaciju",
+        "instance_auth_selection": "Odabir instance autentifikacije",
+        "clone_playlist": "Dupliciraj playlistu",
+        "clone_playlist_success": "Dupliciranje uspjelo!"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -102,7 +113,7 @@
         "register": "Registracija",
         "login": "Prijava",
         "trending": "U trendu",
-        "playlists": "Popisi snimaka"
+        "playlists": "Playliste"
     },
     "login": {
         "password": "Lozinka",
@@ -113,10 +124,10 @@
         "all": "YouTube: Sve",
         "videos": "YouTube: Videa",
         "channels": "YouTube: Kanali",
-        "playlists": "YouTube: popisi snimaka",
+        "playlists": "YouTube: playliste",
         "music_songs": "YT Music: Glazbe",
-        "music_videos": "YT Music: Video snimci",
+        "music_videos": "YT Music: Videa",
         "music_albums": "YT Music: Albumi",
-        "music_playlists": "YT Music: popisi snimaka"
+        "music_playlists": "YT Music: playliste"
     }
 }
