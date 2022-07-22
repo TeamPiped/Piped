@@ -10,7 +10,7 @@
             @click="$emit('seek', chapter.start)"
             class="chapter-vertical"
             :class="
-                playerPosition >= chapter.start && playerPosition < chapters[index + 1].start
+                isCurrentChapter(chapters, index, playerPosition)
                     ? 'chapter-vertical bg-red-500/50'
                     : 'chapter-vertical'
             "
@@ -29,13 +29,9 @@
     <div v-else class="flex overflow-x-auto">
         <div
             :key="chapter.start"
-            v-for="(chapter, index) in chapters"
+            v-for="chapter in chapters"
             @click="$emit('seek', chapter.start)"
-            :class="
-                playerPosition >= chapter.start && playerPosition < chapters[index + 1].start
-                    ? 'chapter bg-red-500/50'
-                    : 'chapter'
-            "
+            :class="isCurrentChapter(chapters, index, playerPosition) ? 'chapter bg-red-500/50' : 'chapter'"
         >
             <img :src="chapter.image" :alt="chapter.title" />
             <div class="m-1 flex">
@@ -69,6 +65,19 @@
     @apply truncate overflow-hidden inline-block w-10em;
 }
 </style>
+
+<script>
+export default {
+    methods: {
+        isCurrentChapter(chapters, index, playerPosition) {
+            if (index + 1 === chapters.length && playerPosition >= chapters[index].start) return true;
+            else if (index + 1 === chapters.length) return false;
+            else if (playerPosition >= chapters[index].start && playerPosition < chapters[index + 1].start) return true;
+            return false;
+        },
+    },
+};
+</script>
 
 <script setup>
 import { defineProps, defineEmits } from "vue";
