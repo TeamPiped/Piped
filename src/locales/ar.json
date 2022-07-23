@@ -86,7 +86,9 @@
         "minimize_recommendations_default": "تقليل التوصيات بشكل افتراضي",
         "invalidate_session": "تسجيل الخروج من جميع الأجهزة",
         "different_auth_instance": "استخدام مثيل مختلف للمصادقة",
-        "instance_auth_selection": "تحديد مثيل Autentication"
+        "instance_auth_selection": "تحديد مثيل Autentication",
+        "clone_playlist": "استنساخ قائمة التشغيل",
+        "clone_playlist_success": "تم استنساخها بنجاح!"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
