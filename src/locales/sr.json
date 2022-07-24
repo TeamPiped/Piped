@@ -57,7 +57,7 @@
         "show_more": "Прикажи више",
         "yes": "Да",
         "export_to_json": "Извези у JSON",
-        "import_from_json": "Увези из JSON-а",
+        "import_from_json": "Увези из JSON/CSV-а",
         "minimize_recommendations": "Смањи препоруке",
         "disable_lbry": "Онемогући LBRY за стримовање",
         "enable_lbry_proxy": "Омогући прокси за LBRY",
