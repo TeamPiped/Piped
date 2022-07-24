@@ -43,7 +43,7 @@
         "yes": "Ano",
         "no": "Ne",
         "export_to_json": "Exportovat do JSON",
-        "import_from_json": "Importovat z JSON",
+        "import_from_json": "Importovat z JSON/CSV",
         "auto_play_next_video": "Automaticky přehrát další video",
         "donations": "Darovat",
         "show_description": "Zobrazit popis",
