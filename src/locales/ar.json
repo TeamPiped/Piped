@@ -64,7 +64,7 @@
         "language_selection": "اختيار اللغة",
         "instances_list": "قائمة المثيلات",
         "enabled_codecs": "برامج الترميز الممكنة (متعددة)",
-        "import_from_json": "استيراد من JSON",
+        "import_from_json": "استيراد من JSON/CSV",
         "loop_this_video": "تكرار هذا الفيديو",
         "auto_play_next_video": "التشغيل التلقائي للفيديو التالي",
         "donations": "التبرعات",
