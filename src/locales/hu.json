@@ -65,18 +65,27 @@
         "create_playlist": "Lejátszási lista létrehozása",
         "delete_playlist": "Lejátszási lista törlése",
         "select_playlist": "Lejátszási lista kiválasztása",
-        "delete_playlist_confirm": "Biztos, hogy törölni szeretné ezt a lejátszási listát?",
+        "delete_playlist_confirm": "Törli ezt a lejátszási listát?",
         "please_select_playlist": "Kérjük, válasszon egy lejátszási listát",
         "disable_lbry": "A LBRY letiltása streaminghez",
         "view_ssl_score": "SSL pontszám megtekintése",
         "sort_by": "Rendezés:",
         "show_description": "Leírás megjelenítése",
         "import_from_json": "Importálás JSON/CSV-ból",
-        "delete_playlist_video_confirm": "Biztosan szeretnéd törölni ezt a videót a lejátszási listából?",
-        "remove_from_playlist": "Törlés lejátszási listából",
+        "delete_playlist_video_confirm": "Eltávolítja a videót a lejátszási listából?",
+        "remove_from_playlist": "Törlés a lejátszási listából",
         "auto_play_next_video": "Következő videó automatikus lejátszása",
-        "minimize_recommendations": "Javaslatok megjelenítése",
-        "instances_list": "Példányok listája"
+        "minimize_recommendations": "Javaslatok minimalizálása",
+        "instances_list": "Példányok listája",
+        "show_markers": "Jelölők megjelenítése a lejátszón",
+        "delete_account": "Fiók törlése",
+        "logout": "Kijelentkezés erről az eszközről",
+        "minimize_recommendations_default": "Ajánlások alapértelmezett minimalizálása",
+        "invalidate_session": "Kijelentkezés minden eszközről",
+        "different_auth_instance": "Másik példány használata a hitelesítéshez",
+        "instance_auth_selection": "Autentikációs példány kiválasztása",
+        "clone_playlist": "Lejátszási lista klónozása",
+        "clone_playlist_success": "Sikeresen klónozva!"
     },
     "video": {
         "ratings_disabled": "Értékelések Letiltva",
@@ -85,7 +94,8 @@
         "chapters": "Fejezetek",
         "live": "{0} Élő",
         "videos": "Videók",
-        "views": "{views} megtekintés"
+        "views": "{views} megtekintés",
+        "shorts": "Rövid videók"
     },
     "player": {
         "watch_on": "Lejátszásban {0}"
@@ -100,7 +110,7 @@
         "up_to_date": "Naprakész?"
     },
     "search": {
-        "did_you_mean": "Erre gondolt: {0}?",
+        "did_you_mean": "Erre gondoltál: {0}?",
         "all": "YouTube: Mind",
         "videos": "YouTube: Videók",
         "channels": "YouTube: Csatornák",
@@ -115,6 +125,9 @@
         "password": "Jelszó"
     },
     "comment": {
-        "pinned_by": "Rögzítette"
+        "pinned_by": "Rögzítette",
+        "disabled": "A hozzászólásokat a feltöltő letiltotta.",
+        "user_disabled": "A beállításoknál a megjegyzések le vannak tiltva.",
+        "loading": "Kommentek betöltése..."
     }
 }
