@@ -50,7 +50,7 @@
         "donations": "Dons",
         "auto_play_next_video": "Lire la vidéo suivante automatiquement",
         "loop_this_video": "Mettre cette vidéo en boucle",
-        "import_from_json": "Importer depuis le format JSON",
+        "import_from_json": "Importer depuis le format JSON/CSV",
         "export_to_json": "Exporter en JSON",
         "show_more": "Afficher plus",
         "instance_selection": "Sélection de l'instance",
