@@ -41,7 +41,7 @@
         "donations": "Bağışlar",
         "auto_play_next_video": "Sonraki Videoyu Otomatik Oynat",
         "loop_this_video": "Bu Videoyu Döngüye Al",
-        "import_from_json": "JSON dosyasından içe aktar",
+        "import_from_json": "JSON/CSV dosyasından içe aktar",
         "export_to_json": "JSON Olarak Dışa Aktar",
         "no": "Hayır",
         "yes": "Evet",
