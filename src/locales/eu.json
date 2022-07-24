@@ -22,7 +22,7 @@
         "donations": "Dohaintzak",
         "auto_play_next_video": "Hurrengo bideoa automatikoki erreproduzitu",
         "loop_this_video": "Bideo hau begiztan jarri",
-        "import_from_json": "Inportatu JSONetik",
+        "import_from_json": "Inportatu JSON/CSVetik",
         "export_to_json": "Esportatu JSONera",
         "no": "Ez",
         "yes": "Bai",
