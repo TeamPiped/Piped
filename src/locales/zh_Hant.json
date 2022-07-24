@@ -42,7 +42,7 @@
         "yes": "是",
         "no": "否",
         "export_to_json": "以 JSON 匯出",
-        "import_from_json": "從 JSON 匯入",
+        "import_from_json": "從 JSON/CSV 匯入",
         "loop_this_video": "循環播放此影片",
         "auto_play_next_video": "自動播放下一部影片",
         "donations": "捐款",
