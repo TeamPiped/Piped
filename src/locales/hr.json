@@ -32,7 +32,7 @@
         "donations": "Donacije",
         "auto_play_next_video": "Automatski reproduciraj idući video",
         "loop_this_video": "Ponavljaj ovaj video",
-        "import_from_json": "Uvezi iz JSON formata",
+        "import_from_json": "Uvezi iz JSON/CSV formata",
         "export_to_json": "Izvezi u JSON",
         "no": "Ne",
         "yes": "Da",
