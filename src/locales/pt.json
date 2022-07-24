@@ -34,7 +34,7 @@
         "enabled_codecs": "Codecs Ativados (Vários)",
         "instance_selection": "Seleção de Instância",
         "show_more": "Exibir Mais",
-        "import_from_json": "Importar de JSON",
+        "import_from_json": "Importar de JSON/CSV",
         "export_to_json": "Exportar para JSON",
         "loop_this_video": "Repetir Este Vídeo",
         "auto_play_next_video": "Reproduzir o Próximo Vídeo Automaticamente",
