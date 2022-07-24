@@ -54,7 +54,7 @@
         "view_ssl_score": "Skoðaðu SSL Einkunn",
         "enabled_codecs": "Virkjir Afkóðarar (Marghæft)",
         "instance_selection": "Tilviksval",
-        "import_from_json": "Flytja inn frá JSON",
+        "import_from_json": "Flytja inn frá JSON/CSV",
         "loop_this_video": "Endurtaka þetta Myndband",
         "auto_play_next_video": "Spila Næsta Myndband Sjálfvirkt",
         "filter": "Sía",
