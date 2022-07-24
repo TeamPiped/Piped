@@ -39,7 +39,7 @@
         "yes": "Jah",
         "no": "Ei",
         "export_to_json": "Eksportida JSON-vormingusse",
-        "import_from_json": "Importimine JSONist",
+        "import_from_json": "Importimine JSON/CSVist",
         "loop_this_video": "Selle video pidev taasesitus",
         "donations": "Annetused",
         "minimize_description": "Minimeeri kirjeldus",
