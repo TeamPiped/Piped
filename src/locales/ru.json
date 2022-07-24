@@ -52,7 +52,7 @@
         "yes": "Да",
         "no": "Нет",
         "export_to_json": "Экспорт в JSON",
-        "import_from_json": "Импорт из JSON",
+        "import_from_json": "Импорт из JSON/CSV",
         "loop_this_video": "Повтор текущего видео",
         "auto_play_next_video": "Сразу проигрывать следующее рекомендованное видео",
         "donations": "Пожертвования",
