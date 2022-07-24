@@ -60,7 +60,7 @@
         "delete_playlist_confirm": "Weet u zeker dat u deze afspeellijst wilt verwijderen?",
         "please_select_playlist": "Kies een afspeellijst a.u.b.",
         "instance_selection": "Instantie Selectie",
-        "import_from_json": "Importeren uit JSON",
+        "import_from_json": "Importeren uit JSON/CSV",
         "clear_history": "Geschiedenis Wissen",
         "show_replies": "Toon Antwoorden",
         "load_more_replies": "Laad meer Antwoorden",
