@@ -55,7 +55,7 @@
         "view_ssl_score": "Ver Pontuação SSL",
         "disable_lbry": "Desabilitar LBRY para Streaming",
         "enable_lbry_proxy": "Habilitar proxy para LBRY",
-        "import_from_json": "Importar de JSON",
+        "import_from_json": "Importar de JSON/CSV",
         "loop_this_video": "Repetir este Vídeo",
         "instances_list": "Lista de Instâncias",
         "clear_history": "Limpar Histórico",

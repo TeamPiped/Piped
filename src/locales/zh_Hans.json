@@ -9,7 +9,7 @@
         "donations": "捐款",
         "auto_play_next_video": "自动播放下一个视频",
         "loop_this_video": "循环播放此视频",
-        "import_from_json": "从 JSON 导入",
+        "import_from_json": "从 JSON/CSV 导入",
         "export_to_json": "导出为 JSON",
         "no": "否",
         "yes": "是",

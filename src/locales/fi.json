@@ -74,7 +74,7 @@
         "skip_preview": "Ohita esikatselu/toistelu",
         "export_to_json": "Vie JSON-muotoon",
         "remove_from_playlist": "Poista soittolistalta",
-        "import_from_json": "Tuo JSON:sta",
+        "import_from_json": "Tuo JSON/CSV:sta",
         "delete_playlist": "Poista soittolista",
         "create_playlist": "Luo soittolista",
         "select_playlist": "Valitse soittolista",

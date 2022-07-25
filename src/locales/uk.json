@@ -54,7 +54,7 @@
         "country_selection": "Вибір країни (для трендів)",
         "minimize_description_default": "Не розгортати опис за замовчуванням",
         "yes": "Так",
-        "import_from_json": "Імпорт з JSON",
+        "import_from_json": "Імпорт з JSON/CSV",
         "loop_this_video": "Повтор поточного відео",
         "auto_play_next_video": "Одразу програвати наступне рекомендоване відео",
         "donations": "Пожертвування",

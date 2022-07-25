@@ -53,7 +53,7 @@
         "yes": "হ্যাঁ",
         "no": "না",
         "export_to_json": "JSON ফাইলে সংরক্ষণ করুন",
-        "import_from_json": "JSON ফাইল থেকে আনুন",
+        "import_from_json": "JSON/CSV ফাইল থেকে আনুন",
         "loop_this_video": "ভিডিওটি চক্রের মধ্যে রাখুন",
         "instance_selection": "সঙ্ঘটন নির্বাচন",
         "show_more": "আরো দেখুন",

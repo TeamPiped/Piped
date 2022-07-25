@@ -42,7 +42,7 @@
         "donations": "Donasjoner",
         "auto_play_next_video": "Autospill neste video",
         "loop_this_video": "Gjenta denne videoen",
-        "import_from_json": "Importer fra JSON",
+        "import_from_json": "Importer fra JSON/CSV",
         "export_to_json": "Eksporter til JSON",
         "no": "Nei",
         "yes": "Ja",

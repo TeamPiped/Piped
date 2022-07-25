@@ -45,7 +45,7 @@
         "instance_selection": "इंस्टेंस चयन",
         "show_more": "और दिखाओ",
         "export_to_json": "JSON में निर्यात करें",
-        "import_from_json": "JSON से आयात करें",
+        "import_from_json": "JSON/CSV से आयात करें",
         "auto_play_next_video": "अगला वीडियो ऑटोप्ले करें",
         "donations": "दान",
         "minimize_recommendations": "सिफारिशों को कम करें",

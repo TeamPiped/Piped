@@ -56,7 +56,7 @@
         "show_more": "Prikaži više",
         "yes": "Da",
         "export_to_json": "Izvezi u JSON",
-        "import_from_json": "Uvezi iz JSON-a",
+        "import_from_json": "Uvezi iz JSON/CSV-a",
         "minimize_description": "Umanji opis",
         "minimize_recommendations": "Umanjite preporuke",
         "clear_history": "Obrišite historiju",

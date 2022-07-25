@@ -42,7 +42,7 @@
         "default_quality": "Defolt Keyfiyyət",
         "buffering_goal": "Tamponlama Məqsədi (saniyələrlə)",
         "export_to_json": "JSON-a İxrac Edin",
-        "import_from_json": "JSON-dan İdxal Edin",
+        "import_from_json": "JSON/CSV-dan İdxal Edin",
         "loop_this_video": "Bu Videonu Təkrarla",
         "auto_play_next_video": "Növbəti Videonu Avto-Oynat",
         "donations": "İanələr",
