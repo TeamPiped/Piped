@@ -9,11 +9,7 @@
             v-for="(chapter, index) in chapters"
             @click="$emit('seek', chapter.start)"
             class="chapter-vertical"
-            :class="
-                playerPosition >= chapter.start && playerPosition < chapters[index + 1].start
-                    ? 'chapter-vertical bg-red-500/50'
-                    : 'chapter-vertical'
-            "
+            :class="{ 'bg-red-500/50': isCurrentChapter(index) }"
         >
             <div class="flex">
                 <span class="mt-5 mr-2 text-current" v-text="index + 1" />
@@ -31,11 +27,8 @@
             :key="chapter.start"
             v-for="(chapter, index) in chapters"
             @click="$emit('seek', chapter.start)"
-            :class="
-                playerPosition >= chapter.start && playerPosition < chapters[index + 1].start
-                    ? 'chapter bg-red-500/50'
-                    : 'chapter'
-            "
+            class="chapter"
+            :class="{ 'bg-red-500/50': isCurrentChapter(index) }"
         >
             <img :src="chapter.image" :alt="chapter.title" />
             <div class="m-1 flex">
@@ -73,7 +66,7 @@
 <script setup>
 import { defineProps, defineEmits } from "vue";
 
-defineProps({
+const props = defineProps({
     chapters: Object,
     mobileLayout: {
         type: Boolean,
@@ -84,6 +77,13 @@ defineProps({
         default: () => 0,
     },
 });
+
+const isCurrentChapter = index => {
+    return (
+        props.playerPosition >= props.chapters[index].start &&
+        props.playerPosition < (props.chapters[index + 1]?.start ?? Infinity)
+    );
+};
 
 defineEmits(["seek"]);
 </script>
