@@ -26,33 +26,67 @@
                 @blur="onInputBlur"
             />
         </div>
-        <div class="flex-1 flex justify-end">
-            <ul class="flex text-1xl children:pl-3">
-                <li v-if="shouldShowTrending">
-                    <router-link v-t="'titles.trending'" to="/trending" />
-                </li>
-                <li>
-                    <router-link v-t="'titles.preferences'" to="/preferences" />
-                </li>
-                <li v-if="shouldShowLogin">
-                    <router-link v-t="'titles.login'" to="/login" />
-                </li>
-                <li v-if="shouldShowLogin">
-                    <router-link v-t="'titles.register'" to="/register" />
-                </li>
-                <li v-if="shouldShowHistory">
-                    <router-link v-t="'titles.history'" to="/history" />
-                </li>
-                <li v-if="authenticated">
-                    <router-link v-t="'titles.playlists'" to="/playlists" />
-                </li>
-                <li v-if="authenticated">
-                    <router-link v-t="'titles.feed'" to="/feed" />
-                </li>
-            </ul>
-        </div>
+        <!-- three vertical lines for toggling the hamburger menu on mobile -->
+        <button class="md:hidden flex flex-col justify-end mr-3" @click="showTopNav = !showTopNav">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+        <!-- navigation bar for large screen devices -->
+        <ul class="hidden md:(flex-1 flex justify-end flex text-1xl children:pl-3)">
+            <li v-if="shouldShowTrending">
+                <router-link v-t="'titles.trending'" to="/trending" />
+            </li>
+            <li>
+                <router-link v-t="'titles.preferences'" to="/preferences" />
+            </li>
+            <li v-if="shouldShowLogin">
+                <router-link v-t="'titles.login'" to="/login" />
+            </li>
+            <li v-if="shouldShowLogin">
+                <router-link v-t="'titles.register'" to="/register" />
+            </li>
+            <li v-if="shouldShowHistory">
+                <router-link v-t="'titles.history'" to="/history" />
+            </li>
+            <li v-if="authenticated">
+                <router-link v-t="'titles.playlists'" to="/playlists" />
+            </li>
+            <li v-if="authenticated && !shouldShowTrending">
+                <router-link v-t="'titles.feed'" to="/feed" />
+            </li>
+        </ul>
     </nav>
-    <div class="w-full md:hidden">
+    <!-- navigation bar for mobile devices -->
+    <ul
+        v-if="showTopNav"
+        class="flex flex-col justify-center items-end mb-4 children:(my-0.5 mr-5)"
+        @click="showTopNav = false"
+    >
+        <li v-if="shouldShowTrending">
+            <router-link v-t="'titles.trending'" to="/trending" />
+        </li>
+        <li>
+            <router-link v-t="'titles.preferences'" to="/preferences" />
+        </li>
+        <li v-if="shouldShowLogin">
+            <router-link v-t="'titles.login'" to="/login" />
+        </li>
+        <li v-if="shouldShowLogin">
+            <router-link v-t="'titles.register'" to="/register" />
+        </li>
+        <li v-if="shouldShowHistory">
+            <router-link v-t="'titles.history'" to="/history" />
+        </li>
+        <li v-if="authenticated">
+            <router-link v-t="'titles.playlists'" to="/playlists" />
+        </li>
+        <li v-if="authenticated && !shouldShowTrending">
+            <router-link v-t="'titles.feed'" to="/feed" />
+        </li>
+    </ul>
+    <!-- search suggestions for mobile devices -->
+    <div class="w-{full - 4} md:hidden mx-2">
         <input
             v-model="searchText"
             class="input !h-10 !w-full"
@@ -85,6 +119,7 @@ export default {
         return {
             searchText: "",
             suggestionsVisible: false,
+            showTopNav: false,
         };
     },
     mounted() {
