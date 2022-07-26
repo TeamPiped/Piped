@@ -157,7 +157,7 @@ export default {
         removeVideo() {
             if (confirm(this.$t("actions.delete_playlist_video_confirm"))) {
                 this.$refs.removeButton.disabled = true;
-                this.fetchJson(this.apiUrl() + "/user/playlists/remove", null, {
+                this.fetchJson(this.authApiUrl() + "/user/playlists/remove", null, {
                     method: "POST",
                     body: JSON.stringify({
                         playlistId: this.playlistId,
