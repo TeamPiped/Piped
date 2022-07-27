@@ -54,7 +54,7 @@
         "yes": "Tak",
         "no": "Nie",
         "export_to_json": "Eksport do pliku JSON",
-        "import_from_json": "Import z pliku JSON",
+        "import_from_json": "Import z pliku JSON/CSV",
         "loop_this_video": "Zapętlaj ten film",
         "auto_play_next_video": "Autoodtwarzanie następnego filmu",
         "donations": "Wsparcie",

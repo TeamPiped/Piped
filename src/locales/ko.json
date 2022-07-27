@@ -38,7 +38,7 @@
         "minimize_description_default": "기본적으로 설명 최소화",
         "enabled_codecs": "활성화된 코덱 (여러 개)",
         "instance_selection": "인스턴스 선택",
-        "import_from_json": "JSON에서 가져오기",
+        "import_from_json": "JSON/CSV에서 가져오기",
         "light": "라이트",
         "autoplay_video": "영상 자동 재생",
         "default_quality": "기본 화질",

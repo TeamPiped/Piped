@@ -208,4 +208,8 @@ h2 {
 .auto .link-secondary {
     @apply dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
 }
+
+.line {
+    @apply px-2.5 py-0.25 my-0.45 rounded-xl bg-white;
+}
 </style>

@@ -54,7 +54,7 @@
         "yes": "അതെ",
         "show_more": "കൂടുതൽ കാണിക്കുക",
         "buffering_goal": "ബഫറിംഗ് ലക്ഷ്യം(സെക്കൻഡുകളിൽ)",
-        "import_from_json": "JSON നിന്ന് ഇറക്കുമതി ചെയ്യൂ",
+        "import_from_json": "JSON/CSV നിന്ന് ഇറക്കുമതി ചെയ്യൂ",
         "export_to_json": "JSON-ലേക്ക് എക്സ്പ്പോർട്ട് ചെയ്യുക",
         "instance_selection": "ഇൻസ്റ്റ്ൻസ് തിരഞ്ഞെടുക്കുക",
         "loading": "ലഭ്യമാക്കുന്നു...",

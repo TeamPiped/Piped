@@ -52,7 +52,7 @@
         "yes": "はい",
         "no": "いいえ",
         "export_to_json": "JSONファイルに出力",
-        "import_from_json": "JSONファイルを読み込む",
+        "import_from_json": "JSON/CSVファイルを読み込む",
         "loop_this_video": "ループ再生",
         "auto_play_next_video": "自動再生",
         "donations": "寄付",

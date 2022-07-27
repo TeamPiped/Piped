@@ -44,7 +44,7 @@
         "donations": "Spenden",
         "auto_play_next_video": "Nächstes Video automatisch abspielen",
         "loop_this_video": "Dieses Video wiederholen",
-        "import_from_json": "Aus JSON importieren",
+        "import_from_json": "Aus JSON/CSV importieren",
         "export_to_json": "Als JSON exportieren",
         "show_more": "Mehr anzeigen",
         "no": "Nein",

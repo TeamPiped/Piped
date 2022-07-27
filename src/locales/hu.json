@@ -71,7 +71,7 @@
         "view_ssl_score": "SSL pontszám megtekintése",
         "sort_by": "Rendezés:",
         "show_description": "Leírás megjelenítése",
-        "import_from_json": "Importálás JSON-ból",
+        "import_from_json": "Importálás JSON/CSV-ból",
         "delete_playlist_video_confirm": "Biztosan szeretnéd törölni ezt a videót a lejátszási listából?",
         "remove_from_playlist": "Törlés lejátszási listából",
         "auto_play_next_video": "Következő videó automatikus lejátszása",

@@ -1,0 +1,16 @@
+name: Question
+description: Ask questions about configuration and usage of Piped.
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please make sure to read the README.md before posting a question or asking for support.
+        
+  - type: textarea
+    id: question
+    attributes:
+      label: Describe your question
+      description: A clear description of what your doubt is.
+    validations:
+      required: true

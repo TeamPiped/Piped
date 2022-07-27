@@ -42,7 +42,7 @@
         "skip_interaction": "رد کردن یاداوری سابسکرایب",
         "skip_highlight": "رد کردن نکات برجسته",
         "skip_filler_tangent": "رد کردن چرندیات نامربوط",
-        "import_from_json": "وارد کردن از JSON",
+        "import_from_json": "وارد کردن از JSON/CSV",
         "export_to_json": "دادن خروجی با فرمت JSON",
         "show_description": "نمایش توضیحات ویدئو",
         "donations": "کمک های مالی",

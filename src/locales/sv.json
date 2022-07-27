@@ -43,7 +43,7 @@
         "store_watch_history": "Spara titthistorik",
         "instances_list": "Lista över instanser",
         "enabled_codecs": "Aktivera codecs (flera)",
-        "import_from_json": "Importera från JSON",
+        "import_from_json": "Importera från JSON/CSV",
         "donations": "Donationer",
         "filter": "Filter",
         "hide_replies": "Dölj svar",

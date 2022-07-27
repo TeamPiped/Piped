@@ -44,7 +44,7 @@
         "minimize_description": "Suskleisti aprašymą",
         "minimize_recommendations": "Suskleisti rekomendacijas",
         "show_recommendations": "Rodyti rekomendacijas",
-        "import_from_json": "Importuoti iš JSON",
+        "import_from_json": "Importuoti iš JSON/CSV",
         "export_to_json": "Eksportuoti į JSON",
         "no": "Ne",
         "yes": "Taip",

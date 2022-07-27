@@ -652,4 +652,19 @@ export default {
 .shaka-video-container:-webkit-full-screen {
     max-height: none !important;
 }
+
+/* captions style */
+.shaka-text-wrapper * {
+    text-align: left !important;
+}
+
+.shaka-text-wrapper > span > span {
+    background-color: transparent !important;
+}
+
+/* apply to all spans that don't include multiple other spans to avoid the style being applied to the text container too when the subtitles are two lines */
+.shaka-text-wrapper > span > span *:first-child:last-child {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    padding: 0.09em 0;
+}
 </style>
