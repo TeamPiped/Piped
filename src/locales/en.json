@@ -129,5 +129,8 @@
         "music_videos": "YT Music: Videos",
         "music_albums": "YT Music: Albums",
         "music_playlists": "YT Music: Playlists"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Subscribed to: {0}"
     }
 }

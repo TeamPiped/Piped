@@ -1,12 +1,14 @@
 <template>
     <h1 class="font-bold text-center" v-t="'titles.subscriptions'" />
 
-    <div v-if="authenticated">
-        <button class="btn mr-0.5">
-            <router-link to="/import" v-t="'actions.import_from_json'" />
-        </button>
-
-        <button class="btn" @click="exportHandler" v-t="'actions.export_to_json'" />
+    <div v-if="authenticated" class="flex justify-between w-full">
+        <div>
+            <button class="btn mr-0.5">
+                <router-link to="/import" v-t="'actions.import_from_json'" />
+            </button>
+            <button class="btn" @click="exportHandler" v-t="'actions.export_to_json'" />
+        </div>
+        <i18n-t keypath="subscriptions.subscribed_channels_count">{{ subscriptions.length }}</i18n-t>
     </div>
     <hr />
 
