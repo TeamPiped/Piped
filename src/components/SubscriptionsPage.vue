@@ -17,7 +17,7 @@
             <div class="flex justify-center place-items-center">
                 <div class="w-full flex justify-between items-center">
                     <router-link :to="subscription.url" class="flex text-center font-bold text-4xl">
-                        <img :src="subscription.avatar" class="rounded-full" width="48" height="48" />
+                        <img :src="subscription.avatar" class="rounded-full h-[fit-content]" width="48" height="48" />
                         <span class="mx-2" v-text="subscription.name" />
                     </router-link>
                     <button
