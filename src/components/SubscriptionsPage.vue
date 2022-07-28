@@ -1,9 +1,9 @@
 <template>
-    <h1 class="font-bold text-center" v-t="'titles.subscriptions'" />
+    <h1 class="font-bold text-center my-4" v-t="'titles.subscriptions'" />
 
     <div v-if="authenticated" class="flex justify-between w-full">
-        <div>
-            <button class="btn mr-0.5">
+        <div class="flex">
+            <button class="btn mx-1">
                 <router-link to="/import" v-t="'actions.import_from_json'" />
             </button>
             <button class="btn" @click="exportHandler" v-t="'actions.export_to_json'" />
@@ -15,10 +15,10 @@
     <div class="grid">
         <div class="mb-3" v-for="subscription in subscriptions" :key="subscription.url">
             <div class="flex justify-center place-items-center">
-                <div class="w-full grid grid-cols-3">
-                    <router-link :to="subscription.url" class="col-start-2 block flex text-center font-bold text-4xl">
+                <div class="w-full flex justify-between items-center">
+                    <router-link :to="subscription.url" class="flex text-center font-bold text-4xl">
                         <img :src="subscription.avatar" class="rounded-full" width="48" height="48" />
-                        <span v-text="subscription.name" />
+                        <span class="mx-2" v-text="subscription.name" />
                     </router-link>
                     <button
                         class="btn !w-min"
