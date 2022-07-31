@@ -129,5 +129,8 @@
         "music_songs": "YT Müzik: Şarkılar",
         "music_videos": "YT Müzik: Videolar",
         "music_albums": "YT Müzik: Albümler"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Abone olunan: {0}"
     }
 }
