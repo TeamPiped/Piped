@@ -106,7 +106,7 @@ b {
 }
 
 .btn {
-    @apply py-2 px-4 rounded cursor-pointer;
+    @apply h-full py-2 <md:(px-2) md:(px-4) rounded cursor-pointer;
 }
 
 .reset {
@@ -130,10 +130,6 @@ b {
 .input,
 .select {
     @apply h-8;
-}
-
-.btn {
-    @apply h-full;
 }
 
 .checkbox {
