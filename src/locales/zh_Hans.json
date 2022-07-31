@@ -129,5 +129,8 @@
         "music_videos": "YT Music：视频",
         "music_albums": "YT Music：专辑",
         "music_playlists": "YT Music：播放列表"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "已订阅：{0}"
     }
 }
