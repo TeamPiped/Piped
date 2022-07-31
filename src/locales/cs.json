@@ -83,7 +83,9 @@
         "minimize_recommendations_default": "Ve výchozím nastavení minimalizovat doporučení",
         "invalidate_session": "Odhlásit se ze všech zařízení",
         "different_auth_instance": "Použít jinou instanci pro autentizaci",
-        "instance_auth_selection": "Výběr autentizační instance"
+        "instance_auth_selection": "Výběr autentizační instance",
+        "clone_playlist": "Duplikovat playlist",
+        "clone_playlist_success": "Úspěšně duplikováno!"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
@@ -127,5 +129,8 @@
         "music_videos": "YT Music: Videa",
         "music_albums": "YT Music: Alba",
         "music_playlists": "YT Music: Playlisty"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Přihlášeno k odběru: {0}"
     }
 }
