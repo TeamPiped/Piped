@@ -80,7 +80,6 @@
                     </button>
                     <button
                         class="btn"
-                        v-if="authenticated"
                         @click="subscribeHandler"
                         v-t="{
                             path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
@@ -427,7 +426,8 @@ export default {
             this.fetchComments().then(data => (this.comments = data));
         },
         async fetchSubscribedStatus() {
-            if (!this.channelId || !this.authenticated) return;
+            if (!this.channelId) return;
+            if (!this.authenticated) this.subscribed = this.isSubscribedLocally(this.channelId);
 
             this.fetchJson(
                 this.authApiUrl() + "/subscribed",
@@ -444,16 +444,20 @@ export default {
             });
         },
         subscribeHandler() {
-            this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                method: "POST",
-                body: JSON.stringify({
-                    channelId: this.channelId,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            });
+            if (this.authenticated) {
+                this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        channelId: this.channelId,
+                    }),
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                        "Content-Type": "application/json",
+                    },
+                });
+            } else {
+                this.handleLocalSubscriptions(this.channelId);
+            }
             this.subscribed = !this.subscribed;
         },
         handleScroll() {
