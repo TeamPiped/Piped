@@ -76,9 +76,16 @@
         "delete_playlist_video_confirm": "Ta bort video från spellistan?",
         "create_playlist": "Skapa spellista",
         "delete_playlist": "Ta bort spellista",
-        "delete_playlist_confirm": "Är du säker på att du vill ta bort den här spellistan?",
+        "delete_playlist_confirm": "Ta bort den här spellistan?",
         "show_markers": "Visa markörer på spelaren",
-        "delete_account": "Ta bort konto"
+        "delete_account": "Ta bort konto",
+        "clone_playlist": "Klona spellista",
+        "clone_playlist_success": "Lyckad kloning!",
+        "logout": "Logga ut från denna enheten",
+        "minimize_recommendations_default": "Minimera rekommendationer som standard",
+        "invalidate_session": "Logga ut alla enheter",
+        "different_auth_instance": "Använd en annan instans för autentisering",
+        "instance_auth_selection": "Val av autentiseringsinstans"
     },
     "player": {
         "watch_on": "Titta på {0}"
@@ -90,7 +97,7 @@
         "has_cdn": "Har CDN?",
         "registered_users": "Registrerade användare",
         "version": "Version",
-        "up_to_date": "Uppdaterad?"
+        "up_to_date": "Är du uppdaterad?"
     },
     "login": {
         "username": "Användarnamn",
@@ -107,7 +114,10 @@
         "shorts": "Shorts"
     },
     "comment": {
-        "pinned_by": "Fäst av"
+        "pinned_by": "Fäst av",
+        "disabled": "Kommentarer är inaktiverade av den som laddat upp.",
+        "loading": "Laddar kommentarer...",
+        "user_disabled": "Kommentarer är inaktiverade i inställningarna."
     },
     "search": {
         "did_you_mean": "Menade du: {0}?",
@@ -119,5 +129,8 @@
         "videos": "YouTube: Videor",
         "playlists": "YouTube: Spellistor",
         "music_songs": "YT Music: Låtar"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Prenumererar på: {0}"
     }
 }
