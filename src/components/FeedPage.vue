@@ -41,7 +41,8 @@ export default {
     },
     computed: {
         getRssUrl(_this) {
-            return _this.authApiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
+            if (_this.authenticated) return _this.authApiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
+            else return _this.authApiUrl() + "/feed/unauthenticated/rss?channels=" + _this.getUnauthenticatedChannels();
         },
     },
     mounted() {
@@ -69,14 +70,8 @@ export default {
                     authToken: this.getAuthToken(),
                 });
             } else {
-                const localSubscriptions = this.getLocalSubscriptions();
-                var channels = "";
-                localSubscriptions.forEach((element, index) => {
-                    channels += element;
-                    if (localSubscriptions.size != index) channels += ",";
-                });
                 return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
-                    channels: channels,
+                    channels: this.getUnauthenticatedChannels(),
                 });
             }
         },
@@ -89,6 +84,15 @@ export default {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loadMoreVideos();
             }
+        },
+        getUnauthenticatedChannels() {
+            const localSubscriptions = this.getLocalSubscriptions();
+            var channels = "";
+            localSubscriptions.forEach((element, index) => {
+                channels += element;
+                if (localSubscriptions.size != index) channels += ",";
+            });
+            return channels;
         },
     },
 };
