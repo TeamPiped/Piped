@@ -40,28 +40,28 @@ export default {
         };
     },
     mounted() {
-        if (this.authenticated)
-            this.fetchJson(this.authApiUrl() + "/subscriptions", null, {
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-            }).then(json => {
-                this.subscriptions = json;
-                this.subscriptions.forEach(subscription => (subscription.subscribed = true));
-            });
-        else {
-            this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", null, {
-                channels: this.getUnauthenticatedChannels(),
-            }).then(json => {
-                this.subscriptions = json;
-                this.subscriptions.forEach(subscription => (subscription.subscribed = true));
-            });
-        }
+        this.fetchSubscriptions().then(json => {
+            this.subscriptions = json;
+            this.subscriptions.forEach(subscription => (subscription.subscribed = true));
+        });
     },
     activated() {
         document.title = "Subscriptions - Piped";
     },
     methods: {
+        async fetchSubscriptions() {
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/subscriptions", null, {
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                });
+            } else {
+                return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", null, {
+                    channels: this.getUnauthenticatedChannels(),
+                });
+            }
+        },
         handleButton(subscription) {
             this.fetchJson(this.authApiUrl() + (subscription.subscribed ? "/unsubscribe" : "/subscribe"), null, {
                 method: "POST",
