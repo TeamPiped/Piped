@@ -208,11 +208,12 @@ const mixin = {
             return localSubscriptions.includes(channelId);
         },
         handleLocalSubscriptions(channelId) {
-            var localSubscriptions = this.getLocalSubscriptions();
-            if (localSubscriptions == null || localSubscriptions.size == 0) localSubscriptions = [channelId];
-            else if (localSubscriptions.includes(channelId))
+            var localSubscriptions = this.getLocalSubscriptions() ?? [];
+            if (localSubscriptions.includes(channelId))
                 localSubscriptions.splice(localSubscriptions.indexOf(channelId));
             else localSubscriptions.push(channelId);
+            // Sort for better cache hits
+            localSubscriptions.sort();
             localStorage.setItem("localSubscriptions", JSON.stringify(localSubscriptions));
         },
     },

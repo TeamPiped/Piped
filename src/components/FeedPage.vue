@@ -87,12 +87,7 @@ export default {
         },
         getUnauthenticatedChannels() {
             const localSubscriptions = this.getLocalSubscriptions();
-            var channels = "";
-            localSubscriptions.forEach((element, index) => {
-                channels += element;
-                if (localSubscriptions.size != index) channels += ",";
-            });
-            return channels;
+            return localSubscriptions.join(",");
         },
     },
 };
