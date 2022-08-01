@@ -1,7 +1,7 @@
 <template>
     <h1 v-t="'titles.feed'" class="font-bold text-center my-4" />
 
-    <button v-if="authenticated" class="btn mr-2" @click="exportHandler">
+    <button class="btn mr-2" @click="exportHandler">
         <router-link to="/subscriptions">Subscriptions</router-link>
     </button>
 
@@ -84,15 +84,6 @@ export default {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loadMoreVideos();
             }
-        },
-        getUnauthenticatedChannels() {
-            const localSubscriptions = this.getLocalSubscriptions();
-            var channels = "";
-            localSubscriptions.forEach((element, index) => {
-                channels += element;
-                if (localSubscriptions.size != index) channels += ",";
-            });
-            return channels;
         },
     },
 };

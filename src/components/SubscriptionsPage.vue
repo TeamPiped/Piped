@@ -49,7 +49,14 @@ export default {
                 this.subscriptions = json;
                 this.subscriptions.forEach(subscription => (subscription.subscribed = true));
             });
-        else this.$router.push("/login");
+        else {
+            this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", null, {
+                channels: this.getUnauthenticatedChannels(),
+            }).then(json => {
+                this.subscriptions = json;
+                this.subscriptions.forEach(subscription => (subscription.subscribed = true));
+            });
+        }
     },
     activated() {
         document.title = "Subscriptions - Piped";

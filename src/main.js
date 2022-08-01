@@ -215,6 +215,19 @@ const mixin = {
             else localSubscriptions.push(channelId);
             localStorage.setItem("localSubscriptions", JSON.stringify(localSubscriptions));
         },
+        getUnauthenticatedChannels() {
+            const localSubscriptions = this.getLocalSubscriptions();
+            var channels = "";
+            localSubscriptions.forEach((element, index) => {
+                channels += element;
+                if (localSubscriptions.size != index) channels += ",";
+            });
+            return channels;
+        },
+        importSubscriptionsLocally(newChannels) {
+            const subscriptions = this.getLocalSubscriptions().concat(newChannels);
+            localStorage.setItem("localSubscriptions"), JSON.stringify(subscriptions);
+        },
     },
     computed: {
         theme() {

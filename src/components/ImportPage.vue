@@ -69,7 +69,6 @@ export default {
         },
     },
     activated() {
-        if (!this.authenticated) this.$router.push("/login");
         document.title = "Import - Piped";
     },
     methods: {
@@ -132,21 +131,25 @@ export default {
             });
         },
         handleImport() {
-            this.fetchJson(
-                this.authApiUrl() + "/import",
-                {
-                    override: this.override,
-                },
-                {
-                    method: "POST",
-                    headers: {
-                        Authorization: this.getAuthToken(),
+            if (this.authenticated) {
+                this.fetchJson(
+                    this.authApiUrl() + "/import",
+                    {
+                        override: this.override,
                     },
-                    body: JSON.stringify(this.subscriptions),
-                },
-            ).then(json => {
-                if (json.message === "ok") window.location = "/feed";
-            });
+                    {
+                        method: "POST",
+                        headers: {
+                            Authorization: this.getAuthToken(),
+                        },
+                        body: JSON.stringify(this.subscriptions),
+                    },
+                ).then(json => {
+                    if (json.message === "ok") window.location = "/feed";
+                });
+            } else {
+                this.importSubscriptionsLocally(this.subscriptions);
+            }
         },
     },
 };
