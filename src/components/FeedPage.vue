@@ -45,13 +45,11 @@ export default {
         },
     },
     mounted() {
-        if (this.authenticated)
-            this.fetchFeed().then(videos => {
-                this.videosStore = videos;
-                this.loadMoreVideos();
-                this.updateWatched(this.videos);
-            });
-        else this.$router.push("/login");
+        this.fetchFeed().then(videos => {
+            this.videosStore = videos;
+            this.loadMoreVideos();
+            this.updateWatched(this.videos);
+        });
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
@@ -66,9 +64,21 @@ export default {
     },
     methods: {
         async fetchFeed() {
-            return await this.fetchJson(this.authApiUrl() + "/feed", {
-                authToken: this.getAuthToken(),
-            });
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/feed", {
+                    authToken: this.getAuthToken(),
+                });
+            } else {
+                const localSubscriptions = this.getLocalSubscriptions();
+                var channels = "";
+                localSubscriptions.forEach((element, index) => {
+                    channels += element;
+                    if (localSubscriptions.size != index) channels += ",";
+                });
+                return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
+                    channels: channels,
+                });
+            }
         },
         loadMoreVideos() {
             this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);

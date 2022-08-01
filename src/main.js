@@ -203,7 +203,9 @@ const mixin = {
             return JSON.parse(localStorage.getItem("localSubscriptions"));
         },
         isSubscribedLocally(channelId) {
-            return this.getLocalSubscriptions().includes(channelId);
+            const localSubscriptions = this.getLocalSubscriptions();
+            if (localSubscriptions == null) return false;
+            return localSubscriptions.includes(channelId);
         },
         handleLocalSubscriptions(channelId) {
             var localSubscriptions = this.getLocalSubscriptions();
