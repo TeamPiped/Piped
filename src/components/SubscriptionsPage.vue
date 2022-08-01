@@ -63,16 +63,21 @@ export default {
             }
         },
         handleButton(subscription) {
-            this.fetchJson(this.authApiUrl() + (subscription.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                method: "POST",
-                body: JSON.stringify({
-                    channelId: subscription.url.split("/")[2],
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            });
+            const channelId = subscription.url.split("/")[2];
+            if (this.authenticated) {
+                this.fetchJson(this.authApiUrl() + (subscription.subscribed ? "/unsubscribe" : "/subscribe"), null, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        channelId: channelId,
+                    }),
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                        "Content-Type": "application/json",
+                    },
+                });
+            } else {
+                this.handleLocalSubscriptions(channelId);
+            }
             subscription.subscribed = !subscription.subscribed;
         },
         exportHandler() {
