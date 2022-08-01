@@ -14,7 +14,6 @@
         </p>
 
         <button
-            v-if="authenticated"
             class="btn"
             @click="subscribeHandler"
             v-t="{
@@ -50,7 +49,7 @@ export default {
     data() {
         return {
             channel: null,
-            subscribed: false,
+            subscribed: this.authenticated ? false : this.isSubscribedLocally(this.channelId),
         };
     },
     mounted() {
@@ -69,6 +68,8 @@ export default {
     },
     methods: {
         async fetchSubscribedStatus() {
+            if (!this.channelId || !this.authenticated) return;
+
             this.fetchJson(
                 this.authApiUrl() + "/subscribed",
                 {
@@ -113,16 +114,20 @@ export default {
             }
         },
         subscribeHandler() {
-            this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                method: "POST",
-                body: JSON.stringify({
-                    channelId: this.channel.id,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            });
+            if (this.authenticated) {
+                this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        channelId: this.channel.id,
+                    }),
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                        "Content-Type": "application/json",
+                    },
+                });
+            } else {
+                this.handleLocalSubscriptions(this.channel.id);
+            }
             this.subscribed = !this.subscribed;
         },
     },

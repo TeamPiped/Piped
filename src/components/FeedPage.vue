@@ -1,7 +1,7 @@
 <template>
     <h1 v-t="'titles.feed'" class="font-bold text-center my-4" />
 
-    <button v-if="authenticated" class="btn mr-2" @click="exportHandler">
+    <button class="btn mr-2" @click="exportHandler">
         <router-link to="/subscriptions">Subscriptions</router-link>
     </button>
 
@@ -41,17 +41,16 @@ export default {
     },
     computed: {
         getRssUrl(_this) {
-            return _this.authApiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
+            if (_this.authenticated) return _this.authApiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
+            else return _this.authApiUrl() + "/feed/unauthenticated/rss?channels=" + _this.getUnauthenticatedChannels();
         },
     },
     mounted() {
-        if (this.authenticated)
-            this.fetchFeed().then(videos => {
-                this.videosStore = videos;
-                this.loadMoreVideos();
-                this.updateWatched(this.videos);
-            });
-        else this.$router.push("/login");
+        this.fetchFeed().then(videos => {
+            this.videosStore = videos;
+            this.loadMoreVideos();
+            this.updateWatched(this.videos);
+        });
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
@@ -66,9 +65,15 @@ export default {
     },
     methods: {
         async fetchFeed() {
-            return await this.fetchJson(this.authApiUrl() + "/feed", {
-                authToken: this.getAuthToken(),
-            });
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/feed", {
+                    authToken: this.getAuthToken(),
+                });
+            } else {
+                return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
+                    channels: this.getUnauthenticatedChannels(),
+                });
+            }
         },
         loadMoreVideos() {
             this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);

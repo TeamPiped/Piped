@@ -1,7 +1,7 @@
 <template>
     <h1 class="font-bold text-center my-4" v-t="'titles.subscriptions'" />
 
-    <div v-if="authenticated" class="flex justify-between w-full">
+    <div class="flex justify-between w-full">
         <div class="flex">
             <button class="btn mx-1">
                 <router-link to="/import" v-t="'actions.import_from_json'" />
@@ -40,21 +40,28 @@ export default {
         };
     },
     mounted() {
-        if (this.authenticated)
-            this.fetchJson(this.authApiUrl() + "/subscriptions", null, {
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-            }).then(json => {
-                this.subscriptions = json;
-                this.subscriptions.forEach(subscription => (subscription.subscribed = true));
-            });
-        else this.$router.push("/login");
+        this.fetchSubscriptions().then(json => {
+            this.subscriptions = json;
+            this.subscriptions.forEach(subscription => (subscription.subscribed = true));
+        });
     },
     activated() {
         document.title = "Subscriptions - Piped";
     },
     methods: {
+        async fetchSubscriptions() {
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/subscriptions", null, {
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                });
+            } else {
+                return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", {
+                    channels: this.getUnauthenticatedChannels(),
+                });
+            }
+        },
         handleButton(subscription) {
             this.fetchJson(this.authApiUrl() + (subscription.subscribed ? "/unsubscribe" : "/subscribe"), null, {
                 method: "POST",

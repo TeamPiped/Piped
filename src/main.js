@@ -199,6 +199,27 @@ const mixin = {
                 });
             }
         },
+        getLocalSubscriptions() {
+            return JSON.parse(localStorage.getItem("localSubscriptions"));
+        },
+        isSubscribedLocally(channelId) {
+            const localSubscriptions = this.getLocalSubscriptions();
+            if (localSubscriptions == null) return false;
+            return localSubscriptions.includes(channelId);
+        },
+        handleLocalSubscriptions(channelId) {
+            var localSubscriptions = this.getLocalSubscriptions() ?? [];
+            if (localSubscriptions.includes(channelId))
+                localSubscriptions.splice(localSubscriptions.indexOf(channelId));
+            else localSubscriptions.push(channelId);
+            // Sort for better cache hits
+            localSubscriptions.sort();
+            localStorage.setItem("localSubscriptions", JSON.stringify(localSubscriptions));
+        },
+        getUnauthenticatedChannels() {
+            const localSubscriptions = this.getLocalSubscriptions();
+            return localSubscriptions.join(",");
+        },
     },
     computed: {
         theme() {

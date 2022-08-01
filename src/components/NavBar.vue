@@ -52,7 +52,7 @@
             <li v-if="authenticated">
                 <router-link v-t="'titles.playlists'" to="/playlists" />
             </li>
-            <li v-if="authenticated && !shouldShowTrending">
+            <li v-if="!shouldShowTrending">
                 <router-link v-t="'titles.feed'" to="/feed" />
             </li>
         </ul>
@@ -81,7 +81,7 @@
         <li v-if="authenticated">
             <router-link v-t="'titles.playlists'" to="/playlists" />
         </li>
-        <li v-if="authenticated && !shouldShowTrending">
+        <li v-if="!shouldShowTrending">
             <router-link v-t="'titles.feed'" to="/feed" />
         </li>
     </ul>
