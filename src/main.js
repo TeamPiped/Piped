@@ -220,12 +220,6 @@ const mixin = {
             const localSubscriptions = this.getLocalSubscriptions();
             return localSubscriptions.join(",");
         },
-        importSubscriptionsLocally(newChannels) {
-            const subscriptions = this.getLocalSubscriptions().concat(newChannels);
-            // Sort for better cache hits
-            subscriptions.sort();
-            localStorage.setItem("localSubscriptions"), JSON.stringify(subscriptions);
-        },
     },
     computed: {
         theme() {

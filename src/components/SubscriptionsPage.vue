@@ -1,7 +1,7 @@
 <template>
     <h1 class="font-bold text-center my-4" v-t="'titles.subscriptions'" />
 
-    <div v-if="authenticated" class="flex justify-between w-full">
+    <div class="flex justify-between w-full">
         <div class="flex">
             <button class="btn mx-1">
                 <router-link to="/import" v-t="'actions.import_from_json'" />
@@ -57,7 +57,7 @@ export default {
                     },
                 });
             } else {
-                return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", null, {
+                return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", {
                     channels: this.getUnauthenticatedChannels(),
                 });
             }
