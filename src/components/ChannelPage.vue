@@ -49,7 +49,7 @@ export default {
     data() {
         return {
             channel: null,
-            subscribed: this.authenticated ? false : this.isSubscribedLocally(this.channelId),
+            subscribed: false,
         };
     },
     mounted() {
@@ -68,7 +68,11 @@ export default {
     },
     methods: {
         async fetchSubscribedStatus() {
-            if (!this.channelId || !this.authenticated) return;
+            if (!this.channel.id) return;
+            if (!this.authenticated) {
+                this.subscribed = this.isSubscribedLocally(this.channel.id);
+                return;
+            }
 
             this.fetchJson(
                 this.authApiUrl() + "/subscribed",
@@ -94,7 +98,7 @@ export default {
                 .then(() => {
                     if (!this.channel.error) {
                         document.title = this.channel.name + " - Piped";
-                        if (this.authenticated) this.fetchSubscribedStatus();
+                        this.fetchSubscribedStatus();
                         this.updateWatched(this.channel.relatedStreams);
                     }
                 });

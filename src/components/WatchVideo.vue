@@ -427,7 +427,10 @@ export default {
         },
         async fetchSubscribedStatus() {
             if (!this.channelId) return;
-            if (!this.authenticated) this.subscribed = this.isSubscribedLocally(this.channelId);
+            if (!this.authenticated) {
+                this.subscribed = this.isSubscribedLocally(this.channelId);
+                return;
+            }
 
             this.fetchJson(
                 this.authApiUrl() + "/subscribed",
