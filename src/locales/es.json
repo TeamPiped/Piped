@@ -82,14 +82,18 @@
         "skip_filler_tangent": "Saltar Escenas de Relleno",
         "skip_highlight": "Saltar Momento Destacado",
         "delete_playlist": "Eliminar la lista de reproducción",
-        "delete_playlist_confirm": "¿Estás seguro/a de que quieres eliminar esta lista de reproducción?",
+        "delete_playlist_confirm": "¿Eliminar esta lista de reproducción?",
         "remove_from_playlist": "Eliminar de la lista de reproducción",
         "create_playlist": "Crear una lista de reproducción",
         "add_to_playlist": "Añadir a la lista de reproducción",
-        "delete_playlist_video_confirm": "¿Está seguro/a de que desea eliminar este vídeo de esta lista de reproducción?",
+        "delete_playlist_video_confirm": "¿Eliminar vídeo de lista de reproducción?",
         "please_select_playlist": "Seleccione una lista de reproducción",
         "select_playlist": "Seleccione una lista de reproducción",
-        "show_markers": "Mostrar Marcadores en Reproductor"
+        "show_markers": "Mostrar Marcadores en Reproductor",
+        "delete_account": "Eliminar Cuenta",
+        "different_auth_instance": "Usar una instancia diferente para autenticación",
+        "clone_playlist": "Clonar Lista de Reproducción",
+        "clone_playlist_success": "¡Clonado con éxito!"
     },
     "titles": {
         "feed": "Feed",
