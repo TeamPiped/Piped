@@ -218,7 +218,7 @@ const mixin = {
         },
         getUnauthenticatedChannels() {
             const localSubscriptions = this.getLocalSubscriptions();
-            return localSubscriptions.join(",");
+            return localSubscriptions != null ? localSubscriptions.join(",") : "";
         },
         download(text, filename) {
             var element = document.createElement("a");
