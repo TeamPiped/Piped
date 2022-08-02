@@ -141,7 +141,7 @@ export default {
             this.playlist.relatedStreams.forEach(element => {
                 data += "https://piped.kavin.rocks" + element.url + "\n";
             });
-            this.download(data, this.playlist.name + ".txt");
+            this.download(data, this.playlist.name + ".txt", "text/plain");
         },
     },
 };
