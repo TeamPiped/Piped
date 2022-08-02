@@ -18,6 +18,9 @@
                     <button class="btn mr-1" v-if="authenticated && !isPipedPlaylist" @click="clonePlaylist">
                         {{ $t("actions.clone_playlist") }}<font-awesome-icon class="ml-3" icon="clone" />
                     </button>
+                    <button class="btn mr-1" @click="downloadPlaylistAsTxt">
+                        {{ $t("actions.download_as_txt") }}
+                    </button>
                     <a class="btn" :href="getRssUrl">
                         <font-awesome-icon icon="rss" />
                     </a>
@@ -132,6 +135,22 @@ export default {
                     alert(this.$t("actions.clone_playlist_success"));
                 } else alert(resp.error);
             });
+        },
+        downloadPlaylistAsTxt() {
+            var data = "";
+            this.playlist.relatedStreams.forEach(element => {
+                data += "https://piped.kavin.rocks" + element.url + "\n";
+            });
+            this.download(data, this.playlist.name + ".txt");
+        },
+        download(text, filename) {
+            var element = document.createElement("a");
+            element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+            element.setAttribute("download", filename);
+            element.style.display = "none";
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
         },
     },
 };
