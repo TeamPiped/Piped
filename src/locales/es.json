@@ -19,7 +19,10 @@
         "registered_users": "Usuarios Registrados"
     },
     "comment": {
-        "pinned_by": "Fijado por"
+        "pinned_by": "Fijado por",
+        "disabled": "Los comentarios están deshabilitados por el publicador.",
+        "loading": "Cargando comentarios...",
+        "user_disabled": "Los comentarios están deshabilitados en los ajustes."
     },
     "actions": {
         "enable_lbry_proxy": "Activar Proxy para LBRY",
@@ -93,7 +96,11 @@
         "delete_account": "Eliminar Cuenta",
         "different_auth_instance": "Usar una instancia diferente para autenticación",
         "clone_playlist": "Clonar Lista de Reproducción",
-        "clone_playlist_success": "¡Clonado con éxito!"
+        "clone_playlist_success": "¡Clonado con éxito!",
+        "logout": "Cerrar sesión en este dispositivo",
+        "minimize_recommendations_default": "Minimizar Recomendaciones por defecto",
+        "invalidate_session": "Cerrar sesión en todos los dispositivos",
+        "instance_auth_selection": "Selección de la Instancia de Autentificación"
     },
     "titles": {
         "feed": "Feed",
@@ -122,5 +129,8 @@
         "channels": "YouTube: Canales",
         "playlists": "YouTube: Listas de reproducción",
         "music_albums": "YT Music: Álbumes"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Suscrito a: {0}"
     }
 }
