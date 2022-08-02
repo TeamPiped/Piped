@@ -97,14 +97,7 @@ export default {
                 subscriptions: subscriptions,
             });
 
-            var file = new Blob([json], { type: "application/json" });
-
-            const elem = document.createElement("a");
-
-            elem.href = URL.createObjectURL(file);
-            elem.download = "subscriptions.json";
-            elem.click();
-            elem.remove();
+            this.download(json, "subscriptions.json", "application/json");
         },
     },
 };

@@ -220,14 +220,16 @@ const mixin = {
             const localSubscriptions = this.getLocalSubscriptions();
             return localSubscriptions != null ? localSubscriptions.join(",") : "";
         },
-        download(text, filename) {
-            var element = document.createElement("a");
-            element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
-            element.setAttribute("download", filename);
-            element.style.display = "none";
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
+        /* generate a temporary file and ask the user to download it */
+        download(text, filename, type) {
+            var file = new Blob([text], { type: type });
+
+            const elem = document.createElement("a");
+
+            elem.href = URL.createObjectURL(file);
+            elem.download = filename;
+            elem.click();
+            elem.remove();
         },
     },
     computed: {
