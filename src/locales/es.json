@@ -100,7 +100,8 @@
         "logout": "Cerrar sesión en este dispositivo",
         "minimize_recommendations_default": "Minimizar Recomendaciones por defecto",
         "invalidate_session": "Cerrar sesión en todos los dispositivos",
-        "instance_auth_selection": "Selección de la Instancia de Autentificación"
+        "instance_auth_selection": "Selección de la Instancia de Autentificación",
+        "download_as_txt": "Descargar como .txt"
     },
     "titles": {
         "feed": "Feed",
