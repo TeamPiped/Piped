@@ -75,7 +75,8 @@
         "different_auth_instance": "使用不同的实例进行身份验证",
         "instance_auth_selection": "身份验证实例选择",
         "clone_playlist": "克隆播放列表",
-        "clone_playlist_success": "克隆成功！"
+        "clone_playlist_success": "克隆成功！",
+        "download_as_txt": "下载为 .txt"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
