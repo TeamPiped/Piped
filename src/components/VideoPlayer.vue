@@ -85,7 +85,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+,,shift+.",
+                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -169,6 +169,10 @@ export default {
                             break;
                         case "9":
                             videoEl.currentTime = videoEl.duration * 0.9;
+                            e.preventDefault();
+                            break;
+                        case "shift+n":
+                            self.navigateNext();
                             e.preventDefault();
                             break;
                         case "shift+,":
@@ -372,30 +376,12 @@ export default {
                 });
 
                 videoEl.addEventListener("ended", () => {
-                    if (!this.selectedAutoLoop && this.selectedAutoPlay && this.video.relatedStreams.length > 0) {
-                        const params = this.$route.query;
-                        let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
-                        const searchParams = new URLSearchParams();
-                        for (var param in params)
-                            switch (param) {
-                                case "v":
-                                case "t":
-                                    break;
-                                case "index":
-                                    if (this.index < this.playlist.relatedStreams.length)
-                                        searchParams.set("index", this.index + 1);
-                                    break;
-                                case "list":
-                                    if (this.index < this.playlist.relatedStreams.length)
-                                        searchParams.set("list", params.list);
-                                    break;
-                                default:
-                                    searchParams.set(param, params[param]);
-                                    break;
-                            }
-                        const paramStr = searchParams.toString();
-                        if (paramStr.length > 0) url += "&" + paramStr;
-                        this.$router.push(url);
+                    if (
+                        !this.selectedAutoLoop &&
+                        this.selectedAutoPlay &&
+                        (this.playlist?.relatedStreams?.length > 0 || this.video.relatedStreams.length > 0)
+                    ) {
+                        this.navigateNext();
                     }
                 });
             }
@@ -557,6 +543,29 @@ export default {
             if (this.$refs.videoEl) {
                 this.$refs.videoEl.currentTime = time;
             }
+        },
+        navigateNext() {
+            const params = this.$route.query;
+            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            const searchParams = new URLSearchParams();
+            for (var param in params)
+                switch (param) {
+                    case "v":
+                    case "t":
+                        break;
+                    case "index":
+                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("index", this.index + 1);
+                        break;
+                    case "list":
+                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("list", params.list);
+                        break;
+                    default:
+                        searchParams.set(param, params[param]);
+                        break;
+                }
+            const paramStr = searchParams.toString();
+            if (paramStr.length > 0) url += "&" + paramStr;
+            this.$router.push(url);
         },
         updateMarkers() {
             const markers = this.$refs.container.querySelector(".shaka-ad-markers");
