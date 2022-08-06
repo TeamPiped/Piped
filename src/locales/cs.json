@@ -85,7 +85,8 @@
         "different_auth_instance": "Použít jinou instanci pro autentizaci",
         "instance_auth_selection": "Výběr autentizační instance",
         "clone_playlist": "Duplikovat playlist",
-        "clone_playlist_success": "Úspěšně duplikováno!"
+        "clone_playlist_success": "Úspěšně duplikováno!",
+        "download_as_txt": "Stáhnout jako .txt"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
