@@ -129,5 +129,8 @@
     "login": {
         "username": "اسم المستخدم",
         "password": "كلمة السر"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "مشترك في: {0}"
     }
 }

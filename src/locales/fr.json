@@ -83,7 +83,9 @@
         "minimize_recommendations_default": "Minimiser les recommandations par défaut",
         "invalidate_session": "Se déconnecter de tous les appareils",
         "different_auth_instance": "Utiliser une instance différente pour l'authentification",
-        "instance_auth_selection": "Sélection de l'instance d'authentification"
+        "instance_auth_selection": "Sélection de l'instance d'authentification",
+        "clone_playlist": "Cloner la liste de lecture",
+        "clone_playlist_success": "Clonage réussi !"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
@@ -127,5 +129,8 @@
         "music_videos": "YT Music : Vidéos",
         "music_playlists": "YT Music : Listes de lecture",
         "music_albums": "YT Music : Albums"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Abonné à : {0}"
     }
 }

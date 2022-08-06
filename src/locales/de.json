@@ -73,7 +73,9 @@
         "minimize_recommendations_default": "Empfehlungen standardmäßig minimieren",
         "invalidate_session": "Von allen Geräte abmelden",
         "different_auth_instance": "Eine andere Instanz für die Authentifizierung verwenden",
-        "instance_auth_selection": "Auswahl der Autentifizierungsinstanz"
+        "instance_auth_selection": "Auswahl der Autentifizierungsinstanz",
+        "clone_playlist": "Wiedergabeliste klonen",
+        "clone_playlist_success": "Erfolgreich geklont!"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -127,5 +129,8 @@
         "music_videos": "YT Music: Videos",
         "music_albums": "YT Music: Alben",
         "music_playlists": "YT Music: Wiedergabelisten"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Aboniert bei: {0}"
     }
 }

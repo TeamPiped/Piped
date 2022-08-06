@@ -77,10 +77,21 @@
         "delete_playlist_confirm": "Eliminar aquesta llista de reproducció?",
         "delete_playlist_video_confirm": "Eliminar aquest vídeo de la llista de reproducció?",
         "select_playlist": "Selecciona una llista de reproducció",
-        "show_markers": "Mostra Marcadors al Reproductor"
+        "show_markers": "Mostra Marcadors al Reproductor",
+        "delete_account": "Eliminar Compte",
+        "logout": "Desconnectar aquest dispositiu",
+        "minimize_recommendations_default": "Minimitza les Recomanacions per defecte",
+        "invalidate_session": "Desconnectar tots els dispositius",
+        "different_auth_instance": "Usa una instància diferent per a l'autenticació",
+        "instance_auth_selection": "Selecciona la instància d'autenticació",
+        "clone_playlist": "Clonar Llista de Reproducció",
+        "clone_playlist_success": "Clonada correctament!"
     },
     "comment": {
-        "pinned_by": "Fixat per"
+        "pinned_by": "Fixat per",
+        "user_disabled": "Comentaris deshabilitats en els paràmetres.",
+        "disabled": "El carregador ha desactivat els comentaris.",
+        "loading": "Carregant comentaris..."
     },
     "preferences": {
         "instance_name": "Nom de la Instància",
@@ -118,5 +129,8 @@
     "login": {
         "username": "Nom d'Uuuari",
         "password": "Contrassenya"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Subscrit a: {0}"
     }
 }
