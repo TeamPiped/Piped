@@ -229,8 +229,11 @@ export default {
                 var request = store.get(this.video.id);
                 request.onsuccess = function (event) {
                     var video = event.target.result;
-                    if (video?.currentTime) {
-                        videoEl.currentTime = video.currentTime;
+                    const currentTime = video?.currentTime;
+                    if (currentTime) {
+                        if (currentTime < component.video.duration * 0.9) {
+                            videoEl.currentTime = currentTime;
+                        }
                     }
                 };
 
