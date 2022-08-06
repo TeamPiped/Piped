@@ -217,8 +217,8 @@ const mixin = {
             localStorage.setItem("localSubscriptions", JSON.stringify(localSubscriptions));
         },
         getUnauthenticatedChannels() {
-            const localSubscriptions = this.getLocalSubscriptions();
-            return localSubscriptions != null ? localSubscriptions.join(",") : "";
+            const localSubscriptions = this.getLocalSubscriptions() ?? [];
+            return localSubscriptions.join(",");
         },
         /* generate a temporary file and ask the user to download it */
         download(text, filename, type) {
