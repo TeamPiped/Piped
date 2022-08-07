@@ -88,7 +88,8 @@
         "different_auth_instance": "استخدام مثيل مختلف للمصادقة",
         "instance_auth_selection": "تحديد مثيل Autentication",
         "clone_playlist": "استنساخ قائمة التشغيل",
-        "clone_playlist_success": "تم استنساخها بنجاح!"
+        "clone_playlist_success": "تم استنساخها بنجاح!",
+        "download_as_txt": "تنزيل بتنسيق .txt"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
