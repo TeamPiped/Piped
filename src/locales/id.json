@@ -3,7 +3,7 @@
         "trending": "Sedang Tren",
         "login": "Masuk",
         "register": "Daftar",
-        "feed": "Feed",
+        "feed": "Umpan",
         "preferences": "Preferensi",
         "history": "Riwayat",
         "subscriptions": "Langganan",
@@ -88,7 +88,8 @@
         "instance_auth_selection": "Pemilihan Instansi Otentikasi",
         "different_auth_instance": "Gunakan instansi lain untuk otentikasi",
         "clone_playlist_success": "Berhasil disalin!",
-        "clone_playlist": "Salin Daftar Putar"
+        "clone_playlist": "Salin Daftar Putar",
+        "download_as_txt": "Unduh sebagai .txt"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh",
@@ -116,7 +117,7 @@
         "sponsor_segments": "Segmen Sponsor",
         "ratings_disabled": "Penilaian Dinonaktifkan",
         "chapters": "Bagian",
-        "live": "{0} Live",
+        "live": "{0} Langsung",
         "shorts": "Shorts"
     },
     "search": {
@@ -129,5 +130,8 @@
         "music_albums": "YT Music: Album",
         "music_playlists": "YT Music: Daftar Putar",
         "all": "YouTube: Semua"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Berlangganan ke: {0}"
     }
 }
