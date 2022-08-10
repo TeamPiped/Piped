@@ -82,10 +82,20 @@
         "delete_playlist_video_confirm": "Удалить видео из плейлиста?",
         "show_markers": "Показать Mаркеры Hа Проигрывателе",
         "delete_account": "Удалить аккаунт",
-        "logout": "Выйти из этого устройства"
+        "logout": "Выйти из этого устройства",
+        "download_as_txt": "Скачать как .txt",
+        "minimize_recommendations_default": "Скрыть Рекомендации по умолчанию",
+        "invalidate_session": "Выйти из всех устройств",
+        "different_auth_instance": "Использовать другие средства аутентификации",
+        "instance_auth_selection": "Выбор средств аутентификации",
+        "clone_playlist": "Клонировать плейлист",
+        "clone_playlist_success": "Клонирование прошло успешно!"
     },
     "comment": {
-        "pinned_by": "Прикреплено пользователем"
+        "pinned_by": "Прикреплено пользователем",
+        "loading": "Загрузка комментариев...",
+        "user_disabled": "Комментарии отключены в настройках.",
+        "disabled": "Коментарии отключены автором."
     },
     "preferences": {
         "instance_name": "Название",
@@ -120,5 +130,8 @@
         "music_videos": "YT Music: Видео",
         "music_albums": "YT Music: Альбомы",
         "music_playlists": "YT Music: Плейлисты"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Подписан на: {0}"
     }
 }
