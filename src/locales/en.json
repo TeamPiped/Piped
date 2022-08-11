@@ -92,7 +92,8 @@
         "instance_auth_selection": "Autentication Instance Selection",
         "clone_playlist": "Clone Playlist",
         "clone_playlist_success": "Successfully cloned!",
-        "download_as_txt": "Download as .txt"
+        "download_as_txt": "Download as .txt",
+        "reset_preferences": "Reset preferences"
     },
     "comment": {
         "pinned_by": "Pinned by",

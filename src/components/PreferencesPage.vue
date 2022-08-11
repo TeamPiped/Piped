@@ -316,6 +316,7 @@
     <br />
     <p v-text="`${$t('information.preferences_note')}`" />
     <br />
+    <button class="btn" v-text="`${$t('actions.reset_preferences')}`" @click="resetPreferences()" />
 </template>
 
 <script>
@@ -571,6 +572,12 @@ export default {
             // reset the auth token
             localStorage.removeItem("authToken" + this.hashCode(this.authApiUrl()));
             // redirect to trending page
+            window.location = "/";
+        },
+        resetPreferences() {
+            // clear the local storage
+            localStorage.clear();
+            // redirect to the home page
             window.location = "/";
         },
         async invalidateSession() {
