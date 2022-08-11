@@ -62,11 +62,11 @@
         "load_more_replies": "Daha Çox Cavab Yüklə",
         "add_to_playlist": "Pleylistə Əlavə Edin",
         "remove_from_playlist": "Pleylistdən Silin",
-        "delete_playlist_video_confirm": "Bu videonu bu pleylistdən silmək istədiyinizə əminsiniz?",
+        "delete_playlist_video_confirm": "Video pleylistdən silinsin?",
         "create_playlist": "Pleylist Yaradın",
         "delete_playlist": "Pleylisti Silin",
         "select_playlist": "Pleylist Seçin",
-        "delete_playlist_confirm": "Bu pleylisti silmək istədiyinizə əminsiniz?",
+        "delete_playlist_confirm": "Bu pleylist silinsin?",
         "please_select_playlist": "Lütfən, Pleylist Seçin",
         "country_selection": "Ölkə Seçimi",
         "default_homepage": "Defolt Əsas Səhifə",
@@ -80,7 +80,10 @@
         "store_watch_history": "Baxış Tarixçəsini Saxlayın",
         "enabled_codecs": "Aktiv Kodeklər (Birdən çox)",
         "yes": "Bəli",
-        "show_markers": "Oynadıcıda Markerləri Göstərin"
+        "show_markers": "Oynadıcıda Markerləri Göstərin",
+        "delete_account": "Hesabı Silin",
+        "logout": "Bu cihazdan çıxın",
+        "minimize_recommendations_default": "Defolt olaraq Tövsiyələri minimuma endir"
     },
     "comment": {
         "pinned_by": "Tərəfindən Sabitləndi"
