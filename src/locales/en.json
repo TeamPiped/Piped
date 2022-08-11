@@ -136,5 +136,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Subscribed to: {0}"
+    },
+    "information": {
+        "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them."
     }
 }

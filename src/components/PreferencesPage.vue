@@ -313,8 +313,9 @@
             </tr>
         </tbody>
     </table>
-
-    <hr />
+    <br />
+    <p v-text="`${$t('information.preferences_note')}`" />
+    <br />
 </template>
 
 <script>
@@ -590,6 +591,6 @@ export default {
 
 <style>
 .pref {
-    @apply flex justify-between items-center mx-[15vw] my-1.5;
+    @apply flex justify-between items-center mx-[15vw] my-2;
 }
 </style>
