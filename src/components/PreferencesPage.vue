@@ -11,8 +11,30 @@
         <select id="ddlTheme" v-model="selectedTheme" class="select w-auto" @change="onChange($event)">
             <option v-t="'actions.auto'" value="auto" />
             <option v-t="'actions.dark'" value="dark" />
-            <option v-t="'actions.light'" value="light" /></select
-    ></label>
+            <option v-t="'actions.light'" value="light" />
+        </select>
+    </label>
+    <label class="pref" for="ddlLanguageSelection">
+        <strong v-t="'actions.language_selection'" />
+        <select id="ddlLanguageSelection" v-model="selectedLanguage" class="select w-auto" @change="onChange($event)">
+            <option v-for="language in languages" :key="language.code" :value="language.code" v-text="language.name" />
+        </select>
+    </label>
+    <label class="pref" for="ddlCountrySelection">
+        <strong v-t="'actions.country_selection'" />
+        <select id="ddlCountrySelection" v-model="countrySelected" class="select" @change="onChange($event)">
+            <option v-for="country in countryMap" :key="country.code" :value="country.code" v-text="country.name" />
+        </select>
+    </label>
+    <label class="pref" for="ddlDefaultHomepage">
+        <strong v-t="'actions.default_homepage'" />
+        <select id="ddlDefaultHomepage" v-model="defaultHomepage" class="select w-auto" @change="onChange($event)">
+            <option v-t="'titles.trending'" value="trending" />
+            <option v-t="'titles.feed'" value="feed" />
+        </select>
+    </label>
+
+    <h2 class="text-center" v-text="`${$t('titles.player')}`" />
     <label class="pref" for="chkAutoPlayVideo">
         <strong v-t="'actions.autoplay_video'" />
         <input
@@ -43,19 +65,6 @@
             type="text"
             @change="onChange($event)"
         />
-    </label>
-    <label class="pref" for="ddlCountrySelection">
-        <strong v-t="'actions.country_selection'" />
-        <select id="ddlCountrySelection" v-model="countrySelected" class="select" @change="onChange($event)">
-            <option v-for="country in countryMap" :key="country.code" :value="country.code" v-text="country.name" />
-        </select>
-    </label>
-    <label class="pref" for="ddlDefaultHomepage">
-        <strong v-t="'actions.default_homepage'" />
-        <select id="ddlDefaultHomepage" v-model="defaultHomepage" class="select w-auto" @change="onChange($event)">
-            <option v-t="'titles.trending'" value="trending" />
-            <option v-t="'titles.feed'" value="feed" />
-        </select>
     </label>
     <label class="pref" for="chkShowComments">
         <strong v-t="'actions.show_comments'" />
@@ -96,12 +105,6 @@
             type="checkbox"
             @change="onChange($event)"
         />
-    </label>
-    <label class="pref" for="ddlLanguageSelection">
-        <strong v-t="'actions.language_selection'" />
-        <select id="ddlLanguageSelection" v-model="selectedLanguage" class="select w-auto" @change="onChange($event)">
-            <option v-for="language in languages" :key="language.code" :value="language.code" v-text="language.name" />
-        </select>
     </label>
     <label class="pref" for="ddlEnabledCodecs">
         <strong v-t="'actions.enabled_codecs'" />
@@ -211,6 +214,7 @@
         <input id="chkShowMarkers" v-model="showMarkers" class="checkbox" type="checkbox" @change="onChange($event)" />
     </label>
 
+    <h2 class="text-center" v-text="`${$t('titles.instance')}`" />
     <label class="pref" for="ddlInstanceSelection">
         <strong v-text="`${$t('actions.instance_selection')}:`" />
         <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
@@ -254,6 +258,7 @@
 
     <!-- options that are visible only when logged in -->
     <div v-if="this.authenticated">
+        <h2 class="text-center" v-text="`${$t('titles.account')}`"></h2>
         <label class="pref" for="txtDeleteAccountPassword">
             <strong v-t="'actions.delete_account'" />
             <div class="flex items-center">
@@ -264,7 +269,7 @@
                     v-on:keyup.enter="deleteAccount"
                     :placeholder="$t('login.password')"
                     :aria-label="$t('login.password')"
-                    class="input w-auto mr-12"
+                    class="input w-auto mr-2"
                     type="password"
                 />
                 <a class="btn w-auto" @click="deleteAccount" v-t="'actions.delete_account'" />
