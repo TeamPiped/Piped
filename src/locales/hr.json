@@ -61,14 +61,14 @@
         "skip_preview": "Preskoči pregled",
         "uses_api_from": "Koristi API od ",
         "back": "Natrag",
-        "channel_name_desc": "Ime kanala (Ž-A)",
-        "channel_name_asc": "Ime kanala (A-Ž)",
+        "channel_name_desc": "Ime kanala (Z–A)",
+        "channel_name_asc": "Ime kanala (A–Z)",
         "least_recent": "Najstarije",
         "most_recent": "Najnovije",
         "sort_by": "Sortiraj po:",
         "view_subscriptions": "Prikaži pretplate",
-        "unsubscribe": "Otkaži pretplatu - {count}",
-        "subscribe": "Pretplati se - {count}",
+        "unsubscribe": "Otkaži pretplatu – {count}",
+        "subscribe": "Pretplati se – {count}",
         "skip_interaction": "Preskoči podsjetnik za interakciju (zahtijeva pretplatu)",
         "skip_outro": "Preskoči odjavnu špicu",
         "skip_intro": "Preskoči pauzu i uvodnu animaciju",
@@ -100,7 +100,8 @@
         "different_auth_instance": "Koristi drugu instancu za autentifikaciju",
         "instance_auth_selection": "Odabir instance autentifikacije",
         "clone_playlist": "Dupliciraj playlistu",
-        "clone_playlist_success": "Dupliciranje uspjelo!"
+        "clone_playlist_success": "Dupliciranje uspjelo!",
+        "download_as_txt": "Preuzmi kao .txt"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -124,10 +125,13 @@
         "all": "YouTube: Sve",
         "videos": "YouTube: Videa",
         "channels": "YouTube: Kanali",
-        "playlists": "YouTube: playliste",
-        "music_songs": "YT Music: Glazbe",
+        "playlists": "YouTube: Playliste",
+        "music_songs": "YT Music: Pjesme",
         "music_videos": "YT Music: Videa",
         "music_albums": "YT Music: Albumi",
-        "music_playlists": "YT Music: playliste"
+        "music_playlists": "YT Music: Playliste"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Pretplata na: {0}"
     }
 }
