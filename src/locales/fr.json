@@ -85,7 +85,8 @@
         "different_auth_instance": "Utiliser une instance différente pour l'authentification",
         "instance_auth_selection": "Sélection de l'instance d'authentification",
         "clone_playlist": "Cloner la liste de lecture",
-        "clone_playlist_success": "Clonage réussi !"
+        "clone_playlist_success": "Clonage réussi !",
+        "download_as_txt": "Télécharger en tant que"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
