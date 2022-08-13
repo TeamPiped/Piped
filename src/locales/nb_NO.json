@@ -76,7 +76,8 @@
         "different_auth_instance": "Bruk en annen instans for identitetsbekreftelse",
         "instance_auth_selection": "Valg av identitetbekreftelsesinstans",
         "clone_playlist": "Klon spillelisten",
-        "clone_playlist_success": "Klonet"
+        "clone_playlist_success": "Klonet",
+        "reset_preferences": "Tilbakestill innstillinger"
     },
     "player": {
         "watch_on": "Vis på {0}"
@@ -89,7 +90,10 @@
         "login": "Logg inn",
         "trending": "På vei opp",
         "subscriptions": "Abonnementer",
-        "playlists": "Spillelister"
+        "playlists": "Spillelister",
+        "account": "Konto",
+        "instance": "Instans",
+        "player": "Avspiller"
     },
     "video": {
         "sponsor_segments": "Sponsor-segmenter",
@@ -133,5 +137,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonnert på: {0}"
+    },
+    "information": {
+        "preferences_note": "Merk: Innstillinger lagres lokalt i din nettleser. Sletting av nettleserdata sletter dem."
     }
 }
