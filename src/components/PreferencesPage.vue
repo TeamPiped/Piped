@@ -6,171 +6,286 @@
     </div>
     <h1 v-t="'titles.preferences'" class="font-bold text-center" />
     <hr />
-    <h2>SponsorBlock</h2>
-    <p><span v-t="'actions.uses_api_from'" /><a class="link" href="https://sponsor.ajay.app/">sponsor.ajay.app</a></p>
-    <label for="chkEnableSponsorblock"><strong v-t="'actions.enable_sponsorblock'" /></label>
+    <label for="ddlTheme" class="pref">
+        <strong v-t="'actions.theme'" />
+        <select id="ddlTheme" v-model="selectedTheme" class="select w-auto" @change="onChange($event)">
+            <option v-t="'actions.auto'" value="auto" />
+            <option v-t="'actions.dark'" value="dark" />
+            <option v-t="'actions.light'" value="light" />
+        </select>
+    </label>
+    <label class="pref" for="ddlLanguageSelection">
+        <strong v-t="'actions.language_selection'" />
+        <select id="ddlLanguageSelection" v-model="selectedLanguage" class="select w-auto" @change="onChange($event)">
+            <option v-for="language in languages" :key="language.code" :value="language.code" v-text="language.name" />
+        </select>
+    </label>
+    <label class="pref" for="ddlCountrySelection">
+        <strong v-t="'actions.country_selection'" />
+        <select id="ddlCountrySelection" v-model="countrySelected" class="select" @change="onChange($event)">
+            <option v-for="country in countryMap" :key="country.code" :value="country.code" v-text="country.name" />
+        </select>
+    </label>
+    <label class="pref" for="ddlDefaultHomepage">
+        <strong v-t="'actions.default_homepage'" />
+        <select id="ddlDefaultHomepage" v-model="defaultHomepage" class="select w-auto" @change="onChange($event)">
+            <option v-t="'titles.trending'" value="trending" />
+            <option v-t="'titles.feed'" value="feed" />
+        </select>
+    </label>
+
+    <h2 class="text-center" v-text="`${$t('titles.player')}`" />
+    <label class="pref" for="chkAutoPlayVideo">
+        <strong v-t="'actions.autoplay_video'" />
+        <input
+            id="chkAutoPlayVideo"
+            v-model="autoPlayVideo"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkAudioOnly">
+        <strong v-t="'actions.audio_only'" />
+        <input id="chkAudioOnly" v-model="listen" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="ddlDefaultQuality">
+        <strong v-t="'actions.default_quality'" />
+        <select id="ddlDefaultQuality" v-model="defaultQuality" class="select w-auto" @change="onChange($event)">
+            <option v-t="'actions.auto'" value="0" />
+            <option v-for="resolution in resolutions" :key="resolution" :value="resolution" v-text="`${resolution}p`" />
+        </select>
+    </label>
+    <label class="pref" for="txtBufferingGoal">
+        <strong v-t="'actions.buffering_goal'" />
+        <input
+            id="txtBufferingGoal"
+            v-model="bufferingGoal"
+            class="input w-auto"
+            type="text"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkShowComments">
+        <strong v-t="'actions.show_comments'" />
+        <input
+            id="chkShowComments"
+            v-model="showComments"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkMinimizeDescription">
+        <strong v-t="'actions.minimize_description_default'" />
+        <input
+            id="chkMinimizeDescription"
+            v-model="minimizeDescription"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkMinimizeRecommendations">
+        <strong v-t="'actions.minimize_recommendations_default'" />
+        <input
+            id="chkMinimizeRecommendations"
+            v-model="minimizeRecommendations"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkStoreWatchHistory">
+        <strong v-t="'actions.store_watch_history'" />
+        <input
+            id="chkStoreWatchHistory"
+            v-model="watchHistory"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="ddlEnabledCodecs">
+        <strong v-t="'actions.enabled_codecs'" />
+        <select
+            id="ddlEnabledCodecs"
+            v-model="enabledCodecs"
+            class="select w-auto h-auto"
+            multiple
+            @change="onChange($event)"
+        >
+            <option value="av1">AV1</option>
+            <option value="vp9">VP9</option>
+            <option value="avc">AVC (h.264)</option>
+        </select>
+    </label>
+    <label class="pref" for="chkDisableLBRY">
+        <strong v-t="'actions.disable_lbry'" />
+        <input id="chkDisableLBRY" v-model="disableLBRY" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="chkEnableLBRYProxy">
+        <strong v-t="'actions.enable_lbry_proxy'" />
+        <input
+            id="chkEnableLBRYProxy"
+            v-model="proxyLBRY"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+
+    <h2 class="text-center">SponsorBlock</h2>
+    <p class="text-center">
+        <span v-t="'actions.uses_api_from'" /><a class="link" href="https://sponsor.ajay.app/">sponsor.ajay.app</a>
+    </p>
+    <label class="pref" for="chkEnableSponsorblock">
+        <strong v-t="'actions.enable_sponsorblock'" />
+        <input
+            id="chkEnableSponsorblock"
+            v-model="sponsorBlock"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkSkipSponsors">
+        <strong v-t="'actions.skip_sponsors'" />
+        <input id="chkSkipSponsors" v-model="skipSponsor" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="chkSkipIntro">
+        <strong v-t="'actions.skip_intro'" />
+        <input id="chkSkipIntro" v-model="skipIntro" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="chkSkipOutro">
+        <strong v-t="'actions.skip_outro'" />
+        <input id="chkSkipOutro" v-model="skipOutro" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="chkSkipPreview">
+        <strong v-t="'actions.skip_preview'" />
+        <input id="chkSkipPreview" v-model="skipPreview" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="chkSkipInteraction">
+        <strong v-t="'actions.skip_interaction'" />
+        <input
+            id="chkSkipInteraction"
+            v-model="skipInteraction"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkSkipSelfPromo">
+        <strong v-t="'actions.skip_self_promo'" />
+        <input
+            id="chkSkipSelfPromo"
+            v-model="skipSelfPromo"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkSkipNonMusic">
+        <strong v-t="'actions.skip_non_music'" />
+        <input
+            id="chkSkipNonMusic"
+            v-model="skipMusicOffTopic"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkSkipHighlight">
+        <strong v-t="'actions.skip_highlight'" />
+        <input
+            id="chkSkipHighlight"
+            v-model="skipHighlight"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkSkipFiller">
+        <strong v-t="'actions.skip_filler_tangent'" />
+        <input id="chkSkipFiller" v-model="skipFiller" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="chkShowMarkers">
+        <strong v-t="'actions.show_markers'" />
+        <input id="chkShowMarkers" v-model="showMarkers" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+
+    <h2 class="text-center" v-text="`${$t('titles.instance')}`" />
+    <label class="pref" for="ddlInstanceSelection">
+        <strong v-text="`${$t('actions.instance_selection')}:`" />
+        <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
+            <option
+                v-for="instance in instances"
+                :key="instance.name"
+                :value="instance.api_url"
+                v-text="instance.name"
+            />
+        </select>
+    </label>
+    <label class="pref" for="chkAuthInstance">
+        <strong v-text="`${$t('actions.different_auth_instance')}:`" />
+        <input
+            id="chkAuthInstance"
+            v-model="authInstance"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <template v-if="authInstance">
+        <label class="pref" for="ddlAuthInstanceSelection">
+            <strong v-text="`${$t('actions.instance_auth_selection')}:`" />
+            <select
+                id="ddlAuthInstanceSelection"
+                v-model="selectedAuthInstance"
+                class="select w-auto"
+                @change="onChange($event)"
+            >
+                <option
+                    v-for="instance in instances"
+                    :key="instance.name"
+                    :value="instance.api_url"
+                    v-text="instance.name"
+                />
+            </select>
+        </label>
+    </template>
     <br />
-    <input
-        id="chkEnableSponsorblock"
-        v-model="sponsorBlock"
-        class="checkbox"
-        type="checkbox"
-        @change="onChange($event)"
-    />
-    <br />
-    <label for="chkSkipSponsors"><strong v-t="'actions.skip_sponsors'" /></label>
-    <br />
-    <input id="chkSkipSponsors" v-model="skipSponsor" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkSkipIntro"><strong v-t="'actions.skip_intro'" /></label>
-    <br />
-    <input id="chkSkipIntro" v-model="skipIntro" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkSkipOutro"><strong v-t="'actions.skip_outro'" /></label>
-    <br />
-    <input id="chkSkipOutro" v-model="skipOutro" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkSkipPreview"><strong v-t="'actions.skip_preview'" /></label>
-    <br />
-    <input id="chkSkipPreview" v-model="skipPreview" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkSkipInteraction"><strong v-t="'actions.skip_interaction'" /></label>
-    <br />
-    <input
-        id="chkSkipInteraction"
-        v-model="skipInteraction"
-        class="checkbox"
-        type="checkbox"
-        @change="onChange($event)"
-    />
-    <br />
-    <label for="chkSkipSelfPromo"><strong v-t="'actions.skip_self_promo'" /></label>
-    <br />
-    <input id="chkSkipSelfPromo" v-model="skipSelfPromo" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkSkipNonMusic"><strong v-t="'actions.skip_non_music'" /></label>
-    <br />
-    <input
-        id="chkSkipNonMusic"
-        v-model="skipMusicOffTopic"
-        class="checkbox"
-        type="checkbox"
-        @change="onChange($event)"
-    />
-    <br />
-    <label for="chkSkipHighlight"><strong v-t="'actions.skip_highlight'" /></label>
-    <br />
-    <input id="chkSkipHighlight" v-model="skipHighlight" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkSkipFiller"><strong v-t="'actions.skip_filler_tangent'" /></label>
-    <br />
-    <input id="chkSkipFiller" v-model="skipFiller" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkShowMarkers"><strong v-t="'actions.show_markers'" /></label>
-    <br />
-    <input id="chkShowMarkers" v-model="showMarkers" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="ddlTheme"><strong v-t="'actions.theme'" /></label>
-    <br />
-    <select id="ddlTheme" v-model="selectedTheme" class="select w-auto" @change="onChange($event)">
-        <option v-t="'actions.auto'" value="auto" />
-        <option v-t="'actions.dark'" value="dark" />
-        <option v-t="'actions.light'" value="light" />
-    </select>
-    <br />
-    <label for="chkAutoPlayVideo"><strong v-t="'actions.autoplay_video'" /></label>
-    <br />
-    <input id="chkAutoPlayVideo" v-model="autoPlayVideo" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkAudioOnly"><strong v-t="'actions.audio_only'" /></label>
-    <br />
-    <input id="chkAudioOnly" v-model="listen" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="ddlDefaultQuality"><strong v-t="'actions.default_quality'" /></label>
-    <br />
-    <select id="ddlDefaultQuality" v-model="defaultQuality" class="select w-auto" @change="onChange($event)">
-        <option v-t="'actions.auto'" value="0" />
-        <option v-for="resolution in resolutions" :key="resolution" :value="resolution" v-text="`${resolution}p`" />
-    </select>
-    <br />
-    <label for="txtBufferingGoal"><strong v-t="'actions.buffering_goal'" /></label>
-    <br />
-    <input id="txtBufferingGoal" v-model="bufferingGoal" class="input w-auto" type="text" @change="onChange($event)" />
-    <br />
-    <label for="ddlCountrySelection"><strong v-t="'actions.country_selection'" /></label>
-    <br />
-    <select id="ddlCountrySelection" v-model="countrySelected" class="select w-auto" @change="onChange($event)">
-        <option v-for="country in countryMap" :key="country.code" :value="country.code" v-text="country.name" />
-    </select>
-    <br />
-    <label for="ddlDefaultHomepage"><strong v-t="'actions.default_homepage'" /></label>
-    <br />
-    <select id="ddlDefaultHomepage" v-model="defaultHomepage" class="select w-auto" @change="onChange($event)">
-        <option v-t="'titles.trending'" value="trending" />
-        <option v-t="'titles.feed'" value="feed" />
-    </select>
-    <br />
-    <label for="chkShowComments"><strong v-t="'actions.show_comments'" /></label>
-    <br />
-    <input id="chkShowComments" v-model="showComments" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkMinimizeDescription"><strong v-t="'actions.minimize_description_default'" /></label>
-    <br />
-    <input
-        id="chkMinimizeDescription"
-        v-model="minimizeDescription"
-        class="checkbox"
-        type="checkbox"
-        @change="onChange($event)"
-    />
-    <br />
-    <label for="chkMinimizeRecommendations"><strong v-t="'actions.minimize_recommendations_default'" /></label>
-    <br />
-    <input
-        id="chkMinimizeRecommendations"
-        v-model="minimizeRecommendations"
-        class="checkbox"
-        type="checkbox"
-        @change="onChange($event)"
-    />
-    <br />
-    <label for="chkStoreWatchHistory"><strong v-t="'actions.store_watch_history'" /></label>
-    <br />
-    <input
-        id="chkStoreWatchHistory"
-        v-model="watchHistory"
-        class="checkbox"
-        type="checkbox"
-        @change="onChange($event)"
-    />
-    <br />
-    <label for="ddlLanguageSelection"><strong v-t="'actions.language_selection'" /></label>
-    <br />
-    <select id="ddlLanguageSelection" v-model="selectedLanguage" class="select w-auto" @change="onChange($event)">
-        <option v-for="language in languages" :key="language.code" :value="language.code" v-text="language.name" />
-    </select>
-    <br />
-    <label for="ddlEnabledCodecs"><strong v-t="'actions.enabled_codecs'" /></label>
-    <br />
-    <select
-        id="ddlEnabledCodecs"
-        v-model="enabledCodecs"
-        class="select w-auto h-auto"
-        multiple
-        @change="onChange($event)"
-    >
-        <option value="av1">AV1</option>
-        <option value="vp9">VP9</option>
-        <option value="avc">AVC (h.264)</option>
-    </select>
-    <br />
-    <label for="chkDisableLBRY"><strong v-t="'actions.disable_lbry'" /></label>
-    <br />
-    <input id="chkDisableLBRY" v-model="disableLBRY" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <br />
-    <label for="chkEnableLBRYProxy"><strong v-t="'actions.enable_lbry_proxy'" /></label>
-    <br />
-    <input id="chkEnableLBRYProxy" v-model="proxyLBRY" class="checkbox" type="checkbox" @change="onChange($event)" />
+
+    <!-- options that are visible only when logged in -->
+    <div v-if="this.authenticated">
+        <h2 class="text-center" v-text="`${$t('titles.account')}`"></h2>
+        <label class="pref" for="txtDeleteAccountPassword">
+            <strong v-t="'actions.delete_account'" />
+            <div class="flex items-center">
+                <input
+                    id="txtDeleteAccountPassword"
+                    ref="txtDeleteAccountPassword"
+                    v-model="password"
+                    v-on:keyup.enter="deleteAccount"
+                    :placeholder="$t('login.password')"
+                    :aria-label="$t('login.password')"
+                    class="input w-auto mr-2"
+                    type="password"
+                />
+                <a class="btn w-auto" @click="deleteAccount" v-t="'actions.delete_account'" />
+            </div>
+        </label>
+        <div class="pref">
+            <a class="btn w-auto" @click="logout" v-t="'actions.logout'" />
+            <a
+                class="btn w-auto"
+                style="margin-left: 0.5em"
+                @click="invalidateSession"
+                v-t="'actions.invalidate_session'"
+            />
+        </div>
+        <br />
+    </div>
     <h2 id="instancesList" v-t="'actions.instances_list'" />
     <table class="table">
         <thead>
@@ -198,65 +313,10 @@
             </tr>
         </tbody>
     </table>
-
-    <hr />
-
-    <label for="ddlInstanceSelection"><strong v-text="`${$t('actions.instance_selection')}:`" /></label>
     <br />
-    <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
-        <option v-for="instance in instances" :key="instance.name" :value="instance.api_url" v-text="instance.name" />
-    </select>
+    <p v-text="`${$t('information.preferences_note')}`" />
     <br />
-    <label for="chkAuthInstance"><strong v-text="`${$t('actions.different_auth_instance')}:`" /></label>
-    <br />
-    <input id="chkAuthInstance" v-model="authInstance" class="checkbox" type="checkbox" @change="onChange($event)" />
-    <template v-if="authInstance">
-        <br />
-        <label for="ddlAuthInstanceSelection"><strong v-text="`${$t('actions.instance_auth_selection')}:`" /></label>
-        <br />
-        <select
-            id="ddlAuthInstanceSelection"
-            v-model="selectedAuthInstance"
-            class="select w-auto"
-            @change="onChange($event)"
-        >
-            <option
-                v-for="instance in instances"
-                :key="instance.name"
-                :value="instance.api_url"
-                v-text="instance.name"
-            />
-        </select>
-    </template>
-    <!-- options that are visible only when logged in -->
-    <br />
-    <div v-if="this.authenticated">
-        <label for="txtDeleteAccountPassword"><strong v-t="'actions.delete_account'" /></label>
-        <br />
-        <div>
-            <input
-                id="txtDeleteAccountPassword"
-                ref="txtDeleteAccountPassword"
-                v-model="password"
-                v-on:keyup.enter="deleteAccount"
-                :placeholder="$t('login.password')"
-                :aria-label="$t('login.password')"
-                class="input w-auto"
-                type="password"
-            />
-            <a class="btn w-auto ml-2" @click="deleteAccount" v-t="'actions.delete_account'" />
-            <br />
-        </div>
-        <br />
-        <a class="btn w-auto" @click="logout" v-t="'actions.logout'" />
-        <a
-            class="btn w-auto"
-            style="margin-left: 0.5em"
-            @click="invalidateSession"
-            v-t="'actions.invalidate_session'"
-        />
-        <br />
-    </div>
+    <button class="btn" v-text="`${$t('actions.reset_preferences')}`" @click="resetPreferences()" />
 </template>
 
 <script>
@@ -514,6 +574,12 @@ export default {
             // redirect to trending page
             window.location = "/";
         },
+        resetPreferences() {
+            // clear the local storage
+            localStorage.clear();
+            // redirect to the home page
+            window.location = "/";
+        },
         async invalidateSession() {
             this.fetchJson(this.authApiUrl() + "/logout", null, {
                 method: "POST",
@@ -529,3 +595,9 @@ export default {
     },
 };
 </script>
+
+<style>
+.pref {
+    @apply flex justify-between items-center mx-[15vw] my-2;
+}
+</style>

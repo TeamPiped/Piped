@@ -7,7 +7,10 @@
         "preferences": "Preferences",
         "history": "History",
         "subscriptions": "Subscriptions",
-        "playlists": "Playlists"
+        "playlists": "Playlists",
+        "account": "Account",
+        "instance": "Instance",
+        "player": "Player"
     },
     "player": {
         "watch_on": "Watch on {0}"
@@ -89,7 +92,8 @@
         "instance_auth_selection": "Autentication Instance Selection",
         "clone_playlist": "Clone Playlist",
         "clone_playlist_success": "Successfully cloned!",
-        "download_as_txt": "Download as .txt"
+        "download_as_txt": "Download as .txt",
+        "reset_preferences": "Reset preferences"
     },
     "comment": {
         "pinned_by": "Pinned by",
@@ -133,5 +137,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Subscribed to: {0}"
+    },
+    "information": {
+        "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them."
     }
 }
