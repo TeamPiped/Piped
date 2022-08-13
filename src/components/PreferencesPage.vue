@@ -303,10 +303,10 @@
             <tr>
                 <td v-text="instance.name" />
                 <td v-text="instance.locations" />
-                <td v-t="`${instance.cdn ? '&#9989;' : '&#10060;'}`" />
+                <td v-text="`${instance.cdn ? '&#9989;' : '&#10060;'}`" />
                 <td v-text="instance.registered" />
                 <td class="<md:(hidden)" v-text="instance.version" />
-                <td v-t="`${instance.up_to_date ? '&#9989;' : '&#10060;'}`" />
+                <td v-text="`${instance.up_to_date ? '&#9989;' : '&#10060;'}`" />
                 <td>
                     <a :href="sslScore(instance.api_url)" target="_blank" v-t="'actions.view_ssl_score'" />
                 </td>
@@ -316,8 +316,8 @@
     <br />
     <p v-text="`${$t('information.preferences_note')}`" />
     <br />
-    <button class="btn" v-text="`${$t('actions.reset_preferences')}`" @click="resetPreferences()" />
-    <button class="btn mx-4" v-text="`${$t('actions.backup_preferences')}`" @click="backupPreferences()" />
+    <button class="btn" v-t="'actions.reset_preferences'" @click="resetPreferences()" />
+    <button class="btn mx-4" v-t="'actions.backup_preferences'" @click="backupPreferences()" />
     <label
         for="fileSelector"
         class="btn"
