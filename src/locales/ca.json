@@ -7,7 +7,10 @@
         "subscriptions": "Subscripcions",
         "trending": "Tendències",
         "register": "Registrar-se",
-        "playlists": "Llistes de reproducció"
+        "playlists": "Llistes de reproducció",
+        "account": "Compte",
+        "instance": "Instància",
+        "player": "Reproductor"
     },
     "actions": {
         "channel_name_desc": "Nom del Canal (Z-A)",
@@ -85,7 +88,9 @@
         "different_auth_instance": "Usa una instància diferent per a l'autenticació",
         "instance_auth_selection": "Selecciona la instància d'autenticació",
         "clone_playlist": "Clonar Llista de Reproducció",
-        "clone_playlist_success": "Clonada correctament!"
+        "clone_playlist_success": "Clonada correctament!",
+        "download_as_txt": "Descarrega com a .txt",
+        "reset_preferences": "Restablir preferències"
     },
     "comment": {
         "pinned_by": "Fixat per",
@@ -127,10 +132,13 @@
         "watch_on": "Veure a {0}"
     },
     "login": {
-        "username": "Nom d'Uuuari",
+        "username": "Nom d'Usuari",
         "password": "Contrassenya"
     },
     "subscriptions": {
         "subscribed_channels_count": "Subscrit a: {0}"
+    },
+    "information": {
+        "preferences_note": "Nota: les preferències es desen a l'emmagatzematge local del navegador. Si suprimiu les dades del navegador, es restabliran."
     }
 }
