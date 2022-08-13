@@ -575,6 +575,7 @@ export default {
             window.location = "/";
         },
         resetPreferences() {
+            if (!confirm(this.$t("actions.reset_preferences") + "?")) return;
             // clear the local storage
             localStorage.clear();
             // redirect to the home page
