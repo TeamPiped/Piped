@@ -7,7 +7,10 @@
         "preferences": "Preferensi",
         "history": "Riwayat",
         "subscriptions": "Langganan",
-        "playlists": "Daftar Putar"
+        "playlists": "Daftar Putar",
+        "instance": "Instansi",
+        "account": "Akun",
+        "player": "Pemain"
     },
     "player": {
         "watch_on": "Tonton di {0}"
@@ -89,7 +92,8 @@
         "different_auth_instance": "Gunakan instansi lain untuk otentikasi",
         "clone_playlist_success": "Berhasil disalin!",
         "clone_playlist": "Salin Daftar Putar",
-        "download_as_txt": "Unduh sebagai .txt"
+        "download_as_txt": "Unduh sebagai .txt",
+        "reset_preferences": "Atur ulang preferensi"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh",
@@ -133,5 +137,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Berlangganan ke: {0}"
+    },
+    "information": {
+        "preferences_note": "Catatan: preferensi disimpan di penyimpanan lokal peramban Anda. Menghapus data peramban Anda akan mengatur ulang mereka."
     }
 }
