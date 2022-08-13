@@ -93,7 +93,9 @@
         "clone_playlist": "Clone Playlist",
         "clone_playlist_success": "Successfully cloned!",
         "download_as_txt": "Download as .txt",
-        "reset_preferences": "Reset preferences"
+        "reset_preferences": "Reset preferences",
+        "backup_preferences": "Backup preferences",
+        "restore_preferences": "Restore preferences"
     },
     "comment": {
         "pinned_by": "Pinned by",

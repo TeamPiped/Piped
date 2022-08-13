@@ -317,6 +317,14 @@
     <p v-text="`${$t('information.preferences_note')}`" />
     <br />
     <button class="btn" v-text="`${$t('actions.reset_preferences')}`" @click="resetPreferences()" />
+    <button class="btn mx-4" v-text="`${$t('actions.backup_preferences')}`" @click="backupPreferences()" />
+    <label
+        for="fileSelector"
+        class="btn"
+        v-text="`${$t('actions.restore_preferences')}`"
+        @click="restorePreferences()"
+    />
+    <input class="hidden" id="fileSelector" ref="fileSelector" type="file" @change="restorePreferences()" />
 </template>
 
 <script>
@@ -591,6 +599,20 @@ export default {
                 if (!resp.error) {
                     this.logout();
                 } else alert(resp.error);
+            });
+        },
+        backupPreferences() {
+            const data = JSON.stringify(localStorage);
+            this.download(data, "preferences.json", "application/json");
+        },
+        restorePreferences() {
+            var file = this.$refs.fileSelector.files[0];
+            file.text().then(text => {
+                const data = JSON.parse(text);
+                Object.keys(data).forEach(function (key) {
+                    localStorage.setItem(key, data[key]);
+                });
+                window.location.reload();
             });
         },
     },
