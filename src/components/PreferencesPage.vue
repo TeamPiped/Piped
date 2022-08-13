@@ -22,7 +22,7 @@
     </label>
     <label class="pref" for="ddlCountrySelection">
         <strong v-t="'actions.country_selection'" />
-        <select id="ddlCountrySelection" v-model="countrySelected" class="select" @change="onChange($event)">
+        <select id="ddlCountrySelection" v-model="countrySelected" class="select w-50" @change="onChange($event)">
             <option v-for="country in countryMap" :key="country.code" :value="country.code" v-text="country.name" />
         </select>
     </label>
@@ -61,7 +61,7 @@
         <input
             id="txtBufferingGoal"
             v-model="bufferingGoal"
-            class="input w-auto"
+            class="input w-24"
             type="text"
             @change="onChange($event)"
         />
@@ -294,7 +294,7 @@
                 <th v-t="'preferences.instance_locations'" />
                 <th v-t="'preferences.has_cdn'" />
                 <th v-t="'preferences.registered_users'" />
-                <th v-t="'preferences.version'" />
+                <th class="<md:(hidden)" v-t="'preferences.version'" />
                 <th v-t="'preferences.up_to_date'" />
                 <th v-t="'preferences.ssl_score'" />
             </tr>
@@ -303,10 +303,10 @@
             <tr>
                 <td v-text="instance.name" />
                 <td v-text="instance.locations" />
-                <td v-t="`actions.${instance.cdn ? 'yes' : 'no'}`" />
+                <td v-t="`${instance.cdn ? '&#9989;' : '&#10060;'}`" />
                 <td v-text="instance.registered" />
-                <td v-text="instance.version" />
-                <td v-t="`actions.${instance.up_to_date ? 'yes' : 'no'}`" />
+                <td class="<md:(hidden)" v-text="instance.version" />
+                <td v-t="`${instance.up_to_date ? '&#9989;' : '&#10060;'}`" />
                 <td>
                     <a :href="sslScore(instance.api_url)" target="_blank" v-t="'actions.view_ssl_score'" />
                 </td>
@@ -598,6 +598,6 @@ export default {
 
 <style>
 .pref {
-    @apply flex justify-between items-center mx-[15vw] my-2;
+    @apply flex justify-between items-center my-2 mx-[15vw] <md:(mx-[2vw]);
 }
 </style>
