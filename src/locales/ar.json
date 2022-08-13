@@ -7,7 +7,10 @@
         "history": "تاريخ التصفح",
         "subscriptions": "الاشتراكات",
         "playlists": "قوائم التشغيل",
-        "feed": "التغذية"
+        "feed": "التغذية",
+        "account": "الحساب",
+        "instance": "الخادم",
+        "player": "المشغل"
     },
     "player": {
         "watch_on": "شاهد عبر"
@@ -89,7 +92,8 @@
         "instance_auth_selection": "تحديد مثيل Autentication",
         "clone_playlist": "استنساخ قائمة التشغيل",
         "clone_playlist_success": "تم استنساخها بنجاح!",
-        "download_as_txt": "تنزيل بتنسيق .txt"
+        "download_as_txt": "تنزيل بتنسيق .txt",
+        "reset_preferences": "اعادة التعيين للتفضيلات"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
@@ -133,5 +137,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "مشترك في: {0}"
+    },
+    "information": {
+        "preferences_note": "ملاحظة: يتم حفظ التفضيلات في وحدة التخزين المحلية في متصفحك. سيؤدي حذف بيانات المتصفح إلى إعادة تعيينها."
     }
 }
