@@ -77,7 +77,10 @@
         "instance_auth_selection": "Valg av identitetbekreftelsesinstans",
         "clone_playlist": "Klon spillelisten",
         "clone_playlist_success": "Klonet",
-        "reset_preferences": "Tilbakestill innstillinger"
+        "reset_preferences": "Tilbakestill innstillinger",
+        "backup_preferences": "Sikkerhetskopieringsinnstillinger",
+        "confirm_reset_preferences": "Tilbakestill alle innstillingene?",
+        "restore_preferences": "Gjenopprett innstillinger"
     },
     "player": {
         "watch_on": "Vis på {0}"
