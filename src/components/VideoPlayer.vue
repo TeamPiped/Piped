@@ -484,7 +484,7 @@ export default {
                     var bestAudio = 0;
 
                     // Choose the best audio stream
-                    if (qualityConds >= 480)
+                    if (quality >= 480)
                         player.getVariantTracks().forEach(track => {
                             const audioBandwidth = track.audioBandwidth;
                             if (audioBandwidth > bestAudio) bestAudio = audioBandwidth;
