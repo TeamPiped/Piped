@@ -77,7 +77,10 @@
         "clone_playlist": "克隆播放列表",
         "clone_playlist_success": "克隆成功！",
         "download_as_txt": "下载为 .txt",
-        "reset_preferences": "重置选项"
+        "reset_preferences": "重置选项",
+        "restore_preferences": "恢复首选项",
+        "confirm_reset_preferences": "你确定要重置首选项吗？",
+        "backup_preferences": "备份首选项"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
