@@ -56,7 +56,8 @@
         "skip_intro": "중간 휴식/인트로 애니메이션 스킵",
         "search": "검색",
         "clear_history": "기록 지우기",
-        "show_replies": "답글 보기"
+        "show_replies": "답글 보기",
+        "skip_highlight": "하이라이트 스킵"
     },
     "titles": {
         "feed": "피드",
@@ -65,7 +66,11 @@
         "subscriptions": "구독",
         "trending": "트렌드",
         "login": "로그인",
-        "register": "가입"
+        "register": "가입",
+        "playlists": "재생목록",
+        "account": "계정",
+        "instance": "인스턴스",
+        "player": "플레이어"
     },
     "player": {
         "watch_on": "에서 보기 {0}"
