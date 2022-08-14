@@ -22,7 +22,7 @@
     </label>
     <label class="pref" for="ddlCountrySelection">
         <strong v-t="'actions.country_selection'" />
-        <select id="ddlCountrySelection" v-model="countrySelected" class="select" @change="onChange($event)">
+        <select id="ddlCountrySelection" v-model="countrySelected" class="select w-50" @change="onChange($event)">
             <option v-for="country in countryMap" :key="country.code" :value="country.code" v-text="country.name" />
         </select>
     </label>
@@ -34,7 +34,7 @@
         </select>
     </label>
 
-    <h2 class="text-center" v-text="`${$t('titles.player')}`" />
+    <h2 class="text-center" v-t="'titles.player'" />
     <label class="pref" for="chkAutoPlayVideo">
         <strong v-t="'actions.autoplay_video'" />
         <input
@@ -61,7 +61,7 @@
         <input
             id="txtBufferingGoal"
             v-model="bufferingGoal"
-            class="input w-auto"
+            class="input w-24"
             type="text"
             @change="onChange($event)"
         />
@@ -214,7 +214,7 @@
         <input id="chkShowMarkers" v-model="showMarkers" class="checkbox" type="checkbox" @change="onChange($event)" />
     </label>
 
-    <h2 class="text-center" v-text="`${$t('titles.instance')}`" />
+    <h2 class="text-center" v-t="'titles.instance'" />
     <label class="pref" for="ddlInstanceSelection">
         <strong v-text="`${$t('actions.instance_selection')}:`" />
         <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
@@ -258,7 +258,7 @@
 
     <!-- options that are visible only when logged in -->
     <div v-if="this.authenticated">
-        <h2 class="text-center" v-text="`${$t('titles.account')}`"></h2>
+        <h2 class="text-center" v-t="'titles.account'"></h2>
         <label class="pref" for="txtDeleteAccountPassword">
             <strong v-t="'actions.delete_account'" />
             <div class="flex items-center">
@@ -294,7 +294,7 @@
                 <th v-t="'preferences.instance_locations'" />
                 <th v-t="'preferences.has_cdn'" />
                 <th v-t="'preferences.registered_users'" />
-                <th v-t="'preferences.version'" />
+                <th class="<md:(hidden)" v-t="'preferences.version'" />
                 <th v-t="'preferences.up_to_date'" />
                 <th v-t="'preferences.ssl_score'" />
             </tr>
@@ -303,10 +303,10 @@
             <tr>
                 <td v-text="instance.name" />
                 <td v-text="instance.locations" />
-                <td v-t="`actions.${instance.cdn ? 'yes' : 'no'}`" />
+                <td v-text="`${instance.cdn ? '&#9989;' : '&#10060;'}`" />
                 <td v-text="instance.registered" />
-                <td v-text="instance.version" />
-                <td v-t="`actions.${instance.up_to_date ? 'yes' : 'no'}`" />
+                <td class="<md:(hidden)" v-text="instance.version" />
+                <td v-text="`${instance.up_to_date ? '&#9989;' : '&#10060;'}`" />
                 <td>
                     <a :href="sslScore(instance.api_url)" target="_blank" v-t="'actions.view_ssl_score'" />
                 </td>
@@ -314,9 +314,12 @@
         </tbody>
     </table>
     <br />
-    <p v-text="`${$t('information.preferences_note')}`" />
+    <p v-t="'information.preferences_note'" />
     <br />
-    <button class="btn" v-text="`${$t('actions.reset_preferences')}`" @click="resetPreferences()" />
+    <button class="btn" v-t="'actions.reset_preferences'" @click="resetPreferences()" />
+    <button class="btn mx-4" v-t="'actions.backup_preferences'" @click="backupPreferences()" />
+    <label for="fileSelector" class="btn" v-t="'actions.restore_preferences'" @click="restorePreferences()" />
+    <input class="hidden" id="fileSelector" ref="fileSelector" type="file" @change="restorePreferences()" />
 </template>
 
 <script>
@@ -575,6 +578,7 @@ export default {
             window.location = "/";
         },
         resetPreferences() {
+            if (!confirm(this.$t("actions.confirm_reset_preferences"))) return;
             // clear the local storage
             localStorage.clear();
             // redirect to the home page
@@ -592,12 +596,26 @@ export default {
                 } else alert(resp.error);
             });
         },
+        backupPreferences() {
+            const data = JSON.stringify(localStorage);
+            this.download(data, "preferences.json", "application/json");
+        },
+        restorePreferences() {
+            var file = this.$refs.fileSelector.files[0];
+            file.text().then(text => {
+                const data = JSON.parse(text);
+                Object.keys(data).forEach(function (key) {
+                    localStorage.setItem(key, data[key]);
+                });
+                window.location.reload();
+            });
+        },
     },
 };
 </script>
 
 <style>
 .pref {
-    @apply flex justify-between items-center mx-[15vw] my-2;
+    @apply flex justify-between items-center my-2 mx-[15vw] <md:(mx-[2vw]);
 }
 </style>
