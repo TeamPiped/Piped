@@ -34,7 +34,7 @@
         </select>
     </label>
 
-    <h2 class="text-center" v-text="`${$t('titles.player')}`" />
+    <h2 class="text-center" v-t="'titles.player'" />
     <label class="pref" for="chkAutoPlayVideo">
         <strong v-t="'actions.autoplay_video'" />
         <input
@@ -214,7 +214,7 @@
         <input id="chkShowMarkers" v-model="showMarkers" class="checkbox" type="checkbox" @change="onChange($event)" />
     </label>
 
-    <h2 class="text-center" v-text="`${$t('titles.instance')}`" />
+    <h2 class="text-center" v-t="'titles.instance'" />
     <label class="pref" for="ddlInstanceSelection">
         <strong v-text="`${$t('actions.instance_selection')}:`" />
         <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
@@ -258,7 +258,7 @@
 
     <!-- options that are visible only when logged in -->
     <div v-if="this.authenticated">
-        <h2 class="text-center" v-text="`${$t('titles.account')}`"></h2>
+        <h2 class="text-center" v-t="'titles.account'"></h2>
         <label class="pref" for="txtDeleteAccountPassword">
             <strong v-t="'actions.delete_account'" />
             <div class="flex items-center">
@@ -314,16 +314,11 @@
         </tbody>
     </table>
     <br />
-    <p v-text="`${$t('information.preferences_note')}`" />
+    <p v-t="'information.preferences_note'" />
     <br />
     <button class="btn" v-t="'actions.reset_preferences'" @click="resetPreferences()" />
     <button class="btn mx-4" v-t="'actions.backup_preferences'" @click="backupPreferences()" />
-    <label
-        for="fileSelector"
-        class="btn"
-        v-text="`${$t('actions.restore_preferences')}`"
-        @click="restorePreferences()"
-    />
+    <label for="fileSelector" class="btn" v-t="'actions.restore_preferences'" @click="restorePreferences()" />
     <input class="hidden" id="fileSelector" ref="fileSelector" type="file" @change="restorePreferences()" />
 </template>
 
@@ -583,7 +578,7 @@ export default {
             window.location = "/";
         },
         resetPreferences() {
-            if (!confirm(this.$t("actions.reset_preferences") + "?")) return;
+            if (!confirm(this.$t("actions.confirm_reset_preferences"))) return;
             // clear the local storage
             localStorage.clear();
             // redirect to the home page
