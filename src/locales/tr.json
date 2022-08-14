@@ -77,7 +77,10 @@
         "clone_playlist": "Oynatma Listesini Kopyala",
         "clone_playlist_success": "Başarıyla kopyalandı!",
         "download_as_txt": ".txt olarak indir",
-        "reset_preferences": "Tercihleri sıfırla"
+        "reset_preferences": "Tercihleri sıfırla",
+        "confirm_reset_preferences": "Tercihlerinizi sıfırlamak istediğinize emin misiniz?",
+        "backup_preferences": "Tercihleri yedekle",
+        "restore_preferences": "Tercihleri geri yükle"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
