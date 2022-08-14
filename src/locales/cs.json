@@ -7,7 +7,10 @@
         "subscriptions": "Odběry",
         "feed": "Odběry",
         "preferences": "Předvolby",
-        "playlists": "Playlisty"
+        "playlists": "Playlisty",
+        "account": "Účet",
+        "instance": "Instance",
+        "player": "Přehrávač"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
@@ -86,7 +89,8 @@
         "instance_auth_selection": "Výběr autentizační instance",
         "clone_playlist": "Duplikovat playlist",
         "clone_playlist_success": "Úspěšně duplikováno!",
-        "download_as_txt": "Stáhnout jako .txt"
+        "download_as_txt": "Stáhnout jako .txt",
+        "reset_preferences": "Resetovat předvolby"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
@@ -133,5 +137,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Přihlášeno k odběru: {0}"
+    },
+    "information": {
+        "preferences_note": "Poznámka: předvolby jsou uloženy v místním úložišti vašeho prohlížeče. Odstranění dat vašeho prohlížeče je resetuje."
     }
 }
