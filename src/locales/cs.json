@@ -90,7 +90,10 @@
         "clone_playlist": "Duplikovat playlist",
         "clone_playlist_success": "Úspěšně duplikováno!",
         "download_as_txt": "Stáhnout jako .txt",
-        "reset_preferences": "Resetovat předvolby"
+        "reset_preferences": "Resetovat předvolby",
+        "restore_preferences": "Obnovit předvolby",
+        "backup_preferences": "Zálohovat předvolby",
+        "confirm_reset_preferences": "Opravdu chcete resetovat své předvolby?"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
