@@ -3,11 +3,14 @@
         "trending": "Sedang Tren",
         "login": "Masuk",
         "register": "Daftar",
-        "feed": "Feed",
+        "feed": "Umpan",
         "preferences": "Preferensi",
         "history": "Riwayat",
         "subscriptions": "Langganan",
-        "playlists": "Daftar Putar"
+        "playlists": "Daftar Putar",
+        "instance": "Instansi",
+        "account": "Akun",
+        "player": "Pemain"
     },
     "player": {
         "watch_on": "Tonton di {0}"
@@ -88,7 +91,9 @@
         "instance_auth_selection": "Pemilihan Instansi Otentikasi",
         "different_auth_instance": "Gunakan instansi lain untuk otentikasi",
         "clone_playlist_success": "Berhasil disalin!",
-        "clone_playlist": "Salin Daftar Putar"
+        "clone_playlist": "Salin Daftar Putar",
+        "download_as_txt": "Unduh sebagai .txt",
+        "reset_preferences": "Atur ulang preferensi"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh",
@@ -116,7 +121,7 @@
         "sponsor_segments": "Segmen Sponsor",
         "ratings_disabled": "Penilaian Dinonaktifkan",
         "chapters": "Bagian",
-        "live": "{0} Live",
+        "live": "{0} Langsung",
         "shorts": "Shorts"
     },
     "search": {
@@ -129,5 +134,11 @@
         "music_albums": "YT Music: Album",
         "music_playlists": "YT Music: Daftar Putar",
         "all": "YouTube: Semua"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Berlangganan ke: {0}"
+    },
+    "information": {
+        "preferences_note": "Catatan: preferensi disimpan di penyimpanan lokal peramban Anda. Menghapus data peramban Anda akan mengatur ulang mereka."
     }
 }

@@ -75,7 +75,8 @@
         "invalidate_session": "Disconnetti su tutti i dispositivi",
         "instance_auth_selection": "Selezione dell'istanza di autenticazione",
         "clone_playlist_success": "Clonato con successo!",
-        "clone_playlist": "Clona la playlist"
+        "clone_playlist": "Clona la playlist",
+        "download_as_txt": "Scarica come .txt"
     },
     "player": {
         "watch_on": "Guarda su {0}"

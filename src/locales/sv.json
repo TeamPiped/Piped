@@ -85,7 +85,8 @@
         "minimize_recommendations_default": "Minimera rekommendationer som standard",
         "invalidate_session": "Logga ut alla enheter",
         "different_auth_instance": "Använd en annan instans för autentisering",
-        "instance_auth_selection": "Val av autentiseringsinstans"
+        "instance_auth_selection": "Val av autentiseringsinstans",
+        "download_as_txt": "Ladda ner som .txt"
     },
     "player": {
         "watch_on": "Titta på {0}"

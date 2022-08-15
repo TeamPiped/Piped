@@ -76,7 +76,11 @@
         "instance_auth_selection": "身份验证实例选择",
         "clone_playlist": "克隆播放列表",
         "clone_playlist_success": "克隆成功！",
-        "download_as_txt": "下载为 .txt"
+        "download_as_txt": "下载为 .txt",
+        "reset_preferences": "重置选项",
+        "restore_preferences": "恢复首选项",
+        "confirm_reset_preferences": "你确定要重置首选项吗？",
+        "backup_preferences": "备份首选项"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -114,7 +118,10 @@
         "register": "注册",
         "trending": "趋势",
         "login": "登录",
-        "playlists": "播放列表"
+        "playlists": "播放列表",
+        "account": "账户",
+        "instance": "实例",
+        "player": "播放器"
     },
     "login": {
         "password": "密码",
@@ -133,5 +140,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "已订阅：{0}"
+    },
+    "information": {
+        "preferences_note": "注：选项保存于浏览器的本地存储中。删除浏览器数据会重置它们。"
     }
 }

@@ -29,7 +29,7 @@
         "theme": "Теме",
         "audio_only": "Само звук",
         "show_description": "Прикажи опис",
-        "subscribe": "Запрати - {count}",
+        "subscribe": "Прати - {count}",
         "default_quality": "Подразумевани квалитет видеа",
         "clear_history": "Обриши повест гледања",
         "sort_by": "Сортирај по:",

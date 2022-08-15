@@ -2,17 +2,17 @@
     "video": {
         "sponsor_segments": "Segmenti sponzora",
         "watched": "Gledano",
-        "views": "{views} prikaza",
+        "views": "{views} gledanja",
         "videos": "Videa",
         "ratings_disabled": "Ocjenjivanje isključeno",
         "chapters": "Poglavlja",
         "live": "{0} uživo",
-        "shorts": "Kratki prikaz videa"
+        "shorts": "Kratka videa"
     },
     "preferences": {
-        "ssl_score": "SSL rezultat",
+        "ssl_score": "SSL ocjena",
         "has_cdn": "Ima CDN?",
-        "instance_locations": "Lokacije instance",
+        "instance_locations": "Lokacije instanci",
         "instance_name": "Ime instance",
         "registered_users": "Registrirani korisnici",
         "version": "Verzija",
@@ -25,9 +25,9 @@
         "user_disabled": "Komentari su isključeni u postavkama."
     },
     "actions": {
-        "enable_lbry_proxy": "Omogući proxy za LBRY",
+        "enable_lbry_proxy": "Uključi proxy za LBRY",
         "disable_lbry": "Onemogući LBRY za prijenos",
-        "minimize_description_default": "Uvijek sakrij prikaz opisa",
+        "minimize_description_default": "Standardno sakrij opis",
         "minimize_description": "Sakrij opis",
         "show_description": "Prikaži opis",
         "minimize_recommendations": "Sakrij preporuke",
@@ -41,15 +41,15 @@
         "yes": "Da",
         "show_more": "Prikaži više",
         "instance_selection": "Izbor instance",
-        "enabled_codecs": "Omogućeni kodeki (višestruki)",
+        "enabled_codecs": "Uključeni kodeki (višestruki)",
         "instances_list": "Popis instanci",
         "language_selection": "Izbor jezika",
         "store_watch_history": "Spremi povijest gledanja",
         "show_comments": "Prikaži komentare",
-        "default_homepage": "Zadana glavna stranica",
+        "default_homepage": "Standardna početna stranica",
         "country_selection": "Izbor zemlje",
         "buffering_goal": "Cilj međuspremnika (u sekundama)",
-        "default_quality": "Zadana kvaliteta",
+        "default_quality": "Standardna kvaliteta",
         "audio_only": "Samo zvuk",
         "autoplay_video": "Automatski reproduciraj video",
         "light": "Svijetla",
@@ -57,18 +57,18 @@
         "auto": "Automatski",
         "theme": "Tema",
         "skip_non_music": "Preskoči glazbu: dijelovi bez glazbe",
-        "skip_self_promo": "Preskoči osobnu promociju",
-        "skip_preview": "Preskoči pregled",
+        "skip_self_promo": "Preskoči neplaćene oglase ili osobne promocije",
+        "skip_preview": "Preskoči pregled/rekapitulaciju",
         "uses_api_from": "Koristi API od ",
         "back": "Natrag",
-        "channel_name_desc": "Ime kanala (Ž-A)",
-        "channel_name_asc": "Ime kanala (A-Ž)",
+        "channel_name_desc": "Ime kanala (Z–A)",
+        "channel_name_asc": "Ime kanala (A–Z)",
         "least_recent": "Najstarije",
         "most_recent": "Najnovije",
-        "sort_by": "Sortiraj po:",
-        "view_subscriptions": "Prikaži pretplate",
-        "unsubscribe": "Otkaži pretplatu - {count}",
-        "subscribe": "Pretplati se - {count}",
+        "sort_by": "Redoslijed:",
+        "view_subscriptions": "Pogledaj pretplate",
+        "unsubscribe": "Otkaži pretplatu – {count}",
+        "subscribe": "Pretplati se – {count}",
         "skip_interaction": "Preskoči podsjetnik za interakciju (zahtijeva pretplatu)",
         "skip_outro": "Preskoči odjavnu špicu",
         "skip_intro": "Preskoči pauzu i uvodnu animaciju",
@@ -77,7 +77,7 @@
         "loading": "Učitavanje…",
         "filter": "Filtar",
         "search": "Pretraga",
-        "view_ssl_score": "Prikaži SSL ocjenu",
+        "view_ssl_score": "Pogledaj SSL ocjenu",
         "show_replies": "Prikaži odgovore",
         "hide_replies": "Sakrij odgovore",
         "load_more_replies": "Prikaži više odgovora",
@@ -95,12 +95,14 @@
         "show_markers": "Prikaži oznake na playeru",
         "delete_account": "Izbriši račun",
         "logout": "Odjavi se s ovog uređaja",
-        "minimize_recommendations_default": "Standardno minimiziraj preporuke",
+        "minimize_recommendations_default": "Standardno sakrij preporuke",
         "invalidate_session": "Odjavi sve uređaje",
         "different_auth_instance": "Koristi drugu instancu za autentifikaciju",
         "instance_auth_selection": "Odabir instance autentifikacije",
         "clone_playlist": "Dupliciraj playlistu",
-        "clone_playlist_success": "Dupliciranje uspjelo!"
+        "clone_playlist_success": "Dupliciranje uspjelo!",
+        "download_as_txt": "Preuzmi kao .txt",
+        "reset_preferences": "Resetiraj postavke"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -113,7 +115,10 @@
         "register": "Registracija",
         "login": "Prijava",
         "trending": "U trendu",
-        "playlists": "Playliste"
+        "playlists": "Playliste",
+        "account": "Račun",
+        "instance": "Instanca",
+        "player": "Player"
     },
     "login": {
         "password": "Lozinka",
@@ -124,10 +129,16 @@
         "all": "YouTube: Sve",
         "videos": "YouTube: Videa",
         "channels": "YouTube: Kanali",
-        "playlists": "YouTube: playliste",
-        "music_songs": "YT Music: Glazbe",
+        "playlists": "YouTube: Playliste",
+        "music_songs": "YT Music: Pjesme",
         "music_videos": "YT Music: Videa",
         "music_albums": "YT Music: Albumi",
-        "music_playlists": "YT Music: playliste"
+        "music_playlists": "YT Music: Playliste"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Pretplata na: {0}"
+    },
+    "information": {
+        "preferences_note": "Napomena: postavke se spremaju u lokalno spremište preglednika. Brisanje podataka preglednika resetira postavke."
     }
 }

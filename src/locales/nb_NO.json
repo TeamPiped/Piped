@@ -70,7 +70,17 @@
         "remove_from_playlist": "Fjern fra spilleliste",
         "delete_account": "Slett konto",
         "logout": "Logg ut",
-        "minimize_recommendations_default": "Minimer anbefalinger som forvalg"
+        "minimize_recommendations_default": "Minimer anbefalinger som forvalg",
+        "download_as_txt": "Last ned som .txt",
+        "invalidate_session": "Logg ut alle enheter",
+        "different_auth_instance": "Bruk en annen instans for identitetsbekreftelse",
+        "instance_auth_selection": "Valg av identitetbekreftelsesinstans",
+        "clone_playlist": "Klon spillelisten",
+        "clone_playlist_success": "Klonet",
+        "reset_preferences": "Tilbakestill innstillinger",
+        "backup_preferences": "Sikkerhetskopieringsinnstillinger",
+        "confirm_reset_preferences": "Tilbakestill alle innstillingene?",
+        "restore_preferences": "Gjenopprett innstillinger"
     },
     "player": {
         "watch_on": "Vis på {0}"
@@ -83,7 +93,10 @@
         "login": "Logg inn",
         "trending": "På vei opp",
         "subscriptions": "Abonnementer",
-        "playlists": "Spillelister"
+        "playlists": "Spillelister",
+        "account": "Konto",
+        "instance": "Instans",
+        "player": "Avspiller"
     },
     "video": {
         "sponsor_segments": "Sponsor-segmenter",
@@ -124,5 +137,11 @@
         "playlists": "YouTube: Spillelister",
         "music_videos": "YT musikk: Videoer",
         "music_albums": "YT musikk: Album"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Abonnert på: {0}"
+    },
+    "information": {
+        "preferences_note": "Merk: Innstillinger lagres lokalt i din nettleser. Sletting av nettleserdata sletter dem."
     }
 }

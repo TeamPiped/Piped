@@ -75,7 +75,12 @@
         "invalidate_session": "Tüm aygıtlardan oturumu kapat",
         "instance_auth_selection": "Kimlik Doğrulama Örneği Seçimi",
         "clone_playlist": "Oynatma Listesini Kopyala",
-        "clone_playlist_success": "Başarıyla kopyalandı!"
+        "clone_playlist_success": "Başarıyla kopyalandı!",
+        "download_as_txt": ".txt olarak indir",
+        "reset_preferences": "Tercihleri sıfırla",
+        "confirm_reset_preferences": "Tercihlerinizi sıfırlamak istediğinize emin misiniz?",
+        "backup_preferences": "Tercihleri yedekle",
+        "restore_preferences": "Tercihleri geri yükle"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
@@ -88,7 +93,10 @@
         "login": "Oturum Aç",
         "trending": "Öne Çıkanlar",
         "subscriptions": "Abonelikler",
-        "playlists": "Oynatma Listeleri"
+        "playlists": "Oynatma Listeleri",
+        "account": "Hesap",
+        "instance": "Örnek",
+        "player": "Oynatıcı"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
@@ -132,5 +140,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Abone olunan: {0}"
+    },
+    "information": {
+        "preferences_note": "Not: Tercihler tarayıcınızın yerel depolama alanına kaydedilir. Tarayıcı verilerinizi silmek onları sıfırlayacaktır."
     }
 }
