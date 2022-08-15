@@ -132,6 +132,6 @@
         "watch_on": "Ver em {0}"
     },
     "subscriptions": {
-        "subscribed_channels_count": "Subscrito a: {}"
+        "subscribed_channels_count": "Subscrito a: {0}"
     }
 }
