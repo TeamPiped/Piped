@@ -76,7 +76,11 @@
         "instance_auth_selection": "Selezione dell'istanza di autenticazione",
         "clone_playlist_success": "Clonato con successo!",
         "clone_playlist": "Clona la playlist",
-        "download_as_txt": "Scarica come .txt"
+        "download_as_txt": "Scarica come .txt",
+        "confirm_reset_preferences": "Confermi di voler reimpostare le preferenze?",
+        "restore_preferences": "Ripristina le preferenze",
+        "reset_preferences": "Reimposta le preferenze",
+        "backup_preferences": "Salva un backup delle preferenze"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -89,7 +93,10 @@
         "login": "Accedi",
         "trending": "Di tendenza",
         "subscriptions": "Iscrizioni",
-        "playlists": "Playlist"
+        "playlists": "Playlist",
+        "account": "Account",
+        "instance": "Istanza",
+        "player": "Riproduttore"
     },
     "video": {
         "sponsor_segments": "Segmenti sponsor",
@@ -133,5 +140,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Abbonato a: {0}"
+    },
+    "information": {
+        "preferences_note": "Nota: le preferenze sono salvate nella memoria locale del tuo browser. Se cancelli i dati del browser, le preferenze saranno ripristinate."
     }
 }
