@@ -26,7 +26,12 @@
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
+        "@iconify/json": "^2.1.94",
         "@intlify/vite-plugin-vue-i18n": "^6.0.1",
+        "@unocss/preset-icons": "^0.45.7",
+        "@unocss/preset-web-fonts": "^0.45.7",
+        "@unocss/transformer-directives": "^0.45.7",
+        "@unocss/transformer-variant-group": "^0.45.7",
         "@vitejs/plugin-legacy": "^1.8.2",
         "@vitejs/plugin-vue": "^2.3.4",
         "@vue/compiler-sfc": "3.2.37",
@@ -36,10 +41,10 @@
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-vue": "^9.3.0",
         "prettier": "^2.7.1",
+        "unocss": "^0.45.7",
         "vite": "^2.9.14",
         "vite-plugin-eslint": "^1.7.0",
-        "vite-plugin-pwa": "^0.12.3",
-        "vite-plugin-windicss": "^1.8.7"
+        "vite-plugin-pwa": "^0.12.3"
     },
     "eslintConfig": {
         "root": true,

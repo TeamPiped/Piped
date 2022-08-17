@@ -77,7 +77,7 @@ export default {
 
 <style>
 .suggestions-container {
-    @apply left-1/2 translate-x-[-50%] transform-gpu max-w-3xl w-full box-border p-y-1.25 z-10 <md:max-w-[calc(100%-0.5rem)] bg-gray-300;
+    @apply left-1/2 translate-x-[-50%] transform-gpu max-w-3xl w-full box-border p-y-1.25 z-10 lt-md:max-w-[calc(100%-0.5rem)] bg-gray-300;
 }
 
 .dark .suggestions-container {
@@ -85,7 +85,7 @@ export default {
 }
 
 .auto .suggestions-container {
-    @apply dark:bg-dark-400;
+    @apply @dark:bg-dark-400;
 }
 
 .suggestion-selected {
@@ -97,7 +97,7 @@ export default {
 }
 
 .auto .suggestion-selected {
-    @apply dark:bg-dark-100;
+    @apply @dark:bg-dark-100;
 }
 
 .suggestion {
