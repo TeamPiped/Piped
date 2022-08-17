@@ -93,7 +93,10 @@
         "clone_playlist": "استنساخ قائمة التشغيل",
         "clone_playlist_success": "تم استنساخها بنجاح!",
         "download_as_txt": "تنزيل بتنسيق .txt",
-        "reset_preferences": "اعادة التعيين للتفضيلات"
+        "reset_preferences": "اعادة التعيين للتفضيلات",
+        "confirm_reset_preferences": "هل أنت متأكد من أنك تريد إعادة تعيين تفضيلاتك؟",
+        "backup_preferences": "تفضيلات النسخ الاحتياطي",
+        "restore_preferences": "استعادة التفضيلات"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
