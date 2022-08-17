@@ -1,7 +1,7 @@
 <template>
     <nav class="flex flex-wrap items-center justify-center px-2 sm:px-4 py-2.5 w-full relative">
         <div class="flex-1 flex justify-start">
-            <router-link class="flex font-bold text-3xl items-center font-sans font-bold" to="/"
+            <router-link class="flex font-bold text-3xl items-center font-sans" to="/"
                 ><img
                     alt="logo"
                     src="/img/icons/logo.svg"
@@ -11,10 +11,10 @@
                 />iped</router-link
             >
         </div>
-        <div class="<md:hidden">
+        <div class="lt-md:hidden">
             <input
                 v-model="searchText"
-                class="input !w-72 !h-10"
+                class="input w-72 h-10"
                 type="text"
                 role="search"
                 ref="videoSearch"
@@ -89,7 +89,7 @@
     <div class="w-{full - 4} md:hidden mx-2">
         <input
             v-model="searchText"
-            class="input !h-10 !w-full"
+            class="input h-10 w-full"
             type="text"
             role="search"
             :title="$t('actions.search')"
@@ -177,6 +177,6 @@ export default {
 <style>
 .input:focus {
     @apply border-2 border-red-500;
-    box-shadow: 0 0 15px rgba(239, 68, 68, var(--tw-border-opacity));
+    box-shadow: 0 0 15px rgba(239, 68, 68, var(--un-border-opacity));
 }
 </style>

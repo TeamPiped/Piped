@@ -47,13 +47,13 @@
                 <!-- Likes/dilikes -->
                 <div class="flex children:mr-2">
                     <template v-if="video.likes >= 0">
-                        <div>
-                            <font-awesome-icon icon="thumbs-up" />
-                            <strong class="ml-2" v-text="addCommas(video.likes)" />
+                        <div class="flex">
+                            <div class="i-fa-solid:thumbs-up" />
+                            <strong class="ml-1" v-text="addCommas(video.likes)" />
                         </div>
-                        <div>
-                            <font-awesome-icon icon="thumbs-down" />
-                            <strong class="ml-2" v-text="video.dislikes >= 0 ? addCommas(video.dislikes) : '?'" />
+                        <div class="flex">
+                            <div class="i-fa-solid:thumbs-down" />
+                            <strong class="ml-1" v-text="video.dislikes >= 0 ? addCommas(video.dislikes) : '?'" />
                         </div>
                     </template>
                     <template v-if="video.likes < 0">
@@ -105,7 +105,7 @@
                             <font-awesome-icon icon="rss" />
                         </a>
                         <!-- watch on youtube button -->
-                        <a :href="`https://youtu.be/${getVideoId()}`" class="btn <lg:hidden">
+                        <a :href="`https://youtu.be/${getVideoId()}`" class="btn lt-lg:hidden">
                             <i18n-t keypath="player.watch_on" tag="strong">
                                 <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
                             </i18n-t>

@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import WindiCSS from "vite-plugin-windicss";
+import Unocss from "unocss/vite";
 import legacy from "@vitejs/plugin-legacy";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
 import { VitePWA } from "vite-plugin-pwa";
@@ -11,7 +11,7 @@ import eslintPlugin from "vite-plugin-eslint";
 export default defineConfig({
     plugins: [
         vue(),
-        WindiCSS(),
+        Unocss(),
         vueI18n({
             include: path.resolve(__dirname, "./src/locales/**"),
         }),
