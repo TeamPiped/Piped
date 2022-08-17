@@ -1713,10 +1713,10 @@ electron-to-chromium@^1.4.84:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.96.tgz#a97438a01d5db1460343fea4a344960b09330990"
   integrity sha512-DPNjvNGPabv6FcyjzLAN4C0psN/GgD9rSGvMTuv81SeXG/EX3mCz0wiw9N1tUEnfQXYCJi3H8M0oFPRziZh7rw==
 
-eme-encryption-scheme-polyfill@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/eme-encryption-scheme-polyfill/-/eme-encryption-scheme-polyfill-2.0.5.tgz#590a437483539edd95a209bbfc14f5458c0052a6"
-  integrity sha512-F1C7SGjzE0ypKPqr7+30AcGl4YyEllrJidVDDWfwIwCadEfIHuayTn/nsy7EFNoZOJp4gUAohAGwLQEXE+exuw==
+eme-encryption-scheme-polyfill@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/eme-encryption-scheme-polyfill/-/eme-encryption-scheme-polyfill-2.1.1.tgz#91c823ed584e8ec5a9f03a6a676def8f80c57a4c"
+  integrity sha512-njD17wcUrbqCj0ArpLu5zWXtaiupHb/2fIUQGdInf83GlI+Q6mmqaPGLdrke4savKAu15J/z1Tg/ivDgl14g0g==
 
 emitter-component@^1.1.1:
   version "1.1.1"
@@ -3038,12 +3038,12 @@ serialize-javascript@^4.0.0:
   dependencies:
     randombytes "^2.1.0"
 
-shaka-player@4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.1.2.tgz#4c351d7665b3346717bbd82cdef1196ba9db232c"
-  integrity sha512-rTj+YMSyO+kbstll3P+8qYxrsaZBDsQlz5xVz1D4A66yJvv9ZqhDFDiEhL6iII5V7BFNA+dOdsR8yKuYHWi8NQ==
+shaka-player@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.2.0.tgz#874f8e7f8b270045bdbcf1cf5656b60bfe88e74b"
+  integrity sha512-+Ng2jEpgqpfv5j0X9HcYclxqYcTXsAarGRTds5HcFq2CNaFrVwKpjzXysD6OFLpgd/AgH/nuakP3uQDCT2s8FQ==
   dependencies:
-    eme-encryption-scheme-polyfill "^2.0.5"
+    eme-encryption-scheme-polyfill "^2.1.1"
 
 shebang-command@^2.0.0:
   version "2.0.0"
