@@ -11,6 +11,7 @@
                     autocomplete="username"
                     :placeholder="$t('login.username')"
                     :aria-label="$t('login.username')"
+                    v-on:keyup.enter="register"
                 />
             </div>
             <div>
@@ -21,6 +22,7 @@
                     autocomplete="password"
                     :placeholder="$t('login.password')"
                     :aria-label="$t('login.password')"
+                    v-on:keyup.enter="register"
                 />
             </div>
             <div>
@@ -49,6 +51,7 @@ export default {
     },
     methods: {
         register() {
+            if (!this.username || !this.password) return;
             this.fetchJson(this.authApiUrl() + "/register", null, {
                 method: "POST",
                 body: JSON.stringify({
