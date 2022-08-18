@@ -206,6 +206,10 @@ h2 {
 }
 
 .line {
-    @apply px-2.5 py-0.25 my-0.45 rounded-xl bg-white;
+    @apply px-2.5 py-0.25 my-0.45 rounded-xl bg-dark-900;
+}
+
+.dark .line {
+    @apply bg-white;
 }
 </style>
