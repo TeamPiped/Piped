@@ -314,7 +314,7 @@
         </tbody>
     </table>
     <br />
-    <p v-t="'information.preferences_note'" />
+    <p v-t="'info.preferences_note'" />
     <br />
     <button class="btn" v-t="'actions.reset_preferences'" @click="resetPreferences()" />
     <button class="btn mx-4" v-t="'actions.backup_preferences'" @click="backupPreferences()" />

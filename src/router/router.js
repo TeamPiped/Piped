@@ -80,6 +80,11 @@ const routes = [
         name: "Playlists",
         component: () => import("../components/PlaylistsPage.vue"),
     },
+    {
+        path: "/:pathMatch(.*)*",
+        name: "Page Not Found",
+        component: () => import("../components/PageNotFound.vue"),
+    },
 ];
 
 const router = createRouter({
