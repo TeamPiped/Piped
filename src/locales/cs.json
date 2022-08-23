@@ -110,7 +110,7 @@
         "has_cdn": "Používá CDN?",
         "ssl_score": "Stav SSL",
         "registered_users": "Registrovaní uživatelé",
-        "up_to_date": "Aktualizovaný?",
+        "up_to_date": "Aktuální?",
         "version": "Verze"
     },
     "login": {
