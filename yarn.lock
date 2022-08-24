@@ -1696,10 +1696,10 @@ dom-walk@^0.1.0:
   resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.2.tgz#0c548bef048f4d1f2a97249002236060daa3fd84"
   integrity sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==
 
-dompurify@^2.3.10:
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.10.tgz#901f7390ffe16a91a5a556b94043314cd4850385"
-  integrity sha512-o7Fg/AgC7p/XpKjf/+RC3Ok6k4St5F7Q6q6+Nnm3p2zGWioAY6dh0CbbuwOhH2UcSzKsdniE/YnE2/92JcsA+g==
+dompurify@^2.3.12:
+  version "2.3.12"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.12.tgz#0c8a5cabc5d7a7cf2635645cfd5061deab73f3d2"
+  integrity sha512-KkCEdpWPXBkF9IP9afmYPDB24nRZRUsThsjuWKM8Cpp9+WXKJmC6FZxSyPIiiQezkYa3+Mm1oo6dh60NxBXkyw==
 
 ejs@^3.1.6:
   version "3.1.7"
