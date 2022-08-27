@@ -80,7 +80,8 @@
         "reset_preferences": "Tercihleri sıfırla",
         "confirm_reset_preferences": "Tercihlerinizi sıfırlamak istediğinize emin misiniz?",
         "backup_preferences": "Tercihleri yedekle",
-        "restore_preferences": "Tercihleri geri yükle"
+        "restore_preferences": "Tercihleri geri yükle",
+        "back_to_home": "Ana sayfaya dön"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
@@ -143,5 +144,9 @@
     },
     "information": {
         "preferences_note": "Not: Tercihler tarayıcınızın yerel depolama alanına kaydedilir. Tarayıcı verilerinizi silmek onları sıfırlayacaktır."
+    },
+    "info": {
+        "preferences_note": "Not: Tercihler tarayıcınızın yerel depolama alanına kaydedilir. Tarayıcı verilerinizi silmek onları sıfırlayacaktır.",
+        "page_not_found": "Sayfa bulunamadı"
     }
 }
