@@ -152,6 +152,11 @@ b {
     @apply pl-2.5;
 }
 
+.input:focus {
+    @apply border-2 border-red-500 outline-none;
+    box-shadow: 0 0 15px rgba(239, 68, 68, var(--un-border-opacity));
+}
+
 hr {
     @apply !mt-2 !mb-3 border-gray-300;
 }
