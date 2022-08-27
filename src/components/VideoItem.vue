@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="!isBlocked">
         <router-link
             :to="{
                 path: '/watch',
@@ -177,6 +177,9 @@ export default {
     computed: {
         short() {
             return this.video.duration > 0 && this.video.duration <= 61;
+        },
+        isBlocked() {
+            return this.isChannelBlocked(this.video.uploaderUrl);
         },
     },
     components: { PlaylistAddModal },

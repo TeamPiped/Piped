@@ -286,7 +286,7 @@
         </div>
         <br />
     </div>
-    <h2 class="text-center" v-t="'actions.blocked_channels'"></h2>
+    <h2 class="text-center" v-t="'titles.misc'"></h2>
     <label class="pref" for="blockedChannels">
         <strong v-t="'actions.blocked_channels'" />
         <input

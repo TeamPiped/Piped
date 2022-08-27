@@ -143,9 +143,9 @@ export default {
         isBlocked(result) {
             if (!result.uploaderUrl) {
                 // item is a channel
-                return this.isChannelBlocked(result.url.replace("/channel/", ""));
+                return this.isChannelBlocked(result.url);
             }
-            return this.isChannelBlocked(result.uploaderUrl.replace("/channel/", ""));
+            return this.isChannelBlocked(result.uploaderUrl);
         },
     },
 };

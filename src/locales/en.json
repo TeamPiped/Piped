@@ -10,7 +10,8 @@
         "playlists": "Playlists",
         "account": "Account",
         "instance": "Instance",
-        "player": "Player"
+        "player": "Player",
+        "misc": "Miscellaneous"
     },
     "player": {
         "watch_on": "Watch on {0}"
@@ -98,7 +99,7 @@
         "backup_preferences": "Backup preferences",
         "restore_preferences": "Restore preferences",
         "back_to_home": "Back to home",
-        "blocked_channels": "Blocked channels"
+        "blocked_channels": "Blocked channels (IDs, seperated by ',')"
     },
     "comment": {
         "pinned_by": "Pinned by",
