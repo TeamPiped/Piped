@@ -389,6 +389,20 @@
         </div>
         <br />
     </div>
+    <h2 v-t="'actions.blocked_channels'"></h2>
+    <label
+        class="mx-[15vw] my-2 flex items-center justify-between odd:bg-gray-200 max-md:mx-[2vw] dark:odd:bg-dark-800"
+        for="blockedChannels"
+    >
+        <strong v-t="'actions.blocked_channels'" />
+        <input
+            id="blockedChannels"
+            v-model="blockedChannels"
+            type="text"
+            class="input w-auto mr-2"
+            @change="onChange($event)"
+        />
+    </label>
     <h2 id="instancesList" v-t="'actions.instances_list'" />
     <table class="w-full border text-left text-lg font-light">
         <thead>
@@ -597,6 +611,7 @@ const codecOptions = [
 ];
 const disableLBRY = usePreferenceBoolean("disableLBRY", false);
 const proxyLBRY = usePreferenceBoolean("proxyLBRY", false);
+const blockedChannels = usePreferenceString("blockedChannels", "");
 const prefetchLimit = usePreferenceNumber("prefetchLimit", 2);
 const password = ref(null);
 const showConfirmResetPrefsDialog = ref(false);

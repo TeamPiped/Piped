@@ -177,7 +177,8 @@
         "show_password": "Show password",
         "hide_password": "Hide password",
         "rss_feed": "RSS feed",
-        "playlist_rss_feed": "Playlist RSS feed"
+        "playlist_rss_feed": "Playlist RSS feed",
+        "blocked_channels": "Blocked channels"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

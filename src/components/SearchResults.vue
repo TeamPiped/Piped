@@ -29,7 +29,9 @@
         class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
     >
         <template v-for="result in results.items" :key="result.url">
-            <ContentItem :item="result" height="94" width="168" />
+            <div v-if="!isBlocked(result)">
+                <ContentItem :item="result" height="94" width="168" />
+            </div>
         </template>
     </LoadingIndicatorPage>
 </template>
@@ -40,6 +42,7 @@ import { useRoute, useRouter } from "vue-router";
 import ContentItem from "./ContentItem.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import { fetchJson, apiUrl } from "@/composables/useApi.js";
+import { isChannelBlocked } from "@/composables/useChannels.js";
 import { getPreferenceBoolean } from "@/composables/usePreferences.js";
 import { updateWatched } from "@/composables/useMisc.js";
 
@@ -127,6 +130,14 @@ function saveQueryToHistory() {
     searchHistory.unshift(query);
     if (searchHistory.length > 10) searchHistory.shift();
     localStorage.setItem("search_history", JSON.stringify(searchHistory));
+}
+
+function isBlocked(result) {
+    if (!result.uploaderUrl) {
+        // item is a channel
+        return isChannelBlocked(result.url);
+    }
+    return isChannelBlocked(result.uploaderUrl);
 }
 
 onMounted(() => {
