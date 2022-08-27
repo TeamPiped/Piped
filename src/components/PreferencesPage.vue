@@ -389,7 +389,7 @@
         </div>
         <br />
     </div>
-    <h2 v-t="'actions.blocked_channels'"></h2>
+    <h2 v-t="'titles.misc'"></h2>
     <label
         class="mx-[15vw] my-2 flex items-center justify-between odd:bg-gray-200 max-md:mx-[2vw] dark:odd:bg-dark-800"
         for="blockedChannels"
@@ -399,7 +399,7 @@
             id="blockedChannels"
             v-model="blockedChannels"
             type="text"
-            class="input w-auto mr-2"
+            class="h-8 w-auto bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
             @change="onChange($event)"
         />
     </label>

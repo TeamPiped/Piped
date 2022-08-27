@@ -17,7 +17,8 @@
         "bookmarks": "Bookmarks",
         "channel_groups": "Channel groups",
         "dearrow": "DeArrow",
-        "custom_instances": "Custom instances"
+        "custom_instances": "Custom instances",
+        "misc": "Miscellaneous"
     },
     "player": {
         "watch_on": "View on {0}",
@@ -178,7 +179,7 @@
         "hide_password": "Hide password",
         "rss_feed": "RSS feed",
         "playlist_rss_feed": "Playlist RSS feed",
-        "blocked_channels": "Blocked channels"
+        "blocked_channels": "Blocked channels (IDs, seperated by ',')"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

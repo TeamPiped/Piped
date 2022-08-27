@@ -134,6 +134,7 @@ import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import ConfirmModal from "./ConfirmModal.vue";
 import VideoThumbnail from "./VideoThumbnail.vue";
+import { isChannelBlocked } from "@/composables/useChannels.js";
 import { numberFormat, timeAgo } from "@/composables/useFormatting.js";
 import { getPreferenceBoolean } from "@/composables/usePreferences.js";
 import { removeVideoFromPlaylist } from "@/composables/usePlaylists.js";
@@ -180,6 +181,11 @@ function removeVideo() {
 }
 
 function shouldShowVideo() {
+    if (isChannelBlocked(props.item.uploaderUrl)) {
+        showVideo.value = false;
+        return;
+    }
+
     if (!props.isFeed || !getPreferenceBoolean("hideWatched", false)) return;
 
     const objectStore = window.db.transaction("watch_history", "readonly").objectStore("watch_history");
