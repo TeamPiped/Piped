@@ -96,7 +96,8 @@
         "reset_preferences": "Reset preferences",
         "confirm_reset_preferences": "Are you sure you want to reset your preferences?",
         "backup_preferences": "Backup preferences",
-        "restore_preferences": "Restore preferences"
+        "restore_preferences": "Restore preferences",
+        "back_to_home": "Back to home"
     },
     "comment": {
         "pinned_by": "Pinned by",
@@ -141,7 +142,8 @@
     "subscriptions": {
         "subscribed_channels_count": "Subscribed to: {0}"
     },
-    "information": {
-        "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them."
+    "info": {
+        "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them.",
+        "page_not_found": "Page not found"
     }
 }
