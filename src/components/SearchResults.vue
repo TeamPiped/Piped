@@ -20,32 +20,34 @@
 
     <div v-if="results" class="video-grid">
         <template v-for="result in results.items" :key="result.url">
-            <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
-            <div v-if="!shouldUseVideoItem(result)">
-                <router-link :to="result.url">
-                    <div class="relative">
-                        <img class="w-full" :src="result.thumbnail" loading="lazy" />
-                    </div>
-                    <p>
-                        <span v-text="result.name" />
-                        <font-awesome-icon class="ml-1.5" v-if="result.verified" icon="check" />
-                    </p>
-                </router-link>
-                <p v-if="result.description" v-text="result.description" />
-                <router-link v-if="result.uploaderUrl" class="link" :to="result.uploaderUrl">
-                    <p>
-                        <span v-text="result.uploader" />
-                        <font-awesome-icon class="ml-1.5" v-if="result.uploaderVerified" icon="check" />
-                    </p>
-                </router-link>
+            <div v-if="!isBlocked(result)">
+                <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
+                <div v-if="!shouldUseVideoItem(result)">
+                    <router-link :to="result.url">
+                        <div class="relative">
+                            <img class="w-full" :src="result.thumbnail" loading="lazy" />
+                        </div>
+                        <p>
+                            <span v-text="result.name" />
+                            <font-awesome-icon class="ml-1.5" v-if="result.verified" icon="check" />
+                        </p>
+                    </router-link>
+                    <p v-if="result.description" v-text="result.description" />
+                    <router-link v-if="result.uploaderUrl" class="link" :to="result.uploaderUrl">
+                        <p>
+                            <span v-text="result.uploader" />
+                            <font-awesome-icon class="ml-1.5" v-if="result.uploaderVerified" icon="check" />
+                        </p>
+                    </router-link>
 
-                <a v-if="result.uploaderName" class="link" v-text="result.uploaderName" />
-                <template v-if="result.videos >= 0">
-                    <br v-if="result.uploaderName" />
-                    <strong v-text="`${result.videos} ${$t('video.videos')}`" />
-                </template>
+                    <a v-if="result.uploaderName" class="link" v-text="result.uploaderName" />
+                    <template v-if="result.videos >= 0">
+                        <br v-if="result.uploaderName" />
+                        <strong v-text="`${result.videos} ${$t('video.videos')}`" />
+                    </template>
 
-                <br />
+                    <br />
+                </div>
             </div>
         </template>
     </div>
@@ -137,6 +139,13 @@ export default {
                 this.$router.push(url);
                 return true;
             }
+        },
+        isBlocked(result) {
+            if (!result.uploaderUrl) {
+                // item is a channel
+                return this.isChannelBlocked(result.url.replace("/channel/", ""));
+            }
+            return this.isChannelBlocked(result.uploaderUrl.replace("/channel/", ""));
         },
     },
 };

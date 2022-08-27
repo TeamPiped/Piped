@@ -286,6 +286,17 @@
         </div>
         <br />
     </div>
+    <h2 class="text-center" v-t="'actions.blocked_channels'"></h2>
+    <label class="pref" for="blockedChannels">
+        <strong v-t="'actions.blocked_channels'" />
+        <input
+            id="blockedChannels"
+            v-model="blockedChannels"
+            @change="onChange($event)"
+            class="input w-auto mr-2"
+            type="text"
+        />
+    </label>
     <h2 id="instancesList" v-t="'actions.instances_list'" />
     <table class="table">
         <thead>
@@ -403,6 +414,7 @@ export default {
             disableLBRY: false,
             proxyLBRY: false,
             password: null,
+            blockedChannels: "",
         };
     },
     activated() {
@@ -492,6 +504,7 @@ export default {
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
+            this.blockedChannels = this.getPreferenceString("blockedChannels", "");
             if (this.selectedLanguage != "en") {
                 try {
                     this.CountryMap = await import(`../utils/CountryMaps/${this.selectedLanguage}.json`).then(
@@ -549,6 +562,7 @@ export default {
                 localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
                 localStorage.setItem("disableLBRY", this.disableLBRY);
                 localStorage.setItem("proxyLBRY", this.proxyLBRY);
+                localStorage.setItem("blockedChannels", this.blockedChannels);
 
                 if (shouldReload) window.location.reload();
             }
