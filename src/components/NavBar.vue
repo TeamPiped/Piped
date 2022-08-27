@@ -174,9 +174,3 @@ export default {
     },
 };
 </script>
-<style>
-.input:focus {
-    @apply border-2 border-red-500;
-    box-shadow: 0 0 15px rgba(239, 68, 68, var(--un-border-opacity));
-}
-</style>
