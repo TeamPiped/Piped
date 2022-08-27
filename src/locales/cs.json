@@ -93,7 +93,8 @@
         "reset_preferences": "Resetovat předvolby",
         "restore_preferences": "Obnovit předvolby",
         "backup_preferences": "Zálohovat předvolby",
-        "confirm_reset_preferences": "Opravdu chcete resetovat své předvolby?"
+        "confirm_reset_preferences": "Opravdu chcete resetovat své předvolby?",
+        "back_to_home": "Zpátky domů"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
@@ -143,5 +144,9 @@
     },
     "information": {
         "preferences_note": "Poznámka: předvolby jsou uloženy v místním úložišti vašeho prohlížeče. Odstranění dat vašeho prohlížeče je resetuje."
+    },
+    "info": {
+        "preferences_note": "Poznámka: předvolby se ukládají do místního úložiště prohlížeče. Vymazáním dat prohlížeče budou obnoveny.",
+        "page_not_found": "Stránka nenalezena"
     }
 }
