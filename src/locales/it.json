@@ -80,7 +80,8 @@
         "confirm_reset_preferences": "Confermi di voler reimpostare le preferenze?",
         "restore_preferences": "Ripristina le preferenze",
         "reset_preferences": "Reimposta le preferenze",
-        "backup_preferences": "Salva un backup delle preferenze"
+        "backup_preferences": "Salva un backup delle preferenze",
+        "back_to_home": "Torna alla pagina iniziale"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -143,5 +144,9 @@
     },
     "information": {
         "preferences_note": "Nota: le preferenze sono salvate nella memoria locale del tuo browser. Se cancelli i dati del browser, le preferenze saranno ripristinate."
+    },
+    "info": {
+        "page_not_found": "Pagina non trovata",
+        "preferences_note": "Nota: le preferenze sono salvate nella memoria locale del tuo browser. L'eliminazione dei dati del tuo browser le ripristinerà."
     }
 }
