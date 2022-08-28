@@ -149,6 +149,8 @@
     },
     "info": {
         "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them.",
-        "page_not_found": "Page not found"
+        "page_not_found": "Page not found",
+        "copied": "Copied!",
+        "cannot_copy": "Can't copy!"
     }
 }

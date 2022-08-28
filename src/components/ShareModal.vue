@@ -14,7 +14,7 @@
                 <h3 class="mt-4" v-text="generatedLink" />
                 <div class="flex justify-end mt-4">
                     <button class="btn" v-t="'actions.follow_link'" @click="followLink()" />
-                    <button class="btn ml-5" v-t="'actions.copy_link'" @click="copyLink()" />
+                    <button class="btn ml-3" v-t="'actions.copy_link'" @click="copyLink()" />
                 </div>
             </div>
         </div>
@@ -68,10 +68,18 @@ export default {
             event.preventDefault();
         },
         followLink() {
-            window.location.href = this.generatedLink;
+            window.open(this.generatedLink, "_blank").focus();
         },
-        copyLink() {
-            this.$emit("close");
+        async copyLink() {
+            await this.copyURL(this.generatedLink);
+        },
+        async copyURL(mytext) {
+            try {
+                await navigator.clipboard.writeText(mytext);
+                alert(this.$t("info.copied"));
+            } catch ($e) {
+                alert(this.$t("info.cannot_copy"));
+            }
         },
     },
     computed: {
