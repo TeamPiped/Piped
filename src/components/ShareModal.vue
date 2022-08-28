@@ -21,20 +21,6 @@
     </div>
 </template>
 
-<style scoped>
-.modal {
-    @apply fixed z-50 top-0 left-0 w-full h-full bg-dark-900 bg-opacity-80 transition-opacity table;
-}
-
-.modal > div {
-    @apply table-cell align-middle;
-}
-
-.modal-container {
-    @apply w-100 m-auto px-8 bg-dark-700 p-5 flex flex-col rounded-xl;
-}
-</style>
-
 <script>
 export default {
     props: {
@@ -93,3 +79,17 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.modal {
+    @apply fixed z-50 top-0 left-0 w-full h-full bg-dark-900 bg-opacity-80 transition-opacity table;
+}
+
+.modal > div {
+    @apply table-cell align-middle;
+}
+
+.modal-container {
+    @apply w-100 m-auto px-8 bg-dark-700 p-5 flex flex-col rounded-xl;
+}
+</style>

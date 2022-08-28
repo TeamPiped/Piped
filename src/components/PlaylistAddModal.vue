@@ -6,7 +6,7 @@
                     <span class="text-2xl w-max inline-block" v-t="'actions.select_playlist'" />
                     <button class="ml-3" @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
                 </div>
-                <select class="select w-full" v-model="selectedPlaylist">
+                <select class="select w-full mt-3" v-model="selectedPlaylist">
                     <option
                         v-for="playlist in playlists"
                         :value="playlist.id"
@@ -14,30 +14,18 @@
                         v-text="playlist.name"
                     />
                 </select>
-                <button
-                    class="btn mt-2"
-                    @click="handleClick(selectedPlaylist)"
-                    ref="addButton"
-                    v-t="'actions.add_to_playlist'"
-                />
+                <div class="flex justify-end mt-3">
+                    <button
+                        class="btn"
+                        @click="handleClick(selectedPlaylist)"
+                        ref="addButton"
+                        v-t="'actions.add_to_playlist'"
+                    />
+                </div>
             </div>
         </div>
     </div>
 </template>
-
-<style scoped>
-.modal {
-    @apply fixed z-50 top-0 left-0 w-full h-full bg-dark-900 bg-opacity-80 transition-opacity table;
-}
-
-.modal > div {
-    @apply table-cell align-middle;
-}
-
-.modal-container {
-    @apply w-min m-auto px-8 bg-dark-700 p-6;
-}
-</style>
 
 <script>
 export default {
@@ -111,3 +99,17 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.modal {
+    @apply fixed z-50 top-0 left-0 w-full h-full bg-dark-900 bg-opacity-80 transition-opacity table;
+}
+
+.modal > div {
+    @apply table-cell align-middle;
+}
+
+.modal-container {
+    @apply w-min m-auto px-8 bg-dark-700 p-6 rounded-xl;
+}
+</style>
