@@ -18,7 +18,7 @@ import {
     faClone,
     faShare,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faBitcoin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(
     faEye,
@@ -28,7 +28,6 @@ library.add(
     faCheck,
     faHeart,
     faHeadphones,
-    faYoutube,
     faRss,
     faChevronLeft,
     faLevelDownAlt,
