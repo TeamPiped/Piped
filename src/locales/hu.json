@@ -7,7 +7,8 @@
         "history": "Előzmények",
         "subscriptions": "Feliratkozások",
         "playlists": "Lejátszási listák",
-        "trending": "Felkapott"
+        "trending": "Felkapott",
+        "account": "Fiók"
     },
     "actions": {
         "subscribe": "Feliratkozás - {count}",
