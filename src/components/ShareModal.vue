@@ -11,6 +11,10 @@
                     <label v-t="'actions.piped_link'" />
                     <input type="checkbox" v-model="pipedLink" />
                 </div>
+                <div class="flex justify-between mt-2">
+                    <label v-t="'actions.time_code'" />
+                    <input class="input w-12" type="text" v-model="timeStamp" />
+                </div>
                 <h3 class="mt-4" v-text="generatedLink" />
                 <div class="flex justify-end mt-4">
                     <button class="btn" v-t="'actions.follow_link'" @click="followLink()" />
@@ -37,11 +41,12 @@ export default {
         return {
             withTimeCode: true,
             pipedLink: true,
+            timeStamp: null,
         };
     },
     mounted() {
         window.addEventListener("keydown", this.handleKeyDown);
-        console.log(parseInt(this.currentTime));
+        this.timeStamp = parseInt(this.currentTime);
     },
     unmounted() {
         window.removeEventListener("keydown", this.handleKeyDown);
@@ -73,7 +78,7 @@ export default {
             var href = this.pipedLink
                 ? window.location.origin + "/watch?v=" + this.videoId
                 : "https://youtu.be/" + this.videoId;
-            if (this.withTimeCode) href += "?t=" + this.currentTime;
+            if (this.withTimeCode && this.timeStamp) href += "?t=" + this.timeStamp;
             return href;
         },
     },
