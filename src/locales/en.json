@@ -97,7 +97,9 @@
         "confirm_reset_preferences": "Are you sure you want to reset your preferences?",
         "backup_preferences": "Backup preferences",
         "restore_preferences": "Restore preferences",
-        "back_to_home": "Back to home"
+        "back_to_home": "Back to home",
+        "rename_playlist": "Rename playlist",
+        "new_playlist_name": "New playlist name"
     },
     "comment": {
         "pinned_by": "Pinned by",
