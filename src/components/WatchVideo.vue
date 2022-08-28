@@ -325,7 +325,7 @@ export default {
     },
     activated() {
         this.active = true;
-        this.selectedAutoPlay = this.getPreferenceBoolean("playerAutoPlay", false);
+        this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         if (this.video.duration) {
@@ -360,7 +360,7 @@ export default {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
         },
         onChange() {
-            this.setPreference("playerAutoPlay", this.selectedAutoPlay);
+            this.setPreference("autoplay", this.selectedAutoPlay);
         },
         async getVideoData() {
             await this.fetchVideo()
