@@ -1,34 +1,30 @@
 <template>
-    <div class="modal">
-        <div>
-            <div class="modal-container">
-                <div class="flex">
-                    <span class="text-2xl w-max inline-block" v-t="'actions.select_playlist'" />
-                    <button class="ml-3" @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
-                </div>
-                <select class="select w-full mt-3" v-model="selectedPlaylist">
-                    <option
-                        v-for="playlist in playlists"
-                        :value="playlist.id"
-                        :key="playlist.id"
-                        v-text="playlist.name"
-                    />
-                </select>
-                <div class="flex justify-end mt-3">
-                    <button
-                        class="btn"
-                        @click="handleClick(selectedPlaylist)"
-                        ref="addButton"
-                        v-t="'actions.add_to_playlist'"
-                    />
-                </div>
-            </div>
+    <ModalComponent>
+        <div class="flex">
+            <span class="text-2xl w-max inline-block" v-t="'actions.select_playlist'" />
+            <button class="ml-3" @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
         </div>
-    </div>
+        <select class="select w-full mt-3" v-model="selectedPlaylist">
+            <option v-for="playlist in playlists" :value="playlist.id" :key="playlist.id" v-text="playlist.name" />
+        </select>
+        <div class="flex justify-end mt-3">
+            <button
+                class="btn"
+                @click="handleClick(selectedPlaylist)"
+                ref="addButton"
+                v-t="'actions.add_to_playlist'"
+            />
+        </div>
+    </ModalComponent>
 </template>
 
 <script>
+import ModalComponent from "./ModalComponent.vue";
+
 export default {
+    components: {
+        ModalComponent,
+    },
     props: {
         videoId: {
             type: String,
@@ -53,12 +49,10 @@ export default {
     },
     methods: {
         handleKeyDown(event) {
-            if (event.code === "Escape") {
-                this.$emit("close");
-            } else if (event.code === "Enter") {
+            if (event.code === "Enter") {
                 this.handleClick(this.selectedPlaylist);
-            } else return;
-            event.preventDefault();
+                event.preventDefault();
+            }
         },
         handleClick(playlistId) {
             if (!playlistId) {
@@ -99,17 +93,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-.modal {
-    @apply fixed z-50 top-0 left-0 w-full h-full bg-dark-900 bg-opacity-80 transition-opacity table;
-}
-
-.modal > div {
-    @apply table-cell align-middle;
-}
-
-.modal-container {
-    @apply w-min m-auto px-8 bg-dark-700 p-6 rounded-xl;
-}
-</style>
