@@ -97,7 +97,12 @@
         "confirm_reset_preferences": "Are you sure you want to reset your preferences?",
         "backup_preferences": "Backup preferences",
         "restore_preferences": "Restore preferences",
-        "back_to_home": "Back to home"
+        "back_to_home": "Back to home",
+        "share": "Share",
+        "with_timecode": "Share with time code",
+        "piped_link": "Piped link",
+        "follow_link": "Follow link",
+        "copy_link": "Copy link"
     },
     "comment": {
         "pinned_by": "Pinned by",

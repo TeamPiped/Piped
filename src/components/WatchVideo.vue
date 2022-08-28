@@ -88,6 +88,12 @@
                     />
                 </div>
                 <PlaylistAddModal v-if="showModal" :video-id="getVideoId()" @close="showModal = !showModal" />
+                <ShareModal
+                    v-if="showShareModal"
+                    :video-id="getVideoId()"
+                    :current-time="currentTime"
+                    @close="showShareModal = !showShareModal"
+                />
                 <div class="flex">
                     <div class="self-center children:mr-1 my-1">
                         <!-- RSS Feed button -->
@@ -105,15 +111,10 @@
                             <font-awesome-icon icon="rss" />
                         </a>
                         <!-- watch on youtube button -->
-                        <a :href="`https://youtu.be/${getVideoId()}`" class="btn lt-lg:hidden">
-                            <i18n-t keypath="player.watch_on" tag="strong">
-                                <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
-                            </i18n-t>
-                        </a>
-                        <!-- only visible on small screens -->
-                        <a :href="`https://youtu.be/${getVideoId()}`" class="btn lg:hidden">
-                            <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
-                        </a>
+                        <button class="btn" @click="showShareModal = !showShareModal">
+                            <i18n-t class="<lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
+                            <font-awesome-icon class="mx-1.5" :icon="share" />
+                        </button>
                         <!-- LBRY -->
                         <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
                             <i18n-t keypath="player.watch_on" tag="strong">LBRY</i18n-t>
@@ -211,6 +212,7 @@ import ErrorHandler from "./ErrorHandler.vue";
 import CommentItem from "./CommentItem.vue";
 import ChaptersBar from "./ChaptersBar.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
+import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
 
 export default {
@@ -222,6 +224,7 @@ export default {
         CommentItem,
         ChaptersBar,
         PlaylistAddModal,
+        ShareModal,
         PlaylistVideos,
     },
     data() {
@@ -245,6 +248,7 @@ export default {
             smallViewQuery: smallViewQuery,
             smallView: smallViewQuery.matches,
             showModal: false,
+            showShareModal: false,
             isMobile: true,
             currentTime: 0,
         };
