@@ -1,1 +1,24 @@
-{}
+{
+    "titles": {
+        "player": "נגן",
+        "login": "כניסה",
+        "register": "הרשמה",
+        "preferences": "העדפות",
+        "history": "היסטוריה",
+        "subscriptions": "מינויים",
+        "trending": "מובילים",
+        "feed": "ערוץ עדכונים",
+        "account": "חשבון",
+        "playlists": "רשימות נגינה",
+        "instance": "עותק"
+    },
+    "player": {
+        "watch_on": "לצפות ב־{0}"
+    },
+    "actions": {
+        "subscribe": "מינוי - {count}",
+        "unsubscribe": "ביטול מינוי - {count}",
+        "view_subscriptions": "הצגת מינויים",
+        "sort_by": "מיון לפי:"
+    }
+}
