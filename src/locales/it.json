@@ -81,7 +81,13 @@
         "restore_preferences": "Ripristina le preferenze",
         "reset_preferences": "Reimposta le preferenze",
         "backup_preferences": "Salva un backup delle preferenze",
-        "back_to_home": "Torna alla pagina iniziale"
+        "back_to_home": "Torna alla pagina iniziale",
+        "share": "Condividi",
+        "piped_link": "Link a Piped",
+        "copy_link": "Copia link",
+        "time_code": "Tempo (in secondi)",
+        "follow_link": "Apri link",
+        "with_timecode": "Condividi con marca temporale"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -147,6 +153,8 @@
     },
     "info": {
         "page_not_found": "Pagina non trovata",
-        "preferences_note": "Nota: le preferenze sono salvate nella memoria locale del tuo browser. L'eliminazione dei dati del tuo browser le ripristinerà."
+        "preferences_note": "Nota: le preferenze sono salvate nella memoria locale del tuo browser. L'eliminazione dei dati del tuo browser le ripristinerà.",
+        "copied": "Copiato!",
+        "cannot_copy": "Impossibile copiare!"
     }
 }
