@@ -93,7 +93,10 @@
         "clone_playlist_success": "Berhasil disalin!",
         "clone_playlist": "Salin Daftar Putar",
         "download_as_txt": "Unduh sebagai .txt",
-        "reset_preferences": "Atur ulang preferensi"
+        "reset_preferences": "Atur ulang preferensi",
+        "restore_preferences": "Pulihkan preferensi",
+        "confirm_reset_preferences": "Apakah Anda yakin ingin mengatur ulang preferensi Anda?",
+        "backup_preferences": "Cadangkan preferensi"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh",
