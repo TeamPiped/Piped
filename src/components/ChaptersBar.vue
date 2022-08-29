@@ -1,6 +1,6 @@
 <template>
     <!-- desktop view -->
-    <div v-if="!mobileLayout" class="flex-col overflow-y-scroll max-h-75vh min-h-64 <lg:hidden">
+    <div v-if="!mobileLayout" class="flex-col overflow-y-scroll max-h-75vh min-h-64 lt-lg:hidden">
         <h2 class="mb-2 bg-gray-500/50 p-2" aria-label="chapters" title="chapters">
             {{ $t("video.chapters") }} ({{ chapters.length }})
         </h2>
@@ -45,16 +45,17 @@
 }
 .chapter {
     @apply cursor-pointer self-center p-2.5;
-    img {
-        @apply w-full h-full;
-    }
+}
+.chapter img {
+    @apply w-full h-full;
 }
 .chapter-vertical {
     @apply cursor-pointer self-center p-2.5;
-    img {
-        @apply w-3/10 h-3/10;
-    }
 }
+.chapter-vertical img {
+    @apply w-3/10 h-3/10;
+}
+
 .chapter-vertical:hover {
     @apply bg-gray-500;
 }
