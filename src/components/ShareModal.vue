@@ -1,6 +1,9 @@
 <template>
     <ModalComponent>
-        <h2 v-t="'actions.share'" />
+        <div class="flex">
+            <h2 v-t="'actions.share'" />
+            <button class="ml-3" @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
+        </div>
         <div class="flex justify-between mt-4">
             <label v-t="'actions.with_timecode'" for="withTimeCode" />
             <input id="withTimeCode" type="checkbox" v-model="withTimeCode" />
