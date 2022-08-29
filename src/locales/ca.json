@@ -97,7 +97,10 @@
         "back_to_home": "Torna a l'inici",
         "with_timecode": "Compartir el moment actual",
         "piped_link": "Enllaç de Piped",
-        "share": "Compartir"
+        "share": "Compartir",
+        "time_code": "Moment (en segons)",
+        "copy_link": "Copiar l'enllaç",
+        "follow_link": "Segueix l'enllaç"
     },
     "comment": {
         "pinned_by": "Fixat per",
@@ -147,5 +150,11 @@
     },
     "information": {
         "preferences_note": "Nota: les preferències es desen a l'emmagatzematge local del navegador. Si suprimiu les dades del navegador, es restabliran."
+    },
+    "info": {
+        "preferences_note": "Nota: les preferències es desen a l'emmagatzematge local del navegador. Si elimineu les dades del navegador, es restabliran.",
+        "page_not_found": "No s'ha torbat la pàgina",
+        "copied": "Copiat!",
+        "cannot_copy": "No es pot copiar!"
     }
 }
