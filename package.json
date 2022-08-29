@@ -43,7 +43,7 @@
         "prettier": "^2.7.1",
         "unocss": "^0.45.7",
         "vite": "^2.9.14",
-        "vite-plugin-eslint": "^1.7.0",
+        "vite-plugin-eslint": "^1.8.1",
         "vite-plugin-pwa": "^0.12.3"
     },
     "eslintConfig": {
