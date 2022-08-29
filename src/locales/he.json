@@ -20,6 +20,17 @@
         "unsubscribe": "ביטול מינוי - {count}",
         "view_subscriptions": "הצגת מינויים",
         "sort_by": "מיון לפי:",
-        "most_recent": "האחרונים"
+        "most_recent": "האחרונים",
+        "least_recent": "הראשונים",
+        "channel_name_asc": "שם הערוץ (א-ת)",
+        "channel_name_desc": "שם הערוץ (ת-א)",
+        "back": "חזרה",
+        "uses_api_from": "משתמש ב־API מתוך ",
+        "skip_sponsors": "דילוג על חסויות",
+        "enable_sponsorblock": "הפעלת חסימת חסויות",
+        "skip_preview": "דילוג על הקדמה/סיכום",
+        "skip_interaction": "דילוג על תזכורת הדדיות (מינוי)",
+        "skip_self_promo": "דילוג על קידום ללא עלות/עצמי",
+        "skip_non_music": "דילוג על מוזיקה: קטע שאינו מוזיקלי"
     }
 }
