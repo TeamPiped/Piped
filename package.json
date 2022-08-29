@@ -31,7 +31,7 @@
         "@unocss/preset-icons": "^0.45.7",
         "@unocss/preset-web-fonts": "^0.45.7",
         "@unocss/transformer-directives": "^0.45.7",
-        "@unocss/transformer-variant-group": "^0.45.7",
+        "@unocss/transformer-variant-group": "^0.45.13",
         "@vitejs/plugin-legacy": "^1.8.2",
         "@vitejs/plugin-vue": "^2.3.4",
         "@vue/compiler-sfc": "3.2.37",
@@ -39,11 +39,11 @@
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.2.1",
-        "eslint-plugin-vue": "^9.3.0",
+        "eslint-plugin-vue": "^9.4.0",
         "prettier": "^2.7.1",
         "unocss": "^0.45.7",
         "vite": "^2.9.14",
-        "vite-plugin-eslint": "^1.7.0",
+        "vite-plugin-eslint": "^1.8.1",
         "vite-plugin-pwa": "^0.12.3"
     },
     "eslintConfig": {
