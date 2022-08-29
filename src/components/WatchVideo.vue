@@ -112,8 +112,8 @@
                         </a>
                         <!-- watch on youtube button -->
                         <button class="btn" @click="showShareModal = !showShareModal">
-                            <i18n-t class="<lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
-                            <font-awesome-icon class="mx-1.5" :icon="share" />
+                            <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
+                            <font-awesome-icon class="mx-1.5" icon="fa-share" />
                         </button>
                         <!-- LBRY -->
                         <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
