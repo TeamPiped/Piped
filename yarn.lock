@@ -1297,6 +1297,11 @@
     "@unocss/core" "0.45.7"
     unconfig "^0.3.5"
 
+"@unocss/core@0.45.13":
+  version "0.45.13"
+  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.13.tgz#fb41748276f04767b34abfc43e7c511185f47025"
+  integrity sha512-EesxqFM6lPA6Ot5X4cyRcjJQsgpztrNFpxpu4HBIzbZvXLcoeG97bcLTASGSHPGWeL4baq0ur/47lM42dtjiMQ==
+
 "@unocss/core@0.45.7":
   version "0.45.7"
   resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.7.tgz#f9b8d8f4d6d27d59f893be7419aee70bfc156773"
@@ -1317,13 +1322,22 @@
   dependencies:
     "@unocss/core" "0.45.7"
 
-"@unocss/preset-icons@0.45.7", "@unocss/preset-icons@^0.45.7":
+"@unocss/preset-icons@0.45.7":
   version "0.45.7"
   resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-0.45.7.tgz#d4f6e4350a70aa5c00dd36912906b23e67b978d6"
   integrity sha512-7vP4ayXvdlAa2JflDKH6CvzCIR+pQoiHml+TYEW+FYPP0UNz7lSImLwA7DWPotNYNZ0tFyx8VbaQLlViIwzyVA==
   dependencies:
     "@iconify/utils" "^1.0.33"
     "@unocss/core" "0.45.7"
+    ohmyfetch "^0.4.18"
+
+"@unocss/preset-icons@^0.45.13":
+  version "0.45.13"
+  resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-0.45.13.tgz#7a0184d732db59d8cec0ecd3968c187bf6f497c1"
+  integrity sha512-f84rjUzbjL8j2gemygKMQ6H+8q9rSL86v9y2I6Xc8tI8D9vZeOrObsaHrfZutgFNlCmWsslPdtjB8PlHZ5gMMw==
+  dependencies:
+    "@iconify/utils" "^1.0.33"
+    "@unocss/core" "0.45.13"
     ohmyfetch "^0.4.18"
 
 "@unocss/preset-mini@0.45.7":
@@ -1396,7 +1410,7 @@
   dependencies:
     "@unocss/core" "0.45.7"
 
-"@unocss/transformer-directives@0.45.7", "@unocss/transformer-directives@^0.45.7":
+"@unocss/transformer-directives@0.45.7":
   version "0.45.7"
   resolved "https://registry.yarnpkg.com/@unocss/transformer-directives/-/transformer-directives-0.45.7.tgz#06953001e90456d3b698b0c18dbe5e4cab631714"
   integrity sha512-BwNoixTG5p2VwnUHg9dbCe++0u2i0DPQ+c5X8iJjDBBFcU9uKiBZpw2YZX/RxYWAWLvfiCzC6VGsIKbEAdFs5Q==
@@ -1404,12 +1418,27 @@
     "@unocss/core" "0.45.7"
     css-tree "^2.1.0"
 
-"@unocss/transformer-variant-group@0.45.7", "@unocss/transformer-variant-group@^0.45.7":
+"@unocss/transformer-directives@^0.45.13":
+  version "0.45.13"
+  resolved "https://registry.yarnpkg.com/@unocss/transformer-directives/-/transformer-directives-0.45.13.tgz#d36ef30cf95dcb57c86c913091e202c4eca6c031"
+  integrity sha512-qEBj3zw06cFFUv4+P36ZKw0YKjNt/H9q2IivEOoQETxAiYAH+1ZfHP5gb1lPGSYQYoWHIGVezp56OGQcv7qkwQ==
+  dependencies:
+    "@unocss/core" "0.45.13"
+    css-tree "^2.2.1"
+
+"@unocss/transformer-variant-group@0.45.7":
   version "0.45.7"
   resolved "https://registry.yarnpkg.com/@unocss/transformer-variant-group/-/transformer-variant-group-0.45.7.tgz#95964f319c3999bd96f94ec02c2ee0559fccdbde"
   integrity sha512-rxnu7YtjZXxghHTYCjgWIBerqp3u+FhionzAWQZ0Ull/i2rzMfDbQPOTpPvT+rYB6nJFNfOWYaJILmy/TKRejw==
   dependencies:
     "@unocss/core" "0.45.7"
+
+"@unocss/transformer-variant-group@^0.45.13":
+  version "0.45.13"
+  resolved "https://registry.yarnpkg.com/@unocss/transformer-variant-group/-/transformer-variant-group-0.45.13.tgz#bb9535a5840bffcc930785640dfb4e6bb11d1634"
+  integrity sha512-A1PoS9ijg9x/3Pu8vsBjdlAPLNKKAwFQSyVxFyQsLVG+0IEcqA/s7sRYam3QqM8RLn6lft4QPJ+q/K0+dJ84/A==
+  dependencies:
+    "@unocss/core" "0.45.13"
 
 "@unocss/vite@0.45.7":
   version "0.45.7"
@@ -1877,7 +1906,7 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
-css-tree@^2.1.0:
+css-tree@^2.1.0, css-tree@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-2.2.1.tgz#36115d382d60afd271e377f9c5f67d02bd48c032"
   integrity sha512-OA0mILzGc1kCOCSJerOeqDxDQ4HOh+G8NbOJFOTgOCzpw7fCBubk0fEyxp8AgOL/jvLgYA/uV0cMbe43ElF1JA==
@@ -2590,10 +2619,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hotkeys-js@^3.9.4:
-  version "3.9.4"
-  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.9.4.tgz#ce1aa4c3a132b6a63a9dd5644fc92b8a9b9cbfb9"
-  integrity sha512-2zuLt85Ta+gIyvs4N88pCYskNrxf1TFv3LR9t5mdAZIX8BcgQQ48F2opUptvHa6m8zsy5v/a0i9mWzTrlNWU0Q==
+hotkeys-js@^3.9.5:
+  version "3.9.5"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.9.5.tgz#8314d0522bf2601e36003213047e9dc7d56d19fe"
+  integrity sha512-T0G8CUZ6Q1IOgPnLK1hDXR8DqgKF/VWEsHvZgi6CM7Ub9oOAzvWuJ3Qhc/9nFQaR26MfFOZSwULHrtCnsUX7zA==
 
 human-signals@^2.1.0:
   version "2.1.0"
@@ -3870,10 +3899,10 @@ vue-i18n@^9.2.2:
     "@intlify/vue-devtools" "9.2.2"
     "@vue/devtools-api" "^6.2.1"
 
-vue-router@^4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.1.4.tgz#290540caaf2c54e37a14dec047bd074002eca175"
-  integrity sha512-UgYen33gOtwT3cOG1+yRen+Brk9py8CSlC9LEa3UjvKZ4EAoSo8NjZPDeDnmNerfazorHIJG1NC7qdi1SuQJnQ==
+vue-router@^4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.1.5.tgz#256f597e3f5a281a23352a6193aa6e342c8d9f9a"
+  integrity sha512-IsvoF5D2GQ/EGTs/Th4NQms9gd2NSqV+yylxIyp/OYp8xOwxmU8Kj/74E9DTSYAyH5LX7idVUngN3JSj1X4xcQ==
   dependencies:
     "@vue/devtools-api" "^6.1.4"
 
