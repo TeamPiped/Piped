@@ -3870,10 +3870,10 @@ vue-i18n@^9.2.2:
     "@intlify/vue-devtools" "9.2.2"
     "@vue/devtools-api" "^6.2.1"
 
-vue-router@^4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.1.4.tgz#290540caaf2c54e37a14dec047bd074002eca175"
-  integrity sha512-UgYen33gOtwT3cOG1+yRen+Brk9py8CSlC9LEa3UjvKZ4EAoSo8NjZPDeDnmNerfazorHIJG1NC7qdi1SuQJnQ==
+vue-router@^4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.1.5.tgz#256f597e3f5a281a23352a6193aa6e342c8d9f9a"
+  integrity sha512-IsvoF5D2GQ/EGTs/Th4NQms9gd2NSqV+yylxIyp/OYp8xOwxmU8Kj/74E9DTSYAyH5LX7idVUngN3JSj1X4xcQ==
   dependencies:
     "@vue/devtools-api" "^6.1.4"
 
