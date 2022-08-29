@@ -14,7 +14,7 @@
         "@fortawesome/free-solid-svg-icons": "^6.1.2",
         "@fortawesome/vue-fontawesome": "^3.0.1",
         "buffer": "^6.0.3",
-        "dompurify": "^2.3.12",
+        "dompurify": "^2.4.0",
         "hotkeys-js": "^3.9.5",
         "javascript-time-ago": "^2.5.7",
         "mux.js": "^6.2.0",
