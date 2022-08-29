@@ -93,7 +93,11 @@
         "reset_preferences": "Restablir preferències",
         "restore_preferences": "Restaura les preferències",
         "backup_preferences": "Preferències de la còpia de seguretat",
-        "confirm_reset_preferences": "Esteu segur que voleu restablir les vostres preferències?"
+        "confirm_reset_preferences": "Esteu segur que voleu restablir les vostres preferències?",
+        "back_to_home": "Torna a l'inici",
+        "with_timecode": "Compartir el moment actual",
+        "piped_link": "Enllaç de Piped",
+        "share": "Compartir"
     },
     "comment": {
         "pinned_by": "Fixat per",
