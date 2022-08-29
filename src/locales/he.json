@@ -19,6 +19,7 @@
         "subscribe": "מינוי - {count}",
         "unsubscribe": "ביטול מינוי - {count}",
         "view_subscriptions": "הצגת מינויים",
-        "sort_by": "מיון לפי:"
+        "sort_by": "מיון לפי:",
+        "most_recent": "האחרונים"
     }
 }
