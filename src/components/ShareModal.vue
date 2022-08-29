@@ -69,7 +69,7 @@ export default {
             var href = this.pipedLink
                 ? window.location.origin + "/watch?v=" + this.videoId
                 : "https://youtu.be/" + this.videoId;
-            if (this.withTimeCode && this.timeStamp) href += "?t=" + this.timeStamp;
+            if (this.withTimeCode && this.timeStamp > 0) href += "?t=" + this.timeStamp;
             return href;
         },
     },
