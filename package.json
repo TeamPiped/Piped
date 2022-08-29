@@ -15,7 +15,7 @@
         "@fortawesome/vue-fontawesome": "^3.0.1",
         "buffer": "^6.0.3",
         "dompurify": "^2.3.12",
-        "hotkeys-js": "^3.9.4",
+        "hotkeys-js": "^3.9.5",
         "javascript-time-ago": "^2.5.7",
         "mux.js": "^6.2.0",
         "shaka-player": "4.2.0",
