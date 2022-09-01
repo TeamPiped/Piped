@@ -380,7 +380,10 @@ export default {
 
                         const parser = new DOMParser();
                         const xmlDoc = parser.parseFromString(this.video.description, "text/html");
-                        xmlDoc.querySelectorAll("a").forEach(elem => (elem.outerHTML = elem.getAttribute("href")));
+                        xmlDoc.querySelectorAll("a").forEach(elem => {
+                            if (!elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/))
+                                elem.outerHTML = elem.getAttribute("href");
+                        });
                         xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
                         this.video.description = this.urlify(xmlDoc.querySelector("body").innerHTML)
                             .replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm, "$1")

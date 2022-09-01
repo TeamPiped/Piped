@@ -177,6 +177,7 @@ const mixin = {
             const emailRegex = /([\w-\\.]+@(?:[\w-]+\.)+[\w-]{2,4})/g;
             return string
                 .replace(urlRegex, url => {
+                    if (url.endsWith("</a>")) return url;
                     return `<a href="${url}" target="_blank">${url}</a>`;
                 })
                 .replace(emailRegex, email => {
