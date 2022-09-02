@@ -69,11 +69,12 @@ export default {
     },
     computed: {
         generatedLink() {
-            var href = this.pipedLink
+            var baseUrl = this.pipedLink
                 ? window.location.origin + "/watch?v=" + this.videoId
                 : "https://youtu.be/" + this.videoId;
-            if (this.withTimeCode && this.timeStamp > 0) href += "?t=" + this.timeStamp;
-            return href;
+            var url = new URL(baseUrl);
+            if (this.withTimeCode && this.timeStamp > 0) url.searchParams.append("t", this.timeStamp);
+            return url.href;
         },
     },
 };
