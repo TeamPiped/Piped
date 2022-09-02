@@ -83,10 +83,10 @@
         "backup_preferences": "Salva un backup delle preferenze",
         "back_to_home": "Torna alla pagina iniziale",
         "share": "Condividi",
-        "piped_link": "Link a Piped",
-        "copy_link": "Copia link",
+        "piped_link": "Collegamento a Piped",
+        "copy_link": "Copia il collegamento",
         "time_code": "Tempo (in secondi)",
-        "follow_link": "Apri link",
+        "follow_link": "Apri il collegamento",
         "with_timecode": "Condividi con marca temporale"
     },
     "player": {
