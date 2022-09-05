@@ -54,7 +54,7 @@ TimeAgo.addDefaultLocale(en);
 
 import { createI18n } from "vue-i18n";
 import enLocale from "@/locales/en.json";
-import "@unocss/reset/tailwind.css";
+// import "@unocss/reset/tailwind.css";
 import "uno.css";
 
 const timeAgo = new TimeAgo("en-US");
@@ -285,3 +285,8 @@ app.use(router);
 app.mixin(mixin);
 app.component("FontAwesomeIcon", FontAwesomeIcon);
 app.mount("#app");
+
+/*EFY UI*/
+import "../efy/efy.css";
+import "../efy/piped.css";
+import "../efy/efy.js";
