@@ -652,15 +652,6 @@ export default {
 .player-container {
     @apply max-h-75vh min-h-64 bg-black;
 }
-
-.shaka-video-container .material-icons-round {
-    @apply !text-xl;
-}
-
-.shaka-current-time {
-    @apply !text-base;
-}
-
 .shaka-video-container:-webkit-full-screen {
     max-height: none !important;
 }

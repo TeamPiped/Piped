@@ -6,7 +6,7 @@
             <div>
                 <input
                     v-model="username"
-                    class="input"
+                    class="input w-auto"
                     type="text"
                     autocomplete="username"
                     :placeholder="$t('login.username')"
@@ -17,7 +17,7 @@
             <div>
                 <input
                     v-model="password"
-                    class="input"
+                    class="input w-auto"
                     type="password"
                     autocomplete="password"
                     :placeholder="$t('login.password')"

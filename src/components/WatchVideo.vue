@@ -36,16 +36,16 @@
                 />
             </div>
             <!-- video title -->
-            <div class="font-bold mt-2 text-2xl break-words" v-text="video.title" />
-            <div class="flex flex-wrap mt-3 mb-3">
+            <div class="pp-video-title font-bold mt-2 text-2xl break-words" v-text="video.title" />
+            <div class="pp-bellow-video flex flex-wrap mt-3 mb-3">
                 <!-- views / date -->
                 <div class="flex flex-auto children:ml-2">
                     <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
-                    <span> | </span>
+                    <span> • </span>
                     <span v-text="uploadDate" />
                 </div>
                 <!-- Likes/dilikes -->
-                <div class="flex children:mr-2">
+                <div class="pp-likes flex children:mr-2">
                     <template v-if="video.likes >= 0">
                         <div class="flex">
                             <div class="i-fa-solid:thumbs-up" />
@@ -64,20 +64,19 @@
                 </div>
             </div>
             <!-- Channel info & options flex container -->
-            <div class="flex">
+            <div class="pp-watch-bellow-options flex">
                 <!-- Channel Image & Info -->
                 <div class="flex items-center">
-                    <img :src="video.uploaderAvatar" alt="" loading="lazy" class="rounded-full" />
+                    <img :src="video.uploaderAvatar" alt="" loading="lazy" />
                     <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">{{
                         video.uploader
                     }}</router-link>
                     <!-- Verified Badge -->
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
                 </div>
-                <div class="flex relative ml-auto children:mx-1">
-                    <button class="btn" v-if="authenticated" @click="showModal = !showModal">
-                        {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
-                    </button>
+
+                <div class="pp-watch-buttons">
+                    <!-- Subscribe button -->
                     <button
                         class="btn"
                         @click="subscribeHandler"
@@ -86,88 +85,81 @@
                             args: { count: numberFormat(video.uploaderSubscriberCount) },
                         }"
                     />
-                </div>
-                <PlaylistAddModal v-if="showModal" :video-id="getVideoId()" @close="showModal = !showModal" />
-                <ShareModal
-                    v-if="showShareModal"
-                    :video-id="getVideoId()"
-                    :current-time="currentTime"
-                    @close="showShareModal = !showShareModal"
-                />
-                <div class="flex">
-                    <div class="self-center children:mr-1 my-1">
-                        <!-- RSS Feed button -->
-                        <a
-                            aria-label="RSS feed"
-                            title="RSS feed"
-                            role="button"
-                            v-if="video.uploaderUrl"
-                            :href="`https://www.youtube.com/feeds/videos.xml?channel_id=${
-                                video.uploaderUrl.split('/')[2]
-                            }`"
-                            target="_blank"
-                            class="btn flex-col"
-                        >
-                            <font-awesome-icon icon="rss" />
-                        </a>
-                        <!-- watch on youtube button -->
-                        <button class="btn" @click="showShareModal = !showShareModal">
-                            <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
-                            <font-awesome-icon class="mx-1.5" icon="fa-share" />
-                        </button>
-                        <!-- LBRY -->
-                        <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
-                            <i18n-t keypath="player.watch_on" tag="strong">LBRY</i18n-t>
-                        </a>
-                        <!-- listen / watch toggle -->
-                        <router-link
-                            :to="toggleListenUrl"
-                            :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
-                            :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
-                            class="btn flex-col"
-                        >
-                            <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'" />
-                        </router-link>
-                    </div>
+                    <!-- RSS Feed button -->
+                    <a
+                        aria-label="RSS feed"
+                        title="RSS feed"
+                        role="button"
+                        v-if="video.uploaderUrl"
+                        :href="`https://www.youtube.com/feeds/videos.xml?channel_id=${video.uploaderUrl.split('/')[2]}`"
+                        target="_blank"
+                        class="btn flex-col"
+                    >
+                        <font-awesome-icon icon="rss" />
+                    </a>
+                    <!-- watch on youtube button -->
+                    <button class="btn" @click="showShareModal = !showShareModal">
+                        <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
+                        <font-awesome-icon class="mx-1.5 ml-1" icon="fa-share" />
+                    </button>
+                    <!-- LBRY -->
+                    <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
+                        <i18n-t keypath="player.watch_on" tag="strong">LBRY</i18n-t>
+                    </a>
+                    <!-- listen / watch toggle -->
+                    <router-link
+                        :to="toggleListenUrl"
+                        :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
+                        :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
+                        class="btn flex-col"
+                    >
+                        <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'" />
+                    </router-link>
+                    <!-- Playlist Add button -->
+                    <button class="btn" v-if="authenticated" @click="showModal = !showModal">
+                        {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
+                    </button>
+                    <PlaylistAddModal v-if="showModal" :video-id="getVideoId()" @close="showModal = !showModal" />
+                    <ShareModal
+                        v-if="showShareModal"
+                        :video-id="getVideoId()"
+                        :current-time="currentTime"
+                        @close="showShareModal = !showShareModal"
+                    />
                 </div>
             </div>
 
             <hr />
 
-            <button
-                class="btn mb-2"
-                @click="showDesc = !showDesc"
-                v-t="`actions.${showDesc ? 'minimize_description' : 'show_description'}`"
-            />
+            <div efy_select>
+                <input id="showDesc" type="checkbox" checked @change="showDesc = !showDesc" />
+                <label for="showDesc" v-t="'actions.show_description'" />
+                <input id="showRecs" type="checkbox" checked @change="showRecs = !showRecs" />
+                <label for="showRecs" v-t="'actions.show_recommendations'" />
+                <input id="chkAutoLoop" v-model="selectedAutoLoop" type="checkbox" @change="onChange($event)" />
+                <label for="chkAutoLoop" v-text="`${$t('actions.loop_this_video')}`" />
+                <input id="chkAutoPlay" v-model="selectedAutoPlay" type="checkbox" @change="onChange($event)" />
+                <label for="chkAutoPlay" v-text="`${$t('actions.auto_play_next_video')}`" />
+            </div>
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <div v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
+            <div v-show="showDesc" class="break-words mb-2" v-html="purifyHTML(video.description)" />
             <div
                 v-if="showDesc && sponsors && sponsors.segments"
                 v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
             />
         </div>
 
-        <hr />
-
-        <label for="chkAutoLoop"><strong v-text="`${$t('actions.loop_this_video')}:`" /></label>
-        <input id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" type="checkbox" @change="onChange($event)" />
-        <br />
-        <label for="chkAutoPlay"><strong v-text="`${$t('actions.auto_play_next_video')}:`" /></label>
-        <input id="chkAutoPlay" v-model="selectedAutoPlay" class="ml-1.5" type="checkbox" @change="onChange($event)" />
-
-        <hr />
-
-        <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
-            <div v-if="!commentsEnabled" class="xl:col-span-4 sm:col-span-3">
+        <div class="grid pp-rec-vids">
+            <div v-if="!commentsEnabled" class="">
                 <p class="text-center mt-8" v-t="'comment.user_disabled'"></p>
             </div>
-            <div v-else-if="!comments" class="xl:col-span-4 sm:col-span-3">
+            <div v-else-if="!comments" class="">
                 <p class="text-center mt-8" v-t="'comment.loading'"></p>
             </div>
-            <div v-else-if="comments.disabled" class="xl:col-span-4 sm:col-span-3">
+            <div v-else-if="comments.disabled" class="">
                 <p class="text-center mt-8" v-t="'comment.disabled'"></p>
             </div>
-            <div v-else ref="comments" class="xl:col-span-4 sm:col-span-3">
+            <div v-else ref="comments" class="">
                 <CommentItem
                     v-for="comment in comments.comments"
                     :key="comment.commentId"
@@ -184,13 +176,7 @@
                     :playlist="playlist"
                     :selected-index="index"
                 />
-                <a
-                    class="btn mb-2"
-                    @click="showRecs = !showRecs"
-                    v-t="`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`"
-                />
-                <hr v-show="showRecs" />
-                <div v-show="showRecs">
+                <div v-show="showRecs" class="pp-show-recs">
                     <VideoItem
                         v-for="related in video.relatedStreams"
                         :key="related.url"
@@ -199,7 +185,6 @@
                         width="168"
                     />
                 </div>
-                <hr class="sm:hidden" />
             </div>
         </div>
     </div>

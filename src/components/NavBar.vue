@@ -1,20 +1,13 @@
 <template>
-    <nav class="flex flex-wrap items-center justify-center px-2 sm:px-4 py-2.5 w-full relative">
-        <div class="flex-1 flex justify-start">
+    <nav class="pp-nav flex flex-wrap items-center justify-center px-2 sm:px-4 py-2.5 w-full relative">
+        <div class="flex-1 flex justify-start pp-logo">
             <router-link class="flex font-bold text-3xl items-center font-sans" to="/"
-                ><img
-                    alt="logo"
-                    src="/img/icons/logo.svg"
-                    height="32"
-                    width="32"
-                    class="w-10 mr-[-0.6rem]"
-                />iped</router-link
+                ><img alt="logo" src="/img/icons/logo.svg" height="32" width="32" />iped</router-link
             >
         </div>
         <div class="lt-md:hidden">
             <input
                 v-model="searchText"
-                class="input w-72 h-10"
                 type="text"
                 role="search"
                 ref="videoSearch"
@@ -26,14 +19,12 @@
                 @blur="onInputBlur"
             />
         </div>
-        <!-- three vertical lines for toggling the hamburger menu on mobile -->
-        <button class="md:hidden flex flex-col justify-end mr-3" @click="showTopNav = !showTopNav">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
+        <!-- hamburger menu on mobile -->
+        <button class="pp-mobile-btn flex flex-col justify-end mr-3" @click="showTopNav = !showTopNav">
+            <i efy_icon="menu" />
         </button>
         <!-- navigation bar for large screen devices -->
-        <ul class="hidden md:(flex-1 flex justify-end flex text-1xl children:pl-3)">
+        <ul class="flex-1 flex justify-end flex text-1xl children:pl-3">
             <li v-if="shouldShowTrending">
                 <router-link v-t="'titles.trending'" to="/trending" />
             </li>
@@ -58,38 +49,19 @@
         </ul>
     </nav>
     <!-- navigation bar for mobile devices -->
-    <ul
-        v-if="showTopNav"
-        class="flex flex-col justify-center items-end mb-4 children:(my-0.5 mr-5)"
-        @click="showTopNav = false"
-    >
-        <li v-if="shouldShowTrending">
-            <router-link v-t="'titles.trending'" to="/trending" />
-        </li>
-        <li>
-            <router-link v-t="'titles.preferences'" to="/preferences" />
-        </li>
-        <li v-if="shouldShowLogin">
-            <router-link v-t="'titles.login'" to="/login" />
-        </li>
-        <li v-if="shouldShowLogin">
-            <router-link v-t="'titles.register'" to="/register" />
-        </li>
-        <li v-if="shouldShowHistory">
-            <router-link v-t="'titles.history'" to="/history" />
-        </li>
-        <li v-if="authenticated">
-            <router-link v-t="'titles.playlists'" to="/playlists" />
-        </li>
-        <li v-if="!shouldShowTrending">
-            <router-link v-t="'titles.feed'" to="/feed" />
-        </li>
-    </ul>
+    <div v-if="showTopNav" class="pp-mobile-nav flex flex-col" @click="showTopNav = false">
+        <router-link v-if="shouldShowTrending" v-t="'titles.trending'" to="/trending" />
+        <router-link v-t="'titles.preferences'" to="/preferences" />
+        <router-link v-if="shouldShowLogin" v-t="'titles.login'" to="/login" />
+        <router-link v-if="shouldShowLogin" v-t="'titles.register'" to="/register" />
+        <router-link v-if="shouldShowHistory" v-t="'titles.history'" to="/history" />
+        <router-link v-if="authenticated" v-t="'titles.playlists'" to="/playlists" />
+        <router-link v-if="!shouldShowTrending" v-t="'titles.feed'" to="/feed" />
+    </div>
     <!-- search suggestions for mobile devices -->
     <div class="w-{full - 4} md:hidden mx-2">
         <input
             v-model="searchText"
-            class="input h-10 w-full"
             type="text"
             role="search"
             :title="$t('actions.search')"

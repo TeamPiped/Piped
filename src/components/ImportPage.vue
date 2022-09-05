@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div>
         <form>
             <div>
                 <input ref="fileSelector" type="file" @change="fileChange" />
@@ -7,8 +7,9 @@
             <div>
                 <strong v-text="`Selected Subscriptions: ${selectedSubscriptions}`" />
             </div>
-            <div>
-                <strong>Override: <input v-model="override" class="checkbox" type="checkbox" /></strong>
+            <div efy_select>
+                <input v-model="override" id="import-override" type="checkbox" />
+                <label for="import-override">Override</label>
             </div>
             <div>
                 <a class="btn w-auto" @click="handleImport">Import</a>

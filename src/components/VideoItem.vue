@@ -83,7 +83,7 @@
                     :src="video.uploaderAvatar"
                     loading="lazy"
                     :alt="video.uploaderName"
-                    class="rounded-full mr-0.5 mt-0.5 w-32px h-32px"
+                    class="mr-0.5 mt-0.5 w-32px h-32px"
                     width="68"
                     height="68"
                 />
@@ -115,16 +115,8 @@
 
 <style>
 .thumbnail-overlay {
-    @apply rounded-md absolute bg-black text-white bg-opacity-75 px-5px;
+    @apply absolute;
 }
-
-.thumbnail-right {
-    @apply bottom-5px right-5px;
-}
-.thumbnail-left {
-    @apply bottom-5px left-5px text-xs font-bold bg-red-600 uppercase;
-}
-
 .shorts-img {
     @apply max-h-[17.5vh] w-full object-contain;
 }

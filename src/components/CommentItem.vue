@@ -1,13 +1,6 @@
 <template>
     <div class="comment flex mt-1.5">
-        <img
-            :src="comment.thumbnail"
-            class="comment-avatar rounded-full w-12 h-12"
-            height="48"
-            width="48"
-            loading="lazy"
-            alt="Avatar"
-        />
+        <img :src="comment.thumbnail" class="comment-avatar" height="48" width="48" loading="lazy" alt="Avatar" />
 
         <div class="comment-content pl-2">
             <div class="comment-header">
@@ -17,18 +10,16 @@
                     <span v-text="uploader" />
                 </div>
 
-                <div class="comment-author">
+                <div class="comment-author mt-1 flex">
                     <router-link class="font-bold link" :to="comment.commentorUrl">{{ comment.author }}</router-link>
                     <font-awesome-icon class="ml-1.5" v-if="comment.verified" icon="check" />
+                    <div class="comment-meta mb-1.5" v-text="' • ' + comment.commentedTime + ' •'" />
+                    <div class="i-fa-solid:thumbs-up" />
+                    <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
+                    <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
                 </div>
-                <div class="comment-meta text-sm mb-1.5" v-text="comment.commentedTime" />
             </div>
             <div class="whitespace-pre-wrap" v-text="comment.commentText" />
-            <div class="comment-footer mt-1 flex">
-                <div class="i-fa-solid:thumbs-up" />
-                <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
-                <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
-            </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies" class="cursor-pointer">
                     <a v-t="'actions.show_replies'" />

@@ -2,14 +2,14 @@
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
 
     <div v-if="channel" v-show="!channel.error">
-        <div class="flex justify-center place-items-center">
-            <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
-            <h1 v-text="channel.name" />
-            <font-awesome-icon class="ml-1.5 !text-3xl" v-if="channel.verified" icon="check" />
-        </div>
         <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
+        <div class="pp-channel-page-author flex place-items-center">
+            <img height="48" width="48" class="m-1" :src="channel.avatarUrl" />
+            <h5 v-text="channel.name" />
+            <font-awesome-icon class="ml-1.5" v-if="channel.verified" icon="check" />
+        </div>
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <p class="whitespace-pre-wrap">
+        <p class="whitespace-pre-wrap mt-2">
             <span v-html="purifyHTML(urlify(channel.description))" />
         </p>
 

@@ -1,25 +1,25 @@
 <template>
     <ModalComponent>
-        <div class="flex">
-            <h2 v-t="'actions.share'" />
+        <div class="flex justify-between">
+            <h3 v-t="'actions.share'" />
             <button class="ml-3" @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
         </div>
         <div class="flex justify-between mt-4">
             <label v-t="'actions.with_timecode'" for="withTimeCode" />
             <input id="withTimeCode" type="checkbox" v-model="withTimeCode" />
         </div>
-        <div class="flex justify-between">
+        <div class="flex justify-between mt-2">
             <label v-t="'actions.piped_link'" />
             <input type="checkbox" v-model="pipedLink" />
         </div>
         <div class="flex justify-between mt-2">
             <label v-t="'actions.time_code'" />
-            <input class="input w-12" type="text" v-model="timeStamp" />
+            <input class="input w-300" type="text" v-model="timeStamp" />
         </div>
-        <h3 class="mt-4" v-text="generatedLink" />
+        <h6 class="mb-2" v-text="generatedLink" />
         <div class="flex justify-end mt-4">
-            <button class="btn" v-t="'actions.follow_link'" @click="followLink()" />
-            <button class="btn ml-3" v-t="'actions.copy_link'" @click="copyLink()" />
+            <button class="btn" style="margin-right: 15rem" v-t="'actions.follow_link'" @click="followLink()" />
+            <button class="btn" v-t="'actions.copy_link'" @click="copyLink()" />
         </div>
     </ModalComponent>
 </template>

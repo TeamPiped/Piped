@@ -1,7 +1,7 @@
 <template>
     <ModalComponent>
-        <div class="flex">
-            <span class="text-2xl w-max inline-block" v-t="'actions.select_playlist'" />
+        <div class="flex pp-playlist-add-modal-top">
+            <h6 class="w-max inline-block" v-t="'actions.select_playlist'" />
             <button class="ml-3" @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
         </div>
         <select class="select w-full mt-3" v-model="selectedPlaylist">
