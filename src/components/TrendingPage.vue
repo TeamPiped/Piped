@@ -1,8 +1,4 @@
 <template>
-    <h1 v-t="'titles.trending'" class="font-bold text-center my-4" />
-
-    <hr />
-
     <div class="video-grid">
         <VideoItem v-for="video in videos" :key="video.url" :video="video" height="118" width="210" />
     </div>
