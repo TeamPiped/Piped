@@ -37,6 +37,6 @@ export default {
 }
 
 .modal-container {
-    @apply w-min m-auto px-8 bg-dark-700 p-6 rounded-xl min-w-[20vw];
+    @apply w-min m-auto min-w-[20vw];
 }
 </style>
