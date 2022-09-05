@@ -1,0 +1,338 @@
+/*EFY UI 2022.09.04*/:root { --efy_font_size: 1px;
+--efy_radius0: calc(var(--efy_radius) / 1.25); --efy_radius2: calc(var(--efy_radius) * 1.5); --efy_radius00: calc(var(--efy_radius) / 3);
+--efy_padding:  8rem  16rem; --efy_padding2: 3rem  6rem; --efy_gap:  15rem; --efy_body_width: 1120rem;
+--efy_color: rgb(var(--efy_color1_var)); --efy_color_trans: rgba(var(--efy_color1_var), 0.3);
+--efy_color2: rgb(var(--efy_color2_var)); --efy_color2_trans: rgba(var(--efy_color2_var), 0.3);
+
+--efy_color_text_var: 0,0,0; --efy_color_bgcol_var: 100,100,100;
+--efy_bg1: rgba(var(--efy_bg_var), 0.07); --efy_bg2: rgba(var(--efy_bg_var), 0.13);
+--efy_text: rgb(var(--efy_bg_var)); --efy_text_trans: rgba(var(--efy_bg_var), 0.3); --efy_text_trans2: rgba(var(--efy_bg_var), 0.45); --efy_text2: var(--efy_bg);
+--efy_color_border: rgba(var(--efy_bg_var), 0.07);}
+
+/*Light: All*/ [efy_theme*=light] {--efy_bg: rgb(255,255,255); --efy_bg_var: 0,0,0; color-scheme: light}
+/*Dark: All*/ [efy_theme*=dark] {--efy_bg: rgb(0,0,0); --efy_bg_var: 255,255,255; color-scheme: dark}
+
+/*Sepia*/ [efy_theme=light_sepia] {--efy_bg: rgb(244,236,216); --efy_text: rgb(91,70,54)}
+/*Dark*/ [efy_theme=dark_dark] {--efy_bg: rgb(35,35,35); --efy_text: rgb(220,220,220)}
+/*Nord*/ [efy_theme=dark_nord] {--efy_bg: rgb(35,40,50); --efy_text: rgb(165,175,195)}
+/*Black*/ [efy_theme=dark_black] {--efy_text: rgb(200,200,200)}
+/*Dark Transparent*/ [efy_theme=dark_trans] {--efy_text2: rgb(0,0,0)}
+
+/*Custom Text*/ [efy_color_text][efy_theme] {--efy_text: rgb(var(--efy_color_text_var)); --efy_text_trans: rgba(var(--efy_bg_var), 0.3); --efy_text_trans2: rgb(var(--efy_color_text_var), 0.45)}
+/*Custom Background*/ [efy_color_bgcol][efy_theme] {--efy_bg: rgb(var(--efy_color_bgcol_var))}
+
+
+/*Display: Block*/ table, .efy_toggle_visible {display: block}
+/*Display: Inline-Block*/ header > nav li, header > nav a, header > nav a:visited, [efy_select] label, [efy_select] label:before, [efy_select] input:checked + label:after {display: inline-block}
+/*Display: None*/ [efy_sidebar_btn_close], [efy_select] [for*=efy_color]:before, [efy_select] [for*=efy_color]:after {display: none}
+/*Display: None ! */ [efy_display_none], [efy_display_none] * {display: none!important}
+
+/*Content: ''*/ [type="radio"]:checked:after, [type="checkbox"]:checked:after, [efy_select] label:before, [efy_select] [type="radio"]:checked + label:after, [efy_select] [type=checkbox]:checked + label:after {content: ''}
+/*Content: None*/ [efy_select] [for*=efy_color]:before, [efy_select] [for*=efy_color]:after {content: none}
+
+/*BG: Transparent*/ html, body, .efy_sidebar {background: transparent!important}
+/*BG*/ html:not([efy_theme*=trans]):before, html:not([efy_theme*=trans]):after {background: var(--efy_bg)!important}
+/*BG1*/ aside, th, [type="file"], pre, textarea, select, input, details, blockquote, pre, article, tr:nth-child(even), [efy_alert] {background: var(--efy_bg1)}
+/*BG: text*/ mark, kbd {background: var(--efy_text)}
+/*BG: efy*/ button, [role="button"], [type="submit"], [type="reset"], [type="button"], blockquote:before, [efy_sidebar_btn_open]:hover, [efy_sidebar_btn_close]:hover, [type="checkbox"]:checked, [type="radio"]:checked, option:checked, [efy_select] input:checked + label, [efy_tabs] [efy_tab][efy_active], .efy_img_previews [efy_bg_nr][efy_active]:before {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; -webkit-text-fill-color: var(--efy_text2)}
+/*BG: efy Trans*/ [type="range"], [type="radio"], [type="checkbox"], [efy_sidebar_btn_open], [efy_sidebar_btn_close], [efy_select] label, [efy_tabs] [efy_tab]:not([efy_active]) {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)), linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans)); -webkit-background-clip: text, padding-box; -moz-background-clip: text, padding-box; -webkit-text-fill-color: transparent; -moz-text-fill-color: transparent; box-shadow: inset 0 0 0  1.5rem var(--efy_color_border)!important; border: 0!important}
+
+
+/*Text color 1*/ body, textarea, select, input, pre, pre code, header > nav a, header > nav a:visited, [efy_sidebar_btn_close], [efy_sidebar_btn_open]:hover {color: var(--efy_text)}
+/*Text color 2*/ figcaption, cite, footer {color: var(--efy_text_trans2)}
+/*Text color 3*/ button, [role="button"], [type="submit"], [type="reset"], [type="button"], mark, kbd, option:checked, [efy_select] input:checked + label {color: var(--efy_text2)}
+/*Text color: efy*/ a, a:visited, pre > code, code, samp {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: text; -webkit-background-clip: text; -moz-background-clip: text; -webkit-text-fill-color: transparent; -moz-text-fill-color: transparent}
+/*Text-Decoration: None*/ a, a:visited {text-decoration: none}
+
+/*Border*/ textarea, select, input, button, [role="button"], [type="submit"], [type="reset"], [type="button"], details, pre, td, th, article, aside, blockquote, [type="file"], .efy_sidebar, [efy_tabs] [efy_content], [efy_alert] {border:  1.5rem solid var(--efy_color_border)}
+
+/*Outline: None*/ * {outline: none!important}
+/*Outline*/ textarea:focus, select:focus, input:not([type=checkbox], [type=radio]):focus, [type="file"]:focus, [type="range"]:focus,  [efy_outline] [efy_select] input:focus + label, [efy_outline] [type=checkbox]:focus, [efy_outline] [type=radio]:focus, [efy_outline] button:focus, [efy_outline] [role="button"]:focus, [efy_outline] [type="submit"]:focus, [efy_outline] [type="reset"]:focus, [efy_outline] [type="button"]:focus, [efy_outline] [efy_select] input:focus + label  {outline: 3rem solid var(--efy_text)!important}
+/*Outline Offset*/ [type=checkbox], [type=radio], button, [efy_select] label {outline-offset: 4rem}
+
+
+/*Radius*/ textarea, select, input, img, video, pre, details, summary, blockquote, article, aside, [type="range"], button, [role="button"], [type="submit"], [type="reset"], [type="button"], img, video, audio, table, [efy_sidebar_btn_open], [efy_sidebar_btn_close]{border-radius: var(--efy_radius)}
+/*Radius2*/ [efy_timer], [efy_clock], [efy_alert] {border-radius: var(--efy_radius2)}
+/*Radius0*/ mark, kbd, [type="checkbox"], [type="radio"] {border-radius: var(--efy_radius0)}
+/*Radius00*/ [type="radio"]:checked:after {border-radius: var(--efy_radius00)}
+
+
+/*Margin: 0*/
+
+
+/*Position: relative*/ [type="checkbox"], [type="radio"], [efy_select] label {position: relative}
+/*Position: absolute*/ [type="checkbox"]:checked:after, [type="radio"]:checked:after, [efy_select] [type="checkbox"], [efy_select] [type="radio"], [efy_select] [type="checkbox"]:checked + label:after, [efy_select] [type="radio"]:checked + label:after, [efy_select] label [type="color"] {position: absolute}
+
+
+/*Cursor: Pointer*/ button:focus, button:enabled:hover, [role="button"]:focus, [role="button"]:not([aria-disabled="true"]):hover, [type="submit"]:focus, [type="submit"]:enabled:hover, [type="reset"]:focus, [type="reset"]:enabled:hover, [type="button"]:focus, [type="button"]:enabled:hover, summary, [type="range"], [type="file"], [efy_sidebar_btn_close], [efy_sidebar_btn_open], [efy_select] label {cursor: pointer}
+/*Cursor: Help*/ abbr {cursor: help}
+/*Cursor: None*/ /* * {cursor: none!important} */
+
+
+/*Disabled*/ input:disabled, textarea:disabled, select:disabled, button[disabled],[role="button"][aria-disabled="true"],[type="submit"][disabled],[type="reset"][disabled],[type="button"][disabled],[type="checkbox"][disabled],[type="radio"][disabled],select[disabled] {opacity: 0.5; cursor: not-allowed}
+
+
+/*Aspect-Ratio: 1*/ .xzy {aspect-ratio: 1}
+
+/*Line-Height: 30rem*/ mark, kbd {line-height: 30rem}
+
+/*Padding1*/ button, [role="button"], [type="submit"], [type="reset"], [type="button"], summary, blockquote, pre, [efy_select] label {padding: var(--efy_padding)}
+/*Padding2*/ mark, kbd {padding: var(--efy_padding2)}
+
+
+/*Vertical align: Middle*/ [efy_select] label:before, [efy_select] input:checked + label:after {vertical-align: middle}
+
+
+/*Text: Font*/ html, body, mark, code, pre, pre span, kbd, samp {font-family: var(--efy_font_family)}
+/*Text: Bold*/ button, a, code, kbd, samp, mark, summary, th, table caption, [type="button"], [type="submit"], [type="reset"], [efy_sidebar_btn_open], [efy_sidebar_btn_close], code {font-weight: bold}
+
+
+/*No Selection*/ [efy_select] label {user-drag: none; -webkit-user-drag: none; user-select: none; -webkit-user-select: none}
+/*Selection Color*/ ::selection {background: var(--efy_text); color: var(--efy_text2); -webkit-text-fill-color: var(--efy_text2)} ::-moz-selection {background: var(--efy_text); color: var(--efy_text2); -moz-text-fill-color: var(--efy_text2)}
+
+
+/*Scrollbar*/ ::-webkit-scrollbar {width:20rem; min-height:20rem; background: transparent!important} ::-webkit-scrollbar-thumb{background: transparent!important; border-radius: 9rem; border: 6rem solid transparent; box-shadow: inset 0 0 0 6rem var(--efy_bg2), inset 0 0 0  1.5rem var(--efy_bg1)} ::-webkit-scrollbar-thumb:hover{box-shadow: inset 0 0 0 6rem var(--efy_text)} ::-webkit-scrollbar-corner {background: transparent!important}
+
+
+/*Animation: None*/ [efy_tabs] [efy_tab]:active {-webkit-animation: none;animation: none}
+/*Animation: FadeIn*/ .xzy {animation: efy_animation_fadein2 0.3s}
+/*Animation: Pulse*/  button:focus, button:active, [efy_tabs] [efy_tab]:focus, .efy_img_previews [efy_bg_nr], .efy_img_previews [efy_bg_nr]:active, .efy_img_previews [efy_bg_nr]:focus, .efy_anim_pulse:active  {animation: pulse 0.1s ease-in-out backwards}
+/*Animation: Pulse2*/ details:active, details:focus, input:focus, input:active, textarea:focus, textarea:active, select:focus, select:active, a:focus, a:active, label:active, label:focus, [efy_timer]:active,  [efy_clock]:active, .efy_anim_pulse:hover {animation: pulse2 0.1s ease-in-out backwards}
+
+/*Animations*/ @keyframes efy_animation_fadein {0%{opacity: 0.01; transform: translatex(200rem)} 50%{opacity: 0.2; transform: scale(0.5)} 90%{transform: scale(1.1)} 100%{}}
+@keyframes efy_animation_fadein2 {0%{opacity: 0; filter: blur(50rem); transform: translate(500rem 500rem)} 90%{opacity: 0.2; transform: scale(0.5); filter: blur(30rem)} 100%{}}
+@keyframes pulse {0% {transform: scale(0.8)} 70% {transform: scale(1)} 100% {transform: scale(0.98); box-shadow: none}}
+@keyframes pulse2 {0% {transform: scale(0.98)} 100% {transform: scale(1); box-shadow: none}}
+
+
+/*Convergent body*/ * {margin: 0; padding: 0; box-sizing: border-box}
+html, body {margin: 0 auto}
+html {font-size: var(--efy_font_size)!important}
+body {width: 100vw; padding: 32rem; line-height: 1.5; min-height: 100vh; max-width: var(--efy_body_width); overflow: overlay; transition: background .3s, color .3s; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent} body * {font-size: 16rem}
+html:before, html:after {content: ''; display: block; position: fixed; top:0; left:0; z-index: -1; background-size: cover!important; width: 100vw; height: 100vh}
+
+/*Make the header bg full width, but the content inline with body*/
+header {text-align: center; padding: 0  8rem; grid-column: 1 / -1}
+
+header p, header h1 {margin:  16rem auto}
+
+footer {margin-top: 40rem; padding: 32rem  16rem  24rem  16rem; text-align: center; border-top:  1.5rem solid var(--efy_color_border)}
+
+/*Headers*/h1 {font-size:  45rem} h2 {font-size: 40rem} h3 {font-size: 35rem} h4 {font-size: 30rem} h5 {font-size: 25rem} h6 {font-size: 20rem}
+
+
+/*Links & buttons*/
+a, a:visited {font-size: inherit}
+
+button, [role="button"], [type="submit"], [type="reset"], [type="button"] {font-size:  16rem; -webkit-text-fill-color: var(--efy_text2); -moz-text-fill-color: var(--efy_text2); margin:  8rem 0}
+
+/*Navigation*/
+header > nav {padding:  16rem 0 0 0}
+
+/*Use flexbox to allow items to wrap, as needed*/
+header > nav ul, header > nav ol {align-content: space-around; align-items: center; display: flex; flex-direction: row; justify-content: center; list-style-type: none; margin: 0; padding: 0}
+
+header > nav a, header > nav a:visited {margin-right:  16rem; text-decoration: none}
+
+header > nav a:hover {color: var(--efy_color); border-color: var(--efy_color)}
+header > nav a:last-child {margin-right: 0}
+
+
+ul, ol, li {padding: 0  1.5rem; margin: 0  8rem}
+
+aside {width: 30%; padding: 0  16rem; margin-left:  16rem; float: right}
+
+article {padding:  16rem}
+
+section {border-top:  1.5rem solid var(--efy_color_border); border-bottom:  1.5rem solid var(--efy_color_border); padding: 32rem  16rem; margin:  48rem 0}
+
+/*Expanding Box*/ details {margin-bottom:  16rem} details > details {padding: 0.6rem  16rem 0  16rem}
+details[open] {padding: 0.6rem  16rem 16rem  16rem}
+details[open] summary + * {margin-top: 0}
+details[open] summary {margin: 8rem 0; padding: 0}
+details[open] > *:last-child {margin-bottom: 0}
+
+/*Format tables*/ table {border-collapse: collapse; margin:  24rem 0; overflow: auto; width: fit-content; max-width: 100%}
+
+td, th {text-align: left; padding:  8rem}
+
+table caption {margin-bottom:  8rem}
+
+/*Format forms*/ textarea, select, input {font-size: inherit; font-family: inherit; padding:  8rem; margin-bottom:  8rem; box-shadow: none; box-sizing: border-box; width: 100%; -moz-appearance: none; -webkit-appearance: none; appearance: none}
+
+/*Select*/ select {background-image: linear-gradient(45deg, transparent 49%, var(--efy_text) 51%), linear-gradient(135deg, var(--efy_text) 51%, transparent 49%); background-position: calc(100% - 20rem), calc(100% -  16rem); background-size: 5rem 5rem, 5rem 5rem; background-repeat: no-repeat}
+option:not(option:checked), optgroup {background: var(--efy_text2)}
+select[multiple] {background-image: none !important}
+select[multiple] option:not(option:checked), select[multiple] optgroup {background: transparent}
+select[multiple] option {padding: var(--efy_padding2); margin-top: 5rem; border-radius: var(--efy_radius0)}
+
+
+/*Checkbox & Radio*/ [type="checkbox"], [type="radio"] {width: 24rem; height: 24rem; vertical-align: bottom; margin-bottom: 0}
+[type="checkbox"]:checked:after {width: 4.8rem; height: 9.6rem; border-radius: 2rem; top: 4rem; left:  8rem; background: transparent; border-right: solid var(--efy_text2) 3.2rem; border-bottom: solid var(--efy_text2) 3.2rem; transform: rotate(45deg)}
+[type="radio"]:checked:after {width: 40%; height: 40%; top: 30%; left: 30%; background: var(--efy_text2)}
+
+
+fieldset, [type="file"] {border: 0}
+
+
+hr {border-color: var(--efy_color_border); border-top: 1.5rem; margin:  16rem auto; width: 100%}
+
+main img, main video {max-width: 100%; height: auto}
+
+figure {margin: 0; text-align: center}
+figcaption {margin-bottom:  16rem}
+
+blockquote {position: relative; padding-left: 25rem; font-weight: bold}
+blockquote:before {content: ''; display: block; width: 5rem; height: calc(100% - 20rem); top: 10rem; left: 10rem; position: absolute; border-radius: var(--efy_radius)}
+cite {font-style: normal; font-weight: normal}
+
+pre {max-width: 100%; overflow: auto}
+
+img, video, iframe {width: 100%; max-width: 100%}
+
+/*Color input*/ [type="color"], [type="color"]:focus {background: transparent; width: 40rem; height: 40rem; padding: 0}
+
+::-webkit-color-swatch-wrapper {background: transparent; width: 40rem; height: 40rem; padding: 0}
+
+::-webkit-color-swatch {border-radius: var(--efy_radius); box-shadow: inset 0 0 0 2rem #0003}
+::-moz-color-swatch {border-radius: var(--efy_radius); box-shadow: inset 0 0 0 2rem #0003}
+
+
+/*Range input*/
+[type="range"] {-webkit-appearance: none; appearance:none; width: 100%; height: 32rem; padding: 0; background: linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans)); background-clip: padding-box; border:  1.5rem solid var(--efy_color_trans)}
+
+/*Slider track*/
+::-moz-range-track {background: transparent}
+::-webkit-slider-runnable-track {background: transparent}
+
+/*slider thumb*/
+::-moz-range-thumb {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; border: 0; border-radius: var(--efy_radius); height: 32rem; width: 32rem}
+::-webkit-slider-thumb {-webkit-appearance: none; width: 32rem; height: 32rem; border-radius: var(--efy_radius); background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; border:0}
+
+/*Focus*/ [type="range"]:focus {border-color: var(--efy_color)}
+[type="range"]:focus::-webkit-slider-thumb {}
+[type="range"]:focus::-moz-range-thumb {}
+
+
+::-webkit-file-upload-button {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; color: var(--efy_text2); border:  1.5rem solid var(--efy_color_border); border-radius: var(--efy_radius); padding: var(--efy_padding); font-weight: bold; cursor: pointer}
+::file-selector-button {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; color: var(--efy_text2); border:  1.5rem solid var(--efy_color_border); border-radius: var(--efy_radius); padding: var(--efy_padding); font-weight: bold; cursor: pointer}
+
+progress, meter {height:  15rem; border: 0; background: linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans)); background-clip: padding-box; border-radius: var(--efy_radius0); border: 0}
+::-webkit-progress-bar, ::-webkit-meter-bar {height:  15rem; background: linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans)); background-clip: padding-box; border-radius: var(--efy_radius0); border: 0}
+::-webkit-progress-value, ::-webkit-meter-optimum-value {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; border-radius: var(--efy_radius0); border: 0}
+::-moz-progress-bar , ::-moz-meter-bar {height:  15rem; background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; border-radius: var(--efy_radius0); border: 0}
+
+/*Audio & Video*/ audio::-webkit-media-controls-enclosure {background: var(--efy_bg1); border-radius: var(--efy_radius2); border:  1.5rem solid var(--efy_color_border)}
+::-internal-media-controls-overflow-menu-list, ::-webkit-internal-media-controls-overflow-menu-list-item {appearance: none; -webkit-appearance: none; background: var(--efy_text2); border-radius: var(--efy_radius2)!important; border:  1.5rem solid var(--efy_color_border)}
+
+/*Placeholder*/ ::-webkit-input-placeholder {color: var(--efy_text_trans2)}
+
+/*Details*/ details, summary {list-style: none; position: relative} summary::-webkit-details-marker {display: none}
+details:not([efy_help]) summary:before {position: absolute; right: 8rem; transition: transform 0.1s ease}
+details details {margin-top: 15rem} details details:not([efy_help]) > summary:before {right: -6rem}
+details[open]:not([efy_help]) > summary:before {transform: rotate(90deg); right: -2rem}
+
+/*Help Box*/ [efy_help] {background: transparent; border: 0; padding: 0 0 10rem 0!important; margin: 0}
+[efy_help] summary {pointer-events: none; margin-bottom: 0; padding: 0}
+[efy_help] summary:after {margin-left:  8rem; opacity: 0.5; pointer-events: all}
+
+/*Select Menu*/ [efy_select] label {border-radius: var(--efy_radius); font-weight: bold}
+[efy_select] label:before {width:  16rem; height:  16rem; margin-right:  8rem; margin-top: -0.2rem; position: relative; border-radius: var(--efy_radius0); border: 2.4rem solid transparent; background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: destination-out; mask-composite: exclude}
+
+[efy_select] [type="radio"]:checked + label:after {background: var(--efy_text2); width: 9.6rem; height: 9.6rem; top: 8.4rem; left: 5.6rem; margin: var(--efy_padding); border-radius: calc(var(--efy_radius0) / 2)}
+[efy_select] [type="checkbox"]:checked + label:after {top: 13.2rem; left: 22.4rem; width: 4.8rem; height: 9.6rem; border-radius: 2rem; border-right: solid var(--efy_text2) 3.2rem; border-bottom: solid var(--efy_text2) 3.2rem; transform: rotate(45deg)}
+[efy_select] input:checked + label:before {border-color: var(--efy_text2)}
+[efy_select] [type="checkbox"], [efy_select] [type="radio"], [efy_select] label [type="color"] {opacity:0}
+[efy_select] label, [efy_select] p, [efy_select] button {margin: 0  8rem 12rem 0}
+
+/*Card*/ [efy_card] {background: var(--efy_bg1); border-radius: var(--efy_radius); border: 1.5rem solid var(--efy_color_border); padding: 15rem; display: grid; gap: 5rem; width: 100%; align-content: baseline}
+
+/*Sidebar*/ .efy_sidebar {padding:  16rem; width: 100vw; max-width: 450rem; height: 100vh; z-index: 9; position: fixed; right: -450rem; top: 0; box-shadow: 0 0 30rem #0005; border-radius: var(--efy_radius2) 0 0 var(--efy_radius2); transition: right .3s; backdrop-filter: blur( 48rem)}
+
+[efy_sidebar_btn_open], [efy_sidebar_btn_close] {z-index: 9999; color: var(--efy_color); font-size: 20rem; padding: 4rem 10rem; position: fixed; text-align: center; top:  15rem; right:  15rem}
+[efy_sidebar_btn_open=relative] {position: relative; top:0; right:0}
+
+/*Radius Input*/ .efy_sidebar_range {position: absolute; z-index: 99; pointer-events: none; top: 52rem; color: var(--efy_text2); font-weight: bold; width: 32rem; height: 32rem; line-height: 32rem; display: block; text-align: center; border-radius: var(--efy_radius); margin-left: 16rem}
+
+/*Button Align*/ #efy_btn_align div {display: grid; gap:  16rem; grid-template-columns: 1fr 1fr 1fr; width: fit-content}
+#efy_btn_align input {display: block; position: relative; opacity: 1; margin: 0} #efy_btn_align #middle_middle {opacity: 0; pointer-events: none}
+
+[efy_btn_align*=left] {left: 16rem; right: unset}
+[efy_btn_align*=right] {right: 16rem; left:unset}
+[efy_btn_align*=top] {top: 16rem; bottom: unset}
+[efy_btn_align*=bottom] {bottom: 16rem; top: unset}
+[efy_btn_align*=_middle] {top: 50vh}
+[efy_btn_align*=middle_] {left: calc(50vw - 20rem); right: unset}
+
+/*Color Pickers*/ [efy_select] [for=efy_color1] {background: var(--efy_color)} [efy_select] [for=efy_color2] {background: var(--efy_color2)} [efy_select] [for=efy_color_text] {background: var(--efy_text)} [efy_select] [for=efy_color_bgcol] {background: var(--efy_bg)}
+[efy_select] [for*=efy_color] {-webkit-text-fill-color: var(--efy_text2); -moz-text-fill-color: var(--efy_text2)}
+[efy_select] [for=efy_color_bgcol] {-webkit-text-fill-color: var(--efy_text); -moz-text-fill-color: var(--efy_text)}
+
+
+/*efy_sidebar: Body*/ .efy_toggle_efy_sidebar {width: calc(100vw - 450rem); margin-right: 450rem; --efy_body_width: 100%}
+/*efy_sidebar: Menu*/ .efy_toggle_efy_sidebar_panel {right: 0; overflow: scroll}
+
+
+
+/*Convergence*/ @media only screen and (max-width: 720px) {
+    .efy_toggle_efy_sidebar_panel {max-width: 100%}
+    .efy_toggle_efy_sidebar {width: 0; overflow: hidden; margin-left: -450rem}
+}
+
+
+
+
+/*Temporary*/
+
+[efy_logo] {margin: -5rem 0 0 0} [efy_logo] summary {font-size: 30rem; padding: 0}
+[efy_logo] summary::after {font-size: 25rem; vertical-align: baseline}
+
+.efy_sidebar_card {width:100%}
+.efy_sidebar {overflow: overlay}
+
+.efy_custom_bgimage .efy_img_previews {display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:  16rem; padding:  8rem 0}
+.efy_custom_bgimage [efy_bg_nr] {aspect-ratio: 1; cursor: pointer; position: relative; box-shadow: inset 0 0 20rem #0003, 0 0 20rem #0003; background-size: cover!important; background-repeat: no-repeat!important; border-radius: var(--efy_radius)}
+.efy_custom_bgimage .efy_img_previews [efy_bg_nr][efy_active]:before {content: ''; display:block; z-index: -1; position: absolute; top: -5%; left: -5%; width: 110%; height: 110%; border-radius: calc(var(--efy_radius) * 1.2)}
+
+.efy_quick_shortcuts [efy_search_input] {margin-bottom: 15rem}
+
+
+/*Tabs*/ [efy_tabs] [efy_tab] {display: inline-flex; gap: 12rem; margin-bottom: 12rem; margin-right:  8rem} [efy_tabs] [efy_tab]:last-of-type {margin-right: 0}
+[efy_tabs] [efy_content] {opacity: 0; position: absolute; pointer-events: none; transform: scale(0.3); padding:  16rem; border-radius: var(--efy_radius); background: var(--efy_bg1)}
+[efy_tabs] [efy_content][efy_active] {opacity: 1; position: relative; pointer-events: all; transform: scale(1);  transition: 0.1s linear}
+[efy_tabs] [efy_content]:not([efy_active]) * {position: absolute; pointer-events: none; opacity: 0}
+
+/*Timer*/ [efy_timer], [efy_clock] {background: var(--efy_bg1); padding: 0 10rem; display: inline-flex; gap: 10rem; border: 1.5rem solid var(--efy_color_border)}
+[efy_timer] [efy_text], [efy_clock] {font-size: 36rem; font-weight: bold}
+[efy_start], [efy_reset]{padding: 8rem 10rem!important}
+[efy_start]:before, [efy_reset]:before {margin-right:0!important}
+.efy_quick_shortcuts [efy_clock] {margin: 0 10rem 12rem 0}
+
+/*Alert*/ [efy_alerts] {display: grid; gap: 10rem; position: fixed; z-index: 99; width: calc(100% - 64rem); max-width: 400rem}
+[efy_alert] {display: grid; grid-template-columns: 1fr auto; gap: 15rem; padding: 10rem; box-shadow: 0 0 20px var(--efy_text_trans); background: var(--efy_text2)}
+[efy_btn_square] {padding: 10rem; height: fit-content; aspect-ratio: 1; margin: 0}
+[efy_btn_square] [efy_icon] {margin:0}
+
+/*Quick Shortcuts*/  .efy_quick_shortcuts .efy_quick_buttons button {display: inline-flex; gap: 12rem; margin-bottom: 12rem; margin-right:  8rem; padding: 10rem} .efy_quick_shortcuts .efy_quick_buttons button i {margin:0}
+.efy_quick_shortcuts .efy_quick_back i{transform: rotate(180deg)}
+
+/*EFY Icons*/ @font-face {font-family: 'efy_icons'; src: url('efy_icons.woff2') format('truetype'); font-weight: normal; font-style: normal; font-display: block} i, [efy_start]:before, [efy_reset]:before, [efy_help] summary:after, details > summary:before, [efy_sidebar_btn_open]:before, [efy_sidebar_btn_close]:before {font-family: 'efy_icons' !important; speak: never; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; vertical-align: middle; /*Better Rendering*/ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale} i {margin-right: 8rem}
+
+[efy_icon=arrow]:before {content: "\e900"}
+[efy_icon=arrow_down]:before {content: "\e900"; position:absolute; margin: 1rem 0 0 -16rem; transform: rotate(180deg)} [efy_icon=arrow_down] {margin-left: 16rem}
+[efy_icon=chevron]:before, details:not([efy_help]) > summary:before {content: "\e907"}
+[efy_icon=dots]:before {content: "\e902"}
+[efy_icon=menu2]:before {content: "\e903"}
+[efy_icon=star]:before {content: "\e904"}
+[efy_icon=audio]:before {content: "\e905"}
+[efy_icon=menu]:before, [efy_sidebar_btn_open]:before {content: "\e906"}
+[efy_icon=remove]:before, [efy_sidebar_btn_close]:before {content: "\e909"}
+[efy_icon=play]:before, [efy_timer] [efy_start]:before {content: "\e90a"}
+[efy_icon=pause]:before, [efy_timer] [efy_start][efy_active]:before {content: "\e90b"}
+[efy_icon=fullscreen]:before {content: "\e90c"}
+[efy_icon=reload]:before, [efy_reset]:before {content: "\e90d"}
+[efy_icon=help]:before, [efy_help] summary:after {content: "\e901"}
+[efy_icon=accessibility]:before {content: "\e910"}
+[efy_icon=zoom_out]:before {content: "\e911"}
+[efy_icon=zoom_in]:before {content: "\e912"}
+[efy_icon=search]:before {content: "\e908"}
