@@ -1,5 +1,5 @@
 <template>
-    <label for="ddlSortBy" v-t="'actions.sort_by'" />
+    <label for="ddlSortBy" v-t="'actions.sort_by'" class="mr-2" />
     <select id="ddlSortBy" v-model="selectedSort" class="select w-auto">
         <option v-for="(value, key) in options" v-t="`actions.${key}`" :key="key" :value="value" />
     </select>
