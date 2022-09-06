@@ -91,7 +91,12 @@
             <p v-t="'info.preferences_note'" />
             <button class="btn" v-t="'actions.reset_preferences'" @click="resetPreferences()" />
             <button class="btn mx-4" v-t="'actions.backup_preferences'" @click="backupPreferences()" />
-            <label for="fileSelector" class="btn" v-t="'actions.restore_preferences'" @click="restorePreferences()" />
+            <label
+                for="fileSelector"
+                class="btn text-center"
+                v-t="'actions.restore_preferences'"
+                @click="restorePreferences()"
+            />
             <input class="hidden" id="fileSelector" ref="fileSelector" type="file" @change="restorePreferences()" />
 
             <!-- options that are visible only when logged in -->

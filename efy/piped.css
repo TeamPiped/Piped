@@ -17,7 +17,7 @@
 /*Body*/ body {max-width: 100vw; padding: 16rem;}
 
 /*Radius*/ input, .btn, .shaka-video-container, .shaka-video-container video, .video-grid div, .pp-show-recs div, button, a.btn, .grid .comment, .shaka-scrim-container, .suggestion-selected, .pp-mobile-nav a, .shaka-text-container span>span>span {border-radius: var(--efy_radius)}
-/*Radius 0*/ .video-grid img, .thumbnail-left, .thumbnail-right {border-radius: var(--efy_radius0)}
+/*Radius 0*/ .video-grid img, .thumbnail-overlay, .thumbnail-left, .thumbnail-right {border-radius: var(--efy_radius0)}
 /*Radius 2*/ .suggestions-container, .modal-container {border-radius: var(--efy_radius2)}
 
 /*BG: Transparent*/ .video-grid div div, .pp-show-recs div div {background: transparent}
@@ -74,14 +74,12 @@ tbody:nth-child(odd), .shaka-overflow-menu button:hover, .shaka-settings-menu bu
 
 /*Top bar*/
 .pp-nav {margin-bottom: 15rem}
-
 .pp-nav > div.flex-1.flex.justify-start > a {font-size: 25rem}
-
 .pp-nav > div.flex-1.flex.justify-start > a img {margin-right: -5rem}
-
 .pp-nav > div input {margin: 0!important; width: 300rem}
-
 .pp-nav > ul {list-style: none; padding: 0}
+
+.pp-logo img {width: auto}
 
 /*Cards*/ .video-grid > div > .flex > a > img {width: 32rem; height: 32rem}
 
@@ -107,8 +105,10 @@ tbody:nth-child(odd), .shaka-overflow-menu button:hover, .shaka-settings-menu bu
 .suggestions-container li {padding: 3rem 10rem}
 .suggestion-selected {box-shadow: 0 0 0 1.5rem var(--efy_color_border), 0 0 0 1.5rem var(--efy_color_border)}
 
-/*Thumbnail Overlay*/ .thumbnail-right {bottom: 15px; right: 8px; background: var(--efy_text2); padding: 12rem 6rem}
-.thumbnail-left {bottom: 16rem; left: 8rem; padding: 11rem 7rem; background: var(--efy_text2); text-transform: uppercase}
+/*Thumbnail Overlay*/ .thumbnail-overlay, .thumbnail-left , .thumbnail-right  {background: var(--efy_text2)!important; padding: 12rem 6rem!important}
+.thumbnail-right {bottom: 15px; right: 8px}
+.thumbnail-left {bottom: 16rem; left: 8rem}
+.live-badge {padding: 6rem 7rem!important}
 
 /*Recommended Videos*/ .pp-rec-vids {display: grid; grid-template-columns: 1fr 300rem}
 .order-first {-webkit-box-ordinal-group: -9998; -webkit-order: -9999; order: -9999}
