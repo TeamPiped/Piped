@@ -30,10 +30,10 @@
                     v-else-if="video.duration >= 60"
                     v-text="timeFormat(video.duration)"
                 />
-                <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right !bg-red-600" tag="div">
-                    <font-awesome-icon class="w-3" :icon="['fas', 'broadcast-tower']" />
+                <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right live-badge" tag="div">
+                    <font-awesome-icon :icon="['fas', 'broadcast-tower']" />
                 </i18n-t>
-                <span v-if="video.watched" class="thumbnail-overlay bottom-5px left-5px" v-t="'video.watched'" />
+                <span v-if="video.watched" class="thumbnail-overlay thumbnail-left" v-t="'video.watched'" />
             </div>
 
             <div>
