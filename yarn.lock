@@ -3826,10 +3826,10 @@ vite-plugin-eslint@^1.8.1:
     "@types/eslint" "^8.4.5"
     rollup "^2.77.2"
 
-vite-plugin-pwa@^0.12.4:
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.12.4.tgz#9e921518a0a340e4e6ae287a2cf345c4ca56f92d"
-  integrity sha512-ONHS2OcMMWdOOIPG8JBet2BTssZC1FSjY34f9t5byM3H6RKgu5qbv6p809OlfYkg8bFi58oEhNDxDB5UE4vkfQ==
+vite-plugin-pwa@^0.12.6:
+  version "0.12.6"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.12.6.tgz#89d3dc3841337b14ac5f90847fb19735b8ca7d7a"
+  integrity sha512-qRxx1zUlwKq2QD20nDZVL449wV+dflRVeDMLa2k4LZiHfWRfHWwmdhnDZOlMEgni0Zss1DkhyTmuzLYuO6aO3A==
   dependencies:
     debug "^4.3.4"
     fast-glob "^3.2.11"
