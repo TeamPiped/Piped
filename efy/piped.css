@@ -74,14 +74,12 @@ tbody:nth-child(odd), .shaka-overflow-menu button:hover, .shaka-settings-menu bu
 
 /*Top bar*/
 .pp-nav {margin-bottom: 15rem}
-
 .pp-nav > div.flex-1.flex.justify-start > a {font-size: 25rem}
-
 .pp-nav > div.flex-1.flex.justify-start > a img {margin-right: -5rem}
-
 .pp-nav > div input {margin: 0!important; width: 300rem}
-
 .pp-nav > ul {list-style: none; padding: 0}
+
+.pp-logo img {width: auto}
 
 /*Cards*/ .video-grid > div > .flex > a > img {width: 32rem; height: 32rem}
 
