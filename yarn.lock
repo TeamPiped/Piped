@@ -1311,6 +1311,11 @@
   resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.15.tgz#70796f691e703a2345976fcae440d7e47ab16bb8"
   integrity sha512-NM/l/+6sg4+qQqnzbpaGDEswfkH7c1oyRA+L+gYIFPAfehQMEdKkXXJozBdFy78kLjfPVLL6iMnDhcojdZvOSg==
 
+"@unocss/core@0.45.18":
+  version "0.45.18"
+  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.18.tgz#9c7c66eac358763211d6cf74ce9888b43deba96e"
+  integrity sha512-506GHQX8/TpKNZ96k4ujSWp5SpcsZZnwwTg9NcLf7M3y5BXEwv0dE7Jfz7eJiFm2G+RYEgrXwYk7y7dFF8evxA==
+
 "@unocss/inspector@0.45.15":
   version "0.45.15"
   resolved "https://registry.yarnpkg.com/@unocss/inspector/-/inspector-0.45.15.tgz#af90620023c329bf3d966799dab25b1bd3b9faab"
@@ -1413,12 +1418,19 @@
     "@unocss/core" "0.45.15"
     css-tree "^2.2.1"
 
-"@unocss/transformer-variant-group@0.45.15", "@unocss/transformer-variant-group@^0.45.13":
+"@unocss/transformer-variant-group@0.45.15":
   version "0.45.15"
   resolved "https://registry.yarnpkg.com/@unocss/transformer-variant-group/-/transformer-variant-group-0.45.15.tgz#706674788bae8c5a86da35dcc21607a6aa6b979a"
   integrity sha512-noHC7e0sfNdh0mcIC6AoozPboXcE2ccu0M2JxH8EKZrUo6R7jzah3qtRsXzhyDRKbJB19nLvxlCEW9CYnwdOhQ==
   dependencies:
     "@unocss/core" "0.45.15"
+
+"@unocss/transformer-variant-group@^0.45.18":
+  version "0.45.18"
+  resolved "https://registry.yarnpkg.com/@unocss/transformer-variant-group/-/transformer-variant-group-0.45.18.tgz#d5c268abded69e951e56a0141077954e97700282"
+  integrity sha512-x0cA/7/MKJ9YuBSE8ocf9hTPLtjeURD7xFNpiowesbsXkn7J6by/fRWTYSaL4D51yEmxRhE8L2tskTDKzNiM6w==
+  dependencies:
+    "@unocss/core" "0.45.18"
 
 "@unocss/vite@0.45.15":
   version "0.45.15"
