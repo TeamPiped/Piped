@@ -41,10 +41,10 @@
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-vue": "^9.4.0",
         "prettier": "^2.7.1",
-        "unocss": "^0.45.15",
+        "unocss": "^0.45.18",
         "vite": "^2.9.14",
         "vite-plugin-eslint": "^1.8.1",
-        "vite-plugin-pwa": "^0.12.4"
+        "vite-plugin-pwa": "^0.12.6"
     },
     "eslintConfig": {
         "root": true,
