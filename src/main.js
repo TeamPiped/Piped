@@ -267,6 +267,11 @@ const mixin = {
     },
 };
 
+/*EFY UI*/
+import "../efy/efy.css";
+import "../efy/piped.css";
+import "../efy/efy.js";
+
 const i18n = createI18n({
     globalInjection: true,
     legacy: false,
@@ -285,8 +290,3 @@ app.use(router);
 app.mixin(mixin);
 app.component("FontAwesomeIcon", FontAwesomeIcon);
 app.mount("#app");
-
-/*EFY UI*/
-import "../efy/efy.css";
-import "../efy/piped.css";
-import "../efy/efy.js";
