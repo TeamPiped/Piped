@@ -82,8 +82,6 @@ tbody:nth-child(odd), .shaka-overflow-menu button:hover, .shaka-settings-menu bu
 
 /*SVG*/ .svg-inline--fa:not(.video-grid svg, .btn svg, button svg) {margin-right: 5rem}
 
-/*Search Suggestions*/ .suggestions-container {position: absolute; max-width: 600rem; width: 100%; z-index: 10; transform: translateX(-50%); padding: 15rem; background: var(--efy_text2); box-shadow: 0 0 20px var(--efy_text_trans); margin-bottom: 15rem}
-
 .suggestions-container ul {padding: 0; list-style: none; display: grid; gap: 5rem}
 .suggestions-container li {padding: 3rem 10rem}
 .suggestion-selected {box-shadow: 0 0 0 1.5rem var(--efy_color_border), 0 0 0 1.5rem var(--efy_color_border)}
