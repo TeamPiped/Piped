@@ -1,24 +1,7 @@
 /*EFY Template - 2022.09.05 - Fonts*/ @font-face {font-family: 'nunito'; src: url('nunito.woff2') format('truetype')} @font-face {font-family: 'nunito'; src: url('nunito_bold.woff2') format('truetype'); font-weight: bold}
-/*Global*/ :root {
-    --efy_color1_var: 239, 68, 68;
-    --efy_color2_var: 220, 38, 38;
-    --efy_radius: 12rem;
-    --efy_sidebar_button: right_middle;
-    --efy_font_family: 'nunito', sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-}
-/*Default Mode*/ [efy_theme=default_mode] {
-    color-scheme: dark;
-    --efy_bg_var: 255,255,255;
-    --efy_bg: rgb(15,15,15);
-    --efy_text: rgb(220,220,220);
-}
+
 /*End of EFY Template - Documentation on how to use it coming soon at https://efy.ooo/ui . Your own css starts bellow*/
 
-/*Body*/ body {max-width: 100vw; padding: 16rem;}
-
-/*Radius*/ input, .btn, .shaka-video-container, .shaka-video-container video, .video-grid div, .pp-show-recs div, button, a.btn, .grid .comment, .shaka-scrim-container, .suggestion-selected, .pp-mobile-nav a, .shaka-text-container span>span>span {border-radius: var(--efy_radius)}
-/*Radius 0*/ .video-grid img, .thumbnail-overlay, .thumbnail-left, .thumbnail-right {border-radius: var(--efy_radius0)}
-/*Radius 2*/ .suggestions-container, .modal-container {border-radius: var(--efy_radius2)}
 
 /*BG: Transparent*/ .video-grid div div, .pp-show-recs div div {background: transparent}
 /*BG 1*/ .comment, .video-grid div, .pp-show-recs div, .pp-mobile-nav a, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}

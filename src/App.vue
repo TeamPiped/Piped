@@ -19,6 +19,61 @@
     </div>
 </template>
 
+<style>
+/*Global*/
+:root {
+    --efy_color1_var: 239, 68, 68;
+    --efy_color2_var: 220, 38, 38;
+    --efy_radius: 12rem;
+    --efy_sidebar_button: right_middle;
+    --efy_font_family: "nunito", sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
+        Noto Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    --efy_body_width: unset;
+}
+
+body {
+    @apply p-64;
+}
+
+/*Default Mode*/
+[efy_theme="default_mode"] {
+    color-scheme: dark;
+    --efy_bg_var: 255, 255, 255;
+    --efy_bg: rgb(15, 15, 15);
+    --efy_text: rgb(220, 220, 220);
+}
+
+/*Radius*/
+input,
+.btn,
+button,
+.shaka-video-container,
+.shaka-video-container video,
+.video-grid div,
+.pp-show-recs div,
+.grid .comment,
+.shaka-scrim-container,
+.suggestion-selected,
+.pp-mobile-nav a,
+.shaka-text-container span > span > span {
+    border-radius: var(--efy_radius);
+}
+
+/*Radius 0*/
+.video-grid img,
+.thumbnail-overlay,
+.thumbnail-left,
+.thumbnail-right {
+    border-radius: var(--efy_radius0);
+}
+
+/*Radius 2*/
+.suggestions-container,
+.modal-container {
+    border-radius: var(--efy_radius2);
+}
+</style>
+
 <script>
 import NavBar from "./components/NavBar.vue";
 export default {

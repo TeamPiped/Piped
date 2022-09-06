@@ -42,6 +42,14 @@ library.add(
 );
 
 import router from "@/router/router.js";
+
+import "uno.css";
+
+/*EFY UI*/
+import "../efy/efy.css";
+import "../efy/piped.css";
+import "../efy/efy.js";
+
 import App from "./App.vue";
 
 import DOMPurify from "dompurify";
@@ -54,8 +62,6 @@ TimeAgo.addDefaultLocale(en);
 
 import { createI18n } from "vue-i18n";
 import enLocale from "@/locales/en.json";
-// import "@unocss/reset/tailwind.css";
-import "uno.css";
 
 const timeAgo = new TimeAgo("en-US");
 
@@ -266,11 +272,6 @@ const mixin = {
         };
     },
 };
-
-/*EFY UI*/
-import "../efy/efy.css";
-import "../efy/piped.css";
-import "../efy/efy.js";
 
 const i18n = createI18n({
     globalInjection: true,
