@@ -88,7 +88,8 @@
         "login": "Anmelden",
         "trending": "Trends",
         "subscriptions": "Abonnements",
-        "playlists": "Wiedergabelisten"
+        "playlists": "Wiedergabelisten",
+        "account": "Konto"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Segmente",
