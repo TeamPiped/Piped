@@ -35,7 +35,6 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] No connections to Google's servers
 -   [x] Playing just audio
 -   [x] PWA support
--   [x] Support for iOS
 -   [x] Locally saved Preferences
 -   [x] [Available in many languages](src/locales), thanks to [our translators](https://hosted.weblate.org/projects/piped/frontend/)
 -   [x] Embedded video support
