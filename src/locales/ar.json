@@ -103,7 +103,9 @@
         "piped_link": "رابط Piped",
         "follow_link": "اتبع الرابط",
         "copy_link": "نسخ الرابط",
-        "time_code": "رمز الوقت (بالثواني)"
+        "time_code": "رمز الوقت (بالثواني)",
+        "rename_playlist": "إعادة تسمية قائمة التشغيل",
+        "new_playlist_name": "اسم قائمة تشغيل جديد"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
