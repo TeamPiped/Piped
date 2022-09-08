@@ -53,7 +53,7 @@ export default {
             this.fetchJson(this.authApiUrl() + "/user/playlists/rename", null, {
                 method: "POST",
                 body: JSON.stringify({
-                    playlist: id,
+                    playlistId: id,
                     newName: newName,
                 }),
                 headers: {

@@ -102,11 +102,11 @@ b {
 }
 
 .video-grid {
-    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 col-auto <md:gap-x-2.5 md:gap-x-1vw gap-y-1.5;
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 col-auto lt-md:gap-x-2.5 md:gap-x-1vw gap-y-1.5;
 }
 
 .btn {
-    @apply h-full py-2 <md:(px-2) md:(px-4) rounded cursor-pointer;
+    @apply h-full py-2 lt-md:px-2 md:px-4 rounded cursor-pointer;
 }
 
 .reset {
@@ -114,7 +114,7 @@ b {
 }
 
 .auto {
-    @apply dark:(text-white bg-dark-900);
+    @apply @dark:(text-white bg-dark-900);
 }
 
 .dark {
@@ -145,11 +145,16 @@ b {
 .auto .input,
 .auto .select,
 .auto .btn {
-    @apply dark:(text-gray-400 bg-dark-400);
+    @apply @dark:(text-gray-400 bg-dark-400);
 }
 
 .input {
     @apply pl-2.5;
+}
+
+.input:focus {
+    @apply border-2 border-red-500 outline-none;
+    box-shadow: 0 0 15px rgba(239, 68, 68, var(--un-border-opacity));
 }
 
 hr {
@@ -161,7 +166,7 @@ hr {
 }
 
 .auto hr {
-    @apply dark:border-dark-100;
+    @apply @dark:border-dark-100;
 }
 
 h1,
@@ -194,7 +199,7 @@ h2 {
 }
 
 .auto .link {
-    @apply dark:hover:(text-gray-300 underline underline-gray-300);
+    @apply @dark:hover:(text-gray-300 underline underline-gray-300);
 }
 
 .dark .link-secondary {
@@ -202,7 +207,7 @@ h2 {
 }
 
 .auto .link-secondary {
-    @apply dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
+    @apply @dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
 }
 
 .line {

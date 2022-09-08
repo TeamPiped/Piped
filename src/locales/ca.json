@@ -90,7 +90,10 @@
         "clone_playlist": "Clonar Llista de Reproducció",
         "clone_playlist_success": "Clonada correctament!",
         "download_as_txt": "Descarrega com a .txt",
-        "reset_preferences": "Restablir preferències"
+        "reset_preferences": "Restablir preferències",
+        "restore_preferences": "Restaura les preferències",
+        "backup_preferences": "Preferències de la còpia de seguretat",
+        "confirm_reset_preferences": "Esteu segur que voleu restablir les vostres preferències?"
     },
     "comment": {
         "pinned_by": "Fixat per",

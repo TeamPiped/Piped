@@ -1,8 +1,6 @@
 import { createApp } from "vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-    faThumbsUp,
-    faThumbsDown,
     faEye,
     faThumbtack,
     faCheck,
@@ -18,12 +16,11 @@ import {
     faCircleMinus,
     faXmark,
     faClone,
+    faShare,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faBitcoin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(
-    faThumbsUp,
-    faThumbsDown,
     faEye,
     faGithub,
     faBitcoin,
@@ -31,7 +28,6 @@ library.add(
     faCheck,
     faHeart,
     faHeadphones,
-    faYoutube,
     faRss,
     faChevronLeft,
     faLevelDownAlt,
@@ -42,6 +38,7 @@ library.add(
     faCircleMinus,
     faXmark,
     faClone,
+    faShare,
 );
 
 import router from "@/router/router.js";
@@ -57,7 +54,8 @@ TimeAgo.addDefaultLocale(en);
 
 import { createI18n } from "vue-i18n";
 import enLocale from "@/locales/en.json";
-import "windi.css";
+import "@unocss/reset/tailwind.css";
+import "uno.css";
 
 const timeAgo = new TimeAgo("en-US");
 
@@ -179,6 +177,7 @@ const mixin = {
             const emailRegex = /([\w-\\.]+@(?:[\w-]+\.)+[\w-]{2,4})/g;
             return string
                 .replace(urlRegex, url => {
+                    if (url.endsWith("</a>")) return url;
                     return `<a href="${url}" target="_blank">${url}</a>`;
                 })
                 .replace(emailRegex, email => {
