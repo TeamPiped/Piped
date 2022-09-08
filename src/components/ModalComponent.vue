@@ -2,6 +2,7 @@
     <div class="modal">
         <div @click="handleClick">
             <div class="modal-container">
+                <button @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
                 <slot></slot>
             </div>
         </div>
@@ -41,6 +42,10 @@ export default {
 }
 
 .modal-container {
-    @apply w-min m-auto px-8 bg-dark-700 p-6 rounded-xl min-w-[20vw];
+    @apply w-min m-auto px-8 bg-dark-700 p-6 rounded-xl min-w-[20vw] relative;
+}
+
+.modal-container > button {
+    @apply absolute right-8 top-6;
 }
 </style>
