@@ -1,9 +1,6 @@
 <template>
     <ModalComponent>
-        <div class="flex">
-            <span class="text-2xl w-max inline-block" v-t="'actions.select_playlist'" />
-            <button class="ml-3" @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
-        </div>
+        <span class="text-2xl w-max inline-block" v-t="'actions.select_playlist'" />
         <select class="select w-full mt-3" v-model="selectedPlaylist">
             <option v-for="playlist in playlists" :value="playlist.id" :key="playlist.id" v-text="playlist.name" />
         </select>
