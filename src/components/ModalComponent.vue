@@ -1,6 +1,6 @@
 <template>
     <div class="modal">
-        <div>
+        <div @click="handleClick">
             <div class="modal-container">
                 <slot></slot>
             </div>
@@ -22,6 +22,10 @@ export default {
                 this.$emit("close");
             } else return;
             event.preventDefault();
+        },
+        handleClick(event) {
+            if (event.target !== event.currentTarget) return;
+            this.$emit("close");
         },
     },
 };
