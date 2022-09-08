@@ -9,7 +9,7 @@ export default {
         if (videoId)
             this.$router.replace({
                 path: "/watch",
-                query: { v: videoId },
+                query: { v: videoId, t: this.$route.query.t },
             });
     },
 };

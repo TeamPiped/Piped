@@ -305,7 +305,7 @@
                 <th v-t="'preferences.instance_locations'" />
                 <th v-t="'preferences.has_cdn'" />
                 <th v-t="'preferences.registered_users'" />
-                <th class="<md:(hidden)" v-t="'preferences.version'" />
+                <th class="lt-md:hidden" v-t="'preferences.version'" />
                 <th v-t="'preferences.up_to_date'" />
                 <th v-t="'preferences.ssl_score'" />
             </tr>
@@ -316,7 +316,7 @@
                 <td v-text="instance.locations" />
                 <td v-text="`${instance.cdn ? '&#9989;' : '&#10060;'}`" />
                 <td v-text="instance.registered" />
-                <td class="<md:(hidden)" v-text="instance.version" />
+                <td class="lt-md:hidden" v-text="instance.version" />
                 <td v-text="`${instance.up_to_date ? '&#9989;' : '&#10060;'}`" />
                 <td>
                     <a :href="sslScore(instance.api_url)" target="_blank" v-t="'actions.view_ssl_score'" />
@@ -630,6 +630,6 @@ export default {
 
 <style>
 .pref {
-    @apply flex justify-between items-center my-2 mx-[15vw] <md:(mx-[2vw]);
+    @apply flex justify-between items-center my-2 mx-[15vw] lt-md:mx-[2vw];
 }
 </style>

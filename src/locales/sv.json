@@ -7,7 +7,10 @@
         "subscriptions": "Prenumerationer",
         "feed": "Flöde",
         "history": "Historik",
-        "playlists": "Spellistor"
+        "playlists": "Spellistor",
+        "account": "Konto",
+        "instance": "Instans",
+        "player": "Spelare"
     },
     "actions": {
         "subscribe": "Prenumerera - {count}",
@@ -86,7 +89,11 @@
         "invalidate_session": "Logga ut alla enheter",
         "different_auth_instance": "Använd en annan instans för autentisering",
         "instance_auth_selection": "Val av autentiseringsinstans",
-        "download_as_txt": "Ladda ner som .txt"
+        "download_as_txt": "Ladda ner som .txt",
+        "reset_preferences": "Återställ inställningar",
+        "confirm_reset_preferences": "Är du säker på att du vill återställa dina inställningar?",
+        "backup_preferences": "Inställningar för säkerhetskopiering",
+        "restore_preferences": "Återställa inställningar"
     },
     "player": {
         "watch_on": "Titta på {0}"
@@ -133,5 +140,8 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Prenumererar på: {0}"
+    },
+    "information": {
+        "preferences_note": "Observera: inställningar sparas i webbläsarens lokala lagring. Om du raderar dina webbläsardata återställs de."
     }
 }

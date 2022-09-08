@@ -99,7 +99,13 @@
         "backup_preferences": "Backup preferences",
         "restore_preferences": "Restore preferences",
         "back_to_home": "Back to home",
-        "blocked_channels": "Blocked channels (IDs, seperated by ',')"
+        "blocked_channels": "Blocked channels (IDs, seperated by ',')",
+        "share": "Share",
+        "with_timecode": "Share with time code",
+        "piped_link": "Piped link",
+        "follow_link": "Follow link",
+        "copy_link": "Copy link",
+        "time_code": "Time code (in seconds)"
     },
     "comment": {
         "pinned_by": "Pinned by",
@@ -146,6 +152,8 @@
     },
     "info": {
         "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them.",
-        "page_not_found": "Page not found"
+        "page_not_found": "Page not found",
+        "copied": "Copied!",
+        "cannot_copy": "Can't copy!"
     }
 }

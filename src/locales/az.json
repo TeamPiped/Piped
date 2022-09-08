@@ -7,7 +7,10 @@
         "preferences": "Seçimlər",
         "history": "Tarixçə",
         "subscriptions": "Abunəliklər",
-        "playlists": "Pleylistlər"
+        "playlists": "Pleylistlər",
+        "account": "Hesab",
+        "instance": "Server",
+        "player": "Oynadıcı"
     },
     "player": {
         "watch_on": "{0} saytında baxın"
@@ -67,14 +70,14 @@
         "delete_playlist": "Pleylisti Silin",
         "select_playlist": "Pleylist Seçin",
         "delete_playlist_confirm": "Bu pleylist silinsin?",
-        "please_select_playlist": "Lütfən, Pleylist Seçin",
+        "please_select_playlist": "Lütfən, pleylist seçin",
         "country_selection": "Ölkə Seçimi",
         "default_homepage": "Defolt Əsas Səhifə",
         "show_comments": "Şərhləri Göstərin",
-        "instance_selection": "Nümunə Seçimi",
+        "instance_selection": "Server Seçimi",
         "minimize_description_default": "Açıqlamanı Defolt Olaraq Kiçildin",
         "language_selection": "Dil Seçimi",
-        "instances_list": "Nümunələr Siyahısı",
+        "instances_list": "Serverlər Siyahısı",
         "show_more": "Daha Çox Göstər",
         "no": "Xeyr",
         "store_watch_history": "Baxış Tarixçəsini Saxlayın",
@@ -83,10 +86,23 @@
         "show_markers": "Oynadıcıda Markerləri Göstərin",
         "delete_account": "Hesabı Silin",
         "logout": "Bu cihazdan çıxın",
-        "minimize_recommendations_default": "Defolt olaraq Tövsiyələri minimuma endir"
+        "minimize_recommendations_default": "Defolt olaraq Tövsiyələri minimuma endir",
+        "download_as_txt": ".txt kimi endirin",
+        "reset_preferences": "Seçimləri sıfırlayın",
+        "confirm_reset_preferences": "Seçimləri sıfırlamaq istədiyinizə əminsiniz?",
+        "backup_preferences": "Yedəkləmə seçimləri",
+        "restore_preferences": "Seçimləri bərpa edin",
+        "invalidate_session": "Bütün cihazlardan çıxın",
+        "different_auth_instance": "Doğrulama üçün fərqli bir serverdən istifadə edin",
+        "instance_auth_selection": "Autentifikasiya Server Seçimi",
+        "clone_playlist": "Pleylist Klonlanması",
+        "clone_playlist_success": "Uğurla klonlandı!"
     },
     "comment": {
-        "pinned_by": "Tərəfindən Sabitləndi"
+        "pinned_by": "Tərəfindən Sabitləndi",
+        "disabled": "Şərhlər yükləyici tərəfindən deaktiv edilib.",
+        "loading": "Şərhlər yüklənir...",
+        "user_disabled": "Şərhlər tənzimləmələrdə deaktiv edilib."
     },
     "preferences": {
         "instance_name": "Nümunə Adı",
@@ -94,7 +110,7 @@
         "has_cdn": "CDN varmı?",
         "registered_users": "Qeydiyyatdan Keçmiş İstifadəçilər",
         "version": "Versiya",
-        "up_to_date": "Yenilənib?",
+        "up_to_date": "Güncəllənib?",
         "ssl_score": "SSL Nəticəsi"
     },
     "login": {
@@ -104,12 +120,12 @@
     "video": {
         "videos": "Videolar",
         "views": "{views} baxış",
-        "watched": "Baxılmış",
+        "watched": "Baxılıb",
         "sponsor_segments": "Sponsorlar Seqmentləri",
         "ratings_disabled": "Reytinqlər Deaktivdir",
         "chapters": "Bölümlər",
         "live": "{0} Canlı",
-        "shorts": "Qısa videolar"
+        "shorts": "Qısa"
     },
     "search": {
         "did_you_mean": "Bunu nəzərdə tutursunuz: {0}?",
@@ -121,5 +137,11 @@
         "music_videos": "YT Music: Videolar",
         "music_albums": "YT Music: Albomlar",
         "music_playlists": "YT Music: Pleylistlər"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Abunə oldu: {0}"
+    },
+    "information": {
+        "preferences_note": "Qeyd: seçimlər brauzerinizin yerli yaddaşında saxlanılır. Brauzer məlumatlarınızın silinməsi onları sıfırlayacaq."
     }
 }

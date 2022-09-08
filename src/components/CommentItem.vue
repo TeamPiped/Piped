@@ -24,8 +24,8 @@
                 <div class="comment-meta text-sm mb-1.5" v-text="comment.commentedTime" />
             </div>
             <div class="whitespace-pre-wrap" v-text="comment.commentText" />
-            <div class="comment-footer mt-1">
-                <font-awesome-icon icon="thumbs-up" />
+            <div class="comment-footer mt-1 flex">
+                <div class="i-fa-solid:thumbs-up" />
                 <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
                 <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
             </div>

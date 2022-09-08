@@ -55,11 +55,12 @@
         "remove_from_playlist": "從播放清單中移除",
         "create_playlist": "建立播放清單",
         "delete_playlist": "刪除播放清單",
-        "delete_playlist_confirm": "確定要刪除此播放清單嗎？",
+        "delete_playlist_confirm": "要刪除這份播放清單嗎？",
         "please_select_playlist": "請選擇播放清單",
         "select_playlist": "選擇播放清單",
         "add_to_playlist": "加到播放清單",
-        "delete_playlist_video_confirm": "確定要將此影片從此播放清單中移除嗎？"
+        "delete_playlist_video_confirm": "要從播放清單中移除影片嗎？",
+        "delete_account": "刪除帳戶"
     },
     "titles": {
         "history": "歷史記錄",
@@ -69,7 +70,8 @@
         "register": "註冊",
         "login": "登入",
         "subscriptions": "訂閱內容",
-        "playlists": "播放清單"
+        "playlists": "播放清單",
+        "account": "帳戶"
     },
     "preferences": {
         "registered_users": "已註冊的使用者",
@@ -99,6 +101,8 @@
         "music_albums": "YT Music：專輯"
     },
     "comment": {
-        "pinned_by": "置頂者："
+        "pinned_by": "置頂者：",
+        "disabled": "上傳者停用了留言功能。",
+        "loading": "留言載入中……"
     }
 }
