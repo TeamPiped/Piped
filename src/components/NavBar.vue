@@ -32,10 +32,12 @@
                 <router-link v-t="'titles.preferences'" to="/preferences" />
             </li>
             <li v-if="shouldShowLogin">
-                <router-link v-t="'titles.login'" to="/login" />
-            </li>
-            <li v-if="shouldShowLogin">
-                <router-link v-t="'titles.register'" to="/register" />
+                <p
+                    class="cursor-pointer font-bold"
+                    v-if="shouldShowLogin"
+                    v-t="'titles.account'"
+                    @click="showLoginModal = !showLoginModal"
+                />
             </li>
             <li v-if="shouldShowHistory">
                 <router-link v-t="'titles.history'" to="/history" />
@@ -52,8 +54,12 @@
     <div v-if="showTopNav" class="pp-mobile-nav flex flex-col" @click="showTopNav = false">
         <router-link v-if="shouldShowTrending" v-t="'titles.trending'" to="/trending" />
         <router-link v-t="'titles.preferences'" to="/preferences" />
-        <router-link v-if="shouldShowLogin" v-t="'titles.login'" to="/login" />
-        <router-link v-if="shouldShowLogin" v-t="'titles.register'" to="/register" />
+        <p
+            class="cursor-pointer font-bold"
+            v-if="shouldShowLogin"
+            v-t="'titles.account'"
+            @click="showLoginModal = !showLoginModal"
+        />
         <router-link v-if="shouldShowHistory" v-t="'titles.history'" to="/history" />
         <router-link v-if="authenticated" v-t="'titles.playlists'" to="/playlists" />
         <router-link v-if="!shouldShowTrending" v-t="'titles.feed'" to="/feed" />
@@ -78,20 +84,24 @@
         :search-text="searchText"
         @searchchange="onSearchTextChange"
     />
+    <LoginModal v-if="showLoginModal" @close="showLoginModal = !showLoginModal" />
 </template>
 
 <script>
 import SearchSuggestions from "./SearchSuggestions.vue";
 import hotkeys from "hotkeys-js";
+import LoginModal from "./LoginModal.vue";
 export default {
     components: {
         SearchSuggestions,
+        LoginModal,
     },
     data() {
         return {
             searchText: "",
             suggestionsVisible: false,
             showTopNav: false,
+            showLoginModal: false,
         };
     },
     mounted() {

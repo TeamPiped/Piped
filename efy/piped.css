@@ -4,9 +4,9 @@
 
 
 /*BG: Transparent*/ .video-grid div div, .pp-show-recs div div {background: transparent}
-/*BG 1*/ .comment, .video-grid div, .pp-show-recs div, .pp-mobile-nav a, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
+/*BG 1*/ .comment, .video-grid div, .pp-show-recs div, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
 /*Bold*/ .btn {font-weight: bold}
-/*Margin: 0*/ .pp-watch-buttons .btn, .suggestions-container li, .suggestions-container ul, .pp-nav > ul, .pp-mobile-btn i, .pp-mobile-nav a, .modal-container button:first-of-type svg {margin: 0}
+/*Margin: 0*/ .pp-watch-buttons .btn, .suggestions-container li, .suggestions-container ul, .pp-nav > ul, .pp-mobile-btn i, .pp-mobile-nav a, .pp-mobile-nav p, .modal-container button:first-of-type svg {margin: 0}
 /*Text-Align: Center*/ .btn, .pp-import-channel, .pp-sortby-feed, .pp-playlist-add-modal-top, .pp-nav, .pp-nav > div.flex-1.flex.justify-start > a, .pp-watch-bellow-options .flex.items-center, .pp-channel-page-author {align-items: center} {text-align: center}
 /*Justify-Content: Space-Between*/ .pp-playlist-add-modal-top, .pp-watch-bellow-options, .pp-nav {justify-content: space-between}
 
@@ -16,7 +16,7 @@
 
 /*Border*/ .modal-container, .video-grid>div {border: 1.5px solid var(--efy_bg1);}
 
-/*Text-Fill-Color: Text*/  p, .pp-mobile-nav a, .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-nav > ul a, .pp-nav > div.flex-1.flex.justify-start > a {-webkit-text-fill-color: var(--efy_text); text-decoration: none}
+/*Text-Fill-Color: Text*/  p, .pp-mobile-nav a, .pp-mobile-nav p, .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-nav > ul a, .pp-nav > div.flex-1.flex.justify-start > a {-webkit-text-fill-color: var(--efy_text); text-decoration: none}
 /*Text-Fill-Color: Text2*/ .btn, .btn a, a.btn, .modal button {-webkit-text-fill-color: var(--efy_text2); text-decoration: none}
 
 /*BG: efy*/ .btn, .pp-chapter-active, .pp-chapters .chapter:hover {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; color: var(--efy_text2)}
@@ -125,7 +125,7 @@ table {margin-top: 0}
 
 .pp-mobile-btn {display: none; padding: 10rem 12rem}
 .pp-mobile-nav {margin: 0 0 15rem 0}
-.pp-mobile-nav a {padding: var(--efy_padding); width: 100%}
+.pp-mobile-nav a, .pp-mobile-nav p {padding: var(--efy_padding); width: 100%; border-radius: var(--efy_radius)}
 
 /*Convergence*/
 @media (max-width: 990px) {
