@@ -17,6 +17,9 @@ import {
     faXmark,
     faClone,
     faShare,
+    faBook,
+    faServer,
+    faDonate,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -39,6 +42,9 @@ library.add(
     faXmark,
     faClone,
     faShare,
+    faBook,
+    faServer,
+    faDonate,
 );
 
 import router from "@/router/router.js";
