@@ -80,7 +80,16 @@
         "new_playlist_name": "Neuer Name der Wiedergabeliste",
         "piped_link": "Piped-Link",
         "download_as_txt": "Als .txt herunterladen",
-        "back_to_home": "Zurück zur Startseite"
+        "back_to_home": "Zurück zur Startseite",
+        "share": "Teilen",
+        "with_timecode": "Mit Zeitstempel teilen",
+        "follow_link": "Link öffnen",
+        "copy_link": "Link kopieren",
+        "time_code": "Zeitstempel (in sekunden)",
+        "reset_preferences": "Einstellungen zurücksetzen",
+        "confirm_reset_preferences": "Bist du sicher, dass du deine Einstellungen zurücksetzen möchtest?",
+        "backup_preferences": "Einstellungen sichern",
+        "restore_preferences": "Einstellungen wiederherstellen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -95,7 +104,8 @@
         "subscriptions": "Abonnements",
         "playlists": "Wiedergabelisten",
         "account": "Konto",
-        "player": "Player"
+        "player": "Player",
+        "instance": "Instanz"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Segmente",
@@ -139,5 +149,11 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Aboniert bei: {0}"
+    },
+    "info": {
+        "preferences_note": "Achtung: Einstellung werden lokal in deinem Browser gespeichert. Wenn du deine Browserdaten löschst werden sie auch gelöscht.",
+        "page_not_found": "Seite nicht gefunden",
+        "copied": "Kopiert!",
+        "cannot_copy": "Kopieren nicht möglich!"
     }
 }
