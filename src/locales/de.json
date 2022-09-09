@@ -75,7 +75,12 @@
         "different_auth_instance": "Eine andere Instanz für die Authentifizierung verwenden",
         "instance_auth_selection": "Auswahl der Autentifizierungsinstanz",
         "clone_playlist": "Wiedergabeliste klonen",
-        "clone_playlist_success": "Erfolgreich geklont!"
+        "clone_playlist_success": "Erfolgreich geklont!",
+        "rename_playlist": "Wiedergabeliste umbenennen",
+        "new_playlist_name": "Neuer Name der Wiedergabeliste",
+        "piped_link": "Piped-Link",
+        "download_as_txt": "Als .txt herunterladen",
+        "back_to_home": "Zurück zur Startseite"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -89,7 +94,8 @@
         "trending": "Trends",
         "subscriptions": "Abonnements",
         "playlists": "Wiedergabelisten",
-        "account": "Konto"
+        "account": "Konto",
+        "player": "Player"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Segmente",
