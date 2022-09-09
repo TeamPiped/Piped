@@ -1,4 +1,4 @@
-/*EFY UI 2022.09.04*/ let e$ = document.querySelector.bind(document), e$all = document.querySelectorAll.bind(document), e$create = document.createElement.bind(document), e$body, e$root; window.onload =()=>{ e$root = e$(":root"), e$body = e$("body");
+/*EFY UI 2022.09.08*/ let e$ = document.querySelector.bind(document), e$all = document.querySelectorAll.bind(document), e$create = document.createElement.bind(document), e$body, e$root; window.onload =()=>{ e$root = e$(":root"), e$body = e$("body");
 
 /*Check LocalStorage*/ try {let x = 'LS'; localStorage.setItem(x, x); let y = localStorage.getItem(x); localStorage.removeItem(x); if (x !== y) {throw new Error();}} catch (exception) {e$('body').innerHTML = `<div efy_alert style="background: #eee"><div><h6><a>EFY</a> - Your browser blocks LocalStorage</h6><p>You can block 3rd party cookies, no worries, Privacy matters! But please allow 1st party cookies in your browser's settings.  EFY<b>doesn't</b> use cookies or track you, but the settings related to LocalStorage are grouped as "cookies", although different. Have fun! 🥳</p></div></div>`}
 
@@ -102,7 +102,6 @@
         <input type="checkbox" name="efy_audio" id="efy_audio_click"><label for="efy_audio_click">Click & Tap</label>
         <input type="checkbox" name="efy_audio" id="efy_audio_hover"><label for="efy_audio_hover">Mouse Hover</label>
         <p>You might have to click / tap on the ssl / lock icon on your browser & allow sounds, to hear them automatically.</p>
-        <img src="./efy/img/allow_audio.webp"></img>
     </details>
 
 </div><div efy_sidebar_btn_open></div>

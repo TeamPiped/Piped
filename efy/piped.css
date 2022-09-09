@@ -1,4 +1,4 @@
-/*EFY Template - 2022.09.05 - Fonts*/ @font-face {font-family: 'nunito'; src: url('nunito.woff2') format('truetype')} @font-face {font-family: 'nunito'; src: url('nunito_bold.woff2') format('truetype'); font-weight: bold}
+/*EFY Template - 2022.09.09 - Fonts*/ @font-face {font-family: 'nunito'; src: url('nunito.woff2') format('truetype')} @font-face {font-family: 'nunito'; src: url('nunito_bold.woff2') format('truetype'); font-weight: bold}
 
 /*End of EFY Template - Documentation on how to use it coming soon at https://efy.ooo/ui . Your own css starts bellow*/
 
@@ -27,21 +27,13 @@
 
 /*Video Grid */ .video-grid {display: grid; gap: 16rem; grid-template-columns: repeat(auto-fit, minmax(224rem, 1fr))}
 
-/*Player*/ .material-icons-round {font-family: "Material Icons Round"!important;}
-.material-icons-round, .shaka-current-time {-webkit-text-fill-color: #fff!important; opacity: 1!important;}
-.shaka-overflow-menu, .shaka-settings-menu {background: var(--efy_text2)!important; border-radius: var(--efy_radius)!important; padding: 16rem!important; height: fit-content!important; max-height: 256rem!important; box-shadow: inset 0 0 0 1.5px var(--efy_bg1)!important;}
-.shaka-overflow-menu label, .shaka-settings-menu label, .shaka-overflow-menu button, .shaka-settings-menu button {-webkit-text-fill-color: var(--efy_text)!important; margin: 1.6rem 0!important; }
-.shaka-overflow-menu .material-icons-round, .shaka-settings-menu .material-icons-round {-webkit-text-fill-color: var(--efy_text)!important;}
-
-tbody:nth-child(odd), .shaka-overflow-menu button:hover, .shaka-settings-menu button:hover {background: var(--efy_bg1)!important; box-shadow: inset 0 0 0 1.5px var(--efy_bg1)}
+tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 0 0 1.5px var(--efy_bg1)}
 
 /*Bellow*/ .pp-watch-bellow-options {margin-top: 15rem}
 .pp-watch-buttons {flex-wrap: wrap; gap: 10rem}
 .pp-watch-buttons .btn {padding: 6rem 15rem; border: 0; color: var(--efy_text2); min-height: 36rem; max-height: 36rem; place-self: center}
 .pp-bellow-video, .pp-bellow-video .flex {gap:10rem}
 .pp-likes .flex {gap: 0rem}
-
-/*Video Caption*/ .shaka-text-container span>span>span {padding: var(--efy_padding2)!important}
 
 
 
@@ -66,7 +58,6 @@ tbody:nth-child(odd), .shaka-overflow-menu button:hover, .shaka-settings-menu bu
 
 /*Cards*/ .video-grid > div > .flex > a > img {width: 32rem; height: 32rem}
 
-/*Player*/ .player-container {max-height: 75vh; background: #000} [efy_theme=dark_black] .player-container {box-shadow: 0 0 0 1.5rem var(--efy_color_border)}
 .pp-video-title {font-size: 24rem; line-height: unset; margin-top: 10rem}
 
 /*Avatar below video*/ .pp-watch-bellow-options .flex.items-center > a {margin: 0 0 0 10rem; font-size: 20rem}
@@ -131,12 +122,6 @@ table {margin-top: 0}
 .mt-2 {margin-top: 15rem}
 .mr-2 {margin-right: 10rem}
 .children\:pb-3>* {padding-bottom: 15rem}
-
-html .shaka-range-element, html .shaka-range-element:focus {
-    border: none!important;
-    box-shadow: none!important;
-    outline: none!important;
-}
 
 .pp-mobile-btn {display: none; padding: 10rem 12rem}
 .pp-mobile-nav {margin: 0 0 15rem 0}

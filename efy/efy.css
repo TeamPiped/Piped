@@ -1,4 +1,4 @@
-/*EFY UI 2022.09.04*/:root { --efy_font_size: 1px;
+/*EFY UI 2022.09.09*/:root { --efy_font_size: 1px;
 --efy_radius0: calc(var(--efy_radius) / 1.25); --efy_radius2: calc(var(--efy_radius) * 1.5); --efy_radius00: calc(var(--efy_radius) / 3);
 --efy_padding:  8rem  16rem; --efy_padding2: 3rem  6rem; --efy_gap:  15rem; --efy_body_width: 1120rem;
 --efy_color: rgb(var(--efy_color1_var)); --efy_color_trans: rgba(var(--efy_color1_var), 0.3);
@@ -244,6 +244,8 @@ details[open]:not([efy_help]) > summary:before {transform: rotate(90deg); right:
 [efy_select] input:checked + label:before {border-color: var(--efy_text2)}
 [efy_select] [type="checkbox"], [efy_select] [type="radio"], [efy_select] label [type="color"] {opacity:0}
 [efy_select] label, [efy_select] p, [efy_select] button {margin: 0  8rem 12rem 0}
+
+/*Padding-Right for Expanding Boxes*/ select:not([multiple]) {padding-right: 32rem} summary, details[open] summary {padding-right: 20rem}
 
 /*Card*/ [efy_card] {background: var(--efy_bg1); border-radius: var(--efy_radius); border: 1.5rem solid var(--efy_color_border); padding: 15rem; display: grid; gap: 5rem; width: 100%; align-content: baseline}
 
