@@ -652,22 +652,77 @@ export default {
 .player-container {
     @apply max-h-75vh min-h-64 bg-black;
 }
+[efy_theme="dark_black"] .player-container {
+    box-shadow: 0 0 0 1.5rem var(--efy_color_border);
+}
 .shaka-video-container:-webkit-full-screen {
     max-height: none !important;
 }
 
-/* captions style */
+/*Captions*/
 .shaka-text-wrapper * {
     text-align: left !important;
 }
-
-.shaka-text-wrapper > span > span {
-    background-color: transparent !important;
+.shaka-text-wrapper > span {
+    background: #0008;
+    backdrop-filter: blur(20rem);
+    border: 1.5rem solid var(--efy_color_border);
+    border-radius: var(--efy_radius);
+    padding: 8rem 12rem;
+    line-height: 28rem;
 }
-
 /* apply to all spans that don't include multiple other spans to avoid the style being applied to the text container too when the subtitles are two lines */
 .shaka-text-wrapper > span > span *:first-child:last-child {
-    background-color: rgba(0, 0, 0, 0.6) !important;
-    padding: 0.09em 0;
+    background: transparent !important;
+    color: var(--efy_text);
+    padding: 0;
+    font-size: 22rem !important;
+}
+@media (max-width: 639px) {
+    .shaka-text-wrapper > span > span *:first-child:last-child {
+        font-size: 16rem !important;
+    }
+}
+
+/*Shaka Player*/
+html .shaka-range-element,
+html .shaka-range-element:focus {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+.material-icons-round {
+    font-family: "Material Icons Round" !important;
+}
+.material-icons-round,
+.shaka-current-time {
+    -webkit-text-fill-color: #fff !important;
+    opacity: 1 !important;
+}
+.shaka-overflow-menu,
+.shaka-settings-menu {
+    background: var(--efy_text2) !important;
+    border-radius: var(--efy_radius) !important;
+    padding: 16rem !important;
+    height: fit-content !important;
+    max-height: 256rem !important;
+    box-shadow: inset 0 0 0 1.5px var(--efy_bg1) !important;
+}
+.shaka-overflow-menu label,
+.shaka-settings-menu label,
+.shaka-overflow-menu button,
+.shaka-settings-menu button {
+    -webkit-text-fill-color: var(--efy_text) !important;
+    margin: 1.6rem 0 !important;
+}
+.shaka-overflow-menu .material-icons-round,
+.shaka-settings-menu .material-icons-round {
+    -webkit-text-fill-color: var(--efy_text) !important;
+}
+
+.shaka-overflow-menu button:hover,
+.shaka-settings-menu button:hover {
+    background: var(--efy_bg1) !important;
+    box-shadow: inset 0 0 0 1.5px var(--efy_bg1);
 }
 </style>
