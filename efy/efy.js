@@ -1,4 +1,4 @@
-/*EFY UI 2022.09.08*/ let e$ = document.querySelector.bind(document), e$all = document.querySelectorAll.bind(document), e$create = document.createElement.bind(document), e$body, e$root; window.onload =()=>{ e$root = e$(":root"), e$body = e$("body");
+/*EFY UI 2022.09.08*/ let e$ = document.querySelector.bind(document), e$all = document.querySelectorAll.bind(document), e$create = document.createElement.bind(document), e$body, e$root; window.onload =async ()=>{ e$root = e$(":root"), e$body = e$("body");
 
 /*Check LocalStorage*/ try {let x = 'LS'; localStorage.setItem(x, x); let y = localStorage.getItem(x); localStorage.removeItem(x); if (x !== y) {throw new Error();}} catch (exception) {e$('body').innerHTML = `<div efy_alert style="background: #eee"><div><h6><a>EFY</a> - Your browser blocks LocalStorage</h6><p>You can block 3rd party cookies, no worries, Privacy matters! But please allow 1st party cookies in your browser's settings.  EFY<b>doesn't</b> use cookies or track you, but the settings related to LocalStorage are grouped as "cookies", although different. Have fun! 🥳</p></div></div>`}
 
@@ -290,8 +290,8 @@ await importIDB(); }; reader.readAsText(file); });
 
 /*Reset Settings*/ e$all(".efy_localstorage_reset").forEach(x =>{ x.onclick = () => { Object.entries(localStorage).forEach(([k])=>{ if (k.includes('efy')){ localStorage.removeItem(k)} }); location.reload() }});
 
-
-/*Audio*/ let efyaudio = {}; ['pop','ok','ok2','ok3','ok4','hover','slide','squish','step','error','disabled'].forEach(x => { efyaudio[x] = new Audio(`./audio/${x}.mp3`) }); e$body.addEventListener("pointerdown", efyaudio_fn, {once: true});
+/*Determine Audio Path*/ let audioPath; await fetch('./audio/ok.mp3').then((response) => { audioPath = response.ok ? './audio' : '/audio'; });
+/*Audio*/ let efyaudio = {}; ['pop','ok','ok2','ok3','ok4','hover','slide','squish','step','error','disabled'].forEach(x => { efyaudio[x] = new Audio(`${audioPath}/${x}.mp3`) }); e$body.addEventListener("pointerdown", efyaudio_fn, {once: true});
 
 async function efyaudio_fn() { if (localStorage.efy_audio_status == 'on' ){ if (localStorage.efy_audio_click == 'on') {
     /*Ok*/ e$body.addEventListener("pointerup", ()=>{ if (event.target.matches('button:not([disabled], [type=submit], [type=reset], [efy_tab], .shaka-overflow-menu button, .shaka-overflow-menu-button, .shaka-back-to-overflow-button), .video-grid>div')) { efyaudio.ok.cloneNode().play() }});
