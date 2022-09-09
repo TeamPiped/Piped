@@ -32,7 +32,7 @@
 }
 
 body {
-    @apply p-64;
+    @apply max-w-100vw p-16rem;
 }
 
 /*Default Mode*/
