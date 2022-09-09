@@ -87,7 +87,9 @@
         "time_code": "Zaman kodu (saniye cinsinden)",
         "with_timecode": "Zaman koduyla paylaş",
         "piped_link": "Piped bağlantısı",
-        "share": "Paylaş"
+        "share": "Paylaş",
+        "rename_playlist": "Oynatma listesini yeniden adlandır",
+        "new_playlist_name": "Yeni oynatma listesi adı"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
