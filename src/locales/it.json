@@ -87,7 +87,9 @@
         "copy_link": "Copia il collegamento",
         "time_code": "Tempo (in secondi)",
         "follow_link": "Apri il collegamento",
-        "with_timecode": "Condividi con marca temporale"
+        "with_timecode": "Condividi con marca temporale",
+        "new_playlist_name": "Nuovo nome dalla playlist",
+        "rename_playlist": "Rinomina la playlist"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -113,7 +115,7 @@
         "ratings_disabled": "Valutazioni disabilitate",
         "live": "{0} Diretta",
         "chapters": "Capitoli",
-        "shorts": "Shorts"
+        "shorts": "Short"
     },
     "preferences": {
         "ssl_score": "Valutazione SSL",
