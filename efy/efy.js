@@ -291,7 +291,7 @@ await importIDB(); }; reader.readAsText(file); });
 /*Reset Settings*/ e$all(".efy_localstorage_reset").forEach(x =>{ x.onclick = () => { Object.entries(localStorage).forEach(([k])=>{ if (k.includes('efy')){ localStorage.removeItem(k)} }); location.reload() }});
 
 
-/*Audio*/ let efyaudio = {}; ['pop','ok','ok2','ok3','ok4','hover','slide','squish','step','error','disabled'].forEach(x => { efyaudio[x] = new Audio(`./efy/audio/${x}.mp3`) }); e$body.addEventListener("pointerdown", efyaudio_fn, {once: true});
+/*Audio*/ let efyaudio = {}; ['pop','ok','ok2','ok3','ok4','hover','slide','squish','step','error','disabled'].forEach(x => { efyaudio[x] = new Audio(`./audio/${x}.mp3`) }); e$body.addEventListener("pointerdown", efyaudio_fn, {once: true});
 
 async function efyaudio_fn() { if (localStorage.efy_audio_status == 'on' ){ if (localStorage.efy_audio_click == 'on') {
     /*Ok*/ e$body.addEventListener("pointerup", ()=>{ if (event.target.matches('button:not([disabled], [type=submit], [type=reset], [efy_tab], .shaka-overflow-menu button, .shaka-overflow-menu-button, .shaka-back-to-overflow-button), .video-grid>div')) { efyaudio.ok.cloneNode().play() }});
