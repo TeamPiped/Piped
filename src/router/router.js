@@ -44,12 +44,12 @@ const routes = [
     {
         path: "/login",
         name: "Login",
-        component: () => import("../components/LoginPage.vue"),
+        component: () => import("../components/LoginModal.vue"),
     },
     {
         path: "/register",
         name: "Register",
-        component: () => import("../components/RegisterPage.vue"),
+        component: () => import("../components/LoginModal.vue"),
     },
     {
         path: "/feed",
