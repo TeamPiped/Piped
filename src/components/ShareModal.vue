@@ -1,9 +1,6 @@
 <template>
     <ModalComponent>
-        <div class="flex justify-between">
-            <h3 v-t="'actions.share'" />
-            <button class="ml-3" @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
-        </div>
+        <h2 v-t="'actions.share'" />
         <div class="flex justify-between mt-4">
             <label v-t="'actions.with_timecode'" for="withTimeCode" />
             <input id="withTimeCode" type="checkbox" v-model="withTimeCode" />
@@ -16,7 +13,7 @@
             <label v-t="'actions.time_code'" />
             <input class="input w-300" type="text" v-model="timeStamp" />
         </div>
-        <h6 class="mb-2" v-text="generatedLink" />
+        <a :href="generatedLink" target="_blank"><h6 class="mb-2" v-text="generatedLink" /></a>
         <div class="flex justify-end mt-4">
             <button class="btn" style="margin-right: 15rem" v-t="'actions.follow_link'" @click="followLink()" />
             <button class="btn" v-t="'actions.copy_link'" @click="copyLink()" />
