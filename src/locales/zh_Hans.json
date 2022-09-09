@@ -87,7 +87,9 @@
         "back_to_home": "回到首页",
         "share": "分享",
         "with_timecode": "用时间码分享",
-        "time_code": "时间码（单位：秒）"
+        "time_code": "时间码（单位：秒）",
+        "rename_playlist": "重命名播放列表",
+        "new_playlist_name": "新播放列表名"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
