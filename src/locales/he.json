@@ -100,7 +100,9 @@
         "view_ssl_score": "הצגת דירוג SSL",
         "search": "חיפוש",
         "loop_this_video": "ניגון הסרטון בלולאה",
-        "minimize_recommendations": "מזעור המלצות"
+        "minimize_recommendations": "מזעור המלצות",
+        "rename_playlist": "שינוי שם רשימת נגינה",
+        "new_playlist_name": "שם לרשימת נגינה חדשה"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי",
