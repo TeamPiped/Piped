@@ -102,9 +102,7 @@
                             title="RSS feed"
                             role="button"
                             v-if="video.uploaderUrl"
-                            :href="`https://www.youtube.com/feeds/videos.xml?channel_id=${
-                                video.uploaderUrl.split('/')[2]
-                            }`"
+                            :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${video.uploaderUrl.split('/')[2]}`"
                             target="_blank"
                             class="btn flex-col"
                         >

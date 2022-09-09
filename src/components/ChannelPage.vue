@@ -28,7 +28,7 @@
             title="RSS feed"
             role="button"
             v-if="channel.id"
-            :href="`https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}`"
+            :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
             target="_blank"
             class="btn flex-col ml-3"
         >
