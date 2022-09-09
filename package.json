@@ -15,7 +15,7 @@
         "@fortawesome/vue-fontawesome": "^3.0.1",
         "buffer": "^6.0.3",
         "dompurify": "^2.4.0",
-        "hotkeys-js": "^3.9.5",
+        "hotkeys-js": "^3.10.0",
         "javascript-time-ago": "^2.5.7",
         "mux.js": "^6.2.0",
         "shaka-player": "4.2.1",
@@ -44,7 +44,7 @@
         "unocss": "^0.45.18",
         "vite": "^2.9.14",
         "vite-plugin-eslint": "^1.8.1",
-        "vite-plugin-pwa": "^0.12.6"
+        "vite-plugin-pwa": "^0.12.7"
     },
     "eslintConfig": {
         "root": true,
