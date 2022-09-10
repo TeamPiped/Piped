@@ -36,8 +36,7 @@ export default {
     },
     methods: {
         async fetchConfig() {
-            fetch("config.json").then(async response => {
-                const config = await response.json();
+            this.fetchJson("confg.json").then(config => {
                 this.donationHref = config.donation_href;
                 this.statusPageHref = config.status_page_href;
             });
@@ -46,7 +45,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 footer {
     @apply bg-light-900;
 }
