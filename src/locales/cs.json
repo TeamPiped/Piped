@@ -100,7 +100,9 @@
         "piped_link": "Odkaz na Piped",
         "follow_link": "Následovat odkaz",
         "copy_link": "Kopírovat odkaz",
-        "time_code": "Časový kód (v sekundách)"
+        "time_code": "Časový kód (v sekundách)",
+        "rename_playlist": "Přejmenovat playlist",
+        "new_playlist_name": "Nový název playlistu"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
