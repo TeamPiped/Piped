@@ -107,7 +107,8 @@
         "copy_link": "Copy link",
         "time_code": "Time code (in seconds)",
         "show_chapters": "Chapters",
-        "store_search_history": "Store Search history"
+        "store_search_history": "Store Search history",
+        "hide_watched": "Hide watched videos in the feed"
     },
     "comment": {
         "pinned_by": "Pinned by",
