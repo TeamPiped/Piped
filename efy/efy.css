@@ -47,7 +47,7 @@
 /*Border*/ textarea, select, input, button, [role="button"], [type="submit"], [type="reset"], [type="button"], details, pre, td, th, article, aside, blockquote, [type="file"], .efy_sidebar, [efy_tabs] [efy_content], [efy_alert] {border:  1.5rem solid var(--efy_color_border)}
 
 /*Outline: None*/ * {outline: none!important}
-/*Outline*/ textarea:focus, select:focus, input:not([type=checkbox], [type=radio]):focus, [type="file"]:focus, [type="range"]:focus,  [efy_outline] [efy_select] input:focus + label, [efy_outline] [type=checkbox]:focus, [efy_outline] [type=radio]:focus, [efy_outline] button:focus, [efy_outline] [role="button"]:focus, [efy_outline] [type="submit"]:focus, [efy_outline] [type="reset"]:focus, [efy_outline] [type="button"]:focus, [efy_outline] [efy_select] input:focus + label, [efy_tabs] [efy_tab]:focus {outline: 3rem solid var(--efy_text)!important}
+/*Outline*/ textarea:focus, select:focus, input:not([type=checkbox], [type=radio]):focus, [type="file"]:focus, [type="range"]:focus,  [efy_outline] [efy_select] input:focus + label, [efy_outline] [type=checkbox]:focus, [efy_outline] [type=radio]:focus, [efy_outline] button:focus, [efy_outline] [role="button"]:focus, [efy_outline] [type="submit"]:focus, [efy_outline] [type="reset"]:focus, [efy_outline] [type="button"]:focus, [efy_outline] [efy_select] input:focus + label, [efy_outline] [efy_tabs] [efy_tab]:focus {outline: 3rem solid var(--efy_text)!important}
 /*Outline Offset*/ [type=checkbox], [type=radio], button, [efy_select] label, [efy_tabs] [efy_tab] {outline-offset: 4rem}
 
 
