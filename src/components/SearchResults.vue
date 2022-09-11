@@ -145,7 +145,7 @@ export default {
             if (!query) return;
             const searchHistory = JSON.parse(localStorage.getItem("search_history")) ?? [];
             if (!searchHistory.includes(query)) searchHistory.push(query);
-            if (searchHistory.length > 3) searchHistory.shift();
+            if (searchHistory.length > 10) searchHistory.shift();
             localStorage.setItem("search_history", JSON.stringify(searchHistory));
         },
     },
