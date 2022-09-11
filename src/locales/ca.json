@@ -93,7 +93,14 @@
         "reset_preferences": "Restablir preferències",
         "restore_preferences": "Restaura les preferències",
         "backup_preferences": "Preferències de la còpia de seguretat",
-        "confirm_reset_preferences": "Esteu segur que voleu restablir les vostres preferències?"
+        "confirm_reset_preferences": "Esteu segur que voleu restablir les vostres preferències?",
+        "back_to_home": "Torna a l'inici",
+        "with_timecode": "Compartir moment concret",
+        "piped_link": "Enllaç de Piped",
+        "share": "Compartir",
+        "time_code": "Moment (en segons)",
+        "copy_link": "Copiar l'enllaç",
+        "follow_link": "Vés a l'enllaç"
     },
     "comment": {
         "pinned_by": "Fixat per",
@@ -143,5 +150,11 @@
     },
     "information": {
         "preferences_note": "Nota: les preferències es desen a l'emmagatzematge local del navegador. Si suprimiu les dades del navegador, es restabliran."
+    },
+    "info": {
+        "preferences_note": "Nota: les preferències es desen a l'emmagatzematge local del navegador. Si elimineu les dades del navegador, es restabliran.",
+        "page_not_found": "No s'ha torbat la pàgina",
+        "copied": "Copiat!",
+        "cannot_copy": "No es pot copiar!"
     }
 }

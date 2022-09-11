@@ -96,7 +96,16 @@
         "reset_preferences": "Atur ulang preferensi",
         "restore_preferences": "Pulihkan preferensi",
         "confirm_reset_preferences": "Apakah Anda yakin ingin mengatur ulang preferensi Anda?",
-        "backup_preferences": "Cadangkan preferensi"
+        "backup_preferences": "Cadangkan preferensi",
+        "rename_playlist": "Ubah nama daftar putar",
+        "new_playlist_name": "Nama daftar putar baru",
+        "share": "Bagikan",
+        "with_timecode": "Bagikan dengan kode waktu",
+        "piped_link": "Tautan Piped",
+        "follow_link": "Ikuti tautan",
+        "copy_link": "Salin tautan",
+        "time_code": "Kode waktu (dalam detik)",
+        "back_to_home": "Kembali ke beranda"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh",
@@ -143,5 +152,11 @@
     },
     "information": {
         "preferences_note": "Catatan: preferensi disimpan di penyimpanan lokal peramban Anda. Menghapus data peramban Anda akan mengatur ulang mereka."
+    },
+    "info": {
+        "page_not_found": "Laman tidak ditemukan",
+        "preferences_note": "Catatan: preferensi disimpan dalam penyimpanan lokal peramban Anda. Menghapus data peramban Anda akan mengatur ulang.",
+        "copied": "Disalin!",
+        "cannot_copy": "Tidak dapat menyalin!"
     }
 }

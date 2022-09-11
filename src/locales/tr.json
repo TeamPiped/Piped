@@ -81,7 +81,15 @@
         "confirm_reset_preferences": "Tercihlerinizi sıfırlamak istediğinize emin misiniz?",
         "backup_preferences": "Tercihleri yedekle",
         "restore_preferences": "Tercihleri geri yükle",
-        "back_to_home": "Ana sayfaya dön"
+        "back_to_home": "Ana sayfaya dön",
+        "follow_link": "Bağlantıyı takip et",
+        "copy_link": "Bağlantıyı kopyala",
+        "time_code": "Zaman kodu (saniye cinsinden)",
+        "with_timecode": "Zaman koduyla paylaş",
+        "piped_link": "Piped bağlantısı",
+        "share": "Paylaş",
+        "rename_playlist": "Oynatma listesini yeniden adlandır",
+        "new_playlist_name": "Yeni oynatma listesi adı"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
@@ -147,6 +155,8 @@
     },
     "info": {
         "preferences_note": "Not: Tercihler tarayıcınızın yerel depolama alanına kaydedilir. Tarayıcı verilerinizi silmek onları sıfırlayacaktır.",
-        "page_not_found": "Sayfa bulunamadı"
+        "page_not_found": "Sayfa bulunamadı",
+        "copied": "Kopyalandı!",
+        "cannot_copy": "Kopyalanamıyor!"
     }
 }

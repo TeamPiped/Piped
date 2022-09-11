@@ -80,7 +80,16 @@
         "reset_preferences": "重置选项",
         "restore_preferences": "恢复首选项",
         "confirm_reset_preferences": "你确定要重置首选项吗？",
-        "backup_preferences": "备份首选项"
+        "backup_preferences": "备份首选项",
+        "piped_link": "Piped 链接",
+        "follow_link": "跟随链接",
+        "copy_link": "复制链接",
+        "back_to_home": "回到首页",
+        "share": "分享",
+        "with_timecode": "用时间码分享",
+        "time_code": "时间码（单位：秒）",
+        "rename_playlist": "重命名播放列表",
+        "new_playlist_name": "新播放列表名"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -143,5 +152,11 @@
     },
     "information": {
         "preferences_note": "注：选项保存于浏览器的本地存储中。删除浏览器数据会重置它们。"
+    },
+    "info": {
+        "preferences_note": "注意：首选项保存在浏览器的本地存储中。删除浏览器数据会重置它们。",
+        "page_not_found": "未找到页面",
+        "copied": "已复制！",
+        "cannot_copy": "无法复制！"
     }
 }

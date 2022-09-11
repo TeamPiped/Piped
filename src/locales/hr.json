@@ -19,7 +19,7 @@
         "up_to_date": "Najnovija verzija?"
     },
     "comment": {
-        "pinned_by": "Prikačio korisnik",
+        "pinned_by": "Prikvačio korisnik",
         "disabled": "Prijenosnik onemogućuje komentare.",
         "loading": "Učitavanje komentara …",
         "user_disabled": "Komentari su isključeni u postavkama."
@@ -102,7 +102,19 @@
         "clone_playlist": "Dupliciraj playlistu",
         "clone_playlist_success": "Dupliciranje uspjelo!",
         "download_as_txt": "Preuzmi kao .txt",
-        "reset_preferences": "Resetiraj postavke"
+        "reset_preferences": "Resetiraj postavke",
+        "piped_link": "Piped poveznica",
+        "follow_link": "Slijedi poveznicu",
+        "copy_link": "Kopiraj poveznicu",
+        "time_code": "Vremenski kod (u sekundama)",
+        "restore_preferences": "Obnovi postavke",
+        "back_to_home": "Natrag na početnu stranicu",
+        "confirm_reset_preferences": "Stvarno želiš resetirati tvoje postavke?",
+        "backup_preferences": "Spremi sigurnosnu kopiju postavki",
+        "with_timecode": "Dijeli s vremenskim kodom",
+        "rename_playlist": "Preimenuj popis snimaka",
+        "new_playlist_name": "Ime novog popisa snimaka",
+        "share": "Dijeli"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -140,5 +152,11 @@
     },
     "information": {
         "preferences_note": "Napomena: postavke se spremaju u lokalno spremište preglednika. Brisanje podataka preglednika resetira postavke."
+    },
+    "info": {
+        "preferences_note": "Napomena: postavke se spremaju u lokalno spremište tvog preglednika. Brisanje podataka preglednika će ih resetirati.",
+        "page_not_found": "Stranica nije pronađena",
+        "copied": "Kopirano!",
+        "cannot_copy": "Nije moguće kopirati!"
     }
 }
