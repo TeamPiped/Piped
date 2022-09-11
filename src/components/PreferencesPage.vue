@@ -373,6 +373,7 @@ export default {
                 { code: "fa", name: "فارسی" },
                 { code: "fi", name: "Suomi" },
                 { code: "fr", name: "Français" },
+                { code: "he", name: "עברית" },
                 { code: "hi", name: "हिंदी" },
                 { code: "id", name: "Indonesia" },
                 { code: "is", name: "Íslenska" },
