@@ -47,11 +47,15 @@ export default {
             }
         },
         async refreshSuggestions() {
-            this.searchSuggestions = (
-                await this.fetchJson(this.apiUrl() + "/opensearch/suggestions", {
-                    query: this.searchText,
-                })
-            )?.[1];
+            if (!this.searchText) {
+                this.searchSuggestions = JSON.parse(localStorage.getItem("search_history")) ?? [];
+            } else {
+                this.searchSuggestions = (
+                    await this.fetchJson(this.apiUrl() + "/opensearch/suggestions", {
+                        query: this.searchText,
+                    })
+                )?.[1];
+            }
             this.searchSuggestions.unshift(this.searchText);
             this.setSelected(0);
         },
