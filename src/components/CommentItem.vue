@@ -87,3 +87,9 @@ export default {
     },
 };
 </script>
+
+<style>
+.comment-content {
+    overflow-wrap: anywhere;
+}
+</style>
