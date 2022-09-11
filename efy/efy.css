@@ -1,4 +1,4 @@
-/*EFY UI 2022.09.09*/:root { --efy_font_size: 1px;
+/*EFY UI 2022.09.11*/:root { --efy_font_size: 1px;
 --efy_radius0: calc(var(--efy_radius) / 1.25); --efy_radius2: calc(var(--efy_radius) * 1.5); --efy_radius00: calc(var(--efy_radius) / 3);
 --efy_padding:  8rem  16rem; --efy_padding2: 3rem  6rem; --efy_gap:  15rem; --efy_body_width: 1120rem;
 --efy_color: rgb(var(--efy_color1_var)); --efy_color_trans: rgba(var(--efy_color1_var), 0.3);
@@ -23,7 +23,7 @@
 
 
 /*Display: Block*/ table, .efy_toggle_visible {display: block}
-/*Display: Inline-Block*/ header > nav li, header > nav a, header > nav a:visited, [efy_select] label, [efy_select] label:before, [efy_select] input:checked + label:after {display: inline-block}
+/*Display: Inline-Block*/ header > nav li, header > nav a, header > nav a:visited, [efy_tabs] [efy_tab], [efy_select] label, [efy_select] label:before, [efy_select] input:checked + label:after {display: inline-block}
 /*Display: None*/ [efy_sidebar_btn_close], [efy_select] [for*=efy_color]:before, [efy_select] [for*=efy_color]:after {display: none}
 /*Display: None ! */ [efy_display_none], [efy_display_none] * {display: none!important}
 
@@ -47,11 +47,11 @@
 /*Border*/ textarea, select, input, button, [role="button"], [type="submit"], [type="reset"], [type="button"], details, pre, td, th, article, aside, blockquote, [type="file"], .efy_sidebar, [efy_tabs] [efy_content], [efy_alert] {border:  1.5rem solid var(--efy_color_border)}
 
 /*Outline: None*/ * {outline: none!important}
-/*Outline*/ textarea:focus, select:focus, input:not([type=checkbox], [type=radio]):focus, [type="file"]:focus, [type="range"]:focus,  [efy_outline] [efy_select] input:focus + label, [efy_outline] [type=checkbox]:focus, [efy_outline] [type=radio]:focus, [efy_outline] button:focus, [efy_outline] [role="button"]:focus, [efy_outline] [type="submit"]:focus, [efy_outline] [type="reset"]:focus, [efy_outline] [type="button"]:focus, [efy_outline] [efy_select] input:focus + label  {outline: 3rem solid var(--efy_text)!important}
-/*Outline Offset*/ [type=checkbox], [type=radio], button, [efy_select] label {outline-offset: 4rem}
+/*Outline*/ textarea:focus, select:focus, input:not([type=checkbox], [type=radio]):focus, [type="file"]:focus, [type="range"]:focus,  [efy_outline] [efy_select] input:focus + label, [efy_outline] [type=checkbox]:focus, [efy_outline] [type=radio]:focus, [efy_outline] button:focus, [efy_outline] [role="button"]:focus, [efy_outline] [type="submit"]:focus, [efy_outline] [type="reset"]:focus, [efy_outline] [type="button"]:focus, [efy_outline] [efy_select] input:focus + label, [efy_tabs] [efy_tab]:focus {outline: 3rem solid var(--efy_text)!important}
+/*Outline Offset*/ [type=checkbox], [type=radio], button, [efy_select] label, [efy_tabs] [efy_tab] {outline-offset: 4rem}
 
 
-/*Radius*/ textarea, select, input, img, video, pre, details, summary, blockquote, article, aside, [type="range"], button, [role="button"], [type="submit"], [type="reset"], [type="button"], img, video, audio, table, [efy_sidebar_btn_open], [efy_sidebar_btn_close]{border-radius: var(--efy_radius)}
+/*Radius*/ textarea, select, input, img, video, pre, details, summary, blockquote, article, aside, [type="range"], button, [role="button"], [type="submit"], [type="reset"], [type="button"], img, video, audio, table, [efy_sidebar_btn_open], [efy_sidebar_btn_close],  [efy_select] label, [efy_tabs] [efy_tab] {border-radius: var(--efy_radius)}
 /*Radius2*/ [efy_timer], [efy_clock], [efy_alert] {border-radius: var(--efy_radius2)}
 /*Radius0*/ mark, kbd, [type="checkbox"], [type="radio"] {border-radius: var(--efy_radius0)}
 /*Radius00*/ [type="radio"]:checked:after {border-radius: var(--efy_radius00)}
@@ -67,6 +67,7 @@
 /*Cursor: Pointer*/ button:focus, button:enabled:hover, [role="button"]:focus, [role="button"]:not([aria-disabled="true"]):hover, [type="submit"]:focus, [type="submit"]:enabled:hover, [type="reset"]:focus, [type="reset"]:enabled:hover, [type="button"]:focus, [type="button"]:enabled:hover, summary, [type="range"], [type="file"], [efy_sidebar_btn_close], [efy_sidebar_btn_open], [efy_select] label {cursor: pointer}
 /*Cursor: Help*/ abbr {cursor: help}
 /*Cursor: None*/ /* * {cursor: none!important} */
+/*Pointer Events: None*/  [efy_tabs] [efy_tab] code {pointer-events: none}
 
 
 /*Disabled*/ input:disabled, textarea:disabled, select:disabled, button[disabled],[role="button"][aria-disabled="true"],[type="submit"][disabled],[type="reset"][disabled],[type="button"][disabled],[type="checkbox"][disabled],[type="radio"][disabled],select[disabled] {opacity: 0.5; cursor: not-allowed}
@@ -76,15 +77,15 @@
 
 /*Line-Height: 30rem*/ mark, kbd {line-height: 30rem}
 
-/*Padding1*/ button, [role="button"], [type="submit"], [type="reset"], [type="button"], summary, blockquote, pre, [efy_select] label {padding: var(--efy_padding)}
+/*Padding1*/ button, [role="button"], [type="submit"], [type="reset"], [type="button"], summary, blockquote, pre, [efy_select] label, [efy_tabs] [efy_tab] {padding: var(--efy_padding)}
 /*Padding2*/ mark, kbd {padding: var(--efy_padding2)}
 
 
 /*Vertical align: Middle*/ [efy_select] label:before, [efy_select] input:checked + label:after {vertical-align: middle}
 
 
-/*Text: Font*/ html, body, mark, code, pre, pre span, kbd, samp {font-family: var(--efy_font_family)}
-/*Text: Bold*/ button, a, code, kbd, samp, mark, summary, th, table caption, [type="button"], [type="submit"], [type="reset"], [efy_sidebar_btn_open], [efy_sidebar_btn_close], code {font-weight: bold}
+/*Text: Font*/ html, body, mark, code, pre, pre span, kbd, samp, button, a {font-family: var(--efy_font_family)}
+/*Text: Bold*/ button, a, code, kbd, samp, mark, summary, th, table caption, [type="button"], [type="submit"], [type="reset"], [efy_sidebar_btn_open], [efy_sidebar_btn_close], code,  [efy_select] label,  [efy_tabs] [efy_tab] {font-weight: bold}
 
 
 /*No Selection*/ [efy_select] label {user-drag: none; -webkit-user-drag: none; user-select: none; -webkit-user-select: none}
@@ -232,18 +233,18 @@ details:not([efy_help]) summary:before {position: absolute; right: 8rem; transit
 details details {margin-top: 15rem} details details:not([efy_help]) > summary:before {right: -6rem}
 details[open]:not([efy_help]) > summary:before {transform: rotate(90deg); right: -2rem}
 
-/*Help Box*/ [efy_help] {background: transparent; border: 0; padding: 0 0 10rem 0!important; margin: 0}
+/*Help Box*/ [efy_help] {background: transparent; border: 0; padding: 0!important; margin: 0}
+[efy_help][open] {padding: 0 0 10rem 0!important}
 [efy_help] summary {pointer-events: none; margin-bottom: 0; padding: 0}
 [efy_help] summary:after {margin-left:  8rem; opacity: 0.5; pointer-events: all}
 
-/*Select Menu*/ [efy_select] label {border-radius: var(--efy_radius); font-weight: bold}
-[efy_select] label:before {width:  16rem; height:  16rem; margin-right:  8rem; margin-top: -0.2rem; position: relative; border-radius: var(--efy_radius0); border: 2.4rem solid transparent; background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: destination-out; mask-composite: exclude}
+/*Select Menu*/ [efy_select] label:before {width:  16rem; height:  16rem; margin-right:  8rem; margin-top: -0.2rem; position: relative; border-radius: var(--efy_radius0); border: 2.4rem solid transparent; background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: source-out; mask-composite: exclude}
 
 [efy_select] [type="radio"]:checked + label:after {background: var(--efy_text2); width: 9.6rem; height: 9.6rem; top: 8.4rem; left: 5.6rem; margin: var(--efy_padding); border-radius: calc(var(--efy_radius0) / 2)}
 [efy_select] [type="checkbox"]:checked + label:after {top: 13.2rem; left: 22.4rem; width: 4.8rem; height: 9.6rem; border-radius: 2rem; border-right: solid var(--efy_text2) 3.2rem; border-bottom: solid var(--efy_text2) 3.2rem; transform: rotate(45deg)}
 [efy_select] input:checked + label:before {border-color: var(--efy_text2)}
 [efy_select] [type="checkbox"], [efy_select] [type="radio"], [efy_select] label [type="color"] {opacity:0}
-[efy_select] label, [efy_select] p, [efy_select] button {margin: 0  8rem 12rem 0}
+[efy_select] label, [efy_tabs] [efy_tab], [efy_select] p, [efy_select] button {margin: 6px 8rem 6rem 0}
 
 /*Padding-Right for Expanding Boxes*/ select:not([multiple]) {padding-right: 32rem} summary, details[open] summary {padding-right: 20rem}
 
@@ -299,7 +300,8 @@ details[open]:not([efy_help]) > summary:before {transform: rotate(90deg); right:
 .efy_quick_shortcuts [efy_search_input] {margin-bottom: 15rem}
 
 
-/*Tabs*/ [efy_tabs] [efy_tab] {display: inline-flex; gap: 12rem; margin-bottom: 12rem; margin-right:  8rem} [efy_tabs] [efy_tab]:last-of-type {margin-right: 0}
+/*Tabs*/ [efy_tabs] [efy_tab][efy_active] code {-webkit-text-fill-color: var(--efy_text2)}
+[efy_tabs] [efy_tab]:last-of-type {margin-right: 0; margin-bottom: 12rem}
 [efy_tabs] [efy_content] {opacity: 0; position: absolute; pointer-events: none; transform: scale(0.3); padding:  16rem; border-radius: var(--efy_radius); background: var(--efy_bg1)}
 [efy_tabs] [efy_content][efy_active] {opacity: 1; position: relative; pointer-events: all; transform: scale(1);  transition: 0.1s linear}
 [efy_tabs] [efy_content]:not([efy_active]) * {position: absolute; pointer-events: none; opacity: 0}
