@@ -114,7 +114,7 @@ b {
 }
 
 .auto {
-    @apply @dark:(text-white bg-dark-900);
+    @apply dark:(text-white bg-dark-900);
 }
 
 .dark {
@@ -145,7 +145,7 @@ b {
 .auto .input,
 .auto .select,
 .auto .btn {
-    @apply @dark:(text-gray-400 bg-dark-400);
+    @apply dark:(text-gray-400 bg-dark-400);
 }
 
 .input {
@@ -166,7 +166,7 @@ hr {
 }
 
 .auto hr {
-    @apply @dark:border-dark-100;
+    @apply dark:border-dark-100;
 }
 
 h1,
@@ -199,7 +199,7 @@ h2 {
 }
 
 .auto .link {
-    @apply @dark:hover:(text-gray-300 underline underline-gray-300);
+    @apply dark:hover:(text-gray-300 underline underline-gray-300);
 }
 
 .dark .link-secondary {
@@ -207,7 +207,7 @@ h2 {
 }
 
 .auto .link-secondary {
-    @apply @dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
+    @apply dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
 }
 
 .line {

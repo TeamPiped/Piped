@@ -85,7 +85,7 @@ export default {
 }
 
 .auto .suggestions-container {
-    @apply @dark:bg-dark-400;
+    @apply dark:bg-dark-400;
 }
 
 .suggestion-selected {
@@ -97,7 +97,7 @@ export default {
 }
 
 .auto .suggestion-selected {
-    @apply @dark:bg-dark-100;
+    @apply dark:bg-dark-100;
 }
 
 .suggestion {
