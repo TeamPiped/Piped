@@ -173,12 +173,17 @@ const mixin = {
         },
         urlify(string) {
             if (!string) return "";
+            const baseUrl = window.location.origin;
             const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
             const emailRegex = /([\w-\\.]+@(?:[\w-]+\.)+[\w-]{2,4})/g;
             return string
                 .replace(urlRegex, url => {
-                    if (url.endsWith("</a>")) return url;
-                    return `<a href="${url}" target="_blank">${url}</a>`;
+                    const targetUrl = url
+                        .replace("https://youtu.be", `${baseUrl}/watch?v=`)
+                        .replace("https://youtube.com", baseUrl)
+                        .replace("https://www.youtube.com", baseUrl);
+                    if (url.endsWith("</a>")) return targetUrl;
+                    return `<a href="${targetUrl}" target="_blank">${url}</a>`;
                 })
                 .replace(emailRegex, email => {
                     return `<a href="mailto:${email}">${email}</a>`;
