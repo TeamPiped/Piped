@@ -1,4 +1,4 @@
-/*EFY UI 2022.09.08*/ let e$ = document.querySelector.bind(document), e$all = document.querySelectorAll.bind(document), e$create = document.createElement.bind(document), e$body, e$root; window.onload =async ()=>{ e$root = e$(":root"), e$body = e$("body");
+/*EFY UI 2022.09.11*/ let e$ = document.querySelector.bind(document), e$all = document.querySelectorAll.bind(document), e$create = document.createElement.bind(document), e$body, e$root; window.onload =async ()=>{ e$root = e$(":root"), e$body = e$("body");
 
 /*Check LocalStorage*/ try {let x = 'LS'; localStorage.setItem(x, x); let y = localStorage.getItem(x); localStorage.removeItem(x); if (x !== y) {throw new Error();}} catch (exception) {e$('body').innerHTML = `<div efy_alert style="background: #eee"><div><h6><a>EFY</a> - Your browser blocks LocalStorage</h6><p>You can block 3rd party cookies, no worries, Privacy matters! But please allow 1st party cookies in your browser's settings.  EFY<b>doesn't</b> use cookies or track you, but the settings related to LocalStorage are grouped as "cookies", although different. Have fun! 🥳</p></div></div>`}
 
@@ -144,7 +144,7 @@ efy_radius_input.oninput = () => { let za = e$('.efy_sidebar_selectRadius'), z =
 /*Radius: Window Resize*/ window.addEventListener('resize', () => { let za = e$('.efy_sidebar_selectRadius'), z = getComputedStyle(za).getPropertyValue('width').replace('px',''), x = efy_radius_input.value; efy_sidebar_range.style.left = (x * (z - 32) / efy_radius_input.max) + 'rem'; });
 
 
-/*EFY Button Position*/ if (localStorage.efy_btn_align) { e$("#" + localStorage.efy_btn_align).setAttribute("checked", "1"); e$("[efy_sidebar_btn_open]").setAttribute("efy_btn_align", localStorage.efy_btn_align); } else { let y = getComputedStyle(e$root).getPropertyValue('--efy_sidebar_button').replace(' ','');
+/*EFY Button Position*/ if (localStorage.efy_btn_align) { e$("#" + localStorage.efy_btn_align).setAttribute("checked", "1"); e$("[efy_sidebar_btn_open]").setAttribute("efy_btn_align", localStorage.efy_btn_align); } else { let y = getComputedStyle(e$root).getPropertyValue('--efy_sidebar_button').replaceAll(' ','');
 e$('#'+y).setAttribute("checked", "1"); e$('[efy_sidebar_btn_open]').setAttribute('efy_btn_align', y);}
 e$all("[name=efy_btn_align]").forEach(x => { x.onclick = () => { e$("[efy_sidebar_btn_open]").setAttribute("efy_btn_align", x.id); localStorage.efy_btn_align = x.id; }; });
 
@@ -290,7 +290,8 @@ await importIDB(); }; reader.readAsText(file); });
 
 /*Reset Settings*/ e$all(".efy_localstorage_reset").forEach(x =>{ x.onclick = () => { Object.entries(localStorage).forEach(([k])=>{ if (k.includes('efy')){ localStorage.removeItem(k)} }); location.reload() }});
 
-/*Determine Audio Path*/ let audioPath; await fetch('./audio/ok.mp3').then((response) => { audioPath = response.ok ? './audio' : '/audio'; });
+/*Determine Audio Path*/ let audioPath = getComputedStyle(e$root).getPropertyValue('--efy_audio_path').replaceAll(' ','');
+
 /*Audio*/ let efyaudio = {}; ['pop','ok','ok2','ok3','ok4','hover','slide','squish','step','error','disabled'].forEach(x => { efyaudio[x] = new Audio(`${audioPath}/${x}.mp3`) }); e$body.addEventListener("pointerdown", efyaudio_fn, {once: true});
 
 async function efyaudio_fn() { if (localStorage.efy_audio_status == 'on' ){ if (localStorage.efy_audio_click == 'on') {
@@ -315,7 +316,7 @@ e$(".efy_quick_back").onclick =()=> window.history.go(-1);
 e$(".efy_quick_forward").addEventListener('pointerup', async ()=> window.history.go(1));
 
 /*Tabs*/ e$all('[efy_tabs]').forEach(z => { let x = '[efy_tabs='+z.getAttribute('efy_tabs')+'] > ';
-    e$all(x+'[efy_tab]').forEach(y => { y.onclick = e => { let efy_tab = e.target.getAttribute('efy_tab');
+    e$all(x+'[efy_tab]').forEach(y => { let cld = e$create('code'); cld.textContent = y.textContent; y.textContent = ''; y.appendChild(cld); y.onclick = e => { let efy_tab = e.target.getAttribute('efy_tab');
         e$all(x+'[efy_tab]').forEach(y => y.removeAttribute('efy_active') ); e.target.setAttribute('efy_active', '1');
         e$all(x+'[efy_content]').forEach(y => y.removeAttribute('efy_active') ); e$(x+' [efy_content="'+efy_tab+'"]').setAttribute('efy_active', '1');
 } }); });

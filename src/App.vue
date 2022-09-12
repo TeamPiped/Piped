@@ -29,6 +29,7 @@
     --efy_font_family: "nunito", sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
         Noto Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     --efy_body_width: unset;
+    --efy_audio_path: ./audio;
 }
 
 body {
