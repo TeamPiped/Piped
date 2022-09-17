@@ -29,7 +29,7 @@
                 />
                 <ChaptersBar
                     :mobileLayout="isMobile"
-                    v-if="video?.chapters?.length > 0"
+                    v-if="video?.chapters?.length > 0 && showChapters"
                     :chapters="video.chapters"
                     :player-position="currentTime"
                     @seek="navigate"
@@ -137,6 +137,18 @@
                 @click="showDesc = !showDesc"
                 v-t="`actions.${showDesc ? 'minimize_description' : 'show_description'}`"
             />
+
+            <span class="btn">
+                <input
+                    v-show="video?.chapters?.length > 0"
+                    id="showChapters"
+                    type="checkbox"
+                    checked
+                    v-model="showChapters"
+                />
+                <label class="ml-2" for="showChapters" v-t="'actions.show_chapters'" />
+            </span>
+
             <!-- eslint-disable-next-line vue/no-v-html -->
             <div v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
             <div
@@ -239,6 +251,7 @@ export default {
             selectedAutoPlay: null,
             showDesc: true,
             showRecs: true,
+            showChapters: true,
             comments: null,
             subscribed: false,
             channelId: null,
