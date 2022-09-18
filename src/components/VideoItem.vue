@@ -73,7 +73,6 @@
             >
                 <font-awesome-icon icon="circle-minus" />
             </button>
-            <PlaylistAddModal v-if="showModal" :video-id="video.url.substr(-11)" @close="showModal = !showModal" />
         </div>
 
         <div class="flex">
@@ -111,6 +110,7 @@
             </div>
         </div>
     </div>
+    <PlaylistAddModal v-if="showModal" :video-id="video.url.substr(-11)" @close="showModal = !showModal" />
 </template>
 
 <style>
