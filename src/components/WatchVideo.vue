@@ -29,7 +29,7 @@
                 />
                 <ChaptersBar
                     :mobileLayout="isMobile"
-                    v-if="video?.chapters?.length > 0"
+                    v-if="video?.chapters?.length > 0 && showChapters"
                     :chapters="video.chapters"
                     :player-position="currentTime"
                     @seek="navigate"
@@ -132,15 +132,20 @@
             <hr />
 
             <div efy_select>
-                <input id="showDesc" type="checkbox" checked @change="showDesc = !showDesc" />
+                <input id="showDesc" type="checkbox" v-model="showDesc" />
                 <label for="showDesc" v-t="'actions.show_description'" />
-                <input id="showRecs" type="checkbox" checked @change="showRecs = !showRecs" />
+                <input id="showRecs" type="checkbox" v-model="showRecs" />
                 <label for="showRecs" v-t="'actions.show_recommendations'" />
                 <input id="chkAutoLoop" v-model="selectedAutoLoop" type="checkbox" @change="onChange($event)" />
                 <label for="chkAutoLoop" v-text="`${$t('actions.loop_this_video')}`" />
                 <input id="chkAutoPlay" v-model="selectedAutoPlay" type="checkbox" @change="onChange($event)" />
                 <label for="chkAutoPlay" v-text="`${$t('actions.auto_play_next_video')}`" />
+                <span v-show="video?.chapters?.length > 0">
+                    <input id="showChapters" type="checkbox" v-model="showChapters" />
+                    <label class="ml-2" for="showChapters" v-t="'actions.show_chapters'" />
+                </span>
             </div>
+
             <!-- eslint-disable-next-line vue/no-v-html -->
             <div v-show="showDesc" class="break-words mb-2" v-html="purifyHTML(video.description)" />
             <div
@@ -226,6 +231,7 @@ export default {
             selectedAutoPlay: null,
             showDesc: true,
             showRecs: true,
+            showChapters: true,
             comments: null,
             subscribed: false,
             channelId: null,

@@ -9,7 +9,9 @@ import presetWebFonts from "@unocss/preset-web-fonts";
 export default defineConfig({
     transformers: [transformerDirective(), transformerVariantGroup()],
     presets: [
-        presetUno(),
+        presetUno({
+            dark: "media",
+        }),
         presetIcons(),
         presetWebFonts({
             provider: "none",
