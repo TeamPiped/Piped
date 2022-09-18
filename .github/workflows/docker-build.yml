@@ -12,27 +12,31 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
               with:
-                  fetch-depth: 0
+                  cache: "yarn"
+            - run: yarn install --prefer-offline
+            - run: yarn build --out-dir dist-ci && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist-ci/assets/*.css
             - name: Set up QEMU
-              uses: docker/setup-qemu-action@v2.0.0
+              uses: docker/setup-qemu-action@v2
               with:
                   platforms: all
             - name: Set up Docker Buildx
               id: buildx
-              uses: docker/setup-buildx-action@v2.0.0
+              uses: docker/setup-buildx-action@v2
               with:
                   version: latest
             - name: Login to DockerHub
-              uses: docker/login-action@v2.0.0
+              uses: docker/login-action@v2
               with:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
             - name: Build and push
-              uses: docker/build-push-action@v3.1.1
+              uses: docker/build-push-action@v3
               with:
                   context: .
-                  file: ./Dockerfile
+                  file: ./Dockerfile.ci
                   platforms: linux/amd64,linux/arm64
                   push: true
                   tags: 1337kavin/piped-frontend:latest

@@ -19,7 +19,7 @@
                     <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
                 </div>
             </div>
-            <div class="whitespace-pre-wrap" v-text="comment.commentText" />
+            <div class="whitespace-pre-wrap" v-html="urlify(comment.commentText)" />
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies" class="cursor-pointer">
                     <a v-t="'actions.show_replies'" />

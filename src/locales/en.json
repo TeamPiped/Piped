@@ -105,7 +105,8 @@
         "piped_link": "Piped link",
         "follow_link": "Follow link",
         "copy_link": "Copy link",
-        "time_code": "Time code (in seconds)"
+        "time_code": "Time code (in seconds)",
+        "show_chapters": "Chapters"
     },
     "comment": {
         "pinned_by": "Pinned by",
