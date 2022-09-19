@@ -138,14 +138,8 @@
                 v-t="`actions.${showDesc ? 'minimize_description' : 'show_description'}`"
             />
 
-            <span class="btn">
-                <input
-                    v-show="video?.chapters?.length > 0"
-                    id="showChapters"
-                    type="checkbox"
-                    checked
-                    v-model="showChapters"
-                />
+            <span class="btn" v-show="video?.chapters?.length > 0">
+                <input id="showChapters" type="checkbox" v-model="showChapters" />
                 <label class="ml-2" for="showChapters" v-t="'actions.show_chapters'" />
             </span>
 
