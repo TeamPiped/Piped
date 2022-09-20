@@ -1426,12 +1426,19 @@
     "@unocss/core" "0.45.21"
     css-tree "^2.2.1"
 
-"@unocss/transformer-variant-group@0.45.21", "@unocss/transformer-variant-group@^0.45.13":
+"@unocss/transformer-variant-group@0.45.21":
   version "0.45.21"
   resolved "https://registry.yarnpkg.com/@unocss/transformer-variant-group/-/transformer-variant-group-0.45.21.tgz#4ed0121a1af616af7cb8865ff455811ab0c90652"
   integrity sha512-MnvZ3IDuMKGEmAcQZ2SOJz9/daLKl/+MPiJVYPPT01y71e0yWDRUJR1YRZXcatgH60tiyPelC7u8MNNNZOoqMw==
   dependencies:
     "@unocss/core" "0.45.21"
+
+"@unocss/transformer-variant-group@^0.45.22":
+  version "0.45.22"
+  resolved "https://registry.yarnpkg.com/@unocss/transformer-variant-group/-/transformer-variant-group-0.45.22.tgz#de963314bb3d6d361b6f2f823c55b8532be15620"
+  integrity sha512-0pNeTW6/fJ7Pcd/H4i5fI8EzDY+k349eEyWyvvlpNy+2A1DPk5Sr/2xJ/jI6GNQqnWRvOgvO1ObmtyyshPbNKw==
+  dependencies:
+    "@unocss/core" "0.45.22"
 
 "@unocss/vite@0.45.21":
   version "0.45.21"
