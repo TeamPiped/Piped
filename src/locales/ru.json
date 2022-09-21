@@ -7,7 +7,10 @@
         "preferences": "Настройки",
         "history": "История просмотров",
         "subscriptions": "Ваши подписки",
-        "playlists": "Плейлисты"
+        "playlists": "Плейлисты",
+        "account": "Аккаунт",
+        "player": "Плеер",
+        "instance": "Сервер"
     },
     "player": {
         "watch_on": "Смотреть на {0}"
@@ -89,7 +92,21 @@
         "different_auth_instance": "Использовать другие средства аутентификации",
         "instance_auth_selection": "Выбор средств аутентификации",
         "clone_playlist": "Клонировать плейлист",
-        "clone_playlist_success": "Клонирование прошло успешно!"
+        "clone_playlist_success": "Клонирование прошло успешно!",
+        "show_chapters": "Части",
+        "rename_playlist": "Переименовать плейлист",
+        "new_playlist_name": "Новое название плейлиста",
+        "share": "Поделиться",
+        "with_timecode": "Поделиться с отметкой времени",
+        "piped_link": "Ссылка Piped",
+        "follow_link": "Ссылка подписки",
+        "copy_link": "Скопировать ссылку",
+        "time_code": "Тайм-код (в секундах)",
+        "reset_preferences": "Сбросить настройки",
+        "confirm_reset_preferences": "Вы уверены, что хотите сбросить настройки?",
+        "backup_preferences": "Настройки бэкапов",
+        "restore_preferences": "Восстановить настройки",
+        "back_to_home": "Вернутся на главную"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем",
@@ -133,5 +150,11 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Подписан на: {0}"
+    },
+    "info": {
+        "preferences_note": "Примечание: настройки сохранены в локальном хранилище браузера. При удалении данных браузера они будут удалены.",
+        "copied": "Скопировано!",
+        "cannot_copy": "Не получилось скопировать!",
+        "page_not_found": "Страница не найдена"
     }
 }
