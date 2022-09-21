@@ -102,7 +102,8 @@
         "follow_link": "Ouvrir le lien",
         "time_code": "Horodatage (en secondes)",
         "rename_playlist": "Renommer la liste de lecture",
-        "new_playlist_name": "Nouveau nom de la liste de lecture"
+        "new_playlist_name": "Nouveau nom de la liste de lecture",
+        "show_chapters": "Chapitres"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
