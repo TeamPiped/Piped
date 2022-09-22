@@ -100,7 +100,9 @@
         "share": "Compartir",
         "time_code": "Moment (en segons)",
         "copy_link": "Copiar l'enllaç",
-        "follow_link": "Vés a l'enllaç"
+        "follow_link": "Vés a l'enllaç",
+        "rename_playlist": "Canviar el nom de la llista de reproducció",
+        "new_playlist_name": "Nom nou de la llista de reproducció"
     },
     "comment": {
         "pinned_by": "Fixat per",

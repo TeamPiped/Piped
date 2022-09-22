@@ -102,7 +102,11 @@
         "loop_this_video": "ניגון הסרטון בלולאה",
         "minimize_recommendations": "מזעור המלצות",
         "rename_playlist": "שינוי שם רשימת נגינה",
-        "new_playlist_name": "שם לרשימת נגינה חדשה"
+        "new_playlist_name": "שם לרשימת נגינה חדשה",
+        "show_chapters": "פרקים",
+        "skip_intro": "דילוג על הפוגה/הנפשת הקדמה",
+        "skip_outro": "דילוג על כרטיסי סיום/קרדיטים",
+        "skip_filler_tangent": "דילוג על משיקים למילוי"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי",

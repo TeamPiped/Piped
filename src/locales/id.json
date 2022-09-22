@@ -105,7 +105,8 @@
         "follow_link": "Ikuti tautan",
         "copy_link": "Salin tautan",
         "time_code": "Kode waktu (dalam detik)",
-        "back_to_home": "Kembali ke beranda"
+        "back_to_home": "Kembali ke beranda",
+        "show_chapters": "Bab"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh",

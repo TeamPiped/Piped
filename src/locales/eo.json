@@ -40,6 +40,10 @@
         "donations": "Donacoj",
         "show_more": "Montri pli",
         "yes": "Jes",
-        "no": "Ne"
+        "no": "Ne",
+        "show_chapters": "Sekcioj"
+    },
+    "video": {
+        "chapters": "Sekcioj"
     }
 }

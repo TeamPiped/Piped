@@ -89,7 +89,8 @@
         "reset_preferences": "Einstellungen zurücksetzen",
         "confirm_reset_preferences": "Bist du sicher, dass du deine Einstellungen zurücksetzen möchtest?",
         "backup_preferences": "Einstellungen sichern",
-        "restore_preferences": "Einstellungen wiederherstellen"
+        "restore_preferences": "Einstellungen wiederherstellen",
+        "show_chapters": "Kapitel"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
