@@ -16,7 +16,7 @@
         "enable_sponsorblock": "Sponsorblock 활성화",
         "skip_outro": "최종 화면/크레딧 스킵",
         "skip_preview": "미리보기/요약 스킵",
-        "uses_api_from": "의 API를 사용: ",
+        "uses_api_from": "해당 API 사용: ",
         "skip_non_music": "음악: 음악이 아닌 구간 스킵",
         "skip_self_promo": "셀프 프로모션 스킵",
         "buffering_goal": "버퍼링 목표 (초)",
@@ -24,10 +24,10 @@
         "store_watch_history": "시청 기록 저장",
         "language_selection": "언어 선택",
         "no": "아니요",
-        "loop_this_video": "이 영상 반복",
-        "auto_play_next_video": "다음 영상 자동 재생",
+        "loop_this_video": "이 동영상 반복",
+        "auto_play_next_video": "다음 동영상 자동 재생",
         "minimize_description": "설명 최소화",
-        "show_recommendations": "추천 영상 표시",
+        "show_recommendations": "추천 동영상 표시",
         "sort_by": "정렬:",
         "most_recent": "가장 최신",
         "channel_name_asc": "채널 이름 (A-Z)",
@@ -40,17 +40,17 @@
         "instance_selection": "인스턴스 선택",
         "import_from_json": "JSON/CSV에서 가져오기",
         "light": "라이트",
-        "autoplay_video": "영상 자동 재생",
+        "autoplay_video": "동영상 자동 재생",
         "default_quality": "기본 화질",
         "default_homepage": "기본 홈페이지",
-        "instances_list": "인스턴스 리스트",
+        "instances_list": "인스턴스 목록",
         "show_more": "더 보기",
         "export_to_json": "JSON으로 내보내기",
         "donations": "기부",
         "show_description": "설명 표시",
         "disable_lbry": "LBRY 스트리밍 비활성화",
         "enable_lbry_proxy": "LBRY 프록시 활성화",
-        "minimize_recommendations": "추천 영상 최소화",
+        "minimize_recommendations": "추천 동영상 최소화",
         "loading": "로딩...",
         "view_ssl_score": "SSL 점수 보기",
         "skip_intro": "중간 휴식/인트로 애니메이션 스킵",
@@ -67,14 +67,37 @@
         "remove_from_playlist": "재생목록에서 제거",
         "delete_playlist_confirm": "이 재생목록을 삭제하시겠습니까?",
         "delete_account": "계정 삭제",
-        "logout": "이 기기에서 로그아웃"
+        "logout": "이 기기에서 로그아웃",
+        "show_chapters": "챕터",
+        "download_as_txt": ".txt로 다운로드",
+        "new_playlist_name": "새 재생목록 이름",
+        "rename_playlist": "재생목록 이름 변경",
+        "share": "공유",
+        "copy_link": "링크 복사",
+        "time_code": "시작 시간 (초)",
+        "follow_link": "링크 열기",
+        "piped_link": "Piped 링크",
+        "with_timecode": "시작 시간을 포함하여 공유",
+        "skip_filler_tangent": "잡담/농담 스킵",
+        "show_markers": "플레이어에 마커 표시",
+        "reset_preferences": "설정 초기화",
+        "confirm_reset_preferences": "설정을 초기화 하시겠습니까?",
+        "restore_preferences": "설정 복원",
+        "backup_preferences": "설정 백업",
+        "back_to_home": "홈으로 가기",
+        "minimize_recommendations_default": "기본적으로 추천 동영상 최소화",
+        "invalidate_session": "모든 기기에서 로그아웃",
+        "instance_auth_selection": "인증 인스턴스 선택",
+        "different_auth_instance": "인증에 다른 인스턴스 사용",
+        "clone_playlist": "재생목록 복제",
+        "clone_playlist_success": "성공적으로 복제되었습니다!"
     },
     "titles": {
         "feed": "피드",
         "preferences": "설정",
         "history": "시청 기록",
         "subscriptions": "구독",
-        "trending": "트렌드",
+        "trending": "인기",
         "login": "로그인",
         "register": "가입",
         "playlists": "재생목록",
@@ -86,26 +109,52 @@
         "watch_on": "에서 보기 {0}"
     },
     "comment": {
-        "pinned_by": "에 의해 고정됨"
+        "pinned_by": "에 의해 고정됨",
+        "disabled": "업로더가 댓글을 비활성화했습니다.",
+        "user_disabled": "설정에서 댓글을 비활성화했습니다.",
+        "loading": "댓글 로드 중..."
     },
     "preferences": {
         "has_cdn": "CDN 여부?",
         "ssl_score": "SSL 점수",
         "instance_locations": "인스턴스 위치",
-        "instance_name": "인스턴스 이름"
+        "instance_name": "인스턴스 이름",
+        "registered_users": "등록 된 사용자",
+        "version": "버전",
+        "up_to_date": "최신?"
     },
     "login": {
         "username": "유저 이름",
         "password": "비밀번호"
     },
     "video": {
-        "videos": "영상",
+        "videos": "동영상",
         "views": "{views} 조회수",
         "watched": "시청함",
         "sponsor_segments": "스폰서 세그먼트",
-        "ratings_disabled": "등급 비활성화됨"
+        "ratings_disabled": "등급 비활성화됨",
+        "live": "{0} 라이브",
+        "shorts": "Shorts",
+        "chapters": "챕터"
     },
     "search": {
-        "did_you_mean": "이것을 찾으셨나요: {0}?"
+        "did_you_mean": "이것을 찾으셨나요: {0}?",
+        "all": "YouTube: 전체",
+        "music_playlists": "YT Music: 재생목록",
+        "videos": "YouTube: 동영상",
+        "music_songs": "YT Music: 음악",
+        "channels": "YouTube: 채널",
+        "playlists": "YouTube: 재생목록",
+        "music_videos": "YT Music: 동영상",
+        "music_albums": "YT Music: 앨범"
+    },
+    "info": {
+        "cannot_copy": "복사할 수 없습니다!",
+        "copied": "복사되었습니다!",
+        "preferences_note": "참고: 설정은 브라우저 로컬 저장소에 저장됩니다. 브라우저 데이터를 삭제하면 초기화됩니다.",
+        "page_not_found": "페이지를 찾을 수 없음"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "구독: {0}"
     }
 }
