@@ -121,7 +121,7 @@
         "instance_name": "인스턴스 이름",
         "registered_users": "등록 된 사용자",
         "version": "버전",
-        "up_to_date": "최신?"
+        "up_to_date": "최신 버전"
     },
     "login": {
         "username": "유저 이름",
