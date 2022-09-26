@@ -1010,6 +1010,11 @@
   resolved "https://registry.yarnpkg.com/@iconify/types/-/types-1.1.0.tgz#dc15fc988b1b3fd558dd140a24ede7e0aac11280"
   integrity sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==
 
+"@iconify/types@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
+  integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
+
 "@iconify/utils@^1.0.33":
   version "1.0.33"
   resolved "https://registry.yarnpkg.com/@iconify/utils/-/utils-1.0.33.tgz#9952ecae79e3b1685b83c58159c1d48959f6105a"
@@ -1021,6 +1026,18 @@
     debug "^4.3.4"
     kolorist "^1.5.1"
     local-pkg "^0.4.1"
+
+"@iconify/utils@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@iconify/utils/-/utils-2.0.0.tgz#2a807c79b2dea549a014166c4311961935d25780"
+  integrity sha512-thvwZ6m3frWJiOYwRdHPSPGC25rmyvDl0vXdQ8ocRJZx31m8Pn4y7V1mTc5UReR6MiAj+hrV2UPZQjx7zI960g==
+  dependencies:
+    "@antfu/install-pkg" "^0.1.0"
+    "@antfu/utils" "^0.5.2"
+    "@iconify/types" "^2.0.0"
+    debug "^4.3.4"
+    kolorist "^1.5.1"
+    local-pkg "^0.4.2"
 
 "@intlify/bundle-utils@next":
   version "3.1.0"
@@ -1316,6 +1333,11 @@
   resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.22.tgz#95dcbb178a3263ff04c3a71438cbae478c9fec56"
   integrity sha512-x6t6XlVpt7VXGC31Tr/KRS8WkURcTO6n0lK2k5zS+cIvc9xpLtwQw8C0c+/NULxbDNo205qfIuB703mmPABLjw==
 
+"@unocss/core@0.45.23":
+  version "0.45.23"
+  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.23.tgz#62d5714df2306dc2a18b9131d0f1ee3cee8ac702"
+  integrity sha512-yQ8j7Dj4RQZvL5tOJ/p+s5HZ//7WgjpxXGRySYDRgj5yqqLcxYTE68UtTGGtONjCBOkv6jSHnPcUyEDoA/OJrw==
+
 "@unocss/inspector@0.45.21":
   version "0.45.21"
   resolved "https://registry.yarnpkg.com/@unocss/inspector/-/inspector-0.45.21.tgz#79929569a4072fb9543d601292e64c445d10646c"
@@ -1331,13 +1353,22 @@
   dependencies:
     "@unocss/core" "0.45.21"
 
-"@unocss/preset-icons@0.45.21", "@unocss/preset-icons@^0.45.13":
+"@unocss/preset-icons@0.45.21":
   version "0.45.21"
   resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-0.45.21.tgz#eebdfaabe85905e2a3a2fcdb965518571c1f9d02"
   integrity sha512-7DyE2eE/pprJYVUGSD3Hlrq/me2I8jJryd9QDoB8aEOgWmmhUGn2f9A34jU0109LtUH1QBIolufVMq3i/fJUag==
   dependencies:
     "@iconify/utils" "^1.0.33"
     "@unocss/core" "0.45.21"
+    ohmyfetch "^0.4.18"
+
+"@unocss/preset-icons@^0.45.23":
+  version "0.45.23"
+  resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-0.45.23.tgz#ffbfc231a23f087a087bf7a1dec17fa60be6f863"
+  integrity sha512-Dpz34EuUbuJJRH/LKbPY1XJh5gfWFZYrOYKPL+TUBEZ5mZG4o1K3wFOflPTvJCvGN8BOxQKQ7vM0GsS659baPg==
+  dependencies:
+    "@iconify/utils" "^2.0.0"
+    "@unocss/core" "0.45.23"
     ohmyfetch "^0.4.18"
 
 "@unocss/preset-mini@0.45.21":
@@ -2935,7 +2966,7 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
-local-pkg@^0.4.1:
+local-pkg@^0.4.1, local-pkg@^0.4.2:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/local-pkg/-/local-pkg-0.4.2.tgz#13107310b77e74a0e513147a131a2ba288176c2f"
   integrity sha512-mlERgSPrbxU3BP4qBqAvvwlgW4MTg78iwJdGGnv7kibKjWcJksrG3t6LB5lXI93wXRDvG4NpUgJFmTG4T6rdrg==
