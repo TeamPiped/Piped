@@ -41,7 +41,7 @@
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-vue": "^9.5.1",
         "prettier": "^2.7.1",
-        "unocss": "^0.45.21",
+        "unocss": "^0.45.23",
         "vite": "^2.9.14",
         "vite-plugin-eslint": "^1.8.1",
         "vite-plugin-pwa": "^0.12.8"
