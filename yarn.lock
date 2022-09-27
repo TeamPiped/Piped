@@ -1320,6 +1320,11 @@
   resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.23.tgz#62d5714df2306dc2a18b9131d0f1ee3cee8ac702"
   integrity sha512-yQ8j7Dj4RQZvL5tOJ/p+s5HZ//7WgjpxXGRySYDRgj5yqqLcxYTE68UtTGGtONjCBOkv6jSHnPcUyEDoA/OJrw==
 
+"@unocss/core@0.45.25":
+  version "0.45.25"
+  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.25.tgz#9828a0835fcfeafda93313870d95bed05bc579a4"
+  integrity sha512-3CVIkKPW4t3x0L7SM607M0PYs8BEJM/RdTjsoY2w5uvQtv/ypmkPdCWXe6gIQlNhAAyUIVxNaOB8GIXG+IelBQ==
+
 "@unocss/inspector@0.45.23":
   version "0.45.23"
   resolved "https://registry.yarnpkg.com/@unocss/inspector/-/inspector-0.45.23.tgz#bcfbf8cd9d53feb596d86ab5ad2d47b8104610f0"
@@ -1376,12 +1381,21 @@
     "@unocss/preset-wind" "0.45.23"
     pathe "^0.3.7"
 
-"@unocss/preset-web-fonts@0.45.23", "@unocss/preset-web-fonts@^0.45.22":
+"@unocss/preset-web-fonts@0.45.23":
   version "0.45.23"
   resolved "https://registry.yarnpkg.com/@unocss/preset-web-fonts/-/preset-web-fonts-0.45.23.tgz#f46505a9a13d8f302422b8340791038d7fbea36e"
   integrity sha512-DVf8DxlEgix6FXblEvwKNY6mNhhHC5SF7mtiYuU8Vo2nIBVAxJ3iJfbLDX2bnN7o5Tqy5Y6WAQWPm5Oz8GCHsQ==
   dependencies:
     "@unocss/core" "0.45.23"
+    ohmyfetch "^0.4.18"
+    pathe "^0.3.7"
+
+"@unocss/preset-web-fonts@^0.45.25":
+  version "0.45.25"
+  resolved "https://registry.yarnpkg.com/@unocss/preset-web-fonts/-/preset-web-fonts-0.45.25.tgz#eac9a3e6e7250f53b18ba06c494a2a6bdf10bb9b"
+  integrity sha512-8DTYHtYfmapW2i5HVK8zpX9Npq+DGBtXpBqT4K7We3nbaxoMuOZHKwixFfzw0mXqYcr3BjjwJjmDdMi4GhIKWA==
+  dependencies:
+    "@unocss/core" "0.45.25"
     ohmyfetch "^0.4.18"
     pathe "^0.3.7"
 
@@ -3201,12 +3215,7 @@ path-parse@^1.0.7:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
-pathe@^0.3.0:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.5.tgz#87e5c1164ded1bebeb9dea5dab63563144062303"
-  integrity sha512-grU/QeYP0ChuE5kjU2/k8VtAeODzbernHlue0gTa27+ayGIu3wqYBIPGfP9r5xSqgCgDd4nWrjKXEfxMillByg==
-
-pathe@^0.3.7:
+pathe@^0.3.0, pathe@^0.3.7:
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.8.tgz#3584f03fda1981a6efe8bc24623d82cbb4219acb"
   integrity sha512-c71n61F1skhj/jzZe+fWE9XDoTYjWbUwIKVwFftZ5IOgiX44BVkTkD+/803YDgR50tqeO4eXWxLyVHBLWQAD1g==
