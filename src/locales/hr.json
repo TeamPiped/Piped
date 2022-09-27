@@ -114,7 +114,8 @@
         "with_timecode": "Dijeli s vremenskim kodom",
         "rename_playlist": "Preimenuj popis snimaka",
         "new_playlist_name": "Ime novog popisa snimaka",
-        "share": "Dijeli"
+        "share": "Dijeli",
+        "show_chapters": "Poglavlja"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -130,7 +131,7 @@
         "playlists": "Playliste",
         "account": "Račun",
         "instance": "Instanca",
-        "player": "Player"
+        "player": "Plejer"
     },
     "login": {
         "password": "Lozinka",
