@@ -30,6 +30,14 @@
         Noto Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     --efy_body_width: unset;
     --efy_audio_path: ./audio;
+    --efy_modules: efy_quick, efy_mode, efy_filters, efy_backup, efy_accessibility, efy_audio;
+
+    --efy_module_quick: on;
+    --efy_module_mode: on;
+    --efy_module_filters: on;
+    --efy_module_backup: on;
+    --efy_module_accessibility: on;
+    --efy_module_audio: on;
 }
 
 body {
@@ -37,7 +45,7 @@ body {
 }
 
 /*Default Mode*/
-[efy_theme="default_mode"] {
+[efy_mode="default_mode"] {
     color-scheme: dark;
     --efy_bg_var: 255, 255, 255;
     --efy_bg: rgb(15, 15, 15);

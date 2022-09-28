@@ -1,6 +1,6 @@
-/*EFY UI 2022.09.11*/:root { --efy_font_size: 1px;
+/*EFY UI 2022.09.28*/:root { --efy_font_size: 1px;
 --efy_radius0: calc(var(--efy_radius) / 1.25); --efy_radius2: calc(var(--efy_radius) * 1.5); --efy_radius00: calc(var(--efy_radius) / 3);
---efy_padding:  8rem  16rem; --efy_padding2: 3rem  6rem; --efy_gap:  15rem; --efy_body_width: 1120rem;
+--efy_padding:  8rem  12rem; --efy_padding2: 3rem  6rem; --efy_gap:  15rem; --efy_body_width: 1120rem;
 --efy_color: rgb(var(--efy_color1_var)); --efy_color_trans: rgba(var(--efy_color1_var), 0.3);
 --efy_color2: rgb(var(--efy_color2_var)); --efy_color2_trans: rgba(var(--efy_color2_var), 0.3);
 
@@ -9,17 +9,17 @@
 --efy_text: rgb(var(--efy_bg_var)); --efy_text_trans: rgba(var(--efy_bg_var), 0.3); --efy_text_trans2: rgba(var(--efy_bg_var), 0.45); --efy_text2: var(--efy_bg);
 --efy_color_border: rgba(var(--efy_bg_var), 0.07);}
 
-/*Light: All*/ [efy_theme*=light] {--efy_bg: rgb(255,255,255); --efy_bg_var: 0,0,0; color-scheme: light}
-/*Dark: All*/ [efy_theme*=dark] {--efy_bg: rgb(0,0,0); --efy_bg_var: 255,255,255; color-scheme: dark}
+/*Light: All*/ [efy_mode*=light] {--efy_bg: rgb(255,255,255); --efy_bg_var: 0,0,0; color-scheme: light}
+/*Dark: All*/ [efy_mode*=dark] {--efy_bg: rgb(0,0,0); --efy_bg_var: 255,255,255; color-scheme: dark}
 
-/*Sepia*/ [efy_theme=light_sepia] {--efy_bg: rgb(244,236,216); --efy_text: rgb(91,70,54)}
-/*Dark*/ [efy_theme=dark_dark] {--efy_bg: rgb(35,35,35); --efy_text: rgb(220,220,220)}
-/*Nord*/ [efy_theme=dark_nord] {--efy_bg: rgb(35,40,50); --efy_text: rgb(165,175,195)}
-/*Black*/ [efy_theme=dark_black] {--efy_text: rgb(200,200,200)}
-/*Dark Transparent*/ [efy_theme=dark_trans] {--efy_text2: rgb(0,0,0)}
+/*Sepia*/ [efy_mode=light_sepia] {--efy_bg: rgb(244,236,216); --efy_text: rgb(91,70,54)}
+/*Dark*/ [efy_mode=dark_dark] {--efy_bg: rgb(35,35,35); --efy_text: rgb(220,220,220)}
+/*Nord*/ [efy_mode=dark_nord] {--efy_bg: rgb(35,40,50); --efy_text: rgb(165,175,195)}
+/*Black*/ [efy_mode=dark_black] {--efy_text: rgb(200,200,200)}
+/*Dark Transparent*/ [efy_mode=dark_trans] {--efy_text2: rgb(0,0,0)}
 
-/*Custom Text*/ [efy_color_text][efy_theme] {--efy_text: rgb(var(--efy_color_text_var)); --efy_text_trans: rgba(var(--efy_bg_var), 0.3); --efy_text_trans2: rgb(var(--efy_color_text_var), 0.45)}
-/*Custom Background*/ [efy_color_bgcol][efy_theme] {--efy_bg: rgb(var(--efy_color_bgcol_var))}
+/*Custom Text*/ [efy_color_text][efy_mode] {--efy_text: rgb(var(--efy_color_text_var)); --efy_text_trans: rgba(var(--efy_bg_var), 0.3); --efy_text_trans2: rgb(var(--efy_color_text_var), 0.45)}
+/*Custom Background*/ [efy_color_bgcol][efy_mode] {--efy_bg: rgb(var(--efy_color_bgcol_var))}
 
 
 /*Display: Block*/ table, .efy_toggle_visible {display: block}
@@ -31,11 +31,11 @@
 /*Content: None*/ [efy_select] [for*=efy_color]:before, [efy_select] [for*=efy_color]:after {content: none}
 
 /*BG: Transparent*/ html, body, .efy_sidebar {background: transparent!important}
-/*BG*/ html:not([efy_theme*=trans]):before, html:not([efy_theme*=trans]):after {background: var(--efy_bg)!important}
+/*BG*/ html:not([efy_mode*=trans]):before, html:not([efy_mode*=trans]):after {background: var(--efy_bg)!important}
 /*BG1*/ aside, th, [type="file"], pre, textarea, select, input, details, blockquote, pre, article, tr:nth-child(even), [efy_alert] {background: var(--efy_bg1)}
 /*BG: text*/ mark, kbd {background: var(--efy_text)}
 /*BG: efy*/ button, [role="button"], [type="submit"], [type="reset"], [type="button"], blockquote:before, [efy_sidebar_btn_open]:hover, [efy_sidebar_btn_close]:hover, [type="checkbox"]:checked, [type="radio"]:checked, option:checked, [efy_select] input:checked + label, [efy_tabs] [efy_tab][efy_active], .efy_img_previews [efy_bg_nr][efy_active]:before {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; -webkit-text-fill-color: var(--efy_text2)}
-/*BG: efy Trans*/ [type="range"], [type="radio"], [type="checkbox"], [efy_sidebar_btn_open], [efy_sidebar_btn_close], [efy_select] label, [efy_tabs] [efy_tab]:not([efy_active]) {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)), linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans)); -webkit-background-clip: text, padding-box; -moz-background-clip: text, padding-box; -webkit-text-fill-color: transparent; -moz-text-fill-color: transparent; box-shadow: inset 0 0 0  1.5rem var(--efy_color_border)!important; border: 0!important}
+/*BG: efy Trans*/ [type="range"], [type="radio"], [type="checkbox"], [efy_sidebar_btn_open], [efy_select] label, [efy_tabs] [efy_tab]:not([efy_active]) {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)), linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans)); -webkit-background-clip: text, padding-box; -moz-background-clip: text, padding-box; -webkit-text-fill-color: transparent; -moz-text-fill-color: transparent; box-shadow: inset 0 0 0  1.5rem var(--efy_color_border)!important; border: 0!important}
 
 
 /*Text color 1*/ body, textarea, select, input, pre, pre code, header > nav a, header > nav a:visited, [efy_sidebar_btn_close], [efy_sidebar_btn_open]:hover {color: var(--efy_text)}
@@ -44,16 +44,18 @@
 /*Text color: efy*/ a, a:visited, pre > code, code, samp {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: text; -webkit-background-clip: text; -moz-background-clip: text; -webkit-text-fill-color: transparent; -moz-text-fill-color: transparent}
 /*Text-Decoration: None*/ a, a:visited {text-decoration: none}
 
-/*Border*/ textarea, select, input, button, [role="button"], [type="submit"], [type="reset"], [type="button"], details, pre, td, th, article, aside, blockquote, [type="file"], .efy_sidebar, [efy_tabs] [efy_content], [efy_alert] {border:  1.5rem solid var(--efy_color_border)}
+/*Border*/ textarea, select, input:not([type=color]), button, [role="button"], [type="submit"], [type="reset"], [type="button"], details, pre, td, th, article, aside, blockquote, [type="file"], .efy_sidebar, [efy_tabs] [efy_content], [efy_alert] {border:  1.5rem solid var(--efy_color_border)}
+/*Border: None*/ [type=color] {border: none!important}
 
 /*Outline: None*/ * {outline: none!important}
-/*Outline*/ textarea:focus, select:focus, input:not([type=checkbox], [type=radio]):focus, [type="file"]:focus, [type="range"]:focus,  [efy_outline] [efy_select] input:focus + label, [efy_outline] [type=checkbox]:focus, [efy_outline] [type=radio]:focus, [efy_outline] button:focus, [efy_outline] [role="button"]:focus, [efy_outline] [type="submit"]:focus, [efy_outline] [type="reset"]:focus, [efy_outline] [type="button"]:focus, [efy_outline] [efy_select] input:focus + label, [efy_outline] [efy_tabs] [efy_tab]:focus {outline: 3rem solid var(--efy_text)!important}
-/*Outline Offset*/ [type=checkbox], [type=radio], button, [efy_select] label, [efy_tabs] [efy_tab] {outline-offset: 4rem}
+/*Outline: Box-Shadow*/ :is(textarea, select, [type="file"]):focus, input:not([type=checkbox], [type=radio], [role="button"], [type="submit"], [type="reset"], [type="button"], [type=color], [type=range]):focus, [efy_outline] :is(details:focus-within:not([efy_help])) {box-shadow: 0 0 0 3rem var(--efy_text)!important}
+
+/*Outline Offset*/ [efy_outline] :is([type=radio], [type=checkbox], button, [role="button"], [type="submit"], [type="reset"], [type="button"], [type=range], [type=color], a, [efy_tabs] [efy_tab]):focus, [efy_outline] [efy_select] input:focus + label, [efy_outline] :is([efy_select] [for*=efy_color], [efy_help]):focus-within {outline: 3rem solid var(--efy_text)!important; outline-offset: 4rem!important}
 
 
 /*Radius*/ textarea, select, input, img, video, pre, details, summary, blockquote, article, aside, [type="range"], button, [role="button"], [type="submit"], [type="reset"], [type="button"], img, video, audio, table, [efy_sidebar_btn_open], [efy_sidebar_btn_close],  [efy_select] label, [efy_tabs] [efy_tab] {border-radius: var(--efy_radius)}
 /*Radius2*/ [efy_timer], [efy_clock], [efy_alert] {border-radius: var(--efy_radius2)}
-/*Radius0*/ mark, kbd, [type="checkbox"], [type="radio"] {border-radius: var(--efy_radius0)}
+/*Radius0*/ mark, kbd, [type="checkbox"], [type="radio"], [efy_outline] a:focus {border-radius: var(--efy_radius0)}
 /*Radius00*/ [type="radio"]:checked:after {border-radius: var(--efy_radius00)}
 
 
@@ -66,8 +68,9 @@
 
 /*Cursor: Pointer*/ button:focus, button:enabled:hover, [role="button"]:focus, [role="button"]:not([aria-disabled="true"]):hover, [type="submit"]:focus, [type="submit"]:enabled:hover, [type="reset"]:focus, [type="reset"]:enabled:hover, [type="button"]:focus, [type="button"]:enabled:hover, summary, [type="range"], [type="file"], [efy_sidebar_btn_close], [efy_sidebar_btn_open], [efy_select] label {cursor: pointer}
 /*Cursor: Help*/ abbr {cursor: help}
-/*Cursor: None*/ /* * {cursor: none!important} */
-/*Pointer Events: None*/  [efy_tabs] [efy_tab] code {pointer-events: none}
+/*Cursor: None*/ [efy_cursor_none] *, [efy_cursor_custom], [efy_cursor_custom] * {cursor: none!important}
+/*Cursor: Custom*/ [efy_cursor_custom] [efy_cursor] { height: 16rem; width: 16rem; margin-left: -8rem; margin-top: -8rem; position: absolute; background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; border-radius: var(--efy_radius0); pointer-events: none; box-shadow: 0 0 5rem #0003; z-index: 999999!important}
+/*Pointer Events: None*/  [efy_tabs] [efy_tab] code, [efy_alert] *, a > button {pointer-events: none}
 
 
 /*Disabled*/ input:disabled, textarea:disabled, select:disabled, button[disabled],[role="button"][aria-disabled="true"],[type="submit"][disabled],[type="reset"][disabled],[type="button"][disabled],[type="checkbox"][disabled],[type="radio"][disabled],select[disabled] {opacity: 0.5; cursor: not-allowed}
@@ -92,7 +95,7 @@
 /*Selection Color*/ ::selection {background: var(--efy_text); color: var(--efy_text2); -webkit-text-fill-color: var(--efy_text2)} ::-moz-selection {background: var(--efy_text); color: var(--efy_text2); -moz-text-fill-color: var(--efy_text2)}
 
 
-/*Scrollbar*/ ::-webkit-scrollbar {width:20rem; min-height:20rem; background: transparent!important} ::-webkit-scrollbar-thumb{background: transparent!important; border-radius: 9rem; border: 6rem solid transparent; box-shadow: inset 0 0 0 6rem var(--efy_bg2), inset 0 0 0  1.5rem var(--efy_bg1)} ::-webkit-scrollbar-thumb:hover{box-shadow: inset 0 0 0 6rem var(--efy_text)} ::-webkit-scrollbar-corner {background: transparent!important}
+/*Scrollbar*/ ::-webkit-scrollbar {width:20rem; min-height:20rem; background: transparent!important} ::-webkit-scrollbar-thumb{background: transparent!important; border-radius: var(--efy_radius0); border: 6rem solid transparent; box-shadow: inset 0 0 0 6rem var(--efy_bg2), inset 0 0 0  1.5rem var(--efy_bg1)} ::-webkit-scrollbar-thumb:hover{box-shadow: inset 0 0 0 6rem var(--efy_text)} ::-webkit-scrollbar-corner {background: transparent!important}
 
 
 /*Animation: None*/ [efy_tabs] [efy_tab]:active {-webkit-animation: none;animation: none}
@@ -193,10 +196,10 @@ img, video, iframe {width: 100%; max-width: 100%}
 
 /*Color input*/ [type="color"], [type="color"]:focus {background: transparent; width: 40rem; height: 40rem; padding: 0}
 
-::-webkit-color-swatch-wrapper {background: transparent; width: 40rem; height: 40rem; padding: 0}
+::-webkit-color-swatch-wrapper {background: transparent; width: 100%; height: 100%; padding: 0;}
 
-::-webkit-color-swatch {border-radius: var(--efy_radius); box-shadow: inset 0 0 0 2rem #0003}
-::-moz-color-swatch {border-radius: var(--efy_radius); box-shadow: inset 0 0 0 2rem #0003}
+::-webkit-color-swatch {border-radius: var(--efy_radius); box-shadow: inset 0 0 0 2rem #0003; border: 0!important}
+::-moz-color-swatch {border-radius: var(--efy_radius); box-shadow: inset 0 0 0 2rem #0003; border: 0!important}
 
 
 /*Range input*/
@@ -215,8 +218,8 @@ img, video, iframe {width: 100%; max-width: 100%}
 [type="range"]:focus::-moz-range-thumb {}
 
 
-::-webkit-file-upload-button {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; color: var(--efy_text2); border:  1.5rem solid var(--efy_color_border); border-radius: var(--efy_radius); padding: var(--efy_padding); font-weight: bold; cursor: pointer}
-::file-selector-button {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; color: var(--efy_text2); border:  1.5rem solid var(--efy_color_border); border-radius: var(--efy_radius); padding: var(--efy_padding); font-weight: bold; cursor: pointer}
+::-webkit-file-upload-button {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; color: var(--efy_text2); border:  1.5rem solid var(--efy_color_border); border-radius: var(--efy_radius); padding: var(--efy_padding); font-weight: bold; cursor: pointer; font-family: var(--efy_font_family)!important}
+::file-selector-button {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; color: var(--efy_text2); border:  1.5rem solid var(--efy_color_border); border-radius: var(--efy_radius); padding: var(--efy_padding); font-weight: bold; cursor: pointer; font-family: var(--efy_font_family)!important}
 
 progress, meter {height:  15rem; border: 0; background: linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans)); background-clip: padding-box; border-radius: var(--efy_radius0); border: 0}
 ::-webkit-progress-bar, ::-webkit-meter-bar {height:  15rem; background: linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans)); background-clip: padding-box; border-radius: var(--efy_radius0); border: 0}
@@ -238,22 +241,38 @@ details[open]:not([efy_help]) > summary:before {transform: rotate(90deg); right:
 [efy_help] summary {pointer-events: none; margin-bottom: 0; padding: 0}
 [efy_help] summary:after {margin-left:  8rem; opacity: 0.5; pointer-events: all}
 
-/*Select Menu*/ [efy_select] label:before {width:  16rem; height:  16rem; margin-right:  8rem; margin-top: -0.2rem; position: relative; border-radius: var(--efy_radius0); border: 2.4rem solid transparent; background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: source-out; mask-composite: exclude}
+/*Select Menu*/ [efy_select] label:before {width:  16rem; height:  16rem; margin-right:  8rem; margin-top: -0.2rem; position: relative; border-radius: calc(var(--efy_radius) / 1.5); border: 2.5rem solid transparent; background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: source-out; mask-composite: exclude}
 
-[efy_select] [type="radio"]:checked + label:after {background: var(--efy_text2); width: 9.6rem; height: 9.6rem; top: 8.4rem; left: 5.6rem; margin: var(--efy_padding); border-radius: calc(var(--efy_radius0) / 2)}
-[efy_select] [type="checkbox"]:checked + label:after {top: 13.2rem; left: 22.4rem; width: 4.8rem; height: 9.6rem; border-radius: 2rem; border-right: solid var(--efy_text2) 3.2rem; border-bottom: solid var(--efy_text2) 3.2rem; transform: rotate(45deg)}
-[efy_select] input:checked + label:before {border-color: var(--efy_text2)}
+[efy_select] [type="radio"]:checked + label:after {background: var(--efy_text2); width: 9.6rem; height: 9.6rem; top: 8rem; left: 5.6rem; margin: var(--efy_padding); border-radius: calc(var(--efy_radius) / 3)}
+[efy_select] [type="checkbox"]:checked + label:after {top: 13.2rem; left: 18.6rem; width: 4.8rem; height: 9.6rem; border-radius: 2rem; border-right: solid var(--efy_text2) 3.3rem; border-bottom: solid var(--efy_text2) 3.3rem; transform: rotate(45deg)}
+[efy_select] input:checked + label:before {border-color: var(--efy_text2); background: transparent}
 [efy_select] [type="checkbox"], [efy_select] [type="radio"], [efy_select] label [type="color"] {opacity:0}
-[efy_select] label, [efy_tabs] [efy_tab], [efy_select] p, [efy_select] button {margin: 6px 8rem 6rem 0}
+[efy_select] label, [efy_tabs] [efy_tab], [efy_select] p, [efy_select] button, .efy_about a, #efy_backup :is(a, button:not(a button), [type=file]) {margin: 6px 12rem 6rem 0}
 
 /*Padding-Right for Expanding Boxes*/ select:not([multiple]) {padding-right: 32rem} summary, details[open] summary {padding-right: 20rem}
 
 /*Card*/ [efy_card] {background: var(--efy_bg1); border-radius: var(--efy_radius); border: 1.5rem solid var(--efy_color_border); padding: 15rem; display: grid; gap: 5rem; width: 100%; align-content: baseline}
 
-/*Sidebar*/ .efy_sidebar {padding:  16rem; width: 100vw; max-width: 450rem; height: 100vh; z-index: 9; position: fixed; right: -450rem; top: 0; box-shadow: 0 0 30rem #0005; border-radius: var(--efy_radius2) 0 0 var(--efy_radius2); transition: right .3s; backdrop-filter: blur( 48rem)}
+/*Sidebar*/ .efy_sidebar{padding:  16rem 14rem 16rem 16rem; width: 100vw; max-width: 450rem; height: 100vh; z-index: 9999; position: fixed; right: -450rem; top: 0; box-shadow: 0 0 30rem #0005; border-radius: var(--efy_radius2) 0 0 var(--efy_radius2); transition: right .3s; overflow-y: auto; backdrop-filter: blur( 48rem); -webkit-backdrop-filter: blur( 48rem)}
 
-[efy_sidebar_btn_open], [efy_sidebar_btn_close] {z-index: 9999; color: var(--efy_color); font-size: 20rem; padding: 4rem 10rem; position: fixed; text-align: center; top:  15rem; right:  15rem}
+[efy_sidebar_btn_open] {z-index: 9999; color: var(--efy_color); font-size: 20rem; padding: 4rem 10rem; position: fixed; text-align: center; top:  15rem; right:  15rem}
 [efy_sidebar_btn_open=relative] {position: relative; top:0; right:0}
+
+[efy_logo] summary code {font-size: 28rem!important; padding: 0}
+[efy_logo] summary code:nth-of-type(2) {-webkit-text-fill-color: var(--efy_text);}
+
+[efy_about] {display: flex; gap: 15rem; justify-content: space-between}
+
+[efy_sidebar_btn_close] {font-size: 31rem; height: 100%; margin: 0; padding: 0 13rem; text-align: center}
+[efy_sidebar_btn_close] i {margin:0}
+
+details.efy_about {width: fit-content}
+[efy_logo]:not([open]) summary {padding: 0 25rem 0 0; margin: 0 10rem}
+[efy_logo]:not([open]) summary:before {margin: 7rem -10rem 0 0}
+
+/*efy_sidebar: Body*/ .efy_toggle_efy_sidebar {width: calc(100vw - 450rem); margin-right: 450rem; --efy_body_width: 100%}
+.efy_toggle_efy_sidebar::-webkit-scrollbar {width: 0}
+/*efy_sidebar: Menu*/ .efy_toggle_efy_sidebar_panel {right: 0}
 
 /*Radius Input*/ .efy_sidebar_range {position: absolute; z-index: 99; pointer-events: none; top: 52rem; color: var(--efy_text2); font-weight: bold; width: 32rem; height: 32rem; line-height: 32rem; display: block; text-align: center; border-radius: var(--efy_radius); margin-left: 16rem}
 
@@ -272,10 +291,6 @@ details[open]:not([efy_help]) > summary:before {transform: rotate(90deg); right:
 [efy_select] [for=efy_color_bgcol] {-webkit-text-fill-color: var(--efy_text); -moz-text-fill-color: var(--efy_text)}
 
 
-/*efy_sidebar: Body*/ .efy_toggle_efy_sidebar {width: calc(100vw - 450rem); margin-right: 450rem; --efy_body_width: 100%}
-/*efy_sidebar: Menu*/ .efy_toggle_efy_sidebar_panel {right: 0; overflow: scroll}
-
-
 
 /*Convergence*/ @media only screen and (max-width: 720px) {
     .efy_toggle_efy_sidebar_panel {max-width: 100%}
@@ -287,15 +302,9 @@ details[open]:not([efy_help]) > summary:before {transform: rotate(90deg); right:
 
 /*Temporary*/
 
-[efy_logo] {margin: -5rem 0 0 0} [efy_logo] summary {font-size: 30rem; padding: 0}
-[efy_logo] summary::after {font-size: 25rem; vertical-align: baseline}
-
-.efy_sidebar_card {width:100%}
-.efy_sidebar {overflow: overlay}
-
-.efy_custom_bgimage .efy_img_previews {display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:  16rem; padding:  8rem 0}
-.efy_custom_bgimage [efy_bg_nr] {aspect-ratio: 1; cursor: pointer; position: relative; box-shadow: inset 0 0 20rem #0003, 0 0 20rem #0003; background-size: cover!important; background-repeat: no-repeat!important; border-radius: var(--efy_radius)}
-.efy_custom_bgimage .efy_img_previews [efy_bg_nr][efy_active]:before {content: ''; display:block; z-index: -1; position: absolute; top: -5%; left: -5%; width: 110%; height: 110%; border-radius: calc(var(--efy_radius) * 1.2)}
+#efy_sbtheme [efy_content=images] .efy_img_previews {display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:  16rem; padding:  8rem 0}
+#efy_sbtheme [efy_content=images] [efy_bg_nr] {aspect-ratio: 1; cursor: pointer; position: relative; box-shadow: inset 0 0 20rem #0003, 0 0 20rem #0003; background-size: cover!important; background-repeat: no-repeat!important; border-radius: var(--efy_radius)}
+#efy_sbtheme [efy_content=images] .efy_img_previews [efy_bg_nr][efy_active]:before {content: ''; display:block; z-index: -1; position: absolute; top: -5%; left: -5%; width: 110%; height: 110%; border-radius: calc(var(--efy_radius) * 1.2)}
 
 .efy_quick_shortcuts [efy_search_input] {margin-bottom: 15rem}
 
@@ -320,7 +329,7 @@ details[open]:not([efy_help]) > summary:before {transform: rotate(90deg); right:
 /*Quick Shortcuts*/  .efy_quick_shortcuts .efy_quick_buttons button {display: inline-flex; gap: 12rem; margin-bottom: 12rem; margin-right:  8rem; padding: 10rem} .efy_quick_shortcuts .efy_quick_buttons button i {margin:0}
 .efy_quick_shortcuts .efy_quick_back i{transform: rotate(180deg)}
 
-/*EFY Icons*/ @font-face {font-family: 'efy_icons'; src: url('efy_icons.woff2') format('truetype'); font-weight: normal; font-style: normal; font-display: block} i, [efy_start]:before, [efy_reset]:before, [efy_help] summary:after, details > summary:before, [efy_sidebar_btn_open]:before, [efy_sidebar_btn_close]:before {font-family: 'efy_icons' !important; speak: never; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; vertical-align: middle; /*Better Rendering*/ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale} i {margin-right: 8rem}
+/*EFY Icons*/ @font-face {font-family: 'efy_icons'; src: url('efy_icons.woff2') format('truetype'); font-weight: normal; font-style: normal; font-display: block} i, [efy_start]:before, [efy_reset]:before, [efy_help] summary:after, details > summary:before, [efy_sidebar_btn_open]:before {font-family: 'efy_icons' !important; speak: never; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; vertical-align: middle; /*Better Rendering*/ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale} i {margin-right: 8rem}
 
 [efy_icon=arrow]:before {content: "\e900"}
 [efy_icon=arrow_down]:before {content: "\e900"; position:absolute; margin: 1rem 0 0 -16rem; transform: rotate(180deg)} [efy_icon=arrow_down] {margin-left: 16rem}
@@ -330,7 +339,7 @@ details[open]:not([efy_help]) > summary:before {transform: rotate(90deg); right:
 [efy_icon=star]:before {content: "\e904"}
 [efy_icon=audio]:before {content: "\e905"}
 [efy_icon=menu]:before, [efy_sidebar_btn_open]:before {content: "\e906"}
-[efy_icon=remove]:before, [efy_sidebar_btn_close]:before {content: "\e909"}
+[efy_icon=remove]:before {content: "\e909"}
 [efy_icon=play]:before, [efy_timer] [efy_start]:before {content: "\e90a"}
 [efy_icon=pause]:before, [efy_timer] [efy_start][efy_active]:before {content: "\e90b"}
 [efy_icon=fullscreen]:before {content: "\e90c"}
