@@ -1027,10 +1027,10 @@
     kolorist "^1.5.1"
     local-pkg "^0.4.2"
 
-"@intlify/bundle-utils@next":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@intlify/bundle-utils/-/bundle-utils-3.1.0.tgz#42bff44116bdb49621146cd5622c4c45019c8862"
-  integrity sha512-ghlJ0kR2cCQ8D+poKknC0Xx0ncOt3J3os7CcIAqqIWVF7k6AtGoCDnIru+YzlZcvFRNmP9wEZ7jKliojCdAWNg==
+"@intlify/bundle-utils@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@intlify/bundle-utils/-/bundle-utils-3.2.1.tgz#f1a00fb31716567c8da63fbb351c3199ca12d467"
+  integrity sha512-rf4cLBOnbqmpXVcCdcYHilZpMt1m82syh3WLBJlZvGxN2KkH9HeHVH4+bnibF/SDXCHNh6lM6wTpS/qw+PkcMg==
   dependencies:
     "@intlify/message-compiler" next
     "@intlify/shared" next
@@ -1081,12 +1081,12 @@
   resolved "https://registry.yarnpkg.com/@intlify/shared/-/shared-9.2.2.tgz#5011be9ca2b4ab86f8660739286e2707f9abb4a5"
   integrity sha512-wRwTpsslgZS5HNyM7uDQYZtxnbI12aGiBZURX3BTR9RFIKKRWpllTsgzHWvj3HKm3Y2Sh5LPC1r0PDCKEhVn9Q==
 
-"@intlify/vite-plugin-vue-i18n@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@intlify/vite-plugin-vue-i18n/-/vite-plugin-vue-i18n-6.0.1.tgz#6beaedc351b6a9fe37f9f23a43c200c56d2c34b6"
-  integrity sha512-FFVcxVU4bR9vdDLNbltM5mrhndnXMErO01i0RrpdyMegEt3Nu/YLoH0sFdjRun7/RY4vaEnhTnFvVf9uO0dQvg==
+"@intlify/vite-plugin-vue-i18n@^6.0.3":
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/@intlify/vite-plugin-vue-i18n/-/vite-plugin-vue-i18n-6.0.3.tgz#57a6900de02a9829e52b16bf072768534c7664ef"
+  integrity sha512-6SgNzPAOCR90wvt368lKzi7f/5ZEWJn22UCGvhFsP3XvKqlF3cVzojahgQ6o+LTdCkExeM6wPgd+haFf28E9VQ==
   dependencies:
-    "@intlify/bundle-utils" next
+    "@intlify/bundle-utils" "^3.2.1"
     "@intlify/shared" next
     "@rollup/pluginutils" "^4.2.0"
     debug "^4.3.1"
@@ -2396,18 +2396,7 @@ fast-diff@^1.1.2:
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
   integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
-fast-glob@^3.2.11, fast-glob@^3.2.5:
-  version "3.2.11"
-  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.11.tgz#a1172ad95ceb8a16e20caa5c5e56480e5129c1d9"
-  integrity sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==
-  dependencies:
-    "@nodelib/fs.stat" "^2.0.2"
-    "@nodelib/fs.walk" "^1.2.3"
-    glob-parent "^5.1.2"
-    merge2 "^1.3.0"
-    micromatch "^4.0.4"
-
-fast-glob@^3.2.12:
+fast-glob@^3.2.11, fast-glob@^3.2.12, fast-glob@^3.2.5:
   version "3.2.12"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.12.tgz#7f39ec99c2e6ab030337142da9e0c18f37afae80"
   integrity sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==
