@@ -27,7 +27,7 @@
     },
     "devDependencies": {
         "@iconify/json": "^2.1.111",
-        "@intlify/vite-plugin-vue-i18n": "^6.0.1",
+        "@intlify/vite-plugin-vue-i18n": "^6.0.3",
         "@unocss/preset-icons": "^0.45.13",
         "@unocss/preset-web-fonts": "^0.45.22",
         "@unocss/transformer-directives": "^0.45.7",
