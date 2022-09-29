@@ -1,4 +1,4 @@
-/*EFY Template - 2022.09.09 - Fonts*/ @font-face {font-family: 'nunito'; src: url('nunito.woff2') format('truetype')} @font-face {font-family: 'nunito'; src: url('nunito_bold.woff2') format('truetype'); font-weight: bold}
+/*EFY Template - 2022.09.09 - Fonts*/ @font-face {font-family: 'nunito'; src: url('../efy/nunito.woff2') format('truetype')} @font-face {font-family: 'nunito'; src: url('../efy/nunito_bold.woff2') format('truetype'); font-weight: bold}
 
 /*End of EFY Template - Documentation on how to use it coming soon at https://efy.ooo/ui . Your own css starts bellow*/
 
