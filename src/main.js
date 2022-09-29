@@ -47,7 +47,7 @@ import "uno.css";
 
 /*EFY UI*/
 import "../efy/efy.css";
-import "../efy/piped.css";
+import "./piped.css";
 import "../efy/efy.js";
 
 import App from "./App.vue";
