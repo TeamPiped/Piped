@@ -1376,7 +1376,7 @@
     "@unocss/preset-wind" "0.45.25"
     pathe "^0.3.7"
 
-"@unocss/preset-web-fonts@0.45.25", "@unocss/preset-web-fonts@^0.45.25":
+"@unocss/preset-web-fonts@0.45.25":
   version "0.45.25"
   resolved "https://registry.yarnpkg.com/@unocss/preset-web-fonts/-/preset-web-fonts-0.45.25.tgz#eac9a3e6e7250f53b18ba06c494a2a6bdf10bb9b"
   integrity sha512-8DTYHtYfmapW2i5HVK8zpX9Npq+DGBtXpBqT4K7We3nbaxoMuOZHKwixFfzw0mXqYcr3BjjwJjmDdMi4GhIKWA==
@@ -1384,6 +1384,14 @@
     "@unocss/core" "0.45.25"
     ohmyfetch "^0.4.18"
     pathe "^0.3.7"
+
+"@unocss/preset-web-fonts@^0.45.26":
+  version "0.45.26"
+  resolved "https://registry.yarnpkg.com/@unocss/preset-web-fonts/-/preset-web-fonts-0.45.26.tgz#b0cbf9c73af3c1ff9690ed3bfd5a95c1ecc14fd0"
+  integrity sha512-6J3VjrYcYGwVDzdcKE0NYQhvuXkS/Fo54ZlEWScVOSygvBYOEsObo+6Vs9Q1yMbVuVnNrt3R38/KMQFqPEWXKw==
+  dependencies:
+    "@unocss/core" "0.45.26"
+    ohmyfetch "^0.4.18"
 
 "@unocss/preset-wind@0.45.25":
   version "0.45.25"
