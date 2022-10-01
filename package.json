@@ -31,7 +31,7 @@
         "@unocss/preset-icons": "^0.45.25",
         "@unocss/preset-web-fonts": "^0.45.25",
         "@unocss/transformer-directives": "^0.45.26",
-        "@unocss/transformer-variant-group": "^0.45.25",
+        "@unocss/transformer-variant-group": "^0.45.26",
         "@vitejs/plugin-legacy": "^1.8.2",
         "@vitejs/plugin-vue": "^2.3.4",
         "@vue/compiler-sfc": "3.2.40",
