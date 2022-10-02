@@ -559,6 +559,7 @@ export default {
                 localStorage.setItem("minimizeRecommendations", this.minimizeRecommendations);
                 localStorage.setItem("watchHistory", this.watchHistory);
                 localStorage.setItem("searchHistory", this.searchHistory);
+                if (!this.searchHistory) localStorage.removeItem("search_history");
                 localStorage.setItem("hl", this.selectedLanguage);
                 localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
                 localStorage.setItem("disableLBRY", this.disableLBRY);
