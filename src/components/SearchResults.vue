@@ -144,7 +144,11 @@ export default {
             const query = this.$route.query.search_query;
             if (!query) return;
             const searchHistory = JSON.parse(localStorage.getItem("search_history")) ?? [];
-            if (!searchHistory.includes(query)) searchHistory.push(query);
+            if (searchHistory.includes(query)) {
+                const index = searchHistory.indexOf(query);
+                searchHistory.splice(index, 1);
+            }
+            searchHistory.unshift(query);
             if (searchHistory.length > 10) searchHistory.shift();
             localStorage.setItem("search_history", JSON.stringify(searchHistory));
         },
