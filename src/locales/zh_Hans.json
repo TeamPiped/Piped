@@ -6,7 +6,7 @@
         "disable_lbry": "禁用 LBRY 进行流式传输",
         "show_description": "显示描述",
         "minimize_description": "折叠描述",
-        "donations": "捐款",
+        "donations": "开发捐赠",
         "auto_play_next_video": "自动播放下一个视频",
         "loop_this_video": "循环播放此视频",
         "import_from_json": "从 JSON/CSV 导入",
@@ -92,7 +92,11 @@
         "new_playlist_name": "新播放列表名",
         "show_chapters": "章节",
         "store_search_history": "保存搜索历史",
-        "hide_watched": "在源中隐藏看过的视频"
+        "hide_watched": "在源中隐藏看过的视频",
+        "status_page": "状态",
+        "source_code": "源代码",
+        "instance_donations": "实例捐赠",
+        "documentation": "文档"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
