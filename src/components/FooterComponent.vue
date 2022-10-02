@@ -36,9 +36,9 @@ export default {
     },
     methods: {
         async fetchConfig() {
-            this.fetchJson("confg.json").then(config => {
-                this.donationHref = config?.donation_href;
-                this.statusPageHref = config?.status_page_href;
+            this.fetchJson(this.apiUrl() + "/config").then(config => {
+                this.donationHref = config?.donationUrl;
+                this.statusPageHref = config?.statusPageUrl;
             });
         },
     },
