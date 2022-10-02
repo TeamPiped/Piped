@@ -48,7 +48,8 @@ export default {
         },
         async refreshSuggestions() {
             if (!this.searchText) {
-                this.searchSuggestions = JSON.parse(localStorage.getItem("search_history")) ?? [];
+                if (this.getPreferenceBoolean("searchHistory", false))
+                    this.searchSuggestions = JSON.parse(localStorage.getItem("search_history")) ?? [];
             } else {
                 this.searchSuggestions = (
                     await this.fetchJson(this.apiUrl() + "/opensearch/suggestions", {
