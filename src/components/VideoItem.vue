@@ -185,14 +185,12 @@ export default {
             if (!this.isFeed || !this.getPreferenceBoolean("hideWatched", false)) return;
 
             const objectStore = window.db.transaction("watch_history", "readonly").objectStore("watch_history");
-            objectStore.openCursor().onsuccess = event => {
-                const cursor = event.target.result;
-                if (cursor) {
-                    if (cursor.value.videoId === this.video.url.replace("/watch?v=", "")) {
-                        this.showVideo = false;
-                        return;
-                    }
-                    cursor.continue();
+            const request = objectStore.get(this.video.url.substr(-11));
+            request.onsuccess = event => {
+                const video = event.target.result;
+                if (video && (video.currentTime ?? 0) > video.duration * 0.9) {
+                    this.showVideo = false;
+                    return;
                 }
             };
         },
