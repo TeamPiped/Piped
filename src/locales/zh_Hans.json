@@ -91,7 +91,8 @@
         "rename_playlist": "重命名播放列表",
         "new_playlist_name": "新播放列表名",
         "show_chapters": "章节",
-        "store_search_history": "保存搜索历史"
+        "store_search_history": "保存搜索历史",
+        "hide_watched": "在源中隐藏看过的视频"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
