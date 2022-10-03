@@ -90,7 +90,13 @@
         "instance_auth_selection": "인증 인스턴스 선택",
         "different_auth_instance": "인증에 다른 인스턴스 사용",
         "clone_playlist": "재생목록 복제",
-        "clone_playlist_success": "성공적으로 복제되었습니다!"
+        "clone_playlist_success": "성공적으로 복제되었습니다!",
+        "store_search_history": "검색 기록 저장",
+        "hide_watched": "피드에서 시청한 동영상 숨기기",
+        "documentation": "문서",
+        "source_code": "소스 코드",
+        "instance_donations": "인스턴스 기부",
+        "status_page": "상태"
     },
     "titles": {
         "feed": "피드",
