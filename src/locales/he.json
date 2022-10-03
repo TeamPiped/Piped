@@ -57,7 +57,7 @@
         "import_from_json": "ייבוא מ־JSON/CSV",
         "show_markers": "הצגת סמנים בנגן",
         "auto_play_next_video": "לנגן את הסרטון הבא אוטומטית",
-        "donations": "תרומות",
+        "donations": "תרומות בפיתוח",
         "filter": "סינון",
         "loading": "בטעינה…",
         "clear_history": "ריקון ההיסטוריה",
@@ -106,7 +106,13 @@
         "show_chapters": "פרקים",
         "skip_intro": "דילוג על הפוגה/הנפשת הקדמה",
         "skip_outro": "דילוג על כרטיסי סיום/קרדיטים",
-        "skip_filler_tangent": "דילוג על משיקים למילוי"
+        "skip_filler_tangent": "דילוג על משיקים למילוי",
+        "store_search_history": "היסטוריית חיפוש בחנות",
+        "documentation": "תיעוד",
+        "status_page": "מצב",
+        "source_code": "קוד מקור",
+        "hide_watched": "הסתרת הסרטונים שנצפו בערוץ העדכונים",
+        "instance_donations": "תרומות להפעלה"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי",
