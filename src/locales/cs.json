@@ -48,7 +48,7 @@
         "export_to_json": "Exportovat do JSON",
         "import_from_json": "Importovat z JSON/CSV",
         "auto_play_next_video": "Automaticky přehrát další video",
-        "donations": "Darovat",
+        "donations": "Dary na vývoj",
         "show_description": "Zobrazit popis",
         "minimize_recommendations": "Skrýt doporučení",
         "skip_outro": "Přeskočit koncové karty / titulky",
@@ -103,7 +103,13 @@
         "time_code": "Časový kód (v sekundách)",
         "rename_playlist": "Přejmenovat playlist",
         "new_playlist_name": "Nový název playlistu",
-        "show_chapters": "Kapitoly"
+        "show_chapters": "Kapitoly",
+        "store_search_history": "Ukládat historii vyhledávání",
+        "hide_watched": "Skrýt sledovaná videa v kanálu",
+        "source_code": "Zdrojový kód",
+        "instance_donations": "Dary na instanci",
+        "documentation": "Dokumentace",
+        "status_page": "Stav"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
