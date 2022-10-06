@@ -64,6 +64,7 @@ import "@unocss/reset/tailwind.css";
 import "uno.css";
 
 const timeAgo = new TimeAgo("en-US");
+const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
 import("./registerServiceWorker");
 
@@ -240,13 +241,11 @@ const mixin = {
     computed: {
         theme() {
             this.refreshTheme; // forces Vue to recompute the value when the var gets changed
-            if (this.getPreferenceString("theme", "dark") == "auto") {
-                const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
-                // Forces the app to recompute the theme class
-                darkModePreference.addEventListener("change", () => this.refreshTheme++);
+            let themePref = this.getPreferenceString("theme", "dark");
+            if (themePref == "auto") {
                 return darkModePreference.matches ? "dark" : "light";
             }
-            return this.getPreferenceString("theme", "dark");
+            return themePref;
         },
         authenticated(_this) {
             return _this.getAuthToken() !== undefined;
@@ -278,6 +277,10 @@ const mixin = {
             TimeAgoConfig: timeAgo,
             refreshTheme: 0,
         };
+    },
+    mounted() {
+        // Forces the app to recompute the theme class
+        darkModePreference.addEventListener("change", () => this.refreshTheme++);
     },
 };
 
