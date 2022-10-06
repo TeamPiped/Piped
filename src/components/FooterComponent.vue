@@ -52,4 +52,7 @@ footer {
 .dark footer {
     @apply bg-dark-800;
 }
+.auto footer {
+    @apply dark:(bg-dark-800);
+}
 </style>

@@ -212,4 +212,8 @@ h2 {
 .dark .line {
     @apply bg-white;
 }
+
+.auto .line {
+    @apply dark:(bg-white);
+}
 </style>
