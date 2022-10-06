@@ -239,6 +239,13 @@ const mixin = {
     },
     computed: {
         theme() {
+            this.refreshTheme; // forces Vue to recompute the value when the var gets changed
+            if (this.getPreferenceString("theme", "dark") == "auto") {
+                const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+                // Forces the app to recompute the theme class
+                darkModePreference.addEventListener("change", () => this.refreshTheme++);
+                return darkModePreference.matches ? "dark" : "light";
+            }
             return this.getPreferenceString("theme", "dark");
         },
         authenticated(_this) {
@@ -269,6 +276,7 @@ const mixin = {
         return {
             TimeAgo: TimeAgo,
             TimeAgoConfig: timeAgo,
+            refreshTheme: 0,
         };
     },
 };
