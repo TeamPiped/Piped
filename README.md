@@ -28,7 +28,7 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] Login
 -   [x] Feeds
 -   [x] Playlists
--   [x] Integration with SponsorBlock
+-   [x] Integration with [SponsorBlock](https://github.com/ajayyy/SponsorBlock)
 -   [x] Integration with [LBRY](https://lbry.com/) for streaming
 -   [x] Integration with [Return YouTube Dislike](https://returnyoutubedislike.com/) via [RYD-Proxy](https://github.com/TeamPiped/RYD-Proxy)
 -   [x] 4K support
