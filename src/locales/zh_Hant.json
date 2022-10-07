@@ -60,7 +60,17 @@
         "select_playlist": "選擇播放清單",
         "add_to_playlist": "加到播放清單",
         "delete_playlist_video_confirm": "要從播放清單中移除影片嗎？",
-        "delete_account": "刪除帳戶"
+        "delete_account": "刪除帳戶",
+        "show_chapters": "章節",
+        "download_as_txt": "以 .txt 下載",
+        "share": "分享",
+        "new_playlist_name": "播放清單的新名稱",
+        "rename_playlist": "重新命名播放清單",
+        "reset_preferences": "重設偏好設定",
+        "confirm_reset_preferences": "確定要重設偏好設定嗎？",
+        "backup_preferences": "備份偏好設定",
+        "restore_preferences": "復原偏好設定",
+        "back_to_home": "回首頁"
     },
     "titles": {
         "history": "歷史記錄",
@@ -71,7 +81,8 @@
         "login": "登入",
         "subscriptions": "訂閱內容",
         "playlists": "播放清單",
-        "account": "帳戶"
+        "account": "帳戶",
+        "player": "播放器"
     },
     "preferences": {
         "registered_users": "已註冊的使用者",
@@ -104,5 +115,11 @@
         "pinned_by": "置頂者：",
         "disabled": "上傳者停用了留言功能。",
         "loading": "留言載入中……"
+    },
+    "info": {
+        "copied": "已複製！",
+        "cannot_copy": "無法複製！",
+        "page_not_found": "找不到頁面",
+        "preferences_note": "註：偏好設定儲存在本機的瀏覽器的儲存空間內。如果清除瀏覽器的資料，偏好設定就會重設。"
     }
 }

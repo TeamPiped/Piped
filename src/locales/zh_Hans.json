@@ -89,7 +89,8 @@
         "with_timecode": "用时间码分享",
         "time_code": "时间码（单位：秒）",
         "rename_playlist": "重命名播放列表",
-        "new_playlist_name": "新播放列表名"
+        "new_playlist_name": "新播放列表名",
+        "show_chapters": "章节"
     },
     "video": {
         "sponsor_segments": "赞助商部分",

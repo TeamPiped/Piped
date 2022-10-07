@@ -89,7 +89,8 @@
         "piped_link": "Piped bağlantısı",
         "share": "Paylaş",
         "rename_playlist": "Oynatma listesini yeniden adlandır",
-        "new_playlist_name": "Yeni oynatma listesi adı"
+        "new_playlist_name": "Yeni oynatma listesi adı",
+        "show_chapters": "Bölümler"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"

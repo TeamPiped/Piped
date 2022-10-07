@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="showVideo">
         <router-link
             :to="{
                 path: '/watch',
@@ -133,6 +133,10 @@ export default {
                 return {};
             },
         },
+        isFeed: {
+            type: Boolean,
+            default: false,
+        },
         height: { type: String, default: "118" },
         width: { type: String, default: "210" },
         hideChannel: { type: Boolean, default: false },
@@ -143,7 +147,11 @@ export default {
     data() {
         return {
             showModal: false,
+            showVideo: true,
         };
+    },
+    mounted() {
+        this.shouldShowVideo();
     },
     methods: {
         removeVideo() {
@@ -164,6 +172,19 @@ export default {
                     else this.$emit("remove");
                 });
             }
+        },
+        shouldShowVideo() {
+            if (!this.isFeed || !this.getPreferenceBoolean("hideWatched", false)) return;
+
+            const objectStore = window.db.transaction("watch_history", "readonly").objectStore("watch_history");
+            const request = objectStore.get(this.video.url.substr(-11));
+            request.onsuccess = event => {
+                const video = event.target.result;
+                if (video && (video.currentTime ?? 0) > video.duration * 0.9) {
+                    this.showVideo = false;
+                    return;
+                }
+            };
         },
     },
     computed: {

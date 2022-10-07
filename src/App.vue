@@ -1,21 +1,14 @@
 <template>
     <div class="w-full min-h-screen px-1vw reset" :class="[theme]">
         <NavBar />
+
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
                 <component :is="Component" :key="$route.fullPath" />
             </keep-alive>
         </router-view>
 
-        <footer class="text-center">
-            <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
-                <font-awesome-icon :icon="['fab', 'github']" />
-            </a>
-            <a class="ml-2" href="https://github.com/TeamPiped/Piped#donations">
-                <font-awesome-icon :icon="['fab', 'bitcoin']" />
-                <span class="ml-1" v-t="'actions.donations'" />
-            </a>
-        </footer>
+        <FooterComponent />
     </div>
 </template>
 
@@ -85,9 +78,11 @@ button,
 
 <script>
 import NavBar from "./components/NavBar.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 export default {
     components: {
         NavBar,
+        FooterComponent,
     },
     mounted() {
         if (this.getPreferenceBoolean("watchHistory", false))

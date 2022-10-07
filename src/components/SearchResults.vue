@@ -77,6 +77,7 @@ export default {
     mounted() {
         if (this.handleRedirect()) return;
         this.updateResults();
+        this.saveQueryToHistory();
     },
     activated() {
         this.handleRedirect();
@@ -137,6 +138,19 @@ export default {
                 this.$router.push(url);
                 return true;
             }
+        },
+        saveQueryToHistory() {
+            if (!this.getPreferenceBoolean("searchHistory", false)) return;
+            const query = this.$route.query.search_query;
+            if (!query) return;
+            const searchHistory = JSON.parse(localStorage.getItem("search_history")) ?? [];
+            if (searchHistory.includes(query)) {
+                const index = searchHistory.indexOf(query);
+                searchHistory.splice(index, 1);
+            }
+            searchHistory.unshift(query);
+            if (searchHistory.length > 10) searchHistory.shift();
+            localStorage.setItem("search_history", JSON.stringify(searchHistory));
         },
     },
 };
