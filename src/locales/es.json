@@ -114,7 +114,8 @@
         "confirm_reset_preferences": "¿Estás seguro de que quieres restablecer tus preferencias?",
         "backup_preferences": "Preferencias de copia de seguridad",
         "restore_preferences": "Restablecer las preferencias",
-        "back_to_home": "Volver a la página de inicio"
+        "back_to_home": "Volver a la página de inicio",
+        "show_chapters": "Capítulos"
     },
     "titles": {
         "feed": "Feed",

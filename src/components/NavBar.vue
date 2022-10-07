@@ -79,7 +79,7 @@
         />
     </div>
     <SearchSuggestions
-        v-show="searchText && suggestionsVisible"
+        v-show="(searchText || showSearchHistory) && suggestionsVisible"
         ref="searchSuggestions"
         :search-text="searchText"
         @searchchange="onSearchTextChange"
@@ -119,6 +119,9 @@ export default {
         shouldShowTrending(_this) {
             return _this.getPreferenceString("homepage", "trending") != "trending";
         },
+        showSearchHistory() {
+            return localStorage.getItem("searchHistory") && localStorage.getItem("search_history");
+        },
     },
     methods: {
         // focus on search bar when Ctrl+k is pressed
@@ -145,6 +148,7 @@ export default {
             }
         },
         onInputFocus() {
+            if (this.showSearchHistory) this.$refs.searchSuggestions.refreshSuggestions();
             this.suggestionsVisible = true;
         },
         onInputBlur() {

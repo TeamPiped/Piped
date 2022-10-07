@@ -89,7 +89,8 @@
         "follow_link": "Apri il collegamento",
         "with_timecode": "Condividi con marca temporale",
         "new_playlist_name": "Nuovo nome dalla playlist",
-        "rename_playlist": "Rinomina la playlist"
+        "rename_playlist": "Rinomina la playlist",
+        "show_chapters": "Capitoli"
     },
     "player": {
         "watch_on": "Guarda su {0}"

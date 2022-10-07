@@ -1,21 +1,14 @@
 <template>
     <div class="w-full min-h-screen px-1vw reset" :class="[theme]">
         <NavBar />
+
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
                 <component :is="Component" :key="$route.fullPath" />
             </keep-alive>
         </router-view>
 
-        <footer class="text-center">
-            <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped">
-                <font-awesome-icon :icon="['fab', 'github']" />
-            </a>
-            <a class="ml-2" href="https://github.com/TeamPiped/Piped#donations">
-                <font-awesome-icon :icon="['fab', 'bitcoin']" />
-                <span class="ml-1" v-t="'actions.donations'" />
-            </a>
-        </footer>
+        <FooterComponent />
     </div>
 </template>
 
@@ -85,9 +78,11 @@ button,
 
 <script>
 import NavBar from "./components/NavBar.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 export default {
     components: {
         NavBar,
+        FooterComponent,
     },
     mounted() {
         if (this.getPreferenceBoolean("watchHistory", false))
@@ -130,3 +125,159 @@ export default {
     },
 };
 </script>
+
+<style>
+h1,
+p,
+a,
+b {
+    unicode-bidi: plaintext;
+    text-align: start;
+}
+
+::-webkit-scrollbar {
+    background-color: #15191a;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4b4f52;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5b6469;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #485053;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #0b0e0f;
+}
+
+* {
+    scrollbar-color: #15191a #444a4e;
+    @apply font-sans;
+}
+
+.video-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 col-auto lt-md:gap-x-2.5 md:gap-x-1vw gap-y-1.5;
+}
+
+.btn {
+    @apply h-full py-2 lt-md:px-2 md:px-4 rounded cursor-pointer;
+}
+
+.reset {
+    @apply text-black bg-white;
+}
+
+.auto {
+    @apply dark:(text-white bg-dark-900);
+}
+
+.dark {
+    @apply text-white bg-dark-900;
+}
+
+.input,
+.select,
+.btn {
+    @apply w-auto text-gray-600 bg-gray-300;
+}
+
+.input,
+.select {
+    @apply h-8;
+}
+
+.checkbox {
+    @apply h-4 w-4;
+}
+
+.dark .input,
+.dark .select,
+.dark .btn {
+    @apply text-gray-400 bg-dark-400;
+}
+
+.auto .input,
+.auto .select,
+.auto .btn {
+    @apply dark:(text-gray-400 bg-dark-400);
+}
+
+.input {
+    @apply pl-2.5;
+}
+
+.input:focus {
+    @apply border-2 border-red-500 outline-none;
+    box-shadow: 0 0 15px rgba(239, 68, 68, var(--un-border-opacity));
+}
+
+hr {
+    @apply !mt-2 !mb-3 border-gray-300;
+}
+
+.dark hr {
+    @apply border-dark-100;
+}
+
+.auto hr {
+    @apply dark:border-dark-100;
+}
+
+h1,
+h2 {
+    @apply m-0 font-bold;
+}
+
+h1 {
+    @apply !text-5xl;
+}
+
+h2 {
+    @apply !text-3xl;
+}
+
+.table {
+    @apply w-full text-lg text-left font-light border;
+}
+
+.link {
+    @apply hover:(text-dark-300 underline underline-dark-300);
+}
+
+.link-secondary {
+    @apply hover:(text-dark-400 underline underline-dark-400);
+}
+
+.dark .link {
+    @apply hover:(text-gray-300 underline underline-gray-300);
+}
+
+.auto .link {
+    @apply dark:hover:(text-gray-300 underline underline-gray-300);
+}
+
+.dark .link-secondary {
+    @apply text-gray-300 hover:(text-gray-400 underline underline-gray-400);
+}
+
+.auto .link-secondary {
+    @apply dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
+}
+
+.line {
+    @apply px-2.5 py-0.25 my-0.45 rounded-xl bg-dark-900;
+}
+
+.dark .line {
+    @apply bg-white;
+}
+
+.auto .line {
+    @apply dark:(bg-white);
+}
+</style>

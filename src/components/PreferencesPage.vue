@@ -41,7 +41,6 @@
                     <option v-t="'titles.feed'" value="feed" />
                 </select>
             </label>
-
             <label class="pref" for="ddlInstanceSelection">
                 <strong v-text="`${$t('actions.instance_selection')}:`" />
                 <select
@@ -421,6 +420,8 @@ export default {
             minimizeDescription: false,
             minimizeRecommendations: false,
             watchHistory: false,
+            searchHistory: false,
+            hideWatched: false,
             selectedLanguage: "en",
             languages: [
                 { code: "ar", name: "Arabic" },
@@ -555,10 +556,12 @@ export default {
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
             this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
+            this.searchHistory = this.getPreferenceBoolean("searchHistory", false);
             this.selectedLanguage = this.getPreferenceString("hl", await this.defaultLangage);
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
+            this.hideWatched = this.getPreferenceBoolean("hideWatched", false);
             if (this.selectedLanguage != "en") {
                 try {
                     this.CountryMap = await import(`../utils/CountryMaps/${this.selectedLanguage}.json`).then(
@@ -612,10 +615,13 @@ export default {
                 localStorage.setItem("minimizeDescription", this.minimizeDescription);
                 localStorage.setItem("minimizeRecommendations", this.minimizeRecommendations);
                 localStorage.setItem("watchHistory", this.watchHistory);
+                localStorage.setItem("searchHistory", this.searchHistory);
+                if (!this.searchHistory) localStorage.removeItem("search_history");
                 localStorage.setItem("hl", this.selectedLanguage);
                 localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
                 localStorage.setItem("disableLBRY", this.disableLBRY);
                 localStorage.setItem("proxyLBRY", this.proxyLBRY);
+                localStorage.setItem("hideWatched", this.hideWatched);
 
                 if (shouldReload) window.location.reload();
             }

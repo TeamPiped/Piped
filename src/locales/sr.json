@@ -78,9 +78,18 @@
         "delete_playlist_confirm": "Избрисати овај попис снимака?",
         "please_select_playlist": "Молим вас одаберите попис снимака",
         "show_markers": "Prikaži obeleživače na plejeru",
-        "delete_account": "Obriši nalog",
+        "delete_account": "Обриши налог",
         "logout": "Одјава са овог уређаја",
-        "minimize_recommendations_default": "Umanji preporuke kao podrazumevano"
+        "minimize_recommendations_default": "Умањи Препоруке као Подразумевано",
+        "download_as_txt": "Преузмите као .ткт",
+        "reset_preferences": "Ресетирајте преференције",
+        "confirm_reset_preferences": "Да ли сте сигурни да желите да ресетујете подешавања?",
+        "backup_preferences": "Спреми сигурносну копију поставки",
+        "invalidate_session": "Одјавите се са свих уређаја",
+        "different_auth_instance": "Користите другу инстанцу за аутентификацију",
+        "instance_auth_selection": "Избор инстанце аутентикације",
+        "clone_playlist": "Клонирајте листу за репродукцију",
+        "clone_playlist_success": "Успешно клонирано!"
     },
     "preferences": {
         "instance_locations": "Локација инстанце",
@@ -114,7 +123,10 @@
         "trending": "У тренду",
         "login": "Пријава",
         "subscriptions": "Праћења",
-        "playlists": "Пописи Снимака"
+        "playlists": "Пописи Снимака",
+        "account": "Рачун",
+        "instance": "Инстанца",
+        "player": "Плејер"
     },
     "comment": {
         "pinned_by": "Закачено од стране"

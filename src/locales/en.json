@@ -61,7 +61,7 @@
         "import_from_json": "Import from JSON/CSV",
         "loop_this_video": "Loop this Video",
         "auto_play_next_video": "Auto Play next Video",
-        "donations": "Donations",
+        "donations": "Development donations",
         "minimize_description": "Minimize Description",
         "show_description": "Description",
         "minimize_recommendations": "Minimize Recommendations",
@@ -106,7 +106,13 @@
         "follow_link": "Follow link",
         "copy_link": "Copy link",
         "time_code": "Time code (in seconds)",
-        "show_chapters": "Chapters"
+        "show_chapters": "Chapters",
+        "store_search_history": "Store Search history",
+        "hide_watched": "Hide watched videos in the feed",
+        "documentation": "Documentation",
+        "status_page": "Status",
+        "source_code": "Source code",
+        "instance_donations": "Instance donations"
     },
     "comment": {
         "pinned_by": "Pinned by",

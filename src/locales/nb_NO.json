@@ -80,7 +80,17 @@
         "reset_preferences": "Tilbakestill innstillinger",
         "backup_preferences": "Innstillinger for sikkerhetskopiering",
         "confirm_reset_preferences": "Tilbakestill alle innstillingene?",
-        "restore_preferences": "Gjenopprett innstillinger"
+        "restore_preferences": "Gjenopprett innstillinger",
+        "show_chapters": "Kapitler",
+        "rename_playlist": "Gi spillelisten ny navn",
+        "new_playlist_name": "Nytt spillelistenavn",
+        "share": "Del",
+        "with_timecode": "Del med tidskode",
+        "piped_link": "Piped-lenke",
+        "follow_link": "Følg lenke",
+        "copy_link": "Kopier lenke",
+        "time_code": "Tidskode (sekunder)",
+        "back_to_home": "Tilbake til startsiden"
     },
     "player": {
         "watch_on": "Vis på {0}"
@@ -143,5 +153,11 @@
     },
     "information": {
         "preferences_note": "Merk: Innstillinger lagres lokalt i din nettleser. Sletting av nettleserdata sletter dem."
+    },
+    "info": {
+        "preferences_note": "Merk: Innstillinger spares i nettleserens lokallager. Sletting av nettleserdata tilbakestiller dem.",
+        "cannot_copy": "Kan ikke kopiere",
+        "page_not_found": "Fant ikke siden",
+        "copied": "Kopiert"
     }
 }
