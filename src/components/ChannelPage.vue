@@ -5,7 +5,10 @@
         <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
         <div class="pp-channel-page-author flex place-items-center">
             <img height="48" width="48" class="m-1" :src="channel.avatarUrl" />
-            <h5 v-text="channel.name" />
+            <div>
+                <h5 v-text="channel.name" />
+                <p class="text-left">{{ numberFormat(channel.subscriberCount) }} Subscribers</p>
+            </div>
             <font-awesome-icon class="ml-1.5" v-if="channel.verified" icon="check" />
         </div>
         <!-- eslint-disable-next-line vue/no-v-html -->
@@ -14,11 +17,10 @@
         </p>
 
         <button
-            class="btn"
+            class="btn mr-40"
             @click="subscribeHandler"
             v-t="{
                 path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                args: { count: numberFormat(channel.subscriberCount) },
             }"
         ></button>
 

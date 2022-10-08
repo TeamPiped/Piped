@@ -1,5 +1,5 @@
 <template>
-    <footer class="text-center py-40 children:(mx-30) w-full mt-10 mb-5">
+    <footer class="text-center py-40 children:(mx-30) w-full mt-10 mb-5 mt-52">
         <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped" target="_blank">
             <font-awesome-icon :icon="['fab', 'github']" />
             <span class="ml-2" v-t="'actions.source_code'" />

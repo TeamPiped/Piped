@@ -16,11 +16,11 @@
         "watch_on": "شاهد عبر"
     },
     "actions": {
-        "subscribe": "اشتراك - {count}",
+        "subscribe": "اشتراك",
         "view_subscriptions": "عرض الاشتراكات",
         "most_recent": "الأحدث",
         "least_recent": "الأقدم",
-        "unsubscribe": "إلغاء اشتراك - {count}",
+        "unsubscribe": "إلغاء اشتراك",
         "channel_name_asc": "إسم القناة (أبجدي تصاعدي)",
         "sort_by": "ترتيب النتائج:",
         "back": "رجوع",

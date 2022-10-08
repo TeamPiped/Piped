@@ -66,13 +66,16 @@
             <!-- Channel info & options flex container -->
             <div class="pp-watch-bellow-options flex">
                 <!-- Channel Image & Info -->
-                <div class="flex items-center">
-                    <img :src="video.uploaderAvatar" alt="" loading="lazy" />
-                    <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">{{
-                        video.uploader
-                    }}</router-link>
-                    <!-- Verified Badge -->
-                    <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
+                <div class="flex">
+                    <img :src="video.uploaderAvatar" alt="" loading="lazy" class="w-auto" />
+                    <div>
+                        <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">{{
+                            video.uploader
+                        }}</router-link>
+                        <!-- Verified Badge -->
+                        <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
+                        <p class="ml-1.5">{{ numberFormat(video.uploaderSubscriberCount) }} Subscribers</p>
+                    </div>
                 </div>
 
                 <div class="pp-watch-buttons">
@@ -82,7 +85,6 @@
                         @click="subscribeHandler"
                         v-t="{
                             path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                            args: { count: numberFormat(video.uploaderSubscriberCount) },
                         }"
                     />
                     <!-- RSS Feed button -->
@@ -152,6 +154,7 @@
                 v-if="showDesc && sponsors && sponsors.segments"
                 v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
             />
+            <hr />
         </div>
 
         <div class="grid pp-rec-vids">
@@ -268,6 +271,7 @@ export default {
         },
     },
     mounted() {
+        console.log("ASD");
         // check screen size
         if (window.innerWidth >= 1024) {
             this.isMobile = false;
@@ -319,6 +323,7 @@ export default {
         });
     },
     activated() {
+        console.log("ASD");
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);

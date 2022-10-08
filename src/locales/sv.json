@@ -13,7 +13,7 @@
         "player": "Spelare"
     },
     "actions": {
-        "subscribe": "Prenumerera - {count}",
+        "subscribe": "Prenumerera",
         "channel_name_asc": "Kanalnamn (A-Z)",
         "channel_name_desc": "Kanalnamn (Z-A)",
         "back": "Tillbaka",
@@ -23,7 +23,7 @@
         "export_to_json": "Exportera till JSON",
         "show_description": "Visa beskrivning",
         "loading": "Laddar...",
-        "unsubscribe": "Avsluta prenumeration - {count}",
+        "unsubscribe": "Avsluta prenumeration",
         "sort_by": "Sortera efter:",
         "most_recent": "Senaste",
         "skip_intro": "Hoppa över paus/introanimering",

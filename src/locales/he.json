@@ -16,8 +16,8 @@
         "watch_on": "לצפות ב־{0}"
     },
     "actions": {
-        "subscribe": "מינוי - {count}",
-        "unsubscribe": "ביטול מינוי - {count}",
+        "subscribe": "מינוי",
+        "unsubscribe": "ביטול מינוי",
         "view_subscriptions": "הצגת מינויים",
         "sort_by": "מיון לפי:",
         "most_recent": "האחרונים",

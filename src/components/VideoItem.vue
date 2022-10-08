@@ -30,7 +30,12 @@
                     v-else-if="video.duration >= 60"
                     v-text="timeFormat(video.duration)"
                 />
-                <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right live-badge" tag="div">
+                <i18n-t
+                    v-else
+                    keypath="video.live"
+                    class="thumbnail-overlay thumbnail-right live-badge !w-fit"
+                    tag="div"
+                >
                     <font-awesome-icon :icon="['fas', 'broadcast-tower']" />
                 </i18n-t>
                 <span v-if="video.watched" class="thumbnail-overlay thumbnail-left" v-t="'video.watched'" />
@@ -189,7 +194,7 @@ export default {
     },
     computed: {
         short() {
-            return this.video.duration > 0 && this.video.duration <= 61;
+            return this.video.duration >= 0 && this.video.duration <= 61;
         },
     },
     components: { PlaylistAddModal },

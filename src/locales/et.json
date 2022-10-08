@@ -13,8 +13,8 @@
         "watch_on": "Vaata saidil {0}"
     },
     "actions": {
-        "subscribe": "Telli - {count}",
-        "unsubscribe": "Loobuda tellitud - {count}",
+        "subscribe": "Telli",
+        "unsubscribe": "Loobuda tellitud",
         "view_subscriptions": "Vaata tellimusi",
         "sort_by": "Sorteerimine:",
         "most_recent": "Viimane",

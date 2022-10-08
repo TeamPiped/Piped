@@ -2,7 +2,7 @@
 
 /*End of EFY Template - Documentation on how to use it coming soon at https://efy.ooo/ui . Your own css starts bellow*/
 
-
+/*Base*/ .pp-base {margin: 0 auto; width: 80%;}
 /*BG: Transparent*/ .video-grid div div, .pp-show-recs div div {background: transparent}
 /*BG 1*/ .comment, .video-grid div, .pp-show-recs div, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
 /*Bold*/ .btn {font-weight: bold}
@@ -25,7 +25,7 @@
 
 /*Avatar*/ .comment-avatar, .pp-import-channel img {width: 40rem; height:  40rem}
 
-/*Video Grid */ .video-grid {display: grid; gap: 16rem; grid-template-columns: repeat(auto-fit, minmax(224rem, 1fr))}
+/*Video Grid */ .video-grid {display: grid; gap: 15rem; grid-template-columns: repeat(auto-fit, minmax(300rem, 1fr));}
 
 tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 0 0 1.5px var(--efy_bg1)}
 
@@ -66,7 +66,7 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 /*Avatar Channel Page*/ .pp-channel-page-author  {gap: 10rem; margin-top: 10rem}
  .pp-channel-page-author  > img {width: 48rem; height: 48rem}
 
-/*Comments*/ .grid .comment {width: fit-content; margin: 0 0 15px 0; gap: 10rem; padding: 12rem; border: 1.5rem solid var(--efy_color_border)}
+/*Comments*/ .grid .comment {width: 100%; margin: 0 0 15px 0; gap: 10rem; padding: 12rem; border: 1.5rem solid var(--efy_color_border)}
 .comment-author {flex-wrap: wrap}
 .comment-meta {margin: 0 5rem}
 .comment .comment {margin-top: 10rem}
@@ -107,7 +107,7 @@ table {margin-top: 0}
 /*Subscribtions*/ .pp-import-channel {gap: 10rem}
 
 /*Other*/ .pp-show-recs {display: grid}
-.video-grid div, .pp-show-recs div {padding: 16rem; border: 1.5rem solid var(--efy_color_border)}
+.video-grid div, .pp-show-recs div {padding: 12rem; max-width: 350px; border: 1.5rem solid var(--efy_color_border)}
 .video-grid div div, .pp-show-recs div div {padding: 0; border: none}
 
 .svg-inline--fa{vertical-align: -2.5rem}
@@ -128,6 +128,11 @@ table {margin-top: 0}
 .pp-mobile-nav a, .pp-mobile-nav p {padding: var(--efy_padding); width: 100%; border-radius: var(--efy_radius)}
 
 /*Convergence*/
+@media (max-width: 1024px) {
+    .pp-base {width: 100%; margin: auto;}
+    .video-grid div, .pp-show-recs div {padding: 12rem; max-width: 100%; border: 1.5rem solid var(--efy_color_border)}
+}
+
 @media (max-width: 990px) {
     .pp-watch-bellow-options {flex-direction: column; margin-top: 15rem}
 }

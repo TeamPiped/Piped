@@ -13,8 +13,8 @@
         "watch_on": "{0}で見る"
     },
     "actions": {
-        "subscribe": "チャンネル登録 - {count}",
-        "unsubscribe": "登録解除 - {count}",
+        "subscribe": "チャンネル登録",
+        "unsubscribe": "登録解除",
         "view_subscriptions": "サブスクリプションを見る",
         "sort_by": "表示順:",
         "most_recent": "新しい順",

@@ -1,7 +1,7 @@
 {
     "actions": {
-        "unsubscribe": "Atšaukti prenumeratą - {count}",
-        "subscribe": "Prenumeruoti - {count}",
+        "unsubscribe": "Atšaukti prenumeratą",
+        "subscribe": "Prenumeruoti",
         "instances_list": "Perdavimo šaltinių sąrašas",
         "language_selection": "Kalbos pasirinkimas",
         "store_watch_history": "Saugoti žiūrėjimo istoriją",
