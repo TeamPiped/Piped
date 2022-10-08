@@ -1,5 +1,5 @@
 <template>
-    <footer class="text-center py-40 children:(mx-30) w-full mt-10 mb-5">
+    <footer>
         <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped" target="_blank">
             <font-awesome-icon :icon="['fab', 'github']" />
             <span class="ml-2" v-t="'actions.source_code'" />
@@ -47,13 +47,16 @@ export default {
 
 <style>
 footer {
-    @apply bg-light-900;
+    text-align: center;
+    width: 100%;
+    margin-top: 30rem;
+    margin-bottom: 10rem;
+    background: var(--efy_bg1);
     border-radius: var(--efy_radius);
+    padding: 15rem 5rem;
 }
-.dark footer {
-    @apply bg-dark-800;
-}
-.auto footer {
-    @apply dark:(bg-dark-800);
+
+footer > a {
+    margin: 0 15rem;
 }
 </style>
