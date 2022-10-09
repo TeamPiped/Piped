@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Disallow: /channel/*
+Disallow: /watch/*
+Disallow: /preferences
+Disallow: /login
+Disallow: /register
+Disallow: /feed/*
