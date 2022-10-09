@@ -101,7 +101,7 @@ b {
 }
 
 .btn {
-    @apply h-full py-2 lt-md:px-2 md:px-4 rounded cursor-pointer;
+    @apply py-2 lt-md:px-2 md:px-4 rounded cursor-pointer inline-block;
 }
 
 .reset {
