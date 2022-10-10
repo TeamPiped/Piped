@@ -3,8 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "serve over network": "vite --host",
-        "serve over local": "vite",
+        "serve": "vite",
         "build": "vite build",
         "preview": "vite preview",
         "lint": "eslint --fix --color --ignore-path .gitignore --ext .js,.vue ."

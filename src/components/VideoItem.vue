@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showVideo">
+    <div v-if="showVideo" class="flex flex-col justify-between w-full">
         <router-link
             :to="{
                 path: '/watch',
@@ -50,38 +50,8 @@
                 />
             </div>
         </router-link>
-
-        <div class="float-right m-0 inline-block children:px-1">
-            <router-link
-                :to="{
-                    path: '/watch',
-                    query: {
-                        v: video.url.substr(-11),
-                        ...(playlistId && { list: playlistId }),
-                        ...(index >= 0 && { index: index + 1 }),
-                        listen: '1',
-                    },
-                }"
-                :aria-label="'Listen to ' + video.title"
-                :title="'Listen to ' + video.title"
-            >
-                <font-awesome-icon icon="headphones" />
-            </router-link>
-            <button v-if="authenticated" :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
-                <font-awesome-icon icon="circle-plus" />
-            </button>
-            <button
-                v-if="admin"
-                :title="$t('actions.remove_from_playlist')"
-                ref="removeButton"
-                @click="removeVideo(video.url.substr(-11))"
-            >
-                <font-awesome-icon icon="circle-minus" />
-            </button>
-        </div>
-
-        <div class="flex">
-            <router-link :to="video.uploaderUrl">
+        <div class="flex mt-10">
+            <router-link :to="video.uploaderUrl" class="w-fit h-fit">
                 <img
                     v-if="video.uploaderAvatar"
                     :src="video.uploaderAvatar"
@@ -96,7 +66,7 @@
             <div class="w-[calc(100%-32px-1rem)]">
                 <router-link
                     v-if="video.uploaderUrl && video.uploaderName && !hideChannel"
-                    class="link-secondary overflow-hidden block"
+                    class="link-secondary overflow-hidden block w-fit"
                     :to="video.uploaderUrl"
                     :title="video.uploaderName"
                 >
@@ -112,6 +82,35 @@
                     <span v-if="video.uploaded > 0" class="pl-0.5" v-text="timeAgo(video.uploaded)" />
                     <span v-else-if="video.uploadedDate" class="pl-0.5" v-text="video.uploadedDate" />
                 </strong>
+            </div>
+
+            <div class="inline-block children:px-1 self-end">
+                <router-link
+                    :to="{
+                        path: '/watch',
+                        query: {
+                            v: video.url.substr(-11),
+                            ...(playlistId && { list: playlistId }),
+                            ...(index >= 0 && { index: index + 1 }),
+                            listen: '1',
+                        },
+                    }"
+                    :aria-label="'Listen to ' + video.title"
+                    :title="'Listen to ' + video.title"
+                >
+                    <font-awesome-icon icon="headphones" />
+                </router-link>
+                <button v-if="authenticated" :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
+                    <font-awesome-icon icon="circle-plus" />
+                </button>
+                <button
+                    v-if="admin"
+                    :title="$t('actions.remove_from_playlist')"
+                    ref="removeButton"
+                    @click="removeVideo(video.url.substr(-11))"
+                >
+                    <font-awesome-icon icon="circle-minus" />
+                </button>
             </div>
         </div>
     </div>

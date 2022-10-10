@@ -19,7 +19,7 @@
                         <span class="mx-2" v-text="subscription.name" />
                     </router-link>
                     <button
-                        class="btn w-min"
+                        class="btn w-fit"
                         @click="handleButton(subscription)"
                         v-t="`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`"
                     />

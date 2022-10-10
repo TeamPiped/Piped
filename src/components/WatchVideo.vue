@@ -67,7 +67,9 @@
             <div class="pp-watch-bellow-options flex">
                 <!-- Channel Image & Info -->
                 <div class="flex">
-                    <img :src="video.uploaderAvatar" alt="" loading="lazy" class="w-auto" />
+                    <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">
+                        <img :src="video.uploaderAvatar" alt="" loading="lazy" class="w-auto" />
+                    </router-link>
                     <div>
                         <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">{{
                             video.uploader

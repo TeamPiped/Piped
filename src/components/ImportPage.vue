@@ -12,7 +12,7 @@
                 <label for="import-override">Override</label>
             </div>
             <div>
-                <a class="btn w-auto" @click="handleImport">Import</a>
+                <button class="btn w-auto" @click="handleImport">Import</button>
             </div>
         </form>
         <br />
