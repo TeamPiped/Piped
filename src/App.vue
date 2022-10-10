@@ -15,12 +15,31 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import FooterComponent from "./components/FooterComponent.vue";
+
+const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+
 export default {
     components: {
         NavBar,
         FooterComponent,
     },
+    data() {
+        return {
+            theme: "dark",
+        };
+    },
+    methods: {
+        setTheme() {
+            let themePref = this.getPreferenceString("theme", "dark");
+            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
+            else this.theme = themePref;
+        },
+    },
     mounted() {
+        this.setTheme();
+        darkModePreference.addEventListener("change", () => {
+            this.setTheme();
+        });
         if (this.getPreferenceBoolean("watchHistory", false))
             if ("indexedDB" in window) {
                 const request = indexedDB.open("piped-db", 1);
@@ -108,10 +127,6 @@ b {
     @apply text-black bg-white;
 }
 
-.auto {
-    @apply dark:(text-white bg-dark-900);
-}
-
 .dark {
     @apply text-white bg-dark-900;
 }
@@ -137,12 +152,6 @@ b {
     @apply text-gray-400 bg-dark-400;
 }
 
-.auto .input,
-.auto .select,
-.auto .btn {
-    @apply dark:(text-gray-400 bg-dark-400);
-}
-
 .input {
     @apply pl-2.5;
 }
@@ -158,10 +167,6 @@ hr {
 
 .dark hr {
     @apply border-dark-100;
-}
-
-.auto hr {
-    @apply dark:border-dark-100;
 }
 
 h1,
@@ -193,16 +198,8 @@ h2 {
     @apply hover:(text-gray-300 underline underline-gray-300);
 }
 
-.auto .link {
-    @apply dark:hover:(text-gray-300 underline underline-gray-300);
-}
-
 .dark .link-secondary {
     @apply text-gray-300 hover:(text-gray-400 underline underline-gray-400);
-}
-
-.auto .link-secondary {
-    @apply dark:(text-gray-300 hover:(text-gray-400 underline underline-gray-400));
 }
 
 .line {
@@ -211,9 +208,5 @@ h2 {
 
 .dark .line {
     @apply bg-white;
-}
-
-.auto .line {
-    @apply dark:(bg-white);
 }
 </style>

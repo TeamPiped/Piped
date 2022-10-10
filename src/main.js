@@ -238,9 +238,6 @@ const mixin = {
         },
     },
     computed: {
-        theme() {
-            return this.getPreferenceString("theme", "dark");
-        },
         authenticated(_this) {
             return _this.getAuthToken() !== undefined;
         },

@@ -89,20 +89,12 @@ export default {
     @apply bg-dark-400;
 }
 
-.auto .suggestions-container {
-    @apply dark:bg-dark-400;
-}
-
 .suggestion-selected {
     @apply bg-gray-200;
 }
 
 .dark .suggestion-selected {
     @apply bg-dark-100;
-}
-
-.auto .suggestion-selected {
-    @apply dark:bg-dark-100;
 }
 
 .suggestion {
