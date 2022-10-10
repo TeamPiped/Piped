@@ -15,12 +15,31 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import FooterComponent from "./components/FooterComponent.vue";
+
+const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+
 export default {
     components: {
         NavBar,
         FooterComponent,
     },
+    data() {
+        return {
+            theme: "dark",
+        };
+    },
+    methods: {
+        setTheme() {
+            let themePref = this.getPreferenceString("theme", "dark");
+            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
+            else this.theme = themePref;
+        },
+    },
     mounted() {
+        this.setTheme();
+        darkModePreference.addEventListener("change", () => {
+            this.setTheme();
+        });
         if (this.getPreferenceBoolean("watchHistory", false))
             if ("indexedDB" in window) {
                 const request = indexedDB.open("piped-db", 1);
