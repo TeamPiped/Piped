@@ -46,7 +46,7 @@
         "export_to_json": "Exportar a JSON",
         "import_from_json": "Importar de JSON/CSV",
         "loop_this_video": "Reprodueix aquest Vídeo en bucle",
-        "donations": "Donacions",
+        "donations": "Donacions de desenvolupament",
         "minimize_description": "Minimitza la Descripció",
         "show_description": "Mostra la Descripció",
         "disable_lbry": "Deshabilita LBRY per Streaming",
@@ -102,7 +102,14 @@
         "copy_link": "Copiar l'enllaç",
         "follow_link": "Vés a l'enllaç",
         "rename_playlist": "Canviar el nom de la llista de reproducció",
-        "new_playlist_name": "Nom nou de la llista de reproducció"
+        "new_playlist_name": "Nom nou de la llista de reproducció",
+        "store_search_history": "Emmagatzema l'historial de cerca",
+        "instance_donations": "Donacions a instàncies",
+        "hide_watched": "Amaga els vídeos vistos de Continguts",
+        "show_chapters": "Capítols",
+        "status_page": "Estat",
+        "source_code": "Codi font",
+        "documentation": "Documentació"
     },
     "comment": {
         "pinned_by": "Fixat per",

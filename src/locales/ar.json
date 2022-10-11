@@ -70,7 +70,7 @@
         "import_from_json": "استيراد من JSON/CSV",
         "loop_this_video": "تكرار هذا الفيديو",
         "auto_play_next_video": "التشغيل التلقائي للفيديو التالي",
-        "donations": "التبرعات",
+        "donations": "التبرعات للتطوير",
         "minimize_description": "تصغير الوصف",
         "show_description": "عرض الوصف",
         "minimize_recommendations": "تقليل التوصيات",
@@ -106,7 +106,13 @@
         "time_code": "رمز الوقت (بالثواني)",
         "rename_playlist": "إعادة تسمية قائمة التشغيل",
         "new_playlist_name": "اسم قائمة تشغيل جديد",
-        "show_chapters": "الفصول"
+        "show_chapters": "الفصول",
+        "store_search_history": "حفظ سجل البحث",
+        "documentation": "التوثيق",
+        "status_page": "الحالة",
+        "source_code": "شفرة المصدر",
+        "instance_donations": "تبرعات المثيل",
+        "hide_watched": "إخفاء مقاطع الفيديو التي تمت مشاهدتها من الخلاصة"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",

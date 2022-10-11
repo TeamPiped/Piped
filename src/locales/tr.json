@@ -38,7 +38,7 @@
         "disable_lbry": "Akış için LBRY'yi Devre Dışı Bırak",
         "show_description": "Açıklamayı Göster",
         "minimize_description": "Açıklamayı Küçült",
-        "donations": "Bağışlar",
+        "donations": "Geliştirme bağışları",
         "auto_play_next_video": "Sonraki Videoyu Otomatik Oynat",
         "loop_this_video": "Bu Videoyu Döngüye Al",
         "import_from_json": "JSON/CSV dosyasından içe aktar",
@@ -90,7 +90,13 @@
         "share": "Paylaş",
         "rename_playlist": "Oynatma listesini yeniden adlandır",
         "new_playlist_name": "Yeni oynatma listesi adı",
-        "show_chapters": "Bölümler"
+        "show_chapters": "Bölümler",
+        "store_search_history": "Arama geçmişini sakla",
+        "hide_watched": "Akışta izlenen videoları gizle",
+        "source_code": "Kaynak kodu",
+        "documentation": "Belgelendirme",
+        "instance_donations": "Örnek bağışları",
+        "status_page": "Durum"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"

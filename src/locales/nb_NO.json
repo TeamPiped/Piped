@@ -90,7 +90,13 @@
         "follow_link": "Følg lenke",
         "copy_link": "Kopier lenke",
         "time_code": "Tidskode (sekunder)",
-        "back_to_home": "Tilbake til startsiden"
+        "back_to_home": "Tilbake til startsiden",
+        "store_search_history": "Husk søkehistorikk",
+        "hide_watched": "Skjul sette videoer i strømmen",
+        "documentation": "Dokumentasjon",
+        "status_page": "Status",
+        "source_code": "Kildekode",
+        "instance_donations": "Instans-donasjoner"
     },
     "player": {
         "watch_on": "Vis på {0}"

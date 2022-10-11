@@ -40,7 +40,7 @@
         "minimize_description": "Minimizza la descrizione per impostazione predefinita",
         "minimize_recommendations": "Minimizza consigli",
         "show_recommendations": "Mostra consigli",
-        "donations": "Donazioni",
+        "donations": "Donazioni per lo sviluppo",
         "auto_play_next_video": "Riproduci automaticamente il prossimo video",
         "loop_this_video": "Ripeti questo video",
         "import_from_json": "Importa da JSON/CSV",
@@ -90,7 +90,11 @@
         "with_timecode": "Condividi con marca temporale",
         "new_playlist_name": "Nuovo nome dalla playlist",
         "rename_playlist": "Rinomina la playlist",
-        "show_chapters": "Capitoli"
+        "show_chapters": "Capitoli",
+        "store_search_history": "Memorizza la cronologia delle ricerche",
+        "status_page": "Stato",
+        "documentation": "Documentazione",
+        "source_code": "Codice sorgente"
     },
     "player": {
         "watch_on": "Guarda su {0}"
