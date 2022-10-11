@@ -114,17 +114,6 @@
 </template>
 
 <style>
-.thumbnail-overlay {
-    @apply rounded-md absolute bg-black text-white bg-opacity-75 px-5px;
-}
-
-.thumbnail-right {
-    @apply bottom-5px right-5px;
-}
-.thumbnail-left {
-    @apply bottom-5px left-5px text-xs font-bold bg-red-600 uppercase;
-}
-
 .shorts-img {
     @apply max-h-[17.5vh] w-full object-contain;
 }
