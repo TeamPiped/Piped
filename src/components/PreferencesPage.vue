@@ -85,14 +85,15 @@
                     </select>
                 </label>
             </template>
+            <button @click="showmodal = !showmodal">Custom Instance</button>
             <br />
 
             <p v-t="'info.preferences_note'" />
-            <button class="btn" v-t="'actions.reset_preferences'" @click="resetPreferences()" />
-            <button class="btn mx-4" v-t="'actions.backup_preferences'" @click="backupPreferences()" />
+            <button v-t="'actions.reset_preferences'" @click="resetPreferences()" />
+            <button v-t="'actions.backup_preferences'" @click="backupPreferences()" />
             <label
                 for="fileSelector"
-                class="btn text-center"
+                class="btn text-center cursor-pointer"
                 v-t="'actions.restore_preferences'"
                 @click="restorePreferences()"
             />
@@ -385,10 +386,12 @@
             </tr>
         </tbody>
     </table>
+    <CustomInstanceModal v-if="showmodal" @close="showmodal = !showmodal" />
 </template>
 
 <script>
 import CountryMap from "@/utils/CountryMaps/en.json";
+import CustomInstanceModal from "./CustomInstanceModal.vue";
 export default {
     data() {
         return {
@@ -396,6 +399,8 @@ export default {
             authInstance: false,
             selectedAuthInstance: null,
             instances: [],
+            custominstances: [],
+            showmodal: false,
             sponsorBlock: true,
             skipSponsor: true,
             skipIntro: false,
@@ -478,23 +483,33 @@ export default {
     },
     async mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
-
-        this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
-            this.instances = resp;
-            if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
-                this.instances.push({
-                    name: "Custom Instance",
-                    api_url: this.apiUrl(),
-                    locations: "Unknown",
-                    cdn: false,
-                });
-        });
+        this.custominstances = JSON.parse(localStorage.getItem("custominstance"));
+        this.fetchJson("https://piped-instances.kavin.rocks/")
+            .then(resp => {
+                this.instances = resp;
+                if (this.custominstances != null)
+                    this.custominstances.forEach(cusinstance => {
+                        this.instances.push(cusinstance);
+                    });
+                if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
+                    this.instances.push({
+                        name: "Custom Instance",
+                        api_url: this.apiUrl(),
+                        locations: "Unknown",
+                        cdn: false,
+                    });
+            })
+            .catch(() => {
+                if (this.custominstances != null)
+                    this.custominstances.forEach(cusinstance => {
+                        this.instances.push(cusinstance);
+                    });
+            });
 
         if (this.testLocalStorage) {
             this.selectedInstance = this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
             this.authInstance = this.getPreferenceBoolean("authInstance", false);
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
-
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
             if (localStorage.getItem("selectedSkip") !== null) {
                 var skipList = localStorage.getItem("selectedSkip").split(",");
@@ -543,7 +558,6 @@ export default {
                     }
                 });
             }
-
             this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
@@ -577,7 +591,6 @@ export default {
         async onChange() {
             if (this.testLocalStorage) {
                 var shouldReload = false;
-
                 if (
                     this.getPreferenceString("theme", "dark") !== this.selectedTheme ||
                     this.getPreferenceBoolean("watchHistory", false) != this.watchHistory ||
@@ -585,12 +598,10 @@ export default {
                     this.getPreferenceString("enabledCodecs", "av1,vp9,avc") !== this.enabledCodecs.join(",")
                 )
                     shouldReload = true;
-
                 localStorage.setItem("instance", this.selectedInstance);
                 localStorage.setItem("authInstance", this.authInstance);
                 localStorage.setItem("auth_instance_url", this.selectedAuthInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
-
                 var sponsorSelected = [];
                 if (this.skipSponsor) sponsorSelected.push("sponsor");
                 if (this.skipIntro) sponsorSelected.push("intro");
@@ -602,7 +613,6 @@ export default {
                 if (this.skipHighlight) sponsorSelected.push("poi_highlight");
                 if (this.skipFiller) sponsorSelected.push("filler");
                 localStorage.setItem("selectedSkip", sponsorSelected);
-
                 localStorage.setItem("showMarkers", this.showMarkers);
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
@@ -622,7 +632,6 @@ export default {
                 localStorage.setItem("disableLBRY", this.disableLBRY);
                 localStorage.setItem("proxyLBRY", this.proxyLBRY);
                 localStorage.setItem("hideWatched", this.hideWatched);
-
                 if (shouldReload) window.location.reload();
             }
         },
@@ -684,6 +693,7 @@ export default {
             });
         },
     },
+    components: { CustomInstanceModal },
 };
 </script>
 

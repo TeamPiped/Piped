@@ -33,6 +33,9 @@ export default {
 </script>
 
 <style>
+h3 {
+    @apply text-center;
+}
 .modal {
     @apply fixed z-50 top-0 left-0 w-full h-full bg-dark-900 bg-opacity-80 transition-opacity table;
 }
@@ -42,10 +45,16 @@ export default {
 }
 
 .modal-container {
-    @apply w-min m-auto min-w-[20vw] relative;
+    @apply w-fit m-auto min-w-[20vw] relative;
+}
+
+@media (max-width: 1024px) {
+    .modal-container {
+        @apply w-fit m-auto min-w-[40vw] relative;
+    }
 }
 
 .modal-container > button {
-    @apply absolute right-50 top-30;
+    @apply float-right ml-40;
 }
 </style>
