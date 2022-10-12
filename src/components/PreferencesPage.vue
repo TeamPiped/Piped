@@ -399,7 +399,7 @@ export default {
             authInstance: false,
             selectedAuthInstance: null,
             instances: [],
-            custominstances: [],
+            customInstances: [],
             showmodal: false,
             sponsorBlock: true,
             skipSponsor: true,
@@ -483,12 +483,12 @@ export default {
     },
     async mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
-        this.custominstances = JSON.parse(localStorage.getItem("custominstance"));
+        this.customInstances = JSON.parse(localStorage.getItem("custominstance"));
         this.fetchJson("https://piped-instances.kavin.rocks/")
             .then(resp => {
                 this.instances = resp;
-                if (this.custominstances != null)
-                    this.custominstances.forEach(cusinstance => {
+                if (this.customInstances != null)
+                    this.customInstances.forEach(cusinstance => {
                         this.instances.push(cusinstance);
                     });
                 if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
@@ -500,8 +500,8 @@ export default {
                     });
             })
             .catch(() => {
-                if (this.custominstances != null)
-                    this.custominstances.forEach(cusinstance => {
+                if (this.customInstances != null)
+                    this.customInstances.forEach(cusinstance => {
                         this.instances.push(cusinstance);
                     });
             });

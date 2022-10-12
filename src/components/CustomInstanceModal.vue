@@ -5,7 +5,7 @@
         <div class="text-center">
             <select v-model="selectedInstance">
                 <option
-                    v-for="(instance, pointer) in custominstance"
+                    v-for="(instance, pointer) in customInstances"
                     :key="pointer"
                     :value="pointer"
                     v-text="instance.name"
@@ -45,34 +45,45 @@
 
 <script>
 import ModalComponent from "./ModalComponent.vue";
+const isUrl = string => {
+    try {
+        return Boolean(new URL(string));
+    } catch (e) {
+        return false;
+    }
+};
 export default {
     data() {
         return {
-            custominstance: [],
+            customInstances: [],
         };
     },
     mounted() {
         if (this.testLocalStorage) {
-            if (localStorage.getItem("custominstance") === null) {
-                localStorage.setItem("custominstance", "[]");
+            if (localStorage.getItem("custominstances") === null) {
+                localStorage.setItem("custominstances", "[]");
             }
-            this.custominstance = JSON.parse(localStorage.getItem("custominstance"));
+            this.customInstances = JSON.parse(localStorage.getItem("custominstances"));
         }
     },
     methods: {
         add() {
             if (this.testLocalStorage) {
-                this.custominstance.push({
+                if (!isUrl(this.url)) {
+                    alert("Not a valid URL");
+                    return;
+                }
+                this.customInstances.push({
                     name: this.name,
                     api_url: this.url,
                 });
-                localStorage.setItem("custominstance", JSON.stringify(this.custominstance));
+                localStorage.setItem("custominstance", JSON.stringify(this.customInstances));
             }
         },
         remove() {
             if (this.testLocalStorage) {
-                this.custominstance.splice(this.selectedInstance);
-                localStorage.setItem("custominstance", JSON.stringify(this.custominstance));
+                this.customInstances.splice(this.selectedInstance);
+                localStorage.setItem("custominstance", JSON.stringify(this.customInstances));
                 window.location = "/preferences";
             }
         },

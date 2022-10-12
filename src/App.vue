@@ -1,13 +1,13 @@
 <template>
     <NavBar />
-    <div class="pp-base min-h-screen px-1vw reset" :class="[theme]">
+    <div class="pp-base min-h-screen reset">
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
                 <component :is="Component" :key="$route.fullPath" />
             </keep-alive>
         </router-view>
     </div>
-    <label :class="[theme]">
+    <label>
         <FooterComponent />
     </label>
 </template>

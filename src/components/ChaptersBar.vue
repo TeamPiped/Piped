@@ -1,6 +1,13 @@
 <template>
     <!-- desktop view -->
-    <div v-if="!mobileLayout" class="pp-chapters flex-col overflow-y-scroll max-h-75vh min-h-64 lt-lg:hidden">
+    <div
+        v-if="!mobileLayout"
+        :class="
+            theater
+                ? 'pp-chapters flex-col overflow-y-scroll max-h-90vh min-h-64 lt-lg:hidden'
+                : 'pp-chapters flex-col overflow-y-scroll max-h-75vh min-h-64 lt-lg:hidden'
+        "
+    >
         <h6 aria-label="chapters" title="chapters">{{ $t("video.chapters") }} - {{ chapters.length }}</h6>
         <div
             :key="chapter.start"
@@ -56,6 +63,10 @@ import { defineProps, defineEmits } from "vue";
 
 const props = defineProps({
     chapters: Object,
+    theater: {
+        type: Boolean,
+        default: () => false,
+    },
     mobileLayout: {
         type: Boolean,
         default: () => true,

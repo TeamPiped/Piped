@@ -16,7 +16,12 @@
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
-            <div :class="isMobile ? 'flex-col' : 'flex'">
+            <div
+                :class="[
+                    isMobile ? 'flex-col' : 'flex',
+                    showThea ? 'w-screen relative right-[10vw] max-h-[90vh]' : 'max-h-[75vh]',
+                ]"
+            >
                 <VideoPlayer
                     ref="videoPlayer"
                     :video="video"
@@ -32,6 +37,7 @@
                     v-if="video?.chapters?.length > 0 && showChapters"
                     :chapters="video.chapters"
                     :player-position="currentTime"
+                    :theater="showThea"
                     @seek="navigate"
                 />
             </div>
@@ -136,9 +142,11 @@
             <hr />
 
             <div efy_select>
-                <input id="showDesc" type="checkbox" v-model="showDesc" />
+                <input v-if="!isMobile" id="showThea" type="checkbox" v-model="showThea" @change="onChange($event)" />
+                <label v-if="!isMobile" for="showThea" v-t="'Theater'" />
+                <input id="showDesc" type="checkbox" v-model="showDesc" @change="onChange($event)" />
                 <label for="showDesc" v-t="'actions.show_description'" />
-                <input id="showRecs" type="checkbox" v-model="showRecs" />
+                <input id="showRecs" type="checkbox" v-model="showRecs" @change="onChange($event)" />
                 <label for="showRecs" v-t="'actions.show_recommendations'" />
                 <input id="chkAutoLoop" v-model="selectedAutoLoop" type="checkbox" @change="onChange($event)" />
                 <label for="chkAutoLoop" v-text="`${$t('actions.loop_this_video')}`" />
@@ -150,7 +158,6 @@
                 </span>
             </div>
 
-            <!-- eslint-disable-next-line vue/no-v-html -->
             <div v-show="showDesc" class="break-words mb-2" v-html="purifyHTML(video.description)" />
             <div
                 v-if="showDesc && sponsors && sponsors.segments"
@@ -235,6 +242,7 @@ export default {
             selectedAutoLoop: false,
             selectedAutoPlay: null,
             showDesc: true,
+            showThea: false,
             showRecs: true,
             showChapters: true,
             comments: null,
@@ -273,7 +281,6 @@ export default {
         },
     },
     mounted() {
-        console.log("ASD");
         // check screen size
         if (window.innerWidth >= 1024) {
             this.isMobile = false;
@@ -325,9 +332,10 @@ export default {
         });
     },
     activated() {
-        console.log("ASD");
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
+        this.selectedAutoLoop = this.getPreferenceBoolean("loop", false);
+        this.showThea = this.getPreferenceBoolean("theater", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         if (this.video.duration) {
@@ -361,8 +369,30 @@ export default {
         fetchComments() {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
         },
-        onChange() {
-            this.setPreference("autoplay", this.selectedAutoPlay);
+        onChange(event) {
+            if (this.testLocalStorage) {
+                switch (event.target.id) {
+                    case "showThea":
+                        this.setPreference("theater", this.showThea);
+                        scroll(0, 0);
+                        break;
+                    case "showDesc":
+                        this.setPreference("minimizeDescription", this.showDesc);
+                        break;
+                    case "showRecs":
+                        this.setPreference("minimizeRecommendations", this.showRecs);
+                        break;
+                    case "chkAutoplay":
+                        this.setPreference("autoplay", this.selectedAutoPlay);
+                        break;
+                    case "chkLoop":
+                        this.setPreference("loop", this.selectedAutoLoop);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         },
         async getVideoData() {
             await this.fetchVideo()

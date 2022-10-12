@@ -2,7 +2,7 @@
 
 /*End of EFY Template - Documentation on how to use it coming soon at https://efy.ooo/ui . Your own css starts bellow*/
 
-/*Base*/ .pp-base {margin: 0 auto; width: 80%;}
+/*Base*/ .pp-base {margin: 0 auto; width: 80vw;}
 /*BG: Transparent*/ .video-grid div div, .pp-show-recs div div {background: transparent}
 /*BG 1*/ .comment, .video-grid div, .pp-show-recs div, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
 /*Bold*/ .btn {font-weight: bold}
@@ -89,7 +89,7 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 table {margin-top: 0}
 
 /*Chapters*/ .pp-chapters {margin-left: 15rem; max-width: 400rem; gap: 10rem; border-radius: var(--efy_radius)}
-.pp-chapters .chapter {padding: 10rem; border-radius: var(--efy_radius); border: 1.5rem solid var(--efy_color_border)}
+.pp-chapters .chapter {width: 100%; padding: 10rem; border-radius: var(--efy_radius); border: 1.5rem solid var(--efy_color_border)}
 .pp-chapters [title=chapters] {padding: 5rem 10rem; border-radius: var(--efy_radius); border: 1.5rem solid var(--efy_color_border)}
 .pp-chapters .chapter .flex {gap: 0 15rem}
 
