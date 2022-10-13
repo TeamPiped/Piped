@@ -281,6 +281,9 @@ export default {
         },
     },
     mounted() {
+        if (this.isEmbed) {
+            document.querySelectorAll("[efy_sidebar_btn_open]")[0].style.display = "none";
+        }
         // check screen size
         if (window.innerWidth >= 1024) {
             this.isMobile = false;

@@ -1,15 +1,17 @@
 <template>
-    <NavBar />
-    <div class="pp-base min-h-screen reset">
-        <router-view v-slot="{ Component }">
-            <keep-alive :max="5">
-                <component :is="Component" :key="$route.fullPath" />
-            </keep-alive>
-        </router-view>
-    </div>
-    <label>
+    <div class="flex flex-col h-[calc(100vh_-_32rem)] justify-between">
+        <div>
+            <NavBar />
+            <div class="pp-base reset">
+                <router-view v-slot="{ Component }">
+                    <keep-alive :max="5">
+                        <component :is="Component" :key="$route.fullPath" />
+                    </keep-alive>
+                </router-view>
+            </div>
+        </div>
         <FooterComponent />
-    </label>
+    </div>
 </template>
 
 <style>
