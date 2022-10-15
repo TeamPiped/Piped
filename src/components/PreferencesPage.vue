@@ -483,28 +483,26 @@ export default {
     },
     async mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
-        this.customInstances = JSON.parse(localStorage.getItem("custominstance"));
-        this.fetchJson("https://piped-instances.kavin.rocks/")
-            .then(resp => {
-                this.instances = resp;
-                if (this.customInstances != null)
-                    this.customInstances.forEach(cusinstance => {
-                        this.instances.push(cusinstance);
-                    });
-                if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
-                    this.instances.push({
+        this.customInstances = JSON.parse(localStorage.custominstances);
+        this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
+            this.instances = resp;
+            if (this.customInstances != null) {
+                this.instances.push(...this.customInstances);
+            }
+            if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
+                this.instances
+                    .push({
                         name: "Custom Instance",
                         api_url: this.apiUrl(),
                         locations: "Unknown",
                         cdn: false,
+                    })
+                    .catch(() => {
+                        if (this.customInstances != null) {
+                            this.instances.push(...this.customInstances);
+                        }
                     });
-            })
-            .catch(() => {
-                if (this.customInstances != null)
-                    this.customInstances.forEach(cusinstance => {
-                        this.instances.push(cusinstance);
-                    });
-            });
+        });
 
         if (this.testLocalStorage) {
             this.selectedInstance = this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");

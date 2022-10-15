@@ -2,7 +2,7 @@
 
 /*End of EFY Template - Documentation on how to use it coming soon at https://efy.ooo/ui . Your own css starts bellow*/
 
-/*Base*/ .pp-base {margin: 0 auto; width: 80vw;}
+/*Base*/ .pp-base {margin: 0 auto; width: 88vw;}
 /*BG: Transparent*/ .video-grid div div, .pp-show-recs div div {background: transparent}
 /*BG 1*/ .comment, .video-grid div, .pp-show-recs div, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
 /*Bold*/ .btn {font-weight: bold}
