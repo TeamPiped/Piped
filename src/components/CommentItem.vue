@@ -14,6 +14,7 @@
                 <div v-if="comment.pinned" class="comment-pinned">
                     <font-awesome-icon icon="thumbtack" />
                     <span class="ml-1.5" v-t="'comment.pinned_by'" />
+                    <span>&nbsp;</span>
                     <span v-text="uploader" />
                 </div>
 
