@@ -1,6 +1,6 @@
 {
     "titles": {
-        "trending": "Populyar",
+        "trending": "Trenddə olan",
         "login": "Daxil olun",
         "register": "Qeydiyyatdan keçin",
         "feed": "Axın",
@@ -9,7 +9,7 @@
         "subscriptions": "Abunəliklər",
         "playlists": "Pleylistlər",
         "account": "Hesab",
-        "instance": "Server",
+        "instance": "Nümunə",
         "player": "Oynadıcı"
     },
     "player": {
@@ -48,7 +48,7 @@
         "import_from_json": "JSON/CSV-dan İdxal Edin",
         "loop_this_video": "Bu Videonu Təkrarla",
         "auto_play_next_video": "Növbəti Videonu Avto-Oynat",
-        "donations": "İanələr",
+        "donations": "İnkişaf ianələri",
         "minimize_description": "Açıqlamanı Kiçildin",
         "show_description": "Açıqlamanı Göstərin",
         "minimize_recommendations": "Tövsiyələri ən aza endirin",
@@ -74,10 +74,10 @@
         "country_selection": "Ölkə Seçimi",
         "default_homepage": "Defolt Əsas Səhifə",
         "show_comments": "Şərhləri Göstərin",
-        "instance_selection": "Server Seçimi",
+        "instance_selection": "Nümunə Seçimi",
         "minimize_description_default": "Açıqlamanı Defolt Olaraq Kiçildin",
         "language_selection": "Dil Seçimi",
-        "instances_list": "Serverlər Siyahısı",
+        "instances_list": "Nümunələr Siyahısı",
         "show_more": "Daha Çox Göstər",
         "no": "Xeyr",
         "store_watch_history": "Baxış Tarixçəsini Saxlayın",
@@ -93,10 +93,26 @@
         "backup_preferences": "Yedəkləmə seçimləri",
         "restore_preferences": "Seçimləri bərpa edin",
         "invalidate_session": "Bütün cihazlardan çıxın",
-        "different_auth_instance": "Doğrulama üçün fərqli bir serverdən istifadə edin",
-        "instance_auth_selection": "Autentifikasiya Server Seçimi",
+        "different_auth_instance": "Doğrulama üçün fərqli bir nümunədən istifadə edin",
+        "instance_auth_selection": "Doğrulama Nümunəsi Seçilməsi",
         "clone_playlist": "Pleylist Klonlanması",
-        "clone_playlist_success": "Uğurla klonlandı!"
+        "clone_playlist_success": "Uğurla klonlandı!",
+        "rename_playlist": "Pleylistin adını dəyiş",
+        "time_code": "Vaxt kodu (saniyələrlə)",
+        "store_search_history": "Axtarış tarixçəsini saxla",
+        "documentation": "Sertifikatlaşdırma",
+        "status_page": "Vəziyyət",
+        "source_code": "Mənbə kodu",
+        "instance_donations": "Nümunə ianələri",
+        "hide_watched": "Axında baxılan videoları gizlədin",
+        "show_chapters": "Bölmələr",
+        "new_playlist_name": "Yeni pleylist adı",
+        "share": "Paylaşın",
+        "with_timecode": "Vaxt kodu ilə paylaşın",
+        "follow_link": "Linki izləyin",
+        "piped_link": "Piped linki",
+        "copy_link": "Linki kopyalayın",
+        "back_to_home": "Evə qayıt"
     },
     "comment": {
         "pinned_by": "Tərəfindən Sabitləndi",
@@ -143,5 +159,11 @@
     },
     "information": {
         "preferences_note": "Qeyd: seçimlər brauzerinizin yerli yaddaşında saxlanılır. Brauzer məlumatlarınızın silinməsi onları sıfırlayacaq."
+    },
+    "info": {
+        "preferences_note": "Qeyd: Seçimlər brauzerinizin yerli yaddaşında saxlanılır. Brauzer məlumatlarınızın silinməsi onları sıfırlayacaq.",
+        "page_not_found": "Səhifə tapılmadı",
+        "copied": "Kopyalandı!",
+        "cannot_copy": "Kopyalanmır!"
     }
 }
