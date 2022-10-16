@@ -386,12 +386,55 @@
             </tr>
         </tbody>
     </table>
-    <CustomInstanceModal v-if="showmodal" @close="showmodal = !showmodal" />
+    <ModalComponent v-if="showmodal" @close="showmodal = !showmodal">
+        <h3 v-t="'Custom Instance'" class="font-bold my-4" />
+        <hr />
+        <div class="text-center">
+            <div v-if="customInstances.length" class="remove">
+                <select v-model="selectedInstance">
+                    <option
+                        v-for="(instance, index) in customInstances"
+                        :key="index"
+                        :value="index"
+                        v-text="instance.name"
+                    />
+                </select>
+                <div class="flex justify-end">
+                    <button @click="removeInstance" v-t="'Remove'" />
+                </div>
+            </div>
+            <form class="children:pb-3">
+                <div>
+                    <input
+                        v-model="name"
+                        class="input w-full"
+                        type="text"
+                        :placeholder="'Name'"
+                        :aria-label="'Name'"
+                        v-on:keyup.enter="addInstance($event)"
+                    />
+                </div>
+                <div>
+                    <input
+                        v-model="url"
+                        class="input w-full"
+                        type="text"
+                        :placeholder="'Instance Api URL'"
+                        :aria-label="'Instance Api URL'"
+                        v-on:keyup.enter="addInstance($event)"
+                    />
+                </div>
+                <div class="flex justify-end">
+                    <button @click="addInstance($event)" v-t="'Add'" />
+                </div>
+            </form>
+        </div>
+    </ModalComponent>
 </template>
 
 <script>
 import CountryMap from "@/utils/CountryMaps/en.json";
-import CustomInstanceModal from "./CustomInstanceModal.vue";
+import ModalComponent from "./ModalComponent.vue";
 export default {
     data() {
         return {
@@ -509,6 +552,10 @@ export default {
             this.authInstance = this.getPreferenceBoolean("authInstance", false);
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
+            if (localStorage.getItem("custominstances") === null) {
+                localStorage.setItem("custominstances", "[]");
+            }
+            this.customInstances = JSON.parse(localStorage.getItem("custominstances"));
             if (localStorage.getItem("selectedSkip") !== null) {
                 var skipList = localStorage.getItem("selectedSkip").split(",");
                 this.skipSponsor =
@@ -585,7 +632,49 @@ export default {
             }
         }
     },
+    components: { ModalComponent },
     methods: {
+        removeInstance() {
+            if (this.testLocalStorage) {
+                this.customInstances.splice(this.selectedInstance, 1);
+                localStorage.setItem("custominstances", JSON.stringify(this.customInstances));
+                location.reload();
+            }
+        },
+        isUrl(string) {
+            try {
+                return Boolean(new URL(string));
+            } catch (e) {
+                return false;
+            }
+        },
+        addInstance(event) {
+            event.preventDefault();
+            if (this.testLocalStorage) {
+                if (!this.isUrl(this.url)) {
+                    alert("Not a valid URL");
+                    return;
+                }
+                const newInstance = {
+                    name: this.name,
+                    api_url: this.url,
+                };
+                fetch(this.url + "/healthcheck")
+                    .then(res => {
+                        if (!res.ok) {
+                            alert("Error Backend URL");
+                            return;
+                        }
+                        this.customInstances.push(newInstance);
+                        this.instances.push(newInstance);
+                        localStorage.setItem("custominstances", JSON.stringify(this.customInstances));
+                    })
+                    .catch(() => {
+                        alert("Cannot find URL");
+                        return;
+                    });
+            }
+        },
         async onChange() {
             if (this.testLocalStorage) {
                 var shouldReload = false;
@@ -691,7 +780,6 @@ export default {
             });
         },
     },
-    components: { CustomInstanceModal },
 };
 </script>
 

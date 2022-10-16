@@ -32,7 +32,7 @@ export default {
     data() {
         return {
             currentVideoCount: 0,
-            videoStep: 100,
+            videoStep: 30,
             videosStore: [],
             videos: [],
         };

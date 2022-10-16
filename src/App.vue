@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col h-[calc(100vh_-_32rem)] justify-between">
+    <div class="flex flex-col min-h-[calc(100vh_-_32rem)] justify-between">
         <div>
             <NavBar />
             <div class="pp-base reset">
