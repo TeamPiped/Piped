@@ -483,7 +483,7 @@ export default {
     },
     async mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
-        this.customInstances = JSON.parse(localStorage.custominstances);
+        this.customInstances = JSON.parse(localStorage.getItem("custominstances"));
         this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
             this.instances = resp;
             if (this.customInstances != null) {
