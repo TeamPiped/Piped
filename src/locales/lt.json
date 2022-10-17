@@ -70,7 +70,9 @@
         "download_as_txt": "Atsisiųsti kaip .txt",
         "delete_account": "Ištrinti paskyrą",
         "logout": "Atsijungti šiame įrenginyje",
-        "remove_from_playlist": "Pašalinti iš grojaraščio"
+        "remove_from_playlist": "Pašalinti iš grojaraščio",
+        "confirm_reset_preferences": "Ar tikrai norite iš naujo nustatyti nuostatas?",
+        "reset_preferences": "Iš naujo nustatyti nuostatas"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
