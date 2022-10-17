@@ -386,59 +386,21 @@
             </tr>
         </tbody>
     </table>
-    <ModalComponent v-if="showmodal" @close="showmodal = !showmodal">
-        <h3 v-t="'Custom Instance'" class="font-bold my-4" />
-        <hr />
-        <div class="text-center">
-            <div v-if="customInstances.length" class="remove">
-                <select v-model="selectedInstance">
-                    <option
-                        v-for="(instance, index) in customInstances"
-                        :key="index"
-                        :value="index"
-                        v-text="instance.name"
-                    />
-                </select>
-                <div class="flex justify-end">
-                    <button @click="removeInstance" v-t="'Remove'" />
-                </div>
-            </div>
-            <form class="children:pb-3">
-                <div>
-                    <input
-                        v-model="name"
-                        class="input w-full"
-                        type="text"
-                        :placeholder="'Name'"
-                        :aria-label="'Name'"
-                        v-on:keyup.enter="addInstance($event)"
-                    />
-                </div>
-                <div>
-                    <input
-                        v-model="url"
-                        class="input w-full"
-                        type="text"
-                        :placeholder="'Instance Api URL'"
-                        :aria-label="'Instance Api URL'"
-                        v-on:keyup.enter="addInstance($event)"
-                    />
-                </div>
-                <div class="flex justify-end">
-                    <button @click="addInstance($event)" v-t="'Add'" />
-                </div>
-            </form>
-        </div>
-    </ModalComponent>
+    <CustomInstanceModal
+        v-if="showmodal"
+        @close="showmodal = !showmodal"
+        @addInstance="addInstance"
+        @removeInstance="removeInstance"
+        :customInstances="customInstances"
+    />
 </template>
 
 <script>
 import CountryMap from "@/utils/CountryMaps/en.json";
-import ModalComponent from "./ModalComponent.vue";
+import CustomInstanceModal from "./CustomInstanceModal.vue";
 export default {
     data() {
         return {
-            selectedInstance: null,
             authInstance: false,
             selectedAuthInstance: null,
             instances: [],
@@ -632,48 +594,22 @@ export default {
             }
         }
     },
-    components: { ModalComponent },
+    components: { CustomInstanceModal },
     methods: {
-        removeInstance() {
-            if (this.testLocalStorage) {
-                this.customInstances.splice(this.selectedInstance, 1);
-                localStorage.setItem("custominstances", JSON.stringify(this.customInstances));
-                location.reload();
+        removeInstance(selectedInstance) {
+            if (selectedInstance === null) {
+                return;
             }
+            this.customInstances.splice(selectedInstance, 1);
+            localStorage.setItem("custominstances", JSON.stringify(this.customInstances));
         },
-        isUrl(string) {
-            try {
-                return Boolean(new URL(string));
-            } catch (e) {
-                return false;
+        addInstance(newInstance) {
+            if (newInstance === null) {
+                return;
             }
-        },
-        addInstance(event) {
-            event.preventDefault();
-            if (this.testLocalStorage) {
-                if (!this.isUrl(this.url)) {
-                    alert("Not a valid URL");
-                    return;
-                }
-                const newInstance = {
-                    name: this.name,
-                    api_url: this.url,
-                };
-                fetch(this.url + "/healthcheck")
-                    .then(res => {
-                        if (!res.ok) {
-                            alert("Error Backend URL");
-                            return;
-                        }
-                        this.customInstances.push(newInstance);
-                        this.instances.push(newInstance);
-                        localStorage.setItem("custominstances", JSON.stringify(this.customInstances));
-                    })
-                    .catch(() => {
-                        alert("Cannot find URL");
-                        return;
-                    });
-            }
+            this.customInstances.push(newInstance);
+            this.instances.push(newInstance);
+            localStorage.setItem("custominstances", JSON.stringify(this.customInstances));
         },
         async onChange() {
             if (this.testLocalStorage) {
