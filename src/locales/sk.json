@@ -155,6 +155,6 @@
         "loading": "Načítavajú sa komentáre...",
         "disabled": "Komentáre sú vypnuté používateľom, ktorý nahral video.",
         "user_disabled": "Komentáre sú v nastaveniach zakázané.",
-        "pinned_by": "Pripnuté"
+        "pinned_by": "Pripnuté {author}"
     }
 }

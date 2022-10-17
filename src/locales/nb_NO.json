@@ -134,7 +134,7 @@
         "version": "Versjon"
     },
     "comment": {
-        "pinned_by": "Festet av",
+        "pinned_by": "Festet av {author}",
         "user_disabled": "Kommentarer er avskrudd i innstillingene.",
         "disabled": "Kommentarer er avskrudd av opplasteren.",
         "loading": "Laster inn kommentarer …"

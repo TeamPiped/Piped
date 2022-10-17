@@ -134,7 +134,7 @@
         "version": "Version"
     },
     "comment": {
-        "pinned_by": "Épinglé par",
+        "pinned_by": "Épinglé par {author}",
         "loading": "Chargement des commentaires…",
         "disabled": "Les commentaires sont désactivés par l'auteur.",
         "user_disabled": "Les commentaires sont désactivés dans les paramètres."

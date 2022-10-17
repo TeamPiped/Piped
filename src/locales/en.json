@@ -115,7 +115,7 @@
         "instance_donations": "Instance donations"
     },
     "comment": {
-        "pinned_by": "Pinned by",
+        "pinned_by": "Pinned by {author}",
         "disabled": "Comments are disabled by the uploader.",
         "loading": "Loading comments...",
         "user_disabled": "Comments are disabled in the settings."

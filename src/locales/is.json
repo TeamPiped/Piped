@@ -86,7 +86,7 @@
         "live": "{0} Í beinni"
     },
     "comment": {
-        "pinned_by": "Fest af"
+        "pinned_by": "Fest af {author}"
     },
     "preferences": {
         "instance_name": "Tilviksheiti",

@@ -115,7 +115,7 @@
         "watch_on": "Sledovat na {0}"
     },
     "comment": {
-        "pinned_by": "Připnuto uživatelem",
+        "pinned_by": "Připnuto uživatelem {author}",
         "loading": "Načítání komentářů...",
         "disabled": "Komentáře jsou zakázány autorem videa.",
         "user_disabled": "Komentáře jsou zakázány v nastavení."

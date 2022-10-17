@@ -112,7 +112,7 @@
         "documentation": "Documentació"
     },
     "comment": {
-        "pinned_by": "Fixat per",
+        "pinned_by": "Fixat per {author}",
         "user_disabled": "Comentaris deshabilitats en els paràmetres.",
         "disabled": "El carregador ha desactivat els comentaris.",
         "loading": "Carregant comentaris..."

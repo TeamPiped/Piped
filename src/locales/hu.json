@@ -126,7 +126,7 @@
         "password": "Jelszó"
     },
     "comment": {
-        "pinned_by": "Rögzítette",
+        "pinned_by": "Rögzítette {author}",
         "disabled": "A hozzászólásokat a feltöltő letiltotta.",
         "user_disabled": "A beállításoknál a megjegyzések le vannak tiltva.",
         "loading": "Kommentek betöltése..."

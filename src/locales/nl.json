@@ -115,6 +115,6 @@
         "ssl_score": "SSL-score"
     },
     "comment": {
-        "pinned_by": "Vastgemaakt door"
+        "pinned_by": "Vastgemaakt door {author}"
     }
 }

@@ -80,7 +80,7 @@
         "username": "उपयोगकर्ता नाम"
     },
     "comment": {
-        "pinned_by": "ने पिन किया"
+        "pinned_by": "{author} ने पिन किया"
     },
     "preferences": {
         "instance_locations": "इंस्टेंस स्थान",

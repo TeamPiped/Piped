@@ -134,7 +134,7 @@
         "up_to_date": "Güncel mi?"
     },
     "comment": {
-        "pinned_by": "Şunun tarafından sabitlendi",
+        "pinned_by": "Şunun tarafından sabitlendi {author}",
         "loading": "Yorumlar yükleniyor...",
         "user_disabled": "Yorumlar ayarlarda devre dışı bırakıldı.",
         "disabled": "Yorumlar yükleyen tarafından devre dışı bırakıldı."

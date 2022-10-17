@@ -73,7 +73,7 @@
         "watch_on": "Xem trên {0}"
     },
     "comment": {
-        "pinned_by": "Được ghim bởi"
+        "pinned_by": "Được ghim bởi {author}"
     },
     "preferences": {
         "instance_name": "Tên phiên bản",

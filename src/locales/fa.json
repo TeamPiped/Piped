@@ -90,7 +90,7 @@
         "instance_name": "نام سرویس"
     },
     "comment": {
-        "pinned_by": "سنجاق شده توسط"
+        "pinned_by": "سنجاق شده توسط {author}"
     },
     "login": {
         "username": "نام کاربری",

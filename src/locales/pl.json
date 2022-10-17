@@ -82,7 +82,7 @@
         "please_select_playlist": "Musisz wybrać playlistę"
     },
     "comment": {
-        "pinned_by": "Przypięty przez"
+        "pinned_by": "Przypięty przez {author}"
     },
     "preferences": {
         "instance_name": "Nazwa instancji",

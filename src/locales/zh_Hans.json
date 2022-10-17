@@ -118,7 +118,7 @@
         "registered_users": "已注册用户"
     },
     "comment": {
-        "pinned_by": "固定自",
+        "pinned_by": "固定自 {author}",
         "disabled": "上传者禁用了评论。",
         "loading": "加载评论中…",
         "user_disabled": "评论在设置中被禁用。"

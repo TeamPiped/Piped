@@ -86,7 +86,7 @@
         "playlists": "Плейлісти"
     },
     "comment": {
-        "pinned_by": "Прикріплено користувачем"
+        "pinned_by": "Прикріплено користувачем {author}"
     },
     "preferences": {
         "instance_locations": "Місцезнаходження копії сервісу",

@@ -115,7 +115,7 @@
         "instance_donations": "תרומות להפעלה"
     },
     "comment": {
-        "pinned_by": "ננעץ על ידי",
+        "pinned_by": "ננעץ על ידי {author}",
         "disabled": "התגובות הושבתו על ידי המעלה.",
         "loading": "התגובות נטענות…",
         "user_disabled": "התגובות מושבתות בהגדרות."

@@ -115,7 +115,7 @@
         "source_code": "Kode sumber"
     },
     "comment": {
-        "pinned_by": "Dipasangi pin oleh",
+        "pinned_by": "Dipasangi pin oleh {author}",
         "disabled": "Komentar dinonaktifkan oleh pengunggah.",
         "user_disabled": "Komentar dinonaktifkan di pengaturan.",
         "loading": "Memuat komentar..."

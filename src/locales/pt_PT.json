@@ -105,7 +105,7 @@
         "back_to_home": "Voltar ao início"
     },
     "comment": {
-        "pinned_by": "Afixado por",
+        "pinned_by": "Afixado por {author}",
         "disabled": "Os comentários estão desactivados pelo dono do canal.",
         "user_disabled": "Os comentários estão desactivados nas definições.",
         "loading": "A carregar comentários..."

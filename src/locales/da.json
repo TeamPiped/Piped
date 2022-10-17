@@ -79,7 +79,7 @@
         "select_playlist": "Vælg en afspilningsliste"
     },
     "comment": {
-        "pinned_by": "Fastgjort af"
+        "pinned_by": "Fastgjort af {author}"
     },
     "preferences": {
         "instance_name": "Instansnavn",

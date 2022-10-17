@@ -115,6 +115,6 @@
         "password": "Parool"
     },
     "comment": {
-        "pinned_by": "Kinnitanud"
+        "pinned_by": "Kinnitanud {author}"
     }
 }

@@ -122,7 +122,7 @@
         "shorts": "Shorts"
     },
     "comment": {
-        "pinned_by": "Fäst av",
+        "pinned_by": "Fäst av {author}",
         "disabled": "Kommentarer är inaktiverade av den som laddat upp.",
         "loading": "Laddar kommentarer...",
         "user_disabled": "Kommentarer är inaktiverade i inställningarna."

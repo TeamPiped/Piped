@@ -91,6 +91,6 @@
         "has_cdn": "CDN কি আছে?"
     },
     "comment": {
-        "pinned_by": "পিন করেছেন"
+        "pinned_by": "পিন করেছেন {author}"
     }
 }

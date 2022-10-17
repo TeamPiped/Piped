@@ -132,7 +132,7 @@
         "up_to_date": "Aggiornato?"
     },
     "comment": {
-        "pinned_by": "Appuntato da",
+        "pinned_by": "Appuntato da {author}",
         "disabled": "I commenti sono disabilitati dall'autore.",
         "loading": "Caricamento dei commenti…",
         "user_disabled": "I commenti sono disabilitati nelle impostazioni."

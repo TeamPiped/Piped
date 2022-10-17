@@ -112,7 +112,7 @@
         "music_albums": "YT Music：專輯"
     },
     "comment": {
-        "pinned_by": "置頂者：",
+        "pinned_by": "置頂者： {author}",
         "disabled": "上傳者停用了留言功能。",
         "loading": "留言載入中……"
     },

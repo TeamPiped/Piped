@@ -19,7 +19,7 @@
         "up_to_date": "Najnovija verzija?"
     },
     "comment": {
-        "pinned_by": "Prikvačio korisnik",
+        "pinned_by": "Prikvačio korisnik {author}",
         "disabled": "Prijenosnik onemogućuje komentare.",
         "loading": "Učitavanje komentara …",
         "user_disabled": "Komentari su isključeni u postavkama."

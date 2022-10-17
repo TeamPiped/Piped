@@ -85,7 +85,7 @@
         "sponsor_segments": "സ്പോൺസർമാരുടെ ഭാഗങ്ങൾ"
     },
     "comment": {
-        "pinned_by": "പിൻ ചെയ്തിരിക്കുന്നത്"
+        "pinned_by": "പിൻ ചെയ്തിരിക്കുന്നത് {author}"
     },
     "preferences": {
         "ssl_score": "എസ് എസ് എൽ സ്കോർ",

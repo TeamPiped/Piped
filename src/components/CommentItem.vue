@@ -13,8 +13,13 @@
             <div class="comment-header">
                 <div v-if="comment.pinned" class="comment-pinned">
                     <font-awesome-icon icon="thumbtack" />
-                    <span class="ml-1.5" v-t="'comment.pinned_by'" />
-                    <span v-text="uploader" />
+                    <span
+                        class="ml-1.5"
+                        v-t="{
+                            path: 'comment.pinned_by',
+                            args: { author: uploader },
+                        }"
+                    />
                 </div>
 
                 <div class="comment-author">

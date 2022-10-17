@@ -95,7 +95,7 @@
         "has_cdn": "Turi CDN?"
     },
     "comment": {
-        "pinned_by": "Prisegė"
+        "pinned_by": "Prisegė {author}"
     },
     "video": {
         "views": "{views} peržiūros",

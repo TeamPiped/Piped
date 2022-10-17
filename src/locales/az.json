@@ -115,7 +115,7 @@
         "back_to_home": "Evə qayıt"
     },
     "comment": {
-        "pinned_by": "Tərəfindən Sabitləndi",
+        "pinned_by": "Tərəfindən Sabitləndi {author}",
         "disabled": "Şərhlər yükləyici tərəfindən deaktiv edilib.",
         "loading": "Şərhlər yüklənir...",
         "user_disabled": "Şərhlər tənzimləmələrdə deaktiv edilib."

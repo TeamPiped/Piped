@@ -128,7 +128,7 @@
         "up_to_date": "Auf dem neuesten Stand?"
     },
     "comment": {
-        "pinned_by": "Angeheftet von",
+        "pinned_by": "Angeheftet von {author}",
         "user_disabled": "Kommentare wurden in den Einstellungen deaktiviert.",
         "disabled": "Kommentare wurden vom Autor deaktiviert.",
         "loading": "Kommentare werden geladen …"

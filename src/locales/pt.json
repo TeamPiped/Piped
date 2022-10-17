@@ -132,7 +132,7 @@
         "watch_on": "Ver em {0}"
     },
     "comment": {
-        "pinned_by": "Fixado por",
+        "pinned_by": "Fixado por {author}",
         "disabled": "Os comentários form desativados pelo publicador.",
         "loading": "Carregando comentários...",
         "user_disabled": "Os comentários estão desativados nas definições."

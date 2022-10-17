@@ -83,7 +83,7 @@
         "delete_playlist_confirm": "再生リストを削除してもよろしいですか？"
     },
     "comment": {
-        "pinned_by": "固定されたコメント"
+        "pinned_by": "固定されたコメント {author}"
     },
     "preferences": {
         "instance_name": "インスタンス名",
