@@ -112,7 +112,9 @@
         "documentation": "Documentation",
         "status_page": "Status",
         "source_code": "Source code",
-        "instance_donations": "Instance donations"
+        "instance_donations": "Instance donations",
+        "mark_as_watched": "Mark as Watched",
+        "mark_as_unwatched": "Mark as Unwatched"
     },
     "comment": {
         "pinned_by": "Pinned by",

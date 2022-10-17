@@ -116,7 +116,7 @@
             @change="onChange($event)"
         />
     </label>
-    <label v-if="watchHistory" class="pref" for="chkHideWatched">
+    <label class="pref" for="chkHideWatched">
         <strong v-t="'actions.hide_watched'" />
         <input id="chkHideWatched" v-model="hideWatched" class="checkbox" type="checkbox" @change="onChange($event)" />
     </label>

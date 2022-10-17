@@ -73,6 +73,22 @@
             >
                 <font-awesome-icon icon="circle-minus" />
             </button>
+            <button
+                v-if="
+                    isFeed &&
+                    (this.getPreferenceBoolean('watchHistory', false) ||
+                        this.getPreferenceBoolean('hideWatched', false))
+                "
+                @click="toggleWatched(video.url.substr(-11))"
+                ref="watchButton"
+            >
+                <font-awesome-icon
+                    v-if="video.watched"
+                    :title="$t('actions.mark_as_unwatched')"
+                    icon="fa-regular fa-eye-slash"
+                />
+                <font-awesome-icon v-else :title="$t('actions.mark_as_watched')" icon="eye" />
+            </button>
             <PlaylistAddModal v-if="showModal" :video-id="video.url.substr(-11)" @close="showModal = !showModal" />
         </div>
 
@@ -177,11 +193,52 @@ export default {
             const request = objectStore.get(this.video.url.substr(-11));
             request.onsuccess = event => {
                 const video = event.target.result;
-                if (video && (video.currentTime ?? 0) > video.duration * 0.9) {
+                if (
+                    video &&
+                    (!this.getPreferenceBoolean("watchHistory", false) ||
+                        (video.currentTime ?? 0) > video.duration * 0.9)
+                ) {
                     this.showVideo = false;
                     return;
                 }
             };
+        },
+        toggleWatched(videoId) {
+            // Copied from WatchVideo.vue
+            if (window.db) {
+                var tx = window.db.transaction("watch_history", "readwrite");
+                var store = tx.objectStore("watch_history");
+                var request = store.get(videoId);
+                var instance = this;
+                request.onsuccess = function (event) {
+                    var video = event.target.result;
+                    if (video) {
+                        if (!instance.video.watched) {
+                            video.watchedAt = Date.now();
+                        } else {
+                            // #todo: remove
+                        }
+                    } else {
+                        video = {
+                            videoId: videoId,
+                            title: instance.video.title,
+                            duration: instance.video.duration,
+                            thumbnail: instance.video.thumbnailUrl,
+                            uploaderUrl: instance.video.uploaderUrl,
+                            uploaderName: instance.video.uploader,
+                            watchedAt: Date.now(),
+                        };
+                    }
+
+                    // Save to db
+                    store.put(video);
+
+                    // Disappear?
+                    if (instance.getPreferenceBoolean("hideWatched", false)) {
+                        instance.shouldShowVideo();
+                    }
+                };
+            }
         },
     },
     computed: {

@@ -40,7 +40,7 @@ export default {
         darkModePreference.addEventListener("change", () => {
             this.setTheme();
         });
-        if (this.getPreferenceBoolean("watchHistory", false))
+        if (this.getPreferenceBoolean("watchHistory", false) || this.getPreferenceBoolean("hideWatched", false)) {
             if ("indexedDB" in window) {
                 const request = indexedDB.open("piped-db", 1);
                 request.onupgradeneeded = function () {
@@ -55,7 +55,10 @@ export default {
                 request.onsuccess = e => {
                     window.db = e.target.result;
                 };
-            } else console.log("This browser doesn't support IndexedDB");
+            } else {
+                console.log("This browser doesn't support IndexedDB");
+            }
+        }
 
         const App = this;
 
