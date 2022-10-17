@@ -73,7 +73,6 @@
         "filter": "Filter",
         "loading": "Loading...",
         "clear_history": "Clear History",
-        "show_replies": "Show Replies",
         "hide_replies": "Hide Replies",
         "load_more_replies": "Load more Replies",
         "add_to_playlist": "Add to playlist",
@@ -112,7 +111,8 @@
         "documentation": "Documentation",
         "status_page": "Status",
         "source_code": "Source code",
-        "instance_donations": "Instance donations"
+        "instance_donations": "Instance donations",
+        "reply_count": "{count} replies"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
