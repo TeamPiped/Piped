@@ -36,7 +36,7 @@
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies" class="cursor-pointer">
-                    <a v-t="'actions.show_replies'" />
+                    <a v-text="`${$t('actions.reply_count', comment.replyCount)}`" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </template>

@@ -12,7 +12,6 @@
     "actions": {
         "view_ssl_score": "Погледај SSL скор/оцену",
         "loading": "Учитавање...",
-        "show_replies": "Прикажи одговоре",
         "filter": "Филтер",
         "hide_replies": "Сакриј одговоре",
         "channel_name_asc": "Име канала (A-Z)",
