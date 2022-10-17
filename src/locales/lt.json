@@ -56,7 +56,22 @@
         "clear_history": "Išvalyti istoriją",
         "show_replies": "Rodyti atsakymus",
         "hide_replies": "Slėpti atsakymus",
-        "load_more_replies": "Įkelti daugiau atsakymų"
+        "load_more_replies": "Įkelti daugiau atsakymų",
+        "select_playlist": "Pasirinkti grojaraštį",
+        "add_to_playlist": "Pridėti į grojaraštį",
+        "delete_playlist_video_confirm": "Pašalinti vaizdo įrašą iš grojaraščio?",
+        "invalidate_session": "Atsijungti visuose įrenginiuose",
+        "clone_playlist": "Klonuoti grojaraštį",
+        "clone_playlist_success": "Sėkmingai klonuota!",
+        "show_markers": "Rodyti žymeklius grotuve",
+        "create_playlist": "Sukurti grojaraštį",
+        "delete_playlist": "Ištrinti grojaraštį",
+        "delete_playlist_confirm": "Ištrinti šį grojaraštį?",
+        "please_select_playlist": "Pasirinkite grojaraštį",
+        "download_as_txt": "Atsisiųsti kaip .txt",
+        "delete_account": "Ištrinti paskyrą",
+        "logout": "Atsijungti šiame įrenginyje",
+        "remove_from_playlist": "Pašalinti iš grojaraščio"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
@@ -68,7 +83,10 @@
         "login": "Prisijungti",
         "trending": "Tendencijos",
         "history": "Istorija",
-        "subscriptions": "Prenumeratos"
+        "subscriptions": "Prenumeratos",
+        "playlists": "Grojaraščiai",
+        "account": "Paskyra",
+        "player": "Grotuvas"
     },
     "preferences": {
         "instance_locations": "Perdavimo šaltinio vietovė",

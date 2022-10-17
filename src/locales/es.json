@@ -119,10 +119,12 @@
         "store_search_history": "Guardar historial de búsqueda",
         "source_code": "Código fuente",
         "documentation": "Documentación",
-        "instance_donations": "Donaciones para instancia"
+        "instance_donations": "Donaciones para instancia",
+        "status_page": "Estado",
+        "hide_watched": "Ocultar los vídeos vistos en el feed"
     },
     "titles": {
-        "feed": "Feed",
+        "feed": "Fuente web",
         "subscriptions": "Suscripciones",
         "history": "Historial",
         "trending": "En tendencias",

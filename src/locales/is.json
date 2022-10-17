@@ -6,7 +6,9 @@
         "subscriptions": "Áskriftir",
         "preferences": "Stillingar",
         "trending": "Vinsælt",
-        "feed": "Straumur"
+        "feed": "Straumur",
+        "playlists": "Spilunarlistar",
+        "player": "Spilari"
     },
     "actions": {
         "sort_by": "Raða eftir:",
