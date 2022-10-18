@@ -111,7 +111,8 @@
         "status_page": "الحالة",
         "source_code": "شفرة المصدر",
         "instance_donations": "تبرعات المثيل",
-        "hide_watched": "إخفاء مقاطع الفيديو التي تمت مشاهدتها من الخلاصة"
+        "hide_watched": "إخفاء مقاطع الفيديو التي تمت مشاهدتها من الخلاصة",
+        "reply_count": "{count} الردود"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
