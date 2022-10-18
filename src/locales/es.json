@@ -120,7 +120,8 @@
         "documentation": "Documentación",
         "instance_donations": "Donaciones para instancia",
         "status_page": "Estado",
-        "hide_watched": "Ocultar los vídeos vistos en el feed"
+        "hide_watched": "Ocultar los vídeos vistos en el feed",
+        "reply_count": "{count} respuestas"
     },
     "titles": {
         "feed": "Fuente web",
