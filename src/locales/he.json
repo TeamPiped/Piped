@@ -61,7 +61,6 @@
         "filter": "סינון",
         "loading": "בטעינה…",
         "clear_history": "ריקון ההיסטוריה",
-        "show_replies": "הצגת תגוביות",
         "hide_replies": "הסתרת תגוביות",
         "load_more_replies": "הצגת תגוביות נוספות",
         "add_to_playlist": "הוספה לרשימת נגינה",
@@ -115,7 +114,7 @@
         "instance_donations": "תרומות להפעלה"
     },
     "comment": {
-        "pinned_by": "ננעץ על ידי",
+        "pinned_by": "ננעץ על ידי {author}",
         "disabled": "התגובות הושבתו על ידי המעלה.",
         "loading": "התגובות נטענות…",
         "user_disabled": "התגובות מושבתות בהגדרות."

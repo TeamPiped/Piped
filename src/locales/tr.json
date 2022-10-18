@@ -54,7 +54,6 @@
         "minimize_recommendations": "Önerileri Küçült",
         "show_recommendations": "Önerileri Göster",
         "clear_history": "Geçmişi Temizle",
-        "show_replies": "Yanıtları Göster",
         "hide_replies": "Yanıtları Gizle",
         "load_more_replies": "Daha Fazla Yanıt Yükle",
         "skip_highlight": "Özeti Atla",
@@ -134,7 +133,7 @@
         "up_to_date": "Güncel mi?"
     },
     "comment": {
-        "pinned_by": "Şunun tarafından sabitlendi",
+        "pinned_by": "Şunun tarafından sabitlendi {author}",
         "loading": "Yorumlar yükleniyor...",
         "user_disabled": "Yorumlar ayarlarda devre dışı bırakıldı.",
         "disabled": "Yorumlar yükleyen tarafından devre dışı bırakıldı."

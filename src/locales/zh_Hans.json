@@ -56,7 +56,6 @@
         "clear_history": "清除历史",
         "skip_highlight": "跳过高亮",
         "skip_filler_tangent": "跳过与视频主题无关的片段",
-        "show_replies": "显示回复",
         "hide_replies": "隐藏回复",
         "load_more_replies": "加载更多回复",
         "create_playlist": "创建播放列表",
@@ -118,7 +117,7 @@
         "registered_users": "已注册用户"
     },
     "comment": {
-        "pinned_by": "固定自",
+        "pinned_by": "固定自 {author}",
         "disabled": "上传者禁用了评论。",
         "loading": "加载评论中…",
         "user_disabled": "评论在设置中被禁用。"

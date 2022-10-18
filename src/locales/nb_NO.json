@@ -55,7 +55,6 @@
         "minimize_description": "Minimer beskrivelse",
         "clear_history": "Tøm historikk",
         "skip_filler_tangent": "Hopp over fyll",
-        "show_replies": "Vis svar",
         "hide_replies": "Skjul svar",
         "skip_highlight": "Hopp over hovedmoment",
         "load_more_replies": "Last inn flere svar",
@@ -134,7 +133,7 @@
         "version": "Versjon"
     },
     "comment": {
-        "pinned_by": "Festet av",
+        "pinned_by": "Festet av {author}",
         "user_disabled": "Kommentarer er avskrudd i innstillingene.",
         "disabled": "Kommentarer er avskrudd av opplasteren.",
         "loading": "Laster inn kommentarer …"

@@ -61,7 +61,6 @@
         "filter": "Filtr",
         "loading": "Načítání...",
         "clear_history": "Smazat historii",
-        "show_replies": "Zobrazit odpovědi",
         "hide_replies": "Skrýt odpovědi",
         "load_more_replies": "Načíst další odpovědi",
         "unsubscribe": "Zrušit odběr - {count}",
@@ -115,7 +114,7 @@
         "watch_on": "Sledovat na {0}"
     },
     "comment": {
-        "pinned_by": "Připnuto uživatelem",
+        "pinned_by": "Připnuto uživatelem {author}",
         "loading": "Načítání komentářů...",
         "disabled": "Komentáře jsou zakázány autorem videa.",
         "user_disabled": "Komentáře jsou zakázány v nastavení."

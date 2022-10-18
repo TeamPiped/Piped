@@ -52,7 +52,6 @@
         "filter": "Filtrar",
         "loading": "A carregar...",
         "clear_history": "Limpar histórico",
-        "show_replies": "Mostrar respostas",
         "subscribe": "Subscrever - {count}",
         "unsubscribe": "Cancelar subscrição - {count}",
         "view_subscriptions": "Ver subscrições",
@@ -132,7 +131,7 @@
         "watch_on": "Ver em {0}"
     },
     "comment": {
-        "pinned_by": "Fixado por",
+        "pinned_by": "Fixado por {author}",
         "disabled": "Os comentários form desativados pelo publicador.",
         "loading": "Carregando comentários...",
         "user_disabled": "Os comentários estão desativados nas definições."

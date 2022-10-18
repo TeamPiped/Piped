@@ -49,7 +49,6 @@
         "filter": "篩選",
         "loading": "載入中……",
         "clear_history": "清除記錄",
-        "show_replies": "顯示回覆",
         "hide_replies": "隱藏回覆",
         "load_more_replies": "載入更多回覆",
         "remove_from_playlist": "從播放清單中移除",
@@ -112,7 +111,7 @@
         "music_albums": "YT Music：專輯"
     },
     "comment": {
-        "pinned_by": "置頂者：",
+        "pinned_by": "置頂者： {author}",
         "disabled": "上傳者停用了留言功能。",
         "loading": "留言載入中……"
     },

@@ -14,7 +14,6 @@
         "back": "वापस जाओ",
         "unsubscribe": "सदस्यता ले ली है - {count}",
         "no": "नहीं",
-        "show_replies": "जवाब देखें",
         "hide_replies": "जवाब छिपाएं",
         "search": "खोजें",
         "loop_this_video": "इस वीडियो को लूप करें",
@@ -80,7 +79,7 @@
         "username": "उपयोगकर्ता नाम"
     },
     "comment": {
-        "pinned_by": "ने पिन किया"
+        "pinned_by": "{author} ने पिन किया"
     },
     "preferences": {
         "instance_locations": "इंस्टेंस स्थान",

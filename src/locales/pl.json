@@ -69,7 +69,6 @@
         "filter": "Filtruj",
         "loading": "Ładowanie...",
         "clear_history": "Wyczyść historię",
-        "show_replies": "Pokaż odpowiedzi",
         "hide_replies": "Schowaj odpowiedzi",
         "load_more_replies": "Pokaż więcej odpowiedzi",
         "add_to_playlist": "Dodaj do playlisty",
@@ -82,7 +81,7 @@
         "please_select_playlist": "Musisz wybrać playlistę"
     },
     "comment": {
-        "pinned_by": "Przypięty przez"
+        "pinned_by": "Przypięty przez {author}"
     },
     "preferences": {
         "instance_name": "Nazwa instancji",

@@ -76,7 +76,6 @@
         "new_playlist_name": "Nový názov zoznamu skladieb",
         "share": "Zdieľať",
         "follow_link": "Nasledujte odkaz",
-        "show_replies": "Zobraziť odpovede",
         "loading": "Načítavanie...",
         "download_as_txt": "Stiahnuť ako .txt",
         "reset_preferences": "Resetovať preferencie",
@@ -155,6 +154,6 @@
         "loading": "Načítavajú sa komentáre...",
         "disabled": "Komentáre sú vypnuté používateľom, ktorý nahral video.",
         "user_disabled": "Komentáre sú v nastaveniach zakázané.",
-        "pinned_by": "Pripnuté"
+        "pinned_by": "Pripnuté {author}"
     }
 }

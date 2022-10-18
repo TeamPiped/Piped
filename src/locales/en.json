@@ -73,7 +73,6 @@
         "filter": "Filter",
         "loading": "Loading...",
         "clear_history": "Clear History",
-        "show_replies": "Show Replies",
         "hide_replies": "Hide Replies",
         "load_more_replies": "Load more Replies",
         "add_to_playlist": "Add to playlist",
@@ -113,11 +112,12 @@
         "status_page": "Status",
         "source_code": "Source code",
         "instance_donations": "Instance donations",
+        "reply_count": "{count} replies",
         "mark_as_watched": "Mark as Watched",
         "mark_as_unwatched": "Mark as Unwatched"
     },
     "comment": {
-        "pinned_by": "Pinned by",
+        "pinned_by": "Pinned by {author}",
         "disabled": "Comments are disabled by the uploader.",
         "loading": "Loading comments...",
         "user_disabled": "Comments are disabled in the settings."

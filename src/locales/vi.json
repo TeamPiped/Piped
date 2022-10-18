@@ -47,7 +47,6 @@
         "filter": "Bộ lọc",
         "loading": "Đang tải...",
         "clear_history": "Xóa lịch sử",
-        "show_replies": "Hiển thị phản hồi",
         "hide_replies": "Ẩn phản hồi",
         "load_more_replies": "Tải thêm phản hồi",
         "dark": "Tối",
@@ -73,7 +72,7 @@
         "watch_on": "Xem trên {0}"
     },
     "comment": {
-        "pinned_by": "Được ghim bởi"
+        "pinned_by": "Được ghim bởi {author}"
     },
     "preferences": {
         "instance_name": "Tên phiên bản",

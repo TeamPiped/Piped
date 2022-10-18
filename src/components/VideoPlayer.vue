@@ -519,9 +519,8 @@ export default {
                 });
                 videoEl.volume = this.getPreferenceNumber("volume", 1);
                 const rate = this.getPreferenceNumber("rate", 1);
-                player.trickPlay(rate);
-                player.playbackRate = rate;
-                player.defaultPlaybackRate = rate;
+                videoEl.playbackRate = rate;
+                videoEl.defaultPlaybackRate = rate;
             });
         },
         async updateProgressDatabase(time) {

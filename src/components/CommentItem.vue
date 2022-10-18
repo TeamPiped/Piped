@@ -13,8 +13,13 @@
             <div class="comment-header">
                 <div v-if="comment.pinned" class="comment-pinned">
                     <font-awesome-icon icon="thumbtack" />
-                    <span class="ml-1.5" v-t="'comment.pinned_by'" />
-                    <span v-text="uploader" />
+                    <span
+                        class="ml-1.5"
+                        v-t="{
+                            path: 'comment.pinned_by',
+                            args: { author: uploader },
+                        }"
+                    />
                 </div>
 
                 <div class="comment-author">
@@ -31,7 +36,7 @@
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies" class="cursor-pointer">
-                    <a v-t="'actions.show_replies'" />
+                    <a v-text="`${$t('actions.reply_count', comment.replyCount)}`" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </template>

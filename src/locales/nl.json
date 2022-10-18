@@ -62,7 +62,6 @@
         "instance_selection": "Instantie Selectie",
         "import_from_json": "Importeren uit JSON/CSV",
         "clear_history": "Geschiedenis Wissen",
-        "show_replies": "Toon Antwoorden",
         "load_more_replies": "Laad meer Antwoorden",
         "delete_playlist_video_confirm": "Weet u zeker dat u deze video uit deze afspeellijst wilt verwijderen?",
         "create_playlist": "Afspeellijst Maken",
@@ -115,6 +114,6 @@
         "ssl_score": "SSL-score"
     },
     "comment": {
-        "pinned_by": "Vastgemaakt door"
+        "pinned_by": "Vastgemaakt door {author}"
     }
 }

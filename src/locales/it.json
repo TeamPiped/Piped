@@ -54,7 +54,6 @@
         "search": "Cerca",
         "view_ssl_score": "Visualizza il punteggio SSL",
         "clear_history": "Cancella la cronologia",
-        "show_replies": "Mostra risposte",
         "load_more_replies": "Carica più risposte",
         "hide_replies": "Nascondi risposte",
         "skip_filler_tangent": "Ignora i filler",
@@ -132,7 +131,7 @@
         "up_to_date": "Aggiornato?"
     },
     "comment": {
-        "pinned_by": "Appuntato da",
+        "pinned_by": "Appuntato da {author}",
         "disabled": "I commenti sono disabilitati dall'autore.",
         "loading": "Caricamento dei commenti…",
         "user_disabled": "I commenti sono disabilitati nelle impostazioni."

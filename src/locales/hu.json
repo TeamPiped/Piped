@@ -59,7 +59,6 @@
         "filter": "Szűrés",
         "loading": "Betöltés...",
         "clear_history": "Megtekintési előzmények törlése",
-        "show_replies": "Válaszok megjelenítése",
         "hide_replies": "Válaszok elrejtése",
         "load_more_replies": "További válaszok megjelenítése",
         "add_to_playlist": "Hozzáadás lejátszási listához",
@@ -126,7 +125,7 @@
         "password": "Jelszó"
     },
     "comment": {
-        "pinned_by": "Rögzítette",
+        "pinned_by": "Rögzítette {author}",
         "disabled": "A hozzászólásokat a feltöltő letiltotta.",
         "user_disabled": "A beállításoknál a megjegyzések le vannak tiltva.",
         "loading": "Kommentek betöltése..."

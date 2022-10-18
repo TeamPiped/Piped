@@ -56,7 +56,6 @@
         "filter": "Filtre",
         "loading": "Carregant...",
         "clear_history": "Netejar Historial",
-        "show_replies": "Mostra Respostes",
         "hide_replies": "Oculta Respostes",
         "load_more_replies": "Carrega més Respostes",
         "view_subscriptions": "Veure Subscripcions",
@@ -112,7 +111,7 @@
         "documentation": "Documentació"
     },
     "comment": {
-        "pinned_by": "Fixat per",
+        "pinned_by": "Fixat per {author}",
         "user_disabled": "Comentaris deshabilitats en els paràmetres.",
         "disabled": "El carregador ha desactivat els comentaris.",
         "loading": "Carregant comentaris..."

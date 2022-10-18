@@ -26,7 +26,6 @@
         "default_homepage": "Zadana početna stranica",
         "loop_this_video": "Stavite ovaj video na ponavljanje",
         "search": "Pretraga",
-        "show_replies": "Prikažite odgovore",
         "skip_preview": "Preskočite pregled",
         "skip_non_music": "Preskočite muziku: sekcija bez muzike",
         "skip_self_promo": "Preskočite neplaćenu/samo-promociju",
@@ -115,6 +114,6 @@
         "live": "{0} Uživo"
     },
     "comment": {
-        "pinned_by": "Prikačeno od"
+        "pinned_by": "Prikačeno od {author}"
     }
 }
