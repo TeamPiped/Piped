@@ -75,7 +75,7 @@
             </button>
             <button
                 v-if="isFeed && this.getPreferenceBoolean('hideWatched', false)"
-                @click="toggleWatched(video.url.substr(-11))"
+                @click="markAsWatched(video.url.substr(-11))"
                 ref="watchButton"
             >
                 <font-awesome-icon icon="eye" :title="$t('actions.mark_as_watched')" />
@@ -194,9 +194,9 @@ export default {
                 }
             };
         },
-        toggleWatched(videoId) {
-            // Copied from WatchVideo.vue
+        markAsWatched(videoId) {
             if (window.db) {
+                // Should match WatchVideo.vue
                 var tx = window.db.transaction("watch_history", "readwrite");
                 var store = tx.objectStore("watch_history");
                 var request = store.get(videoId);
@@ -204,11 +204,7 @@ export default {
                 request.onsuccess = function (event) {
                     var video = event.target.result;
                     if (video) {
-                        if (!instance.video.watched) {
-                            video.watchedAt = Date.now();
-                        } else {
-                            // #todo: remove
-                        }
+                        video.watchedAt = Date.now();
                     } else {
                         video = {
                             videoId: videoId,
@@ -220,14 +216,12 @@ export default {
                             watchedAt: Date.now(),
                         };
                     }
-
-                    // Save to db
+                    // Set time to end for shouldShowVideo
+                    video.currentTime = instance.video.duration;
+                    // Save
                     store.put(video);
-
-                    // Disappear?
-                    if (instance.getPreferenceBoolean("hideWatched", false)) {
-                        instance.shouldShowVideo();
-                    }
+                    // Disappear
+                    instance.shouldShowVideo();
                 };
             }
         },
