@@ -74,20 +74,11 @@
                 <font-awesome-icon icon="circle-minus" />
             </button>
             <button
-                v-if="
-                    isFeed &&
-                    (this.getPreferenceBoolean('watchHistory', false) ||
-                        this.getPreferenceBoolean('hideWatched', false))
-                "
+                v-if="isFeed && this.getPreferenceBoolean('hideWatched', false)"
                 @click="toggleWatched(video.url.substr(-11))"
                 ref="watchButton"
             >
-                <font-awesome-icon
-                    v-if="video.watched"
-                    :title="$t('actions.mark_as_unwatched')"
-                    icon="fa-regular fa-eye-slash"
-                />
-                <font-awesome-icon v-else :title="$t('actions.mark_as_watched')" icon="eye" />
+                <font-awesome-icon icon="eye" :title="$t('actions.mark_as_watched')" />
             </button>
             <PlaylistAddModal v-if="showModal" :video-id="video.url.substr(-11)" @close="showModal = !showModal" />
         </div>
