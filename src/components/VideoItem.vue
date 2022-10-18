@@ -196,6 +196,7 @@ export default {
         },
         markAsWatched(videoId) {
             if (window.db) {
+                // Should match WatchVideo.vue
                 var tx = window.db.transaction("watch_history", "readwrite");
                 var store = tx.objectStore("watch_history");
                 var request = store.get(videoId);
