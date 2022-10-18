@@ -111,7 +111,8 @@
         "status_page": "מצב",
         "source_code": "קוד מקור",
         "hide_watched": "הסתרת הסרטונים שנצפו בערוץ העדכונים",
-        "instance_donations": "תרומות להפעלה"
+        "instance_donations": "תרומות להפעלה",
+        "reply_count": "{count} תגובות"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
