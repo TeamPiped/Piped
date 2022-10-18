@@ -111,7 +111,8 @@
         "instance_donations": "Donasi instansi",
         "hide_watched": "Sembunyikan video yang telah ditonton di umpan",
         "status_page": "Status",
-        "source_code": "Kode sumber"
+        "source_code": "Kode sumber",
+        "reply_count": "{count} balasan"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
