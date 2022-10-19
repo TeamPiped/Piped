@@ -68,6 +68,7 @@ export default defineConfig({
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "./src"),
+            emitter: "node_modules/emitter-component/index.js",
         },
     },
     build: {
