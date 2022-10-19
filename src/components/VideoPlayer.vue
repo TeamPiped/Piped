@@ -12,8 +12,11 @@
 <script>
 import("shaka-player/dist/controls.css");
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
-import muxjs from "mux.js";
-window.muxjs = muxjs;
+if (!window.muxjs) {
+    import("mux.js").then(muxjs => {
+        window.muxjs = muxjs;
+    });
+}
 const hotkeys = import("hotkeys-js");
 
 export default {
