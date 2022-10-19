@@ -1314,6 +1314,11 @@
   resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.29.tgz#3a71fff138c0ebd03d3714c67db3035be0e46be2"
   integrity sha512-ElnT15Hqb1PZY293HI1CSE73/I76Wsc4sczQCQRHlMrAb73JeB5iM3XOWJFGWqChb7Z5dP+mwDExXgNpRxCQjQ==
 
+"@unocss/core@0.45.30":
+  version "0.45.30"
+  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.45.30.tgz#e83f2d06b550ca9d2e5713e6eba887476d02ca75"
+  integrity sha512-KjEdE8F5AZ+rJ4M07CttZd79h8FMqiCy6ldNS8xyd3qX8wy+BrE9n5tSV8KmbuORkNBWYG5yrkQvo7RQmASDzA==
+
 "@unocss/inspector@0.45.29":
   version "0.45.29"
   resolved "https://registry.yarnpkg.com/@unocss/inspector/-/inspector-0.45.29.tgz#b06d1d2a9b719dabb44dd46be745aa6407d7b6a9"
@@ -1337,6 +1342,15 @@
     "@iconify/utils" "^2.0.1"
     "@unocss/core" "0.45.29"
     ohmyfetch "^0.4.19"
+
+"@unocss/preset-icons@0.45.30":
+  version "0.45.30"
+  resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-0.45.30.tgz#1ae71cc141a61319e6a3ee5e6b7c34da524bbb92"
+  integrity sha512-yPyel0k/gchuJyuVPzELuH4UZDpZ6VG34fIdH3QDpjVnIXZCeubUX2kdNpk+2Ojjy10DcU4TAnDrXqVYz3s+MA==
+  dependencies:
+    "@iconify/utils" "^2.0.1"
+    "@unocss/core" "0.45.30"
+    ohmyfetch "^0.4.20"
 
 "@unocss/preset-mini@0.45.29":
   version "0.45.29"
@@ -3065,6 +3079,11 @@ node-fetch-native@^0.1.5:
   resolved "https://registry.yarnpkg.com/node-fetch-native/-/node-fetch-native-0.1.7.tgz#8a8ed0d5d1d1b89d34c6731a9d69d407c09df067"
   integrity sha512-hps7dFJM0IEF056JftDSSjWDAwW9v2clwHoUJiHyYgl+ojoqjKyWybljMlpTmlC1O+864qovNlRLyAIjRxu9Ag==
 
+node-fetch-native@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/node-fetch-native/-/node-fetch-native-0.1.8.tgz#19e2eaf6d86ac14e711ebd2612f40517c3468f2a"
+  integrity sha512-ZNaury9r0NxaT2oL65GvdGDy+5PlSaHTovT6JV5tOW07k1TQmgC0olZETa4C9KZg0+6zBr99ctTYa3Utqj9P/Q==
+
 node-releases@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.2.tgz#7139fe71e2f4f11b47d4d2986aaf8c48699e0c01"
@@ -3118,6 +3137,16 @@ ohmyfetch@^0.4.19:
     node-fetch-native "^0.1.5"
     ufo "^0.8.5"
     undici "^5.10.0"
+
+ohmyfetch@^0.4.20:
+  version "0.4.20"
+  resolved "https://registry.yarnpkg.com/ohmyfetch/-/ohmyfetch-0.4.20.tgz#735895d396c6d2fbf5705625db1196bd3f29be16"
+  integrity sha512-+c3/l+X91owrT1reTos1R13rb2j8NGZpKi0bRWwrnxIHlr1FZ8NzghIsNBKpUvk9nsnFoNK4phw+nTnXrcALzA==
+  dependencies:
+    destr "^1.1.1"
+    node-fetch-native "^0.1.8"
+    ufo "^0.8.6"
+    undici "^5.11.0"
 
 once@^1.3.0:
   version "1.4.0"
@@ -3728,6 +3757,11 @@ ufo@^0.8.5:
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.8.5.tgz#e367b4205ece9d9723f2fa54f887d43ed1bce5d0"
   integrity sha512-e4+UtA5IRO+ha6hYklwj6r7BjiGMxS0O+UaSg9HbaTefg4kMkzj4tXzEBajRR+wkxf+golgAWKzLbytCUDMJAA==
 
+ufo@^0.8.6:
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.8.6.tgz#c0ec89bc0e0c9fa59a683680feb0f28b55ec323b"
+  integrity sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==
+
 unbox-primitive@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/unbox-primitive/-/unbox-primitive-1.0.1.tgz#085e215625ec3162574dc8859abee78a59b14471"
@@ -3747,7 +3781,7 @@ unconfig@^0.3.7:
     defu "^6.1.0"
     jiti "^1.16.0"
 
-undici@^5.10.0:
+undici@^5.10.0, undici@^5.11.0:
   version "5.11.0"
   resolved "https://registry.yarnpkg.com/undici/-/undici-5.11.0.tgz#1db25f285821828fc09d3804b9e2e934ae86fc13"
   integrity sha512-oWjWJHzFet0Ow4YZBkyiJwiK5vWqEYoH7BINzJAJOLedZ++JpAlCbUktW2GQ2DS2FpKmxD/JMtWUUWl1BtghGw==
