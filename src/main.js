@@ -253,7 +253,7 @@ const mixin = {
             const languages = window.navigator.languages;
             for (let i = 0; i < languages.length; i++) {
                 try {
-                    await import("./locales/" + languages[i] + ".json");
+                    await import(`./locales/${languages[i]}.json`);
                     return languages[i];
                 } catch {
                     continue;
