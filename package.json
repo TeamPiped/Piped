@@ -19,7 +19,7 @@
         "javascript-time-ago": "2.5.7",
         "mux.js": "6.2.0",
         "shaka-player": "4.2.2",
-        "stream": "0.0.2",
+        "stream-browserify": "3.0.0",
         "vue": "3.2.41",
         "vue-i18n": "9.2.2",
         "vue-router": "4.1.5",
