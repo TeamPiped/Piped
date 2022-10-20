@@ -46,9 +46,48 @@
         "no": "Ne",
         "show_chapters": "Sekcioj",
         "filter": "Filtri",
-        "search": "Serĉi"
+        "search": "Serĉi",
+        "hide_replies": "Kaŝi Respondojn",
+        "add_to_playlist": "Aldoni al ludlisto",
+        "delete_playlist": "Forigi Ludliston",
+        "rename_playlist": "Renomi ludliston",
+        "download_as_txt": "Elŝuti kiel .txt",
+        "piped_link": "Piped-ligilo",
+        "copy_link": "Kopii ligilon",
+        "source_code": "Fontkodo",
+        "select_playlist": "Elektu Ludliston",
+        "documentation": "Dokumentaro",
+        "clone_playlist": "Kloni Ludliston",
+        "clone_playlist_success": "Sukcese klonita!",
+        "delete_playlist_video_confirm": "Ĉu forigi videon el ludlisto?",
+        "remove_from_playlist": "Forigi el ludlisto",
+        "create_playlist": "Krei Ludliston",
+        "delete_account": "Forigi Konton",
+        "new_playlist_name": "Nomo de nova ludlisto",
+        "reply_count": "{count} respondoj"
     },
     "video": {
-        "chapters": "Sekcioj"
+        "chapters": "Sekcioj",
+        "videos": "Videoj"
+    },
+    "search": {
+        "music_albums": "YT Music: Albumoj",
+        "music_playlists": "YT Music: Ludlistoj",
+        "videos": "YouTube: Videoj",
+        "playlists": "YouTube: Ludlistoj",
+        "channels": "YouTube: Kanaloj",
+        "music_videos": "YT Music: Videoj",
+        "music_songs": "YT Music: Muzikaĵoj"
+    },
+    "info": {
+        "copied": "Kopiita!",
+        "cannot_copy": "Ne povas kopii!"
+    },
+    "login": {
+        "username": "Uzantnomo",
+        "password": "Pasvorto"
+    },
+    "preferences": {
+        "version": "Versio"
     }
 }
