@@ -6,7 +6,10 @@
         "feed": "Fluo",
         "preferences": "Agordoj",
         "history": "Historio",
-        "subscriptions": "Abonoj"
+        "subscriptions": "Abonoj",
+        "playlists": "Ludlistoj",
+        "account": "Konto",
+        "player": "Ludilo"
     },
     "player": {
         "watch_on": "Vidi en {0}"
@@ -36,12 +39,14 @@
         "country_selection": "Landa Elekto",
         "default_homepage": "Defaŭlta Ĉefpaĝo",
         "show_comments": "Montri Komentojn",
-        "language_selection": "Lingvo Elekto",
+        "language_selection": "Lingva Elekto",
         "donations": "Donacoj",
         "show_more": "Montri pli",
         "yes": "Jes",
         "no": "Ne",
-        "show_chapters": "Sekcioj"
+        "show_chapters": "Sekcioj",
+        "filter": "Filtri",
+        "search": "Serĉi"
     },
     "video": {
         "chapters": "Sekcioj"
