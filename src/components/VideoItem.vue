@@ -184,11 +184,7 @@ export default {
             const request = objectStore.get(this.video.url.substr(-11));
             request.onsuccess = event => {
                 const video = event.target.result;
-                if (
-                    video &&
-                    (!this.getPreferenceBoolean("watchHistory", false) ||
-                        (video.currentTime ?? 0) > video.duration * 0.9)
-                ) {
+                if (video && (video.currentTime ?? 0) > video.duration * 0.9) {
                     this.showVideo = false;
                     return;
                 }
