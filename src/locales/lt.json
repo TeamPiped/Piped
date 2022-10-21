@@ -72,7 +72,23 @@
         "logout": "Atsijungti šiame įrenginyje",
         "remove_from_playlist": "Pašalinti iš grojaraščio",
         "confirm_reset_preferences": "Ar tikrai norite iš naujo nustatyti nuostatas?",
-        "reset_preferences": "Iš naujo nustatyti nuostatas"
+        "reset_preferences": "Iš naujo nustatyti nuostatas",
+        "backup_preferences": "Atsarginės kopijos nuostatos",
+        "source_code": "Pirminis kodas",
+        "documentation": "Dokumentacija",
+        "with_timecode": "Dalintis su laiko kodu",
+        "reply_count": "{count} atsakymų",
+        "show_chapters": "Skyriai",
+        "piped_link": "Piped nuoroda",
+        "rename_playlist": "Pervardyti grojaraštį",
+        "follow_link": "Sekti nuorodą",
+        "store_search_history": "Išsaugoti paieškos istoriją",
+        "hide_watched": "Slėpti žiūrėtus vaizdo įrašus sklaidos kanale",
+        "restore_preferences": "Atkurti nuostatas",
+        "status_page": "Būsena",
+        "copy_link": "Kopijuoti nuorodą",
+        "share": "Dalintis",
+        "new_playlist_name": "Naujas grojaraščio pavadinimas"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
@@ -93,23 +109,45 @@
         "instance_locations": "Perdavimo šaltinio vietovė",
         "instance_name": "Perdavimo šaltinio pavadinimas",
         "ssl_score": "SSL balas",
-        "has_cdn": "Turi CDN?"
+        "has_cdn": "Turi CDN?",
+        "version": "Versija",
+        "registered_users": "Registruoti naudotojai",
+        "up_to_date": "Atnaujinta?"
     },
     "comment": {
-        "pinned_by": "Prisegė {author}"
+        "pinned_by": "Prisegė {author}",
+        "loading": "Įkeliami komentarai..."
     },
     "video": {
         "views": "{views} peržiūros",
         "videos": "Vaizdo įrašai",
         "sponsor_segments": "Rėmėjų segmentai",
         "watched": "Žiūrėta",
-        "ratings_disabled": "Įvertinimai išjungti"
+        "ratings_disabled": "Įvertinimai išjungti",
+        "chapters": "Skyriai"
     },
     "login": {
         "password": "Slaptažodis",
         "username": "Vartotojo vardas"
     },
     "search": {
-        "did_you_mean": "Ar turėjote omenyje: {0}?"
+        "did_you_mean": "Ar turėjote omenyje: {0}?",
+        "playlists": "YouTube: grojaraščiai",
+        "music_playlists": "YT Music: grojaraščiai",
+        "all": "YouTube: visi",
+        "channels": "YouTube: kanalai",
+        "videos": "YouTube: vaizdo įrašai",
+        "music_videos": "YT Music: vaizdo įrašai",
+        "music_songs": "YT Music: dainos",
+        "music_albums": "YT Music: albumai"
+    },
+    "info": {
+        "copied": "Nukopijuota!",
+        "cannot_copy": "Negalima kopijuoti!",
+        "page_not_found": "Puslapis nerastas",
+        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jie bus nustatyti iš naujo."
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Prenumeruojama: {0}"
     }
 }
