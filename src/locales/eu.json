@@ -12,7 +12,7 @@
         "instance_name": "Instantziaren izena"
     },
     "comment": {
-        "pinned_by": "Finkatuta"
+        "pinned_by": "Finkatuta {author}"
     },
     "actions": {
         "enable_lbry_proxy": "Aktibatu Proxy LBRYrako",

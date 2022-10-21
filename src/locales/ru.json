@@ -58,7 +58,7 @@
         "import_from_json": "Импорт из JSON/CSV",
         "loop_this_video": "Повтор текущего видео",
         "auto_play_next_video": "Сразу проигрывать следующее рекомендованное видео",
-        "donations": "Пожертвования",
+        "donations": "Пожертвования на разработку",
         "minimize_description": "Свернуть описание",
         "show_description": "Показать описание",
         "minimize_recommendations": "Свернуть рекомендации",
@@ -70,7 +70,6 @@
         "filter": "Фильтр",
         "loading": "Загрузка...",
         "clear_history": "Очистить историю",
-        "show_replies": "Показать ответы",
         "hide_replies": "Скрыть ответы",
         "load_more_replies": "Загрузить больше ответов",
         "skip_highlight": "Пропускать главную мысль",
@@ -106,10 +105,16 @@
         "confirm_reset_preferences": "Вы уверены, что хотите сбросить настройки?",
         "backup_preferences": "Настройки бэкапов",
         "restore_preferences": "Восстановить настройки",
-        "back_to_home": "Вернутся на главную"
+        "back_to_home": "Вернутся на главную",
+        "store_search_history": "Хранить историю поиска",
+        "hide_watched": "Скрыть просмотренные видео в ленте",
+        "status_page": "Статус",
+        "source_code": "Исходный код",
+        "documentation": "Пожертвования сервера",
+        "instance_donations": "Пожертвования сервера"
     },
     "comment": {
-        "pinned_by": "Прикреплено пользователем",
+        "pinned_by": "Прикреплено пользователем {author}",
         "loading": "Загрузка комментариев...",
         "user_disabled": "Комментарии отключены в настройках.",
         "disabled": "Коментарии отключены автором."

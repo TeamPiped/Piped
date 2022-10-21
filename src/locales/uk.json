@@ -33,7 +33,6 @@
         "enable_lbry_proxy": "Проксувати відео з LBRY",
         "search": "Пошук",
         "clear_history": "Очистити історію перегляду",
-        "show_replies": "Показати відповіді",
         "load_more_replies": "Завантажити більше відповідей",
         "subscribe": "Підписатись - {count}",
         "sort_by": "Відсортувати по:",
@@ -86,7 +85,7 @@
         "playlists": "Плейлісти"
     },
     "comment": {
-        "pinned_by": "Прикріплено користувачем"
+        "pinned_by": "Прикріплено користувачем {author}"
     },
     "preferences": {
         "instance_locations": "Місцезнаходження копії сервісу",

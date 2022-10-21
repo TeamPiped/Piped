@@ -19,7 +19,7 @@
         "registered_users": "Usuarios Registrados"
     },
     "comment": {
-        "pinned_by": "Fijado por",
+        "pinned_by": "Fijado por {author}",
         "disabled": "Los comentarios están deshabilitados por el publicador.",
         "loading": "Cargando comentarios...",
         "user_disabled": "Los comentarios están deshabilitados en los ajustes."
@@ -29,7 +29,7 @@
         "disable_lbry": "Desactivar LBRY para el streaming",
         "show_description": "Mostrar descripción",
         "minimize_description": "Minimizar descripción",
-        "donations": "Donaciones",
+        "donations": "Donaciones para desarrollo",
         "auto_play_next_video": "Reproducción automática del siguiente vídeo",
         "loop_this_video": "Poner en bucle este vídeo",
         "import_from_json": "Importar desde JSON/CSV",
@@ -79,7 +79,6 @@
         "minimize_recommendations": "Minimizar recomendaciones",
         "show_recommendations": "Mostrar recomendaciones",
         "clear_history": "Borrar Historial",
-        "show_replies": "Mostrar Respuestas",
         "hide_replies": "Ocultar Respuestas",
         "load_more_replies": "Cargar más Respuestas",
         "skip_filler_tangent": "Saltar Escenas de Relleno",
@@ -115,10 +114,16 @@
         "backup_preferences": "Preferencias de copia de seguridad",
         "restore_preferences": "Restablecer las preferencias",
         "back_to_home": "Volver a la página de inicio",
-        "show_chapters": "Capítulos"
+        "show_chapters": "Capítulos",
+        "store_search_history": "Guardar historial de búsqueda",
+        "source_code": "Código fuente",
+        "documentation": "Documentación",
+        "instance_donations": "Donaciones para instancia",
+        "status_page": "Estado",
+        "hide_watched": "Ocultar los vídeos vistos en el feed"
     },
     "titles": {
-        "feed": "Feed",
+        "feed": "Fuente web",
         "subscriptions": "Suscripciones",
         "history": "Historial",
         "trending": "En tendencias",

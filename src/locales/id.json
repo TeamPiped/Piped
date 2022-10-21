@@ -53,7 +53,7 @@
         "import_from_json": "Impor dari JSON/CSV",
         "loop_this_video": "Ulangi Video ini",
         "auto_play_next_video": "Mainkan video berikutnya secara otomatis",
-        "donations": "Donasi",
+        "donations": "Donasi pengembangan",
         "minimize_description": "Kecilkan Deskripsi",
         "show_description": "Tampilkan Deskripsi",
         "minimize_recommendations": "Kecilkan Rekomendasi",
@@ -65,7 +65,6 @@
         "filter": "Saring",
         "loading": "Memuat...",
         "clear_history": "Hapus Riwayat",
-        "show_replies": "Tampilkan Balasan",
         "hide_replies": "Sembunyikan Balasan",
         "load_more_replies": "Muat Balasan",
         "theme": "Tema",
@@ -106,10 +105,16 @@
         "copy_link": "Salin tautan",
         "time_code": "Kode waktu (dalam detik)",
         "back_to_home": "Kembali ke beranda",
-        "show_chapters": "Bab"
+        "show_chapters": "Bab",
+        "store_search_history": "Simpan riwayat pencarian",
+        "documentation": "Dokumentasi",
+        "instance_donations": "Donasi instansi",
+        "hide_watched": "Sembunyikan video yang telah ditonton di umpan",
+        "status_page": "Status",
+        "source_code": "Kode sumber"
     },
     "comment": {
-        "pinned_by": "Dipasangi pin oleh",
+        "pinned_by": "Dipasangi pin oleh {author}",
         "disabled": "Komentar dinonaktifkan oleh pengunggah.",
         "user_disabled": "Komentar dinonaktifkan di pengaturan.",
         "loading": "Memuat komentar..."

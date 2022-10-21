@@ -62,7 +62,6 @@
         "search": "Pesquisar",
         "no": "Não",
         "show_description": "Exibir descrição",
-        "show_replies": "Mostrar respostas",
         "instance_selection": "Seleção de Instância",
         "auto_play_next_video": "Autoreproduzir vídeo seguinte",
         "filter": "Filtro",
@@ -83,7 +82,7 @@
         "watch_on": "Assistir no"
     },
     "comment": {
-        "pinned_by": "Fixado por"
+        "pinned_by": "Fixado por {author}"
     },
     "preferences": {
         "registered_users": "Usuários cadastrados",

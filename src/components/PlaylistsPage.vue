@@ -9,6 +9,12 @@
         <div v-for="playlist in playlists" :key="playlist.id">
             <router-link :to="`/playlist?list=${playlist.id}`">
                 <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
+                <div class="relative text-sm">
+                    <span
+                        class="thumbnail-overlay thumbnail-right"
+                        v-text="`${playlist.videos} ${$t('video.videos')}`"
+                    />
+                </div>
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
                     class="my-2 overflow-hidden flex link"

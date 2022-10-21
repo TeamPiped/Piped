@@ -6,7 +6,9 @@
         "subscriptions": "Áskriftir",
         "preferences": "Stillingar",
         "trending": "Vinsælt",
-        "feed": "Straumur"
+        "feed": "Straumur",
+        "playlists": "Spilunarlistar",
+        "player": "Spilari"
     },
     "actions": {
         "sort_by": "Raða eftir:",
@@ -60,7 +62,6 @@
         "filter": "Sía",
         "loading": "Hleður...",
         "clear_history": "Hreinsa Feril",
-        "show_replies": "Sýna Svör",
         "hide_replies": "Fela Svör",
         "load_more_replies": "Hlaða Fleiri Svörum",
         "default_quality": "Sjálfgefin Gæði",
@@ -84,7 +85,7 @@
         "live": "{0} Í beinni"
     },
     "comment": {
-        "pinned_by": "Fest af"
+        "pinned_by": "Fest af {author}"
     },
     "preferences": {
         "instance_name": "Tilviksheiti",

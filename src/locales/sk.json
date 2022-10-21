@@ -49,7 +49,47 @@
         "loop_this_video": "Opakovať",
         "auto_play_next_video": "Automaticky prehrávať ďalšie video",
         "donations": "Dary",
-        "minimize_description": "Minimalizovať Popis"
+        "minimize_description": "Minimalizovať Popis",
+        "clear_history": "Vymazať históriu",
+        "add_to_playlist": "Pridať do zoznamu skladieb",
+        "search": "Vyhľadávanie",
+        "show_chapters": "Kapitoly",
+        "create_playlist": "Vytvoriť zoznam skladieb",
+        "select_playlist": "Vyberte zoznam skladieb",
+        "please_select_playlist": "Prosím, vyberte zoznam skladieb",
+        "back_to_home": "Späť domov",
+        "copy_link": "Skopírovať odkaz",
+        "time_code": "Časový kód (v sekundách)",
+        "with_timecode": "Zdieľať s časovým kódom",
+        "piped_link": "Piped odkaz",
+        "show_markers": "Zobraziť značky na prehrávači",
+        "hide_replies": "Skryť odpovede",
+        "delete_playlist": "Odstrániť zoznam skladieb",
+        "delete_playlist_confirm": "Odstrániť tento zoznam skladieb?",
+        "remove_from_playlist": "Odstrániť zo zoznamu skladieb",
+        "load_more_replies": "Načítať viac odpovedí",
+        "show_description": "Zobraziť popis",
+        "view_ssl_score": "Zobraziť SSL skóre",
+        "filter": "Filter",
+        "delete_playlist_video_confirm": "Odstrániť video zo zoznamu?",
+        "rename_playlist": "Premenovať zoznam skladieb",
+        "new_playlist_name": "Nový názov zoznamu skladieb",
+        "share": "Zdieľať",
+        "follow_link": "Nasledujte odkaz",
+        "loading": "Načítavanie...",
+        "download_as_txt": "Stiahnuť ako .txt",
+        "reset_preferences": "Resetovať preferencie",
+        "confirm_reset_preferences": "Naozaj chcete resetovať svoje preferencie?",
+        "backup_preferences": "Zálohovať preferencie",
+        "restore_preferences": "Obnoviť preferencie",
+        "delete_account": "Zmazať účet",
+        "logout": "Odhlásiť z tohto zariadenia",
+        "minimize_recommendations_default": "Minimalizovať odporúčania predvolene",
+        "different_auth_instance": "Na overenie použite inú inštanciu",
+        "instance_auth_selection": "Výber inštancie autentifikácie",
+        "invalidate_session": "Odhláste sa zo všetkých zariadení",
+        "clone_playlist": "Klonovať zoznam skladieb",
+        "clone_playlist_success": "Úspešne klonované!"
     },
     "player": {
         "watch_on": "Pozerať na {0}"
@@ -61,6 +101,59 @@
         "register": "Registrácia",
         "login": "Prihlásenie",
         "trending": "Trendy",
-        "subscriptions": "Odbery"
+        "subscriptions": "Odbery",
+        "playlists": "Playlisty",
+        "account": "Účet",
+        "instance": "Inštancia",
+        "player": "Prehrávač"
+    },
+    "preferences": {
+        "up_to_date": "Aktuálny?",
+        "ssl_score": "SSL skóre",
+        "instance_name": "Názov inštancie",
+        "instance_locations": "Miesto inštancií",
+        "registered_users": "Registrovaní užívatelia",
+        "has_cdn": "Má CDN?",
+        "version": "Verzia"
+    },
+    "video": {
+        "sponsor_segments": "Sponzorské segmenty",
+        "ratings_disabled": "Hodnotenia sú vypnuté",
+        "chapters": "Kapitoly",
+        "videos": "Videá",
+        "views": "{views} zhliadnutí",
+        "live": "{0} Live",
+        "shorts": "Shorts",
+        "watched": "Zhliadnuté"
+    },
+    "search": {
+        "did_you_mean": "Mali ste na mysli: {0}?",
+        "channels": "YouTube: Kanály",
+        "playlists": "YouTube: Zoznamy skladieb",
+        "music_playlists": "YT Music: Zoznamy skladieb",
+        "music_songs": "YT Music: Piesne",
+        "music_videos": "YT Music: Videá",
+        "music_albums": "YT Music: Albumy",
+        "all": "YouTube: Všetko",
+        "videos": "YouTube: Videá"
+    },
+    "info": {
+        "preferences_note": "Poznámka: preferencie sú uložené v miestnom úložisku vášho prehliadača. Odstránením údajov prehliadača ich resetujete.",
+        "page_not_found": "Stránka nenájdená",
+        "copied": "Skopírované!",
+        "cannot_copy": "Nedá sa kopírovať!"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Odoberať: {0}"
+    },
+    "login": {
+        "username": "Užívatelksé meno",
+        "password": "Heslo"
+    },
+    "comment": {
+        "loading": "Načítavajú sa komentáre...",
+        "disabled": "Komentáre sú vypnuté používateľom, ktorý nahral video.",
+        "user_disabled": "Komentáre sú v nastaveniach zakázané.",
+        "pinned_by": "Pripnuté {author}"
     }
 }
