@@ -74,11 +74,16 @@
                 <font-awesome-icon icon="circle-minus" />
             </button>
             <button
-                v-if="isFeed && this.getPreferenceBoolean('hideWatched', false)"
-                @click="markAsWatched(video.url.substr(-11))"
+                v-if="
+                    isFeed &&
+                    (this.getPreferenceBoolean('watchHistory', false) ||
+                        this.getPreferenceBoolean('hideWatched', false))
+                "
+                @click="toggleWatched(video.url.substr(-11))"
                 ref="watchButton"
             >
-                <font-awesome-icon icon="eye" :title="$t('actions.mark_as_watched')" />
+                <font-awesome-icon icon="eye-slash" :title="$t('actions.mark_as_unwatched')" v-if="video.watched" />
+                <font-awesome-icon icon="eye" :title="$t('actions.mark_as_watched')" v-else />
             </button>
             <PlaylistAddModal v-if="showModal" :video-id="video.url.substr(-11)" @close="showModal = !showModal" />
         </div>
@@ -148,6 +153,7 @@ export default {
         playlistId: { type: String, default: null },
         admin: { type: Boolean, default: false },
     },
+    emits: ["update:watched"],
     data() {
         return {
             showModal: false,
@@ -190,13 +196,22 @@ export default {
                 }
             };
         },
-        markAsWatched(videoId) {
+        toggleWatched(videoId) {
             if (window.db) {
                 // Should match WatchVideo.vue
                 var tx = window.db.transaction("watch_history", "readwrite");
                 var store = tx.objectStore("watch_history");
-                var request = store.get(videoId);
                 var instance = this;
+
+                if (this.video.watched) {
+                    let request = store.delete(videoId);
+                    request.onsuccess = function () {
+                        instance.$emit("update:watched");
+                    };
+                    return;
+                }
+
+                var request = store.get(videoId);
                 request.onsuccess = function (event) {
                     var video = event.target.result;
                     if (video) {
@@ -217,7 +232,8 @@ export default {
                     video.currentTime = instance.video.duration;
                     // Save
                     store.put(video);
-                    // Disappear
+                    // Disappear if hideWatched is on
+                    instance.$emit("update:watched");
                     instance.shouldShowVideo();
                 };
             }

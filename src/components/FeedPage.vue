@@ -18,7 +18,13 @@
     <hr />
 
     <div class="video-grid">
-        <VideoItem :is-feed="true" v-for="video in videos" :key="video.url" :video="video" />
+        <VideoItem
+            :is-feed="true"
+            v-for="video in videos"
+            :key="video.url"
+            :video="video"
+            @update:watched="onUpdateWatched"
+        />
     </div>
 </template>
 
@@ -84,6 +90,9 @@ export default {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loadMoreVideos();
             }
+        },
+        onUpdateWatched() {
+            if (this.videos.length > 0) this.updateWatched(this.videos);
         },
     },
 };

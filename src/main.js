@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
     faEye,
+    faEyeSlash,
     faThumbtack,
     faCheck,
     faHeart,
@@ -25,6 +26,7 @@ import { faGithub, faBitcoin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(
     faEye,
+    faEyeSlash,
     faGithub,
     faBitcoin,
     faThumbtack,
@@ -197,9 +199,7 @@ const mixin = {
                 videos.map(async video => {
                     var request = store.get(video.url.substr(-11));
                     request.onsuccess = function (event) {
-                        if (event.target.result) {
-                            video.watched = true;
-                        }
+                        video.watched = Boolean(event.target.result);
                     };
                 });
             }
