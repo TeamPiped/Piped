@@ -63,7 +63,6 @@
         "view_ssl_score": "എസ്എസ്എൽ സ്കോർ കാണിക്കൂ",
         "skip_non_music": "പാട്ട് ഒഴിവാക്കുക: Non-Music Section",
         "clear_history": "ചരിത്രം മായ്ക്കുക",
-        "show_replies": "മറുപടികൾ കാണിക്കുക",
         "hide_replies": "മറുപടികൾ മറയ്ക്കുക",
         "load_more_replies": "കൂടുതൽ മറുപടികൽ ലഭ്യമാക്കുക",
         "add_to_playlist": "പ്ലേലിസ്റ്റിലേക്ക് ചേർക്കൂ",
@@ -85,7 +84,7 @@
         "sponsor_segments": "സ്പോൺസർമാരുടെ ഭാഗങ്ങൾ"
     },
     "comment": {
-        "pinned_by": "പിൻ ചെയ്തിരിക്കുന്നത്"
+        "pinned_by": "പിൻ ചെയ്തിരിക്കുന്നത് {author}"
     },
     "preferences": {
         "ssl_score": "എസ് എസ് എൽ സ്കോർ",

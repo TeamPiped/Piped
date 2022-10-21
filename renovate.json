@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    "group:recommended"
+  ],
+  "ignorePresets": [
+    ":prHourlyLimit2"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePrefixes": [
+        "@unocss/"
+      ],
+      "matchPackageNames": [
+        "unocss"
+      ],
+      "groupName": "unocss"
+    }
+  ]
+}

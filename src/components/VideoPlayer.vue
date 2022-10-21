@@ -12,8 +12,11 @@
 <script>
 import("shaka-player/dist/controls.css");
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
-import muxjs from "mux.js";
-window.muxjs = muxjs;
+if (!window.muxjs) {
+    import("mux.js").then(muxjs => {
+        window.muxjs = muxjs;
+    });
+}
 const hotkeys = import("hotkeys-js");
 
 export default {
@@ -519,9 +522,8 @@ export default {
                 });
                 videoEl.volume = this.getPreferenceNumber("volume", 1);
                 const rate = this.getPreferenceNumber("rate", 1);
-                player.trickPlay(rate);
-                player.playbackRate = rate;
-                player.defaultPlaybackRate = rate;
+                videoEl.playbackRate = rate;
+                videoEl.defaultPlaybackRate = rate;
             });
         },
         async updateProgressDatabase(time) {

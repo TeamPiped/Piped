@@ -56,7 +56,6 @@
         "skip_intro": "중간 휴식/인트로 애니메이션 스킵",
         "search": "검색",
         "clear_history": "기록 지우기",
-        "show_replies": "답글 보기",
         "skip_highlight": "하이라이트 스킵",
         "select_playlist": "재생목록 선택",
         "please_select_playlist": "재생목록을 선택하세요",
@@ -90,7 +89,13 @@
         "instance_auth_selection": "인증 인스턴스 선택",
         "different_auth_instance": "인증에 다른 인스턴스 사용",
         "clone_playlist": "재생목록 복제",
-        "clone_playlist_success": "성공적으로 복제되었습니다!"
+        "clone_playlist_success": "성공적으로 복제되었습니다!",
+        "store_search_history": "검색 기록 저장",
+        "hide_watched": "피드에서 시청한 동영상 숨기기",
+        "documentation": "문서",
+        "source_code": "소스 코드",
+        "instance_donations": "인스턴스 기부",
+        "status_page": "상태"
     },
     "titles": {
         "feed": "피드",
@@ -109,7 +114,7 @@
         "watch_on": "에서 보기 {0}"
     },
     "comment": {
-        "pinned_by": "에 의해 고정됨",
+        "pinned_by": "에 의해 고정됨 {author}",
         "disabled": "업로더가 댓글을 비활성화했습니다.",
         "user_disabled": "설정에서 댓글을 비활성화했습니다.",
         "loading": "댓글 로드 중..."

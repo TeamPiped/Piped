@@ -49,7 +49,6 @@
         "filter": "Filtreeri järgi",
         "loading": "Laadimine...",
         "clear_history": "Tühjendage ajalugu",
-        "show_replies": "Näita vastuseid",
         "hide_replies": "Peida vastused",
         "load_more_replies": "Lae alla rohkem vastuseid",
         "add_to_playlist": "Lisa esitusloendisse",
@@ -115,6 +114,6 @@
         "password": "Parool"
     },
     "comment": {
-        "pinned_by": "Kinnitanud"
+        "pinned_by": "Kinnitanud {author}"
     }
 }

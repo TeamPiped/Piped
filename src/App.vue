@@ -79,22 +79,45 @@ button,
 <script>
 import NavBar from "./components/NavBar.vue";
 import FooterComponent from "./components/FooterComponent.vue";
+
+const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+
 export default {
     components: {
         NavBar,
         FooterComponent,
     },
+    data() {
+        return {
+            theme: "dark",
+        };
+    },
+    methods: {
+        setTheme() {
+            let themePref = this.getPreferenceString("theme", "dark");
+            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
+            else this.theme = themePref;
+        },
+    },
     mounted() {
+        this.setTheme();
+        darkModePreference.addEventListener("change", () => {
+            this.setTheme();
+        });
         if (this.getPreferenceBoolean("watchHistory", false))
             if ("indexedDB" in window) {
-                const request = indexedDB.open("piped-db", 1);
-                request.onupgradeneeded = function () {
+                const request = indexedDB.open("piped-db", 2);
+                request.onupgradeneeded = ev => {
                     const db = request.result;
                     console.log("Upgrading object store.");
                     if (!db.objectStoreNames.contains("watch_history")) {
                         const store = db.createObjectStore("watch_history", { keyPath: "videoId" });
                         store.createIndex("video_id_idx", "videoId", { unique: true });
                         store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
+                    }
+                    if (ev.oldVersion < 2) {
+                        const store = request.transaction.objectStore("watch_history");
+                        store.createIndex("watchedAt", "watchedAt", { unique: false });
                     }
                 };
                 request.onsuccess = e => {
@@ -108,9 +131,9 @@ export default {
             const defaultLang = await App.defaultLangage;
             const locale = App.getPreferenceString("hl", defaultLang);
             if (locale !== App.TimeAgoConfig.locale) {
-                const localeTime = await import(
-                    "./../node_modules/javascript-time-ago/locale/" + locale + ".json"
-                ).then(module => module.default);
+                const localeTime = await import(`../node_modules/javascript-time-ago/locale/${locale}.json`).then(
+                    module => module.default,
+                );
                 App.TimeAgo.addLocale(localeTime);
                 App.TimeAgoConfig.locale = locale;
             }

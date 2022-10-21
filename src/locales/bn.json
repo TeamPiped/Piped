@@ -67,8 +67,7 @@
         "loading": "পরিচালিত হচ্ছে…",
         "clear_history": "ইতিহাস মুছুন",
         "hide_replies": "প্রতিক্রিয়াগুলো লুকান",
-        "load_more_replies": "আরো প্রতিক্রিয়াগুলো দেখুন",
-        "show_replies": "প্রতিক্রিয়াগুলো দেখুন"
+        "load_more_replies": "আরো প্রতিক্রিয়াগুলো দেখুন"
     },
     "video": {
         "watched": "দেখা হয়েছে",
@@ -91,6 +90,6 @@
         "has_cdn": "CDN কি আছে?"
     },
     "comment": {
-        "pinned_by": "পিন করেছেন"
+        "pinned_by": "পিন করেছেন {author}"
     }
 }

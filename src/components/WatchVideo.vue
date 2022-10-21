@@ -74,7 +74,6 @@
                     <!-- Verified Badge -->
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
                 </div>
-
                 <div class="pp-watch-buttons">
                     <!-- Subscribe button -->
                     <button

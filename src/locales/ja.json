@@ -67,7 +67,6 @@
         "filter": "フィルター",
         "loading": "読込中…",
         "clear_history": "履歴を消去",
-        "show_replies": "返信を表示",
         "hide_replies": "返信を非表示",
         "load_more_replies": "もっと見る",
         "skip_filler_tangent": "無関係なコンテンツをスキップ",
@@ -83,7 +82,7 @@
         "delete_playlist_confirm": "再生リストを削除してもよろしいですか？"
     },
     "comment": {
-        "pinned_by": "固定されたコメント"
+        "pinned_by": "固定されたコメント {author}"
     },
     "preferences": {
         "instance_name": "インスタンス名",

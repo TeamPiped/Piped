@@ -6,7 +6,7 @@
         "disable_lbry": "禁用 LBRY 进行流式传输",
         "show_description": "显示描述",
         "minimize_description": "折叠描述",
-        "donations": "捐款",
+        "donations": "开发捐赠",
         "auto_play_next_video": "自动播放下一个视频",
         "loop_this_video": "循环播放此视频",
         "import_from_json": "从 JSON/CSV 导入",
@@ -56,7 +56,6 @@
         "clear_history": "清除历史",
         "skip_highlight": "跳过高亮",
         "skip_filler_tangent": "跳过与视频主题无关的片段",
-        "show_replies": "显示回复",
         "hide_replies": "隐藏回复",
         "load_more_replies": "加载更多回复",
         "create_playlist": "创建播放列表",
@@ -90,7 +89,13 @@
         "time_code": "时间码（单位：秒）",
         "rename_playlist": "重命名播放列表",
         "new_playlist_name": "新播放列表名",
-        "show_chapters": "章节"
+        "show_chapters": "章节",
+        "store_search_history": "保存搜索历史",
+        "hide_watched": "在源中隐藏看过的视频",
+        "status_page": "状态",
+        "source_code": "源代码",
+        "instance_donations": "实例捐赠",
+        "documentation": "文档"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -112,7 +117,7 @@
         "registered_users": "已注册用户"
     },
     "comment": {
-        "pinned_by": "固定自",
+        "pinned_by": "固定自 {author}",
         "disabled": "上传者禁用了评论。",
         "loading": "加载评论中…",
         "user_disabled": "评论在设置中被禁用。"

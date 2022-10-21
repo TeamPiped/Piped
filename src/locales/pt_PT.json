@@ -54,7 +54,6 @@
         "show_recommendations": "Mostrar Recomendações",
         "view_ssl_score": "Ver Pontuação \"SSL\"",
         "search": "Procurar",
-        "show_replies": "Mostrar Respostas",
         "hide_replies": "Ocultar Respostas",
         "load_more_replies": "Carregar mais Respostas",
         "unsubscribe": "Anular subscrição - {count}",
@@ -105,7 +104,7 @@
         "back_to_home": "Voltar ao início"
     },
     "comment": {
-        "pinned_by": "Afixado por",
+        "pinned_by": "Afixado por {author}",
         "disabled": "Os comentários estão desactivados pelo dono do canal.",
         "user_disabled": "Os comentários estão desactivados nas definições.",
         "loading": "A carregar comentários..."

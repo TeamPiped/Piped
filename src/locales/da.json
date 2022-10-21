@@ -68,7 +68,6 @@
         "show_description": "Vis beskrivelse",
         "view_ssl_score": "Vis SSL Score",
         "filter": "Filter",
-        "show_replies": "Vis svar",
         "minimize_recommendations": "Minimer anbefalinger",
         "show_recommendations": "Vis anbefalinger",
         "clear_history": "Tøm historik",
@@ -79,7 +78,7 @@
         "select_playlist": "Vælg en afspilningsliste"
     },
     "comment": {
-        "pinned_by": "Fastgjort af"
+        "pinned_by": "Fastgjort af {author}"
     },
     "preferences": {
         "instance_name": "Instansnavn",

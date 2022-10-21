@@ -40,7 +40,7 @@
         "minimize_description": "Minimizza la descrizione per impostazione predefinita",
         "minimize_recommendations": "Minimizza consigli",
         "show_recommendations": "Mostra consigli",
-        "donations": "Donazioni",
+        "donations": "Donazioni per lo sviluppo",
         "auto_play_next_video": "Riproduci automaticamente il prossimo video",
         "loop_this_video": "Ripeti questo video",
         "import_from_json": "Importa da JSON/CSV",
@@ -54,7 +54,6 @@
         "search": "Cerca",
         "view_ssl_score": "Visualizza il punteggio SSL",
         "clear_history": "Cancella la cronologia",
-        "show_replies": "Mostra risposte",
         "load_more_replies": "Carica più risposte",
         "hide_replies": "Nascondi risposte",
         "skip_filler_tangent": "Ignora i filler",
@@ -90,7 +89,11 @@
         "with_timecode": "Condividi con marca temporale",
         "new_playlist_name": "Nuovo nome dalla playlist",
         "rename_playlist": "Rinomina la playlist",
-        "show_chapters": "Capitoli"
+        "show_chapters": "Capitoli",
+        "store_search_history": "Memorizza la cronologia delle ricerche",
+        "status_page": "Stato",
+        "documentation": "Documentazione",
+        "source_code": "Codice sorgente"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -128,7 +131,7 @@
         "up_to_date": "Aggiornato?"
     },
     "comment": {
-        "pinned_by": "Appuntato da",
+        "pinned_by": "Appuntato da {author}",
         "disabled": "I commenti sono disabilitati dall'autore.",
         "loading": "Caricamento dei commenti…",
         "user_disabled": "I commenti sono disabilitati nelle impostazioni."

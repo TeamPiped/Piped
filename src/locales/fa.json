@@ -54,7 +54,6 @@
         "search": "جست و جو",
         "filter": "فیلتر",
         "loading": "در حال بارگذاری...",
-        "show_replies": "نمایش پاسخ ها",
         "hide_replies": "پنهان کردن پاسخ ها",
         "load_more_replies": "بارگذاری پاسخ های بیشتر",
         "disable_lbry": "غیرفعال کردن LBRY برای استریم ها",
@@ -90,7 +89,7 @@
         "instance_name": "نام سرویس"
     },
     "comment": {
-        "pinned_by": "سنجاق شده توسط"
+        "pinned_by": "سنجاق شده توسط {author}"
     },
     "login": {
         "username": "نام کاربری",
