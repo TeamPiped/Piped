@@ -38,7 +38,7 @@
         "disable_lbry": "Išjungti LBRY srautiniam siuntimui",
         "instance_selection": "Perdavimo šaltinio pasirinkimas",
         "auto_play_next_video": "Automatiškai paleisti sekantį vaizdo įrašą",
-        "donations": "Parama",
+        "donations": "Parama plėtrai",
         "loop_this_video": "Sukti ratu šį vaizdo įrašą",
         "show_description": "Rodyti aprašymą",
         "minimize_description": "Suskleisti aprašymą",
@@ -88,7 +88,15 @@
         "status_page": "Būsena",
         "copy_link": "Kopijuoti nuorodą",
         "share": "Dalintis",
-        "new_playlist_name": "Naujas grojaraščio pavadinimas"
+        "new_playlist_name": "Naujas grojaraščio pavadinimas",
+        "minimize_recommendations_default": "Sumažinti rekomendacijas automatiškai",
+        "instance_donations": "Perdavimo šaltinio parama",
+        "instance_auth_selection": "Autentifikavimo perdavimo šaltinio pasirinkimas",
+        "skip_filler_tangent": "Praleisti užpildymo dalį",
+        "different_auth_instance": "Autentiškumo nustatymui naudoti kitą perdavimo šaltinį",
+        "back_to_home": "Grįžti į pagrindinį",
+        "skip_highlight": "Praleisti išskirtų dalių pakartojimus",
+        "time_code": "Laiko kodas (sekundėmis)"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
@@ -103,7 +111,8 @@
         "subscriptions": "Prenumeratos",
         "playlists": "Grojaraščiai",
         "account": "Paskyra",
-        "player": "Grotuvas"
+        "player": "Grotuvas",
+        "instance": "Perdavimo šaltinis"
     },
     "preferences": {
         "instance_locations": "Perdavimo šaltinio vietovė",
@@ -116,7 +125,9 @@
     },
     "comment": {
         "pinned_by": "Prisegė {author}",
-        "loading": "Įkeliami komentarai..."
+        "loading": "Įkeliami komentarai...",
+        "disabled": "Komentarai yra išjungti įkėlėjo.",
+        "user_disabled": "Komentarai yra išjungti nustatymuose."
     },
     "video": {
         "views": "{views} peržiūros",
@@ -124,7 +135,9 @@
         "sponsor_segments": "Rėmėjų segmentai",
         "watched": "Žiūrėta",
         "ratings_disabled": "Įvertinimai išjungti",
-        "chapters": "Skyriai"
+        "chapters": "Skyriai",
+        "live": "{0} tiesiogiai",
+        "shorts": "Trumpi filmukai"
     },
     "login": {
         "password": "Slaptažodis",
