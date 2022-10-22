@@ -206,7 +206,7 @@ export default {
                 if (this.video.watched) {
                     let request = store.delete(videoId);
                     request.onsuccess = function () {
-                        instance.$emit("update:watched");
+                        instance.$emit("update:watched", [instance.video.url]);
                     };
                     return;
                 }
@@ -233,7 +233,7 @@ export default {
                     // Save
                     store.put(video);
                     // Disappear if hideWatched is on
-                    instance.$emit("update:watched");
+                    instance.$emit("update:watched", [instance.video.url]);
                     instance.shouldShowVideo();
                 };
             }

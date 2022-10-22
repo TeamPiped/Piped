@@ -91,8 +91,14 @@ export default {
                 this.loadMoreVideos();
             }
         },
-        onUpdateWatched() {
-            if (this.videos.length > 0) this.updateWatched(this.videos);
+        onUpdateWatched(urls = null) {
+            if (urls === null) {
+                if (this.videos.length > 0) this.updateWatched(this.videos);
+                return;
+            }
+
+            const subset = this.videos.filter(({ url }) => urls.includes(url));
+            if (subset.length > 0) this.updateWatched(subset);
         },
     },
 };
