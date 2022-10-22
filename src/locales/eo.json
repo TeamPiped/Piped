@@ -9,14 +9,15 @@
         "subscriptions": "Abonoj",
         "playlists": "Ludlistoj",
         "account": "Konto",
-        "player": "Ludilo"
+        "player": "Ludilo",
+        "instance": "Nodo"
     },
     "player": {
         "watch_on": "Vidi en {0}"
     },
     "actions": {
-        "subscribe": "Aboni",
-        "unsubscribe": "Malaboni",
+        "subscribe": "Aboni - {count}",
+        "unsubscribe": "Malaboni - {count}",
         "view_subscriptions": "Vidi Abonojn",
         "sort_by": "Ordigi laŭ:",
         "most_recent": "Plej Freŝaj",
@@ -40,7 +41,7 @@
         "default_homepage": "Defaŭlta Ĉefpaĝo",
         "show_comments": "Montri Komentojn",
         "language_selection": "Lingva Elekto",
-        "donations": "Donacoj",
+        "donations": "Donacoj por programado",
         "show_more": "Montri pli",
         "yes": "Jes",
         "no": "Ne",
@@ -64,11 +65,43 @@
         "create_playlist": "Krei Ludliston",
         "delete_account": "Forigi Konton",
         "new_playlist_name": "Nomo de nova ludlisto",
-        "reply_count": "{count} respondoj"
+        "reply_count": "{count} respondoj",
+        "load_more_replies": "Ŝargi pli da respondoj",
+        "share": "Konigi",
+        "minimize_description": "Plejetigi priskribon",
+        "with_timecode": "Konigi kun tempkodo",
+        "instance_donations": "Donacoj por instanco",
+        "confirm_reset_preferences": "Ĉu vi certe volas restarigi viajn agordojn?",
+        "export_to_json": "Elporti JSON-n",
+        "loop_this_video": "Ripetadi ĉi tiun videon",
+        "enable_lbry_proxy": "Ebligi prokurilon por LBRY",
+        "import_from_json": "Importi el JSON/CSV",
+        "show_description": "Montri priskribon",
+        "instances_list": "Listo de nodoj",
+        "auto_play_next_video": "Aŭtomate ludi sekvan videon",
+        "show_recommendations": "Montri rekomendojn",
+        "reset_preferences": "Restarigi agordojn",
+        "instance_selection": "Noda elekto",
+        "view_ssl_score": "Vidu SSL-Poentaron",
+        "backup_preferences": "Savkopii agordojn",
+        "disable_lbry": "Malebligi LBRY-n por elsendfluo",
+        "delete_playlist_confirm": "Ĉu forigi ĉi tiun ludliston?",
+        "store_search_history": "Konservi ŝerĉhistorion",
+        "hide_watched": "Kaŝi viditajn videojn en la fluo",
+        "minimize_recommendations": "Plejetigi rekomendojn",
+        "instance_auth_selection": "Elekto de aŭtentokontrola nodo",
+        "restore_preferences": "Restarigi agordojn",
+        "status_page": "Stato",
+        "please_select_playlist": "Bonvolu elekti ludliston",
+        "different_auth_instance": "Uzi alian nodon por aŭtentokontrolo",
+        "back_to_home": "Ree hejmen",
+        "time_code": "Tempkodo (en sekundoj)"
     },
     "video": {
         "chapters": "Sekcioj",
-        "videos": "Videoj"
+        "videos": "Videoj",
+        "live": "{0} Realtempe",
+        "views": "{views} spektoj"
     },
     "search": {
         "music_albums": "YT Music: Albumoj",
@@ -77,17 +110,34 @@
         "playlists": "YouTube: Ludlistoj",
         "channels": "YouTube: Kanaloj",
         "music_videos": "YT Music: Videoj",
-        "music_songs": "YT Music: Muzikaĵoj"
+        "music_songs": "YT Music: Muzikaĵoj",
+        "all": "YouTube: Ĉio"
     },
     "info": {
         "copied": "Kopiita!",
-        "cannot_copy": "Ne povas kopii!"
+        "cannot_copy": "Ne povas kopii!",
+        "preferences_note": "Noto: la agordoj estas konservitaj en la loka memoro de via retumilo. Forigi la datumojn de via retumilo restarigos ilin.",
+        "page_not_found": "Paĝo ne trovita"
     },
     "login": {
         "username": "Uzantnomo",
         "password": "Pasvorto"
     },
     "preferences": {
-        "version": "Versio"
+        "version": "Versio",
+        "instance_name": "Noda nomo",
+        "registered_users": "Registritaj uzantoj",
+        "ssl_score": "SSL-poentaro",
+        "up_to_date": "Ĉu ĝisdata?",
+        "has_cdn": "Ĉu ĝi havas CDN-n?",
+        "instance_locations": "Nodaj lokoj"
+    },
+    "comment": {
+        "disabled": "Komentoj estas malebligitaj de la alŝutinto.",
+        "user_disabled": "Komentoj estas malebligitaj en la agordoj.",
+        "pinned_by": "Fiksita de {author}"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Abonita al: {0}"
     }
 }
