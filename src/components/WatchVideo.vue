@@ -277,9 +277,6 @@ export default {
                 year: "numeric",
             });
         },
-        commentsEnabled() {
-            return this.getPreferenceBoolean("comments", true);
-        },
     },
     mounted() {
         // check screen size
@@ -327,7 +324,7 @@ export default {
         this.index = Number(this.$route.query.index);
         this.getPlaylistData();
         this.getSponsors();
-        if (!this.isEmbed && this.commentsEnabled) this.getComments();
+        if (!this.isEmbed && this.showComments) this.getComments();
         window.addEventListener("resize", () => {
             this.smallView = this.smallViewQuery.matches;
         });
@@ -335,6 +332,7 @@ export default {
     activated() {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
+        this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         if (this.video.duration) {
