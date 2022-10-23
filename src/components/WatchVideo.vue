@@ -162,9 +162,14 @@
         <hr />
 
         <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
-            <div v-if="!commentsEnabled" class="xl:col-span-4 sm:col-span-3">
-                <p class="text-center mt-8" v-t="'comment.user_disabled'"></p>
+            <div class="xl:col-span-4 sm:col-span-3">
+                <button
+                    class="btn mb-2"
+                    @click="toggleComments"
+                    v-t="`actions.${showComments ? 'minimize_comments' : 'show_comments'}`"
+                />
             </div>
+            <div v-if="!showComments" class="xl:col-span-4 sm:col-span-3"></div>
             <div v-else-if="!comments" class="xl:col-span-4 sm:col-span-3">
                 <p class="text-center mt-8" v-t="'comment.loading'"></p>
             </div>
@@ -243,6 +248,7 @@ export default {
             sponsors: null,
             selectedAutoLoop: false,
             selectedAutoPlay: null,
+            showComments: true,
             showDesc: true,
             showRecs: true,
             showChapters: true,
@@ -362,6 +368,12 @@ export default {
                     ) +
                     '"]',
             });
+        },
+        toggleComments() {
+            this.showComments = !this.showComments;
+            if (this.showComments && this.comments === null) {
+                this.fetchComments();
+            }
         },
         fetchComments() {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
