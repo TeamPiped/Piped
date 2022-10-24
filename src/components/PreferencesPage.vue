@@ -501,7 +501,7 @@ export default {
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
             this.countrySelected = this.getPreferenceString("region", "US");
             this.defaultHomepage = this.getPreferenceString("homepage", "trending");
-            this.minimizeComments = this.getPreferenceBoolean("minimizeComments", true);
+            this.minimizeComments = this.getPreferenceBoolean("minimizeComments", false);
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
             this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
