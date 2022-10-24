@@ -121,7 +121,9 @@
         "instance_donations": "Donaciones para instancia",
         "status_page": "Estado",
         "hide_watched": "Ocultar los vídeos vistos en el feed",
-        "reply_count": "{count} respuestas"
+        "reply_count": "{count} respuestas",
+        "minimize_comments_default": "Minimizar comentarios por defecto",
+        "minimize_comments": "Minimizar comentarios"
     },
     "titles": {
         "feed": "Fuente web",
