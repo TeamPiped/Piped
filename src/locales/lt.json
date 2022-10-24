@@ -96,7 +96,9 @@
         "different_auth_instance": "Autentiškumo nustatymui naudoti kitą perdavimo šaltinį",
         "back_to_home": "Grįžti į pagrindinį",
         "skip_highlight": "Praleisti išskirtų dalių pakartojimus",
-        "time_code": "Laiko kodas (sekundėmis)"
+        "time_code": "Laiko kodas (sekundėmis)",
+        "minimize_comments_default": "Suskleisti komentarus automatiškai",
+        "minimize_comments": "Suskleisti komentarus"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
