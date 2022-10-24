@@ -487,7 +487,7 @@ export default {
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
-            if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
+            if (window.innerHeight + window.scrollY >= this.$refs.comments?.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.getVideoId(), {
                     nextpage: this.comments.nextpage,
