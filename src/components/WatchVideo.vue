@@ -162,9 +162,14 @@
         <hr />
 
         <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
-            <div v-if="!commentsEnabled" class="xl:col-span-4 sm:col-span-3">
-                <p class="text-center mt-8" v-t="'comment.user_disabled'"></p>
+            <div class="xl:col-span-4 sm:col-span-3">
+                <button
+                    class="btn mb-2"
+                    @click="toggleComments"
+                    v-t="`actions.${showComments ? 'minimize_comments' : 'show_comments'}`"
+                />
             </div>
+            <div v-if="!showComments" class="xl:col-span-4 sm:col-span-3"></div>
             <div v-else-if="!comments" class="xl:col-span-4 sm:col-span-3">
                 <p class="text-center mt-8" v-t="'comment.loading'"></p>
             </div>
@@ -243,6 +248,7 @@ export default {
             sponsors: null,
             selectedAutoLoop: false,
             selectedAutoPlay: null,
+            showComments: true,
             showDesc: true,
             showRecs: true,
             showChapters: true,
@@ -276,9 +282,6 @@ export default {
                 day: "numeric",
                 year: "numeric",
             });
-        },
-        commentsEnabled() {
-            return this.getPreferenceBoolean("comments", true);
         },
     },
     mounted() {
@@ -327,7 +330,7 @@ export default {
         this.index = Number(this.$route.query.index);
         this.getPlaylistData();
         this.getSponsors();
-        if (!this.isEmbed && this.commentsEnabled) this.getComments();
+        if (!this.isEmbed && this.showComments) this.getComments();
         window.addEventListener("resize", () => {
             this.smallView = this.smallViewQuery.matches;
         });
@@ -335,6 +338,7 @@ export default {
     activated() {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
+        this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         if (this.video.duration) {
@@ -364,6 +368,12 @@ export default {
                     ) +
                     '"]',
             });
+        },
+        toggleComments() {
+            this.showComments = !this.showComments;
+            if (this.showComments && this.comments === null) {
+                this.fetchComments();
+            }
         },
         fetchComments() {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
@@ -477,7 +487,7 @@ export default {
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
-            if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
+            if (window.innerHeight + window.scrollY >= this.$refs.comments?.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.getVideoId(), {
                     nextpage: this.comments.nextpage,
