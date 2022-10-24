@@ -95,7 +95,8 @@
         "source_code": "Kaynak kodu",
         "documentation": "Belgelendirme",
         "instance_donations": "Örnek bağışları",
-        "status_page": "Durum"
+        "status_page": "Durum",
+        "reply_count": "{count} yanıt"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"

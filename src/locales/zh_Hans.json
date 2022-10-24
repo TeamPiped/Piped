@@ -95,7 +95,8 @@
         "status_page": "状态",
         "source_code": "源代码",
         "instance_donations": "实例捐赠",
-        "documentation": "文档"
+        "documentation": "文档",
+        "reply_count": "{count} 条回复"
     },
     "video": {
         "sponsor_segments": "赞助商部分",

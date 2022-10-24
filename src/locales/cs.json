@@ -108,7 +108,8 @@
         "source_code": "Zdrojový kód",
         "instance_donations": "Dary na instanci",
         "documentation": "Dokumentace",
-        "status_page": "Stav"
+        "status_page": "Stav",
+        "reply_count": "{count} odpovědí"
     },
     "player": {
         "watch_on": "Sledovat na {0}"

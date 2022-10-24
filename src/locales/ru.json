@@ -111,7 +111,8 @@
         "status_page": "Статус",
         "source_code": "Исходный код",
         "documentation": "Пожертвования сервера",
-        "instance_donations": "Пожертвования сервера"
+        "instance_donations": "Пожертвования сервера",
+        "reply_count": "{count} ответов"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем {author}",
