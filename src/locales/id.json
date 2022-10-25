@@ -112,7 +112,9 @@
         "hide_watched": "Sembunyikan video yang telah ditonton di umpan",
         "status_page": "Status",
         "source_code": "Kode sumber",
-        "reply_count": "{count} balasan"
+        "reply_count": "{count} balasan",
+        "minimize_comments_default": "Kecilkan Komentar secara bawaan",
+        "minimize_comments": "Kecilkan Komentar"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
