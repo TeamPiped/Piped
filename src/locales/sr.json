@@ -105,7 +105,10 @@
         "follow_link": "Прати везу",
         "copy_link": "Копирај везу",
         "time_code": "Временски код (у секундама)",
-        "new_playlist_name": "Ново име плејлисте"
+        "new_playlist_name": "Ново име плејлисте",
+        "minimize_comments_default": "Подразумевано умањи коментаре",
+        "minimize_comments": "Умањи коментаре",
+        "reply_count": "{count} одговора"
     },
     "preferences": {
         "instance_locations": "Локација инстанце",
