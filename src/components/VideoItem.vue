@@ -14,7 +14,7 @@
                 class="w-full"
                 :src="video.thumbnail"
                 :alt="video.title"
-                :class="{ 'shorts-img': short }"
+                :class="{ 'shorts-img': video.isShort }"
                 loading="lazy"
             />
             <div class="relative text-sm">
@@ -24,7 +24,7 @@
                     v-text="timeFormat(video.duration)"
                 />
                 <!-- shorts thumbnail -->
-                <span class="thumbnail-overlay thumbnail-left" v-if="short" v-t="'video.shorts'" />
+                <span class="thumbnail-overlay thumbnail-left" v-if="video.isShort" v-t="'video.shorts'" />
                 <span
                     class="thumbnail-overlay thumbnail-right"
                     v-else-if="video.duration >= 60"
@@ -182,11 +182,6 @@ export default {
                     return;
                 }
             };
-        },
-    },
-    computed: {
-        short() {
-            return this.video.duration > 0 && this.video.duration <= 61;
         },
     },
     components: { PlaylistAddModal },
