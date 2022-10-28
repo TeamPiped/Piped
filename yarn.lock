@@ -3850,10 +3850,10 @@ vite-plugin-pwa@0.13.1:
     workbox-build "^6.5.4"
     workbox-window "^6.5.4"
 
-vite@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-3.2.0.tgz#a4015914620ff0122ea57fddfecc0e250eb6582c"
-  integrity sha512-Ovj7+cqIdM1I0LPCk2CWxzgADXMix3NLXpUT6g7P7zg/a9grk/TaC3qn9YMg7w7M0POIVCBOp1aBANJW+RH7oA==
+vite@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-3.2.1.tgz#dc1f54568300a7acdd89c8611e2719c21f1334f4"
+  integrity sha512-ADtMkfHuWq4tskJsri2n2FZkORO8ZyhI+zIz7zTrDAgDEtct1jdxOg3YsZBfHhKjmMoWLOSCr+64qrEDGo/DbQ==
   dependencies:
     esbuild "^0.15.9"
     postcss "^8.4.18"
