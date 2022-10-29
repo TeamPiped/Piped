@@ -112,7 +112,9 @@
         "store_watch_history": "Konservi Vidhistorion",
         "logout": "Elsaluti el ĉi tiu aparato",
         "minimize_description_default": "Defaŭlte Plejetigi Priskribon",
-        "minimize_recommendations_default": "Defaŭlte Plejetigi Rekomendojn"
+        "minimize_recommendations_default": "Defaŭlte Plejetigi Rekomendojn",
+        "minimize_comments_default": "Defaŭlte Plejetigi Komentojn",
+        "minimize_comments": "Plejetigi Komentojn"
     },
     "video": {
         "chapters": "Sekcioj",

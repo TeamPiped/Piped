@@ -15,8 +15,8 @@
     "actions": {
         "sort_by": "Raða eftir:",
         "back": "Til Baka",
-        "dark": "Dimmt",
-        "light": "Ljóst",
+        "dark": "Dökk",
+        "light": "Ljós",
         "theme": "Þema",
         "enable_sponsorblock": "Virkja Sponsorblock",
         "subscribe": "Gerast Áskrifandi - {count}",
@@ -55,7 +55,7 @@
         "show_recommendations": "Sýna Tillögur",
         "disable_lbry": "Óvirkja LBRY Fyrir Straumspilun",
         "enable_lbry_proxy": "Virkja Staðgengilsþjón fyrir LBRY",
-        "view_ssl_score": "Skoðaðu SSL Einkunn",
+        "view_ssl_score": "Skoða SSL einkunn",
         "enabled_codecs": "Virkjir Afkóðarar (Marghæft)",
         "instance_selection": "Tilviksval",
         "import_from_json": "Flytja inn frá JSON/CSV",
@@ -109,7 +109,9 @@
         "store_search_history": "Geyma leitarferil",
         "hide_watched": "Fela myndbönd sem þú hefur horft á",
         "show_chapters": "Kaflar",
-        "reply_count": "{count} svör"
+        "reply_count": "{count} svör",
+        "minimize_comments_default": "Fela ummæli sjálfgefið",
+        "minimize_comments": "Fela ummæli"
     },
     "player": {
         "watch_on": "Horfa á {0}"
@@ -144,8 +146,8 @@
     "preferences": {
         "instance_name": "Tilviksheiti",
         "instance_locations": "Tilviksstaðsetning",
-        "has_cdn": "Hefur Efnisflutningarnet (CDN)?",
-        "ssl_score": "SSL Einkunn",
+        "has_cdn": "Hefur efnisflutningarnet (CDN)?",
+        "ssl_score": "SSL einkunn",
         "version": "Útgáfa",
         "registered_users": "Skráðir notendur",
         "up_to_date": "Nýjasta útgáfa?"

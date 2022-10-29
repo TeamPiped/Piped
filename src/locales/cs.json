@@ -109,7 +109,9 @@
         "instance_donations": "Dary na instanci",
         "documentation": "Dokumentace",
         "status_page": "Stav",
-        "reply_count": "{count} odpovědí"
+        "reply_count": "{count} odpovědí",
+        "minimize_comments_default": "Ve výchozím nastavení skrýt komentáře",
+        "minimize_comments": "Skrýt komentáře"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
