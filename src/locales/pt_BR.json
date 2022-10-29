@@ -38,7 +38,7 @@
         "yes": "Sim",
         "show_more": "Mostrar mais",
         "export_to_json": "Exportar para JSON",
-        "donations": "Doações",
+        "donations": "Doações de desenvolvimento",
         "minimize_recommendations": "Recolher recomendações",
         "loading": "Carregando...",
         "hide_replies": "Esconder respostas",
@@ -66,7 +66,9 @@
         "auto_play_next_video": "Autoreproduzir vídeo seguinte",
         "filter": "Filtro",
         "store_watch_history": "Salvar Histórico de Exibição",
-        "show_recommendations": "Mostrar recomendações"
+        "show_recommendations": "Mostrar recomendações",
+        "minimize_comments_default": "Minimizar Comentários por padrão",
+        "minimize_comments": "Minimizar Comentários"
     },
     "titles": {
         "history": "Histórico",
@@ -76,7 +78,10 @@
         "login": "Entrar",
         "playlists": "Playlists",
         "feed": "Feed",
-        "subscriptions": "Inscrições"
+        "subscriptions": "Inscrições",
+        "instance": "Instância",
+        "player": "Player",
+        "account": "Conta"
     },
     "player": {
         "watch_on": "Assistir no"
