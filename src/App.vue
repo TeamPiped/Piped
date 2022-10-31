@@ -67,11 +67,13 @@ export default {
             const defaultLang = await App.defaultLangage;
             const locale = App.getPreferenceString("hl", defaultLang);
             if (locale !== App.TimeAgoConfig.locale) {
-                const localeTime = await import(`../node_modules/javascript-time-ago/locale/${locale}.json`).then(
-                    module => module.default,
-                );
-                App.TimeAgo.addLocale(localeTime);
-                App.TimeAgoConfig.locale = locale;
+                const localeTime = await import(`../node_modules/javascript-time-ago/locale/${locale}.json`)
+                    .catch(() => null)
+                    .then(module => module?.default);
+                if (localeTime) {
+                    App.TimeAgo.addLocale(localeTime);
+                    App.TimeAgoConfig.locale = locale;
+                }
             }
             if (window.i18n.global.locale.value !== locale) {
                 if (!window.i18n.global.availableLocales.includes(locale)) {
