@@ -121,7 +121,9 @@
         "store_search_history": "Spremi povijest pretrage",
         "hide_watched": "Sakrij gledana videa u novostima",
         "status_page": "Stanje",
-        "reply_count": "{count} odgovora"
+        "reply_count": "{count} odgovora",
+        "minimize_comments_default": "Standardno sakrij komentare",
+        "minimize_comments": "Sakrij komentare"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
