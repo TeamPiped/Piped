@@ -204,6 +204,9 @@ export default {
                 case "Shorts":
                     translatedTabName = this.$t("video.shorts");
                     break;
+                default:
+                    console.error(`Tab name "${tabName}" is not translated yet!`);
+                    break;
             }
             return translatedTabName;
         },
