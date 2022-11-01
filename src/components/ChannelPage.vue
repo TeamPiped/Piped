@@ -142,7 +142,13 @@ export default {
                 });
         },
         handleScroll() {
-            if (this.loading || !this.channel || !this.channel.nextpage) return;
+            if (
+                this.loading ||
+                !this.channel ||
+                !this.channel.nextpage ||
+                (this.selectedTab != 0 && !this.tabs[this.selectedTab].tabNextPage)
+            )
+                return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 if (this.selectedTab == 0) {
@@ -165,11 +171,12 @@ export default {
         fetchChannelTabNextPage() {
             this.fetchJson(this.apiUrl() + "/channels/tabs", {
                 data: this.tabs[this.selectedTab].data,
-                nextpage: this.tabNextPage,
+                nextpage: this.tabs[this.selectedTab].tabNextPage,
             }).then(json => {
-                this.tabNextPage = json.nextpage;
+                this.tabs[this.selectedTab].tabNextPage = json.nextpage;
                 this.loading = false;
                 json.content.map(item => this.contentItems.push(item));
+                this.tabs[this.selectedTab].content = this.contentItems;
             });
         },
         subscribeHandler() {
@@ -216,11 +223,15 @@ export default {
                 this.contentItems = this.channel.relatedStreams;
                 return;
             }
+            if (this.tabs[index].content) {
+                this.contentItems = this.tabs[index].content;
+                return;
+            }
             this.fetchJson(this.apiUrl() + "/channels/tabs", {
                 data: this.tabs[index].data,
             }).then(tab => {
-                this.contentItems = tab.content;
-                this.tabNextPage = tab.nextpage;
+                this.contentItems = this.tabs[index].content = tab.content;
+                this.tabs[this.selectedTab].tabNextPage = tab.nextpage;
             });
         },
     },
