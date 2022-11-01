@@ -53,7 +53,7 @@
             <ContentItem
                 v-for="item in contentItems"
                 :key="item.url"
-                :content-item="item"
+                :item="item"
                 height="94"
                 width="168"
                 hide-channel
