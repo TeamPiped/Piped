@@ -112,7 +112,8 @@
         "instance": "Instância",
         "player": "Player",
         "account": "Conta",
-        "channels": "Canais"
+        "channels": "Canais",
+        "livestreams": "Transmissões ao vivo"
     },
     "player": {
         "watch_on": "Assistir no"
