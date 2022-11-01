@@ -35,13 +35,19 @@
             <font-awesome-icon icon="rss" />
         </a>
 
+        <div class="flex mt-4 mb-2">
+            <button v-for="(tab, index) in tabs" :key="tab.name" class="btn mr-2" @click="loadTab(index)">
+                <span v-text="tab.translatedName"></span>
+            </button>
+        </div>
+
         <hr />
 
         <div class="video-grid">
-            <VideoItem
-                v-for="video in channel.relatedStreams"
-                :key="video.url"
-                :video="video"
+            <ContentItem
+                v-for="item in contentItems"
+                :key="item.url"
+                :content-item="item"
                 height="94"
                 width="168"
                 hide-channel
@@ -52,17 +58,21 @@
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
-import VideoItem from "./VideoItem.vue";
+import ContentItem from "./ContentItem.vue";
 
 export default {
     components: {
         ErrorHandler,
-        VideoItem,
+        ContentItem,
     },
     data() {
         return {
             channel: null,
             subscribed: false,
+            tabs: [],
+            selectedTab: 0,
+            contentItems: [],
+            tabNextPage: null,
         };
     },
     mounted() {
@@ -111,8 +121,17 @@ export default {
                 .then(() => {
                     if (!this.channel.error) {
                         document.title = this.channel.name + " - Piped";
+                        this.contentItems = this.channel.relatedStreams;
                         this.fetchSubscribedStatus();
                         this.updateWatched(this.channel.relatedStreams);
+                        this.tabs.push({
+                            translatedName: this.$t("video.videos"),
+                        });
+                        for (let i = 0; i < this.channel.tabs.length; i++) {
+                            let tab = this.channel.tabs[i];
+                            tab.translatedName = this.getTranslatedTabName(tab.name);
+                            this.tabs.push(tab);
+                        }
                     }
                 });
         },
@@ -126,7 +145,7 @@ export default {
                     this.channel.nextpage = json.nextpage;
                     this.loading = false;
                     this.updateWatched(json.relatedStreams);
-                    json.relatedStreams.map(stream => this.channel.relatedStreams.push(stream));
+                    json.relatedStreams.map(stream => this.contentItems.push(stream));
                 });
             }
         },
@@ -146,6 +165,36 @@ export default {
                 this.handleLocalSubscriptions(this.channel.id);
             }
             this.subscribed = !this.subscribed;
+        },
+        getTranslatedTabName(tabName) {
+            let translatedTabName = tabName;
+            switch (tabName) {
+                case "Livestreams":
+                    translatedTabName = this.$t("titles.livestreams");
+                    break;
+                case "Playlists":
+                    translatedTabName = this.$t("titles.playlists");
+                    break;
+                case "Channels":
+                    translatedTabName = this.$t("titles.channels");
+                    break;
+                case "Shorts":
+                    translatedTabName = this.$t("video.shorts");
+                    break;
+            }
+            return translatedTabName;
+        },
+        loadTab(index) {
+            if (index == 0) {
+                this.contentItems = this.channel.relatedStreams;
+                return;
+            }
+            this.fetchJson(this.apiUrl() + "/channels/tabs", {
+                data: this.tabs[index].data,
+            }).then(tab => {
+                this.contentItems = tab.content;
+                this.tabNextPage = tab.nextpage;
+            });
         },
     },
 };

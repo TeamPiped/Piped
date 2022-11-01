@@ -10,7 +10,9 @@
         "playlists": "Playlists",
         "account": "Account",
         "instance": "Instance",
-        "player": "Player"
+        "player": "Player",
+        "livestreams": "Livestreams",
+        "channels": "Channels"
     },
     "player": {
         "watch_on": "Watch on {0}"
