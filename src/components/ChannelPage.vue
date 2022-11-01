@@ -78,7 +78,6 @@ export default {
             tabs: [],
             selectedTab: 0,
             contentItems: [],
-            tabNextPage: null,
         };
     },
     mounted() {
