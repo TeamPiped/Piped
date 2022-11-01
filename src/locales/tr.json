@@ -114,7 +114,9 @@
         "playlists": "Oynatma Listeleri",
         "account": "Hesap",
         "instance": "Örnek",
-        "player": "Oynatıcı"
+        "player": "Oynatıcı",
+        "livestreams": "Canlı Yayınlar",
+        "channels": "Kanallar"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
