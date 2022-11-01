@@ -10,7 +10,9 @@
         "playlists": "Ludlistoj",
         "account": "Konto",
         "player": "Ludilo",
-        "instance": "Nodo"
+        "instance": "Nodo",
+        "channels": "Kanaloj",
+        "livestreams": "Tujelsendoj"
     },
     "player": {
         "watch_on": "Vidi en {0}"
