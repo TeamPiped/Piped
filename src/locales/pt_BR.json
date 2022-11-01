@@ -111,7 +111,8 @@
         "subscriptions": "Inscrições",
         "instance": "Instância",
         "player": "Player",
-        "account": "Conta"
+        "account": "Conta",
+        "channels": "Canais"
     },
     "player": {
         "watch_on": "Assistir no"
