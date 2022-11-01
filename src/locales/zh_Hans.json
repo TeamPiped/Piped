@@ -139,7 +139,9 @@
         "playlists": "播放列表",
         "account": "账户",
         "instance": "实例",
-        "player": "播放器"
+        "player": "播放器",
+        "livestreams": "直播",
+        "channels": "频道"
     },
     "login": {
         "password": "密码",
