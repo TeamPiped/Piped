@@ -136,7 +136,9 @@
         "playlists": "Listas de reproducción",
         "account": "Cuenta",
         "instance": "Instancia",
-        "player": "Reproductor"
+        "player": "Reproductor",
+        "livestreams": "Directos",
+        "channels": "Canales"
     },
     "player": {
         "watch_on": "Ver en {0}"
