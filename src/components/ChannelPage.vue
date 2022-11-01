@@ -142,7 +142,7 @@ export default {
                 });
         },
         handleScroll() {
-            if (this.loading || !this.channel || !this.channel.nextpage) return;
+            if (this.loading || !this.channel) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 if (this.selectedTab == 0) {
@@ -153,6 +153,7 @@ export default {
             }
         },
         fetchChannelNextPage() {
+            if (!this.channel.nextpage) return;
             this.fetchJson(this.apiUrl() + "/nextpage/channel/" + this.channel.id, {
                 nextpage: this.channel.nextpage,
             }).then(json => {
@@ -163,6 +164,7 @@ export default {
             });
         },
         fetchChannelTabNextPage() {
+            if (!this.tabNextPage) return;
             this.fetchJson(this.apiUrl() + "/channels/tabs", {
                 data: this.tabs[this.selectedTab].data,
                 nextpage: this.tabNextPage,
