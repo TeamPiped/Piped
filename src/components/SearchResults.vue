@@ -20,7 +20,7 @@
 
     <div v-if="results" class="video-grid">
         <template v-for="result in results.items" :key="result.url">
-            <ContentItem :content-item="result" />
+            <ContentItem :item="result" height="94" width="168" />
         </template>
     </div>
 </template>

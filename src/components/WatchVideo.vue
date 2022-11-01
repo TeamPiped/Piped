@@ -200,10 +200,10 @@
                 />
                 <hr v-show="showRecs" />
                 <div v-show="showRecs">
-                    <VideoItem
+                    <ContentItem
                         v-for="related in video.relatedStreams"
                         :key="related.url"
-                        :video="related"
+                        :item="related"
                         height="94"
                         width="168"
                     />
@@ -216,7 +216,7 @@
 
 <script>
 import VideoPlayer from "./VideoPlayer.vue";
-import VideoItem from "./VideoItem.vue";
+import ContentItem from "./ContentItem.vue";
 import ErrorHandler from "./ErrorHandler.vue";
 import CommentItem from "./CommentItem.vue";
 import ChaptersBar from "./ChaptersBar.vue";
@@ -228,7 +228,7 @@ export default {
     name: "App",
     components: {
         VideoPlayer,
-        VideoItem,
+        ContentItem,
         ErrorHandler,
         CommentItem,
         ChaptersBar,
