@@ -36,7 +36,13 @@
         </a>
 
         <div class="flex mt-4 mb-2">
-            <button v-for="(tab, index) in tabs" :key="tab.name" class="btn mr-2" @click="loadTab(index)">
+            <button
+                v-for="(tab, index) in tabs"
+                :key="tab.name"
+                class="btn mr-2"
+                @click="loadTab(index)"
+                :class="{ active: selectedTab == index }"
+            >
                 <span v-text="tab.translatedName"></span>
             </button>
         </div>
@@ -217,3 +223,9 @@ export default {
     },
 };
 </script>
+
+<style>
+.active {
+    border: 0.1rem outset red;
+}
+</style>
