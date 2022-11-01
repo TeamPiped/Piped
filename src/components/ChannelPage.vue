@@ -139,15 +139,32 @@ export default {
             if (this.loading || !this.channel || !this.channel.nextpage) return;
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loading = true;
-                this.fetchJson(this.apiUrl() + "/nextpage/channel/" + this.channel.id, {
-                    nextpage: this.channel.nextpage,
-                }).then(json => {
-                    this.channel.nextpage = json.nextpage;
-                    this.loading = false;
-                    this.updateWatched(json.relatedStreams);
-                    json.relatedStreams.map(stream => this.contentItems.push(stream));
-                });
+                if (this.selectedTab == 0) {
+                    this.fetchChannelNextPage();
+                } else {
+                    this.fetchChannelTabNextPage();
+                }
             }
+        },
+        fetchChannelNextPage() {
+            this.fetchJson(this.apiUrl() + "/nextpage/channel/" + this.channel.id, {
+                nextpage: this.channel.nextpage,
+            }).then(json => {
+                this.channel.nextpage = json.nextpage;
+                this.loading = false;
+                this.updateWatched(json.relatedStreams);
+                json.relatedStreams.map(stream => this.contentItems.push(stream));
+            });
+        },
+        fetchChannelTabNextPage() {
+            this.fetchJson(this.apiUrl() + "/channels/tabs", {
+                data: this.tabs[this.selectedTab].data,
+                nextpage: this.tabNextPage,
+            }).then(json => {
+                this.tabNextPage = json.nextpage;
+                this.loading = false;
+                json.content.map(item => this.contentItems.push(item));
+            });
         },
         subscribeHandler() {
             if (this.authenticated) {
@@ -185,6 +202,7 @@ export default {
             return translatedTabName;
         },
         loadTab(index) {
+            this.selectedTab = index;
             if (index == 0) {
                 this.contentItems = this.channel.relatedStreams;
                 return;
