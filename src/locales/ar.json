@@ -10,7 +10,9 @@
         "feed": "التغذية",
         "account": "الحساب",
         "instance": "الخادم",
-        "player": "المشغل"
+        "player": "المشغل",
+        "livestreams": "البث المباشر",
+        "channels": "القنوات"
     },
     "player": {
         "watch_on": "شاهد عبر"
