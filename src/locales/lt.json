@@ -114,7 +114,9 @@
         "playlists": "Grojaraščiai",
         "account": "Paskyra",
         "player": "Grotuvas",
-        "instance": "Perdavimo šaltinis"
+        "instance": "Perdavimo šaltinis",
+        "livestreams": "Tiesioginės transliacijos",
+        "channels": "Kanalai"
     },
     "preferences": {
         "instance_locations": "Perdavimo šaltinio vietovė",
