@@ -27,7 +27,7 @@
                 <span class="thumbnail-overlay thumbnail-left" v-if="item.isShort" v-t="'video.shorts'" />
                 <span
                     class="thumbnail-overlay thumbnail-right"
-                    v-else-if="item.duration >= 60"
+                    v-else-if="item.duration >= 0"
                     v-text="timeFormat(item.duration)"
                 />
                 <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right !bg-red-600" tag="div">
