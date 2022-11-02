@@ -10,7 +10,9 @@
         "playlists": "Playlisty",
         "account": "Účet",
         "instance": "Instance",
-        "player": "Přehrávač"
+        "player": "Přehrávač",
+        "livestreams": "Živé přenosy",
+        "channels": "Kanály"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
