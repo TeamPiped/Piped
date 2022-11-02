@@ -66,8 +66,8 @@ export default {
             }
         },
         onChange() {
-            localStorage.setItem("shareWithTimeCode", this.withTimeCode);
-            localStorage.setItem("shareAsPipedLink", this.pipedLink);
+            this.setPreference("shareWithTimeCode", this.withTimeCode);
+            this.setPreference("shareAsPipedLink", this.pipedLink);
         },
     },
     computed: {
