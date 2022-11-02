@@ -10,7 +10,9 @@
         "playlists": "Daftar Putar",
         "instance": "Instansi",
         "account": "Akun",
-        "player": "Pemain"
+        "player": "Pemain",
+        "livestreams": "Siaran Langsung",
+        "channels": "Saluran"
     },
     "player": {
         "watch_on": "Tonton di {0}"
