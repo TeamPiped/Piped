@@ -30,29 +30,15 @@
             v-if="channel.id"
             :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
             target="_blank"
-            class="btn flex-col ml-3"
+            class="btn flex-col mx-3"
         >
             <font-awesome-icon icon="rss" />
         </a>
 
-        <!-- Watch on YouTube button: For large screens -->
-        <a
+        <WatchOnYouTubeButton
             v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
-            :href="`https://youtube.com/channel/${this.channel.id}`"
-            class="btn lt-lg:hidden ml-3"
-        >
-            <i18n-t keypath="player.watch_on" tag="strong">
-                <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
-            </i18n-t>
-        </a>
-        <!-- Watch on YouTube button: For small screens -->
-        <a
-            v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
-            :href="`https://youtube.com/channel/${this.channel.id}`"
-            class="btn lg:hidden ml-3"
-        >
-            <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
-        </a>
+            :link="`https://youtube.com/channel/${this.channel.id}`"
+        />
 
         <div class="flex mt-4 mb-2">
             <button
@@ -84,11 +70,13 @@
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import ContentItem from "./ContentItem.vue";
+import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
 export default {
     components: {
         ErrorHandler,
         ContentItem,
+        WatchOnYouTubeButton,
     },
     data() {
         return {

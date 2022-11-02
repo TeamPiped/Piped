@@ -108,24 +108,10 @@
                         >
                             <font-awesome-icon icon="rss" />
                         </a>
-                        <!-- Watch on YouTube button: For large screens -->
-                        <a
+                        <WatchOnYouTubeButton
                             v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
-                            :href="`https://youtu.be/${getVideoId()}`"
-                            class="btn lt-lg:hidden"
-                        >
-                            <i18n-t keypath="player.watch_on" tag="strong">
-                                <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
-                            </i18n-t>
-                        </a>
-                        <!-- Watch on YouTube button: For small screens -->
-                        <a
-                            v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
-                            :href="`https://youtu.be/${getVideoId()}`"
-                            class="btn lg:hidden"
-                        >
-                            <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
-                        </a>
+                            :link="`https://youtu.be/${getVideoId()}`"
+                        />
                         <!-- Share Dialog -->
                         <button class="btn" @click="showShareModal = !showShareModal">
                             <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
@@ -241,6 +227,7 @@ import ChaptersBar from "./ChaptersBar.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
+import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
 export default {
     name: "App",
@@ -253,6 +240,7 @@ export default {
         PlaylistAddModal,
         ShareModal,
         PlaylistVideos,
+        WatchOnYouTubeButton,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
