@@ -20,8 +20,27 @@
                 <button class="btn mr-1" @click="downloadPlaylistAsTxt">
                     {{ $t("actions.download_as_txt") }}
                 </button>
-                <a class="btn" :href="getRssUrl">
+                <a class="btn mr-1" :href="getRssUrl">
                     <font-awesome-icon icon="rss" />
+                </a>
+
+                <!-- Watch on YouTube button: For large screens -->
+                <a
+                    v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
+                    :href="`https://www.youtube.com/playlist?list=${this.$route.query.list}`"
+                    class="btn lt-lg:hidden"
+                >
+                    <i18n-t keypath="player.watch_on" tag="strong">
+                        <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
+                    </i18n-t>
+                </a>
+                <!-- Watch on YouTube button: For small screens -->
+                <a
+                    v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
+                    :href="`https://www.youtube.com/playlist?list=${this.$route.query.list}`"
+                    class="btn lg:hidden"
+                >
+                    <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
                 </a>
             </div>
         </div>

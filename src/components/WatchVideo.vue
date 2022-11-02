@@ -108,7 +108,25 @@
                         >
                             <font-awesome-icon icon="rss" />
                         </a>
-                        <!-- watch on youtube button -->
+                        <!-- Watch on YouTube button: For large screens -->
+                        <a
+                            v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
+                            :href="`https://youtu.be/${getVideoId()}`"
+                            class="btn lt-lg:hidden"
+                        >
+                            <i18n-t keypath="player.watch_on" tag="strong">
+                                <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
+                            </i18n-t>
+                        </a>
+                        <!-- Watch on YouTube button: For small screens -->
+                        <a
+                            v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
+                            :href="`https://youtu.be/${getVideoId()}`"
+                            class="btn lg:hidden"
+                        >
+                            <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
+                        </a>
+                        <!-- Share Dialog -->
                         <button class="btn" @click="showShareModal = !showShareModal">
                             <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
                             <font-awesome-icon class="mx-1.5" icon="fa-share" />

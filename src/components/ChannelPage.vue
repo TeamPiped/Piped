@@ -35,6 +35,25 @@
             <font-awesome-icon icon="rss" />
         </a>
 
+        <!-- Watch on YouTube button: For large screens -->
+        <a
+            v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
+            :href="`https://youtube.com/channel/${this.channel.id}`"
+            class="btn lt-lg:hidden ml-3"
+        >
+            <i18n-t keypath="player.watch_on" tag="strong">
+                <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
+            </i18n-t>
+        </a>
+        <!-- Watch on YouTube button: For small screens -->
+        <a
+            v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
+            :href="`https://youtube.com/channel/${this.channel.id}`"
+            class="btn lg:hidden ml-3"
+        >
+            <font-awesome-icon class="mx-1.5" :icon="['fab', 'youtube']" />
+        </a>
+
         <div class="flex mt-4 mb-2">
             <button
                 v-for="(tab, index) in tabs"
