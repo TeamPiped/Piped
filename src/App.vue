@@ -33,6 +33,10 @@ export default {
             let themePref = this.getPreferenceString("theme", "dark");
             if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
             else this.theme = themePref;
+
+            // Used for the scrollbar
+            const root = document.querySelector(":root");
+            this.theme == "dark" ? root.classList.add("dark") : root.classList.remove("dark");
         },
     },
     mounted() {
@@ -96,28 +100,31 @@ b {
     text-align: start;
 }
 
-::-webkit-scrollbar {
+.dark ::-webkit-scrollbar {
     background-color: #15191a;
 }
 
-::-webkit-scrollbar-thumb {
+.dark ::-webkit-scrollbar-thumb {
     background-color: #4b4f52;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.dark ::-webkit-scrollbar-thumb:hover {
     background-color: #5b6469;
 }
 
-::-webkit-scrollbar-thumb:active {
+.dark ::-webkit-scrollbar-thumb:active {
     background-color: #485053;
 }
 
-::-webkit-scrollbar-corner {
+.dark ::-webkit-scrollbar-corner {
     background-color: #0b0e0f;
 }
 
+:root.dark {
+    scrollbar-color: #4b4f52 #15191a;
+}
+
 * {
-    scrollbar-color: #15191a #444a4e;
     @apply font-sans;
 }
 
