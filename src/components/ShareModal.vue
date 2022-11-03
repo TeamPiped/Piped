@@ -46,7 +46,7 @@ export default {
         };
     },
     mounted() {
-        this.timeStamp = parseInt(this.currentTime);
+        this.timeStamp = this.parseSecondsToTimeStamp(this.currentTime || 0);
         this.withTimeCode = this.getPreferenceBoolean("shareWithTimeCode", true);
         this.pipedLink = this.getPreferenceBoolean("shareAsPipedLink", true);
     },
@@ -69,6 +69,27 @@ export default {
             this.setPreference("shareWithTimeCode", this.withTimeCode);
             this.setPreference("shareAsPipedLink", this.pipedLink);
         },
+        parseTimeStampToSeconds(timestamp) {
+            const timeArray = timestamp.split(":").reverse();
+            let seconds = 0;
+            const durations = [1, 60, 60 * 60, 60 * 60 * 24];
+            for (let i = 0; i < timeArray.length; i++) {
+                seconds += timeArray[i] * durations[i];
+            }
+            return seconds;
+        },
+        parseSecondsToTimeStamp(seconds) {
+            const timeArray = [];
+            const durations = [1, 60, 60 * 60, 60 * 60 * 24].reverse();
+            for (let i in durations) {
+                const currentValue = Math.floor(seconds / durations[i]);
+                if (currentValue > 0) {
+                    timeArray.push(currentValue.toString().padStart(2, "0"));
+                    seconds -= currentValue * durations[i];
+                }
+            }
+            return timeArray.join(":");
+        },
     },
     computed: {
         generatedLink() {
@@ -76,7 +97,8 @@ export default {
                 ? window.location.origin + "/watch?v=" + this.videoId
                 : "https://youtu.be/" + this.videoId;
             var url = new URL(baseUrl);
-            if (this.withTimeCode && this.timeStamp > 0) url.searchParams.append("t", this.timeStamp);
+            if (this.withTimeCode && this.timeStamp)
+                url.searchParams.append("t", this.parseTimeStampToSeconds(this.timeStamp));
             return url.href;
         },
     },
