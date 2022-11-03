@@ -88,7 +88,12 @@ const mixin = {
             return str;
         },
         numberFormat(num) {
-            const formatter = Intl.NumberFormat(undefined, { notation: "compact" });
+            const formatter = Intl.NumberFormat(
+                `${this.getPreferenceString("hl")}-${this.getPreferenceString("region")}`,
+                {
+                    notation: "compact",
+                },
+            );
             return formatter.format(num);
         },
         addCommas(num) {
