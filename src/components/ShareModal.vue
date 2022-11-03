@@ -70,24 +70,29 @@ export default {
             timeStamp: null,
             hasPlaylist: false,
             showQrCode: false,
+            durations: [1, 60, 60 * 60, 60 * 60 * 24],
         };
     },
     computed: {
         generatedLink() {
-            var baseUrl = this.pipedLink
+            const baseUrl = this.pipedLink
                 ? window.location.origin + "/watch?v=" + this.videoId
                 : "https://youtu.be/" + this.videoId;
-            var url = new URL(baseUrl);
-            if (this.withTimeCode && this.timeStamp > 0) url.searchParams.append("t", this.timeStamp);
+            const url = new URL(baseUrl);
+
+            if (this.withTimeCode && this.timeStamp)
+                url.searchParams.append("t", this.parseTimeStampToSeconds(this.timeStamp));
+
             if (this.hasPlaylist && this.withPlaylist) {
                 url.searchParams.append("list", this.playlistId);
                 url.searchParams.append("index", this.playlistIndex);
             }
+
             return url.href;
         },
     },
     mounted() {
-        this.timeStamp = parseInt(this.currentTime);
+        this.timeStamp = this.parseSecondsToTimeStamp(this.currentTime ?? 0);
         this.withTimeCode = this.getPreferenceBoolean("shareWithTimeCode", true);
         this.pipedLink = this.getPreferenceBoolean("shareAsPipedLink", true);
         this.withPlaylist = this.getPreferenceBoolean("shareWithPlaylist", true);
@@ -107,6 +112,26 @@ export default {
             } catch ($e) {
                 alert(this.$t("info.cannot_copy"));
             }
+        },
+        parseTimeStampToSeconds(timestamp) {
+            const timeArray = timestamp.split(":").reverse();
+            let seconds = 0;
+            for (let i = 0; i < timeArray.length; i++) {
+                seconds += timeArray[i] * this.durations[i];
+            }
+            return seconds;
+        },
+        parseSecondsToTimeStamp(seconds) {
+            const timeArray = [];
+            const durationsReversed = this.durations.toReversed();
+            for (let i in durationsReversed) {
+                const currentValue = Math.floor(seconds / durationsReversed[i]);
+                if (currentValue > 0) {
+                    timeArray.push(currentValue.toString().padStart(2, "0"));
+                    seconds -= currentValue * durationsReversed[i];
+                }
+            }
+            return timeArray.join(":");
         },
         onChange() {
             this.setPreference("shareWithTimeCode", this.withTimeCode, true);
