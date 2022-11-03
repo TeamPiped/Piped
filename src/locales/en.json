@@ -128,7 +128,7 @@
         "piped_link": "Piped link",
         "follow_link": "Follow link",
         "copy_link": "Copy link",
-        "time_code": "Time code (in seconds)",
+        "time_code": "Time code (in seconds or HH:MM:SS)",
         "show_chapters": "Chapters",
         "store_search_history": "Store Search History",
         "hide_watched": "Hide watched videos in the feed",
