@@ -20,43 +20,17 @@
 
     <div v-if="results" class="video-grid">
         <template v-for="result in results.items" :key="result.url">
-            <VideoItem v-if="shouldUseVideoItem(result)" :video="result" height="94" width="168" />
-            <div v-if="!shouldUseVideoItem(result)">
-                <router-link :to="result.url">
-                    <div class="relative">
-                        <img class="w-full" :src="result.thumbnail" loading="lazy" />
-                    </div>
-                    <p>
-                        <span v-text="result.name" />
-                        <font-awesome-icon class="ml-1.5" v-if="result.verified" icon="check" />
-                    </p>
-                </router-link>
-                <p v-if="result.description" v-text="result.description" />
-                <router-link v-if="result.uploaderUrl" class="link" :to="result.uploaderUrl">
-                    <p>
-                        <span v-text="result.uploader" />
-                        <font-awesome-icon class="ml-1.5" v-if="result.uploaderVerified" icon="check" />
-                    </p>
-                </router-link>
-
-                <a v-if="result.uploaderName" class="link" v-text="result.uploaderName" />
-                <template v-if="result.videos >= 0">
-                    <br v-if="result.uploaderName" />
-                    <strong v-text="`${result.videos} ${$t('video.videos')}`" />
-                </template>
-
-                <br />
-            </div>
+            <ContentItem :item="result" height="94" width="168" />
         </template>
     </div>
 </template>
 
 <script>
-import VideoItem from "./VideoItem.vue";
+import ContentItem from "./ContentItem.vue";
 
 export default {
     components: {
-        VideoItem,
+        ContentItem,
     },
     data() {
         return {
@@ -123,9 +97,6 @@ export default {
                     json.items.map(stream => this.results.items.push(stream));
                 });
             }
-        },
-        shouldUseVideoItem(item) {
-            return item.title;
         },
         handleRedirect() {
             const query = this.$route.query.search_query;

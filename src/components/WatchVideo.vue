@@ -47,11 +47,11 @@
                 <!-- Likes/dilikes -->
                 <div class="pp-likes flex children:mr-2">
                     <template v-if="video.likes >= 0">
-                        <div class="flex">
+                        <div class="flex items-center">
                             <div class="i-fa-solid:thumbs-up" />
                             <strong class="ml-1" v-text="addCommas(video.likes)" />
                         </div>
-                        <div class="flex">
+                        <div class="flex items-center">
                             <div class="i-fa-solid:thumbs-down" />
                             <strong class="ml-1" v-text="video.dislikes >= 0 ? addCommas(video.dislikes) : '?'" />
                         </div>
@@ -154,16 +154,22 @@
         </div>
 
         <div class="grid pp-rec-vids">
-            <div v-if="!commentsEnabled" class="">
+            <div class="xl:col-span-4 sm:col-span-3">
                 <p class="text-center mt-8" v-t="'comment.user_disabled'"></p>
+                <button
+                    class="btn mb-2"
+                    @click="toggleComments"
+                    v-t="`actions.${showComments ? 'minimize_comments' : 'show_comments'}`"
+                />
             </div>
-            <div v-else-if="!comments" class="">
+            <div v-if="!showComments" class="w-full"></div>
+            <div v-if="!comments" class="">
                 <p class="text-center mt-8" v-t="'comment.loading'"></p>
             </div>
             <div v-else-if="comments.disabled" class="">
                 <p class="text-center mt-8" v-t="'comment.disabled'"></p>
             </div>
-            <div v-else ref="comments" class="">
+            <div v-else ref="comments" v-show="showComments" class="">
                 <CommentItem
                     v-for="comment in comments.comments"
                     :key="comment.commentId"
@@ -180,11 +186,12 @@
                     :playlist="playlist"
                     :selected-index="index"
                 />
+                <hr v-show="showRecs" />
                 <div v-show="showRecs" class="pp-show-recs">
-                    <VideoItem
+                    <ContentItem
                         v-for="related in video.relatedStreams"
                         :key="related.url"
-                        :video="related"
+                        :item="related"
                         height="94"
                         width="168"
                     />
@@ -196,7 +203,7 @@
 
 <script>
 import VideoPlayer from "./VideoPlayer.vue";
-import VideoItem from "./VideoItem.vue";
+import ContentItem from "./ContentItem.vue";
 import ErrorHandler from "./ErrorHandler.vue";
 import CommentItem from "./CommentItem.vue";
 import ChaptersBar from "./ChaptersBar.vue";
@@ -208,7 +215,7 @@ export default {
     name: "App",
     components: {
         VideoPlayer,
-        VideoItem,
+        ContentItem,
         ErrorHandler,
         CommentItem,
         ChaptersBar,
@@ -228,6 +235,7 @@ export default {
             sponsors: null,
             selectedAutoLoop: false,
             selectedAutoPlay: null,
+            showComments: true,
             showDesc: true,
             showRecs: true,
             showChapters: true,
@@ -261,9 +269,6 @@ export default {
                 day: "numeric",
                 year: "numeric",
             });
-        },
-        commentsEnabled() {
-            return this.getPreferenceBoolean("comments", true);
         },
     },
     mounted() {
@@ -312,7 +317,7 @@ export default {
         this.index = Number(this.$route.query.index);
         this.getPlaylistData();
         this.getSponsors();
-        if (!this.isEmbed && this.commentsEnabled) this.getComments();
+        if (!this.isEmbed && this.showComments) this.getComments();
         window.addEventListener("resize", () => {
             this.smallView = this.smallViewQuery.matches;
         });
@@ -320,6 +325,7 @@ export default {
     activated() {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
+        this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         if (this.video.duration) {
@@ -349,6 +355,12 @@ export default {
                     ) +
                     '"]',
             });
+        },
+        toggleComments() {
+            this.showComments = !this.showComments;
+            if (this.showComments && this.comments === null) {
+                this.fetchComments();
+            }
         },
         fetchComments() {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
@@ -462,7 +474,7 @@ export default {
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
-            if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
+            if (window.innerHeight + window.scrollY >= this.$refs.comments?.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.getVideoId(), {
                     nextpage: this.comments.nextpage,

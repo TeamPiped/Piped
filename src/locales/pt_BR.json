@@ -38,7 +38,7 @@
         "yes": "Sim",
         "show_more": "Mostrar mais",
         "export_to_json": "Exportar para JSON",
-        "donations": "Doações",
+        "donations": "Doações de desenvolvimento",
         "minimize_recommendations": "Recolher recomendações",
         "loading": "Carregando...",
         "hide_replies": "Esconder respostas",
@@ -48,8 +48,8 @@
         "delete_playlist": "Excluir Playlist",
         "select_playlist": "Selecionar uma Playlist",
         "add_to_playlist": "Adicionar à playlist",
-        "delete_playlist_confirm": "Tem certeza que deseja excluir esta playlist?",
-        "delete_playlist_video_confirm": "Tem certeza que gostaria de remover este vídeo desta playlist?",
+        "delete_playlist_confirm": "Excluir esta playlist?",
+        "delete_playlist_video_confirm": "Remover vídeo da playlist?",
         "please_select_playlist": "Por favor, selecione uma playlist",
         "remove_from_playlist": "Remover da playlist",
         "view_ssl_score": "Ver Pontuação SSL",
@@ -66,7 +66,39 @@
         "auto_play_next_video": "Autoreproduzir vídeo seguinte",
         "filter": "Filtro",
         "store_watch_history": "Salvar Histórico de Exibição",
-        "show_recommendations": "Mostrar recomendações"
+        "show_recommendations": "Mostrar recomendações",
+        "minimize_comments_default": "Minimizar Comentários por padrão",
+        "minimize_comments": "Minimizar Comentários",
+        "different_auth_instance": "Use uma instância diferente para autenticação",
+        "delete_account": "Deletar Conta",
+        "invalidate_session": "Sair de todos os dispositivos",
+        "clone_playlist": "Clonar Playlist",
+        "backup_preferences": "Fazer backup das preferências",
+        "logout": "Sair deste dispositivo",
+        "copy_link": "Copiar link",
+        "store_search_history": "Armazenar Histórico de Pesquisa",
+        "hide_watched": "Ocultar vídeos assistidos no feed",
+        "status_page": "Estado",
+        "source_code": "Código fonte",
+        "instance_donations": "Doações de instâncias",
+        "instance_auth_selection": "Seleção de iIstância de Autenticação",
+        "clone_playlist_success": "Clonada com sucesso!",
+        "download_as_txt": "Baixar como .txt",
+        "restore_preferences": "Restaurar preferências",
+        "back_to_home": "Voltar ao início",
+        "share": "Compartilhar",
+        "rename_playlist": "Renomear playlist",
+        "new_playlist_name": "Novo nome da playlist",
+        "with_timecode": "Compartilhar com código de tempo",
+        "piped_link": "Link do Piped",
+        "follow_link": "Siguir link",
+        "time_code": "Código de tempo (em segundos)",
+        "show_chapters": "Capítulos",
+        "confirm_reset_preferences": "Tem certeza de que deseja redefinir suas preferências?",
+        "reset_preferences": "Redefinir preferências",
+        "documentation": "Documentação",
+        "reply_count": "{count} respostas",
+        "minimize_recommendations_default": "Minimizar Recomendações por padrão"
     },
     "titles": {
         "history": "Histórico",
@@ -76,13 +108,19 @@
         "login": "Entrar",
         "playlists": "Playlists",
         "feed": "Feed",
-        "subscriptions": "Inscrições"
+        "subscriptions": "Inscrições",
+        "instance": "Instância",
+        "player": "Player",
+        "account": "Conta"
     },
     "player": {
         "watch_on": "Assistir no"
     },
     "comment": {
-        "pinned_by": "Fixado por {author}"
+        "pinned_by": "Fixado por {author}",
+        "user_disabled": "Os comentários estão desativados nas configurações.",
+        "disabled": "Os comentários são desativados pelo remetente.",
+        "loading": "Carregando comentários..."
     },
     "preferences": {
         "registered_users": "Usuários cadastrados",
@@ -104,7 +142,8 @@
         "live": "{0} Ao vivo",
         "watched": "Assistido",
         "ratings_disabled": "Avaliações desabilitadas",
-        "sponsor_segments": "Segmentos de patrocinadores"
+        "sponsor_segments": "Segmentos de patrocinadores",
+        "shorts": "Shorts"
     },
     "search": {
         "did_you_mean": "Você quis dizer: {0}?",
@@ -116,5 +155,14 @@
         "music_albums": "YT Music: Álbuns",
         "music_playlists": "YT Music: Playlists",
         "all": "YouTube: Tudo"
+    },
+    "info": {
+        "copied": "Copiado!",
+        "cannot_copy": "Não foi possível copiar!",
+        "preferences_note": "Nota: as preferências são salvas no armazenamento local do seu navegador. A exclusão dos dados do seu navegador irá redefini-los.",
+        "page_not_found": "página não encontrada"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Inscrito em: {0}"
     }
 }

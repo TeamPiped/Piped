@@ -3,7 +3,7 @@
         <VideoItem
             v-for="(related, index) in playlist.relatedStreams"
             :key="related.url"
-            :video="related"
+            :item="related"
             :index="index"
             :playlist-id="playlistId"
             height="94"

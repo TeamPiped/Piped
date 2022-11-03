@@ -162,11 +162,11 @@
                     @change="onChange($event)"
                 />
             </label>
-            <label class="pref" for="chkShowComments">
-                <strong v-t="'actions.show_comments'" />
+            <label class="pref" for="chkHideComments">
+                <strong v-t="'actions.minimize_comments_default'" />
                 <input
-                    id="chkShowComments"
-                    v-model="showComments"
+                    id="chkHideComments"
+                    v-model="hideComments"
                     class="checkbox"
                     type="checkbox"
                     @change="onChange($event)"
@@ -416,7 +416,7 @@ export default {
             countryMap: CountryMap,
             countrySelected: "US",
             defaultHomepage: "trending",
-            showComments: true,
+            minimizeComments: false,
             minimizeDescription: false,
             minimizeRecommendations: false,
             watchHistory: false,
@@ -552,7 +552,7 @@ export default {
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
             this.countrySelected = this.getPreferenceString("region", "US");
             this.defaultHomepage = this.getPreferenceString("homepage", "trending");
-            this.showComments = this.getPreferenceBoolean("comments", true);
+            this.minimizeComments = this.getPreferenceBoolean("minimizeComments", false);
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
             this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
@@ -611,7 +611,7 @@ export default {
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
                 localStorage.setItem("region", this.countrySelected);
                 localStorage.setItem("homepage", this.defaultHomepage);
-                localStorage.setItem("comments", this.showComments);
+                localStorage.setItem("minimizeComments", this.minimizeComments);
                 localStorage.setItem("minimizeDescription", this.minimizeDescription);
                 localStorage.setItem("minimizeRecommendations", this.minimizeRecommendations);
                 localStorage.setItem("watchHistory", this.watchHistory);
