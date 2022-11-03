@@ -100,6 +100,30 @@ b {
     text-align: start;
 }
 
+::-webkit-scrollbar {
+    background-color: #d1d5db;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4b4f52;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5b6469;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #485053;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #0b0e0f;
+}
+
+:root {
+    scrollbar-color: #4b4f52 #d1d5db;
+}
+
 .dark ::-webkit-scrollbar {
     background-color: #15191a;
 }
