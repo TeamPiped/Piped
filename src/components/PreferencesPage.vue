@@ -506,7 +506,7 @@ export default {
             this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
             this.searchHistory = this.getPreferenceBoolean("searchHistory", false);
-            this.selectedLanguage = this.getPreferenceString("hl", await this.defaultLangage);
+            this.selectedLanguage = this.getPreferenceString("hl", await this.defaultLanguage);
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
@@ -530,7 +530,7 @@ export default {
                 if (
                     this.getPreferenceString("theme", "dark") !== this.selectedTheme ||
                     this.getPreferenceBoolean("watchHistory", false) != this.watchHistory ||
-                    this.getPreferenceString("hl", await this.defaultLangage) !== this.selectedLanguage ||
+                    this.getPreferenceString("hl", await this.defaultLanguage) !== this.selectedLanguage ||
                     this.getPreferenceString("enabledCodecs", "av1,vp9,avc") !== this.enabledCodecs.join(",")
                 )
                     shouldReload = true;

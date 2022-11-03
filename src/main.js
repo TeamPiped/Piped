@@ -237,7 +237,7 @@ const mixin = {
                 return false;
             }
         },
-        async defaultLangage() {
+        async defaultLanguage() {
             const languages = window.navigator.languages;
             for (let i = 0; i < languages.length; i++) {
                 try {
