@@ -35,10 +35,7 @@
             <font-awesome-icon icon="rss" />
         </a>
 
-        <WatchOnYouTubeButton
-            v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
-            :link="`https://youtube.com/channel/${this.channel.id}`"
-        />
+        <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
 
         <div class="flex mt-4 mb-2">
             <button

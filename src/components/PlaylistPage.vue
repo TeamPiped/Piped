@@ -23,10 +23,7 @@
                 <a class="btn mr-1" :href="getRssUrl">
                     <font-awesome-icon icon="rss" />
                 </a>
-                <WatchOnYouTubeButton
-                    v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)"
-                    :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`"
-                />
+                <WatchOnYouTubeButton :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`" />
             </div>
         </div>
 
