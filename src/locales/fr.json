@@ -10,7 +10,9 @@
         "playlists": "Listes de lecture",
         "account": "Compte",
         "instance": "Instance",
-        "player": "Lecteur"
+        "player": "Lecteur",
+        "livestreams": "Diffusions en direct",
+        "channels": "Chaînes"
     },
     "actions": {
         "subscribe": "S'abonner - {count}",
