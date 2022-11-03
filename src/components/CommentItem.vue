@@ -25,6 +25,11 @@
                 </div>
             </div>
             <div class="whitespace-pre-wrap" v-html="urlify(comment.commentText)" />
+            <div class="comment-footer mt-1 flex items-center">
+                <div class="i-fa-solid:thumbs-up" />
+                <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
+                <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
+            </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies" class="cursor-pointer">
                     <a v-text="`${$t('actions.reply_count', comment.replyCount)}`" />

@@ -111,7 +111,10 @@
         "follow_link": "Linki izləyin",
         "piped_link": "Piped linki",
         "copy_link": "Linki kopyalayın",
-        "back_to_home": "Evə qayıt"
+        "back_to_home": "Evə qayıt",
+        "reply_count": "{count} cavab",
+        "minimize_comments_default": "Şərhləri standart olaraq kiçilt",
+        "minimize_comments": "Şərhləri Kiçilt"
     },
     "comment": {
         "pinned_by": "Tərəfindən Sabitləndi {author}",

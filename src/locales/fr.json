@@ -108,7 +108,10 @@
         "status_page": "État",
         "source_code": "Code source",
         "instance_donations": "Dons d'instance",
-        "hide_watched": "Masquer les vidéos regardées dans le flux"
+        "hide_watched": "Masquer les vidéos regardées dans le flux",
+        "reply_count": "{count} réponses",
+        "minimize_comments_default": "Minimiser les commentaires par défaut",
+        "minimize_comments": "Minimiser les commentaires"
     },
     "player": {
         "watch_on": "Regarder sur {0}"

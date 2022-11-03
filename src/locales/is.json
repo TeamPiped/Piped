@@ -8,13 +8,15 @@
         "trending": "Vinsælt",
         "feed": "Straumur",
         "playlists": "Spilunarlistar",
-        "player": "Spilari"
+        "player": "Spilari",
+        "account": "Reikningur",
+        "instance": "Tilvik"
     },
     "actions": {
         "sort_by": "Raða eftir:",
         "back": "Til Baka",
-        "dark": "Dimmt",
-        "light": "Ljóst",
+        "dark": "Dökk",
+        "light": "Ljós",
         "theme": "Þema",
         "enable_sponsorblock": "Virkja Sponsorblock",
         "subscribe": "Gerast Áskrifandi - {count}",
@@ -46,14 +48,14 @@
         "language_selection": "Tungumálaval",
         "minimize_description_default": "Lágmarka Lýsingu Sjálfgefið",
         "instances_list": "Tilvikalisti",
-        "donations": "Framlög",
+        "donations": "Framlög til þróunar",
         "minimize_description": "Minnka Lýsingu",
         "show_description": "Sýna Lýsingu",
         "minimize_recommendations": "Minnka Tillögur",
         "show_recommendations": "Sýna Tillögur",
         "disable_lbry": "Óvirkja LBRY Fyrir Straumspilun",
         "enable_lbry_proxy": "Virkja Staðgengilsþjón fyrir LBRY",
-        "view_ssl_score": "Skoðaðu SSL Einkunn",
+        "view_ssl_score": "Skoða SSL einkunn",
         "enabled_codecs": "Virkjir Afkóðarar (Marghæft)",
         "instance_selection": "Tilviksval",
         "import_from_json": "Flytja inn frá JSON/CSV",
@@ -67,13 +69,63 @@
         "default_quality": "Sjálfgefin Gæði",
         "buffering_goal": "Biðminnismarkmið (í sekúndum)",
         "export_to_json": "Flytja út í JSON",
-        "skip_highlight": "Sleppa Hápunkti"
+        "skip_highlight": "Sleppa Hápunkti",
+        "create_playlist": "Skapa spilunarlista",
+        "delete_playlist": "Eyða spilunarlista",
+        "time_code": "Tímakóði (sekúndur)",
+        "restore_preferences": "Flytja inn stillingar",
+        "download_as_txt": "Sækja textaskrá",
+        "different_auth_instance": "Nota annað tilvik til auðkenningar",
+        "instance_auth_selection": "Val tilvika fyrir auðkenningu",
+        "add_to_playlist": "Bæta við á spilunarlista",
+        "reset_preferences": "Endurstilla stillingar",
+        "remove_from_playlist": "Fjarlægja af spilunarlista",
+        "select_playlist": "Velja spilunarlista",
+        "invalidate_session": "Útskrá öll tæki",
+        "backup_preferences": "Flytja út stillingar",
+        "documentation": "Hjálparskjöl",
+        "skip_filler_tangent": "Sleppa því óviðkomandi",
+        "show_markers": "Sýna merki á spilara",
+        "delete_account": "Eyða reikningi",
+        "follow_link": "Fylgja hlekki",
+        "copy_link": "Afrita hlekk",
+        "instance_donations": "Framlög til netþjóns",
+        "status_page": "Staða",
+        "source_code": "Frumkóði",
+        "rename_playlist": "Endurnefna spilunarlista",
+        "new_playlist_name": "Nýtt heiti spilunarlista",
+        "share": "Deila",
+        "with_timecode": "Deilа með tímakóða",
+        "piped_link": "Hlekkur Piped",
+        "please_select_playlist": "Vinsamlegast veldu spilunarlista",
+        "clone_playlist": "Afrita spilunarlista",
+        "clone_playlist_success": "Tókst að afrita spilunarlista!",
+        "confirm_reset_preferences": "Ertu viss um að þú viljir endurstilla stillingarnar?",
+        "back_to_home": "Aftur heim",
+        "delete_playlist_video_confirm": "Fjarlægja myndband af spilunarlista?",
+        "logout": "Útskrá þetta tæki",
+        "delete_playlist_confirm": "Eyða þessum spilunarlista?",
+        "minimize_recommendations_default": "Lágmarka ráðleggingar sjálfkrafa",
+        "store_search_history": "Geyma leitarferil",
+        "hide_watched": "Fela myndbönd sem þú hefur horft á",
+        "show_chapters": "Kaflar",
+        "reply_count": "{count} svör",
+        "minimize_comments_default": "Fela ummæli sjálfgefið",
+        "minimize_comments": "Fela ummæli"
     },
     "player": {
         "watch_on": "Horfa á {0}"
     },
     "search": {
-        "did_you_mean": "Áttirðu við: {0}?"
+        "did_you_mean": "Áttirðu við: {0}?",
+        "music_songs": "YT Tónlist: Lög",
+        "playlists": "YouTube: Spilunarlistar",
+        "music_videos": "YT Tónlist: Myndbönd",
+        "music_albums": "YT Tónlist: Plötur",
+        "music_playlists": "YT Tónlist: Lagalistar",
+        "all": "YouTube: Allt",
+        "videos": "YouTube: Myndbönd",
+        "channels": "YouTube: Rásir"
     },
     "video": {
         "ratings_disabled": "Einkunnir Óvirkar",
@@ -82,19 +134,35 @@
         "watched": "Áhorft",
         "sponsor_segments": "Styrkjarahlutar",
         "chapters": "Kaflar",
-        "live": "{0} Í beinni"
+        "live": "{0} Í beinni",
+        "shorts": "Stutt"
     },
     "comment": {
-        "pinned_by": "Fest af {author}"
+        "pinned_by": "Fest af {author}",
+        "disabled": "Höfundur lokaði fyrir ummælum.",
+        "user_disabled": "Slökkt er á ummælum í stillingunum.",
+        "loading": "Hleður ummæli…"
     },
     "preferences": {
         "instance_name": "Tilviksheiti",
         "instance_locations": "Tilviksstaðsetning",
-        "has_cdn": "Hefur Efnisflutningarnet (CDN)?",
-        "ssl_score": "SSL Einkunn"
+        "has_cdn": "Hefur efnisflutningarnet (CDN)?",
+        "ssl_score": "SSL einkunn",
+        "version": "Útgáfa",
+        "registered_users": "Skráðir notendur",
+        "up_to_date": "Nýjasta útgáfa?"
     },
     "login": {
         "password": "Aðgangsorð",
         "username": "Notandanafn"
+    },
+    "info": {
+        "page_not_found": "Síða fannst ekki",
+        "cannot_copy": "Get ekki afritað!",
+        "preferences_note": "Athugaðu: stillingar eru geymdar í staðbundinni geymslu vafrans þíns. Ef vafragögnum þínum eru eytt verða þau endurstillt.",
+        "copied": "Afritað!"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Áskrifandi hjá: {0}"
     }
 }

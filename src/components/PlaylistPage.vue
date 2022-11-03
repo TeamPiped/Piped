@@ -32,7 +32,7 @@
             <VideoItem
                 v-for="(video, index) in playlist.relatedStreams"
                 :key="video.url"
-                :video="video"
+                :item="video"
                 :index="index"
                 :playlist-id="$route.query.list"
                 :admin="admin"
