@@ -16,7 +16,7 @@
         "buffer": "6.0.3",
         "dompurify": "2.4.0",
         "hotkeys-js": "3.10.0",
-        "javascript-time-ago": "2.5.7",
+        "javascript-time-ago": "2.5.9",
         "mux.js": "6.2.0",
         "shaka-player": "4.2.3",
         "stream-browserify": "3.0.0",
