@@ -155,7 +155,6 @@
 
         <div class="grid pp-rec-vids">
             <div class="xl:col-span-4 sm:col-span-3">
-                <p class="text-center mt-8" v-t="'comment.user_disabled'"></p>
                 <button
                     class="btn mb-2"
                     @click="toggleComments"
@@ -163,7 +162,7 @@
                 />
             </div>
             <div v-if="!showComments" class="w-full"></div>
-            <div v-if="!comments" class="">
+            <div v-else-if="!comments" class="">
                 <p class="text-center mt-8" v-t="'comment.loading'"></p>
             </div>
             <div v-else-if="comments.disabled" class="">
