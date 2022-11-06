@@ -543,7 +543,7 @@ export default {
                     this.getPreferenceString("theme", "dark") !== this.selectedTheme ||
                     this.getPreferenceBoolean("watchHistory", false) != this.watchHistory ||
                     this.getPreferenceString("hl", await this.defaultLanguage) !== this.selectedLanguage ||
-                    this.getPreferenceString("enabledCodecs", "av1,vp9,avc") !== this.enabledCodecs.join(",")
+                    this.getPreferenceString("enabledCodecs", "vp9,avc") !== this.enabledCodecs.join(",")
                 )
                     shouldReload = true;
 
