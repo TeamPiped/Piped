@@ -90,9 +90,9 @@
         "instance_auth_selection": "Sélection de l'instance d'authentification",
         "clone_playlist": "Cloner la liste de lecture",
         "clone_playlist_success": "Clonage réussi !",
-        "download_as_txt": "Télécharger en tant que",
+        "download_as_txt": "Télécharger en tant que .txt",
         "reset_preferences": "Réinitialiser les préférences",
-        "confirm_reset_preferences": "Êtes-vous sûre de vouloir réinitialiser les préférences ?",
+        "confirm_reset_preferences": "Êtes-vous sûr·e de vouloir réinitialiser les préférences ?",
         "restore_preferences": "Restaurer les préférences",
         "backup_preferences": "Sauvegarde des préférences",
         "with_timecode": "Partager avec l'horodatage",
@@ -113,7 +113,8 @@
         "hide_watched": "Masquer les vidéos regardées dans le flux",
         "reply_count": "{count} réponses",
         "minimize_comments_default": "Minimiser les commentaires par défaut",
-        "minimize_comments": "Minimiser les commentaires"
+        "minimize_comments": "Minimiser les commentaires",
+        "show_watch_on_youtube": "Afficher le bouton Regarder sur YouTube"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
