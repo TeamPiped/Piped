@@ -30,10 +30,12 @@
             v-if="channel.id"
             :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
             target="_blank"
-            class="btn flex-col ml-3"
+            class="btn flex-col mx-3"
         >
             <font-awesome-icon icon="rss" />
         </a>
+
+        <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
 
         <div class="flex mt-4 mb-2">
             <button
@@ -65,11 +67,13 @@
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import ContentItem from "./ContentItem.vue";
+import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
 export default {
     components: {
         ErrorHandler,
         ContentItem,
+        WatchOnYouTubeButton,
     },
     data() {
         return {
