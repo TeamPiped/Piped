@@ -116,7 +116,8 @@
         "minimize_description_default": "Defaŭlte Plejetigi Priskribon",
         "minimize_recommendations_default": "Defaŭlte Plejetigi Rekomendojn",
         "minimize_comments_default": "Defaŭlte Plejetigi Komentojn",
-        "minimize_comments": "Plejetigi Komentojn"
+        "minimize_comments": "Plejetigi Komentojn",
+        "show_watch_on_youtube": "Montri «Vidi en Youtube»-butonon"
     },
     "video": {
         "chapters": "Sekcioj",
