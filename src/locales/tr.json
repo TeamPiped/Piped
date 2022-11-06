@@ -98,7 +98,8 @@
         "status_page": "Durum",
         "reply_count": "{count} yanıt",
         "minimize_comments": "Yorumları Küçült",
-        "minimize_comments_default": "Yorumları Öntanımlı Olarak Küçült"
+        "minimize_comments_default": "Yorumları Öntanımlı Olarak Küçült",
+        "show_watch_on_youtube": "YouTube'da İzle düğmesini göster"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
