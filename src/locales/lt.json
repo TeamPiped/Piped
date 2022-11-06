@@ -98,7 +98,8 @@
         "skip_highlight": "Praleisti išskirtų dalių pakartojimus",
         "time_code": "Laiko kodas (sekundėmis)",
         "minimize_comments_default": "Suskleisti komentarus automatiškai",
-        "minimize_comments": "Suskleisti komentarus"
+        "minimize_comments": "Suskleisti komentarus",
+        "show_watch_on_youtube": "Rodyti mygtuką „Žiūrėti YouTube“"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
