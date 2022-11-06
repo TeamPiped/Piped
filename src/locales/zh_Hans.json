@@ -98,7 +98,8 @@
         "documentation": "文档",
         "reply_count": "{count} 条回复",
         "minimize_comments": "最小化评论",
-        "minimize_comments_default": "默认最小化评论"
+        "minimize_comments_default": "默认最小化评论",
+        "show_watch_on_youtube": "显示“在 YouTube 上观看”按钮"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
