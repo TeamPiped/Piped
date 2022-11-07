@@ -110,7 +110,9 @@
         "playlists": "Playlist",
         "account": "Account",
         "instance": "Istanza",
-        "player": "Riproduttore"
+        "player": "Riproduttore",
+        "livestreams": "Streaming live",
+        "channels": "Canali"
     },
     "video": {
         "sponsor_segments": "Segmenti sponsor",

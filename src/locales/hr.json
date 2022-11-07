@@ -121,7 +121,10 @@
         "store_search_history": "Spremi povijest pretrage",
         "hide_watched": "Sakrij gledana videa u novostima",
         "status_page": "Stanje",
-        "reply_count": "{count} odgovora"
+        "reply_count": "{count} odgovora",
+        "minimize_comments_default": "Standardno sakrij komentare",
+        "minimize_comments": "Sakrij komentare",
+        "show_watch_on_youtube": "Prikaži gumb „Gledaj na YouTubeu”"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -137,7 +140,9 @@
         "playlists": "Playliste",
         "account": "Račun",
         "instance": "Instanca",
-        "player": "Plejer"
+        "player": "Player",
+        "channels": "Kanali",
+        "livestreams": "Prijenosi uživo"
     },
     "login": {
         "password": "Lozinka",

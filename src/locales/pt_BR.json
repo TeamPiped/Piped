@@ -98,7 +98,8 @@
         "reset_preferences": "Redefinir preferências",
         "documentation": "Documentação",
         "reply_count": "{count} respostas",
-        "minimize_recommendations_default": "Minimizar Recomendações por padrão"
+        "minimize_recommendations_default": "Minimizar Recomendações por padrão",
+        "show_watch_on_youtube": "Mostrar Botão Assistir no YouTube"
     },
     "titles": {
         "history": "Histórico",
@@ -111,7 +112,9 @@
         "subscriptions": "Inscrições",
         "instance": "Instância",
         "player": "Player",
-        "account": "Conta"
+        "account": "Conta",
+        "channels": "Canais",
+        "livestreams": "Transmissões ao vivo"
     },
     "player": {
         "watch_on": "Assistir no"

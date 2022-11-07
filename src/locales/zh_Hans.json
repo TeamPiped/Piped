@@ -98,7 +98,8 @@
         "documentation": "文档",
         "reply_count": "{count} 条回复",
         "minimize_comments": "最小化评论",
-        "minimize_comments_default": "默认最小化评论"
+        "minimize_comments_default": "默认最小化评论",
+        "show_watch_on_youtube": "显示“在 YouTube 上观看”按钮"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -139,7 +140,9 @@
         "playlists": "播放列表",
         "account": "账户",
         "instance": "实例",
-        "player": "播放器"
+        "player": "播放器",
+        "livestreams": "直播",
+        "channels": "频道"
     },
     "login": {
         "password": "密码",

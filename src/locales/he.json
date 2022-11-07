@@ -10,7 +10,9 @@
         "feed": "ערוץ עדכונים",
         "account": "חשבון",
         "playlists": "רשימות נגינה",
-        "instance": "עותק"
+        "instance": "עותק",
+        "livestreams": "שידורים חיים",
+        "channels": "ערוצים"
     },
     "player": {
         "watch_on": "לצפות ב־{0}"

@@ -10,7 +10,9 @@
         "feed": "التغذية",
         "account": "الحساب",
         "instance": "الخادم",
-        "player": "المشغل"
+        "player": "المشغل",
+        "livestreams": "البث المباشر",
+        "channels": "القنوات"
     },
     "player": {
         "watch_on": "شاهد عبر"
@@ -114,7 +116,8 @@
         "hide_watched": "إخفاء مقاطع الفيديو التي تمت مشاهدتها من الخلاصة",
         "reply_count": "{count} الردود",
         "minimize_comments_default": "تصغير التعليقات بشكل افتراضي",
-        "minimize_comments": "تصغير التعليقات"
+        "minimize_comments": "تصغير التعليقات",
+        "show_watch_on_youtube": "عرض زر مشاهدة على يوتيوب"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",

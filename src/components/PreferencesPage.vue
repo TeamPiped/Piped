@@ -412,6 +412,7 @@ export default {
                 { code: "ml", name: "മലയാളം" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
                 { code: "nl", name: "Nederlands" },
+                { code: "or", name: "ଓଡ଼ିଆ" },
                 { code: "pl", name: "Polski" },
                 { code: "pt", name: "Português" },
                 { code: "pt_PT", name: "Português (Portugal)" },
