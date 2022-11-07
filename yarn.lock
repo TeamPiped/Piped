@@ -892,10 +892,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.19.6":
-  version "7.19.6"
-  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.19.6.tgz#88674a287d3875a635b62afb066ebf162cedf13c"
-  integrity sha512-SUOBMtHlxGpXf14X85c1vtHyxYgIODBUdclntETSEGkgI274MNPBUkOVWpvFmRhMuLokK3CL07qJoK2e5CIToA==
+"@babel/standalone@^7.20.0":
+  version "7.20.2"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.20.2.tgz#159d2a6a5fc1a04df04f414d999c4558711a5cf0"
+  integrity sha512-oQX2oyEZCKzOaLImmg3NMm+1DFDm1pIkAme3xCvi170oYCzr5GazANyzFrsV4+9jup6b5uXlgIghXWGGUUEzSQ==
 
 "@babel/template@^7.16.7":
   version "7.16.7"
@@ -1459,12 +1459,12 @@
     "@unocss/transformer-directives" "0.46.3"
     magic-string "^0.26.7"
 
-"@vitejs/plugin-legacy@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-2.3.0.tgz#43565bcaf0dba53c70b26a1f67797b7c09f9d04e"
-  integrity sha512-Bh62i0gzQvvT8AeAAb78nOnqSYXypkRmQmOTImdPZ39meHR9e2une3AIFmVo4s1SDmcmJ6qj18Sa/lRc/14KaA==
+"@vitejs/plugin-legacy@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-2.3.1.tgz#44d8e608e66ef03ff82ae176588c7a621d56c524"
+  integrity sha512-J5KaGBlSt2tEYPVjM/C8dA6DkRzkFkbPe+Xb4IX5G+XOV5OGbVAfkMjKywdrkO3gGynO8S98i71Lmsff4cWkCQ==
   dependencies:
-    "@babel/standalone" "^7.19.6"
+    "@babel/standalone" "^7.20.0"
     core-js "^3.26.0"
     magic-string "^0.26.7"
     regenerator-runtime "^0.13.10"
