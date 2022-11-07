@@ -1,1 +1,20 @@
-{}
+{
+    "titles": {
+        "login": "ଲଗ୍ ଇନ୍",
+        "feed": "ଫିଡ୍",
+        "trending": "ଟ୍ରେଣ୍ଡିଂ",
+        "register": "ପଂଜିକରଣ",
+        "preferences": "ପସନ୍ଦ",
+        "history": "ଇତିହାସ",
+        "subscriptions": "ଅନୁସୃତ ଗୁଡ଼ିକ",
+        "playlists": "ପ୍ଲେଲିଷ୍ଟ ଗୁଡ଼ିକ",
+        "instance": "ଉଦାହରଣ",
+        "account": "ଆକାଉଣ୍ଟ",
+        "player": "ପ୍ଲେୟାର",
+        "livestreams": "ସିଧାପ୍ରସାରଣ ଗୁଡ଼ିକ",
+        "channels": "ସ୍ରୋତ ଗୁଡ଼ିକ"
+    },
+    "player": {
+        "watch_on": "{0} ରେ ଦେଖନ୍ତୁ"
+    }
+}
