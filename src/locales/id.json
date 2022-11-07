@@ -116,7 +116,8 @@
         "source_code": "Kode sumber",
         "reply_count": "{count} balasan",
         "minimize_comments_default": "Kecilkan Komentar secara bawaan",
-        "minimize_comments": "Kecilkan Komentar"
+        "minimize_comments": "Kecilkan Komentar",
+        "show_watch_on_youtube": "Tampilkan tombol Tonton di YouTube"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
