@@ -7,7 +7,9 @@
         "preferences": "प्राथमिकताएँ",
         "subscriptions": "सदस्यता",
         "feed": "फ़ीड",
-        "playlists": "प्लेलिस्ट"
+        "playlists": "प्लेलिस्ट",
+        "livestreams": "लाइव स्ट्रीम",
+        "channels": "चैनल"
     },
     "actions": {
         "subscribe": "सदस्यता लें - {count}",
