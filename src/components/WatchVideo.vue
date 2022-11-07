@@ -485,7 +485,7 @@ export default {
                     },
                 });
             } else {
-                this.handleLocalSubscriptions(this.channelId);
+                if (!this.handleLocalSubscriptions(this.channelId)) return;
             }
             this.subscribed = !this.subscribed;
         },
