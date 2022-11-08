@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showVideo">
+    <div v-if="showVideo" class="efy_trans_filter">
         <router-link
             :to="{
                 path: '/watch',
@@ -17,37 +17,17 @@
                 :class="{ 'shorts-img': item.isShort }"
                 loading="lazy"
             />
-            <div class="relative text-sm">
-                <span
-                    class="thumbnail-overlay thumbnail-right"
-                    v-if="item.duration > 0"
-                    v-text="timeFormat(item.duration)"
-                />
-                <!-- shorts thumbnail -->
-                <span class="thumbnail-overlay thumbnail-left" v-if="item.isShort" v-t="'video.shorts'" />
-                <span
-                    class="thumbnail-overlay thumbnail-right"
-                    v-else-if="item.duration >= 0"
-                    v-text="timeFormat(item.duration)"
-                />
-                <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right live-badge" tag="div">
-                    <font-awesome-icon :icon="['fas', 'broadcast-tower']" />
-                </i18n-t>
-                <span v-if="item.watched" class="thumbnail-overlay bottom-5px left-5px" v-t="'video.watched'" />
-            </div>
-
-            <div>
-                <p
-                    style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="my-2 overflow-hidden flex link"
-                    :title="item.title"
-                    v-text="item.title"
-                />
-            </div>
+            <p class="pp-video-card-title my-2 overflow-hidden flex link" :title="item.title" v-text="item.title" />
         </router-link>
 
-        <div class="float-right m-0 inline-block children:px-1">
+        <div class="pp-video-card-buttons">
+            <button v-if="item.duration > 0" v-text="timeFormat(item.duration)" tabindex="-1" />
+            <button v-if="item.views >= 0" tabindex="-1">
+                <font-awesome-icon icon="eye" />
+                <span class="pl-0.5" v-text="`${numberFormat(item.views)}`" />
+            </button>
             <router-link
+                class="btn"
                 :to="{
                     path: '/watch',
                     query: {
@@ -73,52 +53,39 @@
             >
                 <font-awesome-icon icon="circle-minus" />
             </button>
+            <button v-if="item.uploadedDate" class="pl-0.5" v-text="item.uploadedDate" tabindex="-1" />
+            <button class="pp-color" v-if="item.isShort" v-t="'video.shorts'" tabindex="-1" />
+            <button v-else-if="item.duration < 0" v-t="'video.live'" class="pp-color" tabindex="-1" />
+            <button v-if="item.watched" v-t="'video.watched'" class="pp-color" tabindex="-1" />
         </div>
 
-        <div class="flex">
-            <router-link :to="item.uploaderUrl">
-                <img
-                    v-if="item.uploaderAvatar"
-                    :src="item.uploaderAvatar"
-                    loading="lazy"
-                    :alt="item.uploaderName"
-                    class="rounded-full mr-0.5 mt-0.5 w-32px h-32px"
-                    width="68"
-                    height="68"
-                />
-            </router-link>
+        <router-link
+            :to="item.uploaderUrl"
+            class="pp-video-card-channel"
+            v-if="item.uploaderUrl && item.uploaderName && !hideChannel"
+        >
+            <img
+                v-if="item.uploaderAvatar"
+                :src="item.uploaderAvatar"
+                loading="lazy"
+                :alt="item.uploaderName"
+                class="mt-0.5 w-36rem h-36rem"
+                width="36"
+                height="36"
+            />
 
-            <div class="w-[calc(100%-32px-1rem)]">
-                <router-link
-                    v-if="item.uploaderUrl && item.uploaderName && !hideChannel"
-                    class="link-secondary overflow-hidden block"
-                    :to="item.uploaderUrl"
-                    :title="item.uploaderName"
-                >
-                    <span v-text="item.uploaderName" />
-                    <font-awesome-icon class="ml-1.5" v-if="item.uploaderVerified" icon="check" />
-                </router-link>
-
-                <strong v-if="item.views >= 0 || item.uploadedDate" class="text-sm">
-                    <span v-if="item.views >= 0">
-                        <font-awesome-icon icon="eye" />
-                        <span class="pl-0.5" v-text="`${numberFormat(item.views)} •`" />
-                    </span>
-                    <span v-if="item.uploaded > 0" class="pl-0.5" v-text="timeAgo(item.uploaded)" />
-                    <span v-else-if="item.uploadedDate" class="pl-0.5" v-text="item.uploadedDate" />
-                </strong>
+            <div class="pp-text" title="item.uploaderName">
+                <span v-text="item.uploaderName" />
+                <font-awesome-icon class="ml-1.5" v-if="item.uploaderVerified" icon="check" />
             </div>
-        </div>
+        </router-link>
     </div>
     <PlaylistAddModal v-if="showModal" :video-id="video.url.substr(-11)" @close="showModal = !showModal" />
 </template>
 
 <style>
-.thumbnail-overlay {
-    @apply absolute;
-}
 .shorts-img {
-    @apply max-h-[17.5vh] w-full object-contain;
+    @apply w-full object-contain;
 }
 </style>
 
