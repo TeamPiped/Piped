@@ -2,21 +2,19 @@
 
 /*End of EFY Template - Documentation on how to use it coming soon at https://efy.ooo/ui . Your own css starts bellow*/
 
-
-/*BG: Transparent*/ .video-grid div div, .pp-show-recs div div {background: transparent}
-/*BG 1*/ .comment, .video-grid div, .pp-show-recs div, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
+/*BG 1*/ .comment, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
 /*Bold*/ .btn {font-weight: bold}
-/*Margin: 0*/ .pp-watch-buttons .btn, .suggestions-container li, .suggestions-container ul, .pp-nav > ul, .pp-mobile-btn i, .pp-mobile-nav a, .pp-mobile-nav p, .modal-container button:first-of-type svg {margin: 0}
+/*Margin: 0*/ .pp-watch-buttons .btn, .suggestions-container li, .suggestions-container ul, .pp-mobile-btn i, .pp-mobile-nav a, .pp-mobile-nav p, .modal-container button:first-of-type svg {margin: 0}
 /*Text-Align: Center*/ .btn, .pp-import-channel, .pp-sortby-feed, .pp-playlist-add-modal-top, .pp-nav, .pp-nav > div.flex-1.flex.justify-start > a, .pp-watch-bellow-options .flex.items-center, .pp-channel-page-author {align-items: center; text-align: center}
 /*Justify-Content: Space-Between*/ .pp-playlist-add-modal-top, .pp-watch-bellow-options, .pp-nav {justify-content: space-between}
 
-/*Display: Flex*/ .pp-watch-buttons, .pp-nav, .pp-nav>div.flex-1.flex.justify-start>a, .pp-watch-bellow-options .flex.items-center, .pp-nav > ul, .pp-channel-page-author, .grid .comment, .pp-chapters {display: flex}
-/*Gap: 15rem*/ .pp-show-recs, .pp-rec-vids, .pp-mobile-nav, .pp-delete-account .flex, .pp-playlist-add-modal-top, .pp-pref-cards, .pp-nav, .pp-watch-bellow-options {gap: 15rem}
+/*Display: Flex*/ .pp-watch-buttons, .pp-watch-bellow-options .flex.items-center, .pp-channel-page-author, .grid .comment, .pp-chapters {display: flex}
+/*Gap: 15rem*/ .pp-show-playlist, .pp-rec-vids, .pp-mobile-nav, .pp-delete-account .flex, .pp-playlist-add-modal-top, .pp-pref-cards, .pp-watch-bellow-options {gap: 15rem}
 /*Color: Text*/ .video-grid div a, .pp-show-recs div a, .video-grid div button:not(.modal button, .btn), .pp-show-recs div button:not(.modal button, .btn), .svg-inline--fa:not(.video-grid svg, .btn svg, button svg) {color: var(--efy_text)}
 
 /*Border*/ .modal-container, .video-grid>div {border: 1.5px solid var(--efy_bg1);}
 
-/*Text-Fill-Color: Text*/  p, .pp-mobile-nav a, .pp-mobile-nav p, .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-nav > ul a, .pp-nav > div.flex-1.flex.justify-start > a {-webkit-text-fill-color: var(--efy_text); text-decoration: none}
+/*Text-Fill-Color: Text*/  p, .pp-mobile-nav a, .pp-mobile-nav p, .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-logo a, .pp-nav .pp-menu > * {-webkit-text-fill-color: var(--efy_text); text-decoration: none}
 /*Text-Fill-Color: Text2*/ .btn, .btn a, a.btn, .modal button {-webkit-text-fill-color: var(--efy_text2); text-decoration: none}
 
 /*BG: efy*/ .btn, .pp-chapter-active, .pp-chapters .chapter:hover {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; color: var(--efy_text2)}
@@ -25,13 +23,13 @@
 
 /*Avatar*/ .comment-avatar, .pp-import-channel img {width: 40rem; height:  40rem}
 
-/*Video Grid */ .video-grid {display: grid; gap: 16rem; grid-template-columns: repeat(auto-fit, minmax(224rem, 1fr))}
+/*Video Grid */ .video-grid {display: grid; gap: 16rem; grid-template-columns: repeat(auto-fill, minmax(240rem, 1fr))}
 
 tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 0 0 1.5px var(--efy_bg1)}
 
 /*Bellow*/ .pp-watch-bellow-options {margin-top: 15rem}
 .pp-watch-buttons {flex-wrap: wrap; gap: 10rem}
-.pp-watch-buttons .btn {padding: 6rem 15rem; border: 0; color: var(--efy_text2); min-height: 36rem; max-height: 36rem; place-self: center}
+.pp-watch-buttons .btn {padding: 6rem 15rem; border: 0; color: var(--efy_text2); min-height: 36rem; max-height: 36rem; place-self: center; place-content: center}
 .pp-bellow-video, .pp-bellow-video .flex {gap:10rem}
 .pp-likes .flex {gap: 0rem}
 
@@ -44,20 +42,6 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 /*Animation: pulse2*/ .video-grid>div:active {animation: pulse2 0.1s ease-in-out backwards}
 
 
-
-
-
-/*Top bar*/
-.pp-nav {margin-bottom: 15rem}
-.pp-nav > div.flex-1.flex.justify-start > a {font-size: 25rem}
-.pp-nav > div.flex-1.flex.justify-start > a img {margin-right: -5rem}
-.pp-nav > div input {margin: 0!important; width: 300rem}
-.pp-nav > ul {list-style: none; padding: 0}
-
-.pp-logo img {width: auto}
-
-/*Cards*/ .video-grid > div > .flex > a > img {width: 32rem; height: 32rem}
-
 .pp-video-title {font-size: 24rem; line-height: unset; margin-top: 10rem}
 
 /*Avatar below video*/ .pp-watch-bellow-options .flex.items-center > a {margin: 0 0 0 10rem; font-size: 20rem}
@@ -66,7 +50,17 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 /*Avatar Channel Page*/ .pp-channel-page-author  {gap: 10rem; margin-top: 10rem}
  .pp-channel-page-author  > img {width: 48rem; height: 48rem}
 
-/*Comments*/ .grid .comment {width: fit-content; margin: 0 0 15px 0; gap: 10rem; padding: 12rem; border: 1.5rem solid var(--efy_color_border)}
+  .pp-channel-tabs {flex-wrap: wrap}
+ .pp-channel-tabs button:not(.active, .pp-subscribe) {
+    background: var(--efy_gradient), linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans));
+    -webkit-background-clip: text, padding-box;
+    -moz-background-clip: text, padding-box;
+    -webkit-text-fill-color: transparent;
+    box-shadow: inset 0 0 0 1.5rem var(--efy_color_border)!important;
+    border: 0!important;
+}
+
+/*Comments*/ .grid .comment {width: fit-content; margin: 0 0 15px 0; gap: 10rem; padding: 12rem; border: var(--efy_border)}
 .comment-author {flex-wrap: wrap}
 .comment-meta {margin: 0 5rem}
 .comment .comment {margin-top: 10rem}
@@ -77,10 +71,10 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 .suggestions-container li {padding: 3rem 10rem}
 .suggestion-selected {box-shadow: 0 0 0 1.5rem var(--efy_color_border), 0 0 0 1.5rem var(--efy_color_border)}
 
-/*Thumbnail Overlay*/ .thumbnail-overlay, .thumbnail-left , .thumbnail-right  {background: var(--efy_text2)!important; padding: 12rem 6rem!important}
+/* .thumbnail-overlay, .thumbnail-left , .thumbnail-right  {background: var(--efy_text2)!important; padding: 12rem 6rem!important}
 .thumbnail-right {bottom: 15px; right: 8px}
 .thumbnail-left {bottom: 16rem; left: 8rem}
-.live-badge {padding: 6rem 7rem!important}
+.live-badge {padding: 6rem 7rem!important}*/
 
 /*Recommended Videos*/ .pp-rec-vids {display: grid; grid-template-columns: 1fr 300rem}
 .order-first {-webkit-box-ordinal-group: -9998; -webkit-order: -9999; order: -9999}
@@ -89,8 +83,8 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 table {margin-top: 0}
 
 /*Chapters*/ .pp-chapters {margin-left: 15rem; max-width: 400rem; gap: 10rem; border-radius: var(--efy_radius)}
-.pp-chapters .chapter {padding: 10rem; border-radius: var(--efy_radius); border: 1.5rem solid var(--efy_color_border)}
-.pp-chapters [title=chapters] {padding: 5rem 10rem; border-radius: var(--efy_radius); border: 1.5rem solid var(--efy_color_border)}
+.pp-chapters .chapter {padding: 10rem; border-radius: var(--efy_radius); border: var(--efy_border)}
+.pp-chapters [title=chapters] {padding: 5rem 10rem; border-radius: var(--efy_radius); border: var(--efy_border)}
 .pp-chapters .chapter .flex {gap: 0 15rem}
 
  .pp-chapters.pp-mobile {margin: 15rem 0 0 0; max-width: 100%}
@@ -106,13 +100,15 @@ table {margin-top: 0}
 
 /*Subscribtions*/ .pp-import-channel {gap: 10rem}
 
-/*Other*/ .pp-show-recs {display: grid}
-.video-grid div, .pp-show-recs div {padding: 16rem; border: 1.5rem solid var(--efy_color_border)}
-.video-grid div div, .pp-show-recs div div {padding: 0; border: none}
+/*Other*/ .pp-show-recs, .pp-show-playlist, .pp-show-playlist {display: grid; gap: 15rem}
+.pp-show-playlist {margin-bottom: 15rem}
+:is(.video-grid, .pp-show-recs, .pp-show-playlist) div {padding: 15rem; background: var(--efy_bg1); border: var(--efy_border)}
+:is(.video-grid, .pp-show-recs, .pp-show-playlist) div div {padding: 0; border: none; background: transparent}
 
 .svg-inline--fa{vertical-align: -2.5rem}
 .children\:px-1>*, .px-1 {padding-left: 4rem; padding-right: 4rem}
-.video-grid div button:not(.modal button, .btn), .pp-show-recs div button:not(.modal button, .btn) {background: transparent!important; border: 0}
+
+/*Fullscreen*/ .shaka-video-container:fullscreen, .shaka-video-container:fullscreen * {border-radius: 0 !important}
 
 /*Variables*/
 .mr-0\.5 {margin-right: 15rem}
@@ -120,12 +116,11 @@ table {margin-top: 0}
 .ml-1, .ml-1\.5 {margin-left: 5rem}
 .mb-2 {margin-bottom: 15rem}
 .mt-2 {margin-top: 15rem}
-.mr-2 {margin-right: 10rem}
+.mr-1, .mr-2 {margin-right: 10rem}
 .children\:pb-3>* {padding-bottom: 15rem}
+.children\:ml-2>*, .ml-2 {margin-left: 10rem}
 
-.pp-mobile-btn {display: none; padding: 10rem 12rem}
-.pp-mobile-nav {margin: 0 0 15rem 0}
-.pp-mobile-nav a, .pp-mobile-nav p {padding: var(--efy_padding); width: 100%; border-radius: var(--efy_radius)}
+.pp-mobile-btn {display: none; margin: 0!important; padding: 8rem 10rem}
 
 /*Convergence*/
 @media (max-width: 990px) {
