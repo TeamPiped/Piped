@@ -1,7 +1,7 @@
 <template>
     <h1 class="text-center my-2" v-text="$route.query.search_query" />
 
-    <label for="ddlSearchFilters">
+    <label for="ddlSearchFilters" class="mr-2">
         <strong v-text="`${$t('actions.filter')}:`" />
     </label>
     <select id="ddlSearchFilters" v-model="selectedFilter" default="all" class="select w-auto" @change="updateFilter()">
