@@ -13,29 +13,30 @@
             <span v-html="purifyHTML(urlify(channel.description))" />
         </p>
 
-        <button
-            class="btn"
-            @click="subscribeHandler"
-            v-t="{
-                path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                args: { count: numberFormat(channel.subscriberCount) },
-            }"
-        ></button>
+        <div class="flex mt-4 mb-2 pp-channel-tabs">
+            <button
+                class="btn pp-subscribe"
+                @click="subscribeHandler"
+                v-t="{
+                    path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
+                    args: { count: numberFormat(channel.subscriberCount) },
+                }"
+            ></button>
 
-        <!-- RSS Feed button -->
-        <a
-            aria-label="RSS feed"
-            title="RSS feed"
-            role="button"
-            v-if="channel.id"
-            :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
-            target="_blank"
-            class="btn flex-col ml-3"
-        >
-            <font-awesome-icon icon="rss" />
-        </a>
-
-        <div class="flex mt-4 mb-2">
+            <!-- RSS Feed button -->
+            <a
+                aria-label="RSS feed"
+                title="RSS feed"
+                role="button"
+                v-if="channel.id"
+                :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
+                target="_blank"
+                class="btn flex-col ml-2"
+                style="display: inline; float: unset"
+            >
+                <font-awesome-icon icon="rss" />
+            </a>
+            <p>|</p>
             <button
                 v-for="(tab, index) in tabs"
                 :key="tab.name"
@@ -57,10 +58,19 @@
                 height="94"
                 width="168"
                 hide-channel
+                class="efy_trans_filter"
             />
         </div>
     </div>
 </template>
+
+<style>
+.pp-channel-tabs > p {
+    place-self: center;
+    padding: 0 10rem;
+    -webkit-text-fill-color: var(--efy_text_trans2);
+}
+</style>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
@@ -236,9 +246,3 @@ export default {
     },
 };
 </script>
-
-<style>
-.active {
-    border: 0.1rem outset red;
-}
-</style>

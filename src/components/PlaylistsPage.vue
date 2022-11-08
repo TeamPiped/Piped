@@ -6,24 +6,21 @@
     <button v-t="'actions.create_playlist'" class="btn" @click="createPlaylist" />
 
     <div class="video-grid">
-        <div v-for="playlist in playlists" :key="playlist.id">
+        <div v-for="playlist in playlists" :key="playlist.id" class="efy_trans_filter">
             <router-link :to="`/playlist?list=${playlist.id}`">
                 <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
-                <div class="relative text-sm">
-                    <span
-                        class="thumbnail-overlay thumbnail-right"
-                        v-text="`${playlist.videos} ${$t('video.videos')}`"
-                    />
-                </div>
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="my-2 overflow-hidden flex link"
+                    class="flex link"
                     :title="playlist.name"
                     v-text="playlist.name"
                 />
             </router-link>
-            <button class="btn h-auto" @click="renamePlaylist(playlist.id)" v-t="'actions.rename_playlist'" />
-            <button class="btn h-auto ml-2" @click="deletePlaylist(playlist.id)" v-t="'actions.delete_playlist'" />
+            <div class="pp-video-card-buttons flex gap-15rem children:m-0" style="flex-wrap: wrap">
+                <button class="thumbnail-overlay thumbnail-right" v-text="`${playlist.videos} ${$t('video.videos')}`" />
+                <button class="pp-color h-auto" @click="renamePlaylist(playlist.id)" v-t="'actions.rename_playlist'" />
+                <button class="pp-color h-auto" @click="deletePlaylist(playlist.id)" v-t="'actions.delete_playlist'" />
+            </div>
         </div>
     </div>
     <br />

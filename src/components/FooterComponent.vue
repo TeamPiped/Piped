@@ -1,24 +1,24 @@
 <template>
-    <footer>
+    <footer class="efy_trans_filter">
         <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped" target="_blank">
             <font-awesome-icon :icon="['fab', 'github']" />
-            <span class="ml-2" v-t="'actions.source_code'" />
+            <span v-t="'actions.source_code'" />
         </a>
         <a href="https://piped-docs.kavin.rocks/" target="_blank">
             <font-awesome-icon :icon="['fa', 'book']" />
-            <span class="ml-2" v-t="'actions.documentation'" />
+            <span v-t="'actions.documentation'" />
         </a>
         <a href="https://github.com/TeamPiped/Piped#donations" target="_blank">
             <font-awesome-icon :icon="['fab', 'bitcoin']" />
-            <span class="ml-2" v-t="'actions.donations'" />
+            <span v-t="'actions.donations'" />
         </a>
         <a v-if="statusPageHref" :href="statusPageHref">
             <font-awesome-icon :icon="['fa', 'server']" />
-            <span class="ml-2" v-t="'actions.status_page'" />
+            <span v-t="'actions.status_page'" />
         </a>
         <a v-if="donationHref" :href="donationHref">
             <font-awesome-icon :icon="['fa', 'donate']" />
-            <span class="ml-2" v-t="'actions.instance_donations'" />
+            <span v-t="'actions.instance_donations'" />
         </a>
     </footer>
 </template>
@@ -47,16 +47,23 @@ export default {
 
 <style>
 footer {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15rem;
+    justify-content: center;
     width: 100%;
-    margin-top: 30rem;
-    margin-bottom: 10rem;
+    margin: 15rem 0 0 0;
     background: var(--efy_bg1);
     border-radius: var(--efy_radius);
     padding: 15rem 5rem;
+    border: var(--efy_border);
 }
-
 footer > a {
-    margin: 0 15rem;
+    margin: 0;
+}
+footer a {
+    color: var(--efy_text) !important;
+    -webkit-text-fill-color: var(--efy_text) !important;
+    background: transparent !important;
 }
 </style>

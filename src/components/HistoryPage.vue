@@ -1,12 +1,12 @@
 <template>
     <h1 class="font-bold text-center" v-t="'titles.history'" />
 
-    <div class="flex">
-        <div>
+    <div class="flex place-items-center">
+        <div class="mr-2">
             <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
         </div>
 
-        <div class="right-1">
+        <div class="mr-2">
             <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" />
         </div>
     </div>

@@ -55,6 +55,7 @@ import "uno.css";
 import "../efy/efy.css";
 import "./piped.css";
 import "../efy/efy.js";
+import "./piped.js";
 
 import App from "./App.vue";
 

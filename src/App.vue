@@ -18,23 +18,16 @@
     --efy_color1_var: 239, 68, 68;
     --efy_color2_var: 220, 38, 38;
     --efy_radius: 12rem;
-    --efy_sidebar_button: right_middle;
+    --efy_sidebar_button: right_middle, off;
     --efy_font_family: "nunito", sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
         Noto Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-    --efy_body_width: unset;
+    --efy_body_width: 100%;
     --efy_audio_path: ./audio;
-    --efy_modules: efy_quick, efy_mode, efy_filters, efy_backup, efy_accessibility, efy_audio;
-
-    --efy_module_quick: on;
-    --efy_module_mode: on;
-    --efy_module_filters: on;
-    --efy_module_backup: on;
-    --efy_module_accessibility: on;
-    --efy_module_audio: on;
+    --efy_modules: efy_quick, efy_mode, efy_filters, efy_backup, efy_accessibility, efy_audio, efy_keyboard, efy_extra;
 }
 
 body {
-    @apply max-w-100vw p-16rem;
+    @apply p-16rem;
 }
 
 /*Default Mode*/
@@ -49,10 +42,8 @@ body {
 input,
 .btn,
 button,
-.shaka-video-container,
-.shaka-video-container video,
-.video-grid div,
-.pp-show-recs div,
+.pp-show-playlist,
+:is(.video-grid, .pp-show-recs, .pp-show-playlist) div,
 .grid .comment,
 .shaka-scrim-container,
 .suggestion-selected,
@@ -60,12 +51,14 @@ button,
 .shaka-text-container span > span > span {
     border-radius: var(--efy_radius);
 }
+.shaka-video-container,
+.shaka-video-container video,
+video {
+    border-radius: var(--efy_radius) !important;
+}
 
 /*Radius 0*/
-.video-grid img,
-.thumbnail-overlay,
-.thumbnail-left,
-.thumbnail-right {
+.video-grid img {
     border-radius: var(--efy_radius0);
 }
 
@@ -73,6 +66,87 @@ button,
 .suggestions-container,
 .modal-container {
     border-radius: var(--efy_radius2);
+}
+
+.pp-full-width :is(.comment, .comment-content) {
+    width: 100%;
+}
+:is(.pp-trans, .pp-solid).shaka-text-container,
+:is(.pp-trans, .pp-solid).shaka-text-container * {
+    background: transparent !important;
+    text-shadow: 0 0 15rem #000 !important;
+    backdrop-filter: none !important;
+}
+.pp-solid.shaka-text-container .shaka-text-wrapper * {
+    background: #000 !important;
+    backdrop-filter: none !important;
+    text-shadow: none !important;
+}
+.pp-video-card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 0 0 5rem 0;
+    line-height: 22rem;
+}
+.pp-video-card-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rem;
+    margin: 5rem 0 0;
+}
+.pp-video-card-buttons :is(a, button) {
+    padding: 4rem 8rem;
+    margin: 0;
+    border: var(--efy_border);
+    color: var(--efy_text);
+    -webkit-text-fill-color: var(--efy_text);
+}
+.pp-video-card-buttons :is(a:not(.pp-color), button:not(.pp-color)) {
+    background: var(--efy_bg1);
+}
+.pp-video-card-buttons .pp-color {
+    color: var(--efy_text2);
+    -webkit-text-fill-color: var(--efy_text2);
+    border: 0;
+    padding: 6rem 10rem;
+    height: 35rem;
+}
+.pp-video-card-channel > .pp-text {
+    line-height: 20rem;
+    background: var(--efy_bg1) !important;
+    border: var(--efy_border) !important;
+    display: flex;
+    width: fit-content;
+    height: 36rem;
+    place-items: center;
+    padding: 0 10rem;
+    overflow: hidden;
+}
+.pp-video-card-channel > .pp-text span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 160rem;
+}
+.pp-video-card-channel > .pp-text strong span {
+    font-weight: normal;
+    font-size: 14rem !important;
+}
+.pp-video-card-channel {
+    display: flex;
+    gap: 10rem;
+    place-items: center;
+    background: transparent;
+    margin: 10rem 0 0;
+    width: fit-content;
+}
+.pp-video-card-channel > a {
+    height: 36rem;
+    width: 36rem;
+}
+:is(.pp-video-card-channel > a, .pp-video-card-channel > .pp-text):empty {
+    display: none;
 }
 </style>
 

@@ -1,5 +1,6 @@
 <template>
-    <div class="overflow-x-scroll h-screen-sm" ref="scrollable">
+    <h6 efy_card style="padding: 5rem 10rem 3rem; margin: 0 0 15rem 0">Playlist</h6>
+    <div class="overflow-y-scroll h-screen-sm pp-show-playlist" ref="scrollable">
         <VideoItem
             v-for="(related, index) in playlist.relatedStreams"
             :key="related.url"

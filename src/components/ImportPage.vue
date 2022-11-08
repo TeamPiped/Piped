@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form>
+        <form style="display: grid; gap: 15rem">
             <div>
                 <input ref="fileSelector" type="file" @change="fileChange" />
             </div>

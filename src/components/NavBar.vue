@@ -5,7 +5,7 @@
                 ><img alt="logo" src="/img/icons/logo.svg" height="32" width="32" />iped</router-link
             >
         </div>
-        <div class="lt-md:hidden">
+        <div class="lt-md:hidden flex flex-1 justify-start">
             <input
                 v-model="searchText"
                 type="text"
@@ -20,50 +20,39 @@
             />
         </div>
         <!-- hamburger menu on mobile -->
-        <button class="pp-mobile-btn flex flex-col justify-end mr-3" @click="showTopNav = !showTopNav">
+        <button class="pp-mobile-btn" efy_sidebar_btn="relative, pp-mobile">
             <i efy_icon="menu" />
         </button>
         <!-- navigation bar for large screen devices -->
-        <ul class="flex-1 flex justify-end flex text-1xl children:pl-3">
-            <li v-if="shouldShowTrending">
-                <router-link v-t="'titles.trending'" to="/trending" />
-            </li>
-            <li>
-                <router-link v-t="'titles.preferences'" to="/preferences" />
-            </li>
-            <li v-if="shouldShowLogin">
-                <p
-                    class="cursor-pointer font-bold"
-                    v-if="shouldShowLogin"
-                    v-t="'titles.account'"
-                    @click="showLoginModal = !showLoginModal"
-                />
-            </li>
-            <li v-if="shouldShowHistory">
-                <router-link v-t="'titles.history'" to="/history" />
-            </li>
-            <li v-if="authenticated">
-                <router-link v-t="'titles.playlists'" to="/playlists" />
-            </li>
-            <li v-if="!shouldShowTrending">
-                <router-link v-t="'titles.feed'" to="/feed" />
-            </li>
-        </ul>
+        <div class="pp-menu flex justify-end children:pl-3">
+            <router-link v-if="shouldShowTrending" v-t="'titles.trending'" to="/trending" />
+            <router-link v-t="'titles.preferences'" to="/preferences" />
+            <p
+                v-if="shouldShowLogin"
+                class="cursor-pointer font-bold"
+                v-t="'titles.account'"
+                @click="showLoginModal = !showLoginModal"
+            />
+            <router-link v-if="shouldShowHistory" v-t="'titles.history'" to="/history" />
+            <router-link v-if="authenticated" v-t="'titles.playlists'" to="/playlists" />
+            <router-link v-if="!shouldShowTrending" v-t="'titles.feed'" to="/feed" />
+            <button
+                efy_sidebar_btn="relative, pp-desktop"
+                style="
+                    background: transparent;
+                    -webkit-text-fill-color: var(--efy_text);
+                    padding: 0;
+                    margin: -5rem 0 0 0;
+                    border: 0;
+                    backdrop-filter: none !important;
+                    -webkit-backdrop-filter: none !important;
+                "
+            >
+                <i efy_icon="menu" style="margin: 0" />
+            </button>
+        </div>
     </nav>
-    <!-- navigation bar for mobile devices -->
-    <div v-if="showTopNav" class="pp-mobile-nav flex flex-col" @click="showTopNav = false">
-        <router-link v-if="shouldShowTrending" v-t="'titles.trending'" to="/trending" />
-        <router-link v-t="'titles.preferences'" to="/preferences" />
-        <p
-            class="cursor-pointer font-bold"
-            v-if="shouldShowLogin"
-            v-t="'titles.account'"
-            @click="showLoginModal = !showLoginModal"
-        />
-        <router-link v-if="shouldShowHistory" v-t="'titles.history'" to="/history" />
-        <router-link v-if="authenticated" v-t="'titles.playlists'" to="/playlists" />
-        <router-link v-if="!shouldShowTrending" v-t="'titles.feed'" to="/feed" />
-    </div>
+
     <!-- search suggestions for mobile devices -->
     <div class="w-{full - 4} md:hidden mx-2">
         <input
@@ -86,6 +75,36 @@
     />
     <LoginModal v-if="showLoginModal" @close="showLoginModal = !showLoginModal" />
 </template>
+
+<style>
+.pp-nav {
+    margin-bottom: 15rem;
+    gap: 15rem;
+}
+.pp-nav > .pp-logo > a {
+    font-size: 25rem;
+    font-family: "nunito";
+    background: transparent;
+}
+.pp-nav > div input {
+    margin: 0 !important;
+    width: 300rem;
+}
+.pp-nav .pp-menu {
+    list-style: none;
+    display: flex;
+    gap: 15rem;
+    margin: 0;
+    padding: 0;
+}
+.pp-nav .pp-menu > * {
+    margin: 0;
+}
+.pp-logo img {
+    width: auto;
+    margin: 0 -5rem;
+}
+</style>
 
 <script>
 import SearchSuggestions from "./SearchSuggestions.vue";

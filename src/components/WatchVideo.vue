@@ -39,7 +39,7 @@
             <div class="pp-video-title font-bold mt-2 text-2xl break-words" v-text="video.title" />
             <div class="pp-bellow-video flex flex-wrap mt-3 mb-3">
                 <!-- views / date -->
-                <div class="flex flex-auto children:ml-2">
+                <div class="flex flex-auto">
                     <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
                     <span> • </span>
                     <span v-text="uploadDate" />
@@ -133,6 +133,8 @@
             <div efy_select>
                 <input id="showDesc" type="checkbox" v-model="showDesc" />
                 <label for="showDesc" v-t="'actions.show_description'" />
+                <input id="showComments" type="checkbox" v-model="showComments" @click="toggleComments" />
+                <label for="showComments" v-t="'actions.show_comments'" />
                 <input id="showRecs" type="checkbox" v-model="showRecs" />
                 <label for="showRecs" v-t="'actions.show_recommendations'" />
                 <input id="chkAutoLoop" v-model="selectedAutoLoop" type="checkbox" @change="onChange($event)" />
@@ -146,35 +148,36 @@
             </div>
 
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <div v-show="showDesc" class="break-words mb-2" v-html="purifyHTML(video.description)" />
+            <div
+                v-show="showDesc"
+                class="break-words mb-2"
+                v-html="purifyHTML(video.description)"
+                style="border-top: var(--efy_border); margin: 15rem 0; padding: 15rem 0"
+            />
             <div
                 v-if="showDesc && sponsors && sponsors.segments"
                 v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
             />
         </div>
 
+        <hr />
+
         <div class="grid pp-rec-vids">
-            <div class="xl:col-span-4 sm:col-span-3">
-                <button
-                    class="btn mb-2"
-                    @click="toggleComments"
-                    v-t="`actions.${showComments ? 'minimize_comments' : 'show_comments'}`"
-                />
-            </div>
             <div v-if="!showComments" class="w-full"></div>
-            <div v-else-if="!comments" class="">
+            <div v-if="!comments" class="">
                 <p class="text-center mt-8" v-t="'comment.loading'"></p>
             </div>
             <div v-else-if="comments.disabled" class="">
                 <p class="text-center mt-8" v-t="'comment.disabled'"></p>
             </div>
-            <div v-else ref="comments" v-show="showComments" class="">
+            <div v-else ref="comments" v-show="showComments" class="pp-comments">
                 <CommentItem
                     v-for="comment in comments.comments"
                     :key="comment.commentId"
                     :comment="comment"
                     :uploader="video.uploader"
                     :video-id="getVideoId()"
+                    class="efy_trans_filter"
                 />
             </div>
 
@@ -185,8 +188,8 @@
                     :playlist="playlist"
                     :selected-index="index"
                 />
-                <hr v-show="showRecs" />
                 <div v-show="showRecs" class="pp-show-recs">
+                    <h6 efy_card style="padding: 5rem 10rem 3rem; margin: 0">Recommended</h6>
                     <ContentItem
                         v-for="related in video.relatedStreams"
                         :key="related.url"
