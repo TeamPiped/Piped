@@ -2,7 +2,7 @@
     <div
         ref="container"
         data-shaka-player-container
-        class="w-full max-h-screen flex justify-center"
+        class="w-full max-h-screen flex justify-center efy_trans_filter_off"
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
@@ -652,10 +652,11 @@ export default {
 
 <style>
 .player-container {
-    @apply max-h-75vh min-h-64 bg-black;
+    @apply max-h-75vh min-h-64;
+    background: #000;
 }
 [efy_theme="dark_black"] .player-container {
-    box-shadow: 0 0 0 1.5rem var(--efy_color_border);
+    box-shadow: 0 0 0 1.5rem var(--efy_bg1);
 }
 .shaka-video-container:-webkit-full-screen {
     max-height: none !important;
@@ -664,14 +665,18 @@ export default {
 /*Captions*/
 .shaka-text-wrapper * {
     text-align: left !important;
+    font-family: "nunito" !important;
 }
 .shaka-text-wrapper > span {
-    background: #0008;
+    background: #0008 !important;
     backdrop-filter: blur(20rem);
     border: 1.5rem solid var(--efy_color_border);
     border-radius: var(--efy_radius);
     padding: 8rem 12rem;
     line-height: 28rem;
+}
+.shaka-text-wrapper > span:empty {
+    display: none !important;
 }
 /* apply to all spans that don't include multiple other spans to avoid the style being applied to the text container too when the subtitles are two lines */
 .shaka-text-wrapper > span > span *:first-child:last-child {
@@ -726,5 +731,8 @@ html .shaka-range-element:focus {
 .shaka-settings-menu button:hover {
     background: var(--efy_bg1) !important;
     box-shadow: inset 0 0 0 1.5px var(--efy_bg1);
+}
+.shaka-controls-container {
+    border-radius: var(--efy_radius) !important;
 }
 </style>
