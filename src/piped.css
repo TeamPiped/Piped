@@ -133,7 +133,7 @@ table {margin-top: 0}
 }
 @media (max-width: 639px) {
     .pp-rec-vids {grid-template-columns: 1fr}
-    .pp-nav > ul {display: none}
+    .pp-nav .pp-menu {display: none!important}
     .pp-mobile-btn {display: block}
 }
 @media (min-width: 640px){
