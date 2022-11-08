@@ -74,7 +74,7 @@
                     <!-- Verified Badge -->
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
                 </div>
-                <div class="flex relative ml-auto children:mx-1 items-center">
+                <div class="flex relative ml-auto children:mr-1 items-center">
                     <button class="btn" v-if="authenticated" @click="showModal = !showModal">
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
                     </button>
