@@ -1,6 +1,6 @@
 <template>
     <div class="pp-pref-cards">
-        <div efy_card>
+        <div efy_card="grid">
             <h2>Quick</h2>
             <label class="pref" for="ddlLanguageSelection">
                 <strong v-t="'actions.language_selection'" />
@@ -100,7 +100,7 @@
 
             <!-- options that are visible only when logged in -->
             <div v-if="this.authenticated">
-                <label class="pp-delete-account pref" for="txtDeleteAccountPassword" efy_card>
+                <label class="pp-delete-account pref" for="txtDeleteAccountPassword" efy_card="grid">
                     <h6 v-t="'actions.delete_account'" />
                     <input
                         id="txtDeleteAccountPassword"
@@ -119,7 +119,7 @@
             </div>
         </div>
 
-        <div efy_card>
+        <div efy_card="grid">
             <h2 v-t="'titles.player'" />
             <label class="pref" for="chkAutoPlayVideo">
                 <strong v-t="'actions.autoplay_video'" />
@@ -238,7 +238,7 @@
             </label>
         </div>
 
-        <div efy_card>
+        <div efy_card="grid">
             <h2>SponsorBlock</h2>
             <p>
                 <span v-t="'actions.uses_api_from'" /><a class="link" href="https://sponsor.ajay.app/"
