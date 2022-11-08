@@ -7,7 +7,7 @@
         <div class="flex justify-between items-center">
             <div>
                 <router-link class="link" :to="playlist.uploaderUrl || '/'">
-                    <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
+                    <img :src="playlist.uploaderAvatar" loading="lazy" />
                     <strong v-text="playlist.uploader" />
                 </router-link>
             </div>
