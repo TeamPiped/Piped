@@ -79,6 +79,7 @@
 <style>
 .pp-nav {
     margin-bottom: 15rem;
+    gap: 15rem;
 }
 .pp-nav > .pp-logo > a {
     font-size: 25rem;
