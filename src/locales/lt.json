@@ -38,7 +38,7 @@
         "disable_lbry": "Išjungti LBRY srautiniam siuntimui",
         "instance_selection": "Perdavimo šaltinio pasirinkimas",
         "auto_play_next_video": "Automatiškai paleisti sekantį vaizdo įrašą",
-        "donations": "Parama",
+        "donations": "Parama plėtrai",
         "loop_this_video": "Sukti ratu šį vaizdo įrašą",
         "show_description": "Rodyti aprašymą",
         "minimize_description": "Suskleisti aprašymą",
@@ -70,7 +70,36 @@
         "download_as_txt": "Atsisiųsti kaip .txt",
         "delete_account": "Ištrinti paskyrą",
         "logout": "Atsijungti šiame įrenginyje",
-        "remove_from_playlist": "Pašalinti iš grojaraščio"
+        "remove_from_playlist": "Pašalinti iš grojaraščio",
+        "confirm_reset_preferences": "Ar tikrai norite iš naujo nustatyti nuostatas?",
+        "reset_preferences": "Iš naujo nustatyti nuostatas",
+        "backup_preferences": "Atsarginės kopijos nuostatos",
+        "source_code": "Pirminis kodas",
+        "documentation": "Dokumentacija",
+        "with_timecode": "Dalintis su laiko kodu",
+        "reply_count": "{count} atsakymų",
+        "show_chapters": "Skyriai",
+        "piped_link": "Piped nuoroda",
+        "rename_playlist": "Pervardyti grojaraštį",
+        "follow_link": "Sekti nuorodą",
+        "store_search_history": "Išsaugoti paieškos istoriją",
+        "hide_watched": "Slėpti žiūrėtus vaizdo įrašus sklaidos kanale",
+        "restore_preferences": "Atkurti nuostatas",
+        "status_page": "Būsena",
+        "copy_link": "Kopijuoti nuorodą",
+        "share": "Dalintis",
+        "new_playlist_name": "Naujas grojaraščio pavadinimas",
+        "minimize_recommendations_default": "Sumažinti rekomendacijas automatiškai",
+        "instance_donations": "Perdavimo šaltinio parama",
+        "instance_auth_selection": "Autentifikavimo perdavimo šaltinio pasirinkimas",
+        "skip_filler_tangent": "Praleisti užpildymo dalį",
+        "different_auth_instance": "Autentiškumo nustatymui naudoti kitą perdavimo šaltinį",
+        "back_to_home": "Grįžti į pagrindinį",
+        "skip_highlight": "Praleisti išskirtų dalių pakartojimus",
+        "time_code": "Laiko kodas (sekundėmis)",
+        "minimize_comments_default": "Suskleisti komentarus automatiškai",
+        "minimize_comments": "Suskleisti komentarus",
+        "show_watch_on_youtube": "Rodyti mygtuką „Žiūrėti YouTube“"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
@@ -85,29 +114,58 @@
         "subscriptions": "Prenumeratos",
         "playlists": "Grojaraščiai",
         "account": "Paskyra",
-        "player": "Grotuvas"
+        "player": "Grotuvas",
+        "instance": "Perdavimo šaltinis",
+        "livestreams": "Tiesioginės transliacijos",
+        "channels": "Kanalai"
     },
     "preferences": {
         "instance_locations": "Perdavimo šaltinio vietovė",
         "instance_name": "Perdavimo šaltinio pavadinimas",
         "ssl_score": "SSL balas",
-        "has_cdn": "Turi CDN?"
+        "has_cdn": "Turi CDN?",
+        "version": "Versija",
+        "registered_users": "Registruoti naudotojai",
+        "up_to_date": "Atnaujinta?"
     },
     "comment": {
-        "pinned_by": "Prisegė {author}"
+        "pinned_by": "Prisegė {author}",
+        "loading": "Įkeliami komentarai...",
+        "disabled": "Komentarai yra išjungti įkėlėjo.",
+        "user_disabled": "Komentarai yra išjungti nustatymuose."
     },
     "video": {
         "views": "{views} peržiūros",
         "videos": "Vaizdo įrašai",
         "sponsor_segments": "Rėmėjų segmentai",
         "watched": "Žiūrėta",
-        "ratings_disabled": "Įvertinimai išjungti"
+        "ratings_disabled": "Įvertinimai išjungti",
+        "chapters": "Skyriai",
+        "live": "{0} tiesiogiai",
+        "shorts": "Trumpi filmukai"
     },
     "login": {
         "password": "Slaptažodis",
         "username": "Vartotojo vardas"
     },
     "search": {
-        "did_you_mean": "Ar turėjote omenyje: {0}?"
+        "did_you_mean": "Ar turėjote omenyje: {0}?",
+        "playlists": "YouTube: grojaraščiai",
+        "music_playlists": "YT Music: grojaraščiai",
+        "all": "YouTube: visi",
+        "channels": "YouTube: kanalai",
+        "videos": "YouTube: vaizdo įrašai",
+        "music_videos": "YT Music: vaizdo įrašai",
+        "music_songs": "YT Music: dainos",
+        "music_albums": "YT Music: albumai"
+    },
+    "info": {
+        "copied": "Nukopijuota!",
+        "cannot_copy": "Negalima kopijuoti!",
+        "page_not_found": "Puslapis nerastas",
+        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jie bus nustatyti iš naujo."
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Prenumeruojama: {0}"
     }
 }

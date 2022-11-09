@@ -10,7 +10,9 @@
         "playlists": "Playlists",
         "account": "Account",
         "instance": "Instance",
-        "player": "Player"
+        "player": "Player",
+        "livestreams": "Livestreams",
+        "channels": "Channels"
     },
     "player": {
         "watch_on": "Watch on {0}"
@@ -47,7 +49,7 @@
         "buffering_goal": "Buffering Goal (in seconds)",
         "country_selection": "Country Selection",
         "default_homepage": "Default Homepage",
-        "show_comments": "Show Comments",
+        "minimize_comments_default": "Minimize Comments by default",
         "minimize_description_default": "Minimize Description by default",
         "store_watch_history": "Store Watch History",
         "language_selection": "Language Selection",
@@ -62,6 +64,8 @@
         "loop_this_video": "Loop this Video",
         "auto_play_next_video": "Auto Play next Video",
         "donations": "Development donations",
+        "minimize_comments": "Minimize Comments",
+        "show_comments": "Show Comments",
         "minimize_description": "Minimize Description",
         "show_description": "Show Description",
         "minimize_recommendations": "Minimize Recommendations",
@@ -86,6 +90,8 @@
         "delete_account": "Delete Account",
         "logout": "Logout from this device",
         "minimize_recommendations_default": "Minimize Recommendations by default",
+        "minimize_chapters_default": "Minimize Chapters by default",
+        "show_watch_on_youtube": "Show Watch on YouTube button",
         "invalidate_session": "Logout all devices",
         "different_auth_instance": "Use a different instance for authentication",
         "instance_auth_selection": "Autentication Instance Selection",

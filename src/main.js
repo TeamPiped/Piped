@@ -22,7 +22,7 @@ import {
     faServer,
     faDonate,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faBitcoin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(
     faEye,
@@ -33,6 +33,7 @@ library.add(
     faCheck,
     faHeart,
     faHeadphones,
+    faYoutube,
     faRss,
     faChevronLeft,
     faLevelDownAlt,
@@ -90,20 +91,18 @@ const mixin = {
             return str;
         },
         numberFormat(num) {
-            const digits = 2;
-            const si = [
-                { value: 1, symbol: "" },
-                { value: 1e3, symbol: "k" },
-                { value: 1e6, symbol: "M" },
-                { value: 1e9, symbol: "B" },
-            ];
-            const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-            for (var i = si.length - 1; i > 0; i--) {
-                if (num >= si[i].value) {
-                    break;
-                }
+            var loc = `${this.getPreferenceString("hl")}-${this.getPreferenceString("region")}`;
+
+            try {
+                Intl.getCanonicalLocales(loc);
+            } catch {
+                loc = undefined;
             }
-            return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
+
+            const formatter = Intl.NumberFormat(loc, {
+                notation: "compact",
+            });
+            return formatter.format(num);
         },
         addCommas(num) {
             num = parseInt(num);
@@ -249,11 +248,11 @@ const mixin = {
                 return false;
             }
         },
-        async defaultLangage() {
+        async defaultLanguage() {
             const languages = window.navigator.languages;
             for (let i = 0; i < languages.length; i++) {
                 try {
-                    await import("./locales/" + languages[i] + ".json");
+                    await import(`./locales/${languages[i]}.json`);
                     return languages[i];
                 } catch {
                     continue;

@@ -3,11 +3,11 @@
         <h2 v-t="'actions.share'" />
         <div class="flex justify-between mt-4">
             <label v-t="'actions.with_timecode'" for="withTimeCode" />
-            <input id="withTimeCode" type="checkbox" v-model="withTimeCode" />
+            <input id="withTimeCode" type="checkbox" v-model="withTimeCode" @change="onChange" />
         </div>
         <div class="flex justify-between">
             <label v-t="'actions.piped_link'" />
-            <input type="checkbox" v-model="pipedLink" />
+            <input type="checkbox" v-model="pipedLink" @change="onChange" />
         </div>
         <div class="flex justify-between mt-2">
             <label v-t="'actions.time_code'" />
@@ -47,6 +47,8 @@ export default {
     },
     mounted() {
         this.timeStamp = parseInt(this.currentTime);
+        this.withTimeCode = this.getPreferenceBoolean("shareWithTimeCode", true);
+        this.pipedLink = this.getPreferenceBoolean("shareAsPipedLink", true);
     },
     methods: {
         followLink() {
@@ -62,6 +64,10 @@ export default {
             } catch ($e) {
                 alert(this.$t("info.cannot_copy"));
             }
+        },
+        onChange() {
+            this.setPreference("shareWithTimeCode", this.withTimeCode);
+            this.setPreference("shareAsPipedLink", this.pipedLink);
         },
     },
     computed: {

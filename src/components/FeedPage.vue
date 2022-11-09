@@ -22,7 +22,7 @@
             :is-feed="true"
             v-for="video in videos"
             :key="video.url"
-            :video="video"
+            :item="video"
             @update:watched="onUpdateWatched"
         />
     </div>

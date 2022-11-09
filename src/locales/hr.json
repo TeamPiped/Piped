@@ -32,7 +32,7 @@
         "show_description": "Prikaži opis",
         "minimize_recommendations": "Sakrij preporuke",
         "show_recommendations": "Prikaži preporuke",
-        "donations": "Donacije",
+        "donations": "Donacije za razvoj",
         "auto_play_next_video": "Automatski reproduciraj idući video",
         "loop_this_video": "Ponavljaj ovaj video",
         "import_from_json": "Uvezi iz JSON/CSV formata",
@@ -114,7 +114,17 @@
         "rename_playlist": "Preimenuj popis snimaka",
         "new_playlist_name": "Ime novog popisa snimaka",
         "share": "Dijeli",
-        "show_chapters": "Poglavlja"
+        "show_chapters": "Poglavlja",
+        "documentation": "Dokumentacija",
+        "source_code": "Izvorni kod",
+        "instance_donations": "Donacije instace",
+        "store_search_history": "Spremi povijest pretrage",
+        "hide_watched": "Sakrij gledana videa u novostima",
+        "status_page": "Stanje",
+        "reply_count": "{count} odgovora",
+        "minimize_comments_default": "Standardno sakrij komentare",
+        "minimize_comments": "Sakrij komentare",
+        "show_watch_on_youtube": "Prikaži gumb „Gledaj na YouTubeu”"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -130,7 +140,9 @@
         "playlists": "Playliste",
         "account": "Račun",
         "instance": "Instanca",
-        "player": "Plejer"
+        "player": "Player",
+        "channels": "Kanali",
+        "livestreams": "Prijenosi uživo"
     },
     "login": {
         "password": "Lozinka",

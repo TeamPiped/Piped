@@ -10,7 +10,9 @@
         "playlists": "Daftar Putar",
         "instance": "Instansi",
         "account": "Akun",
-        "player": "Pemain"
+        "player": "Pemain",
+        "livestreams": "Siaran Langsung",
+        "channels": "Saluran"
     },
     "player": {
         "watch_on": "Tonton di {0}"
@@ -111,7 +113,10 @@
         "instance_donations": "Donasi instansi",
         "hide_watched": "Sembunyikan video yang telah ditonton di umpan",
         "status_page": "Status",
-        "source_code": "Kode sumber"
+        "source_code": "Kode sumber",
+        "reply_count": "{count} balasan",
+        "minimize_comments_default": "Kecilkan Komentar secara bawaan",
+        "minimize_comments": "Kecilkan Komentar"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",

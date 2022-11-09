@@ -14,7 +14,7 @@
     <hr />
 
     <div class="video-grid">
-        <VideoItem v-for="video in videos" :key="video.url" :video="video" />
+        <VideoItem v-for="video in videos" :key="video.url" :item="video" />
     </div>
 
     <br />
@@ -39,7 +39,7 @@ export default {
             if (window.db) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
-                const cursorRequest = store.openCursor();
+                const cursorRequest = store.index("watchedAt").openCursor(null, "prev");
                 cursorRequest.onsuccess = e => {
                     const cursor = e.target.result;
                     if (cursor) {
@@ -53,7 +53,6 @@ export default {
                             thumbnail: video.thumbnail,
                             watchedAt: video.watchedAt,
                         });
-                        this.videos.sort((a, b) => b.watchedAt - a.watchedAt); // TODO: Optimize
                         if (this.videos.length < 1000) cursor.continue();
                     }
                 };

@@ -111,7 +111,7 @@
         "time_code": "Código de tiempo (en segundos)",
         "reset_preferences": "Restablecer preferencias",
         "confirm_reset_preferences": "¿Estás seguro de que quieres restablecer tus preferencias?",
-        "backup_preferences": "Preferencias de copia de seguridad",
+        "backup_preferences": "Copia de seguridad de preferencias",
         "restore_preferences": "Restablecer las preferencias",
         "back_to_home": "Volver a la página de inicio",
         "show_chapters": "Capítulos",
@@ -120,7 +120,11 @@
         "documentation": "Documentación",
         "instance_donations": "Donaciones para instancia",
         "status_page": "Estado",
-        "hide_watched": "Ocultar los vídeos vistos en el feed"
+        "hide_watched": "Ocultar los vídeos vistos en el feed",
+        "reply_count": "{count} respuestas",
+        "minimize_comments_default": "Minimizar comentarios por defecto",
+        "minimize_comments": "Minimizar comentarios",
+        "show_watch_on_youtube": "Mostrar botón Ver en YouTube"
     },
     "titles": {
         "feed": "Fuente web",
@@ -133,7 +137,9 @@
         "playlists": "Listas de reproducción",
         "account": "Cuenta",
         "instance": "Instancia",
-        "player": "Reproductor"
+        "player": "Reproductor",
+        "livestreams": "Directos",
+        "channels": "Canales"
     },
     "player": {
         "watch_on": "Ver en {0}"

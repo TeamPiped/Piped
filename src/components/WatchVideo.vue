@@ -47,11 +47,11 @@
                 <!-- Likes/dilikes -->
                 <div class="flex children:mr-2">
                     <template v-if="video.likes >= 0">
-                        <div class="flex">
+                        <div class="flex items-center">
                             <div class="i-fa-solid:thumbs-up" />
                             <strong class="ml-1" v-text="addCommas(video.likes)" />
                         </div>
-                        <div class="flex">
+                        <div class="flex items-center">
                             <div class="i-fa-solid:thumbs-down" />
                             <strong class="ml-1" v-text="video.dislikes >= 0 ? addCommas(video.dislikes) : '?'" />
                         </div>
@@ -74,7 +74,7 @@
                     <!-- Verified Badge -->
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
                 </div>
-                <div class="flex relative ml-auto children:mx-1 items-center">
+                <div class="flex relative ml-auto children:mr-1 items-center">
                     <button class="btn" v-if="authenticated" @click="showModal = !showModal">
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
                     </button>
@@ -108,7 +108,8 @@
                         >
                             <font-awesome-icon icon="rss" />
                         </a>
-                        <!-- watch on youtube button -->
+                        <WatchOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
+                        <!-- Share Dialog -->
                         <button class="btn" @click="showShareModal = !showShareModal">
                             <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
                             <font-awesome-icon class="mx-1.5" icon="fa-share" />
@@ -162,9 +163,14 @@
         <hr />
 
         <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
-            <div v-if="!commentsEnabled" class="xl:col-span-4 sm:col-span-3">
-                <p class="text-center mt-8" v-t="'comment.user_disabled'"></p>
+            <div class="xl:col-span-4 sm:col-span-3">
+                <button
+                    class="btn mb-2"
+                    @click="toggleComments"
+                    v-t="`actions.${showComments ? 'minimize_comments' : 'show_comments'}`"
+                />
             </div>
+            <div v-if="!showComments" class="xl:col-span-4 sm:col-span-3"></div>
             <div v-else-if="!comments" class="xl:col-span-4 sm:col-span-3">
                 <p class="text-center mt-8" v-t="'comment.loading'"></p>
             </div>
@@ -195,10 +201,10 @@
                 />
                 <hr v-show="showRecs" />
                 <div v-show="showRecs">
-                    <VideoItem
+                    <ContentItem
                         v-for="related in video.relatedStreams"
                         :key="related.url"
-                        :video="related"
+                        :item="related"
                         height="94"
                         width="168"
                     />
@@ -211,25 +217,27 @@
 
 <script>
 import VideoPlayer from "./VideoPlayer.vue";
-import VideoItem from "./VideoItem.vue";
+import ContentItem from "./ContentItem.vue";
 import ErrorHandler from "./ErrorHandler.vue";
 import CommentItem from "./CommentItem.vue";
 import ChaptersBar from "./ChaptersBar.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
+import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
 export default {
     name: "App",
     components: {
         VideoPlayer,
-        VideoItem,
+        ContentItem,
         ErrorHandler,
         CommentItem,
         ChaptersBar,
         PlaylistAddModal,
         ShareModal,
         PlaylistVideos,
+        WatchOnYouTubeButton,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
@@ -243,6 +251,7 @@ export default {
             sponsors: null,
             selectedAutoLoop: false,
             selectedAutoPlay: null,
+            showComments: true,
             showDesc: true,
             showRecs: true,
             showChapters: true,
@@ -276,9 +285,6 @@ export default {
                 day: "numeric",
                 year: "numeric",
             });
-        },
-        commentsEnabled() {
-            return this.getPreferenceBoolean("comments", true);
         },
     },
     mounted() {
@@ -327,7 +333,7 @@ export default {
         this.index = Number(this.$route.query.index);
         this.getPlaylistData();
         this.getSponsors();
-        if (!this.isEmbed && this.commentsEnabled) this.getComments();
+        if (!this.isEmbed && this.showComments) this.getComments();
         window.addEventListener("resize", () => {
             this.smallView = this.smallViewQuery.matches;
         });
@@ -335,8 +341,10 @@ export default {
     activated() {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
+        this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
+        this.showChapters = !this.getPreferenceBoolean("minimizeChapters", false);
         if (this.video.duration) {
             document.title = this.video.title + " - Piped";
             this.$refs.videoPlayer.loadVideo();
@@ -364,6 +372,12 @@ export default {
                     ) +
                     '"]',
             });
+        },
+        toggleComments() {
+            this.showComments = !this.showComments;
+            if (this.showComments && this.comments === null) {
+                this.fetchComments();
+            }
         },
         fetchComments() {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
@@ -477,7 +491,7 @@ export default {
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
-            if (window.innerHeight + window.scrollY >= this.$refs.comments.offsetHeight - window.innerHeight) {
+            if (window.innerHeight + window.scrollY >= this.$refs.comments?.offsetHeight - window.innerHeight) {
                 this.loading = true;
                 this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.getVideoId(), {
                     nextpage: this.comments.nextpage,

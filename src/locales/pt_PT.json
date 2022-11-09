@@ -101,7 +101,8 @@
         "time_code": "Código de tempo (em segundos)",
         "reset_preferences": "Redefinir preferências",
         "backup_preferences": "Exportar configurações",
-        "back_to_home": "Voltar ao início"
+        "back_to_home": "Voltar ao início",
+        "minimize_comments_default": "Minimizar Comentários por defeito"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",

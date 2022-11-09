@@ -20,9 +20,10 @@
                 <button class="btn mr-1" @click="downloadPlaylistAsTxt">
                     {{ $t("actions.download_as_txt") }}
                 </button>
-                <a class="btn" :href="getRssUrl">
+                <a class="btn mr-1" :href="getRssUrl">
                     <font-awesome-icon icon="rss" />
                 </a>
+                <WatchOnYouTubeButton :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`" />
             </div>
         </div>
 
@@ -32,7 +33,7 @@
             <VideoItem
                 v-for="(video, index) in playlist.relatedStreams"
                 :key="video.url"
-                :video="video"
+                :item="video"
                 :index="index"
                 :playlist-id="$route.query.list"
                 :admin="admin"
@@ -47,11 +48,13 @@
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import VideoItem from "./VideoItem.vue";
+import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
 export default {
     components: {
         ErrorHandler,
         VideoItem,
+        WatchOnYouTubeButton,
     },
     data() {
         return {

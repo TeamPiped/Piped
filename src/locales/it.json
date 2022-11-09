@@ -93,7 +93,8 @@
         "store_search_history": "Memorizza la cronologia delle ricerche",
         "status_page": "Stato",
         "documentation": "Documentazione",
-        "source_code": "Codice sorgente"
+        "source_code": "Codice sorgente",
+        "reply_count": "{count} risposte"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -109,7 +110,9 @@
         "playlists": "Playlist",
         "account": "Account",
         "instance": "Istanza",
-        "player": "Riproduttore"
+        "player": "Riproduttore",
+        "livestreams": "Streaming live",
+        "channels": "Canali"
     },
     "video": {
         "sponsor_segments": "Segmenti sponsor",

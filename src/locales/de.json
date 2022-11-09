@@ -89,7 +89,14 @@
         "confirm_reset_preferences": "Bist du sicher, dass du deine Einstellungen zurücksetzen möchtest?",
         "backup_preferences": "Einstellungen sichern",
         "restore_preferences": "Einstellungen wiederherstellen",
-        "show_chapters": "Kapitel"
+        "show_chapters": "Kapitel",
+        "source_code": "Quellcode",
+        "store_search_history": "Suchverlauf speichern",
+        "hide_watched": "Gesehene Videos im Feed ausblenden",
+        "reply_count": "{count} Antworten",
+        "instance_donations": "Instanz-Spenden",
+        "documentation": "Dokumentation",
+        "status_page": "Status"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"

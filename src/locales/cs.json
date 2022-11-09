@@ -10,7 +10,9 @@
         "playlists": "Playlisty",
         "account": "Účet",
         "instance": "Instance",
-        "player": "Přehrávač"
+        "player": "Přehrávač",
+        "livestreams": "Živé přenosy",
+        "channels": "Kanály"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
@@ -108,7 +110,10 @@
         "source_code": "Zdrojový kód",
         "instance_donations": "Dary na instanci",
         "documentation": "Dokumentace",
-        "status_page": "Stav"
+        "status_page": "Stav",
+        "reply_count": "{count} odpovědí",
+        "minimize_comments_default": "Ve výchozím nastavení skrýt komentáře",
+        "minimize_comments": "Skrýt komentáře"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
