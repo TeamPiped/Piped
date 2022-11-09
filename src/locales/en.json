@@ -90,6 +90,7 @@
         "delete_account": "Delete Account",
         "logout": "Logout from this device",
         "minimize_recommendations_default": "Minimize Recommendations by default",
+        "minimize_chapters_default": "Minimize Chapters by default",
         "show_watch_on_youtube": "Show Watch on YouTube button",
         "invalidate_session": "Logout all devices",
         "different_auth_instance": "Use a different instance for authentication",

@@ -96,6 +96,16 @@
             @change="onChange($event)"
         />
     </label>
+    <label class="pref" for="chkMinimizeChapters">
+        <strong v-t="'actions.minimize_chapters_default'" />
+        <input
+            id="chkMinimizeChapters"
+            v-model="minimizeChapters"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
     <label class="pref" for="chkShowWatchOnYouTube">
         <strong v-t="'actions.show_watch_on_youtube'" />
         <input
@@ -378,6 +388,7 @@ export default {
             minimizeComments: false,
             minimizeDescription: false,
             minimizeRecommendations: false,
+            minimizeChapters: false,
             showWatchOnYouTube: false,
             watchHistory: false,
             searchHistory: false,
@@ -516,6 +527,7 @@ export default {
             this.minimizeComments = this.getPreferenceBoolean("minimizeComments", false);
             this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
             this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
+            this.minimizeChapters = this.getPreferenceBoolean("minimizeChapters", false);
             this.showWatchOnYouTube = this.getPreferenceBoolean("showWatchOnYouTube", false);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
             this.searchHistory = this.getPreferenceBoolean("searchHistory", false);
@@ -576,6 +588,7 @@ export default {
                 localStorage.setItem("minimizeComments", this.minimizeComments);
                 localStorage.setItem("minimizeDescription", this.minimizeDescription);
                 localStorage.setItem("minimizeRecommendations", this.minimizeRecommendations);
+                localStorage.setItem("minimizeChapters", this.minimizeChapters);
                 localStorage.setItem("showWatchOnYouTube", this.showWatchOnYouTube);
                 localStorage.setItem("watchHistory", this.watchHistory);
                 localStorage.setItem("searchHistory", this.searchHistory);
