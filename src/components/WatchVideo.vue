@@ -344,6 +344,7 @@ export default {
         this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
+        this.showChapters = !this.getPreferenceBoolean("minimizeChapters", false);
         if (this.video.duration) {
             document.title = this.video.title + " - Piped";
             this.$refs.videoPlayer.loadVideo();
