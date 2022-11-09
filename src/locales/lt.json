@@ -73,7 +73,7 @@
         "remove_from_playlist": "Pašalinti iš grojaraščio",
         "confirm_reset_preferences": "Ar tikrai norite iš naujo nustatyti nuostatas?",
         "reset_preferences": "Iš naujo nustatyti nuostatas",
-        "backup_preferences": "Atsarginės kopijos nuostatos",
+        "backup_preferences": "Atsarginė nuostatų kopija",
         "source_code": "Pirminis kodas",
         "documentation": "Dokumentacija",
         "with_timecode": "Dalintis su laiko kodu",
@@ -163,7 +163,7 @@
         "copied": "Nukopijuota!",
         "cannot_copy": "Negalima kopijuoti!",
         "page_not_found": "Puslapis nerastas",
-        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jie bus nustatyti iš naujo."
+        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jos bus nustatyti iš naujo."
     },
     "subscriptions": {
         "subscribed_channels_count": "Prenumeruojama: {0}"
