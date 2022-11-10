@@ -79,7 +79,7 @@
                     (this.getPreferenceBoolean('watchHistory', false) ||
                         this.getPreferenceBoolean('hideWatched', false))
                 "
-                @click="toggleWatched(video.url.substr(-11))"
+                @click="toggleWatched(item.url.substr(-11))"
                 ref="watchButton"
             >
                 <font-awesome-icon icon="eye-slash" :title="$t('actions.mark_as_unwatched')" v-if="item.watched" />
@@ -220,16 +220,16 @@ export default {
                         // Should match WatchVideo.vue
                         video = {
                             videoId: videoId,
-                            title: instance.video.title,
-                            duration: instance.video.duration,
-                            thumbnail: instance.video.thumbnailUrl,
-                            uploaderUrl: instance.video.uploaderUrl,
-                            uploaderName: instance.video.uploader,
+                            title: instance.item.title,
+                            duration: instance.item.duration,
+                            thumbnail: instance.item.thumbnailUrl,
+                            uploaderUrl: instance.item.uploaderUrl,
+                            uploaderName: instance.item.uploader,
                             watchedAt: Date.now(),
                         };
                     }
                     // Set time to end for shouldShowVideo
-                    video.currentTime = instance.video.duration;
+                    video.currentTime = instance.item.duration;
                     // Save
                     store.put(video);
                     // Disappear if hideWatched is on
