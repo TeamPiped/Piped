@@ -108,7 +108,7 @@ table {margin-top: 0}
 .svg-inline--fa{vertical-align: -2.5rem}
 .children\:px-1>*, .px-1 {padding-left: 4rem; padding-right: 4rem}
 
-/*Fullscreen*/ .shaka-video-container:fullscreen, .shaka-video-container:fullscreen * {border-radius: 0 !important}
+/*Fullscreen*/ .shaka-video-container:fullscreen :is(video, .shaka-scrim-container) {border-radius: 0 !important}
 
 /*Variables*/
 .mr-0\.5 {margin-right: 15rem}
