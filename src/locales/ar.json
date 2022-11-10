@@ -117,7 +117,8 @@
         "reply_count": "{count} الردود",
         "minimize_comments_default": "تصغير التعليقات بشكل افتراضي",
         "minimize_comments": "تصغير التعليقات",
-        "show_watch_on_youtube": "عرض زر مشاهدة على يوتيوب"
+        "show_watch_on_youtube": "عرض زر مشاهدة على يوتيوب",
+        "minimize_chapters_default": "تصغير الفصول بشكل افتراضي"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
