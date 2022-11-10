@@ -12,9 +12,6 @@ jobs:
       - name: Check if PR author is weblate
         if: github.event.pull_request.user.login != 'weblate'
         run: exit 78
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: AutoMerge Weblate translations
         run: gh pr merge --auto --delete-branch --merge "$PR_URL"
         env:
