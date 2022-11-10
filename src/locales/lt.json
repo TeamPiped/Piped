@@ -78,7 +78,7 @@
         "documentation": "Dokumentacija",
         "with_timecode": "Dalintis su laiko kodu",
         "reply_count": "{count} atsakymų",
-        "show_chapters": "Skyriai",
+        "show_chapters": "Skirsniai",
         "piped_link": "Piped nuoroda",
         "rename_playlist": "Pervardyti grojaraštį",
         "follow_link": "Sekti nuorodą",
@@ -100,7 +100,7 @@
         "minimize_comments_default": "Suskleisti komentarus automatiškai",
         "minimize_comments": "Suskleisti komentarus",
         "show_watch_on_youtube": "Rodyti mygtuką „Žiūrėti YouTube“",
-        "minimize_chapters_default": "Suskleisti skyrius automatiškai"
+        "minimize_chapters_default": "Suskleisti skirsnius automatiškai"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
@@ -141,7 +141,7 @@
         "sponsor_segments": "Rėmėjų segmentai",
         "watched": "Žiūrėta",
         "ratings_disabled": "Įvertinimai išjungti",
-        "chapters": "Skyriai",
+        "chapters": "Skirsniai",
         "live": "{0} tiesiogiai",
         "shorts": "Trumpi filmukai"
     },
