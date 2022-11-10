@@ -3478,10 +3478,10 @@ serialize-javascript@^4.0.0:
   dependencies:
     randombytes "^2.1.0"
 
-shaka-player@4.2.4:
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.2.4.tgz#ee3534a795cd98a6d9aec025e889ac4d850a4ea9"
-  integrity sha512-k+gODjfrKYazhkRkahgyKNBLvrJ5vBIWj+vxdSxASoBWHHf52vsbuTIwFt5MJlIAI+NXeOVFGkb3kNSCphShIw==
+shaka-player@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.3.0.tgz#1508e1949232b2a47718ce69524b63c777e69f1e"
+  integrity sha512-3obEhekQc6UZJFKWWlPkF6AHO4uA7vQpYDm23LXwuau3+UVlulkYyoZLbAvs1/WJ89h/PA0wk5W97FYPTzgNAw==
   dependencies:
     eme-encryption-scheme-polyfill "^2.1.1"
 
