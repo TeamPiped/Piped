@@ -113,7 +113,9 @@
         "status_page": "Stav",
         "reply_count": "{count} odpovědí",
         "minimize_comments_default": "Ve výchozím nastavení skrýt komentáře",
-        "minimize_comments": "Skrýt komentáře"
+        "minimize_comments": "Skrýt komentáře",
+        "show_watch_on_youtube": "Zobrazit tlačítko Sledovat na YouTube",
+        "minimize_chapters_default": "Ve výchozím nastavení skrýt kapitoly"
     },
     "player": {
         "watch_on": "Sledovat na {0}"

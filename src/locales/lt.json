@@ -73,7 +73,7 @@
         "remove_from_playlist": "Pašalinti iš grojaraščio",
         "confirm_reset_preferences": "Ar tikrai norite iš naujo nustatyti nuostatas?",
         "reset_preferences": "Iš naujo nustatyti nuostatas",
-        "backup_preferences": "Atsarginės kopijos nuostatos",
+        "backup_preferences": "Atsarginė nuostatų kopija",
         "source_code": "Pirminis kodas",
         "documentation": "Dokumentacija",
         "with_timecode": "Dalintis su laiko kodu",
@@ -99,7 +99,8 @@
         "time_code": "Laiko kodas (sekundėmis)",
         "minimize_comments_default": "Suskleisti komentarus automatiškai",
         "minimize_comments": "Suskleisti komentarus",
-        "show_watch_on_youtube": "Rodyti mygtuką „Žiūrėti YouTube“"
+        "show_watch_on_youtube": "Rodyti mygtuką „Žiūrėti YouTube“",
+        "minimize_chapters_default": "Suskleisti skyrius automatiškai"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
@@ -163,7 +164,7 @@
         "copied": "Nukopijuota!",
         "cannot_copy": "Negalima kopijuoti!",
         "page_not_found": "Puslapis nerastas",
-        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jie bus nustatyti iš naujo."
+        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jos bus nustatyti iš naujo."
     },
     "subscriptions": {
         "subscribed_channels_count": "Prenumeruojama: {0}"

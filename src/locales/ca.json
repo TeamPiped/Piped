@@ -10,7 +10,9 @@
         "playlists": "Llistes de reproducció",
         "account": "Compte",
         "instance": "Instància",
-        "player": "Reproductor"
+        "player": "Reproductor",
+        "livestreams": "Retransmissió en directe",
+        "channels": "Canals"
     },
     "actions": {
         "channel_name_desc": "Nom del Canal (Z-A)",
@@ -108,7 +110,11 @@
         "show_chapters": "Capítols",
         "status_page": "Estat",
         "source_code": "Codi font",
-        "documentation": "Documentació"
+        "documentation": "Documentació",
+        "show_watch_on_youtube": "Mostra el botó \"Veure a Youtube\"",
+        "reply_count": "{count} respostes",
+        "minimize_comments_default": "Minimitzar els comentaris per defecte",
+        "minimize_comments": "Minimitza els comentaris"
     },
     "comment": {
         "pinned_by": "Fixat per {author}",
