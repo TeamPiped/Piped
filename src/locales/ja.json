@@ -7,7 +7,11 @@
         "preferences": "設定",
         "history": "履歴",
         "subscriptions": "サブスクリプション",
-        "playlists": "再生リスト"
+        "playlists": "再生リスト",
+        "account": "アカウント",
+        "player": "プレイヤー",
+        "instance": "インスタンス",
+        "channels": "チャンネル"
     },
     "player": {
         "watch_on": "{0}で見る"
@@ -55,7 +59,7 @@
         "import_from_json": "JSON/CSVファイルを読み込む",
         "loop_this_video": "ループ再生",
         "auto_play_next_video": "自動再生",
-        "donations": "寄付",
+        "donations": "開発者に寄付",
         "minimize_description": "最小化",
         "show_description": "詳細",
         "minimize_recommendations": "おすすめを最小化",
@@ -79,7 +83,14 @@
         "please_select_playlist": "再生リストを選択してください",
         "show_markers": "プレーヤーにマーカーを表示",
         "select_playlist": "再生リストを選択",
-        "delete_playlist_confirm": "再生リストを削除してもよろしいですか？"
+        "delete_playlist_confirm": "再生リストを削除してもよろしいですか？",
+        "delete_account": "アカウントを削除",
+        "store_search_history": "検索履歴を保存する",
+        "show_chapters": "チャプター",
+        "status_page": "ステータス",
+        "source_code": "ソースコード",
+        "instance_donations": "インスタンスに寄付",
+        "minimize_comments": "コメントを最小化"
     },
     "comment": {
         "pinned_by": "固定されたコメント {author}"
