@@ -10,7 +10,9 @@
         "playlists": "Spilunarlistar",
         "player": "Spilari",
         "account": "Reikningur",
-        "instance": "Tilvik"
+        "instance": "Tilvik",
+        "livestreams": "Útsendingar í beinni",
+        "channels": "Rásir"
     },
     "actions": {
         "sort_by": "Raða eftir:",
@@ -111,7 +113,9 @@
         "show_chapters": "Kaflar",
         "reply_count": "{count} svör",
         "minimize_comments_default": "Fela ummæli sjálfgefið",
-        "minimize_comments": "Fela ummæli"
+        "minimize_comments": "Fela ummæli",
+        "show_watch_on_youtube": "Sýna hnapp til að horfa á YouTube",
+        "minimize_chapters_default": "Lágmarka kafla sjálfgefið"
     },
     "player": {
         "watch_on": "Horfa á {0}"
