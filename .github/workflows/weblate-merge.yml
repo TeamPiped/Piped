@@ -17,3 +17,5 @@ jobs:
           fetch-depth: 0
       - name: AutoMerge Weblate translations
         run: gh pr merge --auto --delete-branch --merge
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
