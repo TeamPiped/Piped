@@ -2,8 +2,7 @@ name: Merge Weblate translations
 
 on:
   pull_request:
-    branches:
-      - weblate
+    types: [opened, reopened]
 
 jobs:
   merge:
