@@ -85,7 +85,7 @@ You can help by translating the project to a language you speak at https://hoste
 -   Vercel - [vc.piped.video](https://vc.piped.video/)
 -   Render - [re.piped.video](https://re.piped.video/)
 -   Fleek - [fl.piped.video](https://fl.piped.video/)
--   DigitalOceap - [do.piped.video](https://do.piped.video/)
+-   DigitalOcean - [do.piped.video](https://do.piped.video/)
 -   Netlify - [nf.piped.video](https://nf.piped.video/)
 -   Azure - [az.piped.video](https://az.piped.video/)
 
