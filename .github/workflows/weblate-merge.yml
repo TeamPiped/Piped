@@ -8,11 +8,8 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
-      # Run only if the PR is from Weblate
-      - name: Check if PR author is weblate
-        if: github.event.pull_request.user.login != 'weblate'
-        run: exit 78
       - name: AutoMerge Weblate translations
+        if: github.event.pull_request.user.login != 'weblate'
         run: gh pr merge --auto --delete-branch --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
