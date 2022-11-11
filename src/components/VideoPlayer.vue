@@ -670,13 +670,15 @@ export default {
 .shaka-text-wrapper > span {
     background: #0008 !important;
     backdrop-filter: blur(20rem);
-    border: 1.5rem solid var(--efy_color_border);
     border-radius: var(--efy_radius);
-    padding: 8rem 12rem;
-    line-height: 28rem;
+    padding: 6rem 10rem;
+    line-height: 24rem;
 }
 .shaka-text-wrapper > span:empty {
     display: none !important;
+}
+.shaka-text-wrapper > span * {
+    background: transparent !important;
 }
 /* apply to all spans that don't include multiple other spans to avoid the style being applied to the text container too when the subtitles are two lines */
 .shaka-text-wrapper > span > span *:first-child:last-child {
