@@ -99,7 +99,8 @@
         "documentation": "Documentação",
         "reply_count": "{count} respostas",
         "minimize_recommendations_default": "Minimizar Recomendações por padrão",
-        "show_watch_on_youtube": "Mostrar Botão Assistir no YouTube"
+        "show_watch_on_youtube": "Mostrar Botão Assistir no YouTube",
+        "minimize_chapters_default": "Minimizar Capítulos por padrão"
     },
     "titles": {
         "history": "Histórico",
