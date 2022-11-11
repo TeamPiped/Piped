@@ -428,6 +428,7 @@ export default {
                 { code: "pt", name: "Português" },
                 { code: "pt_PT", name: "Português (Portugal)" },
                 { code: "pt_BR", name: "Português (Brasil)" },
+                { code: "ro", name: "Română" },
                 { code: "ru", name: "Русский" },
                 { code: "sr", name: "Српски" },
                 { code: "sv", name: "Svenska" },
