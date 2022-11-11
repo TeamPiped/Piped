@@ -1,12 +1,14 @@
 <template>
     <!-- desktop view -->
     <div v-if="!mobileLayout" class="pp-chapters flex-col overflow-y-scroll max-h-75vh min-h-64 lt-lg:hidden">
-        <h6 aria-label="chapters" title="chapters">{{ $t("video.chapters") }} - {{ chapters.length }}</h6>
+        <h6 aria-label="chapters" title="chapters" class="efy_trans_filter">
+            {{ $t("video.chapters") }} - {{ chapters.length }}
+        </h6>
         <div
             :key="chapter.start"
             v-for="(chapter, index) in chapters"
             @click="$emit('seek', chapter.start)"
-            class="chapter efy_anim_pulse"
+            class="chapter efy_anim_pulse efy_trans_filter"
             :class="{ 'pp-chapter-active': isCurrentChapter(index) }"
         >
             <div class="flex">
@@ -24,7 +26,7 @@
             :key="chapter.start"
             v-for="(chapter, index) in chapters"
             @click="$emit('seek', chapter.start)"
-            class="chapter efy_anim_pulse"
+            class="chapter efy_anim_pulse efy_trans_filter"
             :class="{ 'pp-chapter-active': isCurrentChapter(index) }"
         >
             <img :src="chapter.image" :alt="chapter.title" />
