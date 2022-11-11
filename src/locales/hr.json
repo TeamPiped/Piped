@@ -124,7 +124,8 @@
         "reply_count": "{count} odgovora",
         "minimize_comments_default": "Standardno sakrij komentare",
         "minimize_comments": "Sakrij komentare",
-        "show_watch_on_youtube": "Prikaži gumb „Gledaj na YouTubeu”"
+        "show_watch_on_youtube": "Prikaži gumb „Gledaj na YouTubeu”",
+        "minimize_chapters_default": "Standardno sakrij poglavlja"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
