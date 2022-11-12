@@ -56,7 +56,7 @@
         "import_from_json": "Імпорт з JSON/CSV",
         "loop_this_video": "Повтор поточного відео",
         "auto_play_next_video": "Одразу програвати наступне рекомендоване відео",
-        "donations": "Пожертвування",
+        "donations": "Пожертвування на розробку",
         "show_description": "Показати опис",
         "disable_lbry": "Вимкнути LBRY для стримінгу",
         "filter": "Фільтр",
@@ -67,12 +67,47 @@
         "remove_from_playlist": "Видалити з плейлісту",
         "add_to_playlist": "Додати до плейлісту",
         "create_playlist": "Створити Плейліст",
-        "delete_playlist_confirm": "Чи ви певні що хочете видалити цей плейліст?",
+        "delete_playlist_confirm": "Видалити цей плейлист?",
         "skip_filler_tangent": "Пропускати Нерелевантне",
-        "delete_playlist_video_confirm": "Чи певні ви що хочете видалити це відео з плейлісту?",
+        "delete_playlist_video_confirm": "Видалити відео з плейлисту?",
         "delete_playlist": "Видалити Плейліст",
         "select_playlist": "Вибрати Плейліст",
-        "please_select_playlist": "Будь ласка виберіть плейліст"
+        "please_select_playlist": "Будь ласка виберіть плейліст",
+        "confirm_reset_preferences": "Ви впевнені, що бажаєте скинути налаштування?",
+        "show_markers": "Показувати Маркери на Програвачі",
+        "minimize_recommendations_default": "Ховати Рекомендації за замовчуванням",
+        "logout": "Вийти з цього пристрою",
+        "backup_preferences": "Налаштування резервних копій",
+        "download_as_txt": "Завантажити як .txt",
+        "rename_playlist": "Перейменувати плейлист",
+        "show_chapters": "Глави",
+        "invalidate_session": "Вийти зі всіх пристроїв",
+        "clone_playlist": "Клонувати Плейлист",
+        "reset_preferences": "Скинути налаштування",
+        "back_to_home": "Повернутися на головну",
+        "share": "Поділитися",
+        "with_timecode": "Поділитися з відміткою часу",
+        "piped_link": "Покликання Piped",
+        "follow_link": "Покликання підписки",
+        "instance_donations": "Пожертвування інстанції",
+        "copy_link": "Копіювати покликання",
+        "store_search_history": "Зберігати історію Пошуку",
+        "documentation": "Документація",
+        "instance_auth_selection": "Вибір Інстанції для Аутентифікації",
+        "minimize_chapters_default": "Ховати глави за замовчуванням",
+        "show_watch_on_youtube": "Показати кнопку Дивитися на YouTube",
+        "restore_preferences": "Відновити налаштування",
+        "different_auth_instance": "Використовувати іншу інстанцію для аутентифікації",
+        "clone_playlist_success": "Клонування пройшло успішно!",
+        "hide_watched": "Сховати переглянуті відео в стрічці",
+        "status_page": "Статус",
+        "source_code": "Вихідний код",
+        "new_playlist_name": "Нова назва плейлиста",
+        "time_code": "Відмітка часу (в секундах)",
+        "reply_count": "{count} відповідей",
+        "minimize_comments_default": "Згортати коментарі за замовчуванням",
+        "minimize_comments": "Згорнути коментарі",
+        "delete_account": "Видалити Акаунт"
     },
     "titles": {
         "register": "Реєстрація",
@@ -82,10 +117,18 @@
         "subscriptions": "Канали, на які ви підписані",
         "trending": "Тренди",
         "login": "Логін",
-        "playlists": "Плейлісти"
+        "playlists": "Плейлісти",
+        "instance": "Інстанція",
+        "player": "Програвач",
+        "account": "Акаунт",
+        "livestreams": "Наживо",
+        "channels": "Канали"
     },
     "comment": {
-        "pinned_by": "Прикріплено користувачем {author}"
+        "pinned_by": "Прикріплено користувачем {author}",
+        "loading": "Завантаження коментарів...",
+        "disabled": "Коментарі вимкнені автором.",
+        "user_disabled": "Коментарі вимкнені в налаштуваннях."
     },
     "preferences": {
         "instance_locations": "Місцезнаходження копії сервісу",
@@ -93,7 +136,7 @@
         "instance_name": "Назва копії сервісу",
         "has_cdn": "Використовує CDN?",
         "version": "Версія",
-        "up_to_date": "Версія Актуальна?",
+        "up_to_date": "Версія актуальна?",
         "registered_users": "Зареєстровано Користувачей"
     },
     "video": {
@@ -103,7 +146,8 @@
         "sponsor_segments": "Рекламні сегменти",
         "ratings_disabled": "Оцінки вимкнені",
         "chapters": "Розділи",
-        "live": "{0} Наживо"
+        "live": "{0} Наживо",
+        "shorts": "Shorts"
     },
     "search": {
         "did_you_mean": "Можливо, ви мали на увазі: {0}?",
@@ -115,5 +159,14 @@
         "music_videos": "TY Music: Відео",
         "playlists": "YouTube: Плейлісти",
         "music_albums": "YT Music: Альбоми"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Підписано на: {0}"
+    },
+    "info": {
+        "copied": "Скопійовано!",
+        "cannot_copy": "Не вийшло скопіювати!",
+        "page_not_found": "Сторінка не знайдена",
+        "preferences_note": "Зауваження: налаштування зберігаються в локальному сховищі вашого браузера. Видалення даних браузере їх скине."
     }
 }

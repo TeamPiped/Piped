@@ -10,7 +10,9 @@
         "playlists": "Плейлисты",
         "account": "Аккаунт",
         "player": "Плеер",
-        "instance": "Сервер"
+        "instance": "Сервер",
+        "livestreams": "Прямые трансляции",
+        "channels": "Каналы"
     },
     "player": {
         "watch_on": "Смотреть на {0}"
@@ -114,7 +116,9 @@
         "instance_donations": "Пожертвования сервера",
         "reply_count": "{count} ответов",
         "minimize_comments_default": "Сворачивать комментарии по умолчанию",
-        "minimize_comments": "Свернуть комментарии"
+        "minimize_comments": "Свернуть комментарии",
+        "show_watch_on_youtube": "Показать кнопку Смотреть на YouTube",
+        "minimize_chapters_default": "Скрывать главы по умолчанию"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем {author}",
