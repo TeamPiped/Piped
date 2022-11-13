@@ -114,7 +114,8 @@
         "reply_count": "{count} réponses",
         "minimize_comments_default": "Minimiser les commentaires par défaut",
         "minimize_comments": "Minimiser les commentaires",
-        "show_watch_on_youtube": "Afficher le bouton Regarder sur YouTube"
+        "show_watch_on_youtube": "Afficher le bouton Regarder sur YouTube",
+        "minimize_chapters_default": "Minimiser les chapitres par défaut"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
