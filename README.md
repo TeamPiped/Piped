@@ -47,6 +47,7 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] Does not use official YouTube APIs
 -   [x] Uses [NewPipeExtractor](https://github.com/TeamNewPipe/NewPipeExtractor) to extract information
 -   [x] Public [JSON API](https://docs.piped.video/docs/api-documentation/)
+-   [x] Federated protocol on Matrix to let instances collaborate with each other
 
 ## Screenshots
 
