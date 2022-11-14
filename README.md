@@ -46,7 +46,7 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] Performant by design, designed to handle 1000s of users concurrently
 -   [x] Does not use official YouTube APIs
 -   [x] Uses [NewPipeExtractor](https://github.com/TeamNewPipe/NewPipeExtractor) to extract information
--   [x] Public [JSON API](https://piped-docs.kavin.rocks/docs/api-documentation/)
+-   [x] Public [JSON API](https://docs.piped.video/docs/api-documentation/)
 
 ## Screenshots
 
@@ -61,13 +61,13 @@ By using Piped, you can freely watch and listen to content without the fear of p
 
 ## Self-Hosting
 
-See https://piped-docs.kavin.rocks/docs/self-hosting/ for more details.
+See https://docs.piped.video/docs/self-hosting/ for more details.
 
 The source code of the documentation website is available at https://github.com/TeamPiped/Documentation.
 
 ## Documentation
 
-The documentation can be found at https://piped-docs.kavin.rocks (accessible via IPNS as well).
+The documentation can be found at https://docs.piped.video (accessible via IPNS as well).
 
 ## Extensions
 
