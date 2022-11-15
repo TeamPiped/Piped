@@ -488,7 +488,15 @@ export default {
 
             player.load(uri, 0, mime).then(() => {
                 // Set the audio language
-                player.selectAudioLanguage(this.getPreferenceString("hl", "en").substr(0, 2));
+                const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
+                var lang = "en";
+                for (var l in player.getAudioLanguages()) {
+                    if (l == prefLang) {
+                        lang = l;
+                        return;
+                    }
+                }
+                player.selectAudioLanguage(lang);
 
                 if (qualityConds) {
                     var leastDiff = Number.MAX_VALUE;
@@ -496,16 +504,19 @@ export default {
 
                     var bestAudio = 0;
 
+                    const tracks = player
+                        .getVariantTracks()
+                        .filter(track => track.language == lang || track.language == "und");
+
                     // Choose the best audio stream
                     if (quality >= 480)
-                        player.getVariantTracks().forEach(track => {
+                        tracks.forEach(track => {
                             const audioBandwidth = track.audioBandwidth;
                             if (audioBandwidth > bestAudio) bestAudio = audioBandwidth;
                         });
 
                     // Find best matching stream based on resolution and bitrate
-                    player
-                        .getVariantTracks()
+                    tracks
                         .sort((a, b) => a.bandwidth - b.bandwidth)
                         .forEach(stream => {
                             if (stream.audioBandwidth < bestAudio) return;
