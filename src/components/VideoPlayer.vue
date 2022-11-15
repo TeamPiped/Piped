@@ -440,7 +440,14 @@ export default {
 
                 this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
-                const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"];
+                const overflowMenuButtons = [
+                    "quality",
+                    "language",
+                    "captions",
+                    "picture_in_picture",
+                    "playback_rate",
+                    "airplay",
+                ];
 
                 if (this.isEmbed) {
                     overflowMenuButtons.push("open_new_tab");
@@ -480,6 +487,9 @@ export default {
             if (qualityConds) this.$player.configure("abr.enabled", false);
 
             player.load(uri, 0, mime).then(() => {
+                // Set the audio language
+                player.selectAudioLanguage(this.getPreferenceString("hl", "en").substr(0, 2));
+
                 if (qualityConds) {
                     var leastDiff = Number.MAX_VALUE;
                     var bestStream = null;

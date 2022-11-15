@@ -42,55 +42,69 @@ const DashUtils = {
     },
     generate_adaptation_set(VideoFormatArray) {
         const adaptationSets = [];
-        const mimeTypes = [];
-        const mimeObjects = [[]];
-        // sort the formats by mime types
+
+        let mimeAudioObjs = [];
+
         VideoFormatArray.forEach(videoFormat => {
             // the dual formats should not be used
             if (videoFormat.mimeType.indexOf("video") != -1 && !videoFormat.videoOnly) {
                 return;
             }
-            // if these properties are not available, then we skip it because we cannot set these properties
-            //if (!(videoFormat.hasOwnProperty('initRange') && videoFormat.hasOwnProperty('indexRange'))) {
-            //   return
-            //}
+
+            const audioTrackId = videoFormat.audioTrackId;
             const mimeType = videoFormat.mimeType;
-            const mimeTypeIndex = mimeTypes.indexOf(mimeType);
-            if (mimeTypeIndex > -1) {
-                mimeObjects[mimeTypeIndex].push(videoFormat);
-            } else {
-                mimeTypes.push(mimeType);
-                mimeObjects.push([]);
-                mimeObjects[mimeTypes.length - 1].push(videoFormat);
+
+            for (let i = 0; i < mimeAudioObjs.length; i++) {
+                const mimeAudioObj = mimeAudioObjs[i];
+
+                if (mimeAudioObj.audioTrackId == audioTrackId && mimeAudioObj.mimeType == mimeType) {
+                    mimeAudioObj.videoFormats.push(videoFormat);
+                    return;
+                }
             }
+
+            mimeAudioObjs.push({
+                audioTrackId,
+                mimeType,
+                videoFormats: [videoFormat],
+            });
         });
-        // for each MimeType generate a new Adaptation set with Representations as sub elements
-        for (let i = 0; i < mimeTypes.length; i++) {
-            let isVideoFormat = false;
+
+        mimeAudioObjs.forEach(mimeAudioObj => {
             const adapSet = {
                 type: "element",
                 name: "AdaptationSet",
                 attributes: {
-                    id: i,
-                    mimeType: mimeTypes[i],
+                    id: mimeAudioObj.audioTrackId,
+                    lang: mimeAudioObj.audioTrackId?.substr(0, 2),
+                    mimeType: mimeAudioObj.mimeType,
                     startWithSAP: "1",
                     subsegmentAlignment: "true",
                 },
                 elements: [],
             };
-            if (!mimeTypes[i].includes("audio")) {
-                adapSet.attributes.scanType = "progressive";
+
+            let isVideoFormat = false;
+
+            if (mimeAudioObj.mimeType.includes("video")) {
                 isVideoFormat = true;
             }
-            mimeObjects[i].forEach(format => {
+
+            if (isVideoFormat) {
+                adapSet.attributes.scanType = "progressive";
+            }
+
+            for (var i = 0; i < mimeAudioObj.videoFormats.length; i++) {
+                const videoFormat = mimeAudioObj.videoFormats[i];
                 if (isVideoFormat) {
-                    adapSet.elements.push(this.generate_representation_video(format));
+                    adapSet.elements.push(this.generate_representation_video(videoFormat));
                 } else {
-                    adapSet.elements.push(this.generate_representation_audio(format));
+                    adapSet.elements.push(this.generate_representation_audio(videoFormat));
                 }
-            });
+            }
+
             adaptationSets.push(adapSet);
-        }
+        });
         return adaptationSets;
     },
     generate_representation_audio(Format) {
