@@ -105,7 +105,7 @@
         "time_code": "Тайм-код (в секундах)",
         "reset_preferences": "Сбросить настройки",
         "confirm_reset_preferences": "Вы уверены, что хотите сбросить настройки?",
-        "backup_preferences": "Настройки бэкапов",
+        "backup_preferences": "Бэкап настроек",
         "restore_preferences": "Восстановить настройки",
         "back_to_home": "Вернутся на главную",
         "store_search_history": "Хранить историю поиска",
