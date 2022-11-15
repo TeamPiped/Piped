@@ -117,7 +117,8 @@
         "reply_count": "{count} balasan",
         "minimize_comments_default": "Kecilkan Komentar secara bawaan",
         "minimize_comments": "Kecilkan Komentar",
-        "show_watch_on_youtube": "Tampilkan tombol Tonton di YouTube"
+        "show_watch_on_youtube": "Tampilkan tombol Tonton di YouTube",
+        "minimize_chapters_default": "Kecilkan Bab secara bawaan"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
