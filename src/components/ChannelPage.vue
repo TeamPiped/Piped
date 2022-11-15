@@ -202,16 +202,16 @@ export default {
         getTranslatedTabName(tabName) {
             let translatedTabName = tabName;
             switch (tabName) {
-                case "Livestreams":
+                case "livestreams":
                     translatedTabName = this.$t("titles.livestreams");
                     break;
-                case "Playlists":
+                case "playlists":
                     translatedTabName = this.$t("titles.playlists");
                     break;
-                case "Channels":
+                case "channels":
                     translatedTabName = this.$t("titles.channels");
                     break;
-                case "Shorts":
+                case "shorts":
                     translatedTabName = this.$t("video.shorts");
                     break;
                 default:
