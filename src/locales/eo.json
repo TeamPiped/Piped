@@ -145,7 +145,8 @@
         "copied": "Kopiita!",
         "cannot_copy": "Ne povas kopii!",
         "preferences_note": "Noto: la agordoj estas konservitaj en la loka memoro de via retumilo. Forigi la datumojn de via retumilo restarigos ilin.",
-        "page_not_found": "Paĝo ne trovita"
+        "page_not_found": "Paĝo ne trovita",
+        "local_storage": "Ĉi tiu ago postulas localStorage, ĉu kuketoj estas ebligitaj?"
     },
     "login": {
         "username": "Uzantnomo",
