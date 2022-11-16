@@ -167,6 +167,7 @@
         "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them.",
         "page_not_found": "Page not found",
         "copied": "Copied!",
-        "cannot_copy": "Can't copy!"
+        "cannot_copy": "Can't copy!",
+        "local_storage": "This action requires localStorage, are cookies enabled?"
     }
 }

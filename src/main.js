@@ -118,8 +118,12 @@ const mixin = {
         purifyHTML(original) {
             return DOMPurify.sanitize(original);
         },
-        setPreference(key, value) {
-            if (localStorage) localStorage.setItem(key, value);
+        setPreference(key, value, disableAlert = false) {
+            try {
+                localStorage.setItem(key, value);
+            } catch {
+                if (!disableAlert) alert(this.$t("info.local_storage"));
+            }
         },
         getPreferenceBoolean(key, defaultVal) {
             var value;
@@ -204,7 +208,11 @@ const mixin = {
             }
         },
         getLocalSubscriptions() {
-            return JSON.parse(localStorage.getItem("localSubscriptions"));
+            try {
+                return JSON.parse(localStorage.getItem("localSubscriptions"));
+            } catch {
+                return [];
+            }
         },
         isSubscribedLocally(channelId) {
             const localSubscriptions = this.getLocalSubscriptions();
@@ -218,7 +226,13 @@ const mixin = {
             else localSubscriptions.push(channelId);
             // Sort for better cache hits
             localSubscriptions.sort();
-            localStorage.setItem("localSubscriptions", JSON.stringify(localSubscriptions));
+            try {
+                localStorage.setItem("localSubscriptions", JSON.stringify(localSubscriptions));
+                return true;
+            } catch {
+                alert(this.$t("info.local_storage"));
+            }
+            return false;
         },
         getUnauthenticatedChannels() {
             const localSubscriptions = this.getLocalSubscriptions() ?? [];

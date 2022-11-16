@@ -137,8 +137,8 @@ export default {
         shouldShowTrending(_this) {
             return _this.getPreferenceString("homepage", "trending") != "trending";
         },
-        showSearchHistory() {
-            return localStorage.getItem("searchHistory") && localStorage.getItem("search_history");
+        showSearchHistory(_this) {
+            return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
         },
     },
     methods: {
