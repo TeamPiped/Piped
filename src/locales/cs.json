@@ -170,6 +170,7 @@
         "preferences_note": "Poznámka: předvolby se ukládají do místního úložiště prohlížeče. Vymazáním dat prohlížeče budou obnoveny.",
         "page_not_found": "Stránka nenalezena",
         "copied": "Zkopírováno!",
-        "cannot_copy": "Nelze zkopírovat!"
+        "cannot_copy": "Nelze zkopírovat!",
+        "local_storage": "Tato akce vyžaduje localStorage, jsou povoleny cookies?"
     }
 }
