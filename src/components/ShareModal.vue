@@ -66,8 +66,8 @@ export default {
             }
         },
         onChange() {
-            this.setPreference("shareWithTimeCode", this.withTimeCode);
-            this.setPreference("shareAsPipedLink", this.pipedLink);
+            this.setPreference("shareWithTimeCode", this.withTimeCode, true);
+            this.setPreference("shareAsPipedLink", this.pipedLink, true);
         },
     },
     computed: {

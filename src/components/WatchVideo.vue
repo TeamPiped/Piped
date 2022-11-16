@@ -383,7 +383,7 @@ export default {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
         },
         onChange() {
-            this.setPreference("autoplay", this.selectedAutoPlay);
+            this.setPreference("autoplay", this.selectedAutoPlay, true);
         },
         async getVideoData() {
             await this.fetchVideo()

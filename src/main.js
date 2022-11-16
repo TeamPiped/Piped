@@ -118,11 +118,11 @@ const mixin = {
         purifyHTML(original) {
             return DOMPurify.sanitize(original);
         },
-        setPreference(key, value) {
+        setPreference(key, value, disableAlert = false) {
             try {
                 localStorage.setItem(key, value);
             } catch {
-                alert(this.$t("info.local_storage"));
+                if (!disableAlert) alert(this.$t("info.local_storage"));
             }
         },
         getPreferenceBoolean(key, defaultVal) {

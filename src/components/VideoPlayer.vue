@@ -372,13 +372,13 @@ export default {
                 });
 
                 videoEl.addEventListener("volumechange", () => {
-                    this.setPreference("volume", videoEl.volume);
+                    this.setPreference("volume", videoEl.volume, true);
                 });
 
                 videoEl.addEventListener("ratechange", e => {
                     const rate = videoEl.playbackRate;
                     if (rate > 0 && !isNaN(videoEl.duration) && !isNaN(videoEl.duration - e.timeStamp / 1000))
-                        this.setPreference("rate", rate);
+                        this.setPreference("rate", rate, true);
                 });
 
                 videoEl.addEventListener("ended", () => {
