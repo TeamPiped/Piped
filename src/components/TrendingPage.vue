@@ -21,6 +21,7 @@ export default {
         };
     },
     mounted() {
+        if (this.$route.path == "/" && this.getPreferenceString("homepage", "trending") == "feed") return;
         let region = this.getPreferenceString("region", "US");
 
         this.fetchTrending(region).then(videos => {
