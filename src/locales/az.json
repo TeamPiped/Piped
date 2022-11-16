@@ -10,7 +10,9 @@
         "playlists": "Pleylistlər",
         "account": "Hesab",
         "instance": "Nümunə",
-        "player": "Oynadıcı"
+        "player": "Oynadıcı",
+        "livestreams": "Canlı yayımlar",
+        "channels": "Kanallar"
     },
     "player": {
         "watch_on": "{0} saytında baxın"
@@ -114,7 +116,9 @@
         "back_to_home": "Evə qayıt",
         "reply_count": "{count} cavab",
         "minimize_comments_default": "Şərhləri standart olaraq kiçilt",
-        "minimize_comments": "Şərhləri Kiçilt"
+        "minimize_comments": "Şərhləri Kiçilt",
+        "minimize_chapters_default": "Defolt olaraq bölmələri kiçilt",
+        "show_watch_on_youtube": "YouTube-da Baxış düyməsini göstər"
     },
     "comment": {
         "pinned_by": "Tərəfindən Sabitləndi {author}",
