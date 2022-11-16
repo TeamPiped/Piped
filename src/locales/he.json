@@ -116,7 +116,9 @@
         "instance_donations": "תרומות להפעלה",
         "reply_count": "{count} תגובות",
         "minimize_comments_default": "צמצום הערות כברירת מחדל",
-        "minimize_comments": "צמצום הערות"
+        "minimize_comments": "צמצום הערות",
+        "minimize_chapters_default": "מזעור הפרקים כברירת מחדל",
+        "show_watch_on_youtube": "הצגת כפתור לצפייה ב־YouTube"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
