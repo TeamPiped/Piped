@@ -164,7 +164,8 @@
         "preferences_note": "לתשומת לבך: ההעדפות נשמרות באחסון המקומי של הדפדפן שלך. מחיקת נתוני הדפדפן שלך תאפס אותם.",
         "page_not_found": "העמוד לא נמצא",
         "copied": "הועתק!",
-        "cannot_copy": "לא ניתן להעתיק!"
+        "cannot_copy": "לא ניתן להעתיק!",
+        "local_storage": "פעולה זו דורשת אחסון מקומי (localStorage), האם עוגיות פעילות?"
     },
     "subscriptions": {
         "subscribed_channels_count": "נרשמת אל: {0}"
