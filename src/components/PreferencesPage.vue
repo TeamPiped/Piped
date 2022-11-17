@@ -183,71 +183,96 @@
             @change="onChange($event)"
         />
     </label>
-    <label class="pref" for="chkSkipSponsors">
-        <strong v-t="'actions.skip_sponsors'" />
-        <input id="chkSkipSponsors" v-model="skipSponsor" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkSkipIntro">
-        <strong v-t="'actions.skip_intro'" />
-        <input id="chkSkipIntro" v-model="skipIntro" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkSkipOutro">
-        <strong v-t="'actions.skip_outro'" />
-        <input id="chkSkipOutro" v-model="skipOutro" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkSkipPreview">
-        <strong v-t="'actions.skip_preview'" />
-        <input id="chkSkipPreview" v-model="skipPreview" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkSkipInteraction">
-        <strong v-t="'actions.skip_interaction'" />
-        <input
-            id="chkSkipInteraction"
-            v-model="skipInteraction"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
-    <label class="pref" for="chkSkipSelfPromo">
-        <strong v-t="'actions.skip_self_promo'" />
-        <input
-            id="chkSkipSelfPromo"
-            v-model="skipSelfPromo"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
-    <label class="pref" for="chkSkipNonMusic">
-        <strong v-t="'actions.skip_non_music'" />
-        <input
-            id="chkSkipNonMusic"
-            v-model="skipMusicOffTopic"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
-    <label class="pref" for="chkSkipHighlight">
-        <strong v-t="'actions.skip_highlight'" />
-        <input
-            id="chkSkipHighlight"
-            v-model="skipHighlight"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
-    <label class="pref" for="chkSkipFiller">
-        <strong v-t="'actions.skip_filler_tangent'" />
-        <input id="chkSkipFiller" v-model="skipFiller" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkShowMarkers">
-        <strong v-t="'actions.show_markers'" />
-        <input id="chkShowMarkers" v-model="showMarkers" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-
+    <div v-if="sponsorBlock">
+        <label class="pref" for="chkSkipSponsors">
+            <strong v-t="'actions.skip_sponsors'" />
+            <input
+                id="chkSkipSponsors"
+                v-model="skipSponsor"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="chkSkipIntro">
+            <strong v-t="'actions.skip_intro'" />
+            <input id="chkSkipIntro" v-model="skipIntro" class="checkbox" type="checkbox" @change="onChange($event)" />
+        </label>
+        <label class="pref" for="chkSkipOutro">
+            <strong v-t="'actions.skip_outro'" />
+            <input id="chkSkipOutro" v-model="skipOutro" class="checkbox" type="checkbox" @change="onChange($event)" />
+        </label>
+        <label class="pref" for="chkSkipPreview">
+            <strong v-t="'actions.skip_preview'" />
+            <input
+                id="chkSkipPreview"
+                v-model="skipPreview"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="chkSkipInteraction">
+            <strong v-t="'actions.skip_interaction'" />
+            <input
+                id="chkSkipInteraction"
+                v-model="skipInteraction"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="chkSkipSelfPromo">
+            <strong v-t="'actions.skip_self_promo'" />
+            <input
+                id="chkSkipSelfPromo"
+                v-model="skipSelfPromo"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="chkSkipNonMusic">
+            <strong v-t="'actions.skip_non_music'" />
+            <input
+                id="chkSkipNonMusic"
+                v-model="skipMusicOffTopic"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="chkSkipHighlight">
+            <strong v-t="'actions.skip_highlight'" />
+            <input
+                id="chkSkipHighlight"
+                v-model="skipHighlight"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="chkSkipFiller">
+            <strong v-t="'actions.skip_filler_tangent'" />
+            <input
+                id="chkSkipFiller"
+                v-model="skipFiller"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="chkShowMarkers">
+            <strong v-t="'actions.show_markers'" />
+            <input
+                id="chkShowMarkers"
+                v-model="showMarkers"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+    </div>
     <h2 class="text-center" v-t="'titles.instance'" />
     <label class="pref" for="ddlInstanceSelection">
         <strong v-text="`${$t('actions.instance_selection')}:`" />
