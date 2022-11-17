@@ -170,6 +170,7 @@
         "preferences_note": "Remarque : les préférences sont enregistrées dans la mémoire locale de votre navigateur. La suppression des données de votre navigateur les réinitialisera.",
         "page_not_found": "Page non trouvée",
         "copied": "Copié !",
-        "cannot_copy": "Impossible de copier !"
+        "cannot_copy": "Impossible de copier !",
+        "local_storage": "Cette action nécessite localStorage, les cookies sont-ils activés ?"
     }
 }
