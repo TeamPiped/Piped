@@ -164,7 +164,8 @@
         "copied": "Nukopijuota!",
         "cannot_copy": "Negalima kopijuoti!",
         "page_not_found": "Puslapis nerastas",
-        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jos bus nustatytos iš naujo."
+        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jos bus nustatytos iš naujo.",
+        "local_storage": "Šiam veiksmui reikia localStorage, ar slapukai įjungti?"
     },
     "subscriptions": {
         "subscribed_channels_count": "Prenumeruojama: {0}"

@@ -167,6 +167,7 @@
         "preferences_note": "Nota: las preferencias se guardan en el almacenamiento local de tu navegador. Al borrar los datos del navegador se restablecerán.",
         "page_not_found": "Página no encontrada",
         "copied": "¡Copiado!",
-        "cannot_copy": "¡No se puede copiar!"
+        "cannot_copy": "¡No se puede copiar!",
+        "local_storage": "Esta acción requiere «localStorage», ¿están activadas las «cookies»?"
     }
 }

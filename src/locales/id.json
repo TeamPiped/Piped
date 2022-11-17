@@ -170,6 +170,7 @@
         "page_not_found": "Laman tidak ditemukan",
         "preferences_note": "Catatan: preferensi disimpan dalam penyimpanan lokal peramban Anda. Menghapus data peramban Anda akan mengatur ulang.",
         "copied": "Disalin!",
-        "cannot_copy": "Tidak dapat menyalin!"
+        "cannot_copy": "Tidak dapat menyalin!",
+        "local_storage": "Tindakan ini membutuhkan localStorage, apakah kuki diaktifkan?"
     }
 }

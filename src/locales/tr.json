@@ -170,6 +170,7 @@
         "preferences_note": "Not: Tercihler tarayıcınızın yerel depolama alanına kaydedilir. Tarayıcı verilerinizi silmek onları sıfırlayacaktır.",
         "page_not_found": "Sayfa bulunamadı",
         "copied": "Kopyalandı!",
-        "cannot_copy": "Kopyalanamıyor!"
+        "cannot_copy": "Kopyalanamıyor!",
+        "local_storage": "Bu eylem localStorage gerektirir, çerezler etkin mi?"
     }
 }
