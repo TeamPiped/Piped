@@ -11,10 +11,10 @@
                 />iped</router-link
             >
         </div>
-        <div class="lt-md:hidden">
+        <div class="lt-md:hidden search-container">
             <input
                 v-model="searchText"
-                class="input w-72 h-10"
+                class="input w-72 h-10 pr-20"
                 type="text"
                 role="search"
                 ref="videoSearch"
@@ -25,6 +25,7 @@
                 @focus="onInputFocus"
                 @blur="onInputBlur"
             />
+            <span v-if="searchText" class="delete-search" @click="searchText = ''">x</span>
         </div>
         <!-- three vertical lines for toggling the hamburger menu on mobile -->
         <button class="md:hidden flex flex-col justify-end mr-3" @click="showTopNav = !showTopNav">
@@ -86,7 +87,7 @@
         </li>
     </ul>
     <!-- search suggestions for mobile devices -->
-    <div class="w-{full - 4} md:hidden mx-2">
+    <div class="mobile-search md:hidden mx-2 search-container">
         <input
             v-model="searchText"
             class="input h-10 w-full"
@@ -99,6 +100,7 @@
             @focus="onInputFocus"
             @blur="onInputBlur"
         />
+        <span v-if="searchText" class="delete-search" @click="searchText = ''">x</span>
     </div>
     <SearchSuggestions
         v-show="(searchText || showSearchHistory) && suggestionsVisible"
@@ -178,3 +180,17 @@ export default {
     },
 };
 </script>
+
+<style>
+.search-container {
+    @apply relative inline-flex items-center;
+}
+.delete-search {
+    @apply absolute right-3 cursor-pointer rounded-full bg-[#ccc] w-4 h-4 text-center text-black opacity-50 hover:(opacity-70) text-size-[13px];
+    line-height: 1.05;
+}
+.mobile-search {
+    width: calc(100% - 1rem);
+    @apply mx-2;
+}
+</style>
