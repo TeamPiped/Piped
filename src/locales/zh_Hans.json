@@ -170,6 +170,7 @@
         "preferences_note": "注意：首选项保存在浏览器的本地存储中。删除浏览器数据会重置它们。",
         "page_not_found": "未找到页面",
         "copied": "已复制！",
-        "cannot_copy": "无法复制！"
+        "cannot_copy": "无法复制！",
+        "local_storage": "此操作需要 localStorage，启用 cookie 了吗？"
     }
 }
