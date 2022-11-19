@@ -162,11 +162,11 @@
                     @change="onChange($event)"
                 />
             </label>
-            <label class="pref" for="chkHideComments">
+            <label class="pref" for="chkMinimizeComments">
                 <strong v-t="'actions.minimize_comments_default'" />
                 <input
-                    id="chkHideComments"
-                    v-model="hideComments"
+                    id="chkMinimizeComments"
+                    v-model="minimizeComments"
                     class="checkbox"
                     type="checkbox"
                     @change="onChange($event)"
