@@ -10,7 +10,9 @@
         "playlists": "Listas de Reprodução",
         "account": "Conta",
         "instance": "Instância",
-        "player": "Reprodutor"
+        "player": "Reprodutor",
+        "livestreams": "Transmissões ao vivo",
+        "channels": "Canais"
     },
     "actions": {
         "view_subscriptions": "Ver Subscrições",
@@ -47,7 +49,7 @@
         "import_from_json": "Importar de JSON/CSV",
         "loop_this_video": "Repetir este Vídeo",
         "auto_play_next_video": "Reproduzir Automaticamente o próximo Vídeo",
-        "donations": "Doações",
+        "donations": "Doações de desenvolvimento",
         "minimize_description": "Minimizar Descrição",
         "show_description": "Mostrar Descrição",
         "minimize_recommendations": "Minimizar Recomendações",
@@ -102,7 +104,18 @@
         "reset_preferences": "Redefinir preferências",
         "backup_preferences": "Exportar configurações",
         "back_to_home": "Voltar ao início",
-        "minimize_comments_default": "Minimizar Comentários por defeito"
+        "minimize_comments_default": "Minimizar Comentários por defeito",
+        "store_search_history": "Armazenar Histórico de Pesquisa",
+        "minimize_chapters_default": "Minimizar Capítulos por padrão",
+        "show_watch_on_youtube": "Mostrar Botão Assistir no YouTube",
+        "show_chapters": "Capítulos",
+        "hide_watched": "Ocultar vídeos assistidos no feed",
+        "documentation": "Documentação",
+        "status_page": "Estado",
+        "minimize_comments": "Minimizar Comentários",
+        "reply_count": "{count} respostas",
+        "source_code": "Código-fonte",
+        "instance_donations": "Doações de instâncias"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
@@ -154,6 +167,7 @@
         "preferences_note": "Nota: as configurações são guardadas no armazenamento local to seu navegador. Eliminar os dados de navegação irá redefini-las.",
         "page_not_found": "Página não encontrada",
         "copied": "Copiada!",
-        "cannot_copy": "Não foi possível copiar!"
+        "cannot_copy": "Não foi possível copiar!",
+        "local_storage": "Esta ação requer localStorage, os cookies estão ativados?"
     }
 }
