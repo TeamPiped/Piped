@@ -88,7 +88,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.",
+                "f,m,j,k,l,c,space,s,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -117,6 +117,27 @@ export default {
                             if (videoEl.paused) videoEl.play();
                             else videoEl.pause();
                             e.preventDefault();
+                            break;
+                        case "s":
+                            {
+                                const time = videoEl.currentTime;
+                                const selectedSkip = self.getPreferenceDict("selectedSkip");
+                                if (self.sponsors && self.sponsors.segments) {
+                                    for (const segment of self.sponsors.segments) {
+                                        const end = segment.segment[1];
+                                        if (time >= segment.segment[0] && time < end) {
+                                            switch (selectedSkip[segment.category]) {
+                                                case "skip":
+                                                case "manual":
+                                                    console.log("Manually skipped segment at " + time);
+                                                    videoEl.currentTime = end;
+                                                    segment.skipped = true;
+                                                    return;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                             break;
                         case "up":
                             videoEl.volume = Math.min(videoEl.volume + 0.05, 1);
@@ -361,16 +382,11 @@ export default {
                             if (!segment.skipped || this.selectedAutoLoop) {
                                 const end = segment.segment[1];
                                 if (time >= segment.segment[0] && time < end) {
-                                    switch (this.getPreferenceDict("selectedSkip")[segment.category]) {
-                                        case "skip":
-                                            console.log("Skipped segment at " + time);
-                                            videoEl.currentTime = end;
-                                            break;
-                                        // show and off cases are do-nothing
-                                        // TODO: Manual skip
+                                    if (this.getPreferenceDict("selectedSkip")[segment.category] == "skip") {
+                                        console.log("Skipped segment at " + time);
+                                        videoEl.currentTime = end;
                                     }
                                     segment.skipped = true;
-                                    return;
                                 }
                             }
                         });
