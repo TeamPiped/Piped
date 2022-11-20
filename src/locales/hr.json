@@ -170,6 +170,7 @@
         "preferences_note": "Napomena: postavke se spremaju u lokalno spremište tvog preglednika. Brisanje podataka preglednika će ih resetirati.",
         "page_not_found": "Stranica nije pronađena",
         "copied": "Kopirano!",
-        "cannot_copy": "Nije moguće kopirati!"
+        "cannot_copy": "Nije moguće kopirati!",
+        "local_storage": "Ova radnja zahtijeva lokalno spremište. Jesu li kolačići uključeni?"
     }
 }
