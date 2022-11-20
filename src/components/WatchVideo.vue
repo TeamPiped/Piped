@@ -363,13 +363,11 @@ export default {
             return this.fetchJson(this.apiUrl() + "/streams/" + this.getVideoId());
         },
         async fetchSponsors() {
+            const skips = this.getPreferenceDict("selectedSkip", null);
             return await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
                 category:
                     '["' +
-                    this.getPreferenceString("selectedSkip", "sponsor,interaction,selfpromo,music_offtopic").replaceAll(
-                        ",",
-                        '","',
-                    ) +
+                    (skips === null ? "sponsor,interaction,selfpromo,music_offtopic" : Object.keys(skips).join('","')) +
                     '"]',
             });
         },
