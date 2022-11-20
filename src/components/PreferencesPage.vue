@@ -188,6 +188,7 @@
         <select id="chkSkipSponsors" v-model="skipSponsor" @change="onChange($event)">
             <option value="off">Disable</option>
             <option value="skip">Auto Skip</option>
+            <option value="manual">Manual Skip</option>
             <option value="show">Show</option>
         </select>
     </label>
@@ -196,6 +197,7 @@
         <select id="chkSkipIntro" v-model="skipIntro" @change="onChange($event)">
             <option value="off">Disable</option>
             <option value="skip">Auto Skip</option>
+            <option value="manual">Manual Skip</option>
             <option value="show">Show</option>
         </select>
     </label>
@@ -204,6 +206,7 @@
         <select id="chkSkipOutro" v-model="skipOutro" @change="onChange($event)">
             <option value="off">Disable</option>
             <option value="skip">Auto Skip</option>
+            <option value="manual">Manual Skip</option>
             <option value="show">Show</option>
         </select>
     </label>
@@ -212,6 +215,7 @@
         <select id="chkSkipPreview" v-model="skipPreview" @change="onChange($event)">
             <option value="off">Disable</option>
             <option value="skip">Auto Skip</option>
+            <option value="manual">Manual Skip</option>
             <option value="show">Show</option>
         </select>
     </label>
@@ -220,6 +224,7 @@
         <select id="chkSkipInteraction" v-model="skipInteraction" @change="onChange($event)">
             <option value="off">Disable</option>
             <option value="skip">Auto Skip</option>
+            <option value="manual">Manual Skip</option>
             <option value="show">Show</option>
         </select>
     </label>
@@ -228,6 +233,7 @@
         <select id="chkSkipSelfPromo" v-model="skipSelfPromo" @change="onChange($event)">
             <option value="off">Disable</option>
             <option value="skip">Auto Skip</option>
+            <option value="manual">Manual Skip</option>
             <option value="show">Show</option>
         </select>
     </label>
@@ -236,6 +242,7 @@
         <select id="chkSkipNonMusic" v-model="skipMusicOffTopic" @change="onChange($event)">
             <option value="off">Disable</option>
             <option value="skip">Auto Skip</option>
+            <option value="manual">Manual Skip</option>
             <option value="show">Show</option>
         </select>
     </label>
@@ -244,6 +251,7 @@
         <select id="chkSkipHighlight" v-model="skipHighlight" @change="onChange($event)">
             <option value="off">Disable</option>
             <option value="skip">Auto Skip</option>
+            <option value="manual">Manual Skip</option>
             <option value="show">Show</option>
         </select>
     </label>
@@ -252,6 +260,7 @@
         <select id="chkSkipFiller" v-model="skipFiller" @change="onChange($event)">
             <option value="off">Disable</option>
             <option value="skip">Auto Skip</option>
+            <option value="manual">Manual Skip</option>
             <option value="show">Show</option>
         </select>
     </label>

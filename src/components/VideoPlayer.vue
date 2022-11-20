@@ -361,8 +361,14 @@ export default {
                             if (!segment.skipped || this.selectedAutoLoop) {
                                 const end = segment.segment[1];
                                 if (time >= segment.segment[0] && time < end) {
-                                    console.log("Skipped segment at " + time);
-                                    videoEl.currentTime = end;
+                                    switch (this.getPreferenceDict("selectedSkip")[segment.category]) {
+                                        case "skip":
+                                            console.log("Skipped segment at " + time);
+                                            videoEl.currentTime = end;
+                                            break;
+                                        // show and off cases are do-nothing
+                                        // TODO: Manual skip
+                                    }
                                     segment.skipped = true;
                                     return;
                                 }
