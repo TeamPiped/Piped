@@ -47,6 +47,9 @@ library.add(
     faServer,
     faDonate,
 );
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
+
+polyfillCountryFlagEmojis({ fontUrl: "/fonts/TwemojiCountryFlags.woff2" });
 
 import router from "@/router/router.js";
 import App from "./App.vue";

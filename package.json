@@ -14,6 +14,7 @@
         "@fortawesome/free-solid-svg-icons": "6.2.1",
         "@fortawesome/vue-fontawesome": "3.0.2",
         "buffer": "6.0.3",
+        "country-flag-emoji-polyfill": "^0.1.4",
         "dompurify": "2.4.1",
         "hotkeys-js": "3.10.0",
         "javascript-time-ago": "2.5.9",
