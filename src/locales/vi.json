@@ -66,7 +66,10 @@
         "subscriptions": "Đăng ký",
         "trending": "Xu hướng",
         "login": "Đăng nhập",
-        "feed": "Mới nhất"
+        "feed": "Mới nhất",
+        "playlists": "Danh sách phát",
+        "account": "Tài khoản",
+        "channels": "Kênh"
     },
     "player": {
         "watch_on": "Xem trên {0}"
