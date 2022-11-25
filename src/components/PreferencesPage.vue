@@ -440,6 +440,7 @@ export default {
                 { code: "hi", name: "हिंदी" },
                 { code: "id", name: "Indonesia" },
                 { code: "is", name: "Íslenska" },
+                { code: "kab", name: "Taqbaylit" },
                 { code: "hr", name: "Hrvatski" },
                 { code: "it", name: "Italiano" },
                 { code: "ja", name: "日本語" },
