@@ -109,7 +109,7 @@
         "history": "Geçmiş",
         "preferences": "Tercihler",
         "feed": "Akış",
-        "register": "Kaydol",
+        "register": "Kayıt ol",
         "login": "Oturum Aç",
         "trending": "Öne Çıkanlar",
         "subscriptions": "Abonelikler",
@@ -171,6 +171,6 @@
         "page_not_found": "Sayfa bulunamadı",
         "copied": "Kopyalandı!",
         "cannot_copy": "Kopyalanamıyor!",
-        "local_storage": "Bu eylem localStorage gerektirir, çerezler etkin mi?"
+        "local_storage": "Bu eylem yerel depolama gerektirir, çerezler etkin mi?"
     }
 }
