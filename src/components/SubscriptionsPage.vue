@@ -13,6 +13,7 @@
             subscriptions.length
         }}</i18n-t>
     </div>
+    <br />
     <hr />
     <!-- Subscriptions card list -->
     <div class="xl:grid xl:grid-cols-5 <md:flex-wrap">
