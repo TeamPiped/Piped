@@ -15,7 +15,7 @@
     </div>
     <hr />
     <!-- Subscriptions card list -->
-    <div class="xl:flex <md:flex-wrap">
+    <div class="xl:grid xl:grid-cols-5 <md:flex-wrap">
         <!-- channel info card -->
         <div
             class="col m-2 p-1 border rounded-lg border-gray-500"
