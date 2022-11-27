@@ -132,7 +132,7 @@
     "comment": {
         "pinned_by": "Prisegė {author}",
         "loading": "Įkeliami komentarai...",
-        "disabled": "Komentarai yra išjungti įkėlėjo.",
+        "disabled": "Įkėlėjas išjungė komentarus.",
         "user_disabled": "Komentarai yra išjungti nustatymuose."
     },
     "video": {
