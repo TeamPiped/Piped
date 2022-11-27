@@ -39,7 +39,7 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] [Available in many languages](src/locales), thanks to [our translators](https://hosted.weblate.org/projects/piped/frontend/)
 -   [x] Embedded video support
 -   [x] No age restriction
--   [x] Bypasses Geo restrictions if possible through federated network
+-   [x] Bypasses Geo restrictions if possible through a federated network
 
 **Technical Features**
 
