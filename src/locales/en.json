@@ -168,6 +168,7 @@
         "page_not_found": "Page not found",
         "copied": "Copied!",
         "cannot_copy": "Can't copy!",
-        "local_storage": "This action requires localStorage, are cookies enabled?"
+        "local_storage": "This action requires localStorage, are cookies enabled?",
+	  "register_no_email_note": "Piped has detected that you are using an email as username to register. Providing an email is not required to register on Piped. If you still want to continue, press OK."
     }
 }
