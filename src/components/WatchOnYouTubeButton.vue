@@ -3,12 +3,19 @@ export default {
     props: {
         videoId: String,
         currentTime: Number,
+        playlistId: String,
+        playlistIndex: String,
     },
 
     computed: {
         generatedLink() {
-            let timestamp = parseInt(this.currentTime);
-            return `https://youtu.be/watch?v=${this.videoId}&t=${timestamp}`;
+            let url = `https://youtu.be/watch?v=${this.videoId}`;
+            if (this.playlistId != undefined) {
+                // If this.playlistId is defined then this.playlistIndex is too.
+                url += `&list=${this.playlistId}&index=${this.playlistIndex}`;
+            }
+            url += `&t=${parseInt(this.currentTime)}`;
+            return url;
         },
     },
 };
