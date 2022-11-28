@@ -1,6 +1,6 @@
 <template>
     <!-- desktop view -->
-    <div v-if="!mobileLayout" class="flex-col overflow-y-scroll max-h-75vh min-h-64 lt-lg:hidden">
+    <div v-if="!mobileLayout" class="flex-col overflow-y-scroll max-w-35vw max-h-75vh min-h-64 lt-lg:hidden">
         <h2 class="mb-2 bg-gray-500/50 p-2" aria-label="chapters" title="chapters">
             {{ $t("video.chapters") }} ({{ chapters.length }})
         </h2>
@@ -13,7 +13,7 @@
         >
             <div class="flex">
                 <span class="mt-5 mr-2 text-current" v-text="index + 1" />
-                <img :src="chapter.image" :alt="chapter.title" />
+                <img class="shrink-0" :src="chapter.image" :alt="chapter.title" />
                 <div class="flex flex-col m-2">
                     <span class="text-sm" :title="chapter.title" v-text="chapter.title" />
                     <span class="text-sm font-bold text-blue-500" v-text="timeFormat(chapter.start)" />
