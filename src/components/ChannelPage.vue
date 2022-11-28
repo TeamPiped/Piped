@@ -35,7 +35,7 @@
             <font-awesome-icon icon="rss" />
         </a>
 
-        <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
+        <ViewOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
 
         <div class="flex mt-4 mb-2">
             <button
@@ -67,13 +67,13 @@
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import ContentItem from "./ContentItem.vue";
-import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import ViewOnYouTubeButton from "./ViewOnYouTubeButton.vue";
 
 export default {
     components: {
         ErrorHandler,
         ContentItem,
-        WatchOnYouTubeButton,
+        ViewOnYouTubeButton,
     },
     data() {
         return {

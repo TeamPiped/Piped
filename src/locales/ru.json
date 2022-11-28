@@ -117,7 +117,7 @@
         "reply_count": "{count} ответов",
         "minimize_comments_default": "Сворачивать комментарии по умолчанию",
         "minimize_comments": "Свернуть комментарии",
-        "show_watch_on_youtube": "Показать кнопку Смотреть на YouTube",
+        "show_view_on_youtube": "Показать кнопку Смотреть на YouTube",
         "minimize_chapters_default": "Скрывать главы по умолчанию"
     },
     "comment": {

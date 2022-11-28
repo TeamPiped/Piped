@@ -96,7 +96,7 @@
         "source_code": "Codice sorgente",
         "reply_count": "{count} risposte",
         "hide_watched": "Nascondi i video guardati nel feed",
-        "show_watch_on_youtube": "Mostra il bottone guarda su Youtube",
+        "show_view_on_youtube": "Mostra il bottone guarda su Youtube",
         "instance_donations": "Donazioni istanza",
         "minimize_comments_default": "Minimizza i commenti per impostazione predefinita",
         "minimize_comments": "Minimizza i commenti",

@@ -99,7 +99,7 @@
         "reply_count": "{count} 条回复",
         "minimize_comments": "最小化评论",
         "minimize_comments_default": "默认最小化评论",
-        "show_watch_on_youtube": "显示“在 YouTube 上观看”按钮",
+        "show_view_on_youtube": "显示“在 YouTube 上观看”按钮",
         "minimize_chapters_default": "默认最小化章节"
     },
     "video": {

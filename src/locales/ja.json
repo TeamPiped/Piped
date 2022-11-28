@@ -100,7 +100,7 @@
         "minimize_recommendations_default": "デフォルトでおすすめを最小化する",
         "hide_watched": "再生済みの動画をフィードに表示しない",
         "minimize_chapters_default": "デフォルトでチャプターを最小化する",
-        "show_watch_on_youtube": "\"YouTubeで見る\"ボタンを表示する",
+        "show_view_on_youtube": "\"YouTubeで見る\"ボタンを表示する",
         "invalidate_session": "すべてのデバイスでログアウトする",
         "instance_auth_selection": "認証インスタンスの選択",
         "clone_playlist_success": "複製に成功しました！",

@@ -110,7 +110,7 @@
         "minimize_comments": "Умањи коментаре",
         "reply_count": "{count} одговора",
         "minimize_chapters_default": "Умањи поглавља подразумевано",
-        "show_watch_on_youtube": "Прикажи сат на Јутјуб дугмету"
+        "show_view_on_youtube": "Прикажи сат на Јутјуб дугмету"
     },
     "preferences": {
         "instance_locations": "Локација инстанце",

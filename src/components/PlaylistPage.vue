@@ -23,7 +23,7 @@
                 <a class="btn mr-1" :href="getRssUrl">
                     <font-awesome-icon icon="rss" />
                 </a>
-                <WatchOnYouTubeButton :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`" />
+                <ViewOnYouTubeButton :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`" />
             </div>
         </div>
 
@@ -48,13 +48,13 @@
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import VideoItem from "./VideoItem.vue";
-import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import ViewOnYouTubeButton from "./ViewOnYouTubeButton.vue";
 
 export default {
     components: {
         ErrorHandler,
         VideoItem,
-        WatchOnYouTubeButton,
+        ViewOnYouTubeButton,
     },
     data() {
         return {

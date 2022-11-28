@@ -108,7 +108,7 @@
                         >
                             <font-awesome-icon icon="rss" />
                         </a>
-                        <WatchOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
+                        <ViewOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
                         <!-- Share Dialog -->
                         <button class="btn" @click="showShareModal = !showShareModal">
                             <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
@@ -224,7 +224,7 @@ import ChaptersBar from "./ChaptersBar.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
-import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import ViewOnYouTubeButton from "./ViewOnYouTubeButton.vue";
 
 export default {
     name: "App",
@@ -237,7 +237,7 @@ export default {
         PlaylistAddModal,
         ShareModal,
         PlaylistVideos,
-        WatchOnYouTubeButton,
+        ViewOnYouTubeButton,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");

@@ -95,7 +95,7 @@
         "documentation": "Документація",
         "instance_auth_selection": "Вибір Інстанції для Аутентифікації",
         "minimize_chapters_default": "Ховати глави за замовчуванням",
-        "show_watch_on_youtube": "Показати кнопку Дивитися на YouTube",
+        "show_view_on_youtube": "Показати кнопку Дивитися на YouTube",
         "restore_preferences": "Відновити налаштування",
         "different_auth_instance": "Використовувати іншу інстанцію для аутентифікації",
         "clone_playlist_success": "Клонування пройшло успішно!",

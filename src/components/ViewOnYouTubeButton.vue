@@ -7,7 +7,7 @@ export default {
 </script>
 
 <template>
-    <template v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)">
+    <template v-if="this.getPreferenceBoolean('showViewOnYouTube', false)">
         <!-- For large screens -->
         <a :href="link" class="btn lt-lg:hidden">
             <i18n-t keypath="player.watch_on" tag="strong">

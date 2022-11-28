@@ -53,7 +53,7 @@
         "delete_playlist_video_confirm": "Ștergi video-ul din playlist?",
         "select_playlist": "Alege un Playlist",
         "delete_account": "Șterge Contul",
-        "show_watch_on_youtube": "Arata buton de Vezi pe YouTube",
+        "show_view_on_youtube": "Arata buton de Vezi pe YouTube",
         "invalidate_session": "Deconectează-te peste tot",
         "instance_auth_selection": "Selecție Instanță de Autentificare",
         "clone_playlist_success": "Clonat cu succes!",

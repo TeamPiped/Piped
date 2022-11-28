@@ -99,7 +99,7 @@
         "reply_count": "{count} yanıt",
         "minimize_comments": "Yorumları Küçült",
         "minimize_comments_default": "Yorumları Öntanımlı Olarak Küçült",
-        "show_watch_on_youtube": "YouTube'da İzle düğmesini göster",
+        "show_view_on_youtube": "YouTube'da İzle düğmesini göster",
         "minimize_chapters_default": "Bölümleri Öntanımlı Olarak Küçült"
     },
     "player": {

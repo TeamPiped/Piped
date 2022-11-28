@@ -99,7 +99,7 @@
         "time_code": "Laiko kodas (sekundėmis)",
         "minimize_comments_default": "Suskleisti komentarus automatiškai",
         "minimize_comments": "Suskleisti komentarus",
-        "show_watch_on_youtube": "Rodyti mygtuką „Žiūrėti YouTube“",
+        "show_view_on_youtube": "Rodyti mygtuką „Žiūrėti YouTube“",
         "minimize_chapters_default": "Suskleisti skirsnius automatiškai"
     },
     "player": {

@@ -114,7 +114,7 @@
         "reply_count": "{count} svör",
         "minimize_comments_default": "Fela ummæli sjálfgefið",
         "minimize_comments": "Fela ummæli",
-        "show_watch_on_youtube": "Sýna hnapp til að horfa á YouTube",
+        "show_view_on_youtube": "Sýna hnapp til að horfa á YouTube",
         "minimize_chapters_default": "Lágmarka kafla sjálfgefið"
     },
     "player": {

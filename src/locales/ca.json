@@ -111,7 +111,7 @@
         "status_page": "Estat",
         "source_code": "Codi font",
         "documentation": "Documentació",
-        "show_watch_on_youtube": "Mostra el botó \"Veure a Youtube\"",
+        "show_view_on_youtube": "Mostra el botó \"Veure a Youtube\"",
         "reply_count": "{count} respostes",
         "minimize_comments_default": "Minimitzar els comentaris per defecte",
         "minimize_comments": "Minimitza els comentaris"
