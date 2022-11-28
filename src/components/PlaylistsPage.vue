@@ -3,7 +3,13 @@
 
     <hr />
 
-    <button v-t="'actions.create_playlist'" class="btn" @click="createPlaylist" />
+    <div class="flex justify-between mb-3">
+        <button v-t="'actions.create_playlist'" class="btn" @click="createPlaylist" />
+        <div class="flex">
+            <button v-t="'actions.export_to_json'" class="btn" @click="exportPlaylists" />
+            <button v-t="'actions.import_from_json'" class="btn ml-2" @click="importPlaylists" />
+        </div>
+    </div>
 
     <div class="video-grid">
         <div v-for="playlist in playlists" :key="playlist.id">
@@ -110,6 +116,36 @@ export default {
                     if (json.error) alert(json.error);
                     else this.fetchPlaylists();
                 });
+        },
+        exportPlaylists() {
+            if (!this.playlists) return;
+            let json = {
+                playlists: [],
+            };
+            let playlistsSize = this.playlists.length;
+            for (var i = 0; i < playlistsSize; i++) {
+                this.fetchPlaylistJson(this.playlists[i].id, playlist => {
+                    json.playlists.push(playlist);
+                    if (playlistsSize != json.playlists.length) return;
+                    this.download(JSON.stringify(json), "playlists.json", "application/json");
+                });
+            }
+        },
+        async fetchPlaylistJson(playlistId, onSuccess) {
+            let playlist = await this.fetchJson(this.authApiUrl() + "/playlists/" + playlistId);
+            let playlistJson = {
+                name: playlist.name,
+                // possible other types: history, watch later, ...
+                type: "playlist",
+                // as Invidious supports public and private playlists
+                visibility: "private",
+                // list of the videos, starting with "https://youtube.com" to clarify that those are YT videos
+                videos: [],
+            };
+            for (var i = 0; i < playlist.relatedStreams.length; i++) {
+                playlistJson.videos.push("https://youtube.com" + playlist.relatedStreams[i].url);
+            }
+            onSuccess(playlistJson);
         },
     },
 };
