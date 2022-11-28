@@ -130,6 +130,8 @@ export default {
         exportPlaylists() {
             if (!this.playlists) return;
             let json = {
+                format: "Piped",
+                version: 1,
                 playlists: [],
             };
             let playlistsSize = this.playlists.length;
