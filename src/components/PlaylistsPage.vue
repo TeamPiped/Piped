@@ -4,10 +4,16 @@
     <hr />
 
     <div class="flex justify-between mb-3">
-        <button v-t="'actions.create_playlist'" class="btn" @click="createPlaylist" />
+        <button v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
         <div class="flex">
-            <button v-t="'actions.export_to_json'" class="btn" @click="exportPlaylists" />
-            <button v-t="'actions.import_from_json'" class="btn ml-2" @click="importPlaylists" />
+            <button
+                v-if="this.playlists.length > 0"
+                v-t="'actions.export_to_json'"
+                class="btn"
+                @click="exportPlaylists"
+            />
+            <input id="fileSelector" ref="fileSelector" type="file" class="display-none" @change="importPlaylists" />
+            <label for="fileSelector" v-t="'actions.import_from_json'" class="btn ml-2" />
         </div>
     </div>
 
@@ -100,22 +106,26 @@ export default {
                     else this.playlists = this.playlists.filter(playlist => playlist.id !== id);
                 });
         },
-        createPlaylist() {
+        onCreatePlaylist() {
             const name = prompt(this.$t("actions.create_playlist"));
-            if (name)
-                this.fetchJson(this.authApiUrl() + "/user/playlists/create", null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        name: name,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                }).then(json => {
-                    if (json.error) alert(json.error);
-                    else this.fetchPlaylists();
-                });
+            if (!name) return;
+            this.createPlaylist(name).then(json => {
+                if (json.error) alert(json.error);
+                else this.fetchPlaylists();
+            });
+        },
+        async createPlaylist(name) {
+            let json = await this.fetchJson(this.authApiUrl() + "/user/playlists/create", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    name: name,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+            return json;
         },
         exportPlaylists() {
             if (!this.playlists) return;
@@ -146,6 +156,44 @@ export default {
                 playlistJson.videos.push("https://youtube.com" + playlist.relatedStreams[i].url);
             }
             onSuccess(playlistJson);
+        },
+        importPlaylists() {
+            const file = this.$refs.fileSelector.files[0];
+            file.text().then(text => {
+                let playlists = JSON.parse(text).playlists;
+                if (!playlists.length) {
+                    alert(this.$t("actions.no_valid_playlists"));
+                    return;
+                }
+                let importedCount = 0;
+                for (var i = 0; i < playlists.length; i++) {
+                    this.createPlaylistWithVideos(playlists[i], () => {
+                        importedCount++;
+                        if (playlists.length != importedCount) return;
+                        window.location.reload();
+                    });
+                }
+            });
+        },
+        async createPlaylistWithVideos(playlist, onSuccess) {
+            let newPlaylist = await this.createPlaylist(playlist.name);
+            console.log(newPlaylist);
+            let videoIds = playlist.videos.map(url => url.replace("https://youtube.com/watch?v=", ""));
+            await this.addVideosToPlaylist(newPlaylist.playlistId, videoIds);
+            onSuccess();
+        },
+        async addVideosToPlaylist(playlistId, videoIds) {
+            await this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    playlistId: playlistId,
+                    videoIds: videoIds,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
         },
     },
 };

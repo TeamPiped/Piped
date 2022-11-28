@@ -118,7 +118,8 @@
         "status_page": "Status",
         "source_code": "Source code",
         "instance_donations": "Instance donations",
-        "reply_count": "{count} replies"
+        "reply_count": "{count} replies",
+        "no_valid_playlists": "The file doesn't contain valid playlists!"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
