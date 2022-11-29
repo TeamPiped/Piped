@@ -111,14 +111,15 @@
         "store_search_history": "Simpan riwayat pencarian",
         "documentation": "Dokumentasi",
         "instance_donations": "Donasi instansi",
-        "hide_watched": "Sembunyikan video yang telah ditonton di umpan",
+        "hide_watched": "Sembunyikan video yang sudah ditonton dari umpan",
         "status_page": "Status",
         "source_code": "Kode sumber",
         "reply_count": "{count} balasan",
         "minimize_comments_default": "Kecilkan Komentar secara bawaan",
         "minimize_comments": "Kecilkan Komentar",
         "show_watch_on_youtube": "Tampilkan tombol Tonton di YouTube",
-        "minimize_chapters_default": "Kecilkan Bab secara bawaan"
+        "minimize_chapters_default": "Kecilkan Bab secara bawaan",
+        "no_valid_playlists": "Berkas ini tidak berisi daftar putar yang valid!"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -130,7 +131,7 @@
         "instance_name": "Nama Instansi",
         "ssl_score": "Skor SSL",
         "instance_locations": "Lokasi Instansi",
-        "has_cdn": "Mempunyai CDN?",
+        "has_cdn": "Memakai CDN?",
         "up_to_date": "Sudah terkini?",
         "version": "Versi",
         "registered_users": "Pengguna Terdaftar"
