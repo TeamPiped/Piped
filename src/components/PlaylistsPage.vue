@@ -127,23 +127,21 @@ export default {
             });
             return json;
         },
-        exportPlaylists() {
+        async exportPlaylists() {
             if (!this.playlists) return;
             let json = {
                 format: "Piped",
                 version: 1,
                 playlists: [],
             };
-            let playlistsSize = this.playlists.length;
-            for (var i = 0; i < playlistsSize; i++) {
-                this.fetchPlaylistJson(this.playlists[i].id, playlist => {
-                    json.playlists.push(playlist);
-                    if (playlistsSize != json.playlists.length) return;
-                    this.download(JSON.stringify(json), "playlists.json", "application/json");
-                });
+            let tasks = [];
+            for (var i = 0; i < this.playlists.length; i++) {
+                tasks.push(this.fetchPlaylistJson(this.playlists[i].id));
             }
+            json.playlists = await Promise.all(tasks);
+            this.download(JSON.stringify(json), "playlists.json", "application/json");
         },
-        async fetchPlaylistJson(playlistId, onSuccess) {
+        async fetchPlaylistJson(playlistId) {
             let playlist = await this.fetchJson(this.authApiUrl() + "/playlists/" + playlistId);
             let playlistJson = {
                 name: playlist.name,
@@ -157,32 +155,28 @@ export default {
             for (var i = 0; i < playlist.relatedStreams.length; i++) {
                 playlistJson.videos.push("https://youtube.com" + playlist.relatedStreams[i].url);
             }
-            onSuccess(playlistJson);
+            return playlistJson;
         },
-        importPlaylists() {
+        async importPlaylists() {
             const file = this.$refs.fileSelector.files[0];
-            file.text().then(text => {
-                let playlists = JSON.parse(text).playlists;
-                if (!playlists.length) {
-                    alert(this.$t("actions.no_valid_playlists"));
-                    return;
-                }
-                let importedCount = 0;
-                for (var i = 0; i < playlists.length; i++) {
-                    this.createPlaylistWithVideos(playlists[i], () => {
-                        importedCount++;
-                        if (playlists.length != importedCount) return;
-                        window.location.reload();
-                    });
-                }
-            });
+            let text = await file.text();
+            let playlists = JSON.parse(text).playlists;
+            if (!playlists.length) {
+                alert(this.$t("actions.no_valid_playlists"));
+                return;
+            }
+            let tasks = [];
+            for (var i = 0; i < playlists.length; i++) {
+                tasks.push(this.createPlaylistWithVideos(playlists[i]));
+            }
+            await Promise.all(tasks);
+            window.location.reload();
         },
-        async createPlaylistWithVideos(playlist, onSuccess) {
+        async createPlaylistWithVideos(playlist) {
             let newPlaylist = await this.createPlaylist(playlist.name);
             console.log(newPlaylist);
-            let videoIds = playlist.videos.map(url => url.replace("https://youtube.com/watch?v=", ""));
+            let videoIds = playlist.videos.map(url => url.substr(-11));
             await this.addVideosToPlaylist(newPlaylist.playlistId, videoIds);
-            onSuccess();
         },
         async addVideosToPlaylist(playlistId, videoIds) {
             await this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
