@@ -115,7 +115,8 @@
         "minimize_comments_default": "Ve výchozím nastavení skrýt komentáře",
         "minimize_comments": "Skrýt komentáře",
         "show_watch_on_youtube": "Zobrazit tlačítko Sledovat na YouTube",
-        "minimize_chapters_default": "Ve výchozím nastavení skrýt kapitoly"
+        "minimize_chapters_default": "Ve výchozím nastavení skrýt kapitoly",
+        "no_valid_playlists": "Soubor neobsahuje platné playlisty!"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
