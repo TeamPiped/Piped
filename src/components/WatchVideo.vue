@@ -109,10 +109,11 @@
                             <font-awesome-icon icon="rss" />
                         </a>
                         <WatchOnYouTubeButton
-                            :video-id="getVideoId()"
-                            :current-time="currentTime"
-                            :playlist-id="playlistId"
-                            :playlist-index="index"
+                            :id="getVideoId()"
+                            :type="'video'"
+                            :videoTimestamp="currentTime"
+                            :videoPlaylistId="playlistId"
+                            :videoPlaylistIndex="index"
                         />
                         <!-- Share Dialog -->
                         <button class="btn" @click="showShareModal = !showShareModal">

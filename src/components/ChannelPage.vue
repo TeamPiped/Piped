@@ -35,7 +35,7 @@
             <font-awesome-icon icon="rss" />
         </a>
 
-        <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
+        <WatchOnYouTubeButton :id="`${this.channel.id}`" :type="'channel'" />
 
         <div class="flex mt-4 mb-2">
             <button
