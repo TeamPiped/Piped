@@ -3,7 +3,19 @@
 
     <hr />
 
-    <button v-t="'actions.create_playlist'" class="btn" @click="createPlaylist" />
+    <div class="flex justify-between mb-3">
+        <button v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
+        <div class="flex">
+            <button
+                v-if="this.playlists.length > 0"
+                v-t="'actions.export_to_json'"
+                class="btn"
+                @click="exportPlaylists"
+            />
+            <input id="fileSelector" ref="fileSelector" type="file" class="display-none" @change="importPlaylists" />
+            <label for="fileSelector" v-t="'actions.import_from_json'" class="btn ml-2" />
+        </div>
+    </div>
 
     <div class="video-grid">
         <div v-for="playlist in playlists" :key="playlist.id">
@@ -94,22 +106,90 @@ export default {
                     else this.playlists = this.playlists.filter(playlist => playlist.id !== id);
                 });
         },
-        createPlaylist() {
+        onCreatePlaylist() {
             const name = prompt(this.$t("actions.create_playlist"));
-            if (name)
-                this.fetchJson(this.authApiUrl() + "/user/playlists/create", null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        name: name,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                }).then(json => {
-                    if (json.error) alert(json.error);
-                    else this.fetchPlaylists();
-                });
+            if (!name) return;
+            this.createPlaylist(name).then(json => {
+                if (json.error) alert(json.error);
+                else this.fetchPlaylists();
+            });
+        },
+        async createPlaylist(name) {
+            let json = await this.fetchJson(this.authApiUrl() + "/user/playlists/create", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    name: name,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+            return json;
+        },
+        async exportPlaylists() {
+            if (!this.playlists) return;
+            let json = {
+                format: "Piped",
+                version: 1,
+                playlists: [],
+            };
+            let tasks = [];
+            for (var i = 0; i < this.playlists.length; i++) {
+                tasks.push(this.fetchPlaylistJson(this.playlists[i].id));
+            }
+            json.playlists = await Promise.all(tasks);
+            this.download(JSON.stringify(json), "playlists.json", "application/json");
+        },
+        async fetchPlaylistJson(playlistId) {
+            let playlist = await this.fetchJson(this.authApiUrl() + "/playlists/" + playlistId);
+            let playlistJson = {
+                name: playlist.name,
+                // possible other types: history, watch later, ...
+                type: "playlist",
+                // as Invidious supports public and private playlists
+                visibility: "private",
+                // list of the videos, starting with "https://youtube.com" to clarify that those are YT videos
+                videos: [],
+            };
+            for (var i = 0; i < playlist.relatedStreams.length; i++) {
+                playlistJson.videos.push("https://youtube.com" + playlist.relatedStreams[i].url);
+            }
+            return playlistJson;
+        },
+        async importPlaylists() {
+            const file = this.$refs.fileSelector.files[0];
+            let text = await file.text();
+            let playlists = JSON.parse(text).playlists;
+            if (!playlists.length) {
+                alert(this.$t("actions.no_valid_playlists"));
+                return;
+            }
+            let tasks = [];
+            for (var i = 0; i < playlists.length; i++) {
+                tasks.push(this.createPlaylistWithVideos(playlists[i]));
+            }
+            await Promise.all(tasks);
+            window.location.reload();
+        },
+        async createPlaylistWithVideos(playlist) {
+            let newPlaylist = await this.createPlaylist(playlist.name);
+            console.log(newPlaylist);
+            let videoIds = playlist.videos.map(url => url.substr(-11));
+            await this.addVideosToPlaylist(newPlaylist.playlistId, videoIds);
+        },
+        async addVideosToPlaylist(playlistId, videoIds) {
+            await this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    playlistId: playlistId,
+                    videoIds: videoIds,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
         },
     },
 };
