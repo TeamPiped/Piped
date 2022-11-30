@@ -100,7 +100,8 @@
         "minimize_comments": "最小化评论",
         "minimize_comments_default": "默认最小化评论",
         "show_watch_on_youtube": "显示“在 YouTube 上观看”按钮",
-        "minimize_chapters_default": "默认最小化章节"
+        "minimize_chapters_default": "默认最小化章节",
+        "no_valid_playlists": "此文件不含无效的播放列表！"
     },
     "video": {
         "sponsor_segments": "赞助商部分",

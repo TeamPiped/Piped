@@ -118,7 +118,8 @@
         "with_timecode": "Udostępnij z kodem czasowym",
         "piped_link": "Link Piped",
         "status_page": "Status",
-        "reply_count": "{count} odpowiedzi"
+        "reply_count": "{count} odpowiedzi",
+        "no_valid_playlists": "Ten plik nie zawiera poprawnych playlist!"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",

@@ -100,7 +100,8 @@
         "minimize_comments": "Yorumları Küçült",
         "minimize_comments_default": "Yorumları Öntanımlı Olarak Küçült",
         "show_watch_on_youtube": "YouTube'da İzle düğmesini göster",
-        "minimize_chapters_default": "Bölümleri Öntanımlı Olarak Küçült"
+        "minimize_chapters_default": "Bölümleri Öntanımlı Olarak Küçült",
+        "no_valid_playlists": "Dosya geçerli oynatma listeleri içermiyor!"
     },
     "player": {
         "watch_on": "{0} üzerinde izle"
