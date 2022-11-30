@@ -118,7 +118,8 @@
         "minimize_comments_default": "Defaŭlte Plejetigi Komentojn",
         "minimize_comments": "Plejetigi Komentojn",
         "show_watch_on_youtube": "Montri «Vidi en Youtube»-butonon",
-        "minimize_chapters_default": "Defaŭlte plejetigi ĉapitrojn"
+        "minimize_chapters_default": "Defaŭlte plejetigi ĉapitrojn",
+        "no_valid_playlists": "La dosiero ne enhavas validajn ludlistojn!"
     },
     "video": {
         "chapters": "Sekcioj",
