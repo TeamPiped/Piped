@@ -41,7 +41,7 @@
         "minimize_description": "Beschreibung minimieren",
         "show_recommendations": "Empfehlungen anzeigen",
         "minimize_recommendations": "Empfehlungen minimieren",
-        "donations": "Spenden",
+        "donations": "Spenden für die Entwickler",
         "auto_play_next_video": "Nächstes Video automatisch abspielen",
         "loop_this_video": "Dieses Video wiederholen",
         "import_from_json": "Aus JSON/CSV importieren",
@@ -96,7 +96,12 @@
         "reply_count": "{count} Antworten",
         "instance_donations": "Instanz-Spenden",
         "documentation": "Dokumentation",
-        "status_page": "Status"
+        "status_page": "Status",
+        "minimize_chapters_default": "Kapitel standardmäßig minimieren",
+        "minimize_comments_default": "Kommentare automatisch minimieren",
+        "minimize_comments": "Kommentare minimieren",
+        "no_valid_playlists": "Die Datei enthält keine gültigen Wiedergabelisten!",
+        "show_watch_on_youtube": "Schaltfläche „Auf YouTube ansehen“ anzeigen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -112,7 +117,9 @@
         "playlists": "Wiedergabelisten",
         "account": "Konto",
         "player": "Player",
-        "instance": "Instanz"
+        "instance": "Instanz",
+        "livestreams": "Livestreams",
+        "channels": "Kanäle"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Segmente",
@@ -161,6 +168,7 @@
         "preferences_note": "Achtung: Einstellung werden lokal in deinem Browser gespeichert. Wenn du deine Browserdaten löschst werden sie auch gelöscht.",
         "page_not_found": "Seite nicht gefunden",
         "copied": "Kopiert!",
-        "cannot_copy": "Kopieren nicht möglich!"
+        "cannot_copy": "Kopieren nicht möglich!",
+        "local_storage": "Diese Aktion erfordert „localStorage“, sind Cookies aktiviert?"
     }
 }
