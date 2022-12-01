@@ -118,7 +118,8 @@
         "minimize_comments_default": "تصغير التعليقات بشكل افتراضي",
         "minimize_comments": "تصغير التعليقات",
         "show_watch_on_youtube": "عرض زر مشاهدة على يوتيوب",
-        "minimize_chapters_default": "تصغير الفصول بشكل افتراضي"
+        "minimize_chapters_default": "تصغير الفصول بشكل افتراضي",
+        "no_valid_playlists": "لا يحتوي الملف على قوائم تشغيل صالحة!"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
