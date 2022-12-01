@@ -115,7 +115,8 @@
         "minimize_comments_default": "Minimiser les commentaires par défaut",
         "minimize_comments": "Minimiser les commentaires",
         "show_watch_on_youtube": "Afficher le bouton Regarder sur YouTube",
-        "minimize_chapters_default": "Minimiser les chapitres par défaut"
+        "minimize_chapters_default": "Minimiser les chapitres par défaut",
+        "no_valid_playlists": "Le fichier ne contient pas de listes de lecture valides !"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
