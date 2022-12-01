@@ -100,7 +100,8 @@
         "minimize_comments_default": "Suskleisti komentarus automatiškai",
         "minimize_comments": "Suskleisti komentarus",
         "show_watch_on_youtube": "Rodyti mygtuką „Žiūrėti YouTube“",
-        "minimize_chapters_default": "Suskleisti skirsnius automatiškai"
+        "minimize_chapters_default": "Suskleisti skirsnius automatiškai",
+        "no_valid_playlists": "Faile nėra galiojančių grojaraščių!"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"

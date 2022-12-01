@@ -100,7 +100,8 @@
         "reply_count": "{count} respostas",
         "minimize_recommendations_default": "Minimizar Recomendações por padrão",
         "show_watch_on_youtube": "Mostrar Botão Assistir no YouTube",
-        "minimize_chapters_default": "Minimizar Capítulos por padrão"
+        "minimize_chapters_default": "Minimizar Capítulos por padrão",
+        "no_valid_playlists": "O arquivo não contém playlists válidas!"
     },
     "titles": {
         "history": "Histórico",

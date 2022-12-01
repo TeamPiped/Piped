@@ -100,7 +100,8 @@
         "instance_donations": "Donazioni istanza",
         "minimize_comments_default": "Minimizza i commenti per impostazione predefinita",
         "minimize_comments": "Minimizza i commenti",
-        "minimize_chapters_default": "Minimizza i capitoli per impostazione predefinita"
+        "minimize_chapters_default": "Minimizza i capitoli per impostazione predefinita",
+        "no_valid_playlists": "Il file non contiene playlist valide!"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -170,6 +171,7 @@
         "page_not_found": "Pagina non trovata",
         "preferences_note": "Nota: le preferenze sono salvate nella memoria locale del tuo browser. L'eliminazione dei dati del tuo browser le ripristinerà.",
         "copied": "Copiato!",
-        "cannot_copy": "Impossibile copiare!"
+        "cannot_copy": "Impossibile copiare!",
+        "local_storage": "Questa azione richiede localStorage, i cookie sono abilitati?"
     }
 }
