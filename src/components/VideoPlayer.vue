@@ -273,7 +273,11 @@ export default {
                     ).generate_dash_file_from_formats(streams, this.video.duration);
 
                     uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
-                } else uri = this.video.dash;
+                } else {
+                    const url = new URL(this.video.dash);
+                    url.searchParams.set("rewrite", false);
+                    uri = url.toString();
+                }
                 mime = "application/dash+xml";
             } else if (lbry) {
                 uri = lbry.url;
