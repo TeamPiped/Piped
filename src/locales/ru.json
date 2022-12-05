@@ -118,7 +118,8 @@
         "minimize_comments_default": "Сворачивать комментарии по умолчанию",
         "minimize_comments": "Свернуть комментарии",
         "show_watch_on_youtube": "Показать кнопку Смотреть на YouTube",
-        "minimize_chapters_default": "Скрывать главы по умолчанию"
+        "minimize_chapters_default": "Скрывать главы по умолчанию",
+        "no_valid_playlists": "Файл не содержит действительных списков воспроизведения!"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем {author}",
