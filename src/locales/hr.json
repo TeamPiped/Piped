@@ -125,7 +125,8 @@
         "minimize_comments_default": "Standardno sakrij komentare",
         "minimize_comments": "Sakrij komentare",
         "show_watch_on_youtube": "Prikaži gumb „Gledaj na YouTubeu”",
-        "minimize_chapters_default": "Standardno sakrij poglavlja"
+        "minimize_chapters_default": "Standardno sakrij poglavlja",
+        "no_valid_playlists": "Datoteka ne sadrži ispravan popisi snimaka!"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
