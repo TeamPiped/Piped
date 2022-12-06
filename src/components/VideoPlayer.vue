@@ -491,16 +491,20 @@ export default {
             if (qualityConds) this.$player.configure("abr.enabled", false);
 
             player.load(uri, 0, mime).then(() => {
-                // Set the audio language
-                const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
-                var lang = "en";
-                for (var l in player.getAudioLanguages()) {
-                    if (l == prefLang) {
-                        lang = l;
-                        return;
+                const isSafari = window.navigator?.vendor?.includes("Apple");
+
+                if (!isSafari) {
+                    // Set the audio language
+                    const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
+                    var lang = "en";
+                    for (var l in player.getAudioLanguages()) {
+                        if (l == prefLang) {
+                            lang = l;
+                            return;
+                        }
                     }
+                    player.selectAudioLanguage(lang);
                 }
-                player.selectAudioLanguage(lang);
 
                 if (qualityConds) {
                     var leastDiff = Number.MAX_VALUE;
