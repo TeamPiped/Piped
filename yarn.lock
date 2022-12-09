@@ -892,10 +892,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.20.0":
-  version "7.20.2"
-  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.20.2.tgz#159d2a6a5fc1a04df04f414d999c4558711a5cf0"
-  integrity sha512-oQX2oyEZCKzOaLImmg3NMm+1DFDm1pIkAme3xCvi170oYCzr5GazANyzFrsV4+9jup6b5uXlgIghXWGGUUEzSQ==
+"@babel/standalone@^7.20.6":
+  version "7.20.6"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.20.6.tgz#7deb7ad244176414c3cbde020aad0607afdbe2fe"
+  integrity sha512-u5at/CbBLETf7kx2LOY4XdhseD79Y099WZKAOMXeT8qvd9OSR515my2UNBBLY4qIht/Qi9KySeQHQwQwxJN4Sw==
 
 "@babel/template@^7.16.7":
   version "7.16.7"
@@ -1139,7 +1139,7 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@jridgewell/sourcemap-codec@^1.4.10":
+"@jridgewell/sourcemap-codec@^1.4.10", "@jridgewell/sourcemap-codec@^1.4.13":
   version "1.4.14"
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz#add4c98d341472a289190b424efbdb096991bb24"
   integrity sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==
@@ -1467,15 +1467,15 @@
     "@unocss/transformer-directives" "0.47.5"
     magic-string "^0.26.7"
 
-"@vitejs/plugin-legacy@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-2.3.1.tgz#44d8e608e66ef03ff82ae176588c7a621d56c524"
-  integrity sha512-J5KaGBlSt2tEYPVjM/C8dA6DkRzkFkbPe+Xb4IX5G+XOV5OGbVAfkMjKywdrkO3gGynO8S98i71Lmsff4cWkCQ==
+"@vitejs/plugin-legacy@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-3.0.1.tgz#bccc0eaf15a64e1854313acebec879854e413deb"
+  integrity sha512-XCtEjxoR3rmy000ujYRBp5kggWqzHz9+F20/yIMUWOzbvu0+KW1e14Fvb8h7SpNn+bfjGW1RiAs1Vrgb7Js+iQ==
   dependencies:
-    "@babel/standalone" "^7.20.0"
-    core-js "^3.26.0"
-    magic-string "^0.26.7"
-    regenerator-runtime "^0.13.10"
+    "@babel/standalone" "^7.20.6"
+    core-js "^3.26.1"
+    magic-string "^0.27.0"
+    regenerator-runtime "^0.13.11"
     systemjs "^6.13.0"
 
 "@vitejs/plugin-vue@3.2.0":
@@ -1893,10 +1893,10 @@ core-js-compat@^3.20.2, core-js-compat@^3.21.0:
     browserslist "^4.19.1"
     semver "7.0.0"
 
-core-js@^3.26.0:
-  version "3.26.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.26.0.tgz#a516db0ed0811be10eac5d94f3b8463d03faccfe"
-  integrity sha512-+DkDrhoR4Y0PxDz6rurahuB+I45OsEUv8E1maPTB6OuHRohMMcznBq9TMpdpDMm/hUPob/mJJS3PqgbHpMTQgw==
+core-js@^3.26.1:
+  version "3.26.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.26.1.tgz#7a9816dabd9ee846c1c0fe0e8fcad68f3709134e"
+  integrity sha512-21491RRQVzUn0GGM9Z1Jrpr6PNPxPi+Za8OM9q4tksTSnlbXXGKK1nXNg/QvwFYettXvSX6zWKCtHHfjN4puyA==
 
 cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
@@ -2978,6 +2978,13 @@ magic-string@^0.26.7:
   dependencies:
     sourcemap-codec "^1.4.8"
 
+magic-string@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.27.0.tgz#e4a3413b4bab6d98d2becffd48b4a257effdbbf3"
+  integrity sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==
+  dependencies:
+    "@jridgewell/sourcemap-codec" "^1.4.13"
+
 mdn-data@2.0.28:
   version "2.0.28"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.28.tgz#5ec48e7bef120654539069e1ae4ddc81ca490eba"
@@ -3314,10 +3321,10 @@ regenerate@^1.4.2:
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.2.tgz#b9346d8827e8f5a32f7ba29637d398b69014848a"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
 
-regenerator-runtime@^0.13.10:
-  version "0.13.10"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.10.tgz#ed07b19616bcbec5da6274ebc75ae95634bfc2ee"
-  integrity sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw==
+regenerator-runtime@^0.13.11:
+  version "0.13.11"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
+  integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
 regenerator-runtime@^0.13.4:
   version "0.13.9"
