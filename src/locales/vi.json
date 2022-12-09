@@ -57,7 +57,9 @@
         "yes": "Có",
         "enabled_codecs": "Mã hóa được kích hoạt (Nhiều)",
         "export_to_json": "Xuất định dạng JSON",
-        "no": "Không"
+        "no": "Không",
+        "remove_from_playlist": "Xóa khỏi danh sách phát",
+        "add_to_playlist": "Thêm vào danh sách phát"
     },
     "titles": {
         "register": "Đăng ký",
