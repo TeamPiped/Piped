@@ -6,8 +6,9 @@ COPY . .
 
 RUN --mount=type=cache,target=/root/.cache/yarn \
     --mount=type=cache,target=/app/node_modules \
+    pkg add curl && \
     yarn install --prefer-offline && \
-    yarn build && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist/assets/*.css
+    yarn build && ./localizefonts.sh
 
 FROM nginx:alpine
 
