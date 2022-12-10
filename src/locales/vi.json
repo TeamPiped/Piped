@@ -59,7 +59,13 @@
         "export_to_json": "Xuất định dạng JSON",
         "no": "Không",
         "remove_from_playlist": "Xóa khỏi danh sách phát",
-        "add_to_playlist": "Thêm vào danh sách phát"
+        "add_to_playlist": "Thêm vào danh sách phát",
+        "delete_playlist_video_confirm": "Bạn có chắc là muốn xóa video khỏi danh sách phát này không?",
+        "delete_playlist_confirm": "Bạn có chắc là bạn muốn xóa danh sách phát này không?",
+        "create_playlist": "Tạo danh sách phát",
+        "delete_playlist": "Xóa danh sách phát",
+        "select_playlist": "Chọn một danh sách phát",
+        "please_select_playlist": "Hãy chọn một danh sách phát"
     },
     "titles": {
         "register": "Đăng ký",
