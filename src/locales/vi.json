@@ -65,11 +65,14 @@
         "create_playlist": "Tạo danh sách phát",
         "delete_playlist": "Xóa danh sách phát",
         "select_playlist": "Chọn một danh sách phát",
-        "please_select_playlist": "Hãy chọn một danh sách phát"
+        "please_select_playlist": "Hãy chọn một danh sách phát",
+        "copy_link": "Sao chép liên kết",
+        "source_code": "Mã nguồn",
+        "piped_link": "Liên kết Piped"
     },
     "titles": {
         "register": "Đăng ký",
-        "preferences": "Sở thích",
+        "preferences": "Cài đặt",
         "history": "Lịch sử",
         "subscriptions": "Đăng ký",
         "trending": "Xu hướng",
@@ -117,5 +120,8 @@
         "videos": "YouTube: Video",
         "music_videos": "YT Music: Video",
         "music_albums": "YT Music: Album"
+    },
+    "info": {
+        "copied": "Đã sao chép!"
     }
 }
