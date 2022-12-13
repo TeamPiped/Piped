@@ -115,7 +115,8 @@
         "minimize_comments": "Minimizar Comentários",
         "reply_count": "{count} respostas",
         "source_code": "Código-fonte",
-        "instance_donations": "Doações de instâncias"
+        "instance_donations": "Doações de instâncias",
+        "no_valid_playlists": "O ficheiro não contém listas de reprodução válidas!"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
