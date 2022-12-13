@@ -107,7 +107,8 @@
         "reply_count": "{count} відповідей",
         "minimize_comments_default": "Згортати коментарі за замовчуванням",
         "minimize_comments": "Згорнути коментарі",
-        "delete_account": "Видалити Акаунт"
+        "delete_account": "Видалити Акаунт",
+        "no_valid_playlists": "Файл не містить дійсних плейлистів!"
     },
     "titles": {
         "register": "Реєстрація",
