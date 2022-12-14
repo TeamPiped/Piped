@@ -115,7 +115,8 @@
         "share": "Partilhar",
         "with_timecode": "Partilhar com código de tempo",
         "show_chapters": "Capítulos",
-        "reply_count": "{count} respostas"
+        "reply_count": "{count} respostas",
+        "no_valid_playlists": "O ficheiro não contém listas de reprodução válidas!"
     },
     "preferences": {
         "instance_name": "Nome da Instância",
