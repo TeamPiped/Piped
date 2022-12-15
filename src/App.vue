@@ -13,29 +13,8 @@
 </template>
 
 <style>
-/*Global*/
-:root {
-    --efy_color1_var: 239, 68, 68;
-    --efy_color2_var: 220, 38, 38;
-    --efy_radius: 12rem;
-    --efy_sidebar_button: right_middle, off;
-    --efy_font_family: "nunito", sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
-        Noto Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-    --efy_body_width: 100%;
-    --efy_audio_path: ./audio;
-    --efy_modules: efy_quick, efy_mode, efy_filters, efy_backup, efy_accessibility, efy_audio, efy_keyboard, efy_extra;
-}
-
 body {
     @apply p-16rem;
-}
-
-/*Default Mode*/
-[efy_mode="default_mode"] {
-    color-scheme: dark;
-    --efy_bg_var: 255, 255, 255;
-    --efy_bg: rgb(15, 15, 15);
-    --efy_text: rgb(220, 220, 220);
 }
 
 /*Radius*/
@@ -92,7 +71,7 @@ video {
 .pp-video-card-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10rem;
+    gap: var(--efy_gap0);
     margin: 5rem 0 0;
 }
 .pp-video-card-buttons :is(a, button) {
@@ -135,10 +114,10 @@ video {
 }
 .pp-video-card-channel {
     display: flex;
-    gap: 10rem;
+    gap: var(--efy_gap0);
     place-items: center;
     background: transparent;
-    margin: 10rem 0 0;
+    margin: var(--efy_gap0) 0 0;
     width: fit-content;
 }
 .pp-video-card-channel > a {
