@@ -31,8 +31,8 @@
                 v-if="channel.id"
                 :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
                 target="_blank"
-                class="btn flex-col ml-2"
-                style="display: inline; float: unset"
+                class="btn"
+                style="display: inline; float: unset; margin-left: var(--efy_gap0)"
             >
                 <font-awesome-icon icon="rss" />
             </a>
@@ -40,7 +40,7 @@
             <button
                 v-for="(tab, index) in tabs"
                 :key="tab.name"
-                class="btn mr-2"
+                style="margin-right: var(--efy_gap0)"
                 @click="loadTab(index)"
                 :class="{ active: selectedTab == index }"
             >
