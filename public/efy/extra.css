@@ -1,0 +1,23 @@
+/*Snow*/ @keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}
+@keyframes snowflakes-shake{
+  0%{transform:translateX(0) scale(1) rotate(0deg)}
+  60%{transform:translateX(-90px) scale(2) rotate(50deg)}
+  100%{transform: translateX(0) scale(1) rotate(0deg)}
+}
+@keyframes rain {0% {transform: rotate(2deg) translateY(-10vh)} 100% {transform: rotate(-1deg) translateY(110vh)}}
+
+[efy_anim*=rain] .efy_anim_child {width: 1.5rem; height: 50rem; background: linear-gradient(to top, var(--efy_text), transparent); margin-left: -50rem; animation: rain 10s steps(300,end) infinite}
+
+[efy_anim*=falling] .efy_anim_child {color: var(--efy_text); font-size: 20rem; font-family: Arial; z-index: 999999; -webkit-user-select: none; user-select: none; animation: snowflakes-fall 10s steps(300,end) infinite running, snowflakes-shake 5s ease-in-out infinite running;}
+
+[efy_anim] .efy_anim_child {position: fixed; bottom: 110%; z-index: 999999}
+
+
+/*Keyboard*/
+
+[efy_keyboard] {display: none; gap: 10rem; flex-wrap: wrap; padding: 10rem; margin-bottom: 15rem; border: var(--efy_border); border-radius: var(--efy_radius2); box-shadow: 0 0 20rem #0003}
+[efy_kb] [efy_keyboard] {display: flex}
+[efy_keyboard] [efy_key] {background: var(--efy_bg1); color: var(--efy_text!important); -webkit-text-fill-color: var(--efy_text); flex: 1; flex-basis: 6.5%; height: 55rem; margin: 0}
+[efy_keyboard] [efy_key] * {pointer-events: none}
+[efy_outline] [efy_keyboard] [efy_key], [efy_outline] [efy_keyboard] [efy_key]:focus {outline-offset: 0!important}
+[efy_keyboard] [efy_key=space] {flex: 3; flex-basis: 20%;}
