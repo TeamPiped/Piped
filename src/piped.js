@@ -7,8 +7,9 @@ $ready_once('#efy_sidebar').then(()=>{
     for (let a = ['preferences', 'history', 'playlists', 'feed'], b = ['Preferences', 'History', 'Playlists', 'Feed'], c = $('#custom_sidebar_menu'), i = 0; i < a.length; i++){ $append(c, $add('a', {href: `./${a[i]}`}, [b[i]]))}
 
     /*Custom Settings*/ $append($('#efy_modules'), $add('details', {id: 'piped_style'}, [
-        $add('summary', {}, [$add('i', {efy_icon: 'dots'}), 'Piped Style (Alpha)']), $add('div', {efy_tabs: 'piped_style'})]),
+        $add('summary', {}, [$add('i', {efy_icon: 'dots'}), 'Piped Style']), $add('div', {efy_tabs: 'piped_style'})]),
     );
+    $insert($('#piped_style > summary'), 'beforeend', $add('mark', {efy_lang: 'alpha'}));
     /*Tabs*/ for (let a = ['option1', 'option2', 'option3'], b = ['Tab 1', 'Tab 2', 'Tab 3'], c = $('[efy_tabs=piped_style]'), i = 0; i < a.length; i++) {
         $append(c, $add('button', {efy_tab: a[i]}, [b[i]]));
     }
