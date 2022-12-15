@@ -82,8 +82,10 @@ export default {
 
 <style>
 .suggestions-container {
-    @apply left-1/2 translate-x-[-50%] transform-gpu max-w-[600rem] w-full box-border p-[15rem] mb-[15rem] z-10 lt-md:max-w-[calc(100%-0.5rem)];
+    @apply left-1/2 translate-x-[-50%] transform-gpu max-w-[600rem] w-full box-border z-10 lt-md:max-w-[calc(100%-0.5rem)];
     background: var(--efy_text2);
     box-shadow: 0 0 20rem var(--efy_text_trans);
+    padding: var(--efy_gap);
+    margin: calc(-12rem + var(--efy_gap)) 0 var(--efy_gap) 0;
 }
 </style>
