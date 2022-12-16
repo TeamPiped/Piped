@@ -1,6 +1,23 @@
-/*EFY Template - 2022.09.09 - Fonts*/ @font-face {font-family: 'nunito'; src: url('../efy/nunito.woff2') format('truetype')} @font-face {font-family: 'nunito'; src: url('../efy/nunito_bold.woff2') format('truetype'); font-weight: bold}
-
-/*End of EFY Template - Documentation on how to use it coming soon at https://efy.ooo/ui . Your own css starts bellow*/
+/*Global*/ @font-face {font-family: 'nunito'; src: url('../efy/nunito.woff2') format('truetype')} @font-face {font-family: 'nunito'; src: url('../efy/nunito_bold.woff2') format('truetype'); font-weight: bold}
+:root {
+    --efy_color1_var: 239, 68, 68;
+    --efy_color2_var: 220, 38, 38;
+    --efy_color_angle: 165deg;
+    --efy_radius: 12rem;
+    --efy_gap: 15rem;
+    --efy_sidebar_button: right_middle, off;
+    --efy_body_width: 100%;
+    --efy_font_family: 'nunito', sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    --efy_audio_folder: ./efy/audio;
+    --efy_folder: ./efy;
+    --efy_modules: efy_quick, efy_mode, efy_filters, efy_backup, efy_accessibility, efy_audio, efy_language, efy_extra;
+}
+/*Default Mode*/ [efy_mode=default] {
+    --efy_scheme: dark;
+    --efy_bg_var: 255, 255, 255;
+    --efy_bg: rgb(15, 15, 15);
+    --efy_text: rgb(220, 220, 220);
+} /*Your code starts bellow*/
 
 /*BG 1*/ .comment, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
 /*Bold*/ .btn {font-weight: bold}
@@ -9,7 +26,7 @@
 /*Justify-Content: Space-Between*/ .pp-playlist-add-modal-top, .pp-watch-bellow-options, .pp-nav {justify-content: space-between}
 
 /*Display: Flex*/ .pp-watch-buttons, .pp-watch-bellow-options .flex.items-center, .pp-channel-page-author, .grid .comment, .pp-chapters {display: flex}
-/*Gap: 15rem*/ .pp-show-playlist, .pp-rec-vids, .pp-mobile-nav, .pp-delete-account .flex, .pp-playlist-add-modal-top, .pp-pref-cards, .pp-watch-bellow-options {gap: 15rem}
+/*Gap: 15rem*/ .pp-show-playlist, .pp-rec-vids, .pp-mobile-nav, .pp-delete-account .flex, .pp-playlist-add-modal-top, .pp-pref-cards, .pp-watch-bellow-options {gap: var(--efy_gap)}
 /*Color: Text*/ .video-grid div a, .pp-show-recs div a, .video-grid div button:not(.modal button, .btn), .pp-show-recs div button:not(.modal button, .btn), .svg-inline--fa:not(.video-grid svg, .btn svg, button svg) {color: var(--efy_text)}
 
 /*Border*/ .modal-container, .video-grid>div {border: 1.5px solid var(--efy_bg1);}
@@ -17,18 +34,18 @@
 /*Text-Fill-Color: Text*/  p, .pp-mobile-nav a, .pp-mobile-nav p, .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-logo a, .pp-nav .pp-menu > * {-webkit-text-fill-color: var(--efy_text); text-decoration: none}
 /*Text-Fill-Color: Text2*/ .btn, .btn a, a.btn, .modal button {-webkit-text-fill-color: var(--efy_text2); text-decoration: none}
 
-/*BG: efy*/ .btn, .pp-chapter-active, .pp-chapters .chapter:hover {background: linear-gradient(165deg, var(--efy_color), var(--efy_color2)); background-clip: padding-box; color: var(--efy_text2)}
+/*BG: efy*/ .btn, .pp-chapter-active, .pp-chapters .chapter:hover {background: var(--efy_color); background-clip: padding-box; color: var(--efy_text2)}
 
 /*Padding 1*/ .btn {padding: var(--efy_padding); height: auto}
 
 /*Avatar*/ .comment-avatar, .pp-import-channel img {width: 40rem; height:  40rem}
 
-/*Video Grid */ .video-grid {display: grid; gap: 16rem; grid-template-columns: repeat(auto-fill, minmax(240rem, 1fr))}
+/*Video Grid */ .video-grid {display: grid; gap: var(--efy_gap); grid-template-columns: repeat(auto-fill, minmax(240rem, 1fr))}
 
 tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 0 0 1.5px var(--efy_bg1)}
 
 /*Bellow*/ .pp-watch-bellow-options {margin-top: 15rem}
-.pp-watch-buttons {flex-wrap: wrap; gap: 10rem}
+.pp-watch-buttons {flex-wrap: wrap; gap: var(--efy_gap0)}
 .pp-watch-buttons .btn {padding: 6rem 15rem; border: 0; color: var(--efy_text2); min-height: 36rem; max-height: 36rem; place-self: center; place-content: center}
 .pp-bellow-video, .pp-bellow-video .flex {gap:10rem}
 .pp-likes .flex {gap: 0rem}
@@ -52,7 +69,7 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 
   .pp-channel-tabs {flex-wrap: wrap}
  .pp-channel-tabs button:not(.active, .pp-subscribe) {
-    background: var(--efy_gradient), linear-gradient(165deg, var(--efy_color_trans), var(--efy_color2_trans));
+    background: var(--efy_color), var(--efy_color_trans);
     -webkit-background-clip: text, padding-box;
     -moz-background-clip: text, padding-box;
     -webkit-text-fill-color: transparent;
@@ -60,10 +77,10 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
     border: 0!important;
 }
 
-/*Comments*/ .grid .comment {width: fit-content; margin: 0 0 15px 0; gap: 10rem; padding: 12rem; border: var(--efy_border)}
+/*Comments*/ .grid .comment {width: fit-content; margin: 0 0 var(--efy_gap) 0; gap: 10rem; padding: 12rem; border: var(--efy_border)}
 .comment-author {flex-wrap: wrap}
 .comment-meta {margin: 0 5rem}
-.comment .comment {margin-top: 10rem}
+.comment .comment {margin: var(--efy_gap) 0}
 
 /*SVG*/ .svg-inline--fa:not(.video-grid svg, .btn svg, button svg) {margin-right: 5rem}
 
@@ -71,18 +88,13 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 .suggestions-container li {padding: 3rem 10rem}
 .suggestion-selected {box-shadow: 0 0 0 1.5rem var(--efy_color_border), 0 0 0 1.5rem var(--efy_color_border)}
 
-/* .thumbnail-overlay, .thumbnail-left , .thumbnail-right  {background: var(--efy_text2)!important; padding: 12rem 6rem!important}
-.thumbnail-right {bottom: 15px; right: 8px}
-.thumbnail-left {bottom: 16rem; left: 8rem}
-.live-badge {padding: 6rem 7rem!important}*/
-
 /*Recommended Videos*/ .pp-rec-vids {display: grid; grid-template-columns: 1fr 300rem}
 .order-first {-webkit-box-ordinal-group: -9998; -webkit-order: -9999; order: -9999}
 
 /*Preferences*/ .pp-pref-cards {display: grid; grid-template-columns: repeat(auto-fit, minmax(300rem, 1fr))}
 table {margin-top: 0}
 
-/*Chapters*/ .pp-chapters {margin-left: 15rem; max-width: 400rem; gap: 10rem; border-radius: var(--efy_radius)}
+/*Chapters*/ .pp-chapters {margin-left: var(--efy_gap); max-width: 400rem; gap: var(--efy_gap0); border-radius: var(--efy_radius)}
 .pp-chapters .chapter {padding: 10rem; border-radius: var(--efy_radius); border: var(--efy_border)}
 .pp-chapters [title=chapters] {padding: 5rem 10rem; border-radius: var(--efy_radius); border: var(--efy_border)}
 .pp-chapters .chapter .flex {gap: 0 15rem}
@@ -100,7 +112,7 @@ table {margin-top: 0}
 
 /*Subscribtions*/ .pp-import-channel {gap: 10rem}
 
-/*Other*/ .pp-show-recs, .pp-show-playlist, .pp-show-playlist {display: grid; gap: 15rem}
+/*Other*/ .pp-show-recs, .pp-show-playlist, .pp-show-playlist {display: grid; gap: var(--efy_gap)}
 .pp-show-playlist {margin-bottom: 15rem}
 :is(.video-grid, .pp-show-recs, .pp-show-playlist) div {padding: 15rem; background: var(--efy_bg1); border: var(--efy_border)}
 :is(.video-grid, .pp-show-recs, .pp-show-playlist) div div {padding: 0; border: none; background: transparent}

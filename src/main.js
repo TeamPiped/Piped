@@ -52,9 +52,9 @@ import router from "@/router/router.js";
 import "uno.css";
 
 /*EFY UI*/
-import "../efy/efy.css";
+import "../public/efy/efy.css";
 import "./piped.css";
-import "../efy/efy.js";
+import "../public/efy/efy.js";
 import "./piped.js";
 
 import App from "./App.vue";
