@@ -1,4 +1,4 @@
-import {$, $all, $ready_once, $insert, $add, $append} from '../efy/efy.js';
+import {$, $all, $ready_once, $insert, $add, $append} from '../public/efy/efy.js';
 
 $ready_once('#efy_sidebar').then(()=>{
     $insert($('#efy_sidebar'), 'afterbegin', $add('div', { id: 'piped_efy_module' }));
