@@ -118,7 +118,8 @@
         "follow_link": "リンクに従う",
         "reply_count": "{count} 件の返信",
         "clone_playlist": "プレイリストを複製",
-        "minimize_comments_default": "デフォルトでコメントを最小化する"
+        "minimize_comments_default": "デフォルトでコメントを最小化する",
+        "no_valid_playlists": "ファイルに有効なプレイリストが含まれていません。"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -164,7 +165,8 @@
         "page_not_found": "ページが見つかりません",
         "copied": "コピーしました！",
         "cannot_copy": "コピーできません！",
-        "preferences_note": "注意: 設定はブラウザのローカルストレージに保存されます。ブラウザのデータを削除するとリセットされます。"
+        "preferences_note": "注意: 設定はブラウザのローカルストレージに保存されます。ブラウザのデータを削除するとリセットされます。",
+        "local_storage": "この操作にはlocalStorageが必要です。Cookieは有効ですか？"
     },
     "subscriptions": {
         "subscribed_channels_count": "チャンネル登録: {0}"
