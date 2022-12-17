@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 base='https://fonts\.(gstatic\.com|kavin\.rocks)'
 fonts=$(cat dist/assets/* | grep -Po "$base[^)]*" | sort | uniq)
