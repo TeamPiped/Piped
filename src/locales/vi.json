@@ -94,7 +94,7 @@
         "has_cdn": "Có CDN?",
         "registered_users": "Người dùng đã đăng ký",
         "version": "Phiên bản",
-        "up_to_date": "Cập nhật?",
+        "up_to_date": "Đã được cập nhật?",
         "ssl_score": "Điểm SSL"
     },
     "login": {
