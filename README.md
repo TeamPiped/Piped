@@ -2,7 +2,7 @@
 
 [![AGPL v3](https://shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 [![Matrix](https://img.shields.io/matrix/piped:matrix.org)](https://matrix.to/#/#piped:matrix.org)
-[![Registered Users](https://pipedapi.kavin.rocks/registered/badge)](https://piped.kavin.rocks/register)
+[![Registered Users](https://pipedapi.kavin.rocks/registered/badge)](https://piped.video/register)
 [![IPFS Build](https://github.com/TeamPiped/Piped/actions/workflows/ipfs-build.yml/badge.svg)](https://piped-ipfs.kavin.rocks/)
 [![GitHub Repo stars](https://img.shields.io/github/stars/TeamPiped/Piped-Frontend?style=social)](https://github.com/TeamPiped/Piped/stargazers)
 [![GitHub last commit](https://img.shields.io/github/last-commit/TeamPiped/Piped-Frontend)](https://github.com/TeamPiped/Piped/commits)
@@ -39,6 +39,7 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] [Available in many languages](src/locales), thanks to [our translators](https://hosted.weblate.org/projects/piped/frontend/)
 -   [x] Embedded video support
 -   [x] No age restriction
+-   [x] Bypasses Geo restrictions if possible through a federated network
 
 **Technical Features**
 
@@ -46,7 +47,8 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] Performant by design, designed to handle 1000s of users concurrently
 -   [x] Does not use official YouTube APIs
 -   [x] Uses [NewPipeExtractor](https://github.com/TeamNewPipe/NewPipeExtractor) to extract information
--   [x] Public [JSON API](https://piped-docs.kavin.rocks/docs/api-documentation/)
+-   [x] Public [JSON API](https://docs.piped.video/docs/api-documentation/)
+-   [x] Federated protocol on Matrix to let instances collaborate with each other
 
 ## Screenshots
 
@@ -61,13 +63,13 @@ By using Piped, you can freely watch and listen to content without the fear of p
 
 ## Self-Hosting
 
-See https://piped-docs.kavin.rocks/docs/self-hosting/ for more details.
+See https://docs.piped.video/docs/self-hosting/ for more details.
 
 The source code of the documentation website is available at https://github.com/TeamPiped/Documentation.
 
 ## Documentation
 
-The documentation can be found at https://piped-docs.kavin.rocks (accessible via IPNS as well).
+The documentation can be found at https://docs.piped.video (accessible via IPNS as well).
 
 ## Extensions
 
@@ -78,6 +80,16 @@ To redirect all YouTube links to Piped, you are highly recommended to use either
 ### Translations
 
 You can help by translating the project to a language you speak at https://hosted.weblate.org/projects/piped/frontend/
+
+### Mirrors
+
+-   Cloudflare Pages - [cf.piped.video](https://cf.piped.video/)
+-   Vercel - [vc.piped.video](https://vc.piped.video/)
+-   Render - [re.piped.video](https://re.piped.video/)
+-   Fleek - [fl.piped.video](https://fl.piped.video/)
+-   DigitalOcean - [do.piped.video](https://do.piped.video/)
+-   Netlify - [nf.piped.video](https://nf.piped.video/)
+-   Azure - [az.piped.video](https://az.piped.video/)
 
 ### Forking, and contributing
 
