@@ -36,6 +36,7 @@
             >
                 <font-awesome-icon icon="rss" />
             </a>
+            <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
             <p>|</p>
             <button
                 v-for="(tab, index) in tabs"
@@ -75,11 +76,13 @@
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import ContentItem from "./ContentItem.vue";
+import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
 export default {
     components: {
         ErrorHandler,
         ContentItem,
+        WatchOnYouTubeButton,
     },
     data() {
         return {
@@ -201,23 +204,23 @@ export default {
                     },
                 });
             } else {
-                this.handleLocalSubscriptions(this.channel.id);
+                if (!this.handleLocalSubscriptions(this.channel.id)) return;
             }
             this.subscribed = !this.subscribed;
         },
         getTranslatedTabName(tabName) {
             let translatedTabName = tabName;
             switch (tabName) {
-                case "Livestreams":
+                case "livestreams":
                     translatedTabName = this.$t("titles.livestreams");
                     break;
-                case "Playlists":
+                case "playlists":
                     translatedTabName = this.$t("titles.playlists");
                     break;
-                case "Channels":
+                case "channels":
                     translatedTabName = this.$t("titles.channels");
                     break;
-                case "Shorts":
+                case "shorts":
                     translatedTabName = this.$t("video.shorts");
                     break;
                 default:

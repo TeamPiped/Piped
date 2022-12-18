@@ -9,26 +9,37 @@
         <i18n-t keypath="subscriptions.subscribed_channels_count">{{ subscriptions.length }}</i18n-t>
     </div>
     <hr />
-
-    <div class="grid">
-        <div class="mb-3" v-for="subscription in subscriptions" :key="subscription.url">
-            <div class="flex justify-center place-items-center">
-                <div class="w-full flex justify-between items-center">
-                    <router-link :to="subscription.url" class="pp-import-channel flex font-bold">
-                        <img :src="subscription.avatar" width="48" height="48" />
-                        <span class="mx-2" v-text="subscription.name" />
-                    </router-link>
-                    <button
-                        class="btn w-min"
-                        @click="handleButton(subscription)"
-                        v-t="`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`"
-                    />
-                </div>
-            </div>
+    <!-- Subscriptions card list -->
+    <div class="pp-subs-cards">
+        <!-- channel info card -->
+        <div efy_card class="pp-subs-card" v-for="subscription in subscriptions" :key="subscription.url">
+            <router-link :to="subscription.url" class="pp-import-channel flex font-bold">
+                <img :src="subscription.avatar" width="48" height="48" />
+                <span class="mx-2" v-text="subscription.name" />
+            </router-link>
+            <!-- (un)subscribe btn -->
+            <button
+                @click="handleButton(subscription)"
+                v-t="`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`"
+            />
         </div>
     </div>
-    <br />
 </template>
+
+<style>
+.pp-subs-cards {
+    display: grid;
+    gap: var(--efy_gap);
+    grid-template-columns: repeat(auto-fill, minmax(240rem, 1fr));
+}
+.pp-subs-card :is(a, span) {
+    -webkit-text-fill-color: var(--efy_text) !important;
+}
+.pp-subs-card button {
+    margin-bottom: 0;
+    width: 100%;
+}
+</style>
 
 <script>
 export default {
