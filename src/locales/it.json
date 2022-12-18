@@ -94,7 +94,14 @@
         "status_page": "Stato",
         "documentation": "Documentazione",
         "source_code": "Codice sorgente",
-        "reply_count": "{count} risposte"
+        "reply_count": "{count} risposte",
+        "hide_watched": "Nascondi i video guardati nel feed",
+        "show_watch_on_youtube": "Mostra il bottone guarda su Youtube",
+        "instance_donations": "Donazioni istanza",
+        "minimize_comments_default": "Minimizza i commenti per impostazione predefinita",
+        "minimize_comments": "Minimizza i commenti",
+        "minimize_chapters_default": "Minimizza i capitoli per impostazione predefinita",
+        "no_valid_playlists": "Il file non contiene playlist valide!"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -110,7 +117,9 @@
         "playlists": "Playlist",
         "account": "Account",
         "instance": "Istanza",
-        "player": "Riproduttore"
+        "player": "Riproduttore",
+        "livestreams": "Streaming live",
+        "channels": "Canali"
     },
     "video": {
         "sponsor_segments": "Segmenti sponsor",
@@ -162,6 +171,7 @@
         "page_not_found": "Pagina non trovata",
         "preferences_note": "Nota: le preferenze sono salvate nella memoria locale del tuo browser. L'eliminazione dei dati del tuo browser le ripristinerà.",
         "copied": "Copiato!",
-        "cannot_copy": "Impossibile copiare!"
+        "cannot_copy": "Impossibile copiare!",
+        "local_storage": "Questa azione richiede localStorage, i cookie sono abilitati?"
     }
 }

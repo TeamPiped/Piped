@@ -10,7 +10,9 @@
         "playlists": "Плейлисты",
         "account": "Аккаунт",
         "player": "Плеер",
-        "instance": "Сервер"
+        "instance": "Сервер",
+        "livestreams": "Прямые трансляции",
+        "channels": "Каналы"
     },
     "player": {
         "watch_on": "Смотреть на {0}"
@@ -103,7 +105,7 @@
         "time_code": "Тайм-код (в секундах)",
         "reset_preferences": "Сбросить настройки",
         "confirm_reset_preferences": "Вы уверены, что хотите сбросить настройки?",
-        "backup_preferences": "Настройки бэкапов",
+        "backup_preferences": "Бэкап настроек",
         "restore_preferences": "Восстановить настройки",
         "back_to_home": "Вернутся на главную",
         "store_search_history": "Хранить историю поиска",
@@ -114,7 +116,10 @@
         "instance_donations": "Пожертвования сервера",
         "reply_count": "{count} ответов",
         "minimize_comments_default": "Сворачивать комментарии по умолчанию",
-        "minimize_comments": "Свернуть комментарии"
+        "minimize_comments": "Свернуть комментарии",
+        "show_watch_on_youtube": "Показать кнопку Смотреть на YouTube",
+        "minimize_chapters_default": "Скрывать главы по умолчанию",
+        "no_valid_playlists": "Файл не содержит действительных списков воспроизведения!"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем {author}",
@@ -163,6 +168,7 @@
         "preferences_note": "Примечание: настройки сохранены в локальном хранилище браузера. При удалении данных браузера они будут удалены.",
         "copied": "Скопировано!",
         "cannot_copy": "Не получилось скопировать!",
-        "page_not_found": "Страница не найдена"
+        "page_not_found": "Страница не найдена",
+        "local_storage": "Это действие требует локального хранилища (localStorage), разрешены ли файлы cookie?"
     }
 }
