@@ -273,7 +273,11 @@ export default {
                     ).generate_dash_file_from_formats(streams, this.video.duration);
 
                     uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
-                } else uri = this.video.dash;
+                } else {
+                    const url = new URL(this.video.dash);
+                    url.searchParams.set("rewrite", false);
+                    uri = url.toString();
+                }
                 mime = "application/dash+xml";
             } else if (lbry) {
                 uri = lbry.url;
@@ -372,13 +376,13 @@ export default {
                 });
 
                 videoEl.addEventListener("volumechange", () => {
-                    this.setPreference("volume", videoEl.volume);
+                    this.setPreference("volume", videoEl.volume, true);
                 });
 
                 videoEl.addEventListener("ratechange", e => {
                     const rate = videoEl.playbackRate;
                     if (rate > 0 && !isNaN(videoEl.duration) && !isNaN(videoEl.duration - e.timeStamp / 1000))
-                        this.setPreference("rate", rate);
+                        this.setPreference("rate", rate, true);
                 });
 
                 videoEl.addEventListener("ended", () => {
@@ -440,7 +444,14 @@ export default {
 
                 this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
-                const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"];
+                const overflowMenuButtons = [
+                    "quality",
+                    "language",
+                    "captions",
+                    "picture_in_picture",
+                    "playback_rate",
+                    "airplay",
+                ];
 
                 if (this.isEmbed) {
                     overflowMenuButtons.push("open_new_tab");
@@ -480,22 +491,40 @@ export default {
             if (qualityConds) this.$player.configure("abr.enabled", false);
 
             player.load(uri, 0, mime).then(() => {
+                const isSafari = window.navigator?.vendor?.includes("Apple");
+
+                if (!isSafari) {
+                    // Set the audio language
+                    const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
+                    var lang = "en";
+                    for (var l in player.getAudioLanguages()) {
+                        if (l == prefLang) {
+                            lang = l;
+                            return;
+                        }
+                    }
+                    player.selectAudioLanguage(lang);
+                }
+
                 if (qualityConds) {
                     var leastDiff = Number.MAX_VALUE;
                     var bestStream = null;
 
                     var bestAudio = 0;
 
+                    const tracks = player
+                        .getVariantTracks()
+                        .filter(track => track.language == lang || track.language == "und");
+
                     // Choose the best audio stream
                     if (quality >= 480)
-                        player.getVariantTracks().forEach(track => {
+                        tracks.forEach(track => {
                             const audioBandwidth = track.audioBandwidth;
                             if (audioBandwidth > bestAudio) bestAudio = audioBandwidth;
                         });
 
                     // Find best matching stream based on resolution and bitrate
-                    player
-                        .getVariantTracks()
+                    tracks
                         .sort((a, b) => a.bandwidth - b.bandwidth)
                         .forEach(stream => {
                             if (stream.audioBandwidth < bestAudio) return;
@@ -706,6 +735,7 @@ html .shaka-range-element:focus {
 .material-icons-round,
 .shaka-current-time {
     -webkit-text-fill-color: #fff !important;
+    filter: none !important;
     opacity: 1 !important;
 }
 .shaka-overflow-menu,

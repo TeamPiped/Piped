@@ -4,7 +4,7 @@
     <LongName>Piped Search</LongName>
     <Description>Search for videos, channels, and playlists on Piped</Description>
     <InputEncoding>UTF-8</InputEncoding>
-    <Image width="48" height="48" type="image/x-icon">https://piped.kavin.rocks/favicon.ico</Image>
-    <Url method="get" rel="results" type="text/html" template="https://piped.kavin.rocks/results?search_query={searchTerms}" />
+    <Image width="48" height="48" type="image/x-icon">https://piped.video/favicon.ico</Image>
+    <Url method="get" rel="results" type="text/html" template="https://piped.video/results?search_query={searchTerms}" />
     <Url method="get" rel="suggestions" type="application/x-suggestions+json" template="https://pipedapi.kavin.rocks/opensearch/suggestions?query={searchTerms}" />
 </OpenSearchDescription>

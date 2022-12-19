@@ -14,7 +14,7 @@
             <div>
                 <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
                 <br />
-                <button class="btn mr-1" v-if="authenticated && !isPipedPlaylist" @click="clonePlaylist">
+                <button class="btn mr-1 ml-2" v-if="authenticated && !isPipedPlaylist" @click="clonePlaylist">
                     {{ $t("actions.clone_playlist") }}<font-awesome-icon class="ml-3" icon="clone" />
                 </button>
                 <button class="btn mr-1" @click="downloadPlaylistAsTxt">
@@ -23,6 +23,7 @@
                 <a class="btn" :href="getRssUrl">
                     <font-awesome-icon icon="rss" />
                 </a>
+                <WatchOnYouTubeButton :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`" />
             </div>
         </div>
 
@@ -47,11 +48,13 @@
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import VideoItem from "./VideoItem.vue";
+import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
 export default {
     components: {
         ErrorHandler,
         VideoItem,
+        WatchOnYouTubeButton,
     },
     data() {
         return {
@@ -137,7 +140,7 @@ export default {
         downloadPlaylistAsTxt() {
             var data = "";
             this.playlist.relatedStreams.forEach(element => {
-                data += "https://piped.kavin.rocks" + element.url + "\n";
+                data += "https://piped.video" + element.url + "\n";
             });
             this.download(data, this.playlist.name + ".txt", "text/plain");
         },

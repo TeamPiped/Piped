@@ -73,12 +73,12 @@
         "remove_from_playlist": "Pašalinti iš grojaraščio",
         "confirm_reset_preferences": "Ar tikrai norite iš naujo nustatyti nuostatas?",
         "reset_preferences": "Iš naujo nustatyti nuostatas",
-        "backup_preferences": "Atsarginės kopijos nuostatos",
+        "backup_preferences": "Atsarginė nuostatų kopija",
         "source_code": "Pirminis kodas",
         "documentation": "Dokumentacija",
         "with_timecode": "Dalintis su laiko kodu",
-        "reply_count": "{count} atsakymų",
-        "show_chapters": "Skyriai",
+        "reply_count": "{count} atsakymai",
+        "show_chapters": "Skirsniai",
         "piped_link": "Piped nuoroda",
         "rename_playlist": "Pervardyti grojaraštį",
         "follow_link": "Sekti nuorodą",
@@ -98,7 +98,10 @@
         "skip_highlight": "Praleisti išskirtų dalių pakartojimus",
         "time_code": "Laiko kodas (sekundėmis)",
         "minimize_comments_default": "Suskleisti komentarus automatiškai",
-        "minimize_comments": "Suskleisti komentarus"
+        "minimize_comments": "Suskleisti komentarus",
+        "show_watch_on_youtube": "Rodyti mygtuką „Žiūrėti YouTube“",
+        "minimize_chapters_default": "Suskleisti skirsnius automatiškai",
+        "no_valid_playlists": "Faile nėra galiojančių grojaraščių!"
     },
     "player": {
         "watch_on": "Žiūrėti per {0}"
@@ -114,7 +117,9 @@
         "playlists": "Grojaraščiai",
         "account": "Paskyra",
         "player": "Grotuvas",
-        "instance": "Perdavimo šaltinis"
+        "instance": "Perdavimo šaltinis",
+        "livestreams": "Tiesioginės transliacijos",
+        "channels": "Kanalai"
     },
     "preferences": {
         "instance_locations": "Perdavimo šaltinio vietovė",
@@ -128,7 +133,7 @@
     "comment": {
         "pinned_by": "Prisegė {author}",
         "loading": "Įkeliami komentarai...",
-        "disabled": "Komentarai yra išjungti įkėlėjo.",
+        "disabled": "Įkėlėjas išjungė komentarus.",
         "user_disabled": "Komentarai yra išjungti nustatymuose."
     },
     "video": {
@@ -137,7 +142,7 @@
         "sponsor_segments": "Rėmėjų segmentai",
         "watched": "Žiūrėta",
         "ratings_disabled": "Įvertinimai išjungti",
-        "chapters": "Skyriai",
+        "chapters": "Skirsniai",
         "live": "{0} tiesiogiai",
         "shorts": "Trumpi filmukai"
     },
@@ -160,7 +165,8 @@
         "copied": "Nukopijuota!",
         "cannot_copy": "Negalima kopijuoti!",
         "page_not_found": "Puslapis nerastas",
-        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jie bus nustatyti iš naujo."
+        "preferences_note": "Pastaba: nuostatos išsaugomos vietinėje naršyklės atmintyje. Ištrynus naršyklės duomenis, jos bus nustatytos iš naujo.",
+        "local_storage": "Šiam veiksmui reikia localStorage, ar slapukai įjungti?"
     },
     "subscriptions": {
         "subscribed_channels_count": "Prenumeruojama: {0}"

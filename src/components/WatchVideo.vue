@@ -96,7 +96,8 @@
                     >
                         <font-awesome-icon icon="rss" />
                     </a>
-                    <!-- watch on youtube button -->
+                    <WatchOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
+                    <!-- Share Dialog -->
                     <button class="btn" @click="showShareModal = !showShareModal">
                         <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
                         <font-awesome-icon class="mx-1.5 ml-1" icon="fa-share" />
@@ -212,6 +213,7 @@ import ChaptersBar from "./ChaptersBar.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
+import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
 export default {
     name: "App",
@@ -224,6 +226,7 @@ export default {
         PlaylistAddModal,
         ShareModal,
         PlaylistVideos,
+        WatchOnYouTubeButton,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
@@ -330,6 +333,7 @@ export default {
         this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
+        this.showChapters = !this.getPreferenceBoolean("minimizeChapters", false);
         if (this.video.duration) {
             document.title = this.video.title + " - Piped";
             this.$refs.videoPlayer.loadVideo();
@@ -368,7 +372,7 @@ export default {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
         },
         onChange() {
-            this.setPreference("autoplay", this.selectedAutoPlay);
+            this.setPreference("autoplay", this.selectedAutoPlay, true);
         },
         async getVideoData() {
             await this.fetchVideo()
@@ -470,7 +474,7 @@ export default {
                     },
                 });
             } else {
-                this.handleLocalSubscriptions(this.channelId);
+                if (!this.handleLocalSubscriptions(this.channelId)) return;
             }
             this.subscribed = !this.subscribed;
         },

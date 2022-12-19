@@ -4,7 +4,7 @@
             <font-awesome-icon :icon="['fab', 'github']" />
             <span v-t="'actions.source_code'" />
         </a>
-        <a href="https://piped-docs.kavin.rocks/" target="_blank">
+        <a href="https://docs.piped.video/" target="_blank">
             <font-awesome-icon :icon="['fa', 'book']" />
             <span v-t="'actions.documentation'" />
         </a>

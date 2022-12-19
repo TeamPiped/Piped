@@ -98,7 +98,10 @@
         "documentation": "文档",
         "reply_count": "{count} 条回复",
         "minimize_comments": "最小化评论",
-        "minimize_comments_default": "默认最小化评论"
+        "minimize_comments_default": "默认最小化评论",
+        "show_watch_on_youtube": "显示“在 YouTube 上观看”按钮",
+        "minimize_chapters_default": "默认最小化章节",
+        "no_valid_playlists": "此文件不含无效的播放列表！"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -139,7 +142,9 @@
         "playlists": "播放列表",
         "account": "账户",
         "instance": "实例",
-        "player": "播放器"
+        "player": "播放器",
+        "livestreams": "直播",
+        "channels": "频道"
     },
     "login": {
         "password": "密码",
@@ -166,6 +171,7 @@
         "preferences_note": "注意：首选项保存在浏览器的本地存储中。删除浏览器数据会重置它们。",
         "page_not_found": "未找到页面",
         "copied": "已复制！",
-        "cannot_copy": "无法复制！"
+        "cannot_copy": "无法复制！",
+        "local_storage": "此操作需要 localStorage，启用 cookie 了吗？"
     }
 }

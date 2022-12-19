@@ -90,6 +90,8 @@
         "delete_account": "Delete Account",
         "logout": "Logout from this device",
         "minimize_recommendations_default": "Minimize Recommendations by default",
+        "minimize_chapters_default": "Minimize Chapters by default",
+        "show_watch_on_youtube": "Show Watch on YouTube button",
         "invalidate_session": "Logout all devices",
         "different_auth_instance": "Use a different instance for authentication",
         "instance_auth_selection": "Autentication Instance Selection",
@@ -117,7 +119,7 @@
         "source_code": "Source code",
         "instance_donations": "Instance donations",
         "reply_count": "{count} replies",
-        "not_logged_in": "Not logged in yet."
+        "no_valid_playlists": "The file doesn't contain valid playlists!"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
@@ -166,6 +168,7 @@
         "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them.",
         "page_not_found": "Page not found",
         "copied": "Copied!",
-        "cannot_copy": "Can't copy!"
+        "cannot_copy": "Can't copy!",
+        "local_storage": "This action requires localStorage, are cookies enabled?"
     }
 }

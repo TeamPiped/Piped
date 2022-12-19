@@ -1,0 +1,34 @@
+{
+    "titles": {
+        "login": "Aseqdac",
+        "register": "Jerred",
+        "preferences": "Ismenyifen",
+        "history": "Amazray",
+        "subscriptions": "Ijerriden",
+        "account": "Amiḍan",
+        "channels": "Ibuda"
+    },
+    "actions": {
+        "dark": "Ubrik",
+        "language_selection": "Afran n tutlayt",
+        "yes": "Ih",
+        "no": "Uhu",
+        "search": "Nadi",
+        "filter": "Imsizdeg",
+        "loading": "Asali...",
+        "delete_playlist_confirm": "Kkes tabdart-a n tɣuri?",
+        "share": "Bḍu",
+        "documentation": "Tasemlit",
+        "status_page": "État"
+    },
+    "preferences": {
+        "version": "Lqem"
+    },
+    "login": {
+        "username": "Nom d'utilisateur",
+        "password": "Awal n uɛeddi"
+    },
+    "video": {
+        "videos": "Tividyutin"
+    }
+}

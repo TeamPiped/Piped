@@ -5,7 +5,7 @@
                 ><img alt="logo" src="/img/icons/logo.svg" height="32" width="32" />iped</router-link
             >
         </div>
-        <div class="lt-md:hidden flex flex-1 justify-start">
+        <div class="lt-md:hidden flex flex-1 justify-start" style="position: relative">
             <input
                 v-model="searchText"
                 type="text"
@@ -54,7 +54,7 @@
     </nav>
 
     <!-- search suggestions for mobile devices -->
-    <div class="w-{full - 4} md:hidden mx-2">
+    <div class="w-{full - 4} md:hidden mx-2" style="position: relative">
         <input
             v-model="searchText"
             type="text"
@@ -66,6 +66,7 @@
             @focus="onInputFocus"
             @blur="onInputBlur"
         />
+        <span v-if="searchText" class="delete-search" @click="searchText = ''">x</span>
     </div>
     <SearchSuggestions
         v-show="(searchText || showSearchHistory) && suggestionsVisible"
@@ -104,12 +105,29 @@
     width: auto;
     margin: 0 -5rem;
 }
+.delete-search {
+    position: absolute;
+    display: flex;
+    right: 6rem;
+    top: 5.5rem;
+    height: 30rem;
+    width: 30rem;
+    cursor: pointer;
+    background-color: var(--efy_bg1);
+    border: var(--efy_border);
+    border-radius: var(--efy_radius0);
+    place-content: center;
+    font-size: 20rem;
+    color: var(--efy_text);
+    flex-wrap: wrap;
+    align-content: center;
+}
 </style>
 
 <script>
 import SearchSuggestions from "./SearchSuggestions.vue";
-import hotkeys from "hotkeys-js";
 import LoginModal from "./LoginModal.vue";
+import hotkeys from "hotkeys-js";
 export default {
     components: {
         SearchSuggestions,
@@ -119,8 +137,8 @@ export default {
         return {
             searchText: "",
             suggestionsVisible: false,
-            showTopNav: false,
             showLoginModal: false,
+            showTopNav: false,
         };
     },
     mounted() {
@@ -138,8 +156,8 @@ export default {
         shouldShowTrending(_this) {
             return _this.getPreferenceString("homepage", "trending") != "trending";
         },
-        showSearchHistory() {
-            return localStorage.getItem("searchHistory") && localStorage.getItem("search_history");
+        showSearchHistory(_this) {
+            return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
         },
     },
     methods: {
