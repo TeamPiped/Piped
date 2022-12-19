@@ -4,16 +4,24 @@
     <hr />
 
     <div>
-        <div class="flex">
+        <div class="flex justify-between">
             <button v-t="'actions.create_playlist'" class="btn mr-2" @click="onCreatePlaylist" />
-            <button
-                v-if="this.playlists.length > 0"
-                v-t="'actions.export_to_json'"
-                class="btn"
-                @click="exportPlaylists"
-            />
-            <input id="fileSelector" ref="fileSelector" type="file" class="display-none" @change="importPlaylists" />
-            <label for="fileSelector" v-t="'actions.import_from_json'" class="btn ml-2" role="button" />
+            <div class="flex">
+                <button
+                    v-if="this.playlists.length > 0"
+                    v-t="'actions.export_to_json'"
+                    class="btn"
+                    @click="exportPlaylists"
+                />
+                <input
+                    id="fileSelector"
+                    ref="fileSelector"
+                    type="file"
+                    class="display-none"
+                    @change="importPlaylists"
+                />
+                <label for="fileSelector" v-t="'actions.import_from_json'" class="btn ml-2" role="button" />
+            </div>
         </div>
 
         <div class="video-grid">

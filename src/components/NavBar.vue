@@ -126,15 +126,18 @@
 
 <script>
 import SearchSuggestions from "./SearchSuggestions.vue";
+import LoginModal from "./LoginModal.vue";
 import hotkeys from "hotkeys-js";
 export default {
     components: {
         SearchSuggestions,
+        LoginModal,
     },
     data() {
         return {
             searchText: "",
             suggestionsVisible: false,
+            showLoginModal: false,
             showTopNav: false,
         };
     },
