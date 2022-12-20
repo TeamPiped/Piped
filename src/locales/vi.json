@@ -82,7 +82,8 @@
         "feed": "Mới nhất",
         "playlists": "Danh sách phát",
         "account": "Tài khoản",
-        "channels": "Kênh"
+        "channels": "Kênh",
+        "instance": "Instance"
     },
     "player": {
         "watch_on": "Xem trên {0}"
@@ -128,6 +129,10 @@
         "music_albums": "YT Music: Album"
     },
     "info": {
-        "copied": "Đã sao chép!"
+        "copied": "Đã sao chép!",
+        "cannot_copy": "Không thể sao chép!"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Đã đăng ký cho: {0}"
     }
 }
