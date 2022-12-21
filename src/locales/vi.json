@@ -41,7 +41,7 @@
         "minimize_recommendations": "Giảm thiểu các đề xuất",
         "show_recommendations": "Hiển thị các đề xuất",
         "disable_lbry": "Tắt LBRY để phát trực tuyến",
-        "enable_lbry_proxy": "Bật Proxy cho LBRY",
+        "enable_lbry_proxy": "Bật proxy cho LBRY",
         "view_ssl_score": "Hiện thị điểm số SSL",
         "search": "Tìm kiếm",
         "filter": "Bộ lọc",
@@ -55,7 +55,7 @@
         "minimize_description_default": "Thu nhỏ mô tả theo mặc định",
         "instance_selection": "Lựa chọn phiên bản",
         "yes": "Có",
-        "enabled_codecs": "Mã hóa được kích hoạt (Nhiều)",
+        "enabled_codecs": "Các codec được bật (Nhiều)",
         "export_to_json": "Xuất định dạng JSON",
         "no": "Không",
         "remove_from_playlist": "Xóa khỏi danh sách phát",
@@ -70,7 +70,11 @@
         "source_code": "Mã nguồn",
         "piped_link": "Liên kết Piped",
         "share": "Chia sẻ",
-        "minimize_comments_default": "Thu nhỏ bình luận theo mặc định"
+        "minimize_comments_default": "Thu nhỏ bình luận theo mặc định",
+        "download_as_txt": "Tải về dưới định dạng .txt",
+        "delete_account": "Xóa tài khoản",
+        "minimize_recommendations_default": "Thu nhỏ đề xuất theo mặc định",
+        "logout": "Đăng xuất khỏi thiết bị này"
     },
     "titles": {
         "register": "Đăng ký",
@@ -130,7 +134,8 @@
     },
     "info": {
         "copied": "Đã sao chép!",
-        "cannot_copy": "Không thể sao chép!"
+        "cannot_copy": "Không thể sao chép!",
+        "page_not_found": "Không tìm thấy trang"
     },
     "subscriptions": {
         "subscribed_channels_count": "Đã đăng ký cho: {0}"
