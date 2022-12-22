@@ -74,7 +74,8 @@
         "download_as_txt": "Tải về dưới định dạng .txt",
         "delete_account": "Xóa tài khoản",
         "minimize_recommendations_default": "Thu nhỏ đề xuất theo mặc định",
-        "logout": "Đăng xuất khỏi thiết bị này"
+        "logout": "Đăng xuất khỏi thiết bị này",
+        "minimize_comments": "Thu nhỏ bình luận"
     },
     "titles": {
         "register": "Đăng ký",
