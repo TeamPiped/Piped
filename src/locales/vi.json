@@ -75,7 +75,10 @@
         "delete_account": "Xóa tài khoản",
         "minimize_recommendations_default": "Thu nhỏ đề xuất theo mặc định",
         "logout": "Đăng xuất khỏi thiết bị này",
-        "minimize_comments": "Thu nhỏ bình luận"
+        "minimize_comments": "Thu nhỏ bình luận",
+        "reply_count": "{count} phản hồi",
+        "status_page": "Trạng thái",
+        "new_playlist_name": "Tên danh sách phát mới"
     },
     "titles": {
         "register": "Đăng ký",
