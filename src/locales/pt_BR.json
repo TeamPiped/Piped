@@ -1,9 +1,9 @@
 {
     "actions": {
-        "view_subscriptions": "Ver inscrições",
+        "view_subscriptions": "Ver Inscrições",
         "back": "Voltar",
-        "most_recent": "Mais recente",
-        "least_recent": "Menos recente",
+        "most_recent": "Mais Recente",
+        "least_recent": "Menos Recente",
         "sort_by": "Ordenar por:",
         "channel_name_asc": "Nome do Canal (A-Z)",
         "channel_name_desc": "Nome do Canal (Z-A)",
@@ -28,7 +28,7 @@
         "show_markers": "Exibir Marcadores no Player",
         "skip_intro": "Pular Intervalo/Introdução Animada",
         "skip_outro": "Pular Créditos/Cartões finais",
-        "skip_preview": "Pular Recapitulação",
+        "skip_preview": "Pular Pré-Visualização/Recapitulação",
         "skip_highlight": "Pular Destaque",
         "buffering_goal": "Cache de Buffer (em segundos)",
         "skip_non_music": "Pular Música: Seção não Musical",
