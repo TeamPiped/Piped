@@ -134,10 +134,7 @@ export default {
                 version: 1,
                 playlists: [],
             };
-            let tasks = [];
-            for (var i = 0; i < this.playlists.length; i++) {
-                tasks.push(this.fetchPlaylistJson(this.playlists[i].id));
-            }
+            let tasks = this.playlists.map(playlist => this.fetchPlaylistJson(playlist.id));
             json.playlists = await Promise.all(tasks);
             this.download(JSON.stringify(json), "playlists.json", "application/json");
         },
@@ -150,11 +147,8 @@ export default {
                 // as Invidious supports public and private playlists
                 visibility: "private",
                 // list of the videos, starting with "https://youtube.com" to clarify that those are YT videos
-                videos: [],
+                videos: playlist.relatedStreams.map(stream => "https://youtube.com" + stream.url),
             };
-            for (var i = 0; i < playlist.relatedStreams.length; i++) {
-                playlistJson.videos.push("https://youtube.com" + playlist.relatedStreams[i].url);
-            }
             return playlistJson;
         },
         async importPlaylists() {
