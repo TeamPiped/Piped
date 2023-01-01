@@ -1,4 +1,4 @@
-/*Global*/ @font-face {font-family: 'nunito'; src: url('../efy/nunito.woff2') format('truetype')} @font-face {font-family: 'nunito'; src: url('../efy/nunito_bold.woff2') format('truetype'); font-weight: bold}
+/*Global*/ @font-face {font-family: 'nunito'; src: url('../efy/nunito.woff2') format('truetype'); font-display: swap} @font-face {font-family: 'nunito'; src: url('../efy/nunito_bold.woff2') format('truetype'); font-weight: bold; font-display: swap}
 :root {
     --efy_color1_var: 239, 68, 68;
     --efy_color2_var: 220, 38, 38;
