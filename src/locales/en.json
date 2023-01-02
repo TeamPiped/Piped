@@ -119,7 +119,8 @@
         "source_code": "Source code",
         "instance_donations": "Instance donations",
         "reply_count": "{count} replies",
-        "no_valid_playlists": "The file doesn't contain valid playlists!"
+        "no_valid_playlists": "The file doesn't contain valid playlists!",
+        "with_playlist": "Share with playlist"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

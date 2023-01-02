@@ -92,6 +92,8 @@
                     v-if="showShareModal"
                     :video-id="getVideoId()"
                     :current-time="currentTime"
+                    :playlist-id="playlistId"
+                    :playlist-index="index"
                     @close="showShareModal = !showShareModal"
                 />
                 <div class="flex">
