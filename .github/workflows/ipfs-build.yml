@@ -17,7 +17,7 @@ jobs:
         with:
           cache: "yarn"
       - run: yarn install --prefer-offline
-      - run: yarn build && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist/assets/*.css && cp dist/index.html dist/ipfs-404.html
+      - run: yarn build && ./localizefonts.sh && cp dist/index.html dist/ipfs-404.html
       - uses: aquiladev/ipfs-action@v0.3.1-alpha.2
         id: ipfs-add
         with:
