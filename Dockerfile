@@ -2,11 +2,14 @@ FROM node:lts-alpine AS build
 
 WORKDIR /app/
 
+RUN --mount=type=cache,target=/var/cache/apk \
+    apk add --no-cache \
+    curl
+
 COPY . .
 
 RUN --mount=type=cache,target=/root/.cache/yarn \
     --mount=type=cache,target=/app/node_modules \
-    pkg add curl && \
     yarn install --prefer-offline && \
     yarn build && ./localizefonts.sh
 
