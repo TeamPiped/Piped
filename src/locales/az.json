@@ -119,7 +119,8 @@
         "minimize_comments": "Şərhləri Kiçilt",
         "minimize_chapters_default": "Defolt olaraq bölmələri kiçilt",
         "show_watch_on_youtube": "YouTube-da Baxış düyməsini göstər",
-        "no_valid_playlists": "Faylda etibarlı pleylistlər yoxdur!"
+        "no_valid_playlists": "Faylda etibarlı pleylistlər yoxdur!",
+        "with_playlist": "Pleylistlə paylaş"
     },
     "comment": {
         "pinned_by": "Tərəfindən Sabitləndi {author}",
