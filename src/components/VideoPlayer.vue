@@ -471,6 +471,9 @@ export default {
 
             this.updateMarkers();
 
+            const event = new Event("playerInit");
+            window.dispatchEvent(event);
+
             const player = this.$ui.getControls().getPlayer();
 
             this.$player = player;
