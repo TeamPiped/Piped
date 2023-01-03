@@ -126,7 +126,8 @@
         "minimize_comments": "Minimizar comentarios",
         "show_watch_on_youtube": "Mostrar botón Ver en YouTube",
         "minimize_chapters_default": "Minimiza capítulos por defecto",
-        "no_valid_playlists": "¡El archivo no contiene listas de reproducción válidas!"
+        "no_valid_playlists": "¡El archivo no contiene listas de reproducción válidas!",
+        "with_playlist": "Compartir con lista de reproducción"
     },
     "titles": {
         "feed": "Fuente web",
