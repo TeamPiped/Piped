@@ -17,7 +17,7 @@ jobs:
               with:
                   cache: "yarn"
             - run: yarn install --prefer-offline
-            - run: yarn build --out-dir dist-ci && ./localizefonts.sh
+            - run: yarn build && ./localizefonts.sh && mv dist/ dist-ci/
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v2
               with:
