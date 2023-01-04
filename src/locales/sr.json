@@ -7,7 +7,7 @@
         "ratings_disabled": "Оцене су онемогућене",
         "chapters": "Поглавља",
         "live": "{0} Уживо",
-        "shorts": "Kratki video snimci"
+        "shorts": "Кратки видео снимци"
     },
     "actions": {
         "view_ssl_score": "Погледај SSL скор/оцену",
@@ -76,7 +76,7 @@
         "add_to_playlist": "Додај у попис снимака",
         "delete_playlist_confirm": "Избрисати овај попис снимака?",
         "please_select_playlist": "Молим вас одаберите попис снимака",
-        "show_markers": "Prikaži obeleživače na plejeru",
+        "show_markers": "Прикажи обиљеживаче на покретнику",
         "delete_account": "Обриши налог",
         "logout": "Одјава са овог уређаја",
         "minimize_recommendations_default": "Умањи Препоруке као Подразумевано",
@@ -110,7 +110,9 @@
         "minimize_comments": "Умањи коментаре",
         "reply_count": "{count} одговора",
         "minimize_chapters_default": "Умањи поглавља подразумевано",
-        "show_watch_on_youtube": "Прикажи сат на Јутјуб дугмету"
+        "show_watch_on_youtube": "Прикажите \"Гредај на YouTube-у\" дугме",
+        "no_valid_playlists": "Датотека не садржи важеће пописе снимака!",
+        "with_playlist": "Делите са пописом снимака"
     },
     "preferences": {
         "instance_locations": "Локација инстанце",
@@ -147,13 +149,13 @@
         "playlists": "Пописи Снимака",
         "account": "Рачун",
         "instance": "Инстанца",
-        "player": "Плејер",
+        "player": "Покретник",
         "livestreams": "Уживо преноси",
         "channels": "Канали"
     },
     "comment": {
         "pinned_by": "Закачено од {author}",
-        "disabled": "Отпремалац је онемогућио коментаре.",
+        "disabled": "Преносник је онемогућио коментаре.",
         "user_disabled": "Коментари су онемогућени у подешавањима.",
         "loading": "Учитавање коментара..."
     },
