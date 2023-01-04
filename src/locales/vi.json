@@ -91,7 +91,8 @@
         "playlists": "Danh sách phát",
         "account": "Tài khoản",
         "channels": "Kênh",
-        "instance": "Instance"
+        "instance": "Instance",
+        "player": "Trình phát video"
     },
     "player": {
         "watch_on": "Xem trên {0}"
