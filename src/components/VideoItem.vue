@@ -9,6 +9,7 @@
                     ...(index >= 0 && { index: index + 1 }),
                 },
             }"
+            class="video_item_link"
         >
             <img
                 class="w-full"
@@ -86,6 +87,9 @@
 <style>
 .shorts-img {
     @apply w-full object-contain;
+}
+.video_item_link {
+    display: block;
 }
 </style>
 
