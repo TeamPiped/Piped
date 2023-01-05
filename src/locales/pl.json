@@ -119,7 +119,8 @@
         "piped_link": "Link Piped",
         "status_page": "Status",
         "reply_count": "{count} odpowiedzi",
-        "no_valid_playlists": "Ten plik nie zawiera poprawnych playlist!"
+        "no_valid_playlists": "Ten plik nie zawiera poprawnych playlist!",
+        "with_playlist": "Udostępnij z playlistą"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
