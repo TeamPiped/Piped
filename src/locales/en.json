@@ -122,7 +122,8 @@
         "reply_count": "{count} replies",
         "no_valid_playlists": "The file doesn't contain valid playlists!",
         "with_playlist": "Share with playlist",
-        "bookmark_playlist": "Bookmark"
+        "bookmark_playlist": "Bookmark",
+        "playlist_bookmarked": "Bookmarked"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

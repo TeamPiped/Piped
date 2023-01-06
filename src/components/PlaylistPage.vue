@@ -15,7 +15,8 @@
                 <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
                 <br />
                 <button class="btn mr-1" v-if="!isPipedPlaylist" @click="bookmarkPlaylist">
-                    {{ $t("actions.bookmark_playlist") }}<font-awesome-icon class="ml-3" icon="bookmark" />
+                    {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
+                    }}<font-awesome-icon class="ml-3" icon="bookmark" />
                 </button>
                 <button class="btn mr-1" v-if="authenticated && !isPipedPlaylist" @click="clonePlaylist">
                     {{ $t("actions.clone_playlist") }}<font-awesome-icon class="ml-3" icon="clone" />
@@ -63,6 +64,7 @@ export default {
         return {
             playlist: null,
             admin: false,
+            isBookmarked: false,
         };
     },
     computed: {
@@ -88,6 +90,7 @@ export default {
                 if (json.error) alert(json.error);
                 else if (json.filter(playlist => playlist.id === playlistId).length > 0) this.admin = true;
             });
+        this.isPlaylistBookmarked();
     },
     activated() {
         window.addEventListener("scroll", this.handleScroll);
@@ -149,6 +152,12 @@ export default {
         },
         async bookmarkPlaylist() {
             if (!this.playlist) return;
+
+            if (this.isBookmarked) {
+                this.removePlaylistBookmark();
+                return;
+            }
+
             if (window.db) {
                 const playlistId = this.$route.query.list;
                 var tx = window.db.transaction("playlist_bookmarks", "readwrite");
@@ -162,7 +171,26 @@ export default {
                     uploaderAvatar: this.playlist.uploaderAvatar,
                     videos: this.playlist.videos,
                 });
+                this.isBookmarked = true;
             }
+        },
+        async removePlaylistBookmark() {
+            var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+            var store = tx.objectStore("playlist_bookmarks");
+            store.delete(this.$route.query.list);
+            this.isBookmarked = false;
+        },
+        async isPlaylistBookmarked() {
+            // needed in order to change the is bookmarked var later
+            const App = this;
+            const playlistId = this.$route.query.list;
+            var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+            var store = tx.objectStore("playlist_bookmarks");
+            var req = store.openCursor(playlistId);
+            req.onsuccess = function (e) {
+                var cursor = e.target.result;
+                App.isBookmarked = cursor ? true : false;
+            };
         },
     },
 };
