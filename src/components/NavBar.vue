@@ -50,7 +50,7 @@
             <li v-if="shouldShowHistory">
                 <router-link v-t="'titles.history'" to="/history" />
             </li>
-            <li v-if="authenticated">
+            <li>
                 <router-link v-t="'titles.playlists'" to="/playlists" />
             </li>
             <li v-if="!shouldShowTrending">
@@ -79,7 +79,7 @@
         <li v-if="shouldShowHistory">
             <router-link v-t="'titles.history'" to="/history" />
         </li>
-        <li v-if="authenticated">
+        <li>
             <router-link v-t="'titles.playlists'" to="/playlists" />
         </li>
         <li v-if="!shouldShowTrending">

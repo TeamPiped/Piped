@@ -12,7 +12,8 @@
         "instance": "Instance",
         "player": "Player",
         "livestreams": "Livestreams",
-        "channels": "Channels"
+        "channels": "Channels",
+        "bookmarks": "Bookmarks"
     },
     "player": {
         "watch_on": "Watch on {0}"
