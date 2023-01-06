@@ -39,6 +39,25 @@
         </div>
     </div>
     <br />
+
+    <div v-if="bookmarks" class="video-grid">
+        <router-link v-for="playlist in bookmarks" :key="playlist.id" :to="`/playlist?list=${playlist.id}`">
+            <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
+            <div class="relative text-sm">
+                <span class="thumbnail-overlay thumbnail-right" v-text="`${playlist.videos} ${$t('video.videos')}`" />
+            </div>
+            <p
+                style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
+                class="my-2 overflow-hidden flex link"
+                :title="playlist.name"
+                v-text="playlist.name"
+            />
+            <div class="flex">
+                <img class="rounded-full" src="" alt="" />
+            </div>
+        </router-link>
+    </div>
+    <br />
 </template>
 
 <script>
@@ -46,11 +65,12 @@ export default {
     data() {
         return {
             playlists: [],
+            bookmarks: [],
         };
     },
     mounted() {
         if (this.authenticated) this.fetchPlaylists();
-        else this.$router.push("/login");
+        this.loadPlaylistBookmarks();
     },
     activated() {
         document.title = this.$t("titles.playlists") + " - Piped";
@@ -200,6 +220,20 @@ export default {
                     "Content-Type": "application/json",
                 },
             });
+        },
+        async loadPlaylistBookmarks() {
+            if (!window.db) return;
+            var tx = window.db.transaction("playlist_bookmarks", "readonly");
+            var store = tx.objectStore("playlist_bookmarks");
+            const cursorRequest = store.openCursor();
+            cursorRequest.onsuccess = e => {
+                const cursor = e.target.result;
+                if (cursor) {
+                    const bookmark = cursor.value;
+                    this.bookmarks.push(bookmark);
+                    cursor.continue();
+                }
+            };
         },
     },
 };

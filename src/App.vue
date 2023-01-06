@@ -40,12 +40,13 @@ export default {
         darkModePreference.addEventListener("change", () => {
             this.setTheme();
         });
-        if (this.getPreferenceBoolean("watchHistory", false))
-            if ("indexedDB" in window) {
-                const request = indexedDB.open("piped-db", 2);
-                request.onupgradeneeded = ev => {
-                    const db = request.result;
-                    console.log("Upgrading object store.");
+
+        if ("indexedDB" in window) {
+            const request = indexedDB.open("piped-db", 3);
+            request.onupgradeneeded = ev => {
+                const db = request.result;
+                console.log("Upgrading object store.");
+                if (this.getPreferenceBoolean("watchHistory", false)) {
                     if (!db.objectStoreNames.contains("watch_history")) {
                         const store = db.createObjectStore("watch_history", { keyPath: "videoId" });
                         store.createIndex("video_id_idx", "videoId", { unique: true });
@@ -55,11 +56,17 @@ export default {
                         const store = request.transaction.objectStore("watch_history");
                         store.createIndex("watchedAt", "watchedAt", { unique: false });
                     }
-                };
-                request.onsuccess = e => {
-                    window.db = e.target.result;
-                };
-            } else console.log("This browser doesn't support IndexedDB");
+                }
+                if (!db.objectStoreNames.contains("playlist_bookmarks")) {
+                    const store = db.createObjectStore("playlist_bookmarks", { keyPath: "playlistId" });
+                    store.createIndex("playlist_id_idx", "playlistId", { unique: true });
+                    store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
+                }
+            };
+            request.onsuccess = e => {
+                window.db = e.target.result;
+            };
+        } else console.log("This browser doesn't support IndexedDB");
 
         const App = this;
 

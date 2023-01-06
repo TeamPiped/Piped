@@ -120,7 +120,8 @@
         "instance_donations": "Instance donations",
         "reply_count": "{count} replies",
         "no_valid_playlists": "The file doesn't contain valid playlists!",
-        "with_playlist": "Share with playlist"
+        "with_playlist": "Share with playlist",
+        "bookmark_playlist": "Bookmark"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

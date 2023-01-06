@@ -14,6 +14,9 @@
             <div>
                 <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
                 <br />
+                <button class="btn mr-1" v-if="!isPipedPlaylist" @click="bookmarkPlaylist">
+                    {{ $t("actions.bookmark_playlist") }}<font-awesome-icon class="ml-3" icon="bookmark" />
+                </button>
                 <button class="btn mr-1" v-if="authenticated && !isPipedPlaylist" @click="clonePlaylist">
                     {{ $t("actions.clone_playlist") }}<font-awesome-icon class="ml-3" icon="clone" />
                 </button>
@@ -143,6 +146,23 @@ export default {
                 data += "https://piped.video" + element.url + "\n";
             });
             this.download(data, this.playlist.name + ".txt", "text/plain");
+        },
+        async bookmarkPlaylist() {
+            if (!this.playlist) return;
+            if (window.db) {
+                const playlistId = this.$route.query.list;
+                var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+                var store = tx.objectStore("playlist_bookmarks");
+                store.put({
+                    playlistId: playlistId,
+                    name: this.playlist.name,
+                    uploader: this.playlist.uploader,
+                    uploaderUrl: this.playlist.uploaderUrl,
+                    thumbnail: this.playlist.thumbnailUrl,
+                    uploaderAvatar: this.playlist.uploaderAvatar,
+                    videos: this.playlist.videos,
+                });
+            }
         },
     },
 };
