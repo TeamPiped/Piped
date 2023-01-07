@@ -42,7 +42,7 @@ export default {
 }
 
 .modal-container {
-    @apply w-min m-auto min-w-[20vw] relative;
+    @apply w-300rem m-auto max-w-[100vw] relative;
 }
 
 .modal-container > button {

@@ -24,7 +24,7 @@
                     <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
                 </div>
             </div>
-            <div class="whitespace-pre-wrap" v-html="urlify(comment.commentText)" />
+            <div class="whitespace-pre-wrap" v-html="purifyHTML(comment.commentText)" />
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div @click="loadReplies" class="cursor-pointer">
                     <a v-text="`${$t('actions.reply_count', comment.replyCount)}`" />

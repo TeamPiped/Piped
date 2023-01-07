@@ -83,7 +83,7 @@
         "remove_from_playlist": "Remove from playlist",
         "delete_playlist_video_confirm": "Remove video from playlist?",
         "create_playlist": "Create Playlist",
-        "delete_playlist": "Delete Playlist",
+        "delete_playlist": "Delete",
         "select_playlist": "Select a Playlist",
         "delete_playlist_confirm": "Delete this playlist?",
         "please_select_playlist": "Please select a playlist",
@@ -103,7 +103,7 @@
         "backup_preferences": "Backup preferences",
         "restore_preferences": "Restore preferences",
         "back_to_home": "Back to home",
-        "rename_playlist": "Rename playlist",
+        "rename_playlist": "Rename",
         "new_playlist_name": "New playlist name",
         "share": "Share",
         "with_timecode": "Share with time code",
@@ -119,7 +119,8 @@
         "source_code": "Source code",
         "instance_donations": "Instance donations",
         "reply_count": "{count} replies",
-        "no_valid_playlists": "The file doesn't contain valid playlists!"
+        "no_valid_playlists": "The file doesn't contain valid playlists!",
+        "with_playlist": "Share with playlist"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

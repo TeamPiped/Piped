@@ -1,10 +1,10 @@
 <template>
     <ModalComponent>
-        <h2 v-t="'actions.select_playlist'" />
-        <select class="select w-full mt-3" v-model="selectedPlaylist">
+        <h4 v-t="'actions.select_playlist'" class="mb-2" />
+        <select class="select w-full mb-2" v-model="selectedPlaylist">
             <option v-for="playlist in playlists" :value="playlist.id" :key="playlist.id" v-text="playlist.name" />
         </select>
-        <div class="flex justify-end mt-3">
+        <div class="flex justify-end">
             <button
                 class="btn"
                 @click="handleClick(selectedPlaylist)"

@@ -119,7 +119,8 @@
         "minimize_comments": "Plejetigi Komentojn",
         "show_watch_on_youtube": "Montri «Vidi en Youtube»-butonon",
         "minimize_chapters_default": "Defaŭlte plejetigi ĉapitrojn",
-        "no_valid_playlists": "La dosiero ne enhavas validajn ludlistojn!"
+        "no_valid_playlists": "La dosiero ne enhavas validajn ludlistojn!",
+        "with_playlist": "Konigi kun ludlisto"
     },
     "video": {
         "chapters": "Sekcioj",

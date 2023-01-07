@@ -101,7 +101,8 @@
         "minimize_comments_default": "Kommentare automatisch minimieren",
         "minimize_comments": "Kommentare minimieren",
         "no_valid_playlists": "Die Datei enthält keine gültigen Wiedergabelisten!",
-        "show_watch_on_youtube": "Schaltfläche „Auf YouTube ansehen“ anzeigen"
+        "show_watch_on_youtube": "Schaltfläche „Auf YouTube ansehen“ anzeigen",
+        "with_playlist": "Mit Wiedergabeliste teilen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
