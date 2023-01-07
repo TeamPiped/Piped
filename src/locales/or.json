@@ -119,7 +119,8 @@
         "documentation": "ଡକ୍ୟୁମେଣ୍ଟେସନ୍",
         "instance_donations": "ଇନଷ୍ଟାଣ୍ଟ ଦାନ ଗୁଡ଼ିକ",
         "minimize_chapters_default": "ଡିଫଲ୍ଟ ଭାବରେ ଅଧ୍ୟାୟଗୁଡ଼ିକୁ କମ୍ କରନ୍ତୁ",
-        "no_valid_playlists": "ଫାଇଲ୍ ଟି ବୈଧ ପ୍ଲେଲିଷ୍ଟ ଧାରଣ କରେ ନାହିଁ!"
+        "no_valid_playlists": "ଫାଇଲ୍ ଟି ବୈଧ ପ୍ଲେଲିଷ୍ଟ ଧାରଣ କରେ ନାହିଁ!",
+        "with_playlist": "ପ୍ଲେଲିଷ୍ଟ ସହିତ ଅଂଶୀଦାର କରନ୍ତୁ"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",
