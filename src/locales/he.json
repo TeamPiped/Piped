@@ -119,7 +119,8 @@
         "minimize_comments": "צמצום הערות",
         "minimize_chapters_default": "מזעור הפרקים כברירת מחדל",
         "show_watch_on_youtube": "הצגת כפתור לצפייה ב־YouTube",
-        "no_valid_playlists": "הקובץ לא מכיל רשימות נגינה תקפות!"
+        "no_valid_playlists": "הקובץ לא מכיל רשימות נגינה תקפות!",
+        "with_playlist": "שיתוף עם רשימת נגינה"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",

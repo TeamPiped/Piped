@@ -149,10 +149,7 @@ export default {
                 version: 1,
                 playlists: [],
             };
-            let tasks = [];
-            for (var i = 0; i < this.playlists.length; i++) {
-                tasks.push(this.fetchPlaylistJson(this.playlists[i].id));
-            }
+            let tasks = this.playlists.map(playlist => this.fetchPlaylistJson(playlist.id));
             json.playlists = await Promise.all(tasks);
             this.download(JSON.stringify(json), "playlists.json", "application/json");
         },
@@ -165,31 +162,44 @@ export default {
                 // as Invidious supports public and private playlists
                 visibility: "private",
                 // list of the videos, starting with "https://youtube.com" to clarify that those are YT videos
-                videos: [],
+                videos: playlist.relatedStreams.map(stream => "https://youtube.com" + stream.url),
             };
-            for (var i = 0; i < playlist.relatedStreams.length; i++) {
-                playlistJson.videos.push("https://youtube.com" + playlist.relatedStreams[i].url);
-            }
             return playlistJson;
         },
         async importPlaylists() {
             const file = this.$refs.fileSelector.files[0];
             let text = await file.text();
-            let playlists = JSON.parse(text).playlists;
-            if (!playlists.length) {
+            let tasks = [];
+            // list of playlists exported from Piped
+            if (text.includes("playlists")) {
+                let playlists = JSON.parse(text).playlists;
+                if (!playlists.length) {
+                    alert(this.$t("actions.no_valid_playlists"));
+                    return;
+                }
+                for (var i = 0; i < playlists.length; i++) {
+                    tasks.push(this.createPlaylistWithVideos(playlists[i]));
+                }
+                // CSV from Google Takeout
+            } else if (file.name.slice(-4).toLowerCase() == ".csv") {
+                const lines = text.split("\n");
+                const playlist = {
+                    name: lines[1].split(",")[4],
+                    videos: lines
+                        .slice(4, lines.length)
+                        .filter(line => line != "")
+                        .map(line => `https://youtube.com/watch?v=${line.split(",")[0]}`),
+                };
+                tasks.push(this.createPlaylistWithVideos(playlist));
+            } else {
                 alert(this.$t("actions.no_valid_playlists"));
                 return;
-            }
-            let tasks = [];
-            for (var i = 0; i < playlists.length; i++) {
-                tasks.push(this.createPlaylistWithVideos(playlists[i]));
             }
             await Promise.all(tasks);
             window.location.reload();
         },
         async createPlaylistWithVideos(playlist) {
             let newPlaylist = await this.createPlaylist(playlist.name);
-            console.log(newPlaylist);
             let videoIds = playlist.videos.map(url => url.substr(-11));
             await this.addVideosToPlaylist(newPlaylist.playlistId, videoIds);
         },

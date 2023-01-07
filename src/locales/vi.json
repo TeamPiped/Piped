@@ -15,11 +15,11 @@
         "auto": "Tự động",
         "buffering_goal": "Bộ nhớ đệm (tính bằng giây)",
         "least_recent": "Ít nhất gần đây",
-        "skip_intro": "Bỏ qua gián đoạn/Giới thiệu hoạt ảnh",
-        "skip_outro": "Bỏ qua màn hình kết thúc/Tín dụng",
+        "skip_intro": "Bỏ qua gián đoạn/hoạt hình intro",
+        "skip_outro": "Bỏ qua màn hình kết thúc/danh đề",
         "skip_interaction": "Bỏ qua lời nhắc tương tác (Đăng ký)",
-        "skip_preview": "Bỏ qua xem trước/Tóm tắt",
-        "skip_self_promo": "Bỏ qua thanh toán/Tự quảng cáo",
+        "skip_preview": "Bỏ qua xem trước/tóm tắt",
+        "skip_self_promo": "Bỏ qua thanh toán/quảng cáo cho bản thân",
         "skip_non_music": "Bỏ qua âm nhạc: Phần không phải âm nhạc",
         "skip_highlight": "Bỏ qua phần đánh dấu",
         "skip_filler_tangent": "Bỏ qua những đoạn không liên quan",
@@ -41,7 +41,7 @@
         "minimize_recommendations": "Giảm thiểu các đề xuất",
         "show_recommendations": "Hiển thị các đề xuất",
         "disable_lbry": "Tắt LBRY để phát trực tuyến",
-        "enable_lbry_proxy": "Bật Proxy cho LBRY",
+        "enable_lbry_proxy": "Bật proxy cho LBRY",
         "view_ssl_score": "Hiện thị điểm số SSL",
         "search": "Tìm kiếm",
         "filter": "Bộ lọc",
@@ -55,7 +55,7 @@
         "minimize_description_default": "Thu nhỏ mô tả theo mặc định",
         "instance_selection": "Lựa chọn phiên bản",
         "yes": "Có",
-        "enabled_codecs": "Mã hóa được kích hoạt (Nhiều)",
+        "enabled_codecs": "Các codec được bật (Nhiều)",
         "export_to_json": "Xuất định dạng JSON",
         "no": "Không",
         "remove_from_playlist": "Xóa khỏi danh sách phát",
@@ -68,7 +68,17 @@
         "please_select_playlist": "Hãy chọn một danh sách phát",
         "copy_link": "Sao chép liên kết",
         "source_code": "Mã nguồn",
-        "piped_link": "Liên kết Piped"
+        "piped_link": "Liên kết Piped",
+        "share": "Chia sẻ",
+        "minimize_comments_default": "Thu nhỏ bình luận theo mặc định",
+        "download_as_txt": "Tải về dưới định dạng .txt",
+        "delete_account": "Xóa tài khoản",
+        "minimize_recommendations_default": "Thu nhỏ đề xuất theo mặc định",
+        "logout": "Đăng xuất khỏi thiết bị này",
+        "minimize_comments": "Thu nhỏ bình luận",
+        "reply_count": "{count} phản hồi",
+        "status_page": "Trạng thái",
+        "new_playlist_name": "Tên danh sách phát mới"
     },
     "titles": {
         "register": "Đăng ký",
@@ -80,13 +90,18 @@
         "feed": "Mới nhất",
         "playlists": "Danh sách phát",
         "account": "Tài khoản",
-        "channels": "Kênh"
+        "channels": "Kênh",
+        "instance": "Instance",
+        "player": "Trình phát video"
     },
     "player": {
         "watch_on": "Xem trên {0}"
     },
     "comment": {
-        "pinned_by": "Được ghim bởi {author}"
+        "pinned_by": "Được ghim bởi {author}",
+        "loading": "Đang tải bình luận...",
+        "user_disabled": "Bình luận đã được tắt trong cài đặt.",
+        "disabled": "Bình luận đã bị tắt bởi người đăng video."
     },
     "preferences": {
         "instance_name": "Tên phiên bản",
@@ -94,7 +109,7 @@
         "has_cdn": "Có CDN?",
         "registered_users": "Người dùng đã đăng ký",
         "version": "Phiên bản",
-        "up_to_date": "Cập nhật?",
+        "up_to_date": "Đã được cập nhật?",
         "ssl_score": "Điểm SSL"
     },
     "login": {
@@ -108,7 +123,8 @@
         "ratings_disabled": "Xếp hạng đã tắt",
         "live": "{0} Trực tiếp",
         "chapters": "Chương",
-        "videos": "Video"
+        "videos": "Video",
+        "shorts": "Shorts"
     },
     "search": {
         "did_you_mean": "Ý của bạn là: {0}?",
@@ -122,6 +138,11 @@
         "music_albums": "YT Music: Album"
     },
     "info": {
-        "copied": "Đã sao chép!"
+        "copied": "Đã sao chép!",
+        "cannot_copy": "Không thể sao chép!",
+        "page_not_found": "Không tìm thấy trang"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Đã đăng ký cho: {0}"
     }
 }

@@ -119,7 +119,8 @@
         "minimize_comments": "Kecilkan Komentar",
         "show_watch_on_youtube": "Tampilkan tombol Tonton di YouTube",
         "minimize_chapters_default": "Kecilkan Bab secara bawaan",
-        "no_valid_playlists": "Berkas ini tidak berisi daftar putar yang valid!"
+        "no_valid_playlists": "Berkas ini tidak berisi daftar putar yang valid!",
+        "with_playlist": "Bagikan dengan daftar putar"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
