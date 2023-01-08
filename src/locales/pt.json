@@ -116,7 +116,8 @@
         "with_timecode": "Partilhar com código de tempo",
         "show_chapters": "Capítulos",
         "reply_count": "{count} respostas",
-        "no_valid_playlists": "O ficheiro não contém listas de reprodução válidas!"
+        "no_valid_playlists": "O ficheiro não contém listas de reprodução válidas!",
+        "with_playlist": "Partilhar com lista de reprodução"
     },
     "preferences": {
         "instance_name": "Nome da Instância",
