@@ -46,16 +46,14 @@ export default {
             request.onupgradeneeded = ev => {
                 const db = request.result;
                 console.log("Upgrading object store.");
-                if (this.getPreferenceBoolean("watchHistory", false)) {
-                    if (!db.objectStoreNames.contains("watch_history")) {
-                        const store = db.createObjectStore("watch_history", { keyPath: "videoId" });
-                        store.createIndex("video_id_idx", "videoId", { unique: true });
-                        store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
-                    }
-                    if (ev.oldVersion < 2) {
-                        const store = request.transaction.objectStore("watch_history");
-                        store.createIndex("watchedAt", "watchedAt", { unique: false });
-                    }
+                if (!db.objectStoreNames.contains("watch_history")) {
+                    const store = db.createObjectStore("watch_history", { keyPath: "videoId" });
+                    store.createIndex("video_id_idx", "videoId", { unique: true });
+                    store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
+                }
+                if (ev.oldVersion < 2) {
+                    const store = request.transaction.objectStore("watch_history");
+                    store.createIndex("watchedAt", "watchedAt", { unique: false });
                 }
                 if (!db.objectStoreNames.contains("playlist_bookmarks")) {
                     const store = db.createObjectStore("playlist_bookmarks", { keyPath: "playlistId" });
