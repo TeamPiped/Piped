@@ -1,1 +1,37 @@
-{}
+{
+    "titles": {
+        "login": "Se connectar",
+        "feed": "Flux",
+        "preferences": "Preferéncias",
+        "history": "Istoric",
+        "account": "Compte",
+        "instance": "Instància",
+        "player": "Lector",
+        "livestreams": "Dirèctes",
+        "channels": "Canals",
+        "trending": "Tendéncias",
+        "register": "S’inscriure",
+        "subscriptions": "Abonaments",
+        "playlists": "Listas de lecturas"
+    },
+    "player": {
+        "watch_on": "Agachar sus {0}"
+    },
+    "actions": {
+        "subscribe": "S’abonar - {count}",
+        "unsubscribe": "Se desabonar - {count}",
+        "view_subscriptions": "Veire los abonaments",
+        "sort_by": "Triar per :",
+        "most_recent": "Mai recents",
+        "least_recent": "Mens recents",
+        "channel_name_asc": "Nom del canal (A-Z)",
+        "channel_name_desc": "Nom del canal (Z-A)",
+        "back": "Tornar",
+        "skip_outro": "Passar los crèdits a la fin",
+        "skip_preview": "Passar l’apercebut / resumit",
+        "uses_api_from": "Utiliza l’API de ",
+        "skip_intro": "Passar l’animacion d’entracte / Introduccion",
+        "enable_sponsorblock": "Activar Sponsorblock",
+        "skip_sponsors": "Passar las promocions"
+    }
+}
