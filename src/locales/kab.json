@@ -7,7 +7,10 @@
         "subscriptions": "Ijerriden",
         "account": "Amiḍan",
         "channels": "Ibuda",
-        "playlists": "Tabdert n tɣuri"
+        "playlists": "Tabdert n tɣuri",
+        "instance": "Tummant",
+        "player": "Ameɣri",
+        "livestreams": "Azuzer usrid"
     },
     "actions": {
         "dark": "Ubrik",
@@ -33,7 +36,19 @@
         "load_more_replies": "Sali-d ugar n tririyin",
         "remove_from_playlist": "Kkes seg tebdart n tɣuri",
         "delete_playlist_video_confirm": "Kkes tavidyut seg tebdart n tɣuri?",
-        "create_playlist": "Rnu tabdart n tɣuri"
+        "create_playlist": "Rnu tabdart n tɣuri",
+        "subscribe": "Qqen - {count}",
+        "unsubscribe": "Sefsex tuqqna n - {count}",
+        "view_subscriptions": "Wali imuktaɣen",
+        "sort_by": "Semyizwer s:",
+        "most_recent": "Amaynut akk",
+        "theme": "Asentel",
+        "auto": "Awurman",
+        "delete_playlist": "Kkes tabdart n tɣuri",
+        "select_playlist": "Fren tabdart n tɣuri",
+        "please_select_playlist": "Ttxil-k·m fren tabdart n tɣuri",
+        "delete_account": "Kkes amiḍan",
+        "logout": "Ffeɣ seg yibenk-a"
     },
     "preferences": {
         "version": "Lqem"
@@ -44,5 +59,8 @@
     },
     "video": {
         "videos": "Tividyutin"
+    },
+    "player": {
+        "watch_on": "Wali deg {0}"
     }
 }
