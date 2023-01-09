@@ -1,9 +1,7 @@
 <template>
-    <h1 class="font-bold text-center my-4" v-t="'titles.playlists'" />
+    <h2 v-if="authenticated" class="font-bold my-4" v-t="'titles.playlists'" />
 
-    <hr />
-
-    <div class="flex justify-between mb-3">
+    <div v-if="authenticated" class="flex justify-between mb-3">
         <button v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
         <div class="flex">
             <button
@@ -38,6 +36,35 @@
             <button class="btn h-auto ml-2" @click="deletePlaylist(playlist.id)" v-t="'actions.delete_playlist'" />
         </div>
     </div>
+    <hr />
+
+    <h2 class="font-bold my-4" v-t="'titles.bookmarks'" />
+
+    <div v-if="bookmarks" class="video-grid">
+        <router-link
+            v-for="(playlist, index) in bookmarks"
+            :key="playlist.playlistId"
+            :to="`/playlist?list=${playlist.playlistId}`"
+        >
+            <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
+            <div class="relative text-sm">
+                <span class="thumbnail-overlay thumbnail-right" v-text="`${playlist.videos} ${$t('video.videos')}`" />
+                <div class="absolute bottom-100px right-5px px-5px z-100" @click.prevent="removeBookmark(index)">
+                    <font-awesome-icon class="ml-3" icon="bookmark" />
+                </div>
+            </div>
+            <p
+                style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
+                class="my-2 overflow-hidden flex link"
+                :title="playlist.name"
+                v-text="playlist.name"
+            />
+            <a :href="playlist.uploaderUrl" class="flex items-center">
+                <img class="rounded-full w-32px h-32px" :src="playlist.uploaderAvatar" />
+                <span class="ml-3 hover:underline" v-text="playlist.uploader" />
+            </a>
+        </router-link>
+    </div>
     <br />
 </template>
 
@@ -46,11 +73,12 @@ export default {
     data() {
         return {
             playlists: [],
+            bookmarks: [],
         };
     },
     mounted() {
         if (this.authenticated) this.fetchPlaylists();
-        else this.$router.push("/login");
+        this.loadPlaylistBookmarks();
     },
     activated() {
         document.title = this.$t("titles.playlists") + " - Piped";
@@ -200,6 +228,26 @@ export default {
                     "Content-Type": "application/json",
                 },
             });
+        },
+        async loadPlaylistBookmarks() {
+            if (!window.db) return;
+            var tx = window.db.transaction("playlist_bookmarks", "readonly");
+            var store = tx.objectStore("playlist_bookmarks");
+            const cursorRequest = store.openCursor();
+            cursorRequest.onsuccess = e => {
+                const cursor = e.target.result;
+                if (cursor) {
+                    const bookmark = cursor.value;
+                    this.bookmarks.push(bookmark);
+                    cursor.continue();
+                }
+            };
+        },
+        async removeBookmark(index) {
+            var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+            var store = tx.objectStore("playlist_bookmarks");
+            store.delete(this.bookmarks[index].playlistId);
+            this.bookmarks.splice(index, 1);
         },
     },
 };

@@ -12,7 +12,8 @@
         "instance": "Instance",
         "player": "Player",
         "livestreams": "Livestreams",
-        "channels": "Channels"
+        "channels": "Channels",
+        "bookmarks": "Bookmarks"
     },
     "player": {
         "watch_on": "Watch on {0}"
@@ -120,7 +121,9 @@
         "instance_donations": "Instance donations",
         "reply_count": "{count} replies",
         "no_valid_playlists": "The file doesn't contain valid playlists!",
-        "with_playlist": "Share with playlist"
+        "with_playlist": "Share with playlist",
+        "bookmark_playlist": "Bookmark",
+        "playlist_bookmarked": "Bookmarked"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
