@@ -6,7 +6,8 @@
         "history": "Amazray",
         "subscriptions": "Ijerriden",
         "account": "Amiḍan",
-        "channels": "Ibuda"
+        "channels": "Ibuda",
+        "playlists": "Tabdert n tɣuri"
     },
     "actions": {
         "dark": "Ubrik",
@@ -19,7 +20,19 @@
         "delete_playlist_confirm": "Kkes tabdart-a n tɣuri?",
         "share": "Bḍu",
         "documentation": "Tasemlit",
-        "status_page": "État"
+        "status_page": "État",
+        "least_recent": "N melmi kna",
+        "channel_name_desc": "Isem n ubadu (A-Z)",
+        "channel_name_asc": "Isem n ubadu (A-z)",
+        "back": "Tuɣalin",
+        "uses_api_from": "Isseqdac API n: ",
+        "enable_sponsorblock": "Rmed amsewḥal n udellel",
+        "skip_sponsors": "Zgel adellel",
+        "add_to_playlist": "Rnu ɣer tebdart n tɣuri",
+        "hide_replies": "Ffer tiririyin",
+        "load_more_replies": "Sali-d ugar n tririyin",
+        "remove_from_playlist": "Kkes seg tebdart n tɣuri",
+        "delete_playlist_video_confirm": "Kkes tavidyut seg tebdart n tɣuri?"
     },
     "preferences": {
         "version": "Lqem"

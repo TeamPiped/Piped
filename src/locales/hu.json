@@ -8,7 +8,11 @@
         "subscriptions": "Feliratkozások",
         "playlists": "Lejátszási listák",
         "trending": "Felkapott",
-        "account": "Fiók"
+        "account": "Fiók",
+        "player": "Lejátszó",
+        "instance": "Szerver",
+        "livestreams": "Élő adások",
+        "channels": "Csatornák"
     },
     "actions": {
         "subscribe": "Feliratkozás - {count}",
@@ -51,7 +55,7 @@
         "instance_selection": "Példány kiválasztása",
         "skip_filler_tangent": "Témától eltérő töltelék/viccek",
         "loop_this_video": "Videó ismétlése",
-        "donations": "Támogatások",
+        "donations": "Fejlesztési támogatások",
         "minimize_description": "Leírás minimalizálása",
         "show_recommendations": "Javaslatok megjelenítése",
         "enable_lbry_proxy": "Proxy engedélyezése a LBRY számára",
@@ -85,7 +89,35 @@
         "different_auth_instance": "Másik példány használata a hitelesítéshez",
         "instance_auth_selection": "Autentikációs példány kiválasztása",
         "clone_playlist": "Lejátszási lista klónozása",
-        "clone_playlist_success": "Sikeresen klónozva!"
+        "clone_playlist_success": "Sikeresen klónozva!",
+        "reset_preferences": "Alaphelyzetbe állítás",
+        "restore_preferences": "Beállítások betöltése fájlból",
+        "rename_playlist": "Átnevez",
+        "instance_donations": "Szerver adományozások",
+        "piped_link": "Piped link",
+        "time_code": "Idő kód (másodpercekben)",
+        "show_chapters": "Fejezetek",
+        "download_as_txt": "Letöltés szövegdokumentumként",
+        "source_code": "A szoftver kódja",
+        "reply_count": "{count} hozzászólások",
+        "documentation": "Dokumentáció",
+        "minimize_chapters_default": "Mindig tüntesd el a fejezeteket",
+        "hide_watched": "Ne mutassa a látott videókat a felíratkozásoknál",
+        "show_watch_on_youtube": "Mutasd a \"Lejátszás Youtube-on\" gombot",
+        "confirm_reset_preferences": "Biztos alaphelyzetbe állítod?",
+        "backup_preferences": "Beállítások mentése",
+        "new_playlist_name": "Új lejátszási lista név",
+        "share": "Megosztás",
+        "with_timecode": "Megosztás & videó kezdés ettől a ponttól",
+        "store_search_history": "Mentse a keresési előzményeket",
+        "follow_link": "Követések link",
+        "copy_link": "Link másolása",
+        "status_page": "Státusz",
+        "no_valid_playlists": "Nincs a fájlban egy valós lejátszási lista se!",
+        "with_playlist": "Megosztás lejátszási listával",
+        "minimize_comments_default": "Mindig tüntesd el a kommenteket",
+        "minimize_comments": "Kommentek eltüntetése",
+        "back_to_home": "Vissza a főoldalra"
     },
     "video": {
         "ratings_disabled": "Értékelések Letiltva",
@@ -129,5 +161,15 @@
         "disabled": "A hozzászólásokat a feltöltő letiltotta.",
         "user_disabled": "A beállításoknál a megjegyzések le vannak tiltva.",
         "loading": "Kommentek betöltése..."
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Feliratkozva: {0} csatornára"
+    },
+    "info": {
+        "preferences_note": "Figyelem: A beállításaid a böngésződ tárhelyére vannak mentve. Ha törlöd őket el fognak tűnni a beállításaid.",
+        "copied": "Másolva!",
+        "local_storage": "Ennek a beállításnak szüksége van a \"lokális tárhely\" funkcióra, be vannak a sütik kapcsolva?",
+        "cannot_copy": "Nem lehet másolni!",
+        "page_not_found": "Oldnal nem található"
     }
 }
