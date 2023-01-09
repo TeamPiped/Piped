@@ -102,7 +102,9 @@
         "show_watch_on_youtube": "Mostrar Botão Assistir no YouTube",
         "minimize_chapters_default": "Minimizar Capítulos por padrão",
         "no_valid_playlists": "O arquivo não contém playlists válidas!",
-        "with_playlist": "Compartilhar com playlist"
+        "with_playlist": "Compartilhar com playlist",
+        "bookmark_playlist": "Favorito",
+        "playlist_bookmarked": "Favoritado"
     },
     "titles": {
         "history": "Histórico",
@@ -117,7 +119,8 @@
         "player": "Player",
         "account": "Conta",
         "channels": "Canais",
-        "livestreams": "Transmissões ao vivo"
+        "livestreams": "Transmissões ao vivo",
+        "bookmarks": "Favoritos"
     },
     "player": {
         "watch_on": "Assistir no {0}"

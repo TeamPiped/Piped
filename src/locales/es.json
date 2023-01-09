@@ -127,7 +127,9 @@
         "show_watch_on_youtube": "Mostrar botón Ver en YouTube",
         "minimize_chapters_default": "Minimiza capítulos por defecto",
         "no_valid_playlists": "¡El archivo no contiene listas de reproducción válidas!",
-        "with_playlist": "Compartir con lista de reproducción"
+        "with_playlist": "Compartir con lista de reproducción",
+        "playlist_bookmarked": "Marcado",
+        "bookmark_playlist": "Marcador"
     },
     "titles": {
         "feed": "Fuente web",
@@ -142,7 +144,8 @@
         "instance": "Instancia",
         "player": "Reproductor",
         "livestreams": "Directos",
-        "channels": "Canales"
+        "channels": "Canales",
+        "bookmarks": "Marcadores"
     },
     "player": {
         "watch_on": "Ver en {0}"

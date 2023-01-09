@@ -10,7 +10,8 @@
         "playlists": "Tabdert n tɣuri",
         "instance": "Tummant",
         "player": "Ameɣri",
-        "livestreams": "Azuzer usrid"
+        "livestreams": "Azuzer usrid",
+        "bookmarks": "Ticraḍ"
     },
     "actions": {
         "dark": "Ubrik",
@@ -48,19 +49,92 @@
         "select_playlist": "Fren tabdart n tɣuri",
         "please_select_playlist": "Ttxil-k·m fren tabdart n tɣuri",
         "delete_account": "Kkes amiḍan",
-        "logout": "Ffeɣ seg yibenk-a"
+        "logout": "Ffeɣ seg yibenk-a",
+        "light": "D ameceɛlal",
+        "autoplay_video": "Taɣuri tawurmant n tvidyut",
+        "audio_only": "Ameslaw kan",
+        "default_quality": "Taɣara tuzwirt",
+        "auto_play_next_video": "Taɣuri tawurmant n tvidyut tuḍfirt",
+        "donations": "Tawsa i usnefli",
+        "disable_lbry": "Sens LBRY i usuddem",
+        "enable_lbry_proxy": "Rmed apṛuksi i LBRY",
+        "view_ssl_score": "Sken agmuḍ SSL",
+        "show_recommendations": "Sken iwellihen",
+        "clear_history": "Sfeḍ azray",
+        "copy_link": "Nɣel aseɣwen",
+        "time_code": "Tangalt n wakud (s tsinin)",
+        "show_more": "Sken ugar",
+        "export_to_json": "Sifeḍ ɣer JSON",
+        "minimize_comments": "Semẓi iwenniten",
+        "show_comments": "Sken iwenniten",
+        "minimize_description": "Semẓi aglam",
+        "show_description": "Sken aglam",
+        "minimize_recommendations": "Semẓi iwellihen",
+        "reply_count": "{count} tririyin",
+        "bookmark_playlist": "Tacreḍt",
+        "playlist_bookmarked": "Yettwacreḍ",
+        "instances_list": "Tabdart n tummanin",
+        "country_selection": "Afran n tmurt",
+        "default_homepage": "Asebter agejdan amezwer",
+        "instance_selection": "Afran n tummant",
+        "import_from_json": "Kter seg JSON/CSV",
+        "store_search_history": "Ḥrez azray n unadi",
+        "instance_donations": "Tawsa n tummant",
+        "source_code": "Tangalt taɣbalut",
+        "minimize_description_default": "Semẓi aglam s wudem amezwer",
+        "skip_highlight": "Zgel asebruraq",
+        "minimize_comments_default": "Semẓi iwenniten s wudem amezwer",
+        "store_watch_history": "Ḥrez azray n tmeẓriwt",
+        "loop_this_video": "Err tavidyut-a d taẓayert",
+        "minimize_recommendations_default": "Semẓi iwellihen s wudem amezwer",
+        "no_valid_playlists": "Afaylu ulac deg-s tibdarin n tɣuri timeɣta!",
+        "with_playlist": "Bḍu s tebdart n tɣuri"
     },
     "preferences": {
-        "version": "Lqem"
+        "version": "Lqem",
+        "has_cdn": "Ɣur-s CDN?",
+        "registered_users": "Iseqdacen yettwajerrden",
+        "up_to_date": "D amaynut?",
+        "ssl_score": "Agmuḍ SSL",
+        "instance_name": "Isem n tummant",
+        "instance_locations": "Idgan n tummant"
     },
     "login": {
         "username": "Nom d'utilisateur",
         "password": "Awal n uɛeddi"
     },
     "video": {
-        "videos": "Tividyutin"
+        "videos": "Tividyutin",
+        "views": "{views} tmeẓriwin",
+        "watched": "Yemẓer",
+        "shorts": "Tiwezlanin",
+        "live": "{0} srid"
     },
     "player": {
         "watch_on": "Wali deg {0}"
+    },
+    "comment": {
+        "pinned_by": "Isenteḍ-itt {author}",
+        "loading": "Asali n yiwenniten...",
+        "disabled": "Ameskar issens iwenniten.",
+        "user_disabled": "Nsan yiwenniten deg Yiɣewwaren."
+    },
+    "search": {
+        "did_you_mean": "Tebɣiḍ ad d-tiniḍ: {0}?",
+        "music_playlists": "YT Music: Tibdarin n tɣuri",
+        "all": "YouTube: Akk",
+        "videos": "YouTube: Tividyutin",
+        "channels": "YouTube: Ibuda",
+        "music_videos": "YT Music: Tividyutin",
+        "playlists": "YouTube: Tibdarin n tɣuri",
+        "music_songs": "YT Music: Tizlatin"
+    },
+    "info": {
+        "copied": "Yettwanɣel!",
+        "page_not_found": "Ur yettwaf ara usebter",
+        "cannot_copy": "D awezɣi ad d-yettwanɣel!"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Imulteɣ ɣer: {0}"
     }
 }

@@ -102,7 +102,9 @@
         "show_watch_on_youtube": "YouTube'da İzle Düğmesini Göster",
         "minimize_chapters_default": "Bölümleri Öntanımlı Olarak Küçült",
         "no_valid_playlists": "Dosya geçerli oynatma listeleri içermiyor!",
-        "with_playlist": "Oynatma listesiyle paylaş"
+        "with_playlist": "Oynatma listesiyle paylaş",
+        "bookmark_playlist": "Yer imlerine ekle",
+        "playlist_bookmarked": "Yer imlerine eklendi"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
@@ -120,7 +122,8 @@
         "instance": "Örnek",
         "player": "Oynatıcı",
         "livestreams": "Canlı Yayınlar",
-        "channels": "Kanallar"
+        "channels": "Kanallar",
+        "bookmarks": "Yer İmleri"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
