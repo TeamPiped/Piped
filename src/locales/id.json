@@ -12,7 +12,8 @@
         "account": "Akun",
         "player": "Pemain",
         "livestreams": "Siaran Langsung",
-        "channels": "Saluran"
+        "channels": "Saluran",
+        "bookmarks": "Markah"
     },
     "player": {
         "watch_on": "Tonton di {0}"
@@ -120,7 +121,9 @@
         "show_watch_on_youtube": "Tampilkan tombol Tonton di YouTube",
         "minimize_chapters_default": "Kecilkan Bab secara bawaan",
         "no_valid_playlists": "Berkas ini tidak berisi daftar putar yang valid!",
-        "with_playlist": "Bagikan dengan daftar putar"
+        "with_playlist": "Bagikan dengan daftar putar",
+        "playlist_bookmarked": "Dimarkahi",
+        "bookmark_playlist": "Markahi"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
