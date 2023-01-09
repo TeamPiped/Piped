@@ -127,7 +127,9 @@
         "show_watch_on_youtube": "Prikaži gumb „Gledaj na YouTubeu”",
         "minimize_chapters_default": "Standardno sakrij poglavlja",
         "no_valid_playlists": "Datoteka ne sadrži ispravne popise snimaka!",
-        "with_playlist": "Dijeli s popisom snimaka"
+        "with_playlist": "Dijeli s popisom snimaka",
+        "playlist_bookmarked": "Zabilježeno",
+        "bookmark_playlist": "Zabilježi"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -145,7 +147,8 @@
         "instance": "Instanca",
         "player": "Pokretač",
         "channels": "Kanali",
-        "livestreams": "Prijenosi uživo"
+        "livestreams": "Prijenosi uživo",
+        "bookmarks": "Zabilješke"
     },
     "login": {
         "password": "Lozinka",
