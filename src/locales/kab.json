@@ -32,7 +32,8 @@
         "hide_replies": "Ffer tiririyin",
         "load_more_replies": "Sali-d ugar n tririyin",
         "remove_from_playlist": "Kkes seg tebdart n tɣuri",
-        "delete_playlist_video_confirm": "Kkes tavidyut seg tebdart n tɣuri?"
+        "delete_playlist_video_confirm": "Kkes tavidyut seg tebdart n tɣuri?",
+        "create_playlist": "Rnu tabdart n tɣuri"
     },
     "preferences": {
         "version": "Lqem"
