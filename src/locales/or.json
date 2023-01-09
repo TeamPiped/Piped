@@ -12,7 +12,8 @@
         "account": "ଆକାଉଣ୍ଟ",
         "player": "ପ୍ଲେୟାର",
         "livestreams": "ସିଧାପ୍ରସାରଣ ଗୁଡ଼ିକ",
-        "channels": "ସ୍ରୋତ ଗୁଡ଼ିକ"
+        "channels": "ସ୍ରୋତ ଗୁଡ଼ିକ",
+        "bookmarks": "ବୁକମାର୍କଗୁଡିକ"
     },
     "player": {
         "watch_on": "{0} ରେ ଦେଖନ୍ତୁ"
@@ -120,7 +121,9 @@
         "instance_donations": "ଇନଷ୍ଟାଣ୍ଟ ଦାନ ଗୁଡ଼ିକ",
         "minimize_chapters_default": "ଡିଫଲ୍ଟ ଭାବରେ ଅଧ୍ୟାୟଗୁଡ଼ିକୁ କମ୍ କରନ୍ତୁ",
         "no_valid_playlists": "ଫାଇଲ୍ ଟି ବୈଧ ପ୍ଲେଲିଷ୍ଟ ଧାରଣ କରେ ନାହିଁ!",
-        "with_playlist": "ପ୍ଲେଲିଷ୍ଟ ସହିତ ଅଂଶୀଦାର କରନ୍ତୁ"
+        "with_playlist": "ପ୍ଲେଲିଷ୍ଟ ସହିତ ଅଂଶୀଦାର କରନ୍ତୁ",
+        "bookmark_playlist": "ବୁକମାର୍କ",
+        "playlist_bookmarked": "ବୁକମାର୍କ ହୋଇଛି"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",
