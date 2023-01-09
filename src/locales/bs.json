@@ -102,7 +102,9 @@
         "minimize_comments": "Minimizirajte komentare",
         "delete_account": "Izbriši račun",
         "minimize_recommendations_default": "Smanjite preporuke po zadanom",
-        "reset_preferences": "Vrati postavke na zadano"
+        "reset_preferences": "Vrati postavke na zadano",
+        "bookmark_playlist": "Bilježak",
+        "playlist_bookmarked": "Obilježeno"
     },
     "titles": {
         "register": "Registrirajte se",
@@ -117,7 +119,8 @@
         "account": "Račun",
         "player": "Pokretnik",
         "channels": "Kanali",
-        "livestreams": "Prijenosi uživo"
+        "livestreams": "Prijenosi uživo",
+        "bookmarks": "Bilješci"
     },
     "search": {
         "music_songs": "YT Music: Pjesme",
