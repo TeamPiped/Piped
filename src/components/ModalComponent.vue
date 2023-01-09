@@ -34,7 +34,10 @@ export default {
 
 <style scoped>
 .modal {
-    @apply fixed z-50 top-0 left-0 w-full h-full bg-dark-900 bg-opacity-80 transition-opacity table;
+    @apply fixed z-50 top-0 left-0 w-full h-full bg-gray bg-opacity-80 transition-opacity table;
+}
+.dark .modal {
+    @apply bg-dark-900 bg-opacity-80;
 }
 
 .modal > div {
@@ -42,7 +45,10 @@ export default {
 }
 
 .modal-container {
-    @apply w-min m-auto px-8 bg-dark-700 p-6 rounded-xl min-w-[20vw] relative;
+    @apply w-min m-auto px-8 bg-white p-6 rounded-xl min-w-[20vw] relative;
+}
+.dark .modal-container {
+    @apply bg-dark-700;
 }
 
 .modal-container > button {

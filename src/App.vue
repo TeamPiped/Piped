@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full min-h-screen px-1vw reset" :class="[theme]">
+    <div class="w-full min-h-screen px-1vw py-5 reset" :class="[theme]">
         <NavBar />
 
         <router-view v-slot="{ Component }">
@@ -33,6 +33,10 @@ export default {
             let themePref = this.getPreferenceString("theme", "dark");
             if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
             else this.theme = themePref;
+
+            // Used for the scrollbar
+            const root = document.querySelector(":root");
+            this.theme == "dark" ? root.classList.add("dark") : root.classList.remove("dark");
         },
     },
     mounted() {
@@ -97,7 +101,7 @@ b {
 }
 
 ::-webkit-scrollbar {
-    background-color: #15191a;
+    background-color: #d1d5db;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -116,8 +120,35 @@ b {
     background-color: #0b0e0f;
 }
 
+:root {
+    scrollbar-color: #4b4f52 #d1d5db;
+}
+
+.dark ::-webkit-scrollbar {
+    background-color: #15191a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background-color: #4b4f52;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background-color: #5b6469;
+}
+
+.dark ::-webkit-scrollbar-thumb:active {
+    background-color: #485053;
+}
+
+.dark ::-webkit-scrollbar-corner {
+    background-color: #0b0e0f;
+}
+
+:root.dark {
+    scrollbar-color: #4b4f52 #15191a;
+}
+
 * {
-    scrollbar-color: #15191a #444a4e;
     @apply font-sans;
 }
 
