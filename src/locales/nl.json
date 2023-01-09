@@ -1,7 +1,7 @@
 {
     "actions": {
         "skip_sponsors": "Sponsors Overslaan",
-        "skip_outro": "Eindkaarten/Credits overslaan",
+        "skip_outro": "Eindkaarten/Credits Overslaan",
         "add_to_playlist": "Aan Afspeellijst Toevoegen",
         "sort_by": "Sorteer op:",
         "buffering_goal": "Bufferdoel (in seconden)",
@@ -67,8 +67,8 @@
         "create_playlist": "Afspeellijst Maken",
         "delete_playlist": "Afspeellijst Verwijderen",
         "show_markers": "Toon markeringen op Speler",
-        "store_search_history": "Zoekgeschiedenis opslaan",
-        "minimize_chapters_default": "Hoofdstukken standaard minimaliseren",
+        "store_search_history": "Zoekgeschiedenis Opslaan",
+        "minimize_chapters_default": "Hoofdstukken Standaard Minimaliseren",
         "show_watch_on_youtube": "Toon Bekijk op YouTube knop",
         "restore_preferences": "Voorkeuren herstellen",
         "with_timecode": "Delen met tijdcode",
@@ -94,15 +94,17 @@
         "clone_playlist_success": "Succesvol gekloond!",
         "reset_preferences": "Voorkeuren opnieuw instellen",
         "back_to_home": "Terug naar de start",
-        "minimize_comments_default": "Opmerkingen standaard minimaliseren",
+        "minimize_comments_default": "Opmerkingen Standaard Minimaliseren",
         "delete_account": "Account Verwijderen",
         "logout": "Uitloggen van dit apparaat",
-        "minimize_recommendations_default": "Aanbevelingen standaard minimaliseren",
+        "minimize_recommendations_default": "Aanbevelingen Standaard Minimaliseren",
         "confirm_reset_preferences": "Weet u zeker dat u uw voorkeuren opnieuw wilt instellen?",
         "backup_preferences": "Back-up voorkeuren",
         "invalidate_session": "Alle apparaten afmelden",
         "different_auth_instance": "Gebruik een andere instantie voor authenticatie",
-        "with_playlist": "Delen met afspeellijst"
+        "with_playlist": "Delen met afspeellijst",
+        "playlist_bookmarked": "Bladwijzer gemaakt",
+        "bookmark_playlist": "Bladwijzer"
     },
     "titles": {
         "register": "Registreren",
@@ -117,7 +119,8 @@
         "instance": "Instantie",
         "player": "Speler",
         "livestreams": "Livestreams",
-        "channels": "Kanalen"
+        "channels": "Kanalen",
+        "bookmarks": "Bladwijzers"
     },
     "player": {
         "watch_on": "Kijk op {0}"
