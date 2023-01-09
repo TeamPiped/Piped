@@ -12,7 +12,8 @@
         "player": "Ludilo",
         "instance": "Nodo",
         "channels": "Kanaloj",
-        "livestreams": "Tujelsendoj"
+        "livestreams": "Tujelsendoj",
+        "bookmarks": "Legosignoj"
     },
     "player": {
         "watch_on": "Vidi en {0}"
@@ -120,7 +121,9 @@
         "show_watch_on_youtube": "Montri «Vidi en Youtube»-butonon",
         "minimize_chapters_default": "Defaŭlte plejetigi ĉapitrojn",
         "no_valid_playlists": "La dosiero ne enhavas validajn ludlistojn!",
-        "with_playlist": "Konigi kun ludlisto"
+        "with_playlist": "Konigi kun ludlisto",
+        "playlist_bookmarked": "Legosignita",
+        "bookmark_playlist": "Legosigno"
     },
     "video": {
         "chapters": "Sekcioj",
