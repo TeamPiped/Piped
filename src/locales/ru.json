@@ -119,7 +119,8 @@
         "minimize_comments": "Свернуть комментарии",
         "show_watch_on_youtube": "Показать кнопку Смотреть на YouTube",
         "minimize_chapters_default": "Скрывать главы по умолчанию",
-        "no_valid_playlists": "Файл не содержит действительных списков воспроизведения!"
+        "no_valid_playlists": "Файл не содержит действительных списков воспроизведения!",
+        "with_playlist": "Поделиться с плейлистом"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем {author}",
