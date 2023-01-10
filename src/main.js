@@ -224,7 +224,7 @@ const mixin = {
         handleLocalSubscriptions(channelId) {
             var localSubscriptions = this.getLocalSubscriptions() ?? [];
             if (localSubscriptions.includes(channelId))
-                localSubscriptions.splice(localSubscriptions.indexOf(channelId));
+                localSubscriptions.splice(localSubscriptions.indexOf(channelId), 1);
             else localSubscriptions.push(channelId);
             // Sort for better cache hits
             localSubscriptions.sort();
