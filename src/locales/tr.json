@@ -176,6 +176,7 @@
         "page_not_found": "Sayfa Bulunamadı",
         "copied": "Kopyalandı!",
         "cannot_copy": "Kopyalanamıyor!",
-        "local_storage": "Bu eylem yerel depolama gerektirir, çerezler etkin mi?"
+        "local_storage": "Bu eylem yerel depolama gerektirir, çerezler etkin mi?",
+        "register_no_email_note": "Kullanıcı adı olarak e-posta kullanılması tavsiye edilmez. Yine de devam edilsin mi?"
     }
 }
