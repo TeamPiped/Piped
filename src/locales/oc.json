@@ -32,6 +32,23 @@
         "uses_api_from": "Utiliza l’API de ",
         "skip_intro": "Passar l’animacion d’entracte / Introduccion",
         "enable_sponsorblock": "Activar Sponsorblock",
-        "skip_sponsors": "Passar las promocions"
+        "skip_sponsors": "Passar las promocions",
+        "show_comments": "Mostrar los comentaris",
+        "minimize_description": "Minimizar la descripcion",
+        "show_description": "Mostrar la descripcion",
+        "show_recommendations": "Mostrar las recomandacions",
+        "minimize_recommendations": "Minimizar las recomandacions",
+        "enable_lbry_proxy": "Activar lo servidor mandatari per LBRY",
+        "view_ssl_score": "Mostrar l’avaloracion SSL",
+        "search": "Recercar",
+        "filter": "Filtrar",
+        "disable_lbry": "Desactivar LBRY per la difusion en dirècte",
+        "loading": "Cargament…",
+        "clear_history": "Netejar l’istoric",
+        "hide_replies": "Rescondre las responsas",
+        "load_more_replies": "Cargar mai de responsas",
+        "remove_from_playlist": "Levar de la lista de lectura",
+        "add_to_playlist": "Apondre a la listra de lectura",
+        "minimize_comments": "Minimizar los comentaris"
     }
 }
