@@ -102,7 +102,9 @@
         "minimize_comments": "Kommentare minimieren",
         "no_valid_playlists": "Die Datei enthält keine gültigen Wiedergabelisten!",
         "show_watch_on_youtube": "Schaltfläche „Auf YouTube ansehen“ anzeigen",
-        "with_playlist": "Mit Wiedergabeliste teilen"
+        "with_playlist": "Mit Wiedergabeliste teilen",
+        "playlist_bookmarked": "Markiert",
+        "bookmark_playlist": "Lesezeichen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -120,7 +122,8 @@
         "player": "Player",
         "instance": "Instanz",
         "livestreams": "Livestreams",
-        "channels": "Kanäle"
+        "channels": "Kanäle",
+        "bookmarks": "Lesezeichen"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Segmente",
