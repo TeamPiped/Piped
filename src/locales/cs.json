@@ -12,7 +12,8 @@
         "instance": "Instance",
         "player": "Přehrávač",
         "livestreams": "Živé přenosy",
-        "channels": "Kanály"
+        "channels": "Kanály",
+        "bookmarks": "Záložky"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
@@ -117,7 +118,9 @@
         "show_watch_on_youtube": "Zobrazit tlačítko Sledovat na YouTube",
         "minimize_chapters_default": "Ve výchozím nastavení skrýt kapitoly",
         "no_valid_playlists": "Soubor neobsahuje platné playlisty!",
-        "with_playlist": "Sdílet s playlistem"
+        "with_playlist": "Sdílet s playlistem",
+        "bookmark_playlist": "Záložka",
+        "playlist_bookmarked": "Uloženo"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
@@ -173,6 +176,7 @@
         "page_not_found": "Stránka nenalezena",
         "copied": "Zkopírováno!",
         "cannot_copy": "Nelze zkopírovat!",
-        "local_storage": "Tato akce vyžaduje localStorage, jsou povoleny cookies?"
+        "local_storage": "Tato akce vyžaduje localStorage, jsou povoleny cookies?",
+        "register_no_email_note": "Použití e-mailu jako uživatelského jména se nedoporučuje. Chcete přesto pokračovat?"
     }
 }
