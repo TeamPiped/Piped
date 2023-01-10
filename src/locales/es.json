@@ -173,6 +173,7 @@
         "page_not_found": "Página no encontrada",
         "copied": "¡Copiado!",
         "cannot_copy": "¡No se puede copiar!",
-        "local_storage": "Esta acción requiere «localStorage», ¿están activadas las «cookies»?"
+        "local_storage": "Esta acción requiere «localStorage», ¿están activadas las «cookies»?",
+        "register_no_email_note": "No se recomienda usar un correo electrónico como nombre de usuario. ¿Continuar de todos modos?"
     }
 }
