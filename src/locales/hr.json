@@ -176,6 +176,7 @@
         "page_not_found": "Stranica nije pronađena",
         "copied": "Kopirano!",
         "cannot_copy": "Nije moguće kopirati!",
-        "local_storage": "Ova radnja zahtijeva lokalno spremište. Jesu li kolačići uključeni?"
+        "local_storage": "Ova radnja zahtijeva lokalno spremište. Jesu li kolačići uključeni?",
+        "register_no_email_note": "Korištenje e-mail adrese kao korisničkog imena se ne preporučuje. Svejedno nastaviti?"
     }
 }
