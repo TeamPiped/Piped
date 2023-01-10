@@ -12,7 +12,8 @@
         "playlists": "רשימות נגינה",
         "instance": "עותק",
         "livestreams": "שידורים חיים",
-        "channels": "ערוצים"
+        "channels": "ערוצים",
+        "bookmarks": "סימניות"
     },
     "player": {
         "watch_on": "לצפות ב־{0}"
@@ -120,7 +121,9 @@
         "minimize_chapters_default": "מזעור הפרקים כברירת מחדל",
         "show_watch_on_youtube": "הצגת כפתור לצפייה ב־YouTube",
         "no_valid_playlists": "הקובץ לא מכיל רשימות נגינה תקפות!",
-        "with_playlist": "שיתוף עם רשימת נגינה"
+        "with_playlist": "שיתוף עם רשימת נגינה",
+        "playlist_bookmarked": "נוסף לסימניות",
+        "bookmark_playlist": "סימנייה"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
@@ -167,7 +170,8 @@
         "page_not_found": "העמוד לא נמצא",
         "copied": "הועתק!",
         "cannot_copy": "לא ניתן להעתיק!",
-        "local_storage": "פעולה זו דורשת אחסון מקומי (localStorage), האם עוגיות פעילות?"
+        "local_storage": "פעולה זו דורשת אחסון מקומי (localStorage), האם עוגיות פעילות?",
+        "register_no_email_note": "לא מומלץ להשתמש בכתובת דוא״ל כשם משתמש. להמשיך בכל זאת?"
     },
     "subscriptions": {
         "subscribed_channels_count": "נרשמת אל: {0}"
