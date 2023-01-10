@@ -170,7 +170,8 @@
         "cannot_copy": "Não foi possível copiar!",
         "preferences_note": "Nota: as preferências são salvas no armazenamento local do seu navegador. A exclusão dos dados do seu navegador irá redefini-los.",
         "page_not_found": "página não encontrada",
-        "local_storage": "Esta ação requer localStorage, os cookies estão ativados?"
+        "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
+        "register_no_email_note": "Usar um e-mail como nome de usuário não é recomendado. Continuar mesmo assim?"
     },
     "subscriptions": {
         "subscribed_channels_count": "Inscrito em: {0}"
