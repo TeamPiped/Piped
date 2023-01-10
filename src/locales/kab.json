@@ -11,7 +11,8 @@
         "instance": "Tummant",
         "player": "Ameɣri",
         "livestreams": "Azuzer usrid",
-        "bookmarks": "Ticraḍ"
+        "bookmarks": "Ticraḍ",
+        "feed": "Amultaɣ"
     },
     "actions": {
         "dark": "Ubrik",
@@ -132,7 +133,9 @@
     "info": {
         "copied": "Yettwanɣel!",
         "page_not_found": "Ur yettwaf ara usebter",
-        "cannot_copy": "D awezɣi ad d-yettwanɣel!"
+        "cannot_copy": "D awezɣi ad d-yettwanɣel!",
+        "register_no_email_note": "Aseqdec n yimayl am yisem n useqdac, ur yettusireg ara. Kemmel ɣas akken?",
+        "local_storage": "Tigawt-a aḥraz adigan, inagan n tuqqna remden?"
     },
     "subscriptions": {
         "subscribed_channels_count": "Imulteɣ ɣer: {0}"
