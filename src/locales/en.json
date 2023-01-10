@@ -173,6 +173,7 @@
         "page_not_found": "Page not found",
         "copied": "Copied!",
         "cannot_copy": "Can't copy!",
-        "local_storage": "This action requires localStorage, are cookies enabled?"
+        "local_storage": "This action requires localStorage, are cookies enabled?",
+        "register_no_email_note": "Using an e-mail as username is not recommended. Proceed anyways?"
     }
 }

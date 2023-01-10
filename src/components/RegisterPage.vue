@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { isEmail } from "../utils/Misc.js";
+
 export default {
     data() {
         return {
@@ -52,6 +54,8 @@ export default {
     methods: {
         register() {
             if (!this.username || !this.password) return;
+            if (isEmail(this.username) && !confirm(this.$t("info.register_no_email_note"))) return;
+
             this.fetchJson(this.authApiUrl() + "/register", null, {
                 method: "POST",
                 body: JSON.stringify({
