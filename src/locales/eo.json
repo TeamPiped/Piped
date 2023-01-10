@@ -151,7 +151,8 @@
         "cannot_copy": "Ne povas kopii!",
         "preferences_note": "Noto: la agordoj estas konservitaj en la loka memoro de via retumilo. Forigi la datumojn de via retumilo restarigos ilin.",
         "page_not_found": "Paĝo ne trovita",
-        "local_storage": "Ĉi tiu ago postulas localStorage, ĉu kuketoj estas ebligitaj?"
+        "local_storage": "Ĉi tiu ago postulas localStorage, ĉu kuketoj estas ebligitaj?",
+        "register_no_email_note": "Uzi retadreson kiel uzantnomon ne estas rekomendita. Ĉu daŭrigi ĉiuokaze?"
     },
     "login": {
         "username": "Uzantnomo",
