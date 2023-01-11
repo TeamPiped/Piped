@@ -101,7 +101,10 @@
         "minimize_comments_default": "Minimizza i commenti per impostazione predefinita",
         "minimize_comments": "Minimizza i commenti",
         "minimize_chapters_default": "Minimizza i capitoli per impostazione predefinita",
-        "no_valid_playlists": "Il file non contiene playlist valide!"
+        "no_valid_playlists": "Il file non contiene playlist valide!",
+        "bookmark_playlist": "Segnalibro",
+        "with_playlist": "Condividi con la playlist",
+        "playlist_bookmarked": "Nei segnalibri"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -119,7 +122,8 @@
         "instance": "Istanza",
         "player": "Riproduttore",
         "livestreams": "Streaming live",
-        "channels": "Canali"
+        "channels": "Canali",
+        "bookmarks": "Segnalibri"
     },
     "video": {
         "sponsor_segments": "Segmenti sponsor",
@@ -172,6 +176,7 @@
         "preferences_note": "Nota: le preferenze sono salvate nella memoria locale del tuo browser. L'eliminazione dei dati del tuo browser le ripristinerà.",
         "copied": "Copiato!",
         "cannot_copy": "Impossibile copiare!",
-        "local_storage": "Questa azione richiede localStorage, i cookie sono abilitati?"
+        "local_storage": "Questa azione richiede localStorage, i cookie sono abilitati?",
+        "register_no_email_note": "L'utilizzo di un indirizzo e-mail come nome utente è sconsigliato. Continuare comunque?"
     }
 }

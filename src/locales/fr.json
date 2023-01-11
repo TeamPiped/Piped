@@ -12,7 +12,8 @@
         "instance": "Instance",
         "player": "Lecteur",
         "livestreams": "Diffusions en direct",
-        "channels": "Chaînes"
+        "channels": "Chaînes",
+        "bookmarks": "Marque-pages"
     },
     "actions": {
         "subscribe": "S'abonner - {count}",
@@ -116,7 +117,10 @@
         "minimize_comments": "Minimiser les commentaires",
         "show_watch_on_youtube": "Afficher le bouton Regarder sur YouTube",
         "minimize_chapters_default": "Minimiser les chapitres par défaut",
-        "no_valid_playlists": "Le fichier ne contient pas de listes de lecture valides !"
+        "no_valid_playlists": "Le fichier ne contient pas de listes de lecture valides !",
+        "bookmark_playlist": "Marque-page",
+        "playlist_bookmarked": "Dans les marque-pages",
+        "with_playlist": "Partager avec la liste de lecture"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
@@ -172,6 +176,7 @@
         "page_not_found": "Page non trouvée",
         "copied": "Copié !",
         "cannot_copy": "Impossible de copier !",
-        "local_storage": "Cette action nécessite localStorage, les cookies sont-ils activés ?"
+        "local_storage": "Cette action nécessite localStorage, les cookies sont-ils activés ?",
+        "register_no_email_note": "Il n'est pas recommandé d'utiliser une adresse courriel omme nom d'utilisateur. Continuer quand même ?"
     }
 }

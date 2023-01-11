@@ -173,6 +173,7 @@
         "page_not_found": "Seite nicht gefunden",
         "copied": "Kopiert!",
         "cannot_copy": "Kopieren nicht möglich!",
-        "local_storage": "Diese Aktion erfordert „localStorage“, sind Cookies aktiviert?"
+        "local_storage": "Diese Aktion erfordert „localStorage“, sind Cookies aktiviert?",
+        "register_no_email_note": "Es wird nicht empfohlen, eine E-Mail als Benutzernamen zu verwenden. Trotzdem weitermachen?"
     }
 }
