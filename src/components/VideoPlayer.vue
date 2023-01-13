@@ -543,7 +543,7 @@ export default {
                     player.addTextTrackAsync(
                         subtitle.url,
                         subtitle.code,
-                        "SUBTITLE",
+                        "subtitles",
                         subtitle.mimeType,
                         null,
                         subtitle.name,
