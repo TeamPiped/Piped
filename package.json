@@ -38,7 +38,7 @@
         "eslint": "8.31.0",
         "eslint-config-prettier": "8.6.0",
         "eslint-plugin-prettier": "4.2.1",
-        "eslint-plugin-vue": "9.8.0",
+        "eslint-plugin-vue": "9.9.0",
         "prettier": "2.8.2",
         "unocss": "0.48.3",
         "vite": "3.2.5",
