@@ -226,7 +226,7 @@ export default {
                 }
                 videoEl.currentTime = start;
                 this.initialSeekComplete = true;
-            } else if (window.db) {
+            } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
                 var request = store.get(this.video.id);

@@ -306,7 +306,7 @@ export default {
             (async () => {
                 const videoId = this.getVideoId();
                 const instance = this;
-                if (window.db && !this.video.error) {
+                if (window.db && this.getPreferenceBoolean("watchHistory", false) && !this.video.error) {
                     var tx = window.db.transaction("watch_history", "readwrite");
                     var store = tx.objectStore("watch_history");
                     var request = store.get(videoId);
