@@ -141,6 +141,7 @@ Contributions in any other form are also welcomed.
 -   [Yattee](https://github.com/yattee/yattee) - an alternative frontend for YouTube, for IOS.
 -   [LibreTube](https://github.com/Libre-tube/LibreTube) - an alternative frontend for YouTube, for Android.
 -   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - an alternative privacy respecting frontend for YouTube Music.
+-   [Musicale](https://github.com/Bellisario/musicale) - an alternative to YouTube Music, with style.
 
 ## YourKit
 
