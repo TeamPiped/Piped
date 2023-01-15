@@ -12,7 +12,8 @@
         "instance": "Instância",
         "player": "Reprodutor",
         "livestreams": "Transmissões ao vivo",
-        "channels": "Canais"
+        "channels": "Canais",
+        "bookmarks": "Marcadores"
     },
     "actions": {
         "sort_by": "Ordenar por:",
@@ -117,7 +118,9 @@
         "show_chapters": "Capítulos",
         "reply_count": "{count} respostas",
         "no_valid_playlists": "O ficheiro não contém listas de reprodução válidas!",
-        "with_playlist": "Partilhar com lista de reprodução"
+        "with_playlist": "Partilhar com lista de reprodução",
+        "playlist_bookmarked": "Marcado",
+        "bookmark_playlist": "Marcador"
     },
     "preferences": {
         "instance_name": "Nome da Instância",
@@ -170,6 +173,7 @@
         "cannot_copy": "Não foi possível copiar!",
         "page_not_found": "Página não encontrada",
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
-        "preferences_note": "Nota: as configurações são guardadas no armazenamento local to seu navegador. Eliminar os dados de navegação irá redefini-las."
+        "preferences_note": "Nota: as configurações são guardadas no armazenamento local to seu navegador. Eliminar os dados de navegação irá redefini-las.",
+        "register_no_email_note": "Não recomendamos utilizar um endereço de email como nome de utilizador. Continuar?"
     }
 }

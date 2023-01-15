@@ -12,7 +12,8 @@
         "instance": "Nümunə",
         "player": "Oynadıcı",
         "livestreams": "Canlı yayımlar",
-        "channels": "Kanallar"
+        "channels": "Kanallar",
+        "bookmarks": "Əlfəcinlər"
     },
     "player": {
         "watch_on": "{0} saytında bax"
@@ -120,7 +121,9 @@
         "minimize_chapters_default": "Defolt olaraq bölmələri kiçilt",
         "show_watch_on_youtube": "YouTube-da Baxış düyməsini göstər",
         "no_valid_playlists": "Faylda etibarlı pleylistlər yoxdur!",
-        "with_playlist": "Pleylistlə paylaş"
+        "with_playlist": "Pleylistlə paylaş",
+        "bookmark_playlist": "Əlfəcin",
+        "playlist_bookmarked": "Əlfəcinləndi"
     },
     "comment": {
         "pinned_by": "Tərəfindən Sabitləndi {author}",
@@ -173,6 +176,7 @@
         "page_not_found": "Səhifə tapılmadı",
         "copied": "Kopyalandı!",
         "cannot_copy": "Kopyalanmır!",
-        "local_storage": "Bu fəaliyyət localStorage tələb edir, məlumat bazası aktivdir?"
+        "local_storage": "Bu fəaliyyət localStorage tələb edir, məlumat bazası aktivdir?",
+        "register_no_email_note": "E-poçt-u istifadəçi adı kimi istifadə etmək tövsiyə edilmir. Baxmayaraq ki, davam edilsin?"
     }
 }

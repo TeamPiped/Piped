@@ -12,7 +12,8 @@
         "trending": "Tendéncias",
         "register": "S’inscriure",
         "subscriptions": "Abonaments",
-        "playlists": "Listas de lecturas"
+        "playlists": "Listas de lecturas",
+        "bookmarks": "Marcapaginas"
     },
     "player": {
         "watch_on": "Agachar sus {0}"
@@ -49,6 +50,33 @@
         "load_more_replies": "Cargar mai de responsas",
         "remove_from_playlist": "Levar de la lista de lectura",
         "add_to_playlist": "Apondre a la listra de lectura",
-        "minimize_comments": "Minimizar los comentaris"
+        "minimize_comments": "Minimizar los comentaris",
+        "theme": "Tèma",
+        "language_selection": "Seleccion de la lenga",
+        "loop_this_video": "Legir en bocla la vidèo",
+        "reset_preferences": "Restablir las preferéncias",
+        "auto": "Auto",
+        "dark": "Escur",
+        "light": "Clar",
+        "donations": "Don pel desvolopament",
+        "backup_preferences": "Salvagardar las preferéncias",
+        "share": "Partejar",
+        "documentation": "Documentacion",
+        "source_code": "Còdi font",
+        "restore_preferences": "Restablir las preferéncias"
+    },
+    "preferences": {
+        "instance_locations": "Localizacion de l’instància",
+        "registered_users": "Utilizaires inscriches"
+    },
+    "login": {
+        "username": "Nom d’utilizaire",
+        "password": "Senhal"
+    },
+    "video": {
+        "views": "{views} visualizacions"
+    },
+    "info": {
+        "preferences_note": "Nòta : las preferéncias son gardadas dins l’espaci d’emmagazinatge del navegador. La supression de las donadas del navegador las restablirà."
     }
 }
