@@ -108,7 +108,10 @@
         "minimize_comments_default": "Згортати коментарі за замовчуванням",
         "minimize_comments": "Згорнути коментарі",
         "delete_account": "Видалити Акаунт",
-        "no_valid_playlists": "Файл не містить дійсних плейлистів!"
+        "no_valid_playlists": "Файл не містить дійсних плейлистів!",
+        "bookmark_playlist": "Закладка",
+        "playlist_bookmarked": "Додано в закладки",
+        "with_playlist": "Поділитися зі списком відтворення"
     },
     "titles": {
         "register": "Реєстрація",
@@ -123,7 +126,8 @@
         "player": "Програвач",
         "account": "Акаунт",
         "livestreams": "Наживо",
-        "channels": "Канали"
+        "channels": "Канали",
+        "bookmarks": "Закладки"
     },
     "comment": {
         "pinned_by": "Прикріплено користувачем {author}",
@@ -169,6 +173,7 @@
         "cannot_copy": "Не вийшло скопіювати!",
         "page_not_found": "Сторінка не знайдена",
         "preferences_note": "Зауваження: налаштування зберігаються в локальному сховищі вашого браузера. Видалення даних браузере їх скине.",
-        "local_storage": "Ця дія потребує localStorage, чи ввімкнуті файли cookie?"
+        "local_storage": "Ця дія потребує localStorage, чи ввімкнуті файли cookie?",
+        "register_no_email_note": "Використання електронної пошти як імені користувача не рекомендується. Все одно продовжити?"
     }
 }

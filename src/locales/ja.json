@@ -12,7 +12,8 @@
         "player": "プレイヤー",
         "instance": "インスタンス",
         "channels": "チャンネル",
-        "livestreams": "ライブ配信"
+        "livestreams": "ライブ配信",
+        "bookmarks": "ブックマーク"
     },
     "player": {
         "watch_on": "{0}で見る"
@@ -119,7 +120,9 @@
         "reply_count": "{count} 件の返信",
         "clone_playlist": "プレイリストを複製",
         "minimize_comments_default": "デフォルトでコメントを最小化する",
-        "no_valid_playlists": "ファイルに有効なプレイリストが含まれていません。"
+        "no_valid_playlists": "ファイルに有効なプレイリストが含まれていません。",
+        "playlist_bookmarked": "ブックマーク完了",
+        "bookmark_playlist": "ブックマーク"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -166,7 +169,8 @@
         "copied": "コピーしました！",
         "cannot_copy": "コピーできません！",
         "preferences_note": "注意: 設定はブラウザのローカルストレージに保存されます。ブラウザのデータを削除するとリセットされます。",
-        "local_storage": "この操作にはlocalStorageが必要です。Cookieは有効ですか？"
+        "local_storage": "この操作にはlocalStorageが必要です。Cookieは有効ですか？",
+        "register_no_email_note": "Eメールアドレスをユーザー名として使用することは推奨されていません。それでも続行しますか？"
     },
     "subscriptions": {
         "subscribed_channels_count": "チャンネル登録: {0}"
