@@ -12,7 +12,8 @@
         "channels": "නාලිකා",
         "playlists": "ධාවන ලැයිස්තු",
         "instance": "සේවාදායකය",
-        "bookmarks": "පොත් සලකුණු"
+        "bookmarks": "පොත් සලකුණු",
+        "feed": "නවතම"
     },
     "actions": {
         "subscribe": "දායකවන්න - {count}",
@@ -22,7 +23,7 @@
         "channel_name_asc": "නාලිකාවේ නම (A-Z)",
         "channel_name_desc": "නාලිකාවේ නම (Z-A)",
         "back": "ආපසු",
-        "skip_sponsors": "අනුග්රහ මඟ හරින්න",
+        "skip_sponsors": "අනුග්‍රහ මඟ හරින්න",
         "skip_outro": "අවසන් කාඩ්පත/දායක ලැයිස්තුව මඟ හරින්න",
         "skip_preview": "පෙරදසුන/සාරාංශය මඟ හරින්න",
         "skip_self_promo": "නොගෙවූ/ස්වයං ප්‍රවර්ධන මඟ හරින්න",
@@ -118,7 +119,8 @@
         "no_valid_playlists": "ගොනුවේ වලංගු ධාවන ලැයිස්තු අඩංගු නොවේ!",
         "playlist_bookmarked": "පොත් සලකුණු කර ඇත",
         "enable_lbry_proxy": "LBRY සඳහා Proxy සබල කරන්න",
-        "different_auth_instance": "සත්‍යතාව තහවුරු කිරීම සඳහා වෙනත් සේවාදායකයක් භාවිතා කරන්න"
+        "different_auth_instance": "සත්‍යතාව තහවුරු කිරීම සඳහා වෙනත් සේවාදායකයක් භාවිතා කරන්න",
+        "hide_watched": "නවතම කොටසෙහි නැරඹූ වීඩියෝ සඟවන්න"
     },
     "player": {
         "watch_on": "{0} එකේ නරඹන්න"
