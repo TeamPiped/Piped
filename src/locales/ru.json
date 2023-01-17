@@ -12,7 +12,8 @@
         "player": "Плеер",
         "instance": "Сервер",
         "livestreams": "Прямые трансляции",
-        "channels": "Каналы"
+        "channels": "Каналы",
+        "bookmarks": "Закладки"
     },
     "player": {
         "watch_on": "Смотреть на {0}"
@@ -120,7 +121,9 @@
         "show_watch_on_youtube": "Показать кнопку Смотреть на YouTube",
         "minimize_chapters_default": "Скрывать главы по умолчанию",
         "no_valid_playlists": "Файл не содержит действительных списков воспроизведения!",
-        "with_playlist": "Поделиться с плейлистом"
+        "with_playlist": "Поделиться с плейлистом",
+        "bookmark_playlist": "Закладка",
+        "playlist_bookmarked": "В закладках"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем {author}",
@@ -170,6 +173,7 @@
         "copied": "Скопировано!",
         "cannot_copy": "Не получилось скопировать!",
         "page_not_found": "Страница не найдена",
-        "local_storage": "Это действие требует локального хранилища (localStorage), разрешены ли файлы cookie?"
+        "local_storage": "Это действие требует локального хранилища (localStorage), разрешены ли файлы cookie?",
+        "register_no_email_note": "Использование электронной почты в качестве имени пользователя не рекомендуется. Продолжить?"
     }
 }
