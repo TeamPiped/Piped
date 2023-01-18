@@ -71,6 +71,7 @@ export default {
         uploader: { type: String, default: null },
         videoId: { type: String, default: null },
     },
+    emits: ["seek"],
     data() {
         return {
             loadingReplies: false,
@@ -78,6 +79,21 @@ export default {
             replies: [],
             nextpage: null,
         };
+    },
+    mounted() {
+        const thisComment = this;
+        this.$el.querySelectorAll("a").forEach(elem => {
+            if (elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/)) {
+                elem.addEventListener("click", function (event) {
+                    if (!event || !event.target) return;
+                    if (!event.target.getAttribute("href").match(/(?<=t=)\d{1,}/)) return;
+
+                    const time = parseInt(event.target.getAttribute("href").match(/(?<=t=)\d{1,}/)[0]);
+                    thisComment.$emit("seek", time);
+                    event.preventDefault();
+                });
+            }
+        });
     },
     methods: {
         async loadReplies() {

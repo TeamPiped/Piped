@@ -186,6 +186,7 @@
                     :comment="comment"
                     :uploader="video.uploader"
                     :video-id="getVideoId()"
+                    @seek="navigate"
                 />
             </div>
 
