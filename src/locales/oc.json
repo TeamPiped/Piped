@@ -114,20 +114,66 @@
         "download_as_txt": "Telecargar coma .txt",
         "copy_link": "Copiar lo ligam",
         "time_code": "Moment (en segondas)",
-        "store_search_history": "Gardar l’istoric de recèrca"
+        "store_search_history": "Gardar l’istoric de recèrca",
+        "confirm_reset_preferences": "Volètz vertadièrament reïnicializar las preferéncias ?",
+        "hide_watched": "Rescondre las vidèos vistas al flux",
+        "reply_count": "{count} responsas",
+        "with_playlist": "Partejar amb una lista de lectura",
+        "playlist_bookmarked": "Marcat",
+        "bookmark_playlist": "Marcapagina",
+        "status_page": "Estat",
+        "no_valid_playlists": "Lo fichièr conten pas cap de lista de lectura valida !",
+        "instance_donations": "Dons d’instància"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
-        "registered_users": "Utilizaires inscriches"
+        "registered_users": "Utilizaires inscriches",
+        "instance_name": "Nom de l’instància",
+        "has_cdn": "A un CDN ?",
+        "version": "Version",
+        "up_to_date": "Actualizat ?",
+        "ssl_score": "Marca SSL"
     },
     "login": {
         "username": "Nom d’utilizaire",
         "password": "Senhal"
     },
     "video": {
-        "views": "{views} visualizacions"
+        "views": "{views} visualizacions",
+        "watched": "Vista",
+        "ratings_disabled": "Avaloracions desactivadas",
+        "sponsor_segments": "Segments de sponsors",
+        "live": "{0} en dirècte",
+        "shorts": "Corts",
+        "chapters": "Capítols",
+        "videos": "Vidèos"
     },
     "info": {
-        "preferences_note": "Nòta : las preferéncias son gardadas dins l’espaci d’emmagazinatge del navegador. La supression de las donadas del navegador las restablirà."
+        "preferences_note": "Nòta : las preferéncias son gardadas dins l’espaci d’emmagazinatge del navegador. La supression de las donadas del navegador las restablirà.",
+        "copied": "Copiat !",
+        "page_not_found": "Pagina pas trobada",
+        "cannot_copy": "Còpia impossibla !",
+        "local_storage": "Aquesta accion requerís lo localStorage, son activats los cookies ?",
+        "register_no_email_note": "Es pas recomandat d’utilizar una adreça electronica coma nom d’utilizaire. Contunhar çaquelà ?"
+    },
+    "comment": {
+        "disabled": "L’autor a desactivat los comentaris.",
+        "loading": "Cargament dels comentaris…",
+        "user_disabled": "Los comentaris son desactivats als paramètres.",
+        "pinned_by": "Penjat per {author}"
+    },
+    "search": {
+        "did_you_mean": "Voliatz dire : {0} ?",
+        "channels": "YouTube : Canals",
+        "videos": "YouTube : Vidèos",
+        "all": "YouTube : Tot",
+        "playlists": "YouTube : Listas de lectura",
+        "music_songs": "YT Music : Cançons",
+        "music_videos": "YT Music : Vidèos",
+        "music_albums": "YT Music : Albums",
+        "music_playlists": "YT Music : Listas de lectura"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Abonat a : {0}"
     }
 }
