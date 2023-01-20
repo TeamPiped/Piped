@@ -115,7 +115,8 @@
         "invalidate_session": "Ffeɣ seg meṛṛa ibenkan",
         "different_auth_instance": "Seqdec tummant tayeḍ i usesteb",
         "download_as_txt": "Sader am.txt",
-        "piped_link": "Aseɣwen n Piped"
+        "piped_link": "Aseɣwen n Piped",
+        "clone_playlist": "Tabdart n tɣuri yemtawan"
     },
     "preferences": {
         "version": "Lqem",

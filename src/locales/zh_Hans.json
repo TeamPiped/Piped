@@ -46,7 +46,7 @@
         "sort_by": "排序：",
         "view_subscriptions": "查看订阅",
         "unsubscribe": "取消订阅 - {count}",
-        "subscribe": "订购 - {count}",
+        "subscribe": "订阅 - {count}",
         "loading": "正在加载...",
         "filter": "筛选",
         "search": "搜索",
@@ -101,7 +101,10 @@
         "minimize_comments_default": "默认最小化评论",
         "show_watch_on_youtube": "显示“在 YouTube 上观看”按钮",
         "minimize_chapters_default": "默认最小化章节",
-        "no_valid_playlists": "此文件不含无效的播放列表！"
+        "no_valid_playlists": "此文件不包含有效的播放列表!",
+        "with_playlist": "分享播放列表",
+        "playlist_bookmarked": "已加入书签",
+        "bookmark_playlist": "书签"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -144,7 +147,8 @@
         "instance": "实例",
         "player": "播放器",
         "livestreams": "直播",
-        "channels": "频道"
+        "channels": "频道",
+        "bookmarks": "书签"
     },
     "login": {
         "password": "密码",
@@ -172,6 +176,7 @@
         "page_not_found": "未找到页面",
         "copied": "已复制！",
         "cannot_copy": "无法复制！",
-        "local_storage": "此操作需要 localStorage，启用 cookie 了吗？"
+        "local_storage": "此操作需要本地存储，是否启用了Cookie？",
+        "register_no_email_note": "不建议使用电子邮件作为用户名。仍要继续吗？"
     }
 }
