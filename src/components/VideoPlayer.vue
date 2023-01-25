@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import("shaka-player/dist/controls.css");
+import "shaka-player/dist/controls.css";
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
 if (!window.muxjs) {
     import("mux.js").then(muxjs => {
