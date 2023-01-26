@@ -336,6 +336,7 @@ export default {
         this.getPlaylistData();
         this.getSponsors();
         if (!this.isEmbed && this.showComments) this.getComments();
+        window.addEventListener("click", this.handleClick);
         window.addEventListener("resize", () => {
             this.smallView = this.smallViewQuery.matches;
         });
@@ -359,6 +360,7 @@ export default {
     },
     unmounted() {
         window.removeEventListener("scroll", this.handleScroll);
+        window.removeEventListener("click", this.handleClick);
     },
     methods: {
         fetchVideo() {
@@ -510,6 +512,19 @@ export default {
                 if (!this.handleLocalSubscriptions(this.channelId)) return;
             }
             this.subscribed = !this.subscribed;
+        },
+        handleClick(event) {
+            if (!event || !event.target) return;
+            var target = event.target;
+            if (
+                !target.nodeName == "A" ||
+                !target.getAttribute("href") ||
+                !target.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/)
+            )
+                return;
+            const time = parseInt(target.getAttribute("href").match(/(?<=t=)\d+/)[0]);
+            this.navigate(time);
+            event.preventDefault();
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
