@@ -345,7 +345,7 @@ export default {
                 !target.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/)
             )
                 return;
-            const time = parseInt(event.target.getAttribute("href").match(/(?<=t=)\d+/)[0]);
+            const time = parseInt(target.getAttribute("href").match(/(?<=t=)\d+/)[0]);
             this.navigate(time);
             event.preventDefault();
         });
