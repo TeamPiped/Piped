@@ -22,7 +22,7 @@ export default defineConfig({
             registerType: "autoUpdate",
             workbox: {
                 globPatterns: ["**/*.{js,css,html,ico,svg,png}", "manifest.webmanifest"],
-                globIgnores: ["**/*legacy.*.js"],
+                globIgnores: ["**/*-legacy-*.js"],
                 runtimeCaching: [
                     {
                         urlPattern: /https:\/\/[a-zA-Z./0-9_]*\.(?:otf|ttf)/i,
