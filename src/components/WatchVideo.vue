@@ -186,7 +186,6 @@
                     :comment="comment"
                     :uploader="video.uploader"
                     :video-id="getVideoId()"
-                    @seek="navigate"
                 />
             </div>
 
@@ -337,6 +336,19 @@ export default {
         this.getPlaylistData();
         this.getSponsors();
         if (!this.isEmbed && this.showComments) this.getComments();
+        window.addEventListener("click", event => {
+            if (!event || !event.target) return;
+            var target = event.target;
+            if (
+                !target.nodeName == "A" ||
+                !target.getAttribute("href") ||
+                !target.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/)
+            )
+                return;
+            const time = parseInt(event.target.getAttribute("href").match(/(?<=t=)\d+/)[0]);
+            this.navigate(time);
+            event.preventDefault();
+        });
         window.addEventListener("resize", () => {
             this.smallView = this.smallViewQuery.matches;
         });
