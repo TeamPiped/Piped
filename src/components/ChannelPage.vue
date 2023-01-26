@@ -224,10 +224,13 @@ export default {
         },
         loadTab(index) {
             this.selectedTab = index;
+            this.appendQueryToUrl("tab", this.tabs[index].name ?? "videos");
+
             if (index == 0) {
                 this.contentItems = this.channel.relatedStreams;
                 return;
             }
+
             if (this.tabs[index].content) {
                 this.contentItems = this.tabs[index].content;
                 return;
