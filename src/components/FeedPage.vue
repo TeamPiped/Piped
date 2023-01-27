@@ -63,7 +63,7 @@ export default {
             this.updateWatched(this.videos);
         });
 
-        this.selectedFilter = this.$route.query.filter ?? this.getPreferenceString("feedFilter") ?? "all";
+        this.selectedFilter = this.getPreferenceString("feedFilter") ?? "all";
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
