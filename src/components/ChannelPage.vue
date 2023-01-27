@@ -224,7 +224,11 @@ export default {
         },
         loadTab(index) {
             this.selectedTab = index;
-            this.appendQueryToUrl("tab", this.tabs[index].name ?? "videos");
+
+            // update the tab query in the url path
+            const url = new URL(window.location);
+            url.searchParams.set("tab", this.tabs[index].name ?? "videos");
+            window.history.replaceState(window.history.state, "", url);
 
             if (index == 0) {
                 this.contentItems = this.channel.relatedStreams;
