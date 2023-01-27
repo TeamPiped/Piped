@@ -99,13 +99,13 @@ export default {
             }
         },
         shouldShowVideo(video) {
-            switch (this.selectedFilter) {
-                case "all":
-                    return true;
+            switch (this.selectedFilter.toLowerCase()) {
+                case "shorts":
+                    return video.isShort;
                 case "videos":
                     return !video.isShort;
                 default:
-                    return video.isShort;
+                    return true;
             }
         },
         onFilterChange() {
