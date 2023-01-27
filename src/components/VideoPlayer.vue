@@ -557,6 +557,10 @@ export default {
                 videoEl.playbackRate = rate;
                 videoEl.defaultPlaybackRate = rate;
             });
+
+            // expand the player to fullscreen when the fullscreen query equals true
+            if (this.$route.query.fullscreen === "true" && !this.$ui.getControls().isFullScreenEnabled())
+                this.$ui.getControls().toggleFullScreen();
         },
         async updateProgressDatabase(time) {
             // debounce
@@ -600,6 +604,8 @@ export default {
                         searchParams.set(param, params[param]);
                         break;
                 }
+            // save the fullscreen state
+            searchParams.set("fullscreen", this.$ui.getControls().isFullScreenEnabled());
             const paramStr = searchParams.toString();
             if (paramStr.length > 0) url += "&" + paramStr;
             this.$router.push(url);
