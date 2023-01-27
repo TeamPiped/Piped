@@ -152,7 +152,8 @@
         "watched": "Assistido",
         "ratings_disabled": "Avaliações Desativadas",
         "sponsor_segments": "Segmentos de Patrocinadores",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Todos"
     },
     "search": {
         "did_you_mean": "Você quis dizer: {0}?",
