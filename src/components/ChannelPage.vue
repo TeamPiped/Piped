@@ -136,10 +136,12 @@ export default {
                         this.tabs.push({
                             translatedName: this.$t("video.videos"),
                         });
+                        const tabQuery = this.$route.query.tab;
                         for (let i = 0; i < this.channel.tabs.length; i++) {
                             let tab = this.channel.tabs[i];
                             tab.translatedName = this.getTranslatedTabName(tab.name);
                             this.tabs.push(tab);
+                            if (tab.name === tabQuery) this.loadTab(i + 1);
                         }
                     }
                 });
@@ -222,10 +224,17 @@ export default {
         },
         loadTab(index) {
             this.selectedTab = index;
+
+            // update the tab query in the url path
+            const url = new URL(window.location);
+            url.searchParams.set("tab", this.tabs[index].name ?? "videos");
+            window.history.replaceState(window.history.state, "", url);
+
             if (index == 0) {
                 this.contentItems = this.channel.relatedStreams;
                 return;
             }
+
             if (this.tabs[index].content) {
                 this.contentItems = this.tabs[index].content;
                 return;
