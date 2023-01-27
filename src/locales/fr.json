@@ -133,7 +133,8 @@
         "ratings_disabled": "Évaluations désactivées",
         "chapters": "Chapitres",
         "live": "{0} en direct",
-        "shorts": "Courtes"
+        "shorts": "Courtes",
+        "all": "Tout"
     },
     "preferences": {
         "ssl_score": "Score SSL",
