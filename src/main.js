@@ -241,8 +241,8 @@ const mixin = {
             return localSubscriptions.join(",");
         },
         /* generate a temporary file and ask the user to download it */
-        download(text, filename, type) {
-            var file = new Blob([text], { type: type });
+        download(text, filename, mimeType) {
+            var file = new Blob([text], { type: mimeType });
 
             const elem = document.createElement("a");
 

@@ -4,6 +4,8 @@
     <div class="flex">
         <div>
             <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
+
+            <button class="btn mx-3" v-t="'actions.export_to_json'" @click="exportHistory" />
         </div>
 
         <div class="right-1">
@@ -70,6 +72,22 @@ export default {
                 store.clear();
             }
             this.videos = [];
+        },
+        exportHistory() {
+            const dateStr = new Date().toISOString().split(".")[0];
+            let json = {
+                format: "Piped",
+                version: 1,
+                playlists: [
+                    {
+                        name: `Piped History ${dateStr}`,
+                        type: "history",
+                        visibility: "private",
+                        videos: this.videos.map(video => "https://youtube.com" + video.url),
+                    },
+                ],
+            };
+            this.download(JSON.stringify(json), `piped_history_${dateStr}.json`, "application/json");
         },
     },
 };
