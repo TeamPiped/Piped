@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full min-h-screen px-1vw reset" :class="[theme]">
+    <div>
         <NavBar />
 
         <router-view v-slot="{ Component }">
@@ -13,10 +13,6 @@
 </template>
 
 <style>
-body {
-    @apply p-16rem;
-}
-
 /*Radius*/
 input,
 .btn,
