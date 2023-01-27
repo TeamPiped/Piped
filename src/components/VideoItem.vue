@@ -11,7 +11,7 @@
             }"
         >
             <img
-                class="w-full"
+                class="w-full aspect-video"
                 :src="item.thumbnail"
                 :alt="item.title"
                 :class="{ 'shorts-img': item.isShort }"
