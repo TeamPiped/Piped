@@ -7,6 +7,7 @@
     --efy_gap: 15rem;
     --efy_sidebar_button: right_middle, off;
     --efy_body_width: 100%;
+     --efy_body_padding: 15rem calc(15rem + var(--efy_gap));
     --efy_font_family: 'nunito', sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     --efy_audio_folder: ./efy/audio;
     --efy_folder: ./efy;
@@ -31,8 +32,18 @@
 
 /*Border*/ .modal-container, .video-grid>div {border: 1.5px solid var(--efy_bg1);}
 
-/*Text-Fill-Color: Text*/  p, .pp-mobile-nav a, .pp-mobile-nav p, .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-logo a, .pp-nav .pp-menu > * {-webkit-text-fill-color: var(--efy_text); text-decoration: none}
-/*Text-Fill-Color: Text2*/ .btn, .btn a, a.btn, .modal button {-webkit-text-fill-color: var(--efy_text2); text-decoration: none}
+/*Text-Fill-Color: Text*/  p, .pp-mobile-nav :is(a, p), .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-logo a, .pp-nav .pp-menu > * {
+    -webkit-text-fill-color: var(--efy_text)!important;
+    text-decoration: none;
+}
+
+/*Text-Fill-Color: Text2*/ .btn, .btn a, a.btn, .modal button {
+    -webkit-text-fill-color: var(--efy_text2);
+    text-decoration: none;
+    background-clip: unset!important;
+    -webkit-background-clip: unset!important;
+    -webkit-text-fill-color: var(--efy_text2)!important;
+}
 
 /*BG: efy*/ .btn, .pp-chapter-active, .pp-chapters .chapter:hover {background: var(--efy_color); background-clip: padding-box; color: var(--efy_text2)}
 
