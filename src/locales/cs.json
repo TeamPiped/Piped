@@ -152,7 +152,8 @@
         "ratings_disabled": "Hodnocení zakázáno",
         "chapters": "Kapitoly",
         "live": "{0} Živě",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Vše"
     },
     "search": {
         "did_you_mean": "Mysleli jste: {0}?",

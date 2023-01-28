@@ -133,7 +133,8 @@
         "ratings_disabled": "Derecelendirmeler Devre Dışı",
         "chapters": "Bölümler",
         "live": "{0} Canlı",
-        "shorts": "Kısa çekimler"
+        "shorts": "Kısa çekimler",
+        "all": "Tümü"
     },
     "preferences": {
         "ssl_score": "SSL Puanı",
