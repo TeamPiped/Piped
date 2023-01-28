@@ -152,7 +152,8 @@
         "ratings_disabled": "Reytinqlər Deaktivdir",
         "chapters": "Bölmələr",
         "live": "{0} Canlı",
-        "shorts": "Qısa"
+        "shorts": "Qısa",
+        "all": "Hamısı"
     },
     "search": {
         "did_you_mean": "Bunu nəzərdə tutursunuz: {0}?",
