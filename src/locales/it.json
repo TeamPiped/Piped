@@ -133,7 +133,8 @@
         "ratings_disabled": "Valutazioni disabilitate",
         "live": "{0} Diretta",
         "chapters": "Capitoli",
-        "shorts": "Short"
+        "shorts": "Short",
+        "all": "Tutti"
     },
     "preferences": {
         "ssl_score": "Valutazione SSL",

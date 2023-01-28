@@ -152,7 +152,8 @@
         "ratings_disabled": "Penilaian Dinonaktifkan",
         "chapters": "Bagian",
         "live": "{0} Langsung",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Semua"
     },
     "search": {
         "did_you_mean": "Apakah Anda bermaksud: {0}?",
