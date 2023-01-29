@@ -114,7 +114,8 @@
         "live": "{0} 直播",
         "chapters": "章节",
         "ratings_disabled": "已禁用评价",
-        "shorts": "短视频"
+        "shorts": "短视频",
+        "all": "全部"
     },
     "preferences": {
         "ssl_score": "SSL 分数",
