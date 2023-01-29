@@ -146,7 +146,8 @@
         "live": "{0} en dirècte",
         "shorts": "Corts",
         "chapters": "Capítols",
-        "videos": "Vidèos"
+        "videos": "Vidèos",
+        "all": "Totas"
     },
     "info": {
         "preferences_note": "Nòta : las preferéncias son gardadas dins l’espaci d’emmagazinatge del navegador. La supression de las donadas del navegador las restablirà.",
