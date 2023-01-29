@@ -143,7 +143,8 @@
         "ratings_disabled": "Classificações Desactivadas",
         "chapters": "Capítulos",
         "live": "{0} em Direto",
-        "shorts": "\"Shorts\""
+        "shorts": "\"Shorts\"",
+        "all": "Todos"
     },
     "search": {
         "did_you_mean": "Será que querias dizer: {0}?",
