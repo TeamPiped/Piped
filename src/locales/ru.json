@@ -152,7 +152,8 @@
         "ratings_disabled": "Оценки отключены",
         "live": "{0} В эфире",
         "chapters": "Содержание",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Все"
     },
     "search": {
         "did_you_mean": "Может быть вы имели в виду: {0}?",
