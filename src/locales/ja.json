@@ -101,7 +101,7 @@
         "minimize_recommendations_default": "デフォルトでおすすめを最小化する",
         "hide_watched": "再生済みの動画をフィードに表示しない",
         "minimize_chapters_default": "デフォルトでチャプターを最小化する",
-        "show_watch_on_youtube": "\"YouTubeで見る\"ボタンを表示する",
+        "show_watch_on_youtube": "「YouTubeで見る」ボタンを表示する",
         "invalidate_session": "すべてのデバイスでログアウトする",
         "instance_auth_selection": "認証インスタンスの選択",
         "clone_playlist_success": "複製に成功しました！",
@@ -113,14 +113,14 @@
         "documentation": "ドキュメント",
         "reset_preferences": "設定をリセット",
         "confirm_reset_preferences": "設定をリセットしますか？",
-        "rename_playlist": "プレイリスト名を変更する",
+        "rename_playlist": "再生リスト名を変更する",
         "piped_link": "Pipedリンク",
-        "new_playlist_name": "新しいプレイリスト名",
+        "new_playlist_name": "新しい再生リスト名",
         "follow_link": "リンクに従う",
         "reply_count": "{count} 件の返信",
-        "clone_playlist": "プレイリストを複製",
+        "clone_playlist": "再生リストを複製",
         "minimize_comments_default": "デフォルトでコメントを最小化する",
-        "no_valid_playlists": "ファイルに有効なプレイリストが含まれていません。",
+        "no_valid_playlists": "ファイルに有効な再生リストが含まれていません。",
         "playlist_bookmarked": "ブックマーク完了",
         "bookmark_playlist": "ブックマーク"
     },
@@ -151,7 +151,8 @@
         "ratings_disabled": "評価は無効化されています",
         "chapters": "チャプター",
         "live": "{0} ライブ配信",
-        "shorts": "ショート"
+        "shorts": "ショート",
+        "all": "すべて"
     },
     "search": {
         "did_you_mean": "もしかして: {0}？",
