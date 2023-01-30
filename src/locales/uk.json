@@ -152,7 +152,8 @@
         "ratings_disabled": "Оцінки вимкнені",
         "chapters": "Розділи",
         "live": "{0} Наживо",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Усі"
     },
     "search": {
         "did_you_mean": "Можливо, ви мали на увазі: {0}?",
