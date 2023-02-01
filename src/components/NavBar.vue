@@ -12,12 +12,12 @@
                 >
                     <linearGradient id="P" gradientUnits="userSpaceOnUse" />
                     <linearGradient id="g1" x1="-169.7" y1="426.7" x2="214.5" y2="352" href="#P">
-                        <stop stop-color="rgb(var(--efy_color1_var))" />
-                        <stop offset="1" stop-color="rgb(var(--efy_color2_var))" />
+                        <stop stop-color="hsl(var(--efy_color1_var))" />
+                        <stop offset="1" stop-color="hsl(var(--efy_color2_var))" />
                     </linearGradient>
                     <linearGradient id="g2" x1="-7.8" y1="303.4" x2="553.4" y2="194.3" href="#P">
-                        <stop stop-color="rgb(var(--efy_color1_var))" />
-                        <stop offset="1" stop-color="rgb(var(--efy_color2_var))" />
+                        <stop stop-color="hsl(var(--efy_color1_var))" />
+                        <stop offset="1" stop-color="hsl(var(--efy_color2_var))" />
                     </linearGradient>
                     <linearGradient id="g3" x1="45.4" y1="706.9" x2="13.5" y2="857.1" href="#P">
                         <stop offset=".2" stop-color="#493b32" />
