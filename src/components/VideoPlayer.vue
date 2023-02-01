@@ -88,7 +88,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.",
+                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,return",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -183,6 +183,9 @@ export default {
                             break;
                         case "shift+.":
                             self.$player.trickPlay(Math.min(videoEl.playbackRate + 0.25, 2));
+                            break;
+                        case "return":
+                            self.skipSegment(videoEl);
                             break;
                     }
                 },
@@ -361,17 +364,16 @@ export default {
                     this.$emit("timeupdate", time);
                     this.updateProgressDatabase(time);
                     if (this.sponsors && this.sponsors.segments) {
-                        this.sponsors.segments.map(segment => {
-                            if (!segment.skipped || this.selectedAutoLoop) {
-                                const end = segment.segment[1];
-                                if (time >= segment.segment[0] && time < end) {
-                                    console.log("Skipped segment at " + time);
-                                    videoEl.currentTime = end;
-                                    segment.skipped = true;
-                                    return;
-                                }
-                            }
+                        const segment = this.findCurrentSegment(time);
+                        const segmentUpdate = new CustomEvent("segmentupdate", {
+                            detail: {
+                                inSegment: !!segment,
+                            },
                         });
+                        videoEl.dispatchEvent(segmentUpdate);
+                        if (segment?.autoskip && (!segment.skipped || this.selectedAutoLoop)) {
+                            this.skipSegment(videoEl, segment);
+                        }
                     }
                 });
 
@@ -397,6 +399,17 @@ export default {
             }
 
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
+        },
+        findCurrentSegment(time) {
+            return this.sponsors?.segments?.find(s => time >= s.segment[0] && time < s.segment[1]);
+        },
+        skipSegment(videoEl, segment) {
+            const time = videoEl.currentTime;
+            if (!segment) segment = this.findCurrentSegment(time);
+            if (!segment) return;
+            console.log("Skipped segment at " + time);
+            videoEl.currentTime = segment.segment[1];
+            segment.skipped = true;
         },
         setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
             const url = "/watch?v=" + this.video.id;
@@ -442,6 +455,54 @@ export default {
 
                 shaka.ui.OverflowMenu.registerElement("open_new_tab", new OpenButton.Factory());
 
+                const videoPlayerComponent = this;
+
+                const SkipSegmentButton = class extends shaka.ui.Element {
+                    constructor(parent, controls) {
+                        super(parent, controls);
+
+                        // FIXME: this layout is by no means final,
+                        // I just needed something to test with.
+                        this.button_ = document.createElement("button");
+                        this.button_.classList.add("shaka-small-play-button");
+                        this.button_.classList.add("shaka-tooltip");
+                        this.button_.classList.add("shaka-hidden");
+                        this.button_.ariaPressed = "false";
+
+                        this.icon_ = document.createElement("i");
+                        this.icon_.classList.add("material-icons-round");
+                        this.icon_.textContent = "skip_next";
+                        this.button_.appendChild(this.icon_);
+
+                        const label = document.createElement("label");
+                        this.newTabNameSpan_ = document.createElement("span");
+                        this.newTabNameSpan_.classList.add("shaka-current-time");
+                        this.newTabNameSpan_.innerText = "Skip segment";
+                        label.appendChild(this.newTabNameSpan_);
+
+                        this.button_.appendChild(label);
+                        this.parent.appendChild(this.button_);
+
+                        this.eventManager.listen(this.button_, "click", () => {
+                            videoPlayerComponent.skipSegment(videoEl);
+                        });
+
+                        videoEl.addEventListener("segmentupdate", e => {
+                            const inSegment = e.detail.inSegment;
+                            if (inSegment) this.button_.classList.remove("shaka-hidden");
+                            else this.button_.classList.add("shaka-hidden");
+                        });
+                    }
+                };
+
+                SkipSegmentButton.Factory = class {
+                    create(rootElement, controls) {
+                        return new SkipSegmentButton(rootElement, controls);
+                    }
+                };
+
+                shaka.ui.Controls.registerElement("skip_segment", new SkipSegmentButton.Factory());
+
                 this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
                 const overflowMenuButtons = [
@@ -458,6 +519,17 @@ export default {
                 }
 
                 const config = {
+                    controlPanelElements: [
+                        "play_pause",
+                        "time_and_duration",
+                        "spacer",
+                        "skip_segment",
+                        "spacer",
+                        "mute",
+                        "volume",
+                        "fullscreen",
+                        "overflow_menu",
+                    ],
                     overflowMenuButtons: overflowMenuButtons,
                     seekBarColors: {
                         base: "rgba(255, 255, 255, 0.3)",
@@ -678,6 +750,11 @@ export default {
     },
     watch: {
         sponsors() {
+            const skipOptions = JSON.parse(this.getPreferenceString("skipOptions", "{}"));
+            this.sponsors?.segments?.forEach(segment => {
+                const option = skipOptions[segment.category];
+                segment.autoskip = option === undefined || option === "auto";
+            });
             if (this.getPreferenceBoolean("showMarkers", true)) {
                 this.shakaPromise.then(() => {
                     this.updateMarkers();

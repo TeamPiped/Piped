@@ -367,14 +367,20 @@ export default {
             return this.fetchJson(this.apiUrl() + "/streams/" + this.getVideoId());
         },
         async fetchSponsors() {
+            var selectedSkip = this.getPreferenceString(
+                "selectedSkip",
+                "sponsor,interaction,selfpromo,music_offtopic",
+            ).split(",");
+            const skipOptionsJSON = localStorage.getItem("skipOptions");
+            if (skipOptionsJSON !== null) {
+                const skipOptions = JSON.parse(skipOptionsJSON);
+                selectedSkip = Object.keys(skipOptions).filter(
+                    k => skipOptions[k] !== undefined && skipOptions[k] !== "no",
+                );
+            }
+
             return await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
-                category:
-                    '["' +
-                    this.getPreferenceString("selectedSkip", "sponsor,interaction,selfpromo,music_offtopic").replaceAll(
-                        ",",
-                        '","',
-                    ) +
-                    '"]',
+                category: JSON.stringify(selectedSkip),
             });
         },
         toggleComments() {

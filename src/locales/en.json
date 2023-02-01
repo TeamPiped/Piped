@@ -30,6 +30,8 @@
         "back": "Back",
         "uses_api_from": "Uses the API from ",
         "enable_sponsorblock": "Enable Sponsorblock",
+        "skip_button_only": "Show skip button",
+        "skip_automatically": "Automatically",
         "skip_sponsors": "Skip Sponsors",
         "skip_intro": "Skip Intermission/Intro Animation",
         "skip_outro": "Skip Endcards/Credits",
