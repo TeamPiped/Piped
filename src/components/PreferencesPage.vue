@@ -266,6 +266,16 @@
                 @change="onChange($event)"
             />
         </label>
+        <label class="pref" for="txtMinSegmentLength">
+            <strong v-t="'actions.min_segment_length'" />
+            <input
+                id="txtMinSegmentLength"
+                v-model="minSegmentLength"
+                class="input w-24"
+                type="text"
+                @change="onChange($event)"
+            />
+        </label>
     </div>
     <h2 class="text-center" v-t="'titles.instance'" />
     <label class="pref" for="ddlInstanceSelection">
@@ -395,6 +405,7 @@ export default {
             skipHighlight: "no",
             skipFiller: "no",
             showMarkers: true,
+            minSegmentLength: 0,
             selectedTheme: "dark",
             autoPlayVideo: true,
             listen: false,
@@ -551,6 +562,7 @@ export default {
             }
 
             this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
+            this.minSegmentLength = Math.max(Number(localStorage.getItem("minSegmentLength")), 0);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
             this.listen = this.getPreferenceBoolean("listen", false);
@@ -613,6 +625,7 @@ export default {
                 localStorage.setItem("skipOptions", JSON.stringify(skipOptions));
 
                 localStorage.setItem("showMarkers", this.showMarkers);
+                localStorage.setItem("minSegmentLength", this.minSegmentLength);
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
                 localStorage.setItem("listen", this.listen);

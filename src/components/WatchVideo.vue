@@ -379,9 +379,17 @@ export default {
                 );
             }
 
-            return await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
+            const sponsors = await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
                 category: JSON.stringify(selectedSkip),
             });
+
+            const minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
+            sponsors.segments = sponsors.segments.filter(segment => {
+                const length = segment.segment[1] - segment.segment[0];
+                return length >= minSegmentLength;
+            });
+
+            return sponsors;
         },
         toggleComments() {
             this.showComments = !this.showComments;

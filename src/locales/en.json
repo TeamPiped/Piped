@@ -42,6 +42,7 @@
         "skip_highlight": "Skip Highlight",
         "skip_filler_tangent": "Skip Filler Tangent",
         "show_markers": "Show Markers on Player",
+        "min_segment_length": "Minimum Segment Length (in seconds)",
         "theme": "Theme",
         "auto": "Auto",
         "dark": "Dark",
