@@ -20,7 +20,7 @@
         "mux.js": "6.2.0",
         "shaka-player": "4.3.4",
         "stream-browserify": "3.0.0",
-        "vue": "3.2.45",
+        "vue": "3.2.46",
         "vue-i18n": "9.2.2",
         "vue-router": "4.1.6",
         "xml-js": "1.6.11"
@@ -34,7 +34,7 @@
         "@unocss/transformer-variant-group": "0.49.2",
         "@vitejs/plugin-legacy": "3.0.2",
         "@vitejs/plugin-vue": "4.0.0",
-        "@vue/compiler-sfc": "3.2.45",
+        "@vue/compiler-sfc": "3.2.46",
         "eslint": "8.33.0",
         "eslint-config-prettier": "8.6.0",
         "eslint-plugin-prettier": "4.2.1",
