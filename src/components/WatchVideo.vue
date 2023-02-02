@@ -371,9 +371,8 @@ export default {
                 "selectedSkip",
                 "sponsor,interaction,selfpromo,music_offtopic",
             ).split(",");
-            const skipOptionsJSON = localStorage.getItem("skipOptions");
-            if (skipOptionsJSON !== null) {
-                const skipOptions = JSON.parse(skipOptionsJSON);
+            const skipOptions = this.getPreferenceJSON("skipOptions");
+            if (skipOptions !== null) {
                 selectedSkip = Object.keys(skipOptions).filter(
                     k => skipOptions[k] !== undefined && skipOptions[k] !== "no",
                 );

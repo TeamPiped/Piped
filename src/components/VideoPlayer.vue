@@ -750,7 +750,7 @@ export default {
     },
     watch: {
         sponsors() {
-            const skipOptions = JSON.parse(this.getPreferenceString("skipOptions", "{}"));
+            const skipOptions = this.getPreferenceJSON("skipOptions", {});
             this.sponsors?.segments?.forEach(segment => {
                 const option = skipOptions[segment.category];
                 segment.autoskip = option === undefined || option === "auto";

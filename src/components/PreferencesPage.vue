@@ -502,8 +502,8 @@ export default {
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
 
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
-            if (localStorage.getItem("skipOptions") !== null) {
-                const skipOptions = JSON.parse(localStorage.getItem("skipOptions"));
+            var skipOptions, skipList;
+            if ((skipOptions = this.getPreferenceJSON("skipOptions")) !== null) {
                 if (skipOptions.sponsor !== undefined) this.skipSponsor = skipOptions.sponsor;
                 if (skipOptions.intro !== undefined) this.skipIntro = skipOptions.intro;
                 if (skipOptions.outro !== undefined) this.skipOutro = skipOptions.outro;
@@ -513,8 +513,8 @@ export default {
                 if (skipOptions.music_offtopic !== undefined) this.skipMusicOffTopic = skipOptions.music_offtopic;
                 if (skipOptions.poi_highlight !== undefined) this.skipHighlight = skipOptions.poi_highlight;
                 if (skipOptions.filler !== undefined) this.skipFiller = skipOptions.filler;
-            } else if (localStorage.getItem("selectedSkip") !== null) {
-                var skipList = localStorage.getItem("selectedSkip").split(",");
+            } else if ((skipList = this.getPreferenceString("selectedSkip")) !== null) {
+                skipList = skipList.split(",");
                 this.skipSponsor =
                     this.skipIntro =
                     this.skipOutro =
@@ -562,7 +562,7 @@ export default {
             }
 
             this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
-            this.minSegmentLength = Math.max(Number(localStorage.getItem("minSegmentLength")), 0);
+            this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
             this.listen = this.getPreferenceBoolean("listen", false);
