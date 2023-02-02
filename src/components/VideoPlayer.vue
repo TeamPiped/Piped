@@ -6,6 +6,17 @@
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
+        <button
+            v-if="inSegment"
+            class="skip-segment-button"
+            type="button"
+            :aria-label="$t('actions.skip_segment')"
+            aria-pressed="false"
+            @click="onClickSkipSegment"
+        >
+            <span v-t="'actions.skip_segment'" />
+            <i class="material-icons-round">skip_next</i>
+        </button>
     </div>
 </template>
 
@@ -51,6 +62,7 @@ export default {
             lastUpdate: new Date().getTime(),
             initialSeekComplete: false,
             destroying: false,
+            inSegment: false,
         };
     },
     computed: {
@@ -365,12 +377,7 @@ export default {
                     this.updateProgressDatabase(time);
                     if (this.sponsors && this.sponsors.segments) {
                         const segment = this.findCurrentSegment(time);
-                        const segmentUpdate = new CustomEvent("segmentupdate", {
-                            detail: {
-                                inSegment: !!segment,
-                            },
-                        });
-                        videoEl.dispatchEvent(segmentUpdate);
+                        this.inSegment = !!segment;
                         if (segment?.autoskip && (!segment.skipped || this.selectedAutoLoop)) {
                             this.skipSegment(videoEl, segment);
                         }
@@ -402,6 +409,10 @@ export default {
         },
         findCurrentSegment(time) {
             return this.sponsors?.segments?.find(s => time >= s.segment[0] && time < s.segment[1]);
+        },
+        onClickSkipSegment() {
+            const videoEl = this.$refs.videoEl;
+            this.skipSegment(videoEl);
         },
         skipSegment(videoEl, segment) {
             const time = videoEl.currentTime;
@@ -455,54 +466,6 @@ export default {
 
                 shaka.ui.OverflowMenu.registerElement("open_new_tab", new OpenButton.Factory());
 
-                const videoPlayerComponent = this;
-
-                const SkipSegmentButton = class extends shaka.ui.Element {
-                    constructor(parent, controls) {
-                        super(parent, controls);
-
-                        // FIXME: this layout is by no means final,
-                        // I just needed something to test with.
-                        this.button_ = document.createElement("button");
-                        this.button_.classList.add("shaka-small-play-button");
-                        this.button_.classList.add("shaka-tooltip");
-                        this.button_.classList.add("shaka-hidden");
-                        this.button_.ariaPressed = "false";
-
-                        this.icon_ = document.createElement("i");
-                        this.icon_.classList.add("material-icons-round");
-                        this.icon_.textContent = "skip_next";
-                        this.button_.appendChild(this.icon_);
-
-                        const label = document.createElement("label");
-                        this.newTabNameSpan_ = document.createElement("span");
-                        this.newTabNameSpan_.classList.add("shaka-current-time");
-                        this.newTabNameSpan_.innerText = "Skip segment";
-                        label.appendChild(this.newTabNameSpan_);
-
-                        this.button_.appendChild(label);
-                        this.parent.appendChild(this.button_);
-
-                        this.eventManager.listen(this.button_, "click", () => {
-                            videoPlayerComponent.skipSegment(videoEl);
-                        });
-
-                        videoEl.addEventListener("segmentupdate", e => {
-                            const inSegment = e.detail.inSegment;
-                            if (inSegment) this.button_.classList.remove("shaka-hidden");
-                            else this.button_.classList.add("shaka-hidden");
-                        });
-                    }
-                };
-
-                SkipSegmentButton.Factory = class {
-                    create(rootElement, controls) {
-                        return new SkipSegmentButton(rootElement, controls);
-                    }
-                };
-
-                shaka.ui.Controls.registerElement("skip_segment", new SkipSegmentButton.Factory());
-
                 this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
                 const overflowMenuButtons = [
@@ -519,17 +482,6 @@ export default {
                 }
 
                 const config = {
-                    controlPanelElements: [
-                        "play_pause",
-                        "time_and_duration",
-                        "spacer",
-                        "skip_segment",
-                        "spacer",
-                        "mute",
-                        "volume",
-                        "fullscreen",
-                        "overflow_menu",
-                    ],
                     overflowMenuButtons: overflowMenuButtons,
                     seekBarColors: {
                         base: "rgba(255, 255, 255, 0.3)",
@@ -795,5 +747,35 @@ export default {
 .shaka-text-wrapper > span > span *:first-child:last-child {
     background-color: rgba(0, 0, 0, 0.6) !important;
     padding: 0.09em 0;
+}
+
+.skip-segment-button {
+    /* position button above player overlay */
+    z-index: 1000;
+
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+    right: 0;
+
+    background-color: rgb(0 0 0 / 0.5);
+    border: 2px rgba(255, 255, 255, 0.75) solid;
+    border-right: 0;
+    border-radius: 0.75em;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0.5em;
+
+    /* center text vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1.5em;
+}
+
+.skip-segment-button .material-icons-round {
+    font-size: 1.6em !important;
+    line-height: inherit !important;
 }
 </style>
