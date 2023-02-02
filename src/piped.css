@@ -1,7 +1,6 @@
 /*Global*/ @font-face {font-family: 'nunito'; src: url('../efy/nunito.woff2') format('truetype'); font-display: swap} @font-face {font-family: 'nunito'; src: url('../efy/nunito_bold.woff2') format('truetype'); font-weight: bold; font-display: swap}
 :root {
-    --efy_color1_var: 239, 68, 68;
-    --efy_color2_var: 220, 38, 38;
+    --efy_color: 0 84% 60%, 0 72% 51%; /*No JS Fallback*/ --efy_color1_var: 0 84% 60%; --efy_color2_var: 0 72% 51%;
     --efy_color_angle: 165deg;
     --efy_radius: 12rem;
     --efy_gap: 15rem;
@@ -15,9 +14,9 @@
 }
 /*Default Mode*/ [efy_mode=default] {
     --efy_scheme: dark;
-    --efy_bg_var: 255, 255, 255;
-    --efy_bg: rgb(15, 15, 15);
-    --efy_text: rgb(220, 220, 220);
+    --efy_bg_var: 0 0% 100%;
+    --efy_bg: hsl(0 0% 6%);
+    --efy_text: hsl(0 0% 86%);
 } /*Your code starts bellow*/
 
 /*BG 1*/ .comment, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
@@ -32,7 +31,7 @@
 
 /*Border*/ .modal-container, .video-grid>div {border: 1.5px solid var(--efy_bg1);}
 
-/*Text-Fill-Color: Text*/  p, .pp-mobile-nav :is(a, p), .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-logo a, .pp-nav .pp-menu > * {
+/*Text-Fill-Color: Text*/  p:not([efy_logo] p), .pp-mobile-nav :is(a, p), .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-logo a, .pp-nav .pp-menu > * {
     -webkit-text-fill-color: var(--efy_text)!important;
     text-decoration: none;
 }
@@ -144,6 +143,9 @@ table {margin-top: 0}
 .children\:ml-2>*, .ml-2 {margin-left: 10rem}
 
 .pp-mobile-btn {display: none; margin: 0!important; padding: 8rem 10rem}
+.btn, [role=button] {
+    border: 0;
+}
 
 /*Convergence*/
 @media (max-width: 990px) {

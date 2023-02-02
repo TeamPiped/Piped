@@ -462,7 +462,7 @@ export default {
                     seekBarColors: {
                         base: "rgba(255, 255, 255, 0.3)",
                         buffered: "rgba(255, 255, 255, 0.54)",
-                        played: "rgb(var(--efy_color1_var))",
+                        played: `hsl(var(--efy_color1_var))`,
                     },
                 };
 
