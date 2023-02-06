@@ -503,7 +503,7 @@ export default {
 
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
             var skipOptions, skipList;
-            if ((skipOptions = this.getPreferenceJSON("skipOptions")) !== null) {
+            if ((skipOptions = this.getPreferenceJSON("skipOptions")) !== undefined) {
                 if (skipOptions.sponsor !== undefined) this.skipSponsor = skipOptions.sponsor;
                 if (skipOptions.intro !== undefined) this.skipIntro = skipOptions.intro;
                 if (skipOptions.outro !== undefined) this.skipOutro = skipOptions.outro;
@@ -513,7 +513,7 @@ export default {
                 if (skipOptions.music_offtopic !== undefined) this.skipMusicOffTopic = skipOptions.music_offtopic;
                 if (skipOptions.poi_highlight !== undefined) this.skipHighlight = skipOptions.poi_highlight;
                 if (skipOptions.filler !== undefined) this.skipFiller = skipOptions.filler;
-            } else if ((skipList = this.getPreferenceString("selectedSkip")) !== null) {
+            } else if ((skipList = this.getPreferenceString("selectedSkip")) !== undefined) {
                 skipList = skipList.split(",");
                 this.skipSponsor =
                     this.skipIntro =

@@ -372,7 +372,7 @@ export default {
                 "sponsor,interaction,selfpromo,music_offtopic",
             ).split(",");
             const skipOptions = this.getPreferenceJSON("skipOptions");
-            if (skipOptions !== null) {
+            if (skipOptions !== undefined) {
                 selectedSkip = Object.keys(skipOptions).filter(
                     k => skipOptions[k] !== undefined && skipOptions[k] !== "no",
                 );
