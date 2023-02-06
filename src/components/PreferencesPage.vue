@@ -184,73 +184,9 @@
         />
     </label>
     <div v-if="sponsorBlock">
-        <label class="pref" for="ddlSkipSponsors">
-            <strong v-t="'actions.skip_sponsors'" />
-            <select id="ddlSkipSponsors" v-model="skipSponsor" class="select w-auto" @change="onChange($event)">
-                <option v-t="'actions.no'" value="no" />
-                <option v-t="'actions.skip_button_only'" value="button" />
-                <option v-t="'actions.skip_automatically'" value="auto" />
-            </select>
-        </label>
-        <label class="pref" for="ddlSkipIntro">
-            <strong v-t="'actions.skip_intro'" />
-            <select id="ddlSkipIntro" v-model="skipIntro" class="select w-auto" @change="onChange($event)">
-                <option v-t="'actions.no'" value="no" />
-                <option v-t="'actions.skip_button_only'" value="button" />
-                <option v-t="'actions.skip_automatically'" value="auto" />
-            </select>
-        </label>
-        <label class="pref" for="ddlSkipOutro">
-            <strong v-t="'actions.skip_outro'" />
-            <select id="ddlSkipOutro" v-model="skipOutro" class="select w-auto" @change="onChange($event)">
-                <option v-t="'actions.no'" value="no" />
-                <option v-t="'actions.skip_button_only'" value="button" />
-                <option v-t="'actions.skip_automatically'" value="auto" />
-            </select>
-        </label>
-        <label class="pref" for="ddlSkipPreview">
-            <strong v-t="'actions.skip_preview'" />
-            <select id="ddlSkipPreview" v-model="skipPreview" class="select w-auto" @change="onChange($event)">
-                <option v-t="'actions.no'" value="no" />
-                <option v-t="'actions.skip_button_only'" value="button" />
-                <option v-t="'actions.skip_automatically'" value="auto" />
-            </select>
-        </label>
-        <label class="pref" for="ddlSkipInteraction">
-            <strong v-t="'actions.skip_interaction'" />
-            <select id="ddlSkipInteraction" v-model="skipInteraction" class="select w-auto" @change="onChange($event)">
-                <option v-t="'actions.no'" value="no" />
-                <option v-t="'actions.skip_button_only'" value="button" />
-                <option v-t="'actions.skip_automatically'" value="auto" />
-            </select>
-        </label>
-        <label class="pref" for="ddlSkipSelfPromo">
-            <strong v-t="'actions.skip_self_promo'" />
-            <select id="ddlSkipSelfPromo" v-model="skipSelfPromo" class="select w-auto" @change="onChange($event)">
-                <option v-t="'actions.no'" value="no" />
-                <option v-t="'actions.skip_button_only'" value="button" />
-                <option v-t="'actions.skip_automatically'" value="auto" />
-            </select>
-        </label>
-        <label class="pref" for="ddlSkipNonMusic">
-            <strong v-t="'actions.skip_non_music'" />
-            <select id="ddlSkipNonMusic" v-model="skipMusicOffTopic" class="select w-auto" @change="onChange($event)">
-                <option v-t="'actions.no'" value="no" />
-                <option v-t="'actions.skip_button_only'" value="button" />
-                <option v-t="'actions.skip_automatically'" value="auto" />
-            </select>
-        </label>
-        <label class="pref" for="ddlSkipHighlight">
-            <strong v-t="'actions.skip_highlight'" />
-            <select id="ddlSkipHighlight" v-model="skipHighlight" class="select w-auto" @change="onChange($event)">
-                <option v-t="'actions.no'" value="no" />
-                <option v-t="'actions.skip_button_only'" value="button" />
-                <option v-t="'actions.skip_automatically'" value="auto" />
-            </select>
-        </label>
-        <label class="pref" for="ddlSkipFiller">
-            <strong v-t="'actions.skip_filler_tangent'" />
-            <select id="ddlSkipFiller" v-model="skipFiller" class="select w-auto" @change="onChange($event)">
+        <label v-for="[name, item] in skipOptions" class="pref" :for="'ddlSkip_' + name" :key="name">
+            <strong v-t="item.label" />
+            <select :id="'ddlSkip_' + name" v-model="item.value" class="select w-auto" @change="onChange($event)">
                 <option v-t="'actions.no'" value="no" />
                 <option v-t="'actions.skip_button_only'" value="button" />
                 <option v-t="'actions.skip_automatically'" value="auto" />
@@ -395,15 +331,17 @@ export default {
             selectedAuthInstance: null,
             instances: [],
             sponsorBlock: true,
-            skipSponsor: "auto",
-            skipIntro: "no",
-            skipOutro: "no",
-            skipPreview: "no",
-            skipInteraction: "auto",
-            skipSelfPromo: "auto",
-            skipMusicOffTopic: "auto",
-            skipHighlight: "no",
-            skipFiller: "no",
+            skipOptions: new Map([
+                ["sponsor", { value: "auto", label: "actions.skip_sponsors" }],
+                ["intro", { value: "no", label: "actions.skip_intro" }],
+                ["outro", { value: "no", label: "actions.skip_outro" }],
+                ["preview", { value: "no", label: "actions.skip_preview" }],
+                ["interaction", { value: "auto", label: "actions.skip_interaction" }],
+                ["selfpromo", { value: "auto", label: "actions.skip_self_promo" }],
+                ["music_offtopic", { value: "auto", label: "actions.skip_non_music" }],
+                ["poi_highlight", { value: "no", label: "actions.skip_highlight" }],
+                ["filler", { value: "no", label: "actions.skip_filler_tangent" }],
+            ]),
             showMarkers: true,
             minSegmentLength: 0,
             selectedTheme: "dark",
@@ -504,60 +442,18 @@ export default {
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
             var skipOptions, skipList;
             if ((skipOptions = this.getPreferenceJSON("skipOptions")) !== undefined) {
-                if (skipOptions.sponsor !== undefined) this.skipSponsor = skipOptions.sponsor;
-                if (skipOptions.intro !== undefined) this.skipIntro = skipOptions.intro;
-                if (skipOptions.outro !== undefined) this.skipOutro = skipOptions.outro;
-                if (skipOptions.preview !== undefined) this.skipPreview = skipOptions.preview;
-                if (skipOptions.interaction !== undefined) this.skipInteraction = skipOptions.interaction;
-                if (skipOptions.selfpromo !== undefined) this.skipSelfPromo = skipOptions.selfpromo;
-                if (skipOptions.music_offtopic !== undefined) this.skipMusicOffTopic = skipOptions.music_offtopic;
-                if (skipOptions.poi_highlight !== undefined) this.skipHighlight = skipOptions.poi_highlight;
-                if (skipOptions.filler !== undefined) this.skipFiller = skipOptions.filler;
+                Object.entries(skipOptions).forEach(([key, value]) => {
+                    var opt = this.skipOptions.get(key);
+                    if (opt !== undefined) opt.value = value;
+                    else console.log("Unknown sponsor type: " + key);
+                });
             } else if ((skipList = this.getPreferenceString("selectedSkip")) !== undefined) {
                 skipList = skipList.split(",");
-                this.skipSponsor =
-                    this.skipIntro =
-                    this.skipOutro =
-                    this.skipPreview =
-                    this.skipInteraction =
-                    this.skipSelfPromo =
-                    this.skipMusicOffTopic =
-                    this.skipHighlight =
-                    this.skipFiller =
-                        "no";
+                this.skipOptions.forEach(opt => (opt.value = "no"));
                 skipList.forEach(skip => {
-                    switch (skip) {
-                        case "sponsor":
-                            this.skipSponsor = "auto";
-                            break;
-                        case "intro":
-                            this.skipIntro = "auto";
-                            break;
-                        case "outro":
-                            this.skipOutro = "auto";
-                            break;
-                        case "preview":
-                            this.skipPreview = "auto";
-                            break;
-                        case "interaction":
-                            this.skipInteraction = "auto";
-                            break;
-                        case "selfpromo":
-                            this.skipSelfPromo = "auto";
-                            break;
-                        case "music_offtopic":
-                            this.skipMusicOffTopic = "auto";
-                            break;
-                        case "poi_highlight":
-                            this.skipHighlight = "auto";
-                            break;
-                        case "filler":
-                            this.skipFiller = "auto";
-                            break;
-                        default:
-                            console.log("Unknown sponsor type: " + skip);
-                            break;
-                    }
+                    var opt = this.skipOptions.get(skip);
+                    if (opt !== undefined) opt.value = "auto";
+                    else console.log("Unknown sponsor type: " + skip);
                 });
             }
 
@@ -611,17 +507,8 @@ export default {
                 localStorage.setItem("auth_instance_url", this.selectedAuthInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
 
-                const skipOptions = {
-                    sponsor: this.skipSponsor,
-                    intro: this.skipIntro,
-                    outro: this.skipOutro,
-                    preview: this.skipPreview,
-                    interaction: this.skipInteraction,
-                    selfpromo: this.skipSelfPromo,
-                    music_offtopic: this.skipMusicOffTopic,
-                    poi_highlight: this.skipHighlight,
-                    filler: this.skipFiller,
-                };
+                var skipOptions = {};
+                this.skipOptions.forEach((v, k) => (skipOptions[k] = v.value));
                 localStorage.setItem("skipOptions", JSON.stringify(skipOptions));
 
                 localStorage.setItem("showMarkers", this.showMarkers);
