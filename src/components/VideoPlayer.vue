@@ -771,6 +771,7 @@ export default {
     align-items: center;
     justify-content: center;
 
+    color: #fff;
     line-height: 1.5em;
 }
 
