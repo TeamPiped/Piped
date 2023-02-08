@@ -162,6 +162,15 @@ const mixin = {
                 return Number(value);
             } else return defaultVal;
         },
+        getPreferenceJSON(key, defaultVal) {
+            var value;
+            if (
+                (value = new URLSearchParams(window.location.search).get(key)) !== null ||
+                (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
+            ) {
+                return JSON.parse(value);
+            } else return defaultVal;
+        },
         apiUrl() {
             return this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
         },

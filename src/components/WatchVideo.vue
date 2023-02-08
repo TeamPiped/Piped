@@ -367,15 +367,28 @@ export default {
             return this.fetchJson(this.apiUrl() + "/streams/" + this.getVideoId());
         },
         async fetchSponsors() {
-            return await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
-                category:
-                    '["' +
-                    this.getPreferenceString("selectedSkip", "sponsor,interaction,selfpromo,music_offtopic").replaceAll(
-                        ",",
-                        '","',
-                    ) +
-                    '"]',
+            var selectedSkip = this.getPreferenceString(
+                "selectedSkip",
+                "sponsor,interaction,selfpromo,music_offtopic",
+            ).split(",");
+            const skipOptions = this.getPreferenceJSON("skipOptions");
+            if (skipOptions !== undefined) {
+                selectedSkip = Object.keys(skipOptions).filter(
+                    k => skipOptions[k] !== undefined && skipOptions[k] !== "no",
+                );
+            }
+
+            const sponsors = await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
+                category: JSON.stringify(selectedSkip),
             });
+
+            const minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
+            sponsors.segments = sponsors.segments.filter(segment => {
+                const length = segment.segment[1] - segment.segment[0];
+                return length >= minSegmentLength;
+            });
+
+            return sponsors;
         },
         toggleComments() {
             this.showComments = !this.showComments;
