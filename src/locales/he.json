@@ -123,7 +123,11 @@
         "no_valid_playlists": "הקובץ לא מכיל רשימות נגינה תקפות!",
         "with_playlist": "שיתוף עם רשימת נגינה",
         "playlist_bookmarked": "נוסף לסימניות",
-        "bookmark_playlist": "סימנייה"
+        "bookmark_playlist": "סימנייה",
+        "skip_button_only": "הצגת כפתור דילוג",
+        "min_segment_length": "אורך מקטע מזערי (בשניות)",
+        "skip_segment": "דילוג על מקטע",
+        "skip_automatically": "אוטומטית"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
