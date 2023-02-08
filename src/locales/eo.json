@@ -123,7 +123,11 @@
         "no_valid_playlists": "La dosiero ne enhavas validajn ludlistojn!",
         "with_playlist": "Konigi kun ludlisto",
         "playlist_bookmarked": "Legosignita",
-        "bookmark_playlist": "Legosigno"
+        "bookmark_playlist": "Legosigno",
+        "skip_automatically": "Aŭtomate",
+        "skip_button_only": "Montri preterpasi-butonon",
+        "min_segment_length": "Minimuma Segmenta Daŭro (en sekundoj)",
+        "skip_segment": "Preterpasi Segmenton"
     },
     "video": {
         "chapters": "Sekcioj",
