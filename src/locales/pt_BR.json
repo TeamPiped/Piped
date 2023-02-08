@@ -104,7 +104,11 @@
         "no_valid_playlists": "O arquivo não contém playlists válidas!",
         "with_playlist": "Compartilhar com playlist",
         "bookmark_playlist": "Favorito",
-        "playlist_bookmarked": "Favoritado"
+        "playlist_bookmarked": "Favoritado",
+        "skip_automatically": "Automaticamente",
+        "skip_segment": "Ignorar Segmento",
+        "min_segment_length": "Comprimento Mínimo do Segmento (em segundos)",
+        "skip_button_only": "Mostrar botão pular"
     },
     "titles": {
         "history": "Histórico",
