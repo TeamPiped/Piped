@@ -123,7 +123,11 @@
         "no_valid_playlists": "Faylda etibarlı pleylistlər yoxdur!",
         "with_playlist": "Pleylistlə paylaş",
         "bookmark_playlist": "Əlfəcin",
-        "playlist_bookmarked": "Əlfəcinləndi"
+        "playlist_bookmarked": "Əlfəcinləndi",
+        "skip_button_only": "Ötürmə düyməsin göstər",
+        "skip_automatically": "Avtomatik olaraq",
+        "min_segment_length": "Minimum Seqment Uzunluğu (saniyələrlə)",
+        "skip_segment": "Seqmenti ötür"
     },
     "comment": {
         "pinned_by": "Tərəfindən Sabitləndi {author}",

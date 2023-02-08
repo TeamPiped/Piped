@@ -104,7 +104,11 @@
         "no_valid_playlists": "Dosya geçerli oynatma listeleri içermiyor!",
         "with_playlist": "Oynatma listesiyle paylaş",
         "bookmark_playlist": "Yer imlerine ekle",
-        "playlist_bookmarked": "Yer imlerine eklendi"
+        "playlist_bookmarked": "Yer imlerine eklendi",
+        "min_segment_length": "En Küçük Bölüm Uzunluğu (saniye cinsinden)",
+        "skip_segment": "Bölümü Atla",
+        "skip_button_only": "Atla düğmesini göster",
+        "skip_automatically": "Otomatik olarak"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"

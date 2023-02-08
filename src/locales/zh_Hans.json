@@ -104,7 +104,11 @@
         "no_valid_playlists": "此文件不包含有效的播放列表!",
         "with_playlist": "分享播放列表",
         "playlist_bookmarked": "已加入书签",
-        "bookmark_playlist": "书签"
+        "bookmark_playlist": "书签",
+        "skip_automatically": "自动",
+        "min_segment_length": "最小分段长度（以秒为单位）",
+        "skip_segment": "跳过分段",
+        "skip_button_only": "显示跳过按钮"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
