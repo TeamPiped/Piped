@@ -122,7 +122,9 @@
         "playlist_bookmarked": "Marcado",
         "with_playlist": "Partilhar com lista de reprodução",
         "skip_button_only": "Mostrar botão saltar",
-        "skip_automatically": "Automaticamente"
+        "skip_automatically": "Automaticamente",
+        "min_segment_length": "Comprimento Mínimo do Segmento (em segundos)",
+        "skip_segment": "Saltar Segmento"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
