@@ -17,3 +17,20 @@ export async function decryptAESGCM(ciphertextArray, key) {
 
     return decrypted;
 }
+
+export async function generateKey() {
+    const algorithm = { name: "AES-GCM", length: 256 };
+    const key = await crypto.subtle.generateKey(algorithm, true, ["encrypt", "decrypt"]);
+
+    return await crypto.subtle.exportKey("raw", key);
+}
+
+export function encodeArrayToBase64(array) {
+    const chars = String.fromCharCode.apply(null, array);
+    return btoa(chars);
+}
+
+export function decodeBase64ToArray(base64) {
+    const chars = atob(base64);
+    return new Uint8Array(chars.split("").map(c => c.charCodeAt(0)));
+}
