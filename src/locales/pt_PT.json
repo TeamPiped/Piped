@@ -120,7 +120,9 @@
         "no_valid_playlists": "O ficheiro não contém listas de reprodução válidas!",
         "bookmark_playlist": "Marcador",
         "playlist_bookmarked": "Marcado",
-        "with_playlist": "Partilhar com lista de reprodução"
+        "with_playlist": "Partilhar com lista de reprodução",
+        "skip_button_only": "Mostrar botão saltar",
+        "skip_automatically": "Automaticamente"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
