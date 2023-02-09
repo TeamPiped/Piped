@@ -123,7 +123,11 @@
         "no_valid_playlists": "لا يحتوي الملف على قوائم تشغيل صالحة!",
         "with_playlist": "المشاركة مع قائمة التشغيل",
         "bookmark_playlist": "الاشاره المرجعيه",
-        "playlist_bookmarked": "تم وضعها في الاشارات المرجعية"
+        "playlist_bookmarked": "تم وضعها في الاشارات المرجعية",
+        "skip_button_only": "إظهار زر التخطي",
+        "skip_automatically": "تلقائيا",
+        "min_segment_length": "الحد الأدنى لطول الفصل (بالثواني)",
+        "skip_segment": "تخطي الجزء"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
