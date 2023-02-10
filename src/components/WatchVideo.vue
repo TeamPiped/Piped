@@ -383,7 +383,7 @@ export default {
             });
 
             const minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
-            sponsors.segments = sponsors.segments.filter(segment => {
+            sponsors.segments = sponsors.segments?.filter(segment => {
                 const length = segment.segment[1] - segment.segment[0];
                 return length >= minSegmentLength;
             });
