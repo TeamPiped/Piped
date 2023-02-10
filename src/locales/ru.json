@@ -123,7 +123,11 @@
         "no_valid_playlists": "Файл не содержит действительных списков воспроизведения!",
         "with_playlist": "Поделиться с плейлистом",
         "bookmark_playlist": "Закладка",
-        "playlist_bookmarked": "В закладках"
+        "playlist_bookmarked": "В закладках",
+        "skip_automatically": "Автоматически",
+        "min_segment_length": "Минимальная длина сегмента (в секундах)",
+        "skip_button_only": "Показать кнопку \"Пропустить\"",
+        "skip_segment": "Пропустить сегмент"
     },
     "comment": {
         "pinned_by": "Прикреплено пользователем {author}",
