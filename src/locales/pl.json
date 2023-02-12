@@ -123,7 +123,11 @@
         "no_valid_playlists": "Ten plik nie zawiera poprawnych playlist!",
         "with_playlist": "Udostępnij z playlistą",
         "playlist_bookmarked": "Dodano do zakładek",
-        "bookmark_playlist": "Zakładka"
+        "bookmark_playlist": "Zakładka",
+        "skip_button_only": "Pokaż przycisk pomijania",
+        "skip_automatically": "Automatycznie",
+        "min_segment_length": "Minimalna długość segmentu (w sekundach)",
+        "skip_segment": "Pomiń segment"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
@@ -152,7 +156,8 @@
         "ratings_disabled": "Ocenianie wyłączone",
         "chapters": "Rozdziały",
         "live": "{0} Na żywo",
-        "shorts": "Krótkie wideo"
+        "shorts": "Krótkie wideo",
+        "all": "Wszystkie"
     },
     "search": {
         "did_you_mean": "Czy chodziło ci o: {0}?",
