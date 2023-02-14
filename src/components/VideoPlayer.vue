@@ -51,6 +51,7 @@ export default {
             lastUpdate: new Date().getTime(),
             initialSeekComplete: false,
             destroying: false,
+            nextVideo: null,
         };
     },
     computed: {
@@ -395,6 +396,7 @@ export default {
                     }
                 });
             }
+            this.setNextVideo();
 
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
@@ -585,9 +587,50 @@ export default {
                 this.$refs.videoEl.currentTime = time;
             }
         },
+        async getWatchedRelatedVideos() {
+            var tx = window.db.transaction("watch_history", "readwrite");
+            var store = tx.objectStore("watch_history");
+            const results = [];
+            for (let i = 0; i < this.video.relatedStreams.length; i++) {
+                const video = this.video.relatedStreams[i];
+                const id = video.url.replace("/watch?v=", "");
+                const request = store.get(id);
+                results.push(request);
+            }
+            const data = results.map(result => {
+                return new Promise(resolve => {
+                    result.onsuccess = function (event) {
+                        const video = event.target.result;
+                        resolve(video);
+                    };
+                    result.onerror = function () {
+                        resolve(null);
+                    };
+                });
+            });
+            return Promise.all(data);
+        },
+        async setNextVideo() {
+            const data = (await this.getWatchedRelatedVideos()).filter(video => video);
+            for (let i = 0; i < this.video.relatedStreams.length; i++) {
+                const video = this.video.relatedStreams[i];
+                const id = video.url.replace("/watch?v=", "");
+                const watched = data.find(video => video.videoId === id);
+                if (!watched) {
+                    if (video.uploaderUrl === this.video.uploaderUrl) {
+                        this.nextVideo = video;
+                        return;
+                    }
+                    this.nextVideo = video;
+                    return;
+                }
+                this.nextVideo = this.video.relatedStreams[0];
+            }
+        },
         navigateNext() {
             const params = this.$route.query;
-            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            const relatedUrl = this.nextVideo?.url ?? this.video.relatedStreams[0].url;
+            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? relatedUrl;
             const searchParams = new URLSearchParams();
             for (var param in params)
                 switch (param) {
