@@ -203,83 +203,13 @@
         />
     </label>
     <div v-if="sponsorBlock">
-        <label class="pref" for="chkSkipSponsors">
-            <strong v-t="'actions.skip_sponsors'" />
-            <input
-                id="chkSkipSponsors"
-                v-model="skipSponsor"
-                class="checkbox"
-                type="checkbox"
-                @change="onChange($event)"
-            />
-        </label>
-        <label class="pref" for="chkSkipIntro">
-            <strong v-t="'actions.skip_intro'" />
-            <input id="chkSkipIntro" v-model="skipIntro" class="checkbox" type="checkbox" @change="onChange($event)" />
-        </label>
-        <label class="pref" for="chkSkipOutro">
-            <strong v-t="'actions.skip_outro'" />
-            <input id="chkSkipOutro" v-model="skipOutro" class="checkbox" type="checkbox" @change="onChange($event)" />
-        </label>
-        <label class="pref" for="chkSkipPreview">
-            <strong v-t="'actions.skip_preview'" />
-            <input
-                id="chkSkipPreview"
-                v-model="skipPreview"
-                class="checkbox"
-                type="checkbox"
-                @change="onChange($event)"
-            />
-        </label>
-        <label class="pref" for="chkSkipInteraction">
-            <strong v-t="'actions.skip_interaction'" />
-            <input
-                id="chkSkipInteraction"
-                v-model="skipInteraction"
-                class="checkbox"
-                type="checkbox"
-                @change="onChange($event)"
-            />
-        </label>
-        <label class="pref" for="chkSkipSelfPromo">
-            <strong v-t="'actions.skip_self_promo'" />
-            <input
-                id="chkSkipSelfPromo"
-                v-model="skipSelfPromo"
-                class="checkbox"
-                type="checkbox"
-                @change="onChange($event)"
-            />
-        </label>
-        <label class="pref" for="chkSkipNonMusic">
-            <strong v-t="'actions.skip_non_music'" />
-            <input
-                id="chkSkipNonMusic"
-                v-model="skipMusicOffTopic"
-                class="checkbox"
-                type="checkbox"
-                @change="onChange($event)"
-            />
-        </label>
-        <label class="pref" for="chkSkipHighlight">
-            <strong v-t="'actions.skip_highlight'" />
-            <input
-                id="chkSkipHighlight"
-                v-model="skipHighlight"
-                class="checkbox"
-                type="checkbox"
-                @change="onChange($event)"
-            />
-        </label>
-        <label class="pref" for="chkSkipFiller">
-            <strong v-t="'actions.skip_filler_tangent'" />
-            <input
-                id="chkSkipFiller"
-                v-model="skipFiller"
-                class="checkbox"
-                type="checkbox"
-                @change="onChange($event)"
-            />
+        <label v-for="[name, item] in skipOptions" class="pref" :for="'ddlSkip_' + name" :key="name">
+            <strong v-t="item.label" />
+            <select :id="'ddlSkip_' + name" v-model="item.value" class="select w-auto" @change="onChange($event)">
+                <option v-t="'actions.no'" value="no" />
+                <option v-t="'actions.skip_button_only'" value="button" />
+                <option v-t="'actions.skip_automatically'" value="auto" />
+            </select>
         </label>
         <label class="pref" for="chkShowMarkers">
             <strong v-t="'actions.show_markers'" />
@@ -288,6 +218,16 @@
                 v-model="showMarkers"
                 class="checkbox"
                 type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="txtMinSegmentLength">
+            <strong v-t="'actions.min_segment_length'" />
+            <input
+                id="txtMinSegmentLength"
+                v-model="minSegmentLength"
+                class="input w-24"
+                type="text"
                 @change="onChange($event)"
             />
         </label>
@@ -410,16 +350,19 @@ export default {
             selectedAuthInstance: null,
             instances: [],
             sponsorBlock: true,
-            skipSponsor: true,
-            skipIntro: false,
-            skipOutro: false,
-            skipPreview: false,
-            skipInteraction: true,
-            skipSelfPromo: true,
-            skipMusicOffTopic: true,
-            skipHighlight: false,
-            skipFiller: false,
+            skipOptions: new Map([
+                ["sponsor", { value: "auto", label: "actions.skip_sponsors" }],
+                ["intro", { value: "no", label: "actions.skip_intro" }],
+                ["outro", { value: "no", label: "actions.skip_outro" }],
+                ["preview", { value: "no", label: "actions.skip_preview" }],
+                ["interaction", { value: "auto", label: "actions.skip_interaction" }],
+                ["selfpromo", { value: "auto", label: "actions.skip_self_promo" }],
+                ["music_offtopic", { value: "auto", label: "actions.skip_non_music" }],
+                ["poi_highlight", { value: "no", label: "actions.skip_highlight" }],
+                ["filler", { value: "no", label: "actions.skip_filler_tangent" }],
+            ]),
             showMarkers: true,
+            minSegmentLength: 0,
             selectedTheme: "dark",
             autoPlayVideo: true,
             priorityAutoPlay: false,
@@ -517,55 +460,25 @@ export default {
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
 
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
-            if (localStorage.getItem("selectedSkip") !== null) {
-                var skipList = localStorage.getItem("selectedSkip").split(",");
-                this.skipSponsor =
-                    this.skipIntro =
-                    this.skipOutro =
-                    this.skipPreview =
-                    this.skipInteraction =
-                    this.skipSelfPromo =
-                    this.skipMusicOffTopic =
-                    this.skipHighlight =
-                    this.skipFiller =
-                        false;
+            var skipOptions, skipList;
+            if ((skipOptions = this.getPreferenceJSON("skipOptions")) !== undefined) {
+                Object.entries(skipOptions).forEach(([key, value]) => {
+                    var opt = this.skipOptions.get(key);
+                    if (opt !== undefined) opt.value = value;
+                    else console.log("Unknown sponsor type: " + key);
+                });
+            } else if ((skipList = this.getPreferenceString("selectedSkip")) !== undefined) {
+                skipList = skipList.split(",");
+                this.skipOptions.forEach(opt => (opt.value = "no"));
                 skipList.forEach(skip => {
-                    switch (skip) {
-                        case "sponsor":
-                            this.skipSponsor = true;
-                            break;
-                        case "intro":
-                            this.skipIntro = true;
-                            break;
-                        case "outro":
-                            this.skipOutro = true;
-                            break;
-                        case "preview":
-                            this.skipPreview = true;
-                            break;
-                        case "interaction":
-                            this.skipInteraction = true;
-                            break;
-                        case "selfpromo":
-                            this.skipSelfPromo = true;
-                            break;
-                        case "music_offtopic":
-                            this.skipMusicOffTopic = true;
-                            break;
-                        case "poi_highlight":
-                            this.skipHighlight = true;
-                            break;
-                        case "filler":
-                            this.skipFiller = true;
-                            break;
-                        default:
-                            console.log("Unknown sponsor type: " + skip);
-                            break;
-                    }
+                    var opt = this.skipOptions.get(skip);
+                    if (opt !== undefined) opt.value = "auto";
+                    else console.log("Unknown sponsor type: " + skip);
                 });
             }
 
             this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
+            this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
             this.priorityAutoPlay = this.getPreferenceBoolean("priorityAutoPlay", false);
@@ -615,19 +528,12 @@ export default {
                 localStorage.setItem("auth_instance_url", this.selectedAuthInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
 
-                var sponsorSelected = [];
-                if (this.skipSponsor) sponsorSelected.push("sponsor");
-                if (this.skipIntro) sponsorSelected.push("intro");
-                if (this.skipOutro) sponsorSelected.push("outro");
-                if (this.skipPreview) sponsorSelected.push("preview");
-                if (this.skipInteraction) sponsorSelected.push("interaction");
-                if (this.skipSelfPromo) sponsorSelected.push("selfpromo");
-                if (this.skipMusicOffTopic) sponsorSelected.push("music_offtopic");
-                if (this.skipHighlight) sponsorSelected.push("poi_highlight");
-                if (this.skipFiller) sponsorSelected.push("filler");
-                localStorage.setItem("selectedSkip", sponsorSelected);
+                var skipOptions = {};
+                this.skipOptions.forEach((v, k) => (skipOptions[k] = v.value));
+                localStorage.setItem("skipOptions", JSON.stringify(skipOptions));
 
                 localStorage.setItem("showMarkers", this.showMarkers);
+                localStorage.setItem("minSegmentLength", this.minSegmentLength);
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
                 localStorage.setItem("priorityAutoPlay", this.priorityAutoPlay);

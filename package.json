@@ -9,9 +9,9 @@
         "lint": "eslint --fix --color --ignore-path .gitignore --ext .js,.vue ."
     },
     "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "6.2.1",
-        "@fortawesome/free-brands-svg-icons": "6.2.1",
-        "@fortawesome/free-solid-svg-icons": "6.2.1",
+        "@fortawesome/fontawesome-svg-core": "6.3.0",
+        "@fortawesome/free-brands-svg-icons": "6.3.0",
+        "@fortawesome/free-solid-svg-icons": "6.3.0",
         "@fortawesome/vue-fontawesome": "3.0.3",
         "buffer": "6.0.3",
         "dompurify": "2.4.3",
@@ -26,7 +26,7 @@
         "xml-js": "1.6.11"
     },
     "devDependencies": {
-        "@iconify/json": "2.2.18",
+        "@iconify/json": "2.2.21",
         "@intlify/vite-plugin-vue-i18n": "6.0.3",
         "@unocss/preset-icons": "0.49.4",
         "@unocss/preset-web-fonts": "0.49.4",
@@ -35,15 +35,15 @@
         "@vitejs/plugin-legacy": "4.0.1",
         "@vitejs/plugin-vue": "4.0.0",
         "@vue/compiler-sfc": "3.2.47",
-        "eslint": "8.33.0",
+        "eslint": "8.34.0",
         "eslint-config-prettier": "8.6.0",
         "eslint-plugin-prettier": "4.2.1",
         "eslint-plugin-vue": "9.9.0",
-        "prettier": "2.8.3",
+        "prettier": "2.8.4",
         "unocss": "0.49.4",
         "vite": "4.1.1",
         "vite-plugin-eslint": "1.8.1",
-        "vite-plugin-pwa": "0.14.1"
+        "vite-plugin-pwa": "0.14.4"
     },
     "eslintConfig": {
         "root": true,

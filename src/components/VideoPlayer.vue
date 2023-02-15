@@ -6,6 +6,17 @@
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
+        <button
+            v-if="inSegment"
+            class="skip-segment-button"
+            type="button"
+            :aria-label="$t('actions.skip_segment')"
+            aria-pressed="false"
+            @click="onClickSkipSegment"
+        >
+            <span v-t="'actions.skip_segment'" />
+            <i class="material-icons-round">skip_next</i>
+        </button>
     </div>
 </template>
 
@@ -51,6 +62,7 @@ export default {
             lastUpdate: new Date().getTime(),
             initialSeekComplete: false,
             destroying: false,
+            inSegment: false,
             nextVideo: null,
         };
     },
@@ -92,7 +104,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.",
+                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,return",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -187,6 +199,9 @@ export default {
                             break;
                         case "shift+.":
                             self.$player.trickPlay(Math.min(videoEl.playbackRate + 0.25, 2));
+                            break;
+                        case "return":
+                            self.skipSegment(videoEl);
                             break;
                     }
                 },
@@ -365,17 +380,11 @@ export default {
                     this.$emit("timeupdate", time);
                     this.updateProgressDatabase(time);
                     if (this.sponsors && this.sponsors.segments) {
-                        this.sponsors.segments.map(segment => {
-                            if (!segment.skipped || this.selectedAutoLoop) {
-                                const end = segment.segment[1];
-                                if (time >= segment.segment[0] && time < end) {
-                                    console.log("Skipped segment at " + time);
-                                    videoEl.currentTime = end;
-                                    segment.skipped = true;
-                                    return;
-                                }
-                            }
-                        });
+                        const segment = this.findCurrentSegment(time);
+                        this.inSegment = !!segment;
+                        if (segment?.autoskip && (!segment.skipped || this.selectedAutoLoop)) {
+                            this.skipSegment(videoEl, segment);
+                        }
                     }
                 });
 
@@ -404,6 +413,21 @@ export default {
             }
 
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
+        },
+        findCurrentSegment(time) {
+            return this.sponsors?.segments?.find(s => time >= s.segment[0] && time < s.segment[1]);
+        },
+        onClickSkipSegment() {
+            const videoEl = this.$refs.videoEl;
+            this.skipSegment(videoEl);
+        },
+        skipSegment(videoEl, segment) {
+            const time = videoEl.currentTime;
+            if (!segment) segment = this.findCurrentSegment(time);
+            if (!segment) return;
+            console.log("Skipped segment at " + time);
+            videoEl.currentTime = segment.segment[1];
+            segment.skipped = true;
         },
         setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
             const url = "/watch?v=" + this.video.id;
@@ -726,6 +750,11 @@ export default {
     },
     watch: {
         sponsors() {
+            const skipOptions = this.getPreferenceJSON("skipOptions", {});
+            this.sponsors?.segments?.forEach(segment => {
+                const option = skipOptions[segment.category];
+                segment.autoskip = option === undefined || option === "auto";
+            });
             if (this.getPreferenceBoolean("showMarkers", true)) {
                 this.shakaPromise.then(() => {
                     this.updateMarkers();
@@ -766,5 +795,36 @@ export default {
 .shaka-text-wrapper > span > span *:first-child:last-child {
     background-color: rgba(0, 0, 0, 0.6) !important;
     padding: 0.09em 0;
+}
+
+.skip-segment-button {
+    /* position button above player overlay */
+    z-index: 1000;
+
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+    right: 0;
+
+    background-color: rgb(0 0 0 / 0.5);
+    border: 2px rgba(255, 255, 255, 0.75) solid;
+    border-right: 0;
+    border-radius: 0.75em;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0.5em;
+
+    /* center text vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    line-height: 1.5em;
+}
+
+.skip-segment-button .material-icons-round {
+    font-size: 1.6em !important;
+    line-height: inherit !important;
 }
 </style>

@@ -123,7 +123,11 @@
         "bookmark_playlist": "Marcapagina",
         "status_page": "Estat",
         "no_valid_playlists": "Lo fichièr conten pas cap de lista de lectura valida !",
-        "instance_donations": "Dons d’instància"
+        "instance_donations": "Dons d’instància",
+        "skip_button_only": "Afichar lo boton per sautar",
+        "skip_automatically": "Automaticament",
+        "min_segment_length": "Durada minimum de segment (en segondas)",
+        "skip_segment": "Sautar lo segment"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",

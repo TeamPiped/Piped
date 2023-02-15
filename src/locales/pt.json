@@ -120,7 +120,11 @@
         "no_valid_playlists": "O ficheiro não contém listas de reprodução válidas!",
         "with_playlist": "Partilhar com lista de reprodução",
         "playlist_bookmarked": "Marcado",
-        "bookmark_playlist": "Marcador"
+        "bookmark_playlist": "Marcador",
+        "skip_button_only": "Mostrar botão saltar",
+        "skip_automatically": "Automaticamente",
+        "min_segment_length": "Comprimento Mínimo do Segmento (em segundos)",
+        "skip_segment": "Saltar Segmento"
     },
     "preferences": {
         "instance_name": "Nome da Instância",
