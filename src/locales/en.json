@@ -45,6 +45,8 @@
         "dark": "Dark",
         "light": "Light",
         "autoplay_video": "Autoplay Video",
+        "priority_autoplay": "Priority Autoplay",
+        "priority_autoplay_tooltip": "Prioritize unwatched videos from the same channel when selecting next video from related streams.",
         "audio_only": "Audio Only",
         "default_quality": "Default Quality",
         "buffering_goal": "Buffering Goal (in seconds)",

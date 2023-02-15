@@ -21,6 +21,7 @@ import {
     faServer,
     faDonate,
     faBookmark,
+    faCircleQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -48,6 +49,7 @@ library.add(
     faServer,
     faDonate,
     faBookmark,
+    faCircleQuestion,
 );
 
 import router from "@/router/router.js";

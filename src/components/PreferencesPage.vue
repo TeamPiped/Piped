@@ -45,6 +45,25 @@
             @change="onChange($event)"
         />
     </label>
+    <label v-if="autoPlayVideo" class="pref" for="chkPriorityAutoPlay">
+        <div class="flex items-center">
+            <strong v-t="'actions.priority_autoplay'" />
+            <font-awesome-icon icon="circle-question" class="ml-2 peer" />
+            <div class="peer hidden peer-hover:block relative w-0 h-0">
+                <div
+                    class="absolute sm:min-w-xs min-w-[12rem] bottom-5 bg-black/80 rounded p-2"
+                    v-t="'actions.priority_autoplay_tooltip'"
+                />
+            </div>
+        </div>
+        <input
+            id="chkPriorityAutoPlay"
+            v-model="priorityAutoPlay"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
     <label class="pref" for="chkAudioOnly">
         <strong v-t="'actions.audio_only'" />
         <input id="chkAudioOnly" v-model="listen" class="checkbox" type="checkbox" @change="onChange($event)" />
@@ -403,6 +422,7 @@ export default {
             showMarkers: true,
             selectedTheme: "dark",
             autoPlayVideo: true,
+            priorityAutoPlay: false,
             listen: false,
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
             defaultQuality: 0,
@@ -548,6 +568,7 @@ export default {
             this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
+            this.priorityAutoPlay = this.getPreferenceBoolean("priorityAutoPlay", false);
             this.listen = this.getPreferenceBoolean("listen", false);
             this.defaultQuality = Number(localStorage.getItem("quality"));
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
@@ -609,6 +630,7 @@ export default {
                 localStorage.setItem("showMarkers", this.showMarkers);
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
+                localStorage.setItem("priorityAutoPlay", this.priorityAutoPlay);
                 localStorage.setItem("listen", this.listen);
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);

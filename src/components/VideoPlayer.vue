@@ -58,6 +58,9 @@ export default {
         shouldAutoPlay: _this => {
             return _this.getPreferenceBoolean("playerAutoPlay", true) && !_this.isEmbed;
         },
+        priorityAutoPlay: _this => {
+            return _this.getPreferenceBoolean("priorityAutoPlay", true) && !_this.isEmbed;
+        },
         preferredVideoCodecs: _this => {
             var preferredVideoCodecs = [];
             const enabledCodecs = _this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
@@ -396,7 +399,9 @@ export default {
                     }
                 });
             }
-            this.setNextVideo();
+            if (this.priorityAutoPlay) {
+                this.setNextVideo();
+            }
 
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
