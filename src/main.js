@@ -213,6 +213,7 @@ const mixin = {
                     request.onsuccess = function (event) {
                         if (event.target.result) {
                             video.watched = true;
+                            video.currentTime = event.target.result.currentTime;
                         }
                     };
                 });
