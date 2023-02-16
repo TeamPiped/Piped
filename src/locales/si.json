@@ -120,7 +120,11 @@
         "playlist_bookmarked": "පොත් සලකුණු කර ඇත",
         "enable_lbry_proxy": "LBRY සඳහා Proxy සබල කරන්න",
         "different_auth_instance": "සත්‍යතාව තහවුරු කිරීම සඳහා වෙනත් සේවාදායකයක් භාවිතා කරන්න",
-        "hide_watched": "නවතම කොටසෙහි නැරඹූ වීඩියෝ සඟවන්න"
+        "hide_watched": "නවතම කොටසෙහි නැරඹූ වීඩියෝ සඟවන්න",
+        "skip_button_only": "මඟ හරින්න බොත්තම පෙන්වන්න",
+        "skip_automatically": "ස්වයංක්‍රීයව",
+        "skip_segment": "කොටස මඟ හරින්න",
+        "min_segment_length": "අවම කොටස් දිග (තත්පර වලින්)"
     },
     "player": {
         "watch_on": "{0} එකේ නරඹන්න"
