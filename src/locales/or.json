@@ -123,7 +123,11 @@
         "no_valid_playlists": "ଫାଇଲ୍ ଟି ବୈଧ ପ୍ଲେଲିଷ୍ଟ ଧାରଣ କରେ ନାହିଁ!",
         "with_playlist": "ପ୍ଲେଲିଷ୍ଟ ସହିତ ଅଂଶୀଦାର କରନ୍ତୁ",
         "bookmark_playlist": "ବୁକମାର୍କ",
-        "playlist_bookmarked": "ବୁକମାର୍କ ହୋଇଛି"
+        "playlist_bookmarked": "ବୁକମାର୍କ ହୋଇଛି",
+        "min_segment_length": "ସର୍ବନିମ୍ନ ସେଗମେଣ୍ଟ ଲମ୍ବ (ସେକେଣ୍ଡରେ)",
+        "skip_button_only": "ସ୍କିପ୍ ବଟନ୍ ଦେଖାନ୍ତୁ",
+        "skip_automatically": "ସ୍ୱୟଂଚାଳିତ ଭାବରେ",
+        "skip_segment": "ସେଗମେଣ୍ଟକୁ ଏଡ଼ାଇଦିଅ"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",
