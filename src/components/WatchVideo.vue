@@ -20,6 +20,7 @@
                 <VideoPlayer
                     ref="videoPlayer"
                     :video="video"
+                    :next-video="nextVideo"
                     :sponsors="sponsors"
                     :playlist="playlist"
                     :index="index"
@@ -203,8 +204,12 @@
                 />
                 <hr v-show="showRecs" />
                 <div v-show="showRecs">
+                    <div v-if="nextVideo" class="">
+                        <p>Next up:</p>
+                        <VideoItem :key="nextVideo.url" :item="nextVideo" height="94" width="168" />
+                    </div>
                     <ContentItem
-                        v-for="related in video.relatedStreams"
+                        v-for="related in filteredRelatedStreams"
                         :key="related.url"
                         :item="related"
                         height="94"
@@ -227,6 +232,7 @@ import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import VideoItem from "./VideoItem.vue";
 
 export default {
     name: "App",
@@ -240,6 +246,7 @@ export default {
         ShareModal,
         PlaylistVideos,
         WatchOnYouTubeButton,
+        VideoItem,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
@@ -247,6 +254,7 @@ export default {
             video: {
                 title: "Loading...",
             },
+            nextVideo: null,
             playlistId: null,
             playlist: null,
             index: null,
@@ -287,6 +295,12 @@ export default {
                 day: "numeric",
                 year: "numeric",
             });
+        },
+        filteredRelatedStreams: _this => {
+            return _this.video.relatedStreams?.filter(video => video.url !== _this.nextVideo?.url);
+        },
+        priorityAutoPlay: _this => {
+            return _this.getPreferenceBoolean("priorityAutoPlay", true) && !_this.isEmbed;
         },
     },
     mounted() {
@@ -422,6 +436,9 @@ export default {
                         });
                         xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
                         this.video.description = this.rewriteDescription(xmlDoc.querySelector("body").innerHTML);
+                        if (this.priorityAutoPlay) {
+                            this.setNextVideo();
+                        }
                     }
                 });
         },
@@ -555,6 +572,50 @@ export default {
         },
         onTimeUpdate(time) {
             this.currentTime = time;
+        },
+        async getWatchedRelatedVideos() {
+            var tx = window.db.transaction("watch_history", "readwrite");
+            var store = tx.objectStore("watch_history");
+            const results = [];
+            for (let i = 0; i < this.video.relatedStreams.length; i++) {
+                const video = this.video.relatedStreams[i];
+                const id = video.url.replace("/watch?v=", "");
+                const request = store.get(id);
+                results.push(request);
+            }
+            const data = results.map(result => {
+                return new Promise(resolve => {
+                    result.onsuccess = function (event) {
+                        const video = event.target.result;
+                        resolve(video);
+                    };
+                    result.onerror = function () {
+                        resolve(null);
+                    };
+                });
+            });
+            return Promise.all(data);
+        },
+        async setNextVideo() {
+            const data = (await this.getWatchedRelatedVideos()).filter(video => video);
+            for (let i = 0; i < this.video.relatedStreams.length; i++) {
+                let foundAuthorMatch = false;
+                const video = this.video.relatedStreams[i];
+                const id = video.url.replace("/watch?v=", "");
+                const watched = data.find(video => video.videoId === id);
+                if (!watched) {
+                    if (video.uploaderUrl === this.video.uploaderUrl) {
+                        this.nextVideo = video;
+                        foundAuthorMatch = true;
+                        break;
+                    } else if (!foundAuthorMatch) {
+                        this.nextVideo = video;
+                    }
+                }
+                if (!this.nextVideo) {
+                    this.nextVideo = this.video.relatedStreams[0];
+                }
+            }
         },
     },
 };

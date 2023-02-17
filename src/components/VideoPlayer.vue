@@ -38,6 +38,12 @@ export default {
                 return {};
             },
         },
+        nextVideo: {
+            type: Object,
+            default: () => {
+                return {};
+            },
+        },
         playlist: {
             type: Object,
             default: null,
@@ -63,15 +69,11 @@ export default {
             initialSeekComplete: false,
             destroying: false,
             inSegment: false,
-            nextVideo: null,
         };
     },
     computed: {
         shouldAutoPlay: _this => {
             return _this.getPreferenceBoolean("playerAutoPlay", true) && !_this.isEmbed;
-        },
-        priorityAutoPlay: _this => {
-            return _this.getPreferenceBoolean("priorityAutoPlay", true) && !_this.isEmbed;
         },
         preferredVideoCodecs: _this => {
             var preferredVideoCodecs = [];
@@ -408,9 +410,6 @@ export default {
                     }
                 });
             }
-            if (this.priorityAutoPlay) {
-                this.setNextVideo();
-            }
 
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
@@ -614,46 +613,6 @@ export default {
         seek(time) {
             if (this.$refs.videoEl) {
                 this.$refs.videoEl.currentTime = time;
-            }
-        },
-        async getWatchedRelatedVideos() {
-            var tx = window.db.transaction("watch_history", "readwrite");
-            var store = tx.objectStore("watch_history");
-            const results = [];
-            for (let i = 0; i < this.video.relatedStreams.length; i++) {
-                const video = this.video.relatedStreams[i];
-                const id = video.url.replace("/watch?v=", "");
-                const request = store.get(id);
-                results.push(request);
-            }
-            const data = results.map(result => {
-                return new Promise(resolve => {
-                    result.onsuccess = function (event) {
-                        const video = event.target.result;
-                        resolve(video);
-                    };
-                    result.onerror = function () {
-                        resolve(null);
-                    };
-                });
-            });
-            return Promise.all(data);
-        },
-        async setNextVideo() {
-            const data = (await this.getWatchedRelatedVideos()).filter(video => video);
-            for (let i = 0; i < this.video.relatedStreams.length; i++) {
-                const video = this.video.relatedStreams[i];
-                const id = video.url.replace("/watch?v=", "");
-                const watched = data.find(video => video.videoId === id);
-                if (!watched) {
-                    if (video.uploaderUrl === this.video.uploaderUrl) {
-                        this.nextVideo = video;
-                        return;
-                    }
-                    this.nextVideo = video;
-                    return;
-                }
-                this.nextVideo = this.video.relatedStreams[0];
             }
         },
         navigateNext() {
