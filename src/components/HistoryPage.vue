@@ -1,15 +1,16 @@
 <template>
-    <h1 v-t="'titles.history'" class="mb-3 text-center font-bold" />
+    <h1 v-t="'titles.history'" class="my-2 mb-3 text-center font-bold" />
 
-    <div class="flex">
+    <div class="flex justify-between">
         <div class="flex flex-col gap-2 md:flex-row md:items-center">
             <button v-t="'actions.clear_history'" class="btn" @click="clearHistory" />
 
-            <button v-t="'actions.export_to_json'" class="btn" @click="exportHistory" />
+            <button v-t="'actions.export_to_json'" class="btn" @click="showExportModal = !showExportModal" />
+            <button v-t="'actions.import_from_json'" class="btn" @click="showImportModal = !showImportModal" />
+        </div>
 
-            <div class="ml-auto flex items-center gap-1">
-                <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" />
-            </div>
+        <div class="flex items-center gap-1">
+            <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" />
         </div>
 
         <div class="ml-4 flex items-center">
@@ -37,16 +38,22 @@
     </div>
 
     <br />
+    <ExportHistoryModal v-if="showExportModal" @close="showExportModal = false" />
+    <ImportHistoryModal v-if="showImportModal" @close="showImportModal = false" />
 </template>
 
 <script>
 import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
+import ExportHistoryModal from "./ExportHistoryModal.vue";
+import ImportHistoryModal from "./ImportHistoryModal.vue";
 
 export default {
     components: {
         VideoItem,
         SortingSelector,
+        ExportHistoryModal,
+        ImportHistoryModal,
     },
     data() {
         return {
@@ -56,6 +63,8 @@ export default {
             videos: [],
             autoDeleteHistory: false,
             autoDeleteDelayHours: "24",
+            showExportModal: false,
+            showImportModal: false,
         };
     },
     mounted() {
@@ -77,8 +86,8 @@ export default {
                                     url: "/watch?v=" + video.videoId,
                                     title: video.title,
                                     uploaderName: video.uploaderName,
-                                    uploaderUrl: video.uploaderUrl,
-                                    duration: video.duration,
+                                    uploaderUrl: video.uploaderUrl ?? "", // Router doesn't like undefined
+                                    duration: video.duration ?? 0, // Undefined duration shows "Live"
                                     thumbnail: video.thumbnail,
                                     watchedAt: video.watchedAt,
                                     watched: true,
@@ -113,22 +122,6 @@ export default {
                 store.clear();
             }
             this.videos = [];
-        },
-        exportHistory() {
-            const dateStr = new Date().toISOString().split(".")[0];
-            let json = {
-                format: "Piped",
-                version: 1,
-                playlists: [
-                    {
-                        name: `Piped History ${dateStr}`,
-                        type: "history",
-                        visibility: "private",
-                        videos: this.videos.map(video => "https://youtube.com" + video.url),
-                    },
-                ],
-            };
-            this.download(JSON.stringify(json), `piped_history_${dateStr}.json`, "application/json");
         },
         onChange() {
             this.setPreference("autoDeleteWatchHistory", this.autoDeleteHistory);
