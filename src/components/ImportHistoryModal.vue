@@ -1,31 +1,38 @@
 <template>
-    <div class="text-center min-h-screen">
-        <h1 class="text-center my-2">Import History</h1>
-        <form>
-            <br />
-            <div>
-                <input ref="fileSelector" type="file" @change="fileChange" />
-            </div>
-            <div>
-                <strong v-text="`Found ${itemsLength} items`" />
-            </div>
-            <div>
-                <strong>Override: <input v-model="override" class="checkbox" type="checkbox" /></strong>
-            </div>
-            <br />
-            <div>
-                <progress :value="index" :max="itemsLength" />
-                <div v-text="`Success: ${success} Error: ${error} Skipped: ${skipped}`" />
-            </div>
-            <br />
-            <div>
-                <a class="btn w-auto" @click="handleImport">Import</a>
-            </div>
-        </form>
-    </div>
+    <ModalComponent>
+        <div class="text-center">
+            <h2 class="text-xl font-bold mb-4 text-center">Import History</h2>
+            <form>
+                <br />
+                <div>
+                    <input class="btn ml-2 mb-2" ref="fileSelector" type="file" @change="fileChange" />
+                </div>
+                <div>
+                    <strong v-text="`Found ${itemsLength} items`" />
+                </div>
+                <div>
+                    <strong class="flex gap-2 justify-center items-center">
+                        Override: <input v-model="override" class="checkbox" type="checkbox" />
+                    </strong>
+                </div>
+                <br />
+                <div>
+                    <progress :value="index" :max="itemsLength" />
+                    <div v-text="`Success: ${success} Error: ${error} Skipped: ${skipped}`" />
+                </div>
+                <br />
+                <div>
+                    <a class="btn w-auto" @click="handleImport">Import</a>
+                </div>
+            </form>
+        </div>
+    </ModalComponent>
 </template>
 <script>
+import ModalComponent from "./ModalComponent.vue";
+
 export default {
+    components: { ModalComponent },
     data() {
         return {
             items: [],
@@ -40,9 +47,6 @@ export default {
         itemsLength() {
             return this.items.length;
         },
-    },
-    activated() {
-        document.title = "Import History - Piped";
     },
     methods: {
         fileChange() {
@@ -75,7 +79,7 @@ export default {
                             }
                         }
                         try {
-                            const request = store.put(JSON.parse(JSON.stringify(item)));
+                            const request = store.put(JSON.parse(JSON.stringify(item))); // prevent "Symbol could not be cloned." error
                             request.onsuccess = () => {
                                 this.index++;
                                 this.success++;

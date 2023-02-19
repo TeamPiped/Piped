@@ -1,16 +1,16 @@
 <template>
-    <h1 class="font-bold text-center" v-t="'titles.history'" />
+    <h1 class="font-bold text-center my-2" v-t="'titles.history'" />
 
-    <div class="flex">
-        <div>
-            <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
+    <div class="flex flex-col gap-2 items-center lg:flex-row">
+        <div class="flex flex-wrap gap-2 justify-center">
+            <button class="btn w-54" v-t="'actions.clear_history'" @click="clearHistory" />
 
-            <button class="btn mx-3" v-t="'actions.export_to_json'" @click="showModal = !showModal" />
+            <button class="btn w-54" v-t="'actions.export_to_json'" @click="showExportModal = !showExportModal" />
 
-            <button class="btn" v-t="'actions.import_from_json'" @click="$router.push('/history/import')" />
+            <button class="btn w-54" v-t="'actions.import_from_json'" @click="showImportModal = !showImportModal" />
         </div>
 
-        <div class="right-1">
+        <div class="lg:right-1">
             <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" />
         </div>
     </div>
@@ -22,77 +22,28 @@
     </div>
 
     <br />
-    <ModalComponent v-if="showModal" @close="showModal = !showModal">
-        <div class="min-w-max flex flex-col">
-            <h2 class="text-xl font-bold mb-4">Export History</h2>
-            <form>
-                <div>
-                    <label class="mr-2" for="export-format">Export as:</label>
-                    <select class="select" id="export-format" v-model="exportAs">
-                        <option
-                            v-for="option in exportOptions"
-                            :key="option"
-                            :value="option"
-                            v-text="formatField(option)"
-                        />
-                    </select>
-                </div>
-                <div v-if="exportAs === 'history'">
-                    <label v-for="field in fields" :key="field" class="flex gap-2 items-center">
-                        <input
-                            class="checkbox"
-                            type="checkbox"
-                            :value="field"
-                            v-model="selectedFields"
-                            :disabled="field === 'videoId'"
-                        />
-                        <span v-text="formatField(field)" />
-                    </label>
-                </div>
-            </form>
-            <button class="btn mt-4" @click="handleExport">Export</button>
-        </div>
-    </ModalComponent>
+    <ExportHistoryModal v-if="showExportModal" @close="showExportModal = false" />
+    <ImportHistoryModal v-if="showImportModal" @close="showImportModal = false" />
 </template>
 
 <script>
 import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
-import ModalComponent from "./ModalComponent.vue";
+import ExportHistoryModal from "./ExportHistoryModal.vue";
+import ImportHistoryModal from "./ImportHistoryModal.vue";
 
 export default {
     components: {
         VideoItem,
         SortingSelector,
-        ModalComponent,
+        ExportHistoryModal,
+        ImportHistoryModal,
     },
     data() {
         return {
             videos: [],
-            exportVideos: [],
-            showModal: false,
-            exportOptions: ["playlist", "history"],
-            exportAs: "playlist",
-            fields: [
-                "videoId",
-                "title",
-                "uploaderName",
-                "uploaderUrl",
-                "duration",
-                "thumbnail",
-                "watchedAt",
-                "currentTime",
-            ],
-            selectedFields: [
-                "videoId",
-                "title",
-                "uploaderName",
-                "uploaderUrl",
-                "duration",
-                "thumbnail",
-                "watchedAt",
-                "currentTime",
-            ],
+            showExportModal: false,
+            showImportModal: false,
         };
     },
     mounted() {
@@ -131,77 +82,6 @@ export default {
                 store.clear();
             }
             this.videos = [];
-        },
-        async fetchAllVideos() {
-            if (window.db) {
-                var tx = window.db.transaction("watch_history", "readonly");
-                var store = tx.objectStore("watch_history");
-                const request = store.getAll();
-                return new Promise((resolve, reject) => {
-                    (request.onsuccess = e => {
-                        const videos = e.target.result;
-                        this.exportVideos = videos;
-                        resolve();
-                    }),
-                        (request.onerror = e => {
-                            reject(e);
-                        });
-                });
-            }
-        },
-        handleExport() {
-            if (this.exportAs === "playlist") {
-                this.fetchAllVideos()
-                    .then(() => {
-                        this.exportAsPlaylist();
-                    })
-                    .catch(e => {
-                        console.error(e);
-                    });
-            } else if (this.exportAs === "history") {
-                this.fetchAllVideos()
-                    .then(() => {
-                        this.exportAsHistory();
-                    })
-                    .catch(e => {
-                        console.error(e);
-                    });
-            }
-        },
-        exportAsPlaylist() {
-            const dateStr = new Date().toISOString().split(".")[0];
-            let json = {
-                format: "Piped",
-                version: 1,
-                playlists: [
-                    {
-                        name: `Piped History ${dateStr}`,
-                        type: "history",
-                        visibility: "private",
-                        videos: this.exportVideos.map(video => "https://youtube.com" + video.url),
-                    },
-                ],
-            };
-            this.download(JSON.stringify(json), `piped_history_${dateStr}.json`, "application/json");
-        },
-        exportAsHistory() {
-            const dateStr = new Date().toISOString().split(".")[0];
-            let json = {
-                format: "Piped",
-                version: 1,
-                watchHistory: this.exportVideos.map(video => {
-                    let obj = {};
-                    this.selectedFields.forEach(field => {
-                        obj[field] = video[field];
-                    });
-                    return obj;
-                }),
-            };
-            this.download(JSON.stringify(json), `piped_history_${dateStr}.json`, "application/json");
-        },
-        formatField(field) {
-            // camelCase to Title Case
-            return field.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase());
         },
     },
 };
