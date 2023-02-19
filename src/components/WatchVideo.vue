@@ -152,6 +152,7 @@
                 v-if="showDesc && sponsors && sponsors.segments"
                 v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
             />
+            <div v-if="showDesc && video.category" v-text="`${$t('video.category')}: ${video.category}`" />
         </div>
 
         <hr />

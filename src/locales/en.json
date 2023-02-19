@@ -157,7 +157,8 @@
         "chapters": "Chapters",
         "live": "{0} Live",
         "shorts": "Shorts",
-        "all": "All"
+        "all": "All",
+        "category": "Category"
     },
     "search": {
         "did_you_mean": "Did you mean: {0}?",
