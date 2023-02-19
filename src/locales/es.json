@@ -8,7 +8,8 @@
         "chapters": "Capítulos",
         "live": "{0} Directo",
         "shorts": "Cortos",
-        "all": "Todos"
+        "all": "Todos",
+        "category": "Categoría"
     },
     "preferences": {
         "ssl_score": "Puntuación SSL",
