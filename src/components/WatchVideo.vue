@@ -148,11 +148,13 @@
 
             <!-- eslint-disable-next-line vue/no-v-html -->
             <div v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
-            <div
-                v-if="showDesc && sponsors && sponsors.segments"
-                v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
-            />
-            <div v-if="showDesc && video.category" v-text="`${$t('video.category')}: ${video.category}`" />
+            <template v-if="showDesc">
+                <div
+                    v-if="sponsors && sponsors.segments"
+                    v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
+                />
+                <div v-if="video.category" v-text="`${$t('video.category')}: ${video.category}`" />
+            </template>
         </div>
 
         <hr />
