@@ -159,7 +159,6 @@ export default {
         };
     },
     mounted() {
-        this.updateWatched([this.item]);
         this.shouldShowVideo();
     },
     methods: {

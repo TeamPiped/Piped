@@ -54,6 +54,8 @@ export default {
                             duration: video.duration,
                             thumbnail: video.thumbnail,
                             watchedAt: video.watchedAt,
+                            watched: true,
+                            currentTime: video.currentTime,
                         });
                         if (this.videos.length < 1000) cursor.continue();
                     }

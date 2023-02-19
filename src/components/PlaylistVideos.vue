@@ -32,6 +32,7 @@ export default {
     },
     mounted() {
         this.updateScroll();
+        this.updateWatched(this.playlist.relatedStreams);
     },
     methods: {
         updateScroll() {
