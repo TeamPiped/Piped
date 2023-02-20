@@ -138,7 +138,8 @@
         "watched": "Viditaj",
         "ratings_disabled": "Taksadoj Malebligitaj",
         "shorts": "Mallongaj",
-        "all": "Ĉiuj"
+        "all": "Ĉiuj",
+        "category": "Kategorio"
     },
     "search": {
         "music_albums": "YT Music: Albumoj",

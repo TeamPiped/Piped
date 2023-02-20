@@ -157,7 +157,8 @@
         "ratings_disabled": "Avaliações Desativadas",
         "sponsor_segments": "Segmentos de Patrocinadores",
         "shorts": "Shorts",
-        "all": "Todos"
+        "all": "Todos",
+        "category": "Categoria"
     },
     "search": {
         "did_you_mean": "Você quis dizer: {0}?",
