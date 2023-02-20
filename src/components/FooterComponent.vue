@@ -29,26 +29,18 @@
 
 <script>
 export default {
-<<<<<<< Updated upstream
-=======
     props: {
         config: {
             type: Object,
             required: true,
         },
     },
->>>>>>> Stashed changes
     data() {
         return {
             donationHref: null,
             statusPageHref: null,
             privacyPolicyHref: null,
         };
-    },
-    props: {
-        config: {
-            type: Object,
-        },
     },
     watch: {
         config: {
