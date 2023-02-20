@@ -106,7 +106,10 @@ export default {
         async getPlaylistData() {
             this.fetchPlaylist()
                 .then(data => (this.playlist = data))
-                .then(() => this.updateTitle());
+                .then(() => {
+                    this.updateTitle();
+                    this.updateWatched(this.playlist.relatedStreams);
+                });
         },
         async updateTitle() {
             document.title = this.playlist.name + " - Piped";

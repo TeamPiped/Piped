@@ -10,13 +10,24 @@
                 },
             }"
         >
-            <img
-                class="w-full aspect-video"
-                :src="item.thumbnail"
-                :alt="item.title"
-                :class="{ 'shorts-img': item.isShort }"
-                loading="lazy"
-            />
+            <div class="w-full">
+                <img
+                    class="w-full aspect-video"
+                    :src="item.thumbnail"
+                    :alt="item.title"
+                    :class="{ 'shorts-img': item.isShort }"
+                    loading="lazy"
+                />
+                <!-- progress bar -->
+                <div class="relative w-full h-1">
+                    <div
+                        class="absolute bottom-0 left-0 h-1 bg-red-600"
+                        v-if="item.watched && item.duration > 0"
+                        :style="{ width: `clamp(0%, ${(item.currentTime / item.duration) * 100}%, 100%` }"
+                    />
+                </div>
+            </div>
+
             <div class="relative text-sm">
                 <span
                     class="thumbnail-overlay thumbnail-right"

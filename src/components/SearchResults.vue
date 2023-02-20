@@ -72,7 +72,10 @@ export default {
         },
         async updateResults() {
             document.title = this.$route.query.search_query + " - Piped";
-            this.results = this.fetchResults().then(json => (this.results = json));
+            this.results = this.fetchResults().then(json => {
+                this.results = json;
+                this.updateWatched(this.results.items);
+            });
         },
         updateFilter() {
             this.$router.replace({

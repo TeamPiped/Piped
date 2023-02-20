@@ -425,6 +425,7 @@ export default {
                         });
                         xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
                         this.video.description = this.rewriteDescription(xmlDoc.querySelector("body").innerHTML);
+                        this.updateWatched(this.video.relatedStreams);
                     }
                 });
         },
