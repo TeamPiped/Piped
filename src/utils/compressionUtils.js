@@ -12,7 +12,7 @@ export const compressGzip = async data => {
 
         return bytes;
     } else {
-        const pako = require("pako");
+        const pako = await import("pako");
         return pako.gzip(data);
     }
 };
@@ -30,7 +30,7 @@ export const decompressGzip = async compressedData => {
 
         return new TextDecoder().decode(bytes);
     } else {
-        const pako = require("pako");
+        const pako = await import("pako");
         const inflated = pako.inflate(compressedData, { to: "string" });
 
         return inflated;
