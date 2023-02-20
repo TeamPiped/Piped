@@ -157,7 +157,8 @@
         "chapters": "Bölmələr",
         "live": "{0} Canlı",
         "shorts": "Qısa",
-        "all": "Hamısı"
+        "all": "Hamısı",
+        "category": "Kateqoriya"
     },
     "search": {
         "did_you_mean": "Bunu nəzərdə tutursunuz: {0}?",
