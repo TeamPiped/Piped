@@ -16,3 +16,23 @@ export const compressGzip = async data => {
         return pako.gzip(data);
     }
 };
+
+export const decompressGzip = async compressedData => {
+    // Firefox does not support DecompressionStream yet
+    if (typeof DecompressionStream !== "undefined") {
+        // eslint-disable-next-line no-undef
+        const ds = new DecompressionStream("gzip");
+        const writer = ds.writable.getWriter();
+        writer.write(compressedData);
+        writer.close();
+        const decompAb = await new Response(ds.readable).arrayBuffer();
+        const bytes = new Uint8Array(decompAb);
+
+        return new TextDecoder().decode(bytes);
+    } else {
+        const pako = require("pako");
+        const inflated = pako.inflate(compressedData, { to: "string" });
+
+        return inflated;
+    }
+};
