@@ -125,10 +125,10 @@ const mixin = {
                 if (!disableAlert) alert(this.$t("info.local_storage"));
             }
         },
-        getPreferenceBoolean(key, defaultVal) {
+        getPreferenceBoolean(key, defaultVal, allowQuery = true) {
             var value;
             if (
-                (value = new URLSearchParams(window.location.search).get(key)) !== null ||
+                (allowQuery && (value = new URLSearchParams(window.location.search).get(key)) !== null) ||
                 (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 switch (String(value).toLowerCase()) {
@@ -142,29 +142,29 @@ const mixin = {
                 }
             } else return defaultVal;
         },
-        getPreferenceString(key, defaultVal) {
+        getPreferenceString(key, defaultVal, allowQuery = true) {
             var value;
             if (
-                (value = new URLSearchParams(window.location.search).get(key)) !== null ||
+                (allowQuery && (value = new URLSearchParams(window.location.search).get(key)) !== null) ||
                 (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 return value;
             } else return defaultVal;
         },
-        getPreferenceNumber(key, defaultVal) {
+        getPreferenceNumber(key, defaultVal, allowQuery = true) {
             var value;
             if (
-                (value = new URLSearchParams(window.location.search).get(key)) !== null ||
+                (allowQuery && (value = new URLSearchParams(window.location.search).get(key)) !== null) ||
                 (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 const num = Number(value);
                 return isNaN(num) ? defaultVal : num;
             } else return defaultVal;
         },
-        getPreferenceJSON(key, defaultVal) {
+        getPreferenceJSON(key, defaultVal, allowQuery = true) {
             var value;
             if (
-                (value = new URLSearchParams(window.location.search).get(key)) !== null ||
+                (allowQuery && (value = new URLSearchParams(window.location.search).get(key)) !== null) ||
                 (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
             ) {
                 return JSON.parse(value);
