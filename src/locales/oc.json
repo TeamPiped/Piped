@@ -151,7 +151,8 @@
         "shorts": "Corts",
         "chapters": "Capítols",
         "videos": "Vidèos",
-        "all": "Totas"
+        "all": "Totas",
+        "category": "Categoria"
     },
     "info": {
         "preferences_note": "Nòta : las preferéncias son gardadas dins l’espaci d’emmagazinatge del navegador. La supression de las donadas del navegador las restablirà.",
