@@ -29,6 +29,15 @@
 
 <script>
 export default {
+<<<<<<< Updated upstream
+=======
+    props: {
+        config: {
+            type: Object,
+            required: true,
+        },
+    },
+>>>>>>> Stashed changes
     data() {
         return {
             donationHref: null,
@@ -36,16 +45,18 @@ export default {
             privacyPolicyHref: null,
         };
     },
-    mounted() {
-        this.fetchConfig();
+    props: {
+        config: {
+            type: Object,
+        },
     },
-    methods: {
-        async fetchConfig() {
-            this.fetchJson(this.apiUrl() + "/config").then(config => {
-                this.donationHref = config?.donationUrl;
-                this.statusPageHref = config?.statusPageUrl;
-                this.privacyPolicyHref = config?.privacyPolicyUrl;
-            });
+    watch: {
+        config: {
+            handler() {
+                this.donationHref = this.config?.donationUrl;
+                this.statusPageHref = this.config?.statusPageUrl;
+                this.privacyPolicyHref = this.config?.privacyPolicyUrl;
+            },
         },
     },
 };

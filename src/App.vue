@@ -9,7 +9,7 @@
             </router-view>
         </div>
 
-        <FooterComponent />
+        <FooterComponent :config="config" />
     </div>
 </template>
 
@@ -27,6 +27,7 @@ export default {
     data() {
         return {
             theme: "dark",
+            config: null,
         };
     },
     mounted() {
@@ -34,6 +35,14 @@ export default {
         darkModePreference.addEventListener("change", () => {
             this.setTheme();
         });
+
+        this.fetchJson(this.authApiUrl() + "/config")
+            .then(config => {
+                this.config = config;
+            })
+            .then(() => {
+                this.onConfigLoaded();
+            });
 
         if ("indexedDB" in window) {
             const request = indexedDB.open("piped-db", 5);
