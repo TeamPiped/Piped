@@ -17,7 +17,7 @@
         "dompurify": "3.0.0",
         "hotkeys-js": "3.10.1",
         "javascript-time-ago": "2.5.9",
-        "mux.js": "6.2.0",
+        "mux.js": "6.3.0",
         "shaka-player": "4.3.4",
         "stream-browserify": "3.0.0",
         "vue": "3.2.47",
