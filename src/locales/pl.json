@@ -157,7 +157,8 @@
         "chapters": "Rozdziały",
         "live": "{0} Na żywo",
         "shorts": "Krótkie wideo",
-        "all": "Wszystkie"
+        "all": "Wszystkie",
+        "category": "Kategoria"
     },
     "search": {
         "did_you_mean": "Czy chodziło ci o: {0}?",
