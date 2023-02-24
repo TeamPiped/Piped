@@ -154,7 +154,8 @@
         "chapters": "Capítulos",
         "live": "{0} em Direto",
         "shorts": "\"Shorts\"",
-        "all": "Todos"
+        "all": "Todos",
+        "category": "Categoria"
     },
     "search": {
         "did_you_mean": "Será que querias dizer: {0}?",

@@ -138,7 +138,8 @@
         "chapters": "Bölümler",
         "live": "{0} Canlı",
         "shorts": "Kısa çekimler",
-        "all": "Tümü"
+        "all": "Tümü",
+        "category": "Kategori"
     },
     "preferences": {
         "ssl_score": "SSL Puanı",

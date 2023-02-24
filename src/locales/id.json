@@ -123,7 +123,11 @@
         "no_valid_playlists": "Berkas ini tidak berisi daftar putar yang valid!",
         "with_playlist": "Bagikan dengan daftar putar",
         "playlist_bookmarked": "Dimarkahi",
-        "bookmark_playlist": "Markahi"
+        "bookmark_playlist": "Markahi",
+        "skip_button_only": "Tampilkan tombol lewati",
+        "skip_automatically": "Secara otomatis",
+        "min_segment_length": "Panjang Segmen Minimum (dalam detik)",
+        "skip_segment": "Lewati Segmen"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -153,7 +157,8 @@
         "chapters": "Bagian",
         "live": "{0} Langsung",
         "shorts": "Shorts",
-        "all": "Semua"
+        "all": "Semua",
+        "category": "Kategori"
     },
     "search": {
         "did_you_mean": "Apakah Anda bermaksud: {0}?",
