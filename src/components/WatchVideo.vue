@@ -302,8 +302,11 @@ export default {
         filteredRelatedStreams: _this => {
             return _this.video.relatedStreams?.filter(video => video.url !== _this.nextVideo?.url);
         },
-        priorityAutoPlay: _this => {
-            return _this.getPreferenceBoolean("priorityAutoPlay", true) && !_this.isEmbed;
+        preferUnwatched: _this => {
+            return _this.getPreferenceBoolean("playerAutoPlayUnwatched", true) && !_this.isEmbed;
+        },
+        preferAuthor: _this => {
+            return _this.getPreferenceBoolean("playerAutoPlaySameAuthor", false) && !_this.isEmbed;
         },
     },
     mounted() {
@@ -439,13 +442,13 @@ export default {
                         });
                         xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
                         this.video.description = this.rewriteDescription(xmlDoc.querySelector("body").innerHTML);
-<<<<<<< HEAD
-                        if (this.priorityAutoPlay) {
-                            this.setNextVideo();
-                        }
-=======
-                        this.updateWatched(this.video.relatedStreams);
->>>>>>> fb8482b007828a48d847b7175f0ac15938adbaab
+                        this.updateWatched(this.video.relatedStreams).then(() => {
+                            if (!this.isEmbed) {
+                                if (!this.playlistId) {
+                                    this.setNextVideo();
+                                }
+                            }
+                        });
                     }
                 });
         },
@@ -580,37 +583,24 @@ export default {
         onTimeUpdate(time) {
             this.currentTime = time;
         },
-        async getWatchedRelatedVideos() {
-            var tx = window.db.transaction("watch_history", "readwrite");
-            var store = tx.objectStore("watch_history");
-            const results = [];
-            for (let i = 0; i < this.video.relatedStreams.length; i++) {
-                const video = this.video.relatedStreams[i];
-                const id = video.url.replace("/watch?v=", "");
-                const request = store.get(id);
-                results.push(request);
+        setNextVideo() {
+            if (!this.preferUnwatched && !this.preferAuthor) {
+                this.nextVideo = this.video.relatedStreams[0];
+                return;
             }
-            const data = results.map(result => {
-                return new Promise(resolve => {
-                    result.onsuccess = function (event) {
-                        const video = event.target.result;
-                        resolve(video);
-                    };
-                    result.onerror = function () {
-                        resolve(null);
-                    };
-                });
-            });
-            return Promise.all(data);
-        },
-        async setNextVideo() {
-            const data = (await this.getWatchedRelatedVideos()).filter(video => video);
+            if (!this.preferUnwatched) {
+                this.nextVideo = this.video.relatedStreams.find(video => video.uploaderUrl === this.video.uploaderUrl);
+                if (!this.nextVideo) this.nextVideo = this.video.relatedStreams[0];
+                return;
+            }
             for (let i = 0; i < this.video.relatedStreams.length; i++) {
                 let foundAuthorMatch = false;
                 const video = this.video.relatedStreams[i];
-                const id = video.url.replace("/watch?v=", "");
-                const watched = data.find(video => video.videoId === id);
-                if (!watched) {
+                if (!video.watched) {
+                    if (!this.preferAuthor) {
+                        this.nextVideo = video;
+                        break;
+                    }
                     if (video.uploaderUrl === this.video.uploaderUrl) {
                         this.nextVideo = video;
                         foundAuthorMatch = true;

@@ -21,7 +21,6 @@ import {
     faServer,
     faDonate,
     faBookmark,
-    faCircleQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -49,7 +48,6 @@ library.add(
     faServer,
     faDonate,
     faBookmark,
-    faCircleQuestion,
 );
 
 import router from "@/router/router.js";
@@ -210,15 +208,24 @@ const mixin = {
             if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
-                videos.map(async video => {
-                    var request = store.get(video.url.substr(-11));
-                    request.onsuccess = function (event) {
-                        if (event.target.result) {
-                            video.watched = true;
-                            video.currentTime = event.target.result.currentTime;
-                        }
-                    };
-                });
+                return Promise.all(
+                    videos.map(
+                        video =>
+                            new Promise(resolve => {
+                                var request = store.get(video.url.substr(-11));
+                                request.onsuccess = function (event) {
+                                    if (event.target.result) {
+                                        video.watched = true;
+                                        video.currentTime = event.target.result.currentTime;
+                                    }
+                                    resolve();
+                                };
+                                request.onerror = function () {
+                                    resolve();
+                                };
+                            }),
+                    ),
+                );
             }
         },
         getLocalSubscriptions() {
