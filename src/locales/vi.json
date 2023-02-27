@@ -28,7 +28,7 @@
         "show_comments": "Hiển thị bình luận",
         "store_watch_history": "Lịch sử xem trên cửa hàng",
         "language_selection": "Lựa chọn ngôn ngữ",
-        "instances_list": "Danh sách phiên bản",
+        "instances_list": "Danh sách instance",
         "show_more": "Hiện thị nhiều hơn",
         "import_from_json": "Nhập từ JSON/CSV",
         "loop_this_video": "Lặp lại video này",
@@ -53,7 +53,7 @@
         "light": "Sáng",
         "audio_only": "Chỉ có âm thanh",
         "minimize_description_default": "Thu nhỏ mô tả theo mặc định",
-        "instance_selection": "Lựa chọn phiên bản",
+        "instance_selection": "Lựa chọn instance",
         "yes": "Có",
         "enabled_codecs": "Các codec được bật (Nhiều)",
         "export_to_json": "Xuất định dạng JSON",
@@ -78,7 +78,8 @@
         "minimize_comments": "Thu nhỏ bình luận",
         "reply_count": "{count} phản hồi",
         "status_page": "Trạng thái",
-        "new_playlist_name": "Tên danh sách phát mới"
+        "new_playlist_name": "Tên danh sách phát mới",
+        "skip_automatically": "Tự động"
     },
     "titles": {
         "register": "Đăng ký",
@@ -104,8 +105,8 @@
         "disabled": "Bình luận đã bị tắt bởi người đăng video."
     },
     "preferences": {
-        "instance_name": "Tên phiên bản",
-        "instance_locations": "Vị trí phiên bản",
+        "instance_name": "Tên instance",
+        "instance_locations": "Vị trí instance",
         "has_cdn": "Có CDN?",
         "registered_users": "Người dùng đã đăng ký",
         "version": "Phiên bản",
