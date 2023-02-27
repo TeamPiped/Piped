@@ -273,7 +273,7 @@ export default {
 
             const lbry = this.getPreferenceBoolean("disableLBRY", false)
                 ? null
-                : this.video.videoStreams.filter(stream => stream.quality === "LBRY")[0];
+                : this.video.videoStreams.filter(stream => stream.quality.indexOf("LBRY") !== -1)[0];
 
             var uri;
             var mime;
@@ -310,13 +310,7 @@ export default {
                     url.pathname = proxyPath + url.pathname;
                     uri = url.toString();
                 }
-                const contentType = await fetch(uri, {
-                    method: "HEAD",
-                }).then(response => {
-                    uri = response.url;
-                    return response.headers.get("Content-Type");
-                });
-                mime = contentType;
+                mime = lbry.mimeType;
             } else if (this.video.hls) {
                 uri = this.video.hls;
                 mime = "application/x-mpegURL";
