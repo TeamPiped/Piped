@@ -143,7 +143,7 @@ Contributions in any other form are also welcomed.
 -   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - an alternative privacy respecting frontend for YouTube Music.
 -   [Musicale](https://github.com/Bellisario/musicale) - an alternative to YouTube Music, with style.
 -   [ytify](https://github.com/n-ce/ytify) - a complementary minimal audio streaming frontend for YouTube.
--   [PsTube](https://github.com/prateekmedia/pstube) -Watch and download videos without ads
+-   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads
 
 ## YourKit
 
