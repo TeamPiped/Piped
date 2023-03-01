@@ -602,4 +602,7 @@ export default {
 .pref {
     @apply flex justify-between items-center my-2 mx-[15vw] lt-md:mx-[2vw];
 }
+.pref:nth-child(odd) {
+    @apply bg-dark-800;
+}
 </style>
