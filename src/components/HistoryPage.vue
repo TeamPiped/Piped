@@ -50,6 +50,9 @@ export default {
     },
     data() {
         return {
+            currentVideoCount: 0,
+            videoStep: 100,
+            videosStore: [],
             videos: [],
             autoDeleteHistory: false,
             autoDeleteDelayHours: "24",
@@ -64,33 +67,43 @@ export default {
                 var tx = window.db.transaction("watch_history", "readwrite");
                 var store = tx.objectStore("watch_history");
                 const cursorRequest = store.index("watchedAt").openCursor(null, "prev");
-                cursorRequest.onsuccess = e => {
-                    const cursor = e.target.result;
-                    if (cursor) {
-                        const video = cursor.value;
-                        if (this.videos.length < 1000) cursor.continue();
-                        if (!this.shouldRemoveVideo(video)) {
-                            this.videos.push({
-                                url: "/watch?v=" + video.videoId,
-                                title: video.title,
-                                uploaderName: video.uploaderName,
-                                uploaderUrl: video.uploaderUrl,
-                                duration: video.duration,
-                                thumbnail: video.thumbnail,
-                                watchedAt: video.watchedAt,
-                                watched: true,
-                                currentTime: video.currentTime,
-                            });
-                        } else {
-                            store.delete(video.videoId);
-                        }
-                    }
-                };
+                const cursorPromise = new Promise(resolve => {
+                    cursorRequest.onsuccess = e => {
+                        const cursor = e.target.result;
+                        if (cursor) {
+                            const video = cursor.value;
+                            if (!this.shouldRemoveVideo(video)) {
+                                this.videosStore.push({
+                                    url: "/watch?v=" + video.videoId,
+                                    title: video.title,
+                                    uploaderName: video.uploaderName,
+                                    uploaderUrl: video.uploaderUrl,
+                                    duration: video.duration,
+                                    thumbnail: video.thumbnail,
+                                    watchedAt: video.watchedAt,
+                                    watched: true,
+                                    currentTime: video.currentTime,
+                                });
+                            } else {
+                                store.delete(video.videoId);
+                            }
+                            if (this.videosStore.length < 1000) cursor.continue();
+                            else resolve();
+                        } else resolve();
+                    };
+                });
+                await cursorPromise;
             }
-        })();
+        })().then(() => {
+            this.loadMoreVideos();
+        });
     },
     activated() {
         document.title = "Watch History - Piped";
+        window.addEventListener("scroll", this.handleScroll);
+    },
+    deactivated() {
+        window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
         clearHistory() {
@@ -126,6 +139,16 @@ export default {
             // convert from hours to milliseconds
             let maximumTimeDiff = Number(this.autoDeleteDelayHours) * 60 * 60 * 1000;
             return Date.now() - video.watchedAt > maximumTimeDiff;
+        },
+        loadMoreVideos() {
+            this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
+            if (this.videos.length != this.videosStore.length)
+                this.videos = this.videosStore.slice(0, this.currentVideoCount);
+        },
+        handleScroll() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+                this.loadMoreVideos();
+            }
         },
     },
 };
