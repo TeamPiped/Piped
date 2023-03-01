@@ -105,7 +105,6 @@ export default {
             this.download(JSON.stringify(json), `piped_history_${dateStr}.json`, "application/json");
         },
         loadMoreVideos() {
-            console.log("load more videos", this.videosStore.length, this.currentVideoCount);
             this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
             if (this.videos.length != this.videosStore.length)
                 this.videos = this.videosStore.slice(0, this.currentVideoCount);
