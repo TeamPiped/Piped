@@ -130,7 +130,11 @@
         "no_valid_playlists": "Datoteka ne sadrži ispravne popise snimaka!",
         "with_playlist": "Dijeli s popisom snimaka",
         "playlist_bookmarked": "Zabilježeno",
-        "bookmark_playlist": "Zabilježi"
+        "bookmark_playlist": "Zabilježi",
+        "skip_button_only": "Prikaži gumb za preskakanje",
+        "skip_automatically": "Automatski",
+        "skip_segment": "Preskoči segment",
+        "min_segment_length": "Najmanja duljina segmenta (u sekundama)"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
