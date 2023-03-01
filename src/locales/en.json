@@ -160,7 +160,8 @@
         "live": "{0} Live",
         "shorts": "Shorts",
         "all": "All",
-        "category": "Category"
+        "category": "Category",
+        "next_up": "Next up:"
     },
     "search": {
         "did_you_mean": "Did you mean: {0}?",

@@ -45,26 +45,42 @@
             @change="onChange($event)"
         />
     </label>
-    <label v-if="autoPlayVideo" class="pref" for="chkAutoPlayPreferUnwatched">
-        <strong v-t="'actions.autoplay_prefer_unwatched'" />
-        <input
-            id="chkAutoPlayPreferUnwatched"
-            v-model="autoPlayPreferUnwatched"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
-    <label v-if="autoPlayVideo" class="pref" for="chkAutoPlayPreferSameAuthor">
-        <strong v-t="'actions.autoplay_prefer_same_author'" />
-        <input
-            id="chkAutoPlayPreferSameAuthor"
-            v-model="autoPlayPreferSameAuthor"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
+    <details v-bind:class="{ details: autoPlayNextVideo }" open>
+        <summary class="pref">
+            <label class="w-full flex items-center justify-between" for="chkAutoPlayNextVideo">
+                <strong v-t="'actions.auto_play_next_video'" />
+                <input
+                    id="chkAutoPlayNextVideo"
+                    v-model="autoPlayNextVideo"
+                    class="checkbox"
+                    type="checkbox"
+                    @change="onChange($event)"
+                />
+            </label>
+        </summary>
+        <div class="pl-4">
+            <label v-if="autoPlayNextVideo" class="pref" for="chkAutoPlayPreferUnwatched">
+                <strong v-t="'actions.autoplay_prefer_unwatched'" />
+                <input
+                    id="chkAutoPlayPreferUnwatched"
+                    v-model="autoPlayPreferUnwatched"
+                    class="checkbox"
+                    type="checkbox"
+                    @change="onChange($event)"
+                />
+            </label>
+            <label v-if="autoPlayNextVideo" class="pref" for="chkAutoPlayPreferSameAuthor">
+                <strong v-t="'actions.autoplay_prefer_same_author'" />
+                <input
+                    id="chkAutoPlayPreferSameAuthor"
+                    v-model="autoPlayPreferSameAuthor"
+                    class="checkbox"
+                    type="checkbox"
+                    @change="onChange($event)"
+                />
+            </label>
+        </div>
+    </details>
     <label class="pref" for="chkAudioOnly">
         <strong v-t="'actions.audio_only'" />
         <input id="chkAudioOnly" v-model="listen" class="checkbox" type="checkbox" @change="onChange($event)" />
@@ -366,6 +382,7 @@ export default {
             minSegmentLength: 0,
             selectedTheme: "dark",
             autoPlayVideo: true,
+            autoPlayNextVideo: true,
             autoPlayPreferUnwatched: true,
             autoPlayPreferSameAuthor: false,
             listen: false,
@@ -483,8 +500,9 @@ export default {
             this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
-            this.autoPlayPreferUnwatched = this.getPreferenceBoolean("playerAutoPlayUnwatched", true);
-            this.autoPlayPreferSameAuthor = this.getPreferenceBoolean("playerAutoPlaySameAuthor", false);
+            this.autoPlayNextVideo = this.getPreferenceBoolean("autoplay", true);
+            this.autoPlayPreferUnwatched = this.getPreferenceBoolean("autoPlayUnwatched", true);
+            this.autoPlayPreferSameAuthor = this.getPreferenceBoolean("autoPlaySameAuthor", false);
             this.listen = this.getPreferenceBoolean("listen", false);
             this.defaultQuality = Number(localStorage.getItem("quality"));
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
@@ -539,8 +557,9 @@ export default {
                 localStorage.setItem("minSegmentLength", this.minSegmentLength);
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
-                localStorage.setItem("playerAutoPlayUnwatched", this.autoPlayPreferUnwatched);
-                localStorage.setItem("playerAutoPlaySameAuthor", this.autoPlayPreferSameAuthor);
+                localStorage.setItem("autoplay", this.autoPlayNextVideo);
+                localStorage.setItem("autoPlayUnwatched", this.autoPlayPreferUnwatched);
+                localStorage.setItem("autoPlaySameAuthor", this.autoPlayPreferSameAuthor);
                 localStorage.setItem("listen", this.listen);
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
@@ -627,5 +646,24 @@ export default {
 <style>
 .pref {
     @apply flex justify-between items-center my-2 mx-[15vw] lt-md:mx-[2vw];
+}
+.details summary {
+    @apply pl-4 relative cursor-pointer;
+}
+.details summary:before {
+    content: "";
+    border-width: 0.4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    top: 0.4rem;
+    left: 0;
+    margin-right: 1rem;
+    transform: rotate(0);
+    transform-origin: 0.2rem 50%;
+    transition: 0.25s transform ease;
+}
+details[open] > summary:before {
+    transform: rotate(90deg);
 }
 </style>

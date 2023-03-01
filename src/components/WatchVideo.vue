@@ -208,7 +208,7 @@
                 <hr v-show="showRecs" />
                 <div v-show="showRecs">
                     <div v-if="nextVideo" class="">
-                        <p>Next up:</p>
+                        <p v-t="'video.next_up'" />
                         <VideoItem :key="nextVideo.url" :item="nextVideo" height="94" width="168" />
                     </div>
                     <ContentItem
@@ -303,10 +303,10 @@ export default {
             return _this.video.relatedStreams?.filter(video => video.url !== _this.nextVideo?.url);
         },
         preferUnwatched: _this => {
-            return _this.getPreferenceBoolean("playerAutoPlayUnwatched", true) && !_this.isEmbed;
+            return _this.getPreferenceBoolean("autoPlayUnwatched", true) && !_this.isEmbed;
         },
         preferAuthor: _this => {
-            return _this.getPreferenceBoolean("playerAutoPlaySameAuthor", false) && !_this.isEmbed;
+            return _this.getPreferenceBoolean("autoPlaySameAuthor", false) && !_this.isEmbed;
         },
     },
     mounted() {
