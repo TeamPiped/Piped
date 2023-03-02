@@ -49,6 +49,7 @@
         "dark": "Dark",
         "light": "Light",
         "autoplay_video": "Autoplay Video",
+        "autoplay_next_countdown": "Default Countdown until next video (in seconds)",
         "audio_only": "Audio Only",
         "default_quality": "Default Quality",
         "buffering_goal": "Buffering Goal (in seconds)",
@@ -127,7 +128,8 @@
         "no_valid_playlists": "The file doesn't contain valid playlists!",
         "with_playlist": "Share with playlist",
         "bookmark_playlist": "Bookmark",
-        "playlist_bookmarked": "Bookmarked"
+        "playlist_bookmarked": "Bookmarked",
+        "dismiss": "Dismiss"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
@@ -180,6 +182,7 @@
         "copied": "Copied!",
         "cannot_copy": "Can't copy!",
         "local_storage": "This action requires localStorage, are cookies enabled?",
-        "register_no_email_note": "Using an e-mail as username is not recommended. Proceed anyways?"
+        "register_no_email_note": "Using an e-mail as username is not recommended. Proceed anyways?",
+        "next_video_countdown": "Playing next video in {0}s"
     }
 }
