@@ -38,14 +38,6 @@ export default {
                 return {};
             },
         },
-        playlist: {
-            type: Object,
-            default: null,
-        },
-        index: {
-            type: Number,
-            default: -1,
-        },
         sponsors: {
             type: Object,
             default: () => {
@@ -395,13 +387,7 @@ export default {
                 });
 
                 videoEl.addEventListener("ended", () => {
-                    if (
-                        !this.selectedAutoLoop &&
-                        this.selectedAutoPlay &&
-                        (this.playlist?.relatedStreams?.length > 0 || this.video.relatedStreams.length > 0)
-                    ) {
-                        this.navigateNext();
-                    }
+                    this.$emit("ended");
                 });
             }
 
@@ -608,31 +594,6 @@ export default {
             if (this.$refs.videoEl) {
                 this.$refs.videoEl.currentTime = time;
             }
-        },
-        navigateNext() {
-            const params = this.$route.query;
-            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
-            const searchParams = new URLSearchParams();
-            for (var param in params)
-                switch (param) {
-                    case "v":
-                    case "t":
-                        break;
-                    case "index":
-                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("index", this.index + 1);
-                        break;
-                    case "list":
-                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("list", params.list);
-                        break;
-                    default:
-                        searchParams.set(param, params[param]);
-                        break;
-                }
-            // save the fullscreen state
-            searchParams.set("fullscreen", this.$ui.getControls().isFullScreenEnabled());
-            const paramStr = searchParams.toString();
-            if (paramStr.length > 0) url += "&" + paramStr;
-            this.$router.push(url);
         },
         updateMarkers() {
             const markers = this.$refs.container.querySelector(".shaka-ad-markers");
