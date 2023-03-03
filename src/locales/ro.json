@@ -100,7 +100,15 @@
         "minimize_recommendations": "Ascunde Recomandări",
         "yes": "Da",
         "show_comments": "Arată Comentarii",
-        "show_description": "Arată Descriere"
+        "show_description": "Arată Descriere",
+        "bookmark_playlist": "Marcaj",
+        "no_valid_playlists": "Fișierul nu conține playlist-uri valide!",
+        "skip_automatically": "Automat",
+        "min_segment_length": "Lungimea minimă a segmentului (în secunde)",
+        "skip_segment": "Sări segmentul",
+        "skip_button_only": "Afișează butonul de săritură",
+        "with_playlist": "Distribuie cu playlist",
+        "playlist_bookmarked": "Marcat"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -125,7 +133,9 @@
         "sponsor_segments": "Segmente Sponsori",
         "ratings_disabled": "Like-uri dezactivate",
         "live": "{0} Live",
-        "videos": "Video-uri"
+        "videos": "Video-uri",
+        "category": "Categorie",
+        "all": "Tot"
     },
     "login": {
         "username": "Nume User",
@@ -146,7 +156,9 @@
         "cannot_copy": "Nu se poate copia!",
         "preferences_note": "Sfat: preferințele sunt salvate in memoria locala a browserului tău. Ștergând datele browserului le ștergi si pe ele.",
         "page_not_found": "Pagină negăsită",
-        "copied": "S-a copiat!"
+        "copied": "S-a copiat!",
+        "register_no_email_note": "Utilizarea unui e-mail ca nume de utilizator nu este recomandată. Continui oricum?",
+        "local_storage": "Această acțiune necesită localStorage, sunt activate cookie-urile?"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonat la: {0}"
@@ -164,7 +176,8 @@
         "livestreams": "Live-uri",
         "channels": "Canale",
         "preferences": "Preferințe",
-        "player": "Player"
+        "player": "Player",
+        "bookmarks": "Marcaje"
     },
     "player": {
         "watch_on": "Vezi pe {0}"
