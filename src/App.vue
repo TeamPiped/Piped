@@ -34,6 +34,12 @@ export default {
             if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
             else this.theme = themePref;
 
+            // Change title bar color to white
+            if (this.theme === "light") {
+                const themeColor = document.querySelector("meta[name='theme-color']");
+                themeColor.setAttribute("content", "#FFF");
+            }
+
             // Used for the scrollbar
             const root = document.querySelector(":root");
             this.theme == "dark" ? root.classList.add("dark") : root.classList.remove("dark");
