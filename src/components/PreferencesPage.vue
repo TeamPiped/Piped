@@ -425,7 +425,7 @@ export default {
 
         this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
             this.instances = resp;
-            if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
+            if (!this.instances.some(instance => instance.api_url == this.apiUrl()))
                 this.instances.push({
                     name: "Custom Instance",
                     api_url: this.apiUrl(),
