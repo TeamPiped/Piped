@@ -93,7 +93,8 @@
         "account": "Tài khoản",
         "channels": "Kênh",
         "instance": "Instance",
-        "player": "Trình phát video"
+        "player": "Trình phát video",
+        "livestreams": "Phát sóng trực tiếp"
     },
     "player": {
         "watch_on": "Xem trên {0}"
@@ -125,7 +126,8 @@
         "live": "{0} Trực tiếp",
         "chapters": "Chương",
         "videos": "Video",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Tất cả"
     },
     "search": {
         "did_you_mean": "Ý của bạn là: {0}?",
