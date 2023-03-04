@@ -88,7 +88,7 @@ export default {
                 },
             }).then(json => {
                 if (json.error) alert(json.error);
-                else if (json.filter(playlist => playlist.id === playlistId).length > 0) this.admin = true;
+                else if (json.some(playlist => playlist.id === playlistId)) this.admin = true;
             });
         this.isPlaylistBookmarked();
     },

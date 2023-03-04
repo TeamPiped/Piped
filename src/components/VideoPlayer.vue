@@ -320,7 +320,7 @@ export default {
                 uri = this.video.hls;
                 mime = "application/x-mpegURL";
             } else {
-                uri = this.video.videoStreams.filter(stream => stream.codec == null).slice(-1)[0].url;
+                uri = this.video.videoStreams.findLast(stream => stream.codec == null).url;
                 mime = "video/mp4";
             }
 
