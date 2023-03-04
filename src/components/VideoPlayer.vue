@@ -271,9 +271,7 @@ export default {
 
             const MseSupport = window.MediaSource !== undefined;
 
-            const lbry = this.getPreferenceBoolean("disableLBRY", false)
-                ? null
-                : this.video.videoStreams.filter(stream => stream.quality === "LBRY")[0];
+            const lbry = null;
 
             var uri;
             var mime;
