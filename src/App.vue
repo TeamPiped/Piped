@@ -34,10 +34,12 @@ export default {
             if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
             else this.theme = themePref;
 
-            // Change title bar color to white
+            // Change title bar color based on user's theme
+            const themeColor = document.querySelector("meta[name='theme-color']");
             if (this.theme === "light") {
-                const themeColor = document.querySelector("meta[name='theme-color']");
                 themeColor.setAttribute("content", "#FFF");
+            } else {
+                themeColor.setAttribute("content", "#0F0F0F");
             }
 
             // Used for the scrollbar
