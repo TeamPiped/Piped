@@ -138,7 +138,8 @@
         "live": "{0} Diretta",
         "chapters": "Capitoli",
         "shorts": "Short",
-        "all": "Tutti"
+        "all": "Tutti",
+        "category": "Categoria"
     },
     "preferences": {
         "ssl_score": "Valutazione SSL",

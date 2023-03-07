@@ -104,7 +104,11 @@
         "show_watch_on_youtube": "Schaltfläche „Auf YouTube ansehen“ anzeigen",
         "with_playlist": "Mit Wiedergabeliste teilen",
         "playlist_bookmarked": "Markiert",
-        "bookmark_playlist": "Lesezeichen"
+        "bookmark_playlist": "Lesezeichen",
+        "skip_segment": "Segment überspringen",
+        "skip_automatically": "Automatisch",
+        "min_segment_length": "Minimale Segmentlänge (in Sekunden)",
+        "skip_button_only": "Überspringen-Schaltfläche anzeigen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -134,7 +138,8 @@
         "live": "{0} Live",
         "chapters": "Kapitel",
         "shorts": "Shorts",
-        "all": "Alle"
+        "all": "Alle",
+        "category": "Kategorie"
     },
     "preferences": {
         "ssl_score": "SSL-Bewertung",
