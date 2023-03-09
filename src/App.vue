@@ -272,4 +272,11 @@ h2 {
 .thumbnail-left {
     @apply bottom-5px left-5px text-xs font-bold bg-red-600 uppercase;
 }
+
+#nprogress .bar {
+    background: #ed3e2d;
+}
+#nprogress .peg {
+    box-shadow: 0 0 10px #ed3e2d, 0 0 5px #ed3e2d;
+}
 </style>
