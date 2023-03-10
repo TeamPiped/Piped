@@ -38,6 +38,12 @@ export default {
                 return {};
             },
         },
+        nextVideo: {
+            type: Object,
+            default: () => {
+                return {};
+            },
+        },
         playlist: {
             type: Object,
             default: null,
@@ -610,7 +616,8 @@ export default {
         },
         navigateNext() {
             const params = this.$route.query;
-            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            const relatedUrl = this.nextVideo?.url ?? this.video.relatedStreams[0].url;
+            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? relatedUrl;
             const searchParams = new URLSearchParams();
             for (var param in params)
                 switch (param) {

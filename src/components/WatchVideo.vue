@@ -20,6 +20,7 @@
                 <VideoPlayer
                     ref="videoPlayer"
                     :video="video"
+                    :next-video="nextVideo"
                     :sponsors="sponsors"
                     :playlist="playlist"
                     :index="index"
@@ -206,8 +207,12 @@
                 />
                 <hr v-show="showRecs" />
                 <div v-show="showRecs">
+                    <div v-if="nextVideo" class="">
+                        <p v-t="'video.next_up'" />
+                        <VideoItem :key="nextVideo.url" :item="nextVideo" height="94" width="168" />
+                    </div>
                     <ContentItem
-                        v-for="related in video.relatedStreams"
+                        v-for="related in filteredRelatedStreams"
                         :key="related.url"
                         :item="related"
                         height="94"
@@ -230,6 +235,7 @@ import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import VideoItem from "./VideoItem.vue";
 
 export default {
     name: "App",
@@ -243,6 +249,7 @@ export default {
         ShareModal,
         PlaylistVideos,
         WatchOnYouTubeButton,
+        VideoItem,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
@@ -250,6 +257,7 @@ export default {
             video: {
                 title: "Loading...",
             },
+            nextVideo: null,
             playlistId: null,
             playlist: null,
             index: null,
@@ -290,6 +298,15 @@ export default {
                 day: "numeric",
                 year: "numeric",
             });
+        },
+        filteredRelatedStreams: _this => {
+            return _this.video.relatedStreams?.filter(video => video.url !== _this.nextVideo?.url);
+        },
+        preferUnwatched: _this => {
+            return _this.getPreferenceBoolean("autoPlayUnwatched", true) && !_this.isEmbed;
+        },
+        preferAuthor: _this => {
+            return _this.getPreferenceBoolean("autoPlaySameAuthor", false) && !_this.isEmbed;
         },
     },
     mounted() {
@@ -425,7 +442,13 @@ export default {
                         });
                         xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
                         this.video.description = this.rewriteDescription(xmlDoc.querySelector("body").innerHTML);
-                        this.updateWatched(this.video.relatedStreams);
+                        this.updateWatched(this.video.relatedStreams).then(() => {
+                            if (!this.isEmbed) {
+                                if (!this.playlistId) {
+                                    this.setNextVideo();
+                                }
+                            }
+                        });
                     }
                 });
         },
@@ -559,6 +582,37 @@ export default {
         },
         onTimeUpdate(time) {
             this.currentTime = time;
+        },
+        setNextVideo() {
+            if (!this.preferUnwatched && !this.preferAuthor) {
+                this.nextVideo = this.video.relatedStreams[0];
+                return;
+            }
+            if (!this.preferUnwatched) {
+                this.nextVideo = this.video.relatedStreams.find(video => video.uploaderUrl === this.video.uploaderUrl);
+                if (!this.nextVideo) this.nextVideo = this.video.relatedStreams[0];
+                return;
+            }
+            for (let i = 0; i < this.video.relatedStreams.length; i++) {
+                let foundAuthorMatch = false;
+                const video = this.video.relatedStreams[i];
+                if (!video.watched) {
+                    if (!this.preferAuthor) {
+                        this.nextVideo = video;
+                        break;
+                    }
+                    if (video.uploaderUrl === this.video.uploaderUrl) {
+                        this.nextVideo = video;
+                        foundAuthorMatch = true;
+                        break;
+                    } else if (!foundAuthorMatch) {
+                        this.nextVideo = video;
+                    }
+                }
+                if (!this.nextVideo) {
+                    this.nextVideo = this.video.relatedStreams[0];
+                }
+            }
         },
     },
 };

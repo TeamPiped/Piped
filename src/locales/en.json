@@ -49,6 +49,8 @@
         "dark": "Dark",
         "light": "Light",
         "autoplay_video": "Autoplay Video",
+        "autoplay_prefer_unwatched": "Prefer unwatched videos",
+        "autoplay_prefer_same_author": "Prefer videos from the same author",
         "audio_only": "Audio Only",
         "default_quality": "Default Quality",
         "buffering_goal": "Buffering Goal (in seconds)",
@@ -158,7 +160,8 @@
         "live": "{0} Live",
         "shorts": "Shorts",
         "all": "All",
-        "category": "Category"
+        "category": "Category",
+        "next_up": "Next up:"
     },
     "search": {
         "did_you_mean": "Did you mean: {0}?",
