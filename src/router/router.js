@@ -42,6 +42,11 @@ const routes = [
         component: () => import("../components/ChannelPage.vue"),
     },
     {
+        path: "/@:channelId",
+        name: "Channel handle",
+        component: () => import("../components/ChannelPage.vue"),
+    },
+    {
         path: "/login",
         name: "Login",
         component: () => import("../components/LoginPage.vue"),
