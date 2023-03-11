@@ -44,7 +44,7 @@
         "least_recent": "最早的",
         "most_recent": "最新的",
         "sort_by": "排序：",
-        "view_subscriptions": "查看订阅",
+        "view_subscriptions": "查看订阅列表",
         "unsubscribe": "取消订阅 - {count}",
         "subscribe": "订阅 - {count}",
         "loading": "正在加载...",
@@ -141,8 +141,8 @@
         "watch_on": "在 {0} 观看"
     },
     "titles": {
-        "feed": "RSS 订阅源",
-        "subscriptions": "订阅",
+        "feed": "订阅流",
+        "subscriptions": "订阅列表",
         "history": "历史",
         "preferences": "设置",
         "register": "注册",

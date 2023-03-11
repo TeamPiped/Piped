@@ -273,7 +273,7 @@ export default {
 
             const lbry = this.getPreferenceBoolean("disableLBRY", false)
                 ? null
-                : this.video.videoStreams.filter(stream => stream.quality.indexOf("LBRY") !== -1)[0];
+                : this.video.videoStreams.filter(stream => stream.quality.includes("LBRY"))[0];
 
             var uri;
             var mime;
@@ -283,9 +283,10 @@ export default {
                 mime = "application/x-mpegURL";
             } else if (this.video.audioStreams.length > 0 && !lbry && MseSupport) {
                 if (!this.video.dash) {
-                    const dash = (
-                        await import("@/utils/DashUtils.js").then(mod => mod.default)
-                    ).generate_dash_file_from_formats(streams, this.video.duration);
+                    const dash = (await import("../utils/DashUtils.js")).generate_dash_file_from_formats(
+                        streams,
+                        this.video.duration,
+                    );
 
                     uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
                 } else {
@@ -315,7 +316,7 @@ export default {
                 uri = this.video.hls;
                 mime = "application/x-mpegURL";
             } else {
-                uri = this.video.videoStreams.filter(stream => stream.codec == null).slice(-1)[0].url;
+                uri = this.video.videoStreams.findLast(stream => stream.codec == null).url;
                 mime = "video/mp4";
             }
 
