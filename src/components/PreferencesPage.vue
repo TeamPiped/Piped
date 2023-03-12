@@ -365,6 +365,7 @@ export default {
             languages: [
                 { code: "ar", name: "Arabic" },
                 { code: "az", name: "Azərbaycan" },
+                { code: "bg", name: "Български" },
                 { code: "bn", name: "বাংলা" },
                 { code: "bs", name: "Bosanski" },
                 { code: "ca", name: "Català" },
