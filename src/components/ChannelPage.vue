@@ -62,18 +62,23 @@
             />
         </div>
     </div>
+    <div v-else>
+        <LoadingIndicator />
+    </div>
 </template>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import ContentItem from "./ContentItem.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import LoadingIndicator from "./LoadingIndicator.vue";
 
 export default {
     components: {
         ErrorHandler,
         ContentItem,
         WatchOnYouTubeButton,
+        LoadingIndicator,
     },
     data() {
         return {

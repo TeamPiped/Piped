@@ -47,10 +47,14 @@
             />
         </div>
     </div>
+    <div v-else>
+        <LoadingIndicator />
+    </div>
 </template>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
+import LoadingIndicator from "./LoadingIndicator.vue";
 import VideoItem from "./VideoItem.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
@@ -59,6 +63,7 @@ export default {
         ErrorHandler,
         VideoItem,
         WatchOnYouTubeButton,
+        LoadingIndicator,
     },
     data() {
         return {

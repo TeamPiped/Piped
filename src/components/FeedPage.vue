@@ -24,21 +24,26 @@
 
     <hr />
 
-    <div class="video-grid">
+    <div v-if="videos.length != 0" class="video-grid">
         <template v-for="video in videos" :key="video.url">
             <VideoItem v-if="shouldShowVideo(video)" :is-feed="true" :item="video" />
         </template>
+    </div>
+    <div v-else>
+        <LoadingIndicator />
     </div>
 </template>
 
 <script>
 import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
+import LoadingIndicator from "./LoadingIndicator.vue";
 
 export default {
     components: {
         VideoItem,
         SortingSelector,
+        LoadingIndicator,
     },
     data() {
         return {
