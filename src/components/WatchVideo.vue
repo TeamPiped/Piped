@@ -218,6 +218,9 @@
             </div>
         </div>
     </div>
+    <div v-else>
+        <LoadingIndicator />
+    </div>
 </template>
 
 <script>
@@ -230,6 +233,7 @@ import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import LoadingIndicator from "./LoadingIndicator.vue";
 
 export default {
     name: "App",
@@ -243,13 +247,12 @@ export default {
         ShareModal,
         PlaylistVideos,
         WatchOnYouTubeButton,
+        LoadingIndicator,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
         return {
-            video: {
-                title: "Loading...",
-            },
+            video: null,
             playlistId: null,
             playlist: null,
             index: null,
@@ -351,7 +354,7 @@ export default {
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         this.showChapters = !this.getPreferenceBoolean("minimizeChapters", false);
-        if (this.video.duration) {
+        if (this.video?.duration) {
             document.title = this.video.title + " - Piped";
             this.$refs.videoPlayer.loadVideo();
         }
