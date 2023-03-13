@@ -370,6 +370,9 @@ export default {
             else this.setPlayerAttrs(this.$player, videoEl, uri, mime, this.$shaka);
 
             if (noPrevPlayer) {
+                videoEl.addEventListener("loadeddata", () => {
+                    if (document.pictureInPictureElement) videoEl.requestPictureInPicture();
+                });
                 videoEl.addEventListener("timeupdate", () => {
                     const time = videoEl.currentTime;
                     this.$emit("timeupdate", time);
@@ -686,14 +689,14 @@ export default {
             if (markers) markers.style.background = `linear-gradient(${array.join(",")})`;
         },
         destroy(hotkeys) {
-            if (this.$ui) {
+            if (this.$ui && !document.pictureInPictureElement) {
                 this.$ui.destroy();
                 this.$ui = undefined;
                 this.$player = undefined;
             }
             if (this.$player) {
                 this.$player.destroy();
-                this.$player = undefined;
+                if (!document.pictureInPictureElement) this.$player = undefined;
             }
             if (hotkeys) this.$hotkeys?.unbind();
             this.$refs.container?.querySelectorAll("div").forEach(node => node.remove());
