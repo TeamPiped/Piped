@@ -12,7 +12,7 @@
         />
     </div>
 
-    <div v-if="video && !isEmbed" class="w-full">
+    <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
 
         <div v-show="!video.error">
@@ -217,10 +217,7 @@
                 <hr class="sm:hidden" />
             </div>
         </div>
-    </div>
-    <div v-else>
-        <LoadingIndicator />
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
@@ -233,7 +230,7 @@ import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
-import LoadingIndicator from "./LoadingIndicator.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 
 export default {
     name: "App",
@@ -247,7 +244,7 @@ export default {
         ShareModal,
         PlaylistVideos,
         WatchOnYouTubeButton,
-        LoadingIndicator,
+        LoadingIndicatorPage,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");

@@ -18,24 +18,21 @@
         </i18n-t>
     </div>
 
-    <div v-if="results != null && results.items.length != 0" class="video-grid">
+    <LoadingIndicatorPage :show-content="results != null && results.items?.length" class="video-grid">
         <template v-for="result in results.items" :key="result.url">
             <ContentItem :item="result" height="94" width="168" />
         </template>
-    </div>
-    <div v-else>
-        <LoadingIndicator />
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
 import ContentItem from "./ContentItem.vue";
-import LoadingIndicator from "./LoadingIndicator.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 
 export default {
     components: {
         ContentItem,
-        LoadingIndicator,
+        LoadingIndicatorPage,
     },
     data() {
         return {

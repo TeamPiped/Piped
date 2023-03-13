@@ -3,22 +3,19 @@
 
     <hr />
 
-    <div v-if="videos.length != 0" class="video-grid">
+    <LoadingIndicatorPage :show-content="videos.length != 0" class="video-grid">
         <VideoItem v-for="video in videos" :key="video.url" :item="video" height="118" width="210" />
-    </div>
-    <div v-else>
-        <LoadingIndicator />
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
-import LoadingIndicator from "./LoadingIndicator.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import VideoItem from "./VideoItem.vue";
 
 export default {
     components: {
         VideoItem,
-        LoadingIndicator,
+        LoadingIndicatorPage,
     },
     data() {
         return {
