@@ -39,7 +39,7 @@
         "skip_outro": "Пропускане на крайни карти/надписи",
         "skip_interaction": "Пропускане на Напомняне за абониране",
         "skip_non_music": "Попускане Немузикален раздел в музика",
-        "skip_highlight": "Пропускане на акцент",
+        "skip_highlight": "Пропускане на видео акцент",
         "show_markers": "Показване на маркери в плейъра",
         "skip_segment": "Пропускане на сегмент",
         "theme": "Тема",
@@ -55,7 +55,7 @@
         "store_watch_history": "Съхраняване на история на гледане",
         "language_selection": "Избор на език",
         "instances_list": "Списък на инстанциите",
-        "enabled_codecs": "Активирани кодеци (множествен избор)",
+        "enabled_codecs": "Разрешени кодеци (множество)",
         "instance_selection": "Избор на инстанция",
         "show_more": "Покажи повече",
         "yes": "Да",
@@ -71,9 +71,37 @@
         "search": "Търси",
         "minimize_description": "Минимизиране на описание",
         "filter": "Филтър",
-        "clear_history": "Изчистване на историята"
+        "clear_history": "Изчистване на историята",
+        "minimize_recommendations": "Минимизиране на препоръчани",
+        "show_recommendations": "Показване на препоръчани",
+        "view_ssl_score": "Преглед на SSL резултат",
+        "loading": "Зареждане...",
+        "hide_replies": "Скрий отговорите",
+        "load_more_replies": "Зареди още отговори",
+        "remove_from_playlist": "Премахване от плейлист",
+        "create_playlist": "Създаване на плейлист",
+        "reset_preferences": "Възстановяване на настройките",
+        "with_timecode": "Сподели с текущото време",
+        "piped_link": "Piped връзка",
+        "documentation": "Документация",
+        "delete_account": "Изтрий акаунта",
+        "download_as_txt": "Изтегляне като .txt",
+        "share": "Сподели",
+        "follow_link": "Последвайте връзката",
+        "add_to_playlist": "Добави към плейлист",
+        "delete_playlist_video_confirm": "Да се премахне ли видеото от плейлиста?",
+        "show_watch_on_youtube": "Показване на бутона \"Гледай в YouTube\"",
+        "source_code": "Изходен код"
     },
     "player": {
-        "watch_on": "Гледай на {0}"
+        "watch_on": "Гледай в {0}"
+    },
+    "login": {
+        "username": "Потребителско име",
+        "password": "Парола"
+    },
+    "video": {
+        "videos": "Видеоклипове",
+        "views": "{views} показвания"
     }
 }
