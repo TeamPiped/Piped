@@ -8,7 +8,8 @@
         "chapters": "Poglavlja",
         "live": "{0} uživo",
         "shorts": "Kratka videa",
-        "all": "Sva"
+        "all": "Sva",
+        "category": "Kategorija"
     },
     "preferences": {
         "ssl_score": "SSL ocjena",
@@ -92,7 +93,7 @@
         "select_playlist": "Odaberi popis snimaka",
         "please_select_playlist": "Odaberi popis snimaka",
         "delete_playlist_video_confirm": "Ukloniti video iz popisa snimaka?",
-        "show_markers": "Prikaži oznake na Pokretaču",
+        "show_markers": "Prikaži oznake na playeru",
         "delete_account": "Izbriši račun",
         "logout": "Odjavi se s ovog uređaja",
         "minimize_recommendations_default": "Standardno sakrij preporuke",
@@ -150,7 +151,7 @@
         "playlists": "Popisi snimaka",
         "account": "Račun",
         "instance": "Instanca",
-        "player": "Pokretač",
+        "player": "Player",
         "channels": "Kanali",
         "livestreams": "Prijenosi uživo",
         "bookmarks": "Zabilješke"
