@@ -222,6 +222,8 @@ export default {
     },
     methods: {
         async loadVideo() {
+            this.updateSponsors();
+
             const component = this;
             const videoEl = this.$refs.videoEl;
 
@@ -696,6 +698,18 @@ export default {
 
             if (markers) markers.style.background = `linear-gradient(${array.join(",")})`;
         },
+        updateSponsors() {
+            const skipOptions = this.getPreferenceJSON("skipOptions", {});
+            this.sponsors?.segments?.forEach(segment => {
+                const option = skipOptions[segment.category];
+                segment.autoskip = option === undefined || option === "auto";
+            });
+            if (this.getPreferenceBoolean("showMarkers", true)) {
+                this.shakaPromise.then(() => {
+                    this.updateMarkers();
+                });
+            }
+        },
         destroy(hotkeys) {
             if (this.$ui && !document.pictureInPictureElement) {
                 this.$ui.destroy();
@@ -708,20 +722,6 @@ export default {
             }
             if (hotkeys) this.$hotkeys?.unbind();
             this.$refs.container?.querySelectorAll("div").forEach(node => node.remove());
-        },
-    },
-    watch: {
-        sponsors() {
-            const skipOptions = this.getPreferenceJSON("skipOptions", {});
-            this.sponsors?.segments?.forEach(segment => {
-                const option = skipOptions[segment.category];
-                segment.autoskip = option === undefined || option === "auto";
-            });
-            if (this.getPreferenceBoolean("showMarkers", true)) {
-                this.shakaPromise.then(() => {
-                    this.updateMarkers();
-                });
-            }
         },
     },
 };
