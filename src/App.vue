@@ -1,12 +1,13 @@
 <template>
-    <div class="w-full min-h-screen px-1vw py-5 reset" :class="[theme]">
-        <NavBar />
-
-        <router-view v-slot="{ Component }">
-            <keep-alive :max="5">
-                <component :is="Component" :key="$route.fullPath" />
-            </keep-alive>
-        </router-view>
+    <div class="flex flex-col w-full min-h-screen px-1vw py-5 reset" :class="[theme]">
+        <div class="flex-1">
+            <NavBar />
+            <router-view v-slot="{ Component }">
+                <keep-alive :max="5">
+                    <component :is="Component" :key="$route.fullPath" />
+                </keep-alive>
+            </router-view>
+        </div>
 
         <FooterComponent />
     </div>
