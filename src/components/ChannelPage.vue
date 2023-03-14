@@ -1,7 +1,7 @@
 <template>
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
 
-    <div v-if="channel" v-show="!channel.error">
+    <LoadingIndicatorPage :show-content="channel != null && !channel.error">
         <div class="flex justify-center place-items-center">
             <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
             <h1 v-text="channel.name" />
@@ -61,19 +61,21 @@
                 hide-channel
             />
         </div>
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import ContentItem from "./ContentItem.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 
 export default {
     components: {
         ErrorHandler,
         ContentItem,
         WatchOnYouTubeButton,
+        LoadingIndicatorPage,
     },
     data() {
         return {
