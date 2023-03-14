@@ -100,7 +100,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,return",
+                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,return,.,,",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -198,6 +198,14 @@ export default {
                             break;
                         case "return":
                             self.skipSegment(videoEl);
+                            break;
+                        case ".":
+                            videoEl.currentTime += 0.04;
+                            e.preventDefault();
+                            break;
+                        case ",":
+                            videoEl.currentTime -= 0.04;
+                            e.preventDefault();
                             break;
                     }
                 },
