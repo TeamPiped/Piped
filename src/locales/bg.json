@@ -91,7 +91,10 @@
         "add_to_playlist": "Добави към плейлист",
         "delete_playlist_video_confirm": "Да се премахне ли видеото от плейлиста?",
         "show_watch_on_youtube": "Показване на бутона \"Гледай в YouTube\"",
-        "source_code": "Изходен код"
+        "source_code": "Изходен код",
+        "minimize_chapters_default": "Минимизиране на разделите по подразбиране",
+        "minimize_recommendations_default": "Минимизиране на препоръчани по подразбиране",
+        "show_chapters": "Раздели"
     },
     "player": {
         "watch_on": "Гледай в {0}"
@@ -102,6 +105,7 @@
     },
     "video": {
         "videos": "Видеоклипове",
-        "views": "{views} показвания"
+        "views": "{views} показвания",
+        "chapters": "Раздели"
     }
 }
