@@ -2,7 +2,12 @@
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
 
     <LoadingIndicatorPage :show-content="channel != null && !channel.error">
-        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full py-1.5 h-30 object-cover" loading="lazy" />
+        <img
+            v-if="channel.bannerUrl"
+            :src="channel.bannerUrl"
+            class="w-full py-1.5 h-30 md:h-50 object-cover"
+            loading="lazy"
+        />
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="flex place-items-center">
                 <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
@@ -38,7 +43,7 @@
         </div>
 
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="whitespace-pre-wrap py-3">
+        <div class="whitespace-pre-wrap py-2">
             <span v-if="fullDescription" v-html="purifyHTML(rewriteDescription(channel.description))" />
             <span v-html="purifyHTML(rewriteDescription(channel.description.slice(0, 100))) + '...'" v-else />
             <button
@@ -51,7 +56,7 @@
 
         <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
 
-        <div class="flex mt-4 mb-2">
+        <div class="flex my-2">
             <button
                 v-for="(tab, index) in tabs"
                 :key="tab.name"
