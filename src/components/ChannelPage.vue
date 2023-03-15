@@ -2,8 +2,8 @@
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
 
     <LoadingIndicatorPage :show-content="channel != null && !channel.error">
-        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
-        <div class="flex justify-between items-center">
+        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full py-1.5 h-30 object-cover" loading="lazy" />
+        <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="flex place-items-center">
                 <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
                 <div class="flex gap-1 items-center">
@@ -41,8 +41,11 @@
         <div class="whitespace-pre-wrap py-3">
             <span v-if="fullDescription" v-html="purifyHTML(rewriteDescription(channel.description))" />
             <span v-html="purifyHTML(rewriteDescription(channel.description.slice(0, 100))) + '...'" v-else />
-            <button class="hover:underline font-semibold ml-1" @click="fullDescription = !fullDescription">
-                [{{ fullDescription ? "Show less" : "Show more" }}]
+            <button
+                class="hover:underline font-semibold text-neutral-500 ml-1"
+                @click="fullDescription = !fullDescription"
+            >
+                [{{ fullDescription ? $t("actions.show_less") : $t("actions.show_more") }}]
             </button>
         </div>
 
