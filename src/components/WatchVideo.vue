@@ -17,16 +17,18 @@
 
         <div v-show="!video.error">
             <div :class="isMobile ? 'flex-col' : 'flex'">
-                <VideoPlayer
-                    ref="videoPlayer"
-                    :video="video"
-                    :sponsors="sponsors"
-                    :playlist="playlist"
-                    :index="index"
-                    :selected-auto-play="selectedAutoPlay"
-                    :selected-auto-loop="selectedAutoLoop"
-                    @timeupdate="onTimeUpdate"
-                />
+                <keep-alive>
+                    <VideoPlayer
+                        ref="videoPlayer"
+                        :video="video"
+                        :sponsors="sponsors"
+                        :playlist="playlist"
+                        :index="index"
+                        :selected-auto-play="selectedAutoPlay"
+                        :selected-auto-loop="selectedAutoLoop"
+                        @timeupdate="onTimeUpdate"
+                    />
+                </keep-alive>
                 <ChaptersBar
                     :mobileLayout="isMobile"
                     v-if="video?.chapters?.length > 0 && showChapters"
