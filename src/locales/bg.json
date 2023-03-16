@@ -32,7 +32,7 @@
         "channel_name_asc": "Име на канал (А-Я)",
         "channel_name_desc": "Име на канал (Я-А)",
         "back": "Назад",
-        "enable_sponsorblock": "Активиране на Sponsorblock",
+        "enable_sponsorblock": "Активиране на SponsorBlock",
         "skip_button_only": "Показване на бутона за пропускане",
         "skip_automatically": "Автоматично",
         "skip_intro": "Пропускане на прекъсване/въвеждаща анимация",
@@ -52,7 +52,7 @@
         "country_selection": "Избор на държава",
         "default_homepage": "Начална страница по подразбиране",
         "minimize_description_default": "Минимизиране на описанието по подразбиране",
-        "store_watch_history": "Запазване на история на гледане",
+        "store_watch_history": "Запазване на историята на гледане",
         "language_selection": "Избор на език",
         "instances_list": "Списък на инстанциите",
         "enabled_codecs": "Разрешени кодеци (множество)",
@@ -98,7 +98,7 @@
         "logout": "Отписване от това устройство",
         "clone_playlist": "Клониране на плейлист",
         "clone_playlist_success": "Успешно клониране!",
-        "backup_preferences": "Архивиране на настройки",
+        "backup_preferences": "Архивиране на настройките",
         "rename_playlist": "Преименуване на плейлиста",
         "new_playlist_name": "Ново име на плейлиста",
         "back_to_home": "Обратно към начална страница",
@@ -106,10 +106,10 @@
         "copy_link": "Копирай връзката",
         "time_code": "Текущо време (в секунди)",
         "reply_count": "{count} отговора",
-        "restore_preferences": "Възстановяване на настройки",
+        "restore_preferences": "Възстановяване на настройките",
         "invalidate_session": "Отписване от всички устройства",
         "different_auth_instance": "Използване на различна инстанция за удостоверяване",
-        "store_search_history": "Запазване на историята на търсенето",
+        "store_search_history": "Запазване на историята на търсене",
         "instance_auth_selection": "Избор на инстанция за удостоверяване",
         "confirm_reset_preferences": "Сигурни ли сте, че искате да нулирате настройките?",
         "hide_watched": "Скриване на гледани видеоклипове в Абонаменти"
@@ -125,7 +125,9 @@
         "videos": "Видеоклипове",
         "views": "{views} показвания",
         "chapters": "Раздели",
-        "all": "Всички"
+        "all": "Всички",
+        "watched": "Гледани",
+        "category": "Категория"
     },
     "preferences": {
         "version": "Версия",
@@ -133,11 +135,14 @@
         "instance_locations": "Местоположения на инстанция",
         "instance_name": "Име на инстанция",
         "has_cdn": "Има ли CDN?",
-        "up_to_date": "Актуален?"
+        "up_to_date": "Актуален?",
+        "ssl_score": "SSL резултат"
     },
     "comment": {
         "disabled": "Коментарите са деактивирани.",
-        "pinned_by": "Фиксиран от {author}"
+        "pinned_by": "Фиксиран от {author}",
+        "loading": "Коментарите се зареждат...",
+        "user_disabled": "Коментарите са деактивирани в настройките."
     },
     "search": {
         "did_you_mean": "Имахте предвид: {0}?",
@@ -152,5 +157,12 @@
     },
     "subscriptions": {
         "subscribed_channels_count": "Абониран за: {0}"
+    },
+    "info": {
+        "page_not_found": "Страницата не е намерена",
+        "copied": "Копирано!",
+        "cannot_copy": "Не може да се копира!",
+        "local_storage": "Това действие изисква localStorage, разрешени ли са бисквитките?",
+        "register_no_email_note": "Използването на имейл като потребителско име не се препоръчва. Продължете все пак?"
     }
 }
