@@ -2,42 +2,61 @@
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
 
     <LoadingIndicatorPage :show-content="channel != null && !channel.error">
-        <div class="flex justify-center place-items-center">
-            <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
-            <h1 v-text="channel.name" />
-            <font-awesome-icon class="ml-1.5 !text-3xl" v-if="channel.verified" icon="check" />
+        <img
+            v-if="channel.bannerUrl"
+            :src="channel.bannerUrl"
+            class="w-full py-1.5 h-30 md:h-50 object-cover"
+            loading="lazy"
+        />
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex place-items-center">
+                <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
+                <div class="flex gap-1 items-center">
+                    <h1 v-text="channel.name" class="!text-xl" />
+                    <font-awesome-icon class="!text-xl" v-if="channel.verified" icon="check" />
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <button
+                    class="btn"
+                    @click="subscribeHandler"
+                    v-t="{
+                        path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
+                        args: { count: numberFormat(channel.subscriberCount) },
+                    }"
+                ></button>
+
+                <!-- RSS Feed button -->
+                <a
+                    aria-label="RSS feed"
+                    title="RSS feed"
+                    role="button"
+                    v-if="channel.id"
+                    :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
+                    target="_blank"
+                    class="btn flex-col"
+                >
+                    <font-awesome-icon icon="rss" />
+                </a>
+            </div>
         </div>
-        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
+
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <p class="whitespace-pre-wrap">
-            <span v-html="purifyHTML(rewriteDescription(channel.description))" />
-        </p>
-
-        <button
-            class="btn"
-            @click="subscribeHandler"
-            v-t="{
-                path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                args: { count: numberFormat(channel.subscriberCount) },
-            }"
-        ></button>
-
-        <!-- RSS Feed button -->
-        <a
-            aria-label="RSS feed"
-            title="RSS feed"
-            role="button"
-            v-if="channel.id"
-            :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
-            target="_blank"
-            class="btn flex-col mx-3"
-        >
-            <font-awesome-icon icon="rss" />
-        </a>
+        <div class="whitespace-pre-wrap py-2 mx-1">
+            <span v-if="fullDescription" v-html="purifyHTML(rewriteDescription(channel.description))" />
+            <span v-html="purifyHTML(rewriteDescription(channel.description.slice(0, 100))) + '...'" v-else />
+            <button
+                class="hover:underline font-semibold text-neutral-500 block whitespace-normal"
+                @click="fullDescription = !fullDescription"
+            >
+                [{{ fullDescription ? $t("actions.show_less") : $t("actions.show_more") }}]
+            </button>
+        </div>
 
         <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
 
-        <div class="flex mt-4 mb-2">
+        <div class="flex my-2 mx-1">
             <button
                 v-for="(tab, index) in tabs"
                 :key="tab.name"
@@ -84,6 +103,7 @@ export default {
             tabs: [],
             selectedTab: 0,
             contentItems: [],
+            fullDescription: false,
         };
     },
     mounted() {
