@@ -43,10 +43,12 @@
         </div>
 
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="whitespace-pre-wrap py-2 mx-1">
+        <div v-if="channel.description" class="whitespace-pre-wrap py-2 mx-1">
             <span v-if="fullDescription" v-html="purifyHTML(rewriteDescription(channel.description))" />
-            <span v-html="purifyHTML(rewriteDescription(channel.description.slice(0, 100))) + '...'" v-else />
+            <span v-html="purifyHTML(rewriteDescription(channel.description.slice(0, 100)))" v-else />
+            <span v-if="channel.description.length > 100 && !fullDescription">...</span>
             <button
+                v-if="channel.description.length > 100"
                 class="hover:underline font-semibold text-neutral-500 block whitespace-normal"
                 @click="fullDescription = !fullDescription"
             >
