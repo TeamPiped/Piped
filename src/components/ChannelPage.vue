@@ -43,11 +43,11 @@
         </div>
 
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="whitespace-pre-wrap py-2">
+        <div class="whitespace-pre-wrap py-2 mx-1">
             <span v-if="fullDescription" v-html="purifyHTML(rewriteDescription(channel.description))" />
             <span v-html="purifyHTML(rewriteDescription(channel.description.slice(0, 100))) + '...'" v-else />
             <button
-                class="hover:underline font-semibold text-neutral-500 ml-1"
+                class="hover:underline font-semibold text-neutral-500 block whitespace-normal"
                 @click="fullDescription = !fullDescription"
             >
                 [{{ fullDescription ? $t("actions.show_less") : $t("actions.show_more") }}]
@@ -56,7 +56,7 @@
 
         <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
 
-        <div class="flex my-2">
+        <div class="flex my-2 mx-1">
             <button
                 v-for="(tab, index) in tabs"
                 :key="tab.name"
