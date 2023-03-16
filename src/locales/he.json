@@ -53,7 +53,7 @@
         "instances_list": "רשימת עותקים",
         "enabled_codecs": "מפענחים פעילים (מגוון)",
         "instance_selection": "בחירת עותק",
-        "show_more": "להציג עוד",
+        "show_more": "להציג יותר",
         "yes": "כן",
         "no": "לא",
         "export_to_json": "ייצוא ל־JSON",
@@ -127,7 +127,8 @@
         "skip_button_only": "הצגת כפתור דילוג",
         "min_segment_length": "אורך מקטע מזערי (בשניות)",
         "skip_segment": "דילוג על מקטע",
-        "skip_automatically": "אוטומטית"
+        "skip_automatically": "אוטומטית",
+        "show_less": "להציג פחות"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
