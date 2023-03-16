@@ -45,7 +45,7 @@
         "export_to_json": "JSON Olarak Dışa Aktar",
         "no": "Hayır",
         "yes": "Evet",
-        "show_more": "Daha Fazla Göster",
+        "show_more": "Daha fazla göster",
         "instance_selection": "Örnek Seçimi",
         "loading": "Yükleniyor...",
         "filter": "Filtrele",
@@ -108,7 +108,8 @@
         "min_segment_length": "En Küçük Bölüm Uzunluğu (saniye cinsinden)",
         "skip_segment": "Bölümü Atla",
         "skip_button_only": "Atla düğmesini göster",
-        "skip_automatically": "Otomatik olarak"
+        "skip_automatically": "Otomatik olarak",
+        "show_less": "Daha az göster"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
