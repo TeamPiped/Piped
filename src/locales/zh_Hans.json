@@ -108,7 +108,8 @@
         "skip_automatically": "自动",
         "min_segment_length": "最小分段长度（以秒为单位）",
         "skip_segment": "跳过分段",
-        "skip_button_only": "显示跳过按钮"
+        "skip_button_only": "显示跳过按钮",
+        "show_less": "显示更少"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
