@@ -52,7 +52,7 @@
         "country_selection": "Избор на държава",
         "default_homepage": "Начална страница по подразбиране",
         "minimize_description_default": "Минимизиране на описанието по подразбиране",
-        "store_watch_history": "Съхраняване на история на гледане",
+        "store_watch_history": "Запазване на история на гледане",
         "language_selection": "Избор на език",
         "instances_list": "Списък на инстанциите",
         "enabled_codecs": "Разрешени кодеци (множество)",
@@ -80,7 +80,7 @@
         "load_more_replies": "Зареди още отговори",
         "remove_from_playlist": "Премахване от плейлист",
         "create_playlist": "Създаване на плейлист",
-        "reset_preferences": "Възстановяване на настройките",
+        "reset_preferences": "Нулиране на настройките",
         "with_timecode": "Сподели с текущото време",
         "piped_link": "Piped връзка",
         "documentation": "Документация",
@@ -109,7 +109,10 @@
         "restore_preferences": "Възстановяване на настройки",
         "invalidate_session": "Отписване от всички устройства",
         "different_auth_instance": "Използване на различна инстанция за удостоверяване",
-        "store_search_history": "Запазване на историята на търсенето"
+        "store_search_history": "Запазване на историята на търсенето",
+        "instance_auth_selection": "Избор на инстанция за удостоверяване",
+        "confirm_reset_preferences": "Сигурни ли сте, че искате да нулирате настройките?",
+        "hide_watched": "Скриване на гледани видеоклипове в Абонаменти"
     },
     "player": {
         "watch_on": "Гледай в {0}"
@@ -126,7 +129,11 @@
     },
     "preferences": {
         "version": "Версия",
-        "registered_users": "Регистрирани потребители"
+        "registered_users": "Регистрирани потребители",
+        "instance_locations": "Местоположения на инстанция",
+        "instance_name": "Име на инстанция",
+        "has_cdn": "Има ли CDN?",
+        "up_to_date": "Актуален?"
     },
     "comment": {
         "disabled": "Коментарите са деактивирани.",
