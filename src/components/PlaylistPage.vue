@@ -1,7 +1,7 @@
 <template>
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
-    <div v-if="playlist" v-show="!playlist.error">
+    <LoadingIndicatorPage :show-content="playlist" v-show="!playlist.error">
         <h1 class="text-center my-4" v-text="playlist.name" />
 
         <div class="flex justify-between items-center">
@@ -46,11 +46,12 @@
                 width="168"
             />
         </div>
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import VideoItem from "./VideoItem.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
@@ -59,6 +60,7 @@ export default {
         ErrorHandler,
         VideoItem,
         WatchOnYouTubeButton,
+        LoadingIndicatorPage,
     },
     data() {
         return {
@@ -88,7 +90,7 @@ export default {
                 },
             }).then(json => {
                 if (json.error) alert(json.error);
-                else if (json.filter(playlist => playlist.id === playlistId).length > 0) this.admin = true;
+                else if (json.some(playlist => playlist.id === playlistId)) this.admin = true;
             });
         this.isPlaylistBookmarked();
     },

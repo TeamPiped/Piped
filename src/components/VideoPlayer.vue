@@ -92,7 +92,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,return",
+                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,return,.,,",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -191,6 +191,14 @@ export default {
                         case "return":
                             self.skipSegment(videoEl);
                             break;
+                        case ".":
+                            videoEl.currentTime += 0.04;
+                            e.preventDefault();
+                            break;
+                        case ",":
+                            videoEl.currentTime -= 0.04;
+                            e.preventDefault();
+                            break;
                     }
                 },
             );
@@ -206,6 +214,8 @@ export default {
     },
     methods: {
         async loadVideo() {
+            this.updateSponsors();
+
             const component = this;
             const videoEl = this.$refs.videoEl;
 
@@ -263,9 +273,7 @@ export default {
 
             const MseSupport = window.MediaSource !== undefined;
 
-            const lbry = this.getPreferenceBoolean("disableLBRY", false)
-                ? null
-                : this.video.videoStreams.filter(stream => stream.quality === "LBRY")[0];
+            const lbry = null;
 
             var uri;
             var mime;
@@ -275,9 +283,10 @@ export default {
                 mime = "application/x-mpegURL";
             } else if (this.video.audioStreams.length > 0 && !lbry && MseSupport) {
                 if (!this.video.dash) {
-                    const dash = (
-                        await import("@/utils/DashUtils.js").then(mod => mod.default)
-                    ).generate_dash_file_from_formats(streams, this.video.duration);
+                    const dash = (await import("../utils/DashUtils.js")).generate_dash_file_from_formats(
+                        streams,
+                        this.video.duration,
+                    );
 
                     uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
                 } else {
@@ -313,7 +322,7 @@ export default {
                 uri = this.video.hls;
                 mime = "application/x-mpegURL";
             } else {
-                uri = this.video.videoStreams.filter(stream => stream.codec == null).slice(-1)[0].url;
+                uri = this.video.videoStreams.findLast(stream => stream.codec == null).url;
                 mime = "video/mp4";
             }
 
@@ -363,6 +372,9 @@ export default {
             else this.setPlayerAttrs(this.$player, videoEl, uri, mime, this.$shaka);
 
             if (noPrevPlayer) {
+                videoEl.addEventListener("loadeddata", () => {
+                    if (document.pictureInPictureElement) videoEl.requestPictureInPicture();
+                });
                 videoEl.addEventListener("timeupdate", () => {
                     const time = videoEl.currentTime;
                     this.$emit("timeupdate", time);
@@ -647,22 +659,7 @@ export default {
 
             if (markers) markers.style.background = `linear-gradient(${array.join(",")})`;
         },
-        destroy(hotkeys) {
-            if (this.$ui) {
-                this.$ui.destroy();
-                this.$ui = undefined;
-                this.$player = undefined;
-            }
-            if (this.$player) {
-                this.$player.destroy();
-                this.$player = undefined;
-            }
-            if (hotkeys) this.$hotkeys?.unbind();
-            this.$refs.container?.querySelectorAll("div").forEach(node => node.remove());
-        },
-    },
-    watch: {
-        sponsors() {
+        updateSponsors() {
             const skipOptions = this.getPreferenceJSON("skipOptions", {});
             this.sponsors?.segments?.forEach(segment => {
                 const option = skipOptions[segment.category];
@@ -673,6 +670,19 @@ export default {
                     this.updateMarkers();
                 });
             }
+        },
+        destroy(hotkeys) {
+            if (this.$ui && !document.pictureInPictureElement) {
+                this.$ui.destroy();
+                this.$ui = undefined;
+                this.$player = undefined;
+            }
+            if (this.$player) {
+                this.$player.destroy();
+                if (!document.pictureInPictureElement) this.$player = undefined;
+            }
+            if (hotkeys) this.$hotkeys?.unbind();
+            this.$refs.container?.querySelectorAll("div").forEach(node => node.remove());
         },
     },
 };

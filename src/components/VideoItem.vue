@@ -12,10 +12,10 @@
         >
             <div class="w-full">
                 <img
-                    class="w-full aspect-video"
+                    class="w-full aspect-video object-contain"
                     :src="item.thumbnail"
                     :alt="item.title"
-                    :class="{ 'shorts-img': item.isShort }"
+                    :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
                     loading="lazy"
                 />
                 <!-- progress bar -->

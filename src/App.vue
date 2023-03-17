@@ -1,12 +1,13 @@
 <template>
-    <div class="w-full min-h-screen px-1vw py-5 reset" :class="[theme]">
-        <NavBar />
-
-        <router-view v-slot="{ Component }">
-            <keep-alive :max="5">
-                <component :is="Component" :key="$route.fullPath" />
-            </keep-alive>
-        </router-view>
+    <div class="flex flex-col w-full min-h-screen px-1vw py-5 reset" :class="[theme]">
+        <div class="flex-1">
+            <NavBar />
+            <router-view v-slot="{ Component }">
+                <keep-alive :max="5">
+                    <component :is="Component" :key="$route.fullPath" />
+                </keep-alive>
+            </router-view>
+        </div>
 
         <FooterComponent />
     </div>
@@ -33,6 +34,14 @@ export default {
             let themePref = this.getPreferenceString("theme", "dark");
             if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
             else this.theme = themePref;
+
+            // Change title bar color based on user's theme
+            const themeColor = document.querySelector("meta[name='theme-color']");
+            if (this.theme === "light") {
+                themeColor.setAttribute("content", "#FFF");
+            } else {
+                themeColor.setAttribute("content", "#0F0F0F");
+            }
 
             // Used for the scrollbar
             const root = document.querySelector(":root");

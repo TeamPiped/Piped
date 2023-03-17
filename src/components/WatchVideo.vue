@@ -10,7 +10,7 @@
         />
     </div>
 
-    <div v-if="video && !isEmbed" class="w-full">
+    <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
         <Transition>
             <ToastComponent v-if="shouldShowToast" @dismissed="dismiss">
@@ -20,15 +20,17 @@
 
         <div v-show="!video.error">
             <div :class="isMobile ? 'flex-col' : 'flex'">
-                <VideoPlayer
-                    ref="videoPlayer"
-                    :video="video"
-                    :sponsors="sponsors"
-                    :selected-auto-play="selectedAutoPlay"
-                    :selected-auto-loop="selectedAutoLoop"
-                    @timeupdate="onTimeUpdate"
-                    @ended="onVideoEnded"
-                />
+                <keep-alive>
+                    <VideoPlayer
+                        ref="videoPlayer"
+                        :video="video"
+                        :sponsors="sponsors"
+                        :selected-auto-play="selectedAutoPlay"
+                        :selected-auto-loop="selectedAutoLoop"
+                        @timeupdate="onTimeUpdate"
+                        @ended="onVideoEnded"
+                    />
+                </keep-alive>
                 <ChaptersBar
                     :mobileLayout="isMobile"
                     v-if="video?.chapters?.length > 0 && showChapters"
@@ -219,7 +221,7 @@
                 <hr class="sm:hidden" />
             </div>
         </div>
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
@@ -232,6 +234,7 @@ import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import ToastComponent from "./ToastComponent.vue";
 
 export default {
@@ -246,14 +249,13 @@ export default {
         ShareModal,
         PlaylistVideos,
         WatchOnYouTubeButton,
+        LoadingIndicatorPage,
         ToastComponent,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
         return {
-            video: {
-                title: "Loading...",
-            },
+            video: null,
             playlistId: null,
             playlist: null,
             index: null,
@@ -361,7 +363,7 @@ export default {
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         this.showChapters = !this.getPreferenceBoolean("minimizeChapters", false);
-        if (this.video.duration) {
+        if (this.video?.duration) {
             document.title = this.video.title + " - Piped";
             this.$refs.videoPlayer.loadVideo();
         }

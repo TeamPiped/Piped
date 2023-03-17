@@ -129,7 +129,9 @@
         "with_playlist": "Share with playlist",
         "bookmark_playlist": "Bookmark",
         "playlist_bookmarked": "Bookmarked",
-        "dismiss": "Dismiss"
+        "dismiss": "Dismiss",
+        "show_more": "Show more",
+        "show_less": "Show less"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

@@ -376,6 +376,7 @@ export default {
             languages: [
                 { code: "ar", name: "Arabic" },
                 { code: "az", name: "Azərbaycan" },
+                { code: "bg", name: "Български" },
                 { code: "bn", name: "বাংলা" },
                 { code: "bs", name: "Bosanski" },
                 { code: "ca", name: "Català" },
@@ -436,7 +437,7 @@ export default {
 
         this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
             this.instances = resp;
-            if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
+            if (!this.instances.some(instance => instance.api_url == this.apiUrl()))
                 this.instances.push({
                     name: "Custom Instance",
                     api_url: this.apiUrl(),
@@ -614,5 +615,11 @@ export default {
 <style>
 .pref {
     @apply flex justify-between items-center my-2 mx-[15vw] lt-md:mx-[2vw];
+}
+.pref:nth-child(odd) {
+    @apply bg-gray-200;
+}
+.dark .pref:nth-child(odd) {
+    @apply bg-dark-800;
 }
 </style>

@@ -44,7 +44,7 @@
         "least_recent": "最早的",
         "most_recent": "最新的",
         "sort_by": "排序：",
-        "view_subscriptions": "查看订阅",
+        "view_subscriptions": "查看订阅列表",
         "unsubscribe": "取消订阅 - {count}",
         "subscribe": "订阅 - {count}",
         "loading": "正在加载...",
@@ -108,7 +108,8 @@
         "skip_automatically": "自动",
         "min_segment_length": "最小分段长度（以秒为单位）",
         "skip_segment": "跳过分段",
-        "skip_button_only": "显示跳过按钮"
+        "skip_button_only": "显示跳过按钮",
+        "show_less": "显示更少"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -141,8 +142,8 @@
         "watch_on": "在 {0} 观看"
     },
     "titles": {
-        "feed": "RSS 订阅源",
-        "subscriptions": "订阅",
+        "feed": "订阅流",
+        "subscriptions": "订阅列表",
         "history": "历史",
         "preferences": "设置",
         "register": "注册",
