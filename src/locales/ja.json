@@ -127,7 +127,8 @@
         "skip_automatically": "自動",
         "skip_button_only": "スキップボタン表示",
         "skip_segment": "ここをスキップ",
-        "min_segment_length": "最小の区切りの長さ (秒)"
+        "min_segment_length": "最小の区切りの長さ (秒)",
+        "show_less": "少なく見る"
     },
     "comment": {
         "pinned_by": "{author} によって固定",

@@ -135,7 +135,8 @@
         "skip_button_only": "Muestra botón de saltar",
         "skip_automatically": "Automáticamente",
         "min_segment_length": "Mínima Duración de Segmento (en segundos)",
-        "skip_segment": "Saltar Segmento"
+        "skip_segment": "Saltar Segmento",
+        "show_less": "Mostrar menos"
     },
     "titles": {
         "feed": "Fuente web",
