@@ -50,7 +50,7 @@
         "instances_list": "Daftar Instansi",
         "enabled_codecs": "Kodek yang Diaktifkan (Beberapa)",
         "instance_selection": "Pemilihan Instansi",
-        "show_more": "Tampilkan Lebih Banyak",
+        "show_more": "Tampilkan lebih banyak",
         "yes": "Iya",
         "no": "Tidak",
         "import_from_json": "Impor dari JSON/CSV",
@@ -127,7 +127,8 @@
         "skip_button_only": "Tampilkan tombol lewati",
         "skip_automatically": "Secara otomatis",
         "min_segment_length": "Panjang Segmen Minimum (dalam detik)",
-        "skip_segment": "Lewati Segmen"
+        "skip_segment": "Lewati Segmen",
+        "show_less": "Tampilkan lebih sedikit"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
