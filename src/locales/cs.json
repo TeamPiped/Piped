@@ -124,7 +124,8 @@
         "skip_automatically": "Automaticky",
         "skip_segment": "Přeskočit segment",
         "skip_button_only": "Zobrazit tlačítko přeskočení",
-        "min_segment_length": "Minimální délka segmentu (v sekundách)"
+        "min_segment_length": "Minimální délka segmentu (v sekundách)",
+        "show_less": "Zobrazit méně"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
