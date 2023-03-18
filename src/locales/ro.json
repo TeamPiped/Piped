@@ -92,7 +92,7 @@
         "store_watch_history": "Salvează Istoricul de Vizionare",
         "minimize_comments": "Ascunde Comentarii",
         "minimize_description": "Ascunde Descriere",
-        "show_more": "Mai Mult",
+        "show_more": "Mai mult",
         "no": "Nu",
         "export_to_json": "Exportă ca JSON",
         "import_from_json": "Importă din JSON/CSV",
@@ -108,7 +108,8 @@
         "skip_segment": "Sări segmentul",
         "skip_button_only": "Afișează butonul de săritură",
         "with_playlist": "Distribuie cu playlist",
-        "playlist_bookmarked": "Marcat"
+        "playlist_bookmarked": "Marcat",
+        "show_less": "Mai puțin"
     },
     "preferences": {
         "ssl_score": "Scor SSL",

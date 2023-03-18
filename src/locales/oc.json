@@ -127,7 +127,8 @@
         "skip_button_only": "Afichar lo boton per sautar",
         "skip_automatically": "Automaticament",
         "min_segment_length": "Durada minimum de segment (en segondas)",
-        "skip_segment": "Sautar lo segment"
+        "skip_segment": "Sautar lo segment",
+        "show_less": "Ne mostrar mens"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
