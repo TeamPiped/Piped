@@ -36,7 +36,7 @@
         "enabled_codecs": "Codecs Ativados (Múltiplos)",
         "language_selection": "Seleção de Idioma",
         "yes": "Sim",
-        "show_more": "Mostrar Mais",
+        "show_more": "Mostrar mais",
         "export_to_json": "Exportar para JSON",
         "donations": "Doações de desenvolvimento",
         "minimize_recommendations": "Minimizar Recomendações",
@@ -108,7 +108,8 @@
         "skip_automatically": "Automaticamente",
         "skip_segment": "Ignorar Segmento",
         "min_segment_length": "Comprimento Mínimo do Segmento (em segundos)",
-        "skip_button_only": "Mostrar botão pular"
+        "skip_button_only": "Mostrar botão pular",
+        "show_less": "Mostrar menos"
     },
     "titles": {
         "history": "Histórico",
