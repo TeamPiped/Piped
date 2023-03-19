@@ -64,7 +64,6 @@
                     v-if="item.uploaderAvatar"
                     :src="item.uploaderAvatar"
                     loading="lazy"
-                    :alt="item.uploaderName"
                     class="rounded-full mr-0.5 mt-0.5 w-32px h-32px"
                     width="68"
                     height="68"
@@ -92,7 +91,7 @@
                 </div>
             </div>
 
-            <div>
+            <div class="flex items-center gap-2.5">
                 <router-link
                     :to="{
                         path: '/watch',
