@@ -80,7 +80,7 @@
         "minimize_description_default": "Açıqlamanı Defolt Olaraq Kiçilt",
         "language_selection": "Dil Seçimi",
         "instances_list": "Nümunələr Siyahısı",
-        "show_more": "Daha Çox Göstər",
+        "show_more": "Daha çox göstər",
         "no": "Xeyr",
         "store_watch_history": "Baxış Tarixçəsini Saxla",
         "enabled_codecs": "Aktiv Kodeklər (Birdən çox)",
@@ -127,7 +127,8 @@
         "skip_button_only": "Ötürmə düyməsin göstər",
         "skip_automatically": "Avtomatik olaraq",
         "min_segment_length": "Minimum Seqment Uzunluğu (saniyələrlə)",
-        "skip_segment": "Seqmenti ötür"
+        "skip_segment": "Seqmenti ötür",
+        "show_less": "Daha az göstər"
     },
     "comment": {
         "pinned_by": "Tərəfindən Sabitləndi {author}",
