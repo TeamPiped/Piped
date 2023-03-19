@@ -126,7 +126,7 @@
 
 <style>
 .shorts-img {
-    @apply max-h-[17.5vh] w-full object-contain;
+    @apply w-full object-contain;
 }
 </style>
 
