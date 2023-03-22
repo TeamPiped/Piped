@@ -127,7 +127,8 @@
         "skip_automatically": "Автоматически",
         "min_segment_length": "Минимальная длина сегмента (в секундах)",
         "skip_button_only": "Показать кнопку \"Пропустить\"",
-        "skip_segment": "Пропустить сегмент"
+        "skip_segment": "Пропустить сегмент",
+        "show_less": "Показать меньше"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
