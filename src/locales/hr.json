@@ -135,7 +135,8 @@
         "skip_button_only": "Prikaži gumb za preskakanje",
         "skip_automatically": "Automatski",
         "skip_segment": "Preskoči segment",
-        "min_segment_length": "Najmanja duljina segmenta (u sekundama)"
+        "min_segment_length": "Najmanja duljina segmenta (u sekundama)",
+        "show_less": "Prikaži manje"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
