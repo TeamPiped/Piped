@@ -4840,10 +4840,10 @@ vite-plugin-eslint@1.8.1:
     "@types/eslint" "^8.4.5"
     rollup "^2.77.2"
 
-vite-plugin-pwa@0.14.5:
-  version "0.14.5"
-  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.14.5.tgz#86fb1233b31dc4e30d5f040391fc4a57977f2c86"
-  integrity sha512-LH3VCtoWx0scfim8Ph+daVl45uVRyWzXn3C3GUq92uWUui1p8eh+DjTQ23Pvb7SJ0SJtxZ99LCpOLCkFkaxokg==
+vite-plugin-pwa@0.14.6:
+  version "0.14.6"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.14.6.tgz#71d77a9e39a3b3ccc265aa5e4d920d1fdd661461"
+  integrity sha512-3mqbkjvSF89pCSZyXAbv6AO4gYKYZel0rcpBgWOWqEupoBOZF9oHDdgHc+FgjmvQXxuU2k9aEFOfRCMGorV+4Q==
   dependencies:
     "@rollup/plugin-replace" "^5.0.1"
     debug "^4.3.4"
