@@ -108,7 +108,8 @@
         "min_segment_length": "Lunghezza minima del segmento (in secondi)",
         "skip_automatically": "Automaticamente",
         "skip_button_only": "Mostra pulsante di salto",
-        "skip_segment": "Salta segmento"
+        "skip_segment": "Salta segmento",
+        "show_less": "Mostra meno"
     },
     "player": {
         "watch_on": "Guarda su {0}"
