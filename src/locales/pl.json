@@ -127,7 +127,8 @@
         "skip_button_only": "Pokaż przycisk pomijania",
         "skip_automatically": "Automatycznie",
         "min_segment_length": "Minimalna długość segmentu (w sekundach)",
-        "skip_segment": "Pomiń segment"
+        "skip_segment": "Pomiń segment",
+        "show_less": "Pokaż mniej"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
