@@ -26,7 +26,7 @@ export default defineConfig({
                     "**/[A-Z]*.js",
                     "**/index*.js",
                     "**/shaka-player*.js",
-                    "manifest.webmanifest"
+                    "manifest.webmanifest",
                 ],
                 globIgnores: ["**/*-legacy-*.js"],
                 runtimeCaching: [
