@@ -21,7 +21,7 @@ export default defineConfig({
         VitePWA({
             registerType: "autoUpdate",
             workbox: {
-                globPatterns: ["**/*.{css,html}", "[A-Z]*.js", "index*.js", "shaka-player*.js", "manifest.webmanifest"],
+                globPatterns: ["**/*.{css,html}", "**/[A-Z]*.js", "**/index*.js", "**/shaka-player*.js", "manifest.webmanifest"],
                 globIgnores: ["**/*-legacy-*.js"],
                 runtimeCaching: [
                     {
