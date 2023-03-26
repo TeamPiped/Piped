@@ -6,6 +6,7 @@
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
+        <canvas height="130" width="230" id="preview" />
         <button
             v-if="inSegment"
             class="skip-segment-button"
@@ -512,6 +513,8 @@ export default {
 
             const player = this.$ui.getControls().getPlayer();
 
+            this.setupSeekbarPreview();
+
             this.$player = player;
 
             const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
@@ -710,6 +713,75 @@ export default {
                 });
             }
         },
+        setupSeekbarPreview() {
+            if (!this.video.previewFrames) return;
+            let seekBar = document.querySelector(".shaka-seek-bar-container");
+            // load the thumbnail preview when the user moves over the seekbar
+            seekBar.addEventListener("mousemove", e => {
+                const position = (this.video.duration * e.clientX) / seekBar.clientWidth;
+                this.showSeekbarPreview(position * 1000);
+            });
+            // hide the preview when the user stops hovering the seekbar
+            seekBar.addEventListener("mouseout", () => {
+                let canvas = document.querySelector("#preview");
+                canvas.style.display = "none";
+            });
+        },
+        async showSeekbarPreview(position) {
+            let frame = this.getFrame(position);
+            let originalImage = await this.loadImage(frame.url);
+            let seekBar = document.querySelector(".shaka-seek-bar-container");
+            let canvas = document.querySelector("#preview");
+            let ctx = canvas.getContext("2d");
+
+            // get the new sizes for the image to be drawn into the canvas
+            const originalWidth = originalImage.naturalWidth;
+            const originalHeight = originalImage.naturalHeight;
+            const offsetX = originalWidth * (frame.positionX / frame.framesPerPageX);
+            const offsetY = originalHeight * (frame.positionY / frame.framesPerPageY);
+            const newWidth = originalWidth / frame.framesPerPageX;
+            const newHeight = originalHeight / frame.framesPerPageY;
+
+            // draw the thumbnail preview into the canvas by cropping only the relevant part
+            ctx.drawImage(originalImage, offsetX, offsetY, newWidth, newHeight, 0, 0, canvas.width, canvas.height);
+
+            // calculate the thumbnail preview offset and display it
+            const centerOffset = position / this.video.duration / 10;
+            const left = centerOffset - (canvas.width / seekBar.clientWidth / 1.3) * 100;
+            canvas.style.left = `max(2%, min(${left}%, 90%))`;
+            canvas.style.display = "block";
+        },
+        // ineffective algorithm to find the thumbnail corresponding to the currently hovered position in the video
+        getFrame(position) {
+            let startPosition = 0;
+            let framePage = this.video.previewFrames.at(-1);
+            for (let i = 0; i < framePage.urls.length; i++) {
+                for (let positionY = 0; positionY < framePage.framesPerPageY; positionY++) {
+                    for (let positionX = 0; positionX < framePage.framesPerPageX; positionX++) {
+                        const endPosition = startPosition + framePage.durationPerFrame;
+                        if (position >= startPosition && position <= endPosition) {
+                            return {
+                                url: framePage.urls[i],
+                                positionX: positionX,
+                                positionY: positionY,
+                                framesPerPageX: framePage.framesPerPageX,
+                                framesPerPageY: framePage.framesPerPageY,
+                            };
+                        }
+                        startPosition = endPosition;
+                    }
+                }
+            }
+            return null;
+        },
+        // creates a new image from an URL
+        loadImage(url) {
+            return new Promise(r => {
+                let i = new Image();
+                i.onload = () => r(i);
+                i.src = url;
+            });
+        },
         destroy(hotkeys) {
             if (this.$ui && !document.pictureInPictureElement) {
                 this.$ui.destroy();
@@ -788,5 +860,13 @@ export default {
 .skip-segment-button .material-icons-round {
     font-size: 1.6em !important;
     line-height: inherit !important;
+}
+
+#preview {
+    position: absolute;
+    z-index: 2000;
+    bottom: 0;
+    margin-bottom: 4.5%;
+    border-radius: 0.3rem;
 }
 </style>
