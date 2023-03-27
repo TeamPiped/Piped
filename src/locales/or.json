@@ -127,7 +127,8 @@
         "min_segment_length": "ସର୍ବନିମ୍ନ ସେଗମେଣ୍ଟ ଲମ୍ବ (ସେକେଣ୍ଡରେ)",
         "skip_button_only": "ସ୍କିପ୍ ବଟନ୍ ଦେଖାନ୍ତୁ",
         "skip_automatically": "ସ୍ୱୟଂଚାଳିତ ଭାବରେ",
-        "skip_segment": "ସେଗମେଣ୍ଟକୁ ଏଡ଼ାଇଦିଅ"
+        "skip_segment": "ସେଗମେଣ୍ଟକୁ ଏଡ଼ାଇଦିଅ",
+        "show_less": "କମ୍ ଦେଖାନ୍ତୁ"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",
