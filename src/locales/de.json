@@ -108,7 +108,8 @@
         "skip_segment": "Segment überspringen",
         "skip_automatically": "Automatisch",
         "min_segment_length": "Minimale Segmentlänge (in Sekunden)",
-        "skip_button_only": "Überspringen-Schaltfläche anzeigen"
+        "skip_button_only": "Überspringen-Schaltfläche anzeigen",
+        "show_less": "Weniger anzeigen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"

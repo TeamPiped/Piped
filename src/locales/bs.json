@@ -104,7 +104,12 @@
         "minimize_recommendations_default": "Smanjite preporuke po zadanom",
         "reset_preferences": "Vrati postavke na zadano",
         "bookmark_playlist": "Bilježak",
-        "playlist_bookmarked": "Obilježeno"
+        "playlist_bookmarked": "Obilježeno",
+        "show_less": "Prikaži manje",
+        "skip_button_only": "Prikaži dugme za preskakanje",
+        "skip_automatically": "Automatski",
+        "min_segment_length": "Najmanja dužina segmenta (u sekundama)",
+        "skip_segment": "Preskoči segment"
     },
     "titles": {
         "register": "Registrirajte se",
@@ -157,7 +162,9 @@
         "watched": "Pogledano",
         "videos": "Video zapisi",
         "live": "{0} Uživo",
-        "shorts": "Kratki videi"
+        "shorts": "Kratki videi",
+        "category": "Kategorija",
+        "all": "Sve"
     },
     "comment": {
         "pinned_by": "Prikačeno od {author}",
@@ -173,6 +180,7 @@
         "cannot_copy": "Nije moguće kopirati!",
         "page_not_found": "Stranica nije pronađena",
         "copied": "Kopirano!",
-        "local_storage": "Ova radnja zahtijeva lokalno pohranjivanje, jesu li kolačići omogućeni?"
+        "local_storage": "Ova radnja zahtijeva lokalno pohranjivanje, jesu li kolačići omogućeni?",
+        "register_no_email_note": "Korištenje e-maila kao korisničko ime se ne preporučuje. Svejedno nastaviti?"
     }
 }
