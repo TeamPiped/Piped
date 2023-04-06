@@ -142,5 +142,8 @@
     },
     "information": {
         "preferences_note": "Observera: inställningar sparas i webbläsarens lokala lagring. Om du raderar dina webbläsardata återställs de."
+    },
+    "info": {
+        "register_no_email_note": "Det rekommenderas inte att använda e-post som användarnamn. Fortsätt ändå?"
     }
 }
