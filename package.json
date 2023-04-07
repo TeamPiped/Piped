@@ -29,10 +29,10 @@
     "devDependencies": {
         "@iconify/json": "2.2.46",
         "@intlify/vite-plugin-vue-i18n": "6.0.3",
-        "@unocss/preset-icons": "0.50.6",
-        "@unocss/preset-web-fonts": "0.50.6",
-        "@unocss/transformer-directives": "0.50.6",
-        "@unocss/transformer-variant-group": "0.50.6",
+        "@unocss/preset-icons": "0.50.7",
+        "@unocss/preset-web-fonts": "0.50.7",
+        "@unocss/transformer-directives": "0.50.7",
+        "@unocss/transformer-variant-group": "0.50.7",
         "@vitejs/plugin-legacy": "4.0.2",
         "@vitejs/plugin-vue": "4.1.0",
         "@vue/compiler-sfc": "3.2.47",
@@ -41,7 +41,7 @@
         "eslint-plugin-prettier": "4.2.1",
         "eslint-plugin-vue": "9.10.0",
         "prettier": "2.8.7",
-        "unocss": "0.50.6",
+        "unocss": "0.50.7",
         "vite": "4.2.1",
         "vite-plugin-eslint": "1.8.1",
         "vite-plugin-pwa": "0.14.7"
