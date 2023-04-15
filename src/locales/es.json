@@ -76,7 +76,7 @@
         "subscribe": "Suscribirme - {count}",
         "loading": "Cargando…",
         "filter": "Filtrar",
-        "search": "Buscar",
+        "search": "Buscar (Ctrl+K)",
         "view_ssl_score": "Ver la puntuación SSL",
         "minimize_recommendations": "Minimizar recomendaciones",
         "show_recommendations": "Mostrar recomendaciones",
