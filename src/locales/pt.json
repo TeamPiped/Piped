@@ -51,7 +51,7 @@
         "disable_lbry": "Desactivar \"LBRY\" para Transmissão",
         "enable_lbry_proxy": "Activar \"Proxy\" para \"LBRY\"",
         "view_ssl_score": "Ver Pontuação \"SSL\"",
-        "search": "Procurar",
+        "search": "Pesquisa (Ctrl+K)",
         "filter": "Filtrar",
         "loading": "A Carregar...",
         "clear_history": "Limpar Histórico",
