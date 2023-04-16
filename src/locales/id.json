@@ -64,7 +64,7 @@
         "disable_lbry": "Nonaktifkan LBRY untuk Streaming",
         "enable_lbry_proxy": "Aktifkan Proksi untuk LBRY",
         "view_ssl_score": "Tampilkan Skor SSL",
-        "search": "Telusuri",
+        "search": "Telusuri (Ctrl+K)",
         "filter": "Saring",
         "loading": "Memuat...",
         "clear_history": "Hapus Riwayat",
