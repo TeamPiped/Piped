@@ -715,7 +715,7 @@ export default {
         },
         setupSeekbarPreview() {
             if (!this.video.previewFrames) return;
-            let seekBar = document.querySelector(".shaka-seek-bar-container");
+            let seekBar = document.querySelector(".shaka-seek-bar");
             // load the thumbnail preview when the user moves over the seekbar
             seekBar.addEventListener("mousemove", e => {
                 const position = (e.offsetX / e.target.offsetWidth) * this.video.duration;
