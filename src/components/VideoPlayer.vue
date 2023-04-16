@@ -718,7 +718,7 @@ export default {
             let seekBar = document.querySelector(".shaka-seek-bar-container");
             // load the thumbnail preview when the user moves over the seekbar
             seekBar.addEventListener("mousemove", e => {
-                const position = (this.video.duration * e.clientX) / seekBar.clientWidth;
+                const position = (e.offsetX / e.target.offsetWidth) * this.video.duration;
                 this.showSeekbarPreview(position * 1000);
             });
             // hide the preview when the user stops hovering the seekbar
