@@ -49,7 +49,7 @@
         "subscribe": "订阅 - {count}",
         "loading": "正在加载...",
         "filter": "筛选",
-        "search": "搜索",
+        "search": "搜索 (Ctrl+K)",
         "view_ssl_score": "查看 SSL 得分",
         "minimize_recommendations": "最小化建议",
         "show_recommendations": "显示推荐",

@@ -60,7 +60,7 @@
         "disable_lbry": "Zakázat LBRY pro streamování",
         "enable_lbry_proxy": "Povolit proxy pro LBRY",
         "view_ssl_score": "Zobrazit stav SSL",
-        "search": "Vyhledat",
+        "search": "Vyhledávání (Ctrl+K)",
         "filter": "Filtr",
         "loading": "Načítání...",
         "clear_history": "Smazat historii",
