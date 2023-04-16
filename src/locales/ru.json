@@ -69,7 +69,7 @@
         "disable_lbry": "Отключить LBRY для стриминга",
         "enable_lbry_proxy": "Проксировать видео для LBRY",
         "view_ssl_score": "Посмотреть настройки SSL",
-        "search": "Поиск",
+        "search": "Поиск (Ctrl+K)",
         "filter": "Фильтр",
         "loading": "Загрузка...",
         "clear_history": "Очистить историю",
