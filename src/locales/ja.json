@@ -69,7 +69,7 @@
         "disable_lbry": "ストリーミングのLBRYを無効化",
         "enable_lbry_proxy": "LBRYプロキシをオン",
         "view_ssl_score": "SSLの評価を表示",
-        "search": "検索",
+        "search": "検索 (Ctrl+K)",
         "filter": "フィルター",
         "loading": "読み込み中…",
         "clear_history": "再生履歴を削除",
