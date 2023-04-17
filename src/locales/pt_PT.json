@@ -56,7 +56,7 @@
         "minimize_recommendations": "Minimizar Recomendações",
         "show_recommendations": "Mostrar Recomendações",
         "view_ssl_score": "Ver Pontuação \"SSL\"",
-        "search": "Procurar",
+        "search": "Pesquisa (Ctrl+K)",
         "hide_replies": "Ocultar Respostas",
         "load_more_replies": "Carregar mais Respostas",
         "unsubscribe": "Anular subscrição - {count}",

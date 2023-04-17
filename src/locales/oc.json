@@ -41,7 +41,7 @@
         "minimize_recommendations": "Minimizar las recomandacions",
         "enable_lbry_proxy": "Activar lo servidor mandatari per LBRY",
         "view_ssl_score": "Mostrar l’avaloracion SSL",
-        "search": "Recercar",
+        "search": "Recercar (Ctrl+K)",
         "filter": "Filtrar",
         "disable_lbry": "Desactivar LBRY per la difusion en dirècte",
         "loading": "Cargament…",
