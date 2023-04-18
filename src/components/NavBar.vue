@@ -25,7 +25,7 @@
                 @focus="onInputFocus"
                 @blur="onInputBlur"
             />
-            <span v-if="searchText" class="delete-search" @click="searchText = ''">x</span>
+            <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
         </div>
         <!-- three vertical lines for toggling the hamburger menu on mobile -->
         <button class="md:hidden flex flex-col justify-end mr-3" @click="showTopNav = !showTopNav">
@@ -100,7 +100,7 @@
             @focus="onInputFocus"
             @blur="onInputBlur"
         />
-        <span v-if="searchText" class="delete-search" @click="searchText = ''">x</span>
+        <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
     </div>
     <SearchSuggestions
         v-show="(searchText || showSearchHistory) && suggestionsVisible"
