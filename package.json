@@ -42,7 +42,7 @@
         "eslint-plugin-vue": "9.11.0",
         "prettier": "2.8.7",
         "unocss": "0.51.5",
-        "vite": "4.2.2",
+        "vite": "4.3.0",
         "vite-plugin-eslint": "1.8.1",
         "vite-plugin-pwa": "0.14.7"
     },
