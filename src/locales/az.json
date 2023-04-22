@@ -59,7 +59,7 @@
         "disable_lbry": "Yayım üçün LBRY-ni deaktiv et",
         "enable_lbry_proxy": "LBRY üçün Proksi-ni Aktivləşdir",
         "view_ssl_score": "SSL Nəticəsinə Bax",
-        "search": "Axtarış",
+        "search": "Axtarış (Ctrl+K)",
         "filter": "Filtr",
         "loading": "Yüklənir...",
         "clear_history": "Tarixçəni Təmizlə",
