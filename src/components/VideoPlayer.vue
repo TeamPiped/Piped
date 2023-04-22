@@ -64,6 +64,7 @@ export default {
             initialSeekComplete: false,
             destroying: false,
             inSegment: false,
+            isHoveringTimebar: false,
         };
     },
     computed: {
@@ -718,11 +719,13 @@ export default {
             let seekBar = document.querySelector(".shaka-seek-bar");
             // load the thumbnail preview when the user moves over the seekbar
             seekBar.addEventListener("mousemove", e => {
+                this.isHoveringTimebar = true;
                 const position = (e.offsetX / e.target.offsetWidth) * this.video.duration;
                 this.showSeekbarPreview(position * 1000);
             });
             // hide the preview when the user stops hovering the seekbar
             seekBar.addEventListener("mouseout", () => {
+                this.isHoveringTimebar = false;
                 let canvas = document.querySelector("#preview");
                 canvas.style.display = "none";
             });
@@ -730,7 +733,9 @@ export default {
         async showSeekbarPreview(position) {
             let frame = this.getFrame(position);
             let originalImage = await this.loadImage(frame.url);
-            let seekBar = document.querySelector(".shaka-seek-bar-container");
+            if (!this.isHoveringTimebar) return;
+
+            let seekBar = document.querySelector(".shaka-seek-bar");
             let canvas = document.querySelector("#preview");
             let ctx = canvas.getContext("2d");
 
@@ -746,9 +751,11 @@ export default {
             ctx.drawImage(originalImage, offsetX, offsetY, newWidth, newHeight, 0, 0, canvas.width, canvas.height);
 
             // calculate the thumbnail preview offset and display it
+            const seekbarPadding = 2; // percentage of seekbar padding
             const centerOffset = position / this.video.duration / 10;
-            const left = centerOffset - (canvas.width / seekBar.clientWidth / 1.3) * 100;
-            canvas.style.left = `max(2%, min(${left}%, 90%))`;
+            const left = centerOffset - ((0.5 * canvas.width) / seekBar.clientWidth) * 100;
+            const maxLeft = ((seekBar.clientWidth - canvas.clientWidth) / seekBar.clientWidth) * 100 - seekbarPadding;
+            canvas.style.left = `max(${seekbarPadding}%, min(${left}%, ${maxLeft}%))`;
             canvas.style.display = "block";
         },
         // ineffective algorithm to find the thumbnail corresponding to the currently hovered position in the video
