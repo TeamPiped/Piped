@@ -146,7 +146,7 @@ export default {
         },
         async fetchChannel() {
             const url = this.$route.path.includes("@")
-                ? this.apiUrl() + "/c/" + this.$route.params.channelId
+                ? this.apiUrl() + "/@/" + this.$route.params.channelId
                 : this.apiUrl() + "/" + this.$route.params.path + "/" + this.$route.params.channelId;
             return await this.fetchJson(url);
         },
