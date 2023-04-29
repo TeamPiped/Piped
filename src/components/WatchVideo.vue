@@ -4,8 +4,6 @@
             ref="videoPlayer"
             :video="video"
             :sponsors="sponsors"
-            :playlist="playlist"
-            :index="index"
             :selected-auto-play="false"
             :selected-auto-loop="selectedAutoLoop"
             :is-embed="isEmbed"
@@ -14,6 +12,11 @@
 
     <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
+        <Transition>
+            <ToastComponent v-if="shouldShowToast" @dismissed="dismiss">
+                <i18n-t keypath="info.next_video_countdown">{{ counter }}</i18n-t>
+            </ToastComponent>
+        </Transition>
 
         <div v-show="!video.error">
             <div :class="isMobile ? 'flex-col' : 'flex'">
@@ -22,11 +25,10 @@
                         ref="videoPlayer"
                         :video="video"
                         :sponsors="sponsors"
-                        :playlist="playlist"
-                        :index="index"
                         :selected-auto-play="selectedAutoPlay"
                         :selected-auto-loop="selectedAutoLoop"
                         @timeupdate="onTimeUpdate"
+                        @ended="onVideoEnded"
                     />
                 </keep-alive>
                 <ChaptersBar
@@ -233,6 +235,7 @@ import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
+import ToastComponent from "./ToastComponent.vue";
 
 export default {
     name: "App",
@@ -247,6 +250,7 @@ export default {
         PlaylistVideos,
         WatchOnYouTubeButton,
         LoadingIndicatorPage,
+        ToastComponent,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
@@ -272,6 +276,9 @@ export default {
             showShareModal: false,
             isMobile: true,
             currentTime: 0,
+            shouldShowToast: false,
+            timeoutCounter: null,
+            counter: 0,
         };
     },
     computed: {
@@ -292,6 +299,9 @@ export default {
                 day: "numeric",
                 year: "numeric",
             });
+        },
+        defaultCounter(_this) {
+            return _this.getPreferenceNumber("autoPlayNextCountdown", 5);
         },
     },
     mounted() {
@@ -362,10 +372,12 @@ export default {
     deactivated() {
         this.active = false;
         window.removeEventListener("scroll", this.handleScroll);
+        this.dismiss();
     },
     unmounted() {
         window.removeEventListener("scroll", this.handleScroll);
         window.removeEventListener("click", this.handleClick);
+        this.dismiss();
     },
     methods: {
         fetchVideo() {
@@ -562,6 +574,68 @@ export default {
         onTimeUpdate(time) {
             this.currentTime = time;
         },
+        onVideoEnded() {
+            if (
+                !this.selectedAutoLoop &&
+                this.selectedAutoPlay &&
+                (this.playlist?.relatedStreams?.length > 0 || this.video.relatedStreams.length > 0)
+            ) {
+                this.showToast();
+            }
+        },
+        showToast() {
+            this.counter = this.defaultCounter;
+            if (this.counter < 1) {
+                this.navigateNext();
+                return;
+            }
+            if (this.timeoutCounter) clearInterval(this.timeoutCounter);
+            this.timeoutCounter = setInterval(() => {
+                this.counter--;
+                if (this.counter === 0) {
+                    this.dismiss();
+                    this.navigateNext();
+                }
+            }, 1000);
+            this.shouldShowToast = true;
+        },
+        dismiss() {
+            clearInterval(this.timeoutCounter);
+            this.shouldShowToast = false;
+        },
+        navigateNext() {
+            const params = this.$route.query;
+            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            const searchParams = new URLSearchParams();
+            for (var param in params)
+                switch (param) {
+                    case "v":
+                    case "t":
+                        break;
+                    case "index":
+                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("index", this.index + 1);
+                        break;
+                    case "list":
+                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("list", params.list);
+                        break;
+                    default:
+                        searchParams.set(param, params[param]);
+                        break;
+                }
+            // save the fullscreen state
+            searchParams.set("fullscreen", this.$refs.videoPlayer.$ui.getControls().isFullScreenEnabled());
+            const paramStr = searchParams.toString();
+            if (paramStr.length > 0) url += "&" + paramStr;
+            this.$router.push(url);
+        },
     },
 };
 </script>
+
+<style>
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+    transform: translateX(100%) scale(0.5);
+}
+</style>
