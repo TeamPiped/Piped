@@ -39,9 +39,9 @@
         "light": "Hela",
         "autoplay_video": "Aŭtomate Ludi Videon",
         "audio_only": "Nur Sono",
-        "default_quality": "Defaŭlta Kvalito",
+        "default_quality": "Implicita Kvalito",
         "country_selection": "Landa Elekto",
-        "default_homepage": "Defaŭlta Ĉefpaĝo",
+        "default_homepage": "Implicita Ĉefpaĝo",
         "show_comments": "Montri Komentojn",
         "language_selection": "Lingva Elekto",
         "donations": "Donacoj por programado",
@@ -114,12 +114,12 @@
         "skip_interaction": "Preterpasi Interagan Memorigon (Aboni)",
         "store_watch_history": "Konservi Vidhistorion",
         "logout": "Elsaluti el ĉi tiu aparato",
-        "minimize_description_default": "Defaŭlte Plejetigi Priskribon",
-        "minimize_recommendations_default": "Defaŭlte Plejetigi Rekomendojn",
-        "minimize_comments_default": "Defaŭlte Plejetigi Komentojn",
+        "minimize_description_default": "Implicite Plejetigi Priskribon",
+        "minimize_recommendations_default": "Implicite Plejetigi Rekomendojn",
+        "minimize_comments_default": "Implicite Plejetigi Komentojn",
         "minimize_comments": "Plejetigi Komentojn",
         "show_watch_on_youtube": "Montri «Vidi en Youtube»-butonon",
-        "minimize_chapters_default": "Defaŭlte plejetigi ĉapitrojn",
+        "minimize_chapters_default": "Implicite plejetigi ĉapitrojn",
         "no_valid_playlists": "La dosiero ne enhavas validajn ludlistojn!",
         "with_playlist": "Konigi kun ludlisto",
         "playlist_bookmarked": "Legosignita",
@@ -128,7 +128,9 @@
         "skip_button_only": "Montri preterpasi-butonon",
         "min_segment_length": "Minimuma Segmenta Daŭro (en sekundoj)",
         "skip_segment": "Preterpasi Segmenton",
-        "show_less": "Montri malpli"
+        "show_less": "Montri malpli",
+        "dismiss": "Nuligi",
+        "autoplay_next_countdown": "Implicita retronombrado ĝis sekva video (en sekundoj)"
     },
     "video": {
         "chapters": "Sekcioj",
@@ -159,7 +161,8 @@
         "preferences_note": "Noto: la agordoj estas konservitaj en la loka memoro de via retumilo. Forigi la datumojn de via retumilo restarigos ilin.",
         "page_not_found": "Paĝo ne trovita",
         "local_storage": "Ĉi tiu ago postulas localStorage, ĉu kuketoj estas ebligitaj?",
-        "register_no_email_note": "Uzi retadreson kiel uzantnomon ne estas rekomendita. Ĉu daŭrigi ĉiuokaze?"
+        "register_no_email_note": "Uzi retadreson kiel uzantnomon ne estas rekomendita. Ĉu daŭrigi ĉiuokaze?",
+        "next_video_countdown": "Oni ludos la sekvan videon post {0}s"
     },
     "login": {
         "username": "Uzantnomo",
