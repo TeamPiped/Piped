@@ -51,7 +51,7 @@
         "instance_selection": "Selezione dell'istanza",
         "loading": "Caricamento…",
         "filter": "Filtra",
-        "search": "Cerca",
+        "search": "Cerca (Ctrl+K)",
         "view_ssl_score": "Visualizza il punteggio SSL",
         "clear_history": "Cancella la cronologia",
         "load_more_replies": "Carica più risposte",
@@ -108,7 +108,8 @@
         "min_segment_length": "Lunghezza minima del segmento (in secondi)",
         "skip_automatically": "Automaticamente",
         "skip_button_only": "Mostra pulsante di salto",
-        "skip_segment": "Salta segmento"
+        "skip_segment": "Salta segmento",
+        "show_less": "Mostra meno"
     },
     "player": {
         "watch_on": "Guarda su {0}"

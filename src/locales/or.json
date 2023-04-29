@@ -33,7 +33,7 @@
         "minimize_recommendations": "ସୁପାରିଶକୁ କମ୍ କରନ୍ତୁ",
         "show_recommendations": "ସୁପାରିଶଗୁଡିକ ଦେଖାନ୍ତୁ",
         "disable_lbry": "ଷ୍ଟ୍ରିମିଂ ପାଇଁ LBRY ଅକ୍ଷମ କରନ୍ତୁ",
-        "search": "ସନ୍ଧାନ କରନ୍ତୁ",
+        "search": "ସନ୍ଧାନ କରନ୍ତୁ (Ctrl+K)",
         "rename_playlist": "ପ୍ଲେ ଲିଷ୍ଟର ନାମ ପରିବର୍ତ୍ତନ କରନ୍ତୁ",
         "new_playlist_name": "ନୂତନ ପ୍ଲେଲିଷ୍ଟ ନାମ",
         "channel_name_asc": "ସ୍ରୋତ ର ନାମ (A-Z)",
@@ -127,7 +127,8 @@
         "min_segment_length": "ସର୍ବନିମ୍ନ ସେଗମେଣ୍ଟ ଲମ୍ବ (ସେକେଣ୍ଡରେ)",
         "skip_button_only": "ସ୍କିପ୍ ବଟନ୍ ଦେଖାନ୍ତୁ",
         "skip_automatically": "ସ୍ୱୟଂଚାଳିତ ଭାବରେ",
-        "skip_segment": "ସେଗମେଣ୍ଟକୁ ଏଡ଼ାଇଦିଅ"
+        "skip_segment": "ସେଗମେଣ୍ଟକୁ ଏଡ଼ାଇଦିଅ",
+        "show_less": "କମ୍ ଦେଖାନ୍ତୁ"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",

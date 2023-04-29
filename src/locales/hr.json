@@ -78,7 +78,7 @@
         "enable_sponsorblock": "Uključi blok sponsora",
         "loading": "Učitavanje…",
         "filter": "Filtar",
-        "search": "Pretraga",
+        "search": "Pretraga (Ctrl+K)",
         "view_ssl_score": "Pogledaj SSL ocjenu",
         "hide_replies": "Sakrij odgovore",
         "load_more_replies": "Prikaži više odgovora",
@@ -135,7 +135,8 @@
         "skip_button_only": "Prikaži gumb za preskakanje",
         "skip_automatically": "Automatski",
         "skip_segment": "Preskoči segment",
-        "min_segment_length": "Najmanja duljina segmenta (u sekundama)"
+        "min_segment_length": "Najmanja duljina segmenta (u sekundama)",
+        "show_less": "Prikaži manje"
     },
     "player": {
         "watch_on": "Gledaj na {0}"

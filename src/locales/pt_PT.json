@@ -46,7 +46,7 @@
         "language_selection": "Seleção de Idioma",
         "enabled_codecs": "\"Codecs\" Activados (Vários)",
         "instance_selection": "Seleção de Instância",
-        "show_more": "Mostrar Mais",
+        "show_more": "Mostrar mais",
         "import_from_json": "Importar de JSON/CSV",
         "loop_this_video": "Repetir este Vídeo",
         "auto_play_next_video": "Reproduzir Automaticamente o próximo Vídeo",
@@ -56,7 +56,7 @@
         "minimize_recommendations": "Minimizar Recomendações",
         "show_recommendations": "Mostrar Recomendações",
         "view_ssl_score": "Ver Pontuação \"SSL\"",
-        "search": "Procurar",
+        "search": "Pesquisa (Ctrl+K)",
         "hide_replies": "Ocultar Respostas",
         "load_more_replies": "Carregar mais Respostas",
         "unsubscribe": "Anular subscrição - {count}",
@@ -124,7 +124,8 @@
         "skip_button_only": "Mostrar botão saltar",
         "skip_automatically": "Automaticamente",
         "min_segment_length": "Comprimento Mínimo do Segmento (em segundos)",
-        "skip_segment": "Saltar Segmento"
+        "skip_segment": "Saltar Segmento",
+        "show_less": "Mostrar menos"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",

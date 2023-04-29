@@ -79,7 +79,7 @@
         "disable_lbry": "Disable LBRY for Streaming",
         "enable_lbry_proxy": "Enable Proxy for LBRY",
         "view_ssl_score": "View SSL Score",
-        "search": "Search",
+        "search": "Search (Ctrl+K)",
         "filter": "Filter",
         "loading": "Loading...",
         "clear_history": "Clear History",

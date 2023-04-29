@@ -1,6 +1,7 @@
 <template>
     <div v-if="showVideo">
         <router-link
+            class="focus:underline hover:underline inline-block w-full"
             :to="{
                 path: '/watch',
                 query: {
@@ -50,42 +51,12 @@
             <div>
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="my-2 overflow-hidden flex link"
+                    class="pt-2 overflow-hidden flex link font-bold"
                     :title="item.title"
                     v-text="item.title"
                 />
             </div>
         </router-link>
-
-        <div class="float-right m-0 inline-block children:px-1">
-            <router-link
-                :to="{
-                    path: '/watch',
-                    query: {
-                        v: item.url.substr(-11),
-                        ...(playlistId && { list: playlistId }),
-                        ...(index >= 0 && { index: index + 1 }),
-                        listen: '1',
-                    },
-                }"
-                :aria-label="'Listen to ' + item.title"
-                :title="'Listen to ' + item.title"
-            >
-                <font-awesome-icon icon="headphones" />
-            </router-link>
-            <button v-if="authenticated" :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
-                <font-awesome-icon icon="circle-plus" />
-            </button>
-            <button
-                v-if="admin"
-                :title="$t('actions.remove_from_playlist')"
-                ref="removeButton"
-                @click="removeVideo(item.url.substr(-11))"
-            >
-                <font-awesome-icon icon="circle-minus" />
-            </button>
-            <PlaylistAddModal v-if="showModal" :video-id="item.url.substr(-11)" @close="showModal = !showModal" />
-        </div>
 
         <div class="flex">
             <router-link :to="item.uploaderUrl">
@@ -93,17 +64,16 @@
                     v-if="item.uploaderAvatar"
                     :src="item.uploaderAvatar"
                     loading="lazy"
-                    :alt="item.uploaderName"
                     class="rounded-full mr-0.5 mt-0.5 w-32px h-32px"
                     width="68"
                     height="68"
                 />
             </router-link>
 
-            <div class="w-[calc(100%-32px-1rem)]">
+            <div class="px-2 flex-1">
                 <router-link
                     v-if="item.uploaderUrl && item.uploaderName && !hideChannel"
-                    class="link-secondary overflow-hidden block"
+                    class="link-secondary overflow-hidden block text-sm"
                     :to="item.uploaderUrl"
                     :title="item.uploaderName"
                 >
@@ -111,14 +81,44 @@
                     <font-awesome-icon class="ml-1.5" v-if="item.uploaderVerified" icon="check" />
                 </router-link>
 
-                <strong v-if="item.views >= 0 || item.uploadedDate" class="text-sm">
+                <div v-if="item.views >= 0 || item.uploadedDate" class="text-xs font-normal text-gray-300 mt-1">
                     <span v-if="item.views >= 0">
                         <font-awesome-icon icon="eye" />
-                        <span class="pl-0.5" v-text="`${numberFormat(item.views)} •`" />
+                        <span class="pl-1" v-text="`${numberFormat(item.views)} •`" />
                     </span>
                     <span v-if="item.uploaded > 0" class="pl-0.5" v-text="timeAgo(item.uploaded)" />
                     <span v-else-if="item.uploadedDate" class="pl-0.5" v-text="item.uploadedDate" />
-                </strong>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+                <router-link
+                    :to="{
+                        path: '/watch',
+                        query: {
+                            v: item.url.substr(-11),
+                            ...(playlistId && { list: playlistId }),
+                            ...(index >= 0 && { index: index + 1 }),
+                            listen: '1',
+                        },
+                    }"
+                    :aria-label="'Listen to ' + item.title"
+                    :title="'Listen to ' + item.title"
+                >
+                    <font-awesome-icon icon="headphones" />
+                </router-link>
+                <button v-if="authenticated" :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
+                    <font-awesome-icon icon="circle-plus" />
+                </button>
+                <button
+                    v-if="admin"
+                    :title="$t('actions.remove_from_playlist')"
+                    ref="removeButton"
+                    @click="removeVideo(item.url.substr(-11))"
+                >
+                    <font-awesome-icon icon="circle-minus" />
+                </button>
+                <PlaylistAddModal v-if="showModal" :video-id="item.url.substr(-11)" @close="showModal = !showModal" />
             </div>
         </div>
     </div>
@@ -126,7 +126,7 @@
 
 <style>
 .shorts-img {
-    @apply max-h-[17.5vh] w-full object-contain;
+    @apply w-full object-contain;
 }
 </style>
 

@@ -39,7 +39,7 @@
         "instances_list": "Lista de Instâncias",
         "enabled_codecs": "\"Codecs\" Activados (Vários)",
         "instance_selection": "Seleção de Instância",
-        "show_more": "Mostrar Mais",
+        "show_more": "Mostrar mais",
         "import_from_json": "Importar de JSON/CSV",
         "export_to_json": "Exportar para JSON",
         "loop_this_video": "Repetir este Vídeo",
@@ -51,7 +51,7 @@
         "disable_lbry": "Desactivar \"LBRY\" para Transmissão",
         "enable_lbry_proxy": "Activar \"Proxy\" para \"LBRY\"",
         "view_ssl_score": "Ver Pontuação \"SSL\"",
-        "search": "Procurar",
+        "search": "Pesquisa (Ctrl+K)",
         "filter": "Filtrar",
         "loading": "A Carregar...",
         "clear_history": "Limpar Histórico",
@@ -124,7 +124,8 @@
         "skip_button_only": "Mostrar botão saltar",
         "skip_automatically": "Automaticamente",
         "min_segment_length": "Comprimento Mínimo do Segmento (em segundos)",
-        "skip_segment": "Saltar Segmento"
+        "skip_segment": "Saltar Segmento",
+        "show_less": "Mostrar menos"
     },
     "preferences": {
         "instance_name": "Nome da Instância",

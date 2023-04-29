@@ -159,7 +159,8 @@ const mixin = {
                 (value = new URLSearchParams(window.location.search).get(key)) !== null ||
                 (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
             ) {
-                return Number(value);
+                const num = Number(value);
+                return isNaN(num) ? defaultVal : num;
             } else return defaultVal;
         },
         getPreferenceJSON(key, defaultVal) {

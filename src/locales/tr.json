@@ -49,7 +49,7 @@
         "instance_selection": "Örnek Seçimi",
         "loading": "Yükleniyor...",
         "filter": "Filtrele",
-        "search": "Ara",
+        "search": "Ara (Ctrl+K)",
         "view_ssl_score": "SSL Puanını Görüntüle",
         "minimize_recommendations": "Önerileri Küçült",
         "show_recommendations": "Önerileri Göster",

@@ -115,7 +115,8 @@
         "skip_button_only": "Показати кнопку пропуску",
         "skip_segment": "Пропустити сегмент",
         "skip_automatically": "Автоматично",
-        "min_segment_length": "Мінімальна довжина сегмента (у секундах)"
+        "min_segment_length": "Мінімальна довжина сегмента (у секундах)",
+        "show_less": "Показати менше"
     },
     "titles": {
         "register": "Реєстрація",

@@ -41,7 +41,7 @@
         "minimize_recommendations": "Minimizar las recomandacions",
         "enable_lbry_proxy": "Activar lo servidor mandatari per LBRY",
         "view_ssl_score": "Mostrar l’avaloracion SSL",
-        "search": "Recercar",
+        "search": "Recercar (Ctrl+K)",
         "filter": "Filtrar",
         "disable_lbry": "Desactivar LBRY per la difusion en dirècte",
         "loading": "Cargament…",
@@ -127,7 +127,8 @@
         "skip_button_only": "Afichar lo boton per sautar",
         "skip_automatically": "Automaticament",
         "min_segment_length": "Durada minimum de segment (en segondas)",
-        "skip_segment": "Sautar lo segment"
+        "skip_segment": "Sautar lo segment",
+        "show_less": "Ne mostrar mens"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",

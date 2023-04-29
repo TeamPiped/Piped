@@ -45,12 +45,12 @@
         "show_comments": "Montri Komentojn",
         "language_selection": "Lingva Elekto",
         "donations": "Donacoj por programado",
-        "show_more": "Montri Pli",
+        "show_more": "Montri pli",
         "yes": "Jes",
         "no": "Ne",
         "show_chapters": "Sekcioj",
         "filter": "Filtri",
-        "search": "Serĉi",
+        "search": "Serĉi (Ctrl+K)",
         "hide_replies": "Kaŝi Respondojn",
         "add_to_playlist": "Aldoni al ludlisto",
         "delete_playlist": "Forigi Ludliston",
@@ -127,7 +127,8 @@
         "skip_automatically": "Aŭtomate",
         "skip_button_only": "Montri preterpasi-butonon",
         "min_segment_length": "Minimuma Segmenta Daŭro (en sekundoj)",
-        "skip_segment": "Preterpasi Segmenton"
+        "skip_segment": "Preterpasi Segmenton",
+        "show_less": "Montri malpli"
     },
     "video": {
         "chapters": "Sekcioj",

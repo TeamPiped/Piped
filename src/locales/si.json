@@ -61,7 +61,7 @@
         "instances_list": "සේවාදායක ලැයිස්තුව",
         "instance_selection": "සේවාදායකය තේරීම",
         "view_ssl_score": "SSL ලකුණු බලන්න",
-        "search": "සොයන්න",
+        "search": "සොයන්න (Ctrl+K)",
         "loading": "පූරණය වෙමින්...",
         "hide_replies": "පිළිතුරු සඟවන්න",
         "load_more_replies": "තවත් පිළිතුරු පූරණය කරන්න",
@@ -124,7 +124,8 @@
         "skip_button_only": "මඟ හරින්න බොත්තම පෙන්වන්න",
         "skip_automatically": "ස්වයංක්‍රීයව",
         "skip_segment": "කොටස මඟ හරින්න",
-        "min_segment_length": "අවම කොටස් දිග (තත්පර වලින්)"
+        "min_segment_length": "අවම කොටස් දිග (තත්පර වලින්)",
+        "show_less": "අඩුවෙන් පෙන්වන්න"
     },
     "player": {
         "watch_on": "{0} එකේ නරඹන්න"
