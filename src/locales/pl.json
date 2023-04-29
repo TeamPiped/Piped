@@ -128,7 +128,9 @@
         "skip_automatically": "Automatycznie",
         "min_segment_length": "Minimalna długość segmentu (w sekundach)",
         "skip_segment": "Pomiń segment",
-        "show_less": "Pokaż mniej"
+        "show_less": "Pokaż mniej",
+        "autoplay_next_countdown": "Domyślne odliczanie do następnego filmu (w sekundach)",
+        "dismiss": "Odrzuć"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
@@ -178,7 +180,8 @@
         "page_not_found": "Strona nie znaleziona",
         "preferences_note": "Uwaga: ustawienia są zapisywane w lokalnej pamięci przeglądarki. Usunięcie danych przeglądarki spowoduje ich zresetowanie.",
         "local_storage": "Ta akcja wymaga dostępu do lokalnej pamięci, czy pliki cookie są włączone?",
-        "register_no_email_note": "Użycie adresu email jako nazwy użytkownika jest niezalecane. Kontynuować mimo to?"
+        "register_no_email_note": "Użycie adresu email jako nazwy użytkownika jest niezalecane. Kontynuować mimo to?",
+        "next_video_countdown": "Odtwarzanie następnego filmu za {0} s"
     },
     "subscriptions": {
         "subscribed_channels_count": "Licznik subskrybcji: {0}"
