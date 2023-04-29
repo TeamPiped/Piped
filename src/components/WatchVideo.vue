@@ -372,10 +372,12 @@ export default {
     deactivated() {
         this.active = false;
         window.removeEventListener("scroll", this.handleScroll);
+        this.dismiss();
     },
     unmounted() {
         window.removeEventListener("scroll", this.handleScroll);
         window.removeEventListener("click", this.handleClick);
+        this.dismiss();
     },
     methods: {
         fetchVideo() {
