@@ -125,7 +125,9 @@
         "skip_segment": "Přeskočit segment",
         "skip_button_only": "Zobrazit tlačítko přeskočení",
         "min_segment_length": "Minimální délka segmentu (v sekundách)",
-        "show_less": "Zobrazit méně"
+        "show_less": "Zobrazit méně",
+        "autoplay_next_countdown": "Výchozí odpočet do dalšího videa (v sekundách)",
+        "dismiss": "Zavřít"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
@@ -184,6 +186,7 @@
         "copied": "Zkopírováno!",
         "cannot_copy": "Nelze zkopírovat!",
         "local_storage": "Tato akce vyžaduje localStorage, jsou povoleny cookies?",
-        "register_no_email_note": "Použití e-mailu jako uživatelského jména se nedoporučuje. Chcete přesto pokračovat?"
+        "register_no_email_note": "Použití e-mailu jako uživatelského jména se nedoporučuje. Chcete přesto pokračovat?",
+        "next_video_countdown": "Přehrávání dalšího videa za {0}s"
     }
 }

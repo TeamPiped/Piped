@@ -109,7 +109,9 @@
         "skip_segment": "Bölümü Atla",
         "skip_button_only": "Atla düğmesini göster",
         "skip_automatically": "Otomatik olarak",
-        "show_less": "Daha az göster"
+        "show_less": "Daha az göster",
+        "dismiss": "Kapat",
+        "autoplay_next_countdown": "Bir sonraki videoya kadar öntanımlı geri sayım (saniye cinsinden)"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
@@ -184,6 +186,7 @@
         "copied": "Kopyalandı!",
         "cannot_copy": "Kopyalanamıyor!",
         "local_storage": "Bu eylem yerel depolama gerektirir, çerezler etkin mi?",
-        "register_no_email_note": "Kullanıcı adı olarak e-posta kullanılması tavsiye edilmez. Yine de devam edilsin mi?"
+        "register_no_email_note": "Kullanıcı adı olarak e-posta kullanılması tavsiye edilmez. Yine de devam edilsin mi?",
+        "next_video_countdown": "Sonraki video {0}s içinde oynatılıyor"
     }
 }
