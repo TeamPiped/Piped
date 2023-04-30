@@ -136,7 +136,9 @@
         "skip_automatically": "Automáticamente",
         "min_segment_length": "Mínima Duración de Segmento (en segundos)",
         "skip_segment": "Saltar Segmento",
-        "show_less": "Mostrar menos"
+        "show_less": "Mostrar menos",
+        "autoplay_next_countdown": "Cuenta atrás predeterminada antes del siguiente vídeo (en segundos)",
+        "dismiss": "Cancelar"
     },
     "titles": {
         "feed": "Fuente web",
@@ -181,6 +183,7 @@
         "copied": "¡Copiado!",
         "cannot_copy": "¡No se puede copiar!",
         "local_storage": "Esta acción requiere «localStorage», ¿están activadas las «cookies»?",
-        "register_no_email_note": "No se recomienda usar un correo electrónico como nombre de usuario. ¿Continuar de todos modos?"
+        "register_no_email_note": "No se recomienda usar un correo electrónico como nombre de usuario. ¿Continuar de todos modos?",
+        "next_video_countdown": "El próximo vídeo se reproducirá en {0}s"
     }
 }
