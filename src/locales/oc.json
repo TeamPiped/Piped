@@ -128,7 +128,9 @@
         "skip_automatically": "Automaticament",
         "min_segment_length": "Durada minimum de segment (en segondas)",
         "skip_segment": "Sautar lo segment",
-        "show_less": "Ne mostrar mens"
+        "show_less": "Ne mostrar mens",
+        "autoplay_next_countdown": "Descompte per defaut abans de passar a la vidèo seguenta (en segondas)",
+        "dismiss": "Ignorar"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
@@ -161,7 +163,8 @@
         "page_not_found": "Pagina pas trobada",
         "cannot_copy": "Còpia impossibla !",
         "local_storage": "Aquesta accion requerís lo localStorage, son activats los cookies ?",
-        "register_no_email_note": "Es pas recomandat d’utilizar una adreça electronica coma nom d’utilizaire. Contunhar çaquelà ?"
+        "register_no_email_note": "Es pas recomandat d’utilizar una adreça electronica coma nom d’utilizaire. Contunhar çaquelà ?",
+        "next_video_countdown": "La vidèo seguenta començarà d’aquí {0}s"
     },
     "comment": {
         "disabled": "L’autor a desactivat los comentaris.",
