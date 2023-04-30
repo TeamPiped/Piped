@@ -109,7 +109,8 @@
         "skip_automatically": "Automaticamente",
         "skip_button_only": "Mostra pulsante di salto",
         "skip_segment": "Salta segmento",
-        "show_less": "Mostra meno"
+        "show_less": "Mostra meno",
+        "autoplay_next_countdown": "Conto alla rovescia predefinito prima del video successivo (in secondi)"
     },
     "player": {
         "watch_on": "Guarda su {0}"
