@@ -109,7 +109,9 @@
         "skip_button_only": "Afișați butonul de omitere",
         "with_playlist": "Distribuiți cu playlist",
         "playlist_bookmarked": "Marcat",
-        "show_less": "Mai puțin"
+        "show_less": "Mai puțin",
+        "autoplay_next_countdown": "Numărătoarea inversă implicită până la următorul videoclip (în secunde)",
+        "dismiss": "Concediază"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -159,7 +161,8 @@
         "page_not_found": "Pagina nu a fost găsită",
         "copied": "Copiat!",
         "register_no_email_note": "Utilizarea unui e-mail ca nume de utilizator nu este recomandată. Continuați oricum?",
-        "local_storage": "Această acțiune necesită localStorage, sunt activate cookie-urile?"
+        "local_storage": "Această acțiune necesită localStorage, sunt activate cookie-urile?",
+        "next_video_countdown": "Redarea următorului videoclip în {0}s"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonat la: {0}"
@@ -177,7 +180,7 @@
         "livestreams": "Fluxuri live",
         "channels": "Canale",
         "preferences": "Preferințe",
-        "player": "Player",
+        "player": "Player-ul",
         "bookmarks": "Marcaje"
     },
     "player": {
