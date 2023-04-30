@@ -9,7 +9,9 @@
         "feed": "फ़ीड",
         "playlists": "प्लेलिस्ट",
         "livestreams": "लाइव स्ट्रीम",
-        "channels": "चैनल"
+        "channels": "चैनल",
+        "player": "चालक",
+        "account": "खाता"
     },
     "actions": {
         "subscribe": "सदस्यता लें - {count}",
@@ -66,7 +68,11 @@
         "create_playlist": "प्लेलिस्ट बनायें",
         "select_playlist": "एक प्लेलिस्ट चुनें",
         "please_select_playlist": "कृपया एक प्लेलिस्ट चुनें",
-        "delete_playlist": "प्लेलिस्ट हटाएं"
+        "delete_playlist": "प्लेलिस्ट हटाएं",
+        "enable_sponsorblock": "विज्ञापन प्रतिबंध करें",
+        "default_homepage": "स्वतः निर्धारित मुख्यपृष्ठ",
+        "sort_by": "वर्गीकरण:",
+        "skip_automatically": "स्वतः"
     },
     "video": {
         "views": "{views} बार देखा गया",
