@@ -109,7 +109,9 @@
         "skip_segment": "Ignorar Segmento",
         "min_segment_length": "Comprimento Mínimo do Segmento (em segundos)",
         "skip_button_only": "Mostrar botão pular",
-        "show_less": "Mostrar menos"
+        "show_less": "Mostrar menos",
+        "autoplay_next_countdown": "Contagem regressiva padrão até o próximo vídeo (em segundos)",
+        "dismiss": "Liberar"
     },
     "titles": {
         "history": "Histórico",
@@ -178,7 +180,8 @@
         "preferences_note": "Nota: as preferências são salvas no armazenamento local do seu navegador. A exclusão dos dados do seu navegador irá redefini-los.",
         "page_not_found": "página não encontrada",
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
-        "register_no_email_note": "Usar um e-mail como nome de usuário não é recomendado. Continuar mesmo assim?"
+        "register_no_email_note": "Usar um e-mail como nome de usuário não é recomendado. Continuar mesmo assim?",
+        "next_video_countdown": "Reproduzindo o próximo vídeo em {0}s"
     },
     "subscriptions": {
         "subscribed_channels_count": "Inscrito em: {0}"
