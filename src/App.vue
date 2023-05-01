@@ -114,6 +114,10 @@ b {
     text-align: start;
 }
 
+:root {
+    color-scheme: only light;
+}
+
 ::-webkit-scrollbar {
     background-color: #d1d5db;
 }
