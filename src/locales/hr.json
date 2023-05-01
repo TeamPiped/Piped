@@ -4,7 +4,7 @@
         "watched": "Gledano",
         "views": "{views} gledanja",
         "videos": "Videa",
-        "ratings_disabled": "Ocjenjivanje isključeno",
+        "ratings_disabled": "Ocjene su isključene",
         "chapters": "Poglavlja",
         "live": "{0} uživo",
         "shorts": "Kratka videa",
@@ -22,13 +22,13 @@
     },
     "comment": {
         "pinned_by": "Prikvačio korisnik {author}",
-        "disabled": "Prijenosnik onemogućuje komentare.",
+        "disabled": "Prijenosnik je isključio komentare.",
         "loading": "Učitavanje komentara...",
         "user_disabled": "Komentari su isključeni u postavkama."
     },
     "actions": {
         "enable_lbry_proxy": "Uključi proxy za LBRY",
-        "disable_lbry": "Onemogući LBRY za prijenos",
+        "disable_lbry": "Isključi LBRY za prijenos",
         "minimize_description_default": "Standardno sakrij opis",
         "minimize_description": "Sakrij opis",
         "show_description": "Prikaži opis",
@@ -43,7 +43,7 @@
         "yes": "Da",
         "show_more": "Prikaži više",
         "instance_selection": "Izbor instance",
-        "enabled_codecs": "Uključeni kodeki (višestruki)",
+        "enabled_codecs": "Uključeni kodeki (moguće je odabrati nekoliko kodeka)",
         "instances_list": "Popis instanci",
         "language_selection": "Izbor jezika",
         "store_watch_history": "Spremi povijest gledanja",
@@ -71,7 +71,7 @@
         "view_subscriptions": "Pogledaj pretplate",
         "unsubscribe": "Otkaži pretplatu – {count}",
         "subscribe": "Pretplati se – {count}",
-        "skip_interaction": "Preskoči podsjetnik za interakciju (zahtijeva pretplatu)",
+        "skip_interaction": "Preskoči podsjetnik za interakciju (pretplata)",
         "skip_outro": "Preskoči odjavnu špicu",
         "skip_intro": "Preskoči pauzu i uvodnu animaciju",
         "skip_sponsors": "Preskoči sponzore",
@@ -84,7 +84,7 @@
         "load_more_replies": "Prikaži više odgovora",
         "clear_history": "Obriši povijest",
         "skip_highlight": "Preskoči isticanje",
-        "skip_filler_tangent": "Preskoči nebitne međudijelove",
+        "skip_filler_tangent": "Preskoči prazne umetke",
         "delete_playlist_confirm": "Izbrisati ovaj popis snimaka?",
         "remove_from_playlist": "Ukloni iz popisa snimaka",
         "create_playlist": "Stvori popis snimaka",
@@ -175,7 +175,7 @@
         "music_playlists": "YT Music: Popisi snimaka"
     },
     "subscriptions": {
-        "subscribed_channels_count": "Pretplata na: {0}"
+        "subscribed_channels_count": "Broj pretplata: {0}"
     },
     "information": {
         "preferences_note": "Napomena: postavke se spremaju u lokalno spremište preglednika. Brisanje podataka preglednika resetira postavke."
