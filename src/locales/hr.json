@@ -136,7 +136,9 @@
         "skip_automatically": "Automatski",
         "skip_segment": "Preskoči segment",
         "min_segment_length": "Najmanja duljina segmenta (u sekundama)",
-        "show_less": "Prikaži manje"
+        "show_less": "Prikaži manje",
+        "autoplay_next_countdown": "Standardno odbrojavanje do sljedećeg videa (u sekundama)",
+        "dismiss": "Odbaci"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -184,6 +186,7 @@
         "copied": "Kopirano!",
         "cannot_copy": "Nije moguće kopirati!",
         "local_storage": "Ova radnja zahtijeva lokalno spremište. Jesu li kolačići uključeni?",
-        "register_no_email_note": "Korištenje e-mail adrese kao korisničkog imena se ne preporučuje. Svejedno nastaviti?"
+        "register_no_email_note": "Korištenje e-mail adrese kao korisničkog imena se ne preporučuje. Svejedno nastaviti?",
+        "next_video_countdown": "Reprodukcija sljedećeg videa za {0} s"
     }
 }
