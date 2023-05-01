@@ -128,7 +128,9 @@
         "skip_automatically": "Secara otomatis",
         "min_segment_length": "Panjang Segmen Minimum (dalam detik)",
         "skip_segment": "Lewati Segmen",
-        "show_less": "Tampilkan lebih sedikit"
+        "show_less": "Tampilkan lebih sedikit",
+        "autoplay_next_countdown": "Hitungan mundur bawaan sebelum video berikutnya (dalam detik)",
+        "dismiss": "Abaikan"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -184,6 +186,7 @@
         "copied": "Disalin!",
         "cannot_copy": "Tidak dapat menyalin!",
         "local_storage": "Tindakan ini membutuhkan localStorage, apakah kuki diaktifkan?",
-        "register_no_email_note": "Menggunakan surel sebagai nama pengguna tidak disarankan. Lanjut?"
+        "register_no_email_note": "Menggunakan surel sebagai nama pengguna tidak disarankan. Lanjut?",
+        "next_video_countdown": "Memutar video berikutnya dalam {0} detik"
     }
 }
