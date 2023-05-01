@@ -185,6 +185,7 @@
         "copied": "Copiato!",
         "cannot_copy": "Impossibile copiare!",
         "local_storage": "Questa azione richiede localStorage, i cookie sono abilitati?",
-        "register_no_email_note": "L'utilizzo di un indirizzo e-mail come nome utente è sconsigliato. Continuare comunque?"
+        "register_no_email_note": "L'utilizzo di un indirizzo e-mail come nome utente è sconsigliato. Continuare comunque?",
+        "next_video_countdown": "Riproduzione prossimo video tra {0}s"
     }
 }
