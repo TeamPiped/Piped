@@ -125,7 +125,9 @@
         "skip_automatically": "Automaticamente",
         "min_segment_length": "Comprimento Mínimo do Segmento (em segundos)",
         "skip_segment": "Saltar Segmento",
-        "show_less": "Mostrar menos"
+        "show_less": "Mostrar menos",
+        "autoplay_next_countdown": "Predefinição Contagem decrescente até ao próximo vídeo (em segundos)",
+        "dismiss": "Ignorar"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
@@ -181,6 +183,7 @@
         "copied": "Copiada!",
         "cannot_copy": "Não foi possível copiar!",
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
-        "register_no_email_note": "A utilização de um e-mail como nome de utilizador não é recomendada. Proceder de qualquer forma?"
+        "register_no_email_note": "A utilização de um e-mail como nome de utilizador não é recomendada. Proceder de qualquer forma?",
+        "next_video_countdown": "A reproduzir o vídeo seguinte em {0}s"
     }
 }
