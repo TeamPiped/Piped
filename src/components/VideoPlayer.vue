@@ -6,7 +6,7 @@
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
-        <canvas height="130" width="230" id="preview" />
+        <canvas id="preview" />
         <button
             v-if="inSegment"
             class="skip-segment-button"
@@ -697,24 +697,37 @@ export default {
             });
         },
         async showSeekbarPreview(position) {
-            let frame = this.getFrame(position);
-            let originalImage = await this.loadImage(frame.url);
+            const frame = this.getFrame(position);
+            const originalImage = await this.loadImage(frame.url);
             if (!this.isHoveringTimebar) return;
 
-            let seekBar = document.querySelector(".shaka-seek-bar");
-            let canvas = document.querySelector("#preview");
-            let ctx = canvas.getContext("2d");
+            const seekBar = document.querySelector(".shaka-seek-bar");
+            const canvas = document.querySelector("#preview");
+            const ctx = canvas.getContext("2d");
 
             // get the new sizes for the image to be drawn into the canvas
             const originalWidth = originalImage.naturalWidth;
             const originalHeight = originalImage.naturalHeight;
-            const offsetX = originalWidth * (frame.positionX / frame.framesPerPageX);
-            const offsetY = originalHeight * (frame.positionY / frame.framesPerPageY);
-            const newWidth = originalWidth / frame.framesPerPageX;
-            const newHeight = originalHeight / frame.framesPerPageY;
+            // image can have less frames than server told us so calculate them ourselves
+            const imageFramesPerPageX = originalImage.naturalWidth / frame.frameWidth;
+            const imageFramesPerPageY = originalImage.naturalHeight / frame.frameHeight;
+            const offsetX = originalWidth * (frame.positionX / imageFramesPerPageX);
+            const offsetY = originalHeight * (frame.positionY / imageFramesPerPageY);
 
+            canvas.width = frame.frameWidth > 100 ? frame.frameWidth : frame.frameWidth * 2;
+            canvas.height = frame.frameWidth > 100 ? frame.frameHeight : frame.frameHeight * 2;
             // draw the thumbnail preview into the canvas by cropping only the relevant part
-            ctx.drawImage(originalImage, offsetX, offsetY, newWidth, newHeight, 0, 0, canvas.width, canvas.height);
+            ctx.drawImage(
+                originalImage,
+                offsetX,
+                offsetY,
+                frame.frameWidth,
+                frame.frameHeight,
+                0,
+                0,
+                canvas.width,
+                canvas.height,
+            );
 
             // calculate the thumbnail preview offset and display it
             const seekbarPadding = 2; // percentage of seekbar padding
@@ -727,7 +740,7 @@ export default {
         // ineffective algorithm to find the thumbnail corresponding to the currently hovered position in the video
         getFrame(position) {
             let startPosition = 0;
-            let framePage = this.video.previewFrames.at(-1);
+            const framePage = this.video.previewFrames.at(-1);
             for (let i = 0; i < framePage.urls.length; i++) {
                 for (let positionY = 0; positionY < framePage.framesPerPageY; positionY++) {
                     for (let positionX = 0; positionX < framePage.framesPerPageX; positionX++) {
@@ -737,8 +750,8 @@ export default {
                                 url: framePage.urls[i],
                                 positionX: positionX,
                                 positionY: positionY,
-                                framesPerPageX: framePage.framesPerPageX,
-                                framesPerPageY: framePage.framesPerPageY,
+                                frameWidth: framePage.frameWidth,
+                                frameHeight: framePage.frameHeight,
                             };
                         }
                         startPosition = endPosition;
@@ -750,7 +763,7 @@ export default {
         // creates a new image from an URL
         loadImage(url) {
             return new Promise(r => {
-                let i = new Image();
+                const i = new Image();
                 i.onload = () => r(i);
                 i.src = url;
             });
