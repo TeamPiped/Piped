@@ -10,7 +10,10 @@
         "playlists": "Llistes de reproducció",
         "account": "Compte",
         "instance": "Instància",
-        "player": "Reproductor"
+        "player": "Reproductor",
+        "livestreams": "Retransmissió en directe",
+        "channels": "Canals",
+        "bookmarks": "Marcadors"
     },
     "actions": {
         "channel_name_desc": "Nom del Canal (Z-A)",
@@ -40,7 +43,7 @@
         "enabled_codecs": "Còdecs Habilitats (Múltiple)",
         "instances_list": "Llista d'Instàncies",
         "instance_selection": "Selecció d'Instàncies",
-        "show_more": "Mostrar Més",
+        "show_more": "Mostrar més",
         "yes": "Sí",
         "no": "No",
         "export_to_json": "Exportar a JSON",
@@ -108,7 +111,21 @@
         "show_chapters": "Capítols",
         "status_page": "Estat",
         "source_code": "Codi font",
-        "documentation": "Documentació"
+        "documentation": "Documentació",
+        "show_watch_on_youtube": "Mostra el botó \"Veure a Youtube\"",
+        "reply_count": "{count} respostes",
+        "minimize_comments_default": "Minimitzar els comentaris per defecte",
+        "minimize_comments": "Minimitza els comentaris",
+        "no_valid_playlists": "L'arxiu no conté llistes de reproducció vàlides!",
+        "bookmark_playlist": "Marcador",
+        "playlist_bookmarked": "Afegit a marcadors",
+        "minimize_chapters_default": "Minimitzar capítols per defecte",
+        "skip_button_only": "Mostra el botó de saltar",
+        "skip_automatically": "Automàticament",
+        "min_segment_length": "Longitud de segment mínima (en segons)",
+        "skip_segment": "Saltar segment",
+        "with_playlist": "Comparteix amb llista de reproducció",
+        "show_less": "Mostrar menys"
     },
     "comment": {
         "pinned_by": "Fixat per {author}",
@@ -133,7 +150,9 @@
         "live": "{0} En Directe",
         "videos": "Vídeos",
         "views": "{views} visualitzacions",
-        "shorts": "Curts"
+        "shorts": "Curts",
+        "all": "Tot",
+        "category": "Categoria"
     },
     "search": {
         "did_you_mean": "Volies dir: {0}?",
@@ -163,6 +182,8 @@
         "preferences_note": "Nota: les preferències es desen a l'emmagatzematge local del navegador. Si elimineu les dades del navegador, es restabliran.",
         "page_not_found": "No s'ha torbat la pàgina",
         "copied": "Copiat!",
-        "cannot_copy": "No es pot copiar!"
+        "cannot_copy": "No es pot copiar!",
+        "local_storage": "Aquesta acció requereix emmagatzematge local, estan les cookies habilitades?",
+        "register_no_email_note": "Utilitzar un correu elextrònic com a usuari no és recomanable. Continuar de totes maneres?"
     }
 }

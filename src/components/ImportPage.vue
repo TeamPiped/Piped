@@ -158,7 +158,11 @@ export default {
                 : [...new Set((this.getLocalSubscriptions() ?? []).concat(newChannels))];
             // Sort for better cache hits
             subscriptions.sort();
-            localStorage.setItem("localSubscriptions", JSON.stringify(subscriptions));
+            try {
+                localStorage.setItem("localSubscriptions", JSON.stringify(subscriptions));
+            } catch (e) {
+                alert(this.$t("info.local_storage"));
+            }
         },
     },
 };

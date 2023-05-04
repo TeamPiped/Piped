@@ -22,7 +22,7 @@ body:
       label: Official Instance
       description: Can the bug be reproduced on the official instance?
       options:
-        - label: The bug is reproducable on the [official hosted instance](http://piped.kavin.rocks/) or is API related.
+        - label: The bug is reproducable on the [official hosted instance](http://piped.video/) or is API related.
 
   - type: textarea
     attributes:

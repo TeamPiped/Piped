@@ -2,12 +2,16 @@ FROM node:lts-alpine AS build
 
 WORKDIR /app/
 
+RUN --mount=type=cache,target=/var/cache/apk \
+    apk add --no-cache \
+    curl
+
 COPY . .
 
 RUN --mount=type=cache,target=/root/.cache/yarn \
     --mount=type=cache,target=/app/node_modules \
     yarn install --prefer-offline && \
-    yarn build && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist/assets/*.css
+    yarn build && ./localizefonts.sh
 
 FROM nginx:alpine
 

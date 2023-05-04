@@ -7,7 +7,9 @@
         "ratings_disabled": "Оцене су онемогућене",
         "chapters": "Поглавља",
         "live": "{0} Уживо",
-        "shorts": "Kratki video snimci"
+        "shorts": "Кратки видео снимци",
+        "all": "Све",
+        "category": "Категорија"
     },
     "actions": {
         "view_ssl_score": "Погледај SSL скор/оцену",
@@ -76,7 +78,7 @@
         "add_to_playlist": "Додај у попис снимака",
         "delete_playlist_confirm": "Избрисати овај попис снимака?",
         "please_select_playlist": "Молим вас одаберите попис снимака",
-        "show_markers": "Prikaži obeleživače na plejeru",
+        "show_markers": "Прикажи обиљеживаче на покретнику",
         "delete_account": "Обриши налог",
         "logout": "Одјава са овог уређаја",
         "minimize_recommendations_default": "Умањи Препоруке као Подразумевано",
@@ -108,7 +110,18 @@
         "new_playlist_name": "Ново име плејлисте",
         "minimize_comments_default": "Подразумевано умањи коментаре",
         "minimize_comments": "Умањи коментаре",
-        "reply_count": "{count} одговора"
+        "reply_count": "{count} одговора",
+        "minimize_chapters_default": "Умањи поглавља подразумевано",
+        "show_watch_on_youtube": "Прикажите \"Гредај на YouTube-у\" дугме",
+        "no_valid_playlists": "Датотека не садржи важеће пописе снимака!",
+        "with_playlist": "Делите са пописом снимака",
+        "playlist_bookmarked": "Обиљежено",
+        "bookmark_playlist": "Биљежак",
+        "show_less": "Прикажи мање",
+        "skip_button_only": "Прикажи дугме за прескакање",
+        "skip_automatically": "Аутоматски",
+        "min_segment_length": "Најмања дужина сегмента (у секундама)",
+        "skip_segment": "Прескочи сегмент"
     },
     "preferences": {
         "instance_locations": "Локација инстанце",
@@ -145,11 +158,14 @@
         "playlists": "Пописи Снимака",
         "account": "Рачун",
         "instance": "Инстанца",
-        "player": "Плејер"
+        "player": "Покретник",
+        "livestreams": "Уживо преноси",
+        "channels": "Канали",
+        "bookmarks": "Биљешци"
     },
     "comment": {
         "pinned_by": "Закачено од {author}",
-        "disabled": "Отпремалац је онемогућио коментаре.",
+        "disabled": "Преносник је онемогућио коментаре.",
         "user_disabled": "Коментари су онемогућени у подешавањима.",
         "loading": "Учитавање коментара..."
     },
@@ -163,6 +179,8 @@
         "page_not_found": "Страница није пронађена",
         "copied": "Копирано!",
         "cannot_copy": "Није могуће копирати!",
-        "preferences_note": "Напомена: подешавања се чувају у локалној меморији вашег претраживача. Брисање података прегледача ће их ресетовати."
+        "preferences_note": "Напомена: подешавања се чувају у локалној меморији вашег претраживача. Брисање података прегледача ће их ресетовати.",
+        "local_storage": "Ова радња захтева локално складиште, да ли су колачићи омогућени ?",
+        "register_no_email_note": "Коришћење е-поруке као корисничког имена се не препоручује. Желите ли ипак наставити?"
     }
 }

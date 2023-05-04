@@ -12,7 +12,8 @@
         "instance": "Instance",
         "player": "Přehrávač",
         "livestreams": "Živé přenosy",
-        "channels": "Kanály"
+        "channels": "Kanály",
+        "bookmarks": "Záložky"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
@@ -59,7 +60,7 @@
         "disable_lbry": "Zakázat LBRY pro streamování",
         "enable_lbry_proxy": "Povolit proxy pro LBRY",
         "view_ssl_score": "Zobrazit stav SSL",
-        "search": "Vyhledat",
+        "search": "Vyhledávání (Ctrl+K)",
         "filter": "Filtr",
         "loading": "Načítání...",
         "clear_history": "Smazat historii",
@@ -113,7 +114,20 @@
         "status_page": "Stav",
         "reply_count": "{count} odpovědí",
         "minimize_comments_default": "Ve výchozím nastavení skrýt komentáře",
-        "minimize_comments": "Skrýt komentáře"
+        "minimize_comments": "Skrýt komentáře",
+        "show_watch_on_youtube": "Zobrazit tlačítko Sledovat na YouTube",
+        "minimize_chapters_default": "Ve výchozím nastavení skrýt kapitoly",
+        "no_valid_playlists": "Soubor neobsahuje platné playlisty!",
+        "with_playlist": "Sdílet s playlistem",
+        "bookmark_playlist": "Záložka",
+        "playlist_bookmarked": "Uloženo",
+        "skip_automatically": "Automaticky",
+        "skip_segment": "Přeskočit segment",
+        "skip_button_only": "Zobrazit tlačítko přeskočení",
+        "min_segment_length": "Minimální délka segmentu (v sekundách)",
+        "show_less": "Zobrazit méně",
+        "autoplay_next_countdown": "Výchozí odpočet do dalšího videa (v sekundách)",
+        "dismiss": "Zavřít"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
@@ -145,7 +159,9 @@
         "ratings_disabled": "Hodnocení zakázáno",
         "chapters": "Kapitoly",
         "live": "{0} Živě",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Vše",
+        "category": "Kategorie"
     },
     "search": {
         "did_you_mean": "Mysleli jste: {0}?",
@@ -168,6 +184,9 @@
         "preferences_note": "Poznámka: předvolby se ukládají do místního úložiště prohlížeče. Vymazáním dat prohlížeče budou obnoveny.",
         "page_not_found": "Stránka nenalezena",
         "copied": "Zkopírováno!",
-        "cannot_copy": "Nelze zkopírovat!"
+        "cannot_copy": "Nelze zkopírovat!",
+        "local_storage": "Tato akce vyžaduje localStorage, jsou povoleny cookies?",
+        "register_no_email_note": "Použití e-mailu jako uživatelského jména se nedoporučuje. Chcete přesto pokračovat?",
+        "next_video_countdown": "Přehrávání dalšího videa za {0}s"
     }
 }

@@ -44,12 +44,12 @@
         "least_recent": "最早的",
         "most_recent": "最新的",
         "sort_by": "排序：",
-        "view_subscriptions": "查看订阅",
+        "view_subscriptions": "查看订阅列表",
         "unsubscribe": "取消订阅 - {count}",
-        "subscribe": "订购 - {count}",
+        "subscribe": "订阅 - {count}",
         "loading": "正在加载...",
         "filter": "筛选",
-        "search": "搜索",
+        "search": "搜索 (Ctrl+K)",
         "view_ssl_score": "查看 SSL 得分",
         "minimize_recommendations": "最小化建议",
         "show_recommendations": "显示推荐",
@@ -99,7 +99,17 @@
         "reply_count": "{count} 条回复",
         "minimize_comments": "最小化评论",
         "minimize_comments_default": "默认最小化评论",
-        "show_watch_on_youtube": "显示“在 YouTube 上观看”按钮"
+        "show_watch_on_youtube": "显示“在 YouTube 上观看”按钮",
+        "minimize_chapters_default": "默认最小化章节",
+        "no_valid_playlists": "此文件不包含有效的播放列表!",
+        "with_playlist": "分享播放列表",
+        "playlist_bookmarked": "已加入书签",
+        "bookmark_playlist": "书签",
+        "skip_automatically": "自动",
+        "min_segment_length": "最小分段长度（以秒为单位）",
+        "skip_segment": "跳过分段",
+        "skip_button_only": "显示跳过按钮",
+        "show_less": "显示更少"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -109,7 +119,9 @@
         "live": "{0} 直播",
         "chapters": "章节",
         "ratings_disabled": "已禁用评价",
-        "shorts": "短视频"
+        "shorts": "短视频",
+        "all": "全部",
+        "category": "类别"
     },
     "preferences": {
         "ssl_score": "SSL 分数",
@@ -130,8 +142,8 @@
         "watch_on": "在 {0} 观看"
     },
     "titles": {
-        "feed": "RSS 订阅源",
-        "subscriptions": "订阅",
+        "feed": "订阅流",
+        "subscriptions": "订阅列表",
         "history": "历史",
         "preferences": "设置",
         "register": "注册",
@@ -142,7 +154,8 @@
         "instance": "实例",
         "player": "播放器",
         "livestreams": "直播",
-        "channels": "频道"
+        "channels": "频道",
+        "bookmarks": "书签"
     },
     "login": {
         "password": "密码",
@@ -169,6 +182,8 @@
         "preferences_note": "注意：首选项保存在浏览器的本地存储中。删除浏览器数据会重置它们。",
         "page_not_found": "未找到页面",
         "copied": "已复制！",
-        "cannot_copy": "无法复制！"
+        "cannot_copy": "无法复制！",
+        "local_storage": "此操作需要本地存储，是否启用了Cookie？",
+        "register_no_email_note": "不建议使用电子邮件作为用户名。仍要继续吗？"
     }
 }

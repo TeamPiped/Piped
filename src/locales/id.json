@@ -12,7 +12,8 @@
         "account": "Akun",
         "player": "Pemain",
         "livestreams": "Siaran Langsung",
-        "channels": "Saluran"
+        "channels": "Saluran",
+        "bookmarks": "Markah"
     },
     "player": {
         "watch_on": "Tonton di {0}"
@@ -49,7 +50,7 @@
         "instances_list": "Daftar Instansi",
         "enabled_codecs": "Kodek yang Diaktifkan (Beberapa)",
         "instance_selection": "Pemilihan Instansi",
-        "show_more": "Tampilkan Lebih Banyak",
+        "show_more": "Tampilkan lebih banyak",
         "yes": "Iya",
         "no": "Tidak",
         "import_from_json": "Impor dari JSON/CSV",
@@ -63,7 +64,7 @@
         "disable_lbry": "Nonaktifkan LBRY untuk Streaming",
         "enable_lbry_proxy": "Aktifkan Proksi untuk LBRY",
         "view_ssl_score": "Tampilkan Skor SSL",
-        "search": "Telusuri",
+        "search": "Telusuri (Ctrl+K)",
         "filter": "Saring",
         "loading": "Memuat...",
         "clear_history": "Hapus Riwayat",
@@ -111,12 +112,25 @@
         "store_search_history": "Simpan riwayat pencarian",
         "documentation": "Dokumentasi",
         "instance_donations": "Donasi instansi",
-        "hide_watched": "Sembunyikan video yang telah ditonton di umpan",
+        "hide_watched": "Sembunyikan video yang sudah ditonton dari umpan",
         "status_page": "Status",
         "source_code": "Kode sumber",
         "reply_count": "{count} balasan",
         "minimize_comments_default": "Kecilkan Komentar secara bawaan",
-        "minimize_comments": "Kecilkan Komentar"
+        "minimize_comments": "Kecilkan Komentar",
+        "show_watch_on_youtube": "Tampilkan tombol Tonton di YouTube",
+        "minimize_chapters_default": "Kecilkan Bab secara bawaan",
+        "no_valid_playlists": "Berkas ini tidak berisi daftar putar yang valid!",
+        "with_playlist": "Bagikan dengan daftar putar",
+        "playlist_bookmarked": "Dimarkahi",
+        "bookmark_playlist": "Markahi",
+        "skip_button_only": "Tampilkan tombol lewati",
+        "skip_automatically": "Secara otomatis",
+        "min_segment_length": "Panjang Segmen Minimum (dalam detik)",
+        "skip_segment": "Lewati Segmen",
+        "show_less": "Tampilkan lebih sedikit",
+        "autoplay_next_countdown": "Hitungan mundur bawaan sebelum video berikutnya (dalam detik)",
+        "dismiss": "Abaikan"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -128,7 +142,7 @@
         "instance_name": "Nama Instansi",
         "ssl_score": "Skor SSL",
         "instance_locations": "Lokasi Instansi",
-        "has_cdn": "Mempunyai CDN?",
+        "has_cdn": "Memakai CDN?",
         "up_to_date": "Sudah terkini?",
         "version": "Versi",
         "registered_users": "Pengguna Terdaftar"
@@ -145,7 +159,9 @@
         "ratings_disabled": "Penilaian Dinonaktifkan",
         "chapters": "Bagian",
         "live": "{0} Langsung",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Semua",
+        "category": "Kategori"
     },
     "search": {
         "did_you_mean": "Apakah Anda bermaksud: {0}?",
@@ -168,6 +184,9 @@
         "page_not_found": "Laman tidak ditemukan",
         "preferences_note": "Catatan: preferensi disimpan dalam penyimpanan lokal peramban Anda. Menghapus data peramban Anda akan mengatur ulang.",
         "copied": "Disalin!",
-        "cannot_copy": "Tidak dapat menyalin!"
+        "cannot_copy": "Tidak dapat menyalin!",
+        "local_storage": "Tindakan ini membutuhkan localStorage, apakah kuki diaktifkan?",
+        "register_no_email_note": "Menggunakan surel sebagai nama pengguna tidak disarankan. Lanjut?",
+        "next_video_countdown": "Memutar video berikutnya dalam {0} detik"
     }
 }

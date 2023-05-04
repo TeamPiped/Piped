@@ -17,5 +17,10 @@
       ],
       "groupName": "unocss"
     }
-  ]
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "platformAutomerge": true
 }

@@ -89,7 +89,40 @@
         "skip_highlight": "Ohita kohokohta",
         "skip_filler_tangent": "Ohita epäolennainen",
         "enabled_codecs": "Käytössä olevat koodekit (useita)",
-        "show_markers": "Näytä merkit soittimessa"
+        "show_markers": "Näytä merkit soittimessa",
+        "confirm_reset_preferences": "Oletko varma, että haluat palauttaa asetukset?",
+        "back_to_home": "Takaisin kotisivuun",
+        "minimize_recommendations_default": "Minimoi suositukset oletusarvoisesti",
+        "with_timecode": "Jaa aikakoodilla",
+        "documentation": "Dokumentaatio",
+        "piped_link": "Piped-linkki",
+        "store_search_history": "Tallenna hakuhistoria",
+        "minimize_chapters_default": "Minimoi luvut oletusarvoisesti",
+        "show_watch_on_youtube": "Näytä Katso YouTubessa -painike",
+        "different_auth_instance": "Käytä eri instanssia todennukseen",
+        "download_as_txt": "Lataa .txt-tiedostona",
+        "rename_playlist": "Nimeä soittolista uudelleen",
+        "show_chapters": "Luvut",
+        "minimize_comments": "Minimoi kommentit",
+        "minimize_comments_default": "Minimoi kommentit oletusarvoisesti",
+        "delete_account": "Poista tili",
+        "clone_playlist_success": "Onnistunut kloonaus!",
+        "reset_preferences": "Nollaa asetukset",
+        "copy_link": "Kopioi linkki",
+        "status_page": "Tila",
+        "source_code": "Lähdekoodi",
+        "instance_donations": "Instanssille lahjoitukset",
+        "no_valid_playlists": "Tiedosto ei sisällä kelvollisia soittolistoja!",
+        "share": "Jaa",
+        "reply_count": "{count} vastausta",
+        "hide_watched": "Piilota katsotut videot syötteessä",
+        "time_code": "Aikakoodi (sekunteina)",
+        "follow_link": "Avaa linkki",
+        "new_playlist_name": "Soittolistan uusi nimi",
+        "invalidate_session": "Kirjaudu ulos kaikista laitteista",
+        "logout": "Kirjaudu ulos tästä laitteesta",
+        "backup_preferences": "Varmuuskopiointiasetukset",
+        "restore_preferences": "Palauta asetukset"
     },
     "player": {
         "watch_on": "Katso sivustolla {0}"
@@ -102,7 +135,11 @@
         "register": "Rekisteröidy",
         "login": "Kirjaudu sisään",
         "trending": "Nousussa",
-        "playlists": "Soittolistat"
+        "playlists": "Soittolistat",
+        "player": "Toistin",
+        "instance": "Instanssi",
+        "account": "Tili",
+        "channels": "Kanavat"
     },
     "search": {
         "did_you_mean": "Tarkoititko: {0}?",
@@ -116,6 +153,15 @@
         "music_playlists": "YT Music: Soittolistat"
     },
     "comment": {
-        "pinned_by": "Kiinnitti {author}"
+        "pinned_by": "Kiinnitti {author}",
+        "loading": "Ladataan kommentteja…",
+        "user_disabled": "Kommentit on poistettu käytöstä asetuksista.",
+        "disabled": "Lataaja on poistanut kommentit käytöstä."
+    },
+    "info": {
+        "page_not_found": "Sivua ei löydy",
+        "copied": "Kopioitu!",
+        "cannot_copy": "Ei voi kopioida!",
+        "local_storage": "Tämä toiminto vaatii localStorage, ovatko evästeet käytössä?"
     }
 }

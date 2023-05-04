@@ -21,6 +21,7 @@ import {
     faBook,
     faServer,
     faDonate,
+    faBookmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -48,6 +49,7 @@ library.add(
     faBook,
     faServer,
     faDonate,
+    faBookmark,
 );
 
 import router from "@/router/router.js";
@@ -120,8 +122,12 @@ const mixin = {
         purifyHTML(original) {
             return DOMPurify.sanitize(original);
         },
-        setPreference(key, value) {
-            if (localStorage) localStorage.setItem(key, value);
+        setPreference(key, value, disableAlert = false) {
+            try {
+                localStorage.setItem(key, value);
+            } catch {
+                if (!disableAlert) alert(this.$t("info.local_storage"));
+            }
         },
         getPreferenceBoolean(key, defaultVal) {
             var value;
@@ -155,7 +161,17 @@ const mixin = {
                 (value = new URLSearchParams(window.location.search).get(key)) !== null ||
                 (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
             ) {
-                return Number(value);
+                const num = Number(value);
+                return isNaN(num) ? defaultVal : num;
+            } else return defaultVal;
+        },
+        getPreferenceJSON(key, defaultVal) {
+            var value;
+            if (
+                (value = new URLSearchParams(window.location.search).get(key)) !== null ||
+                (this.testLocalStorage && (value = localStorage.getItem(key)) !== null)
+            ) {
+                return JSON.parse(value);
             } else return defaultVal;
         },
         apiUrl() {
@@ -192,19 +208,26 @@ const mixin = {
                 });
         },
         async updateWatched(videos) {
-            if (window.db) {
+            if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
                 videos.map(async video => {
                     var request = store.get(video.url.substr(-11));
                     request.onsuccess = function (event) {
-                        video.watched = Boolean(event.target.result);
+                        if (event.target.result) {
+                            video.watched = true;
+                            video.currentTime = event.target.result.currentTime;
+                        }
                     };
                 });
             }
         },
         getLocalSubscriptions() {
-            return JSON.parse(localStorage.getItem("localSubscriptions"));
+            try {
+                return JSON.parse(localStorage.getItem("localSubscriptions"));
+            } catch {
+                return [];
+            }
         },
         isSubscribedLocally(channelId) {
             const localSubscriptions = this.getLocalSubscriptions();
@@ -214,19 +237,25 @@ const mixin = {
         handleLocalSubscriptions(channelId) {
             var localSubscriptions = this.getLocalSubscriptions() ?? [];
             if (localSubscriptions.includes(channelId))
-                localSubscriptions.splice(localSubscriptions.indexOf(channelId));
+                localSubscriptions.splice(localSubscriptions.indexOf(channelId), 1);
             else localSubscriptions.push(channelId);
             // Sort for better cache hits
             localSubscriptions.sort();
-            localStorage.setItem("localSubscriptions", JSON.stringify(localSubscriptions));
+            try {
+                localStorage.setItem("localSubscriptions", JSON.stringify(localSubscriptions));
+                return true;
+            } catch {
+                alert(this.$t("info.local_storage"));
+            }
+            return false;
         },
         getUnauthenticatedChannels() {
             const localSubscriptions = this.getLocalSubscriptions() ?? [];
             return localSubscriptions.join(",");
         },
         /* generate a temporary file and ask the user to download it */
-        download(text, filename, type) {
-            var file = new Blob([text], { type: type });
+        download(text, filename, mimeType) {
+            var file = new Blob([text], { type: mimeType });
 
             const elem = document.createElement("a");
 
@@ -234,6 +263,15 @@ const mixin = {
             elem.download = filename;
             elem.click();
             elem.remove();
+        },
+        rewriteDescription(text) {
+            return this.urlify(text)
+                .replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm, "$1")
+                .replaceAll(
+                    /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm,
+                    "/watch?v=$1",
+                )
+                .replaceAll("\n", "<br>");
         },
     },
     computed: {

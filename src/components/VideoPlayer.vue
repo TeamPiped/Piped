@@ -6,11 +6,23 @@
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
+        <canvas id="preview" />
+        <button
+            v-if="inSegment"
+            class="skip-segment-button"
+            type="button"
+            :aria-label="$t('actions.skip_segment')"
+            aria-pressed="false"
+            @click="onClickSkipSegment"
+        >
+            <span v-t="'actions.skip_segment'" />
+            <i class="material-icons-round">skip_next</i>
+        </button>
     </div>
 </template>
 
 <script>
-import("shaka-player/dist/controls.css");
+import "shaka-player/dist/controls.css";
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
 if (!window.muxjs) {
     import("mux.js").then(muxjs => {
@@ -26,14 +38,6 @@ export default {
             default: () => {
                 return {};
             },
-        },
-        playlist: {
-            type: Object,
-            default: null,
-        },
-        index: {
-            type: Number,
-            default: -1,
         },
         sponsors: {
             type: Object,
@@ -51,6 +55,8 @@ export default {
             lastUpdate: new Date().getTime(),
             initialSeekComplete: false,
             destroying: false,
+            inSegment: false,
+            isHoveringTimebar: false,
         };
     },
     computed: {
@@ -88,7 +94,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.",
+                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,alt+p,return,.,,",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -184,6 +190,22 @@ export default {
                         case "shift+.":
                             self.$player.trickPlay(Math.min(videoEl.playbackRate + 0.25, 2));
                             break;
+                        case "alt+p":
+                            document.pictureInPictureElement
+                                ? document.exitPictureInPicture()
+                                : videoEl.requestPictureInPicture();
+                            break;
+                        case "return":
+                            self.skipSegment(videoEl);
+                            break;
+                        case ".":
+                            videoEl.currentTime += 0.04;
+                            e.preventDefault();
+                            break;
+                        case ",":
+                            videoEl.currentTime -= 0.04;
+                            e.preventDefault();
+                            break;
                     }
                 },
             );
@@ -199,6 +221,8 @@ export default {
     },
     methods: {
         async loadVideo() {
+            this.updateSponsors();
+
             const component = this;
             const videoEl = this.$refs.videoEl;
 
@@ -226,7 +250,7 @@ export default {
                 }
                 videoEl.currentTime = start;
                 this.initialSeekComplete = true;
-            } else if (window.db) {
+            } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
                 var request = store.get(this.video.id);
@@ -256,9 +280,7 @@ export default {
 
             const MseSupport = window.MediaSource !== undefined;
 
-            const lbry = this.getPreferenceBoolean("disableLBRY", false)
-                ? null
-                : this.video.videoStreams.filter(stream => stream.quality === "LBRY")[0];
+            const lbry = null;
 
             var uri;
             var mime;
@@ -268,12 +290,17 @@ export default {
                 mime = "application/x-mpegURL";
             } else if (this.video.audioStreams.length > 0 && !lbry && MseSupport) {
                 if (!this.video.dash) {
-                    const dash = (
-                        await import("@/utils/DashUtils.js").then(mod => mod.default)
-                    ).generate_dash_file_from_formats(streams, this.video.duration);
+                    const dash = (await import("../utils/DashUtils.js")).generate_dash_file_from_formats(
+                        streams,
+                        this.video.duration,
+                    );
 
                     uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
-                } else uri = this.video.dash;
+                } else {
+                    const url = new URL(this.video.dash);
+                    url.searchParams.set("rewrite", false);
+                    uri = url.toString();
+                }
                 mime = "application/dash+xml";
             } else if (lbry) {
                 uri = lbry.url;
@@ -302,7 +329,7 @@ export default {
                 uri = this.video.hls;
                 mime = "application/x-mpegURL";
             } else {
-                uri = this.video.videoStreams.filter(stream => stream.codec == null).slice(-1)[0].url;
+                uri = this.video.videoStreams.findLast(stream => stream.codec == null).url;
                 mime = "video/mp4";
             }
 
@@ -352,47 +379,53 @@ export default {
             else this.setPlayerAttrs(this.$player, videoEl, uri, mime, this.$shaka);
 
             if (noPrevPlayer) {
+                videoEl.addEventListener("loadeddata", () => {
+                    if (document.pictureInPictureElement) videoEl.requestPictureInPicture();
+                });
                 videoEl.addEventListener("timeupdate", () => {
                     const time = videoEl.currentTime;
                     this.$emit("timeupdate", time);
                     this.updateProgressDatabase(time);
                     if (this.sponsors && this.sponsors.segments) {
-                        this.sponsors.segments.map(segment => {
-                            if (!segment.skipped || this.selectedAutoLoop) {
-                                const end = segment.segment[1];
-                                if (time >= segment.segment[0] && time < end) {
-                                    console.log("Skipped segment at " + time);
-                                    videoEl.currentTime = end;
-                                    segment.skipped = true;
-                                    return;
-                                }
-                            }
-                        });
+                        const segment = this.findCurrentSegment(time);
+                        this.inSegment = !!segment;
+                        if (segment?.autoskip && (!segment.skipped || this.selectedAutoLoop)) {
+                            this.skipSegment(videoEl, segment);
+                        }
                     }
                 });
 
                 videoEl.addEventListener("volumechange", () => {
-                    this.setPreference("volume", videoEl.volume);
+                    this.setPreference("volume", videoEl.volume, true);
                 });
 
                 videoEl.addEventListener("ratechange", e => {
                     const rate = videoEl.playbackRate;
                     if (rate > 0 && !isNaN(videoEl.duration) && !isNaN(videoEl.duration - e.timeStamp / 1000))
-                        this.setPreference("rate", rate);
+                        this.setPreference("rate", rate, true);
                 });
 
                 videoEl.addEventListener("ended", () => {
-                    if (
-                        !this.selectedAutoLoop &&
-                        this.selectedAutoPlay &&
-                        (this.playlist?.relatedStreams?.length > 0 || this.video.relatedStreams.length > 0)
-                    ) {
-                        this.navigateNext();
-                    }
+                    this.$emit("ended");
                 });
             }
 
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
+        },
+        findCurrentSegment(time) {
+            return this.sponsors?.segments?.find(s => time >= s.segment[0] && time < s.segment[1]);
+        },
+        onClickSkipSegment() {
+            const videoEl = this.$refs.videoEl;
+            this.skipSegment(videoEl);
+        },
+        skipSegment(videoEl, segment) {
+            const time = videoEl.currentTime;
+            if (!segment) segment = this.findCurrentSegment(time);
+            if (!segment) return;
+            console.log("Skipped segment at " + time);
+            videoEl.currentTime = segment.segment[1];
+            segment.skipped = true;
         },
         setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
             const url = "/watch?v=" + this.video.id;
@@ -440,7 +473,14 @@ export default {
 
                 this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
-                const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"];
+                const overflowMenuButtons = [
+                    "quality",
+                    "language",
+                    "captions",
+                    "picture_in_picture",
+                    "playback_rate",
+                    "airplay",
+                ];
 
                 if (this.isEmbed) {
                     overflowMenuButtons.push("open_new_tab");
@@ -460,7 +500,12 @@ export default {
 
             this.updateMarkers();
 
+            const event = new Event("playerInit");
+            window.dispatchEvent(event);
+
             const player = this.$ui.getControls().getPlayer();
+
+            this.setupSeekbarPreview();
 
             this.$player = player;
 
@@ -480,22 +525,40 @@ export default {
             if (qualityConds) this.$player.configure("abr.enabled", false);
 
             player.load(uri, 0, mime).then(() => {
+                const isSafari = window.navigator?.vendor?.includes("Apple");
+
+                if (!isSafari) {
+                    // Set the audio language
+                    const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
+                    var lang = "en";
+                    for (var l in player.getAudioLanguages()) {
+                        if (l == prefLang) {
+                            lang = l;
+                            return;
+                        }
+                    }
+                    player.selectAudioLanguage(lang);
+                }
+
                 if (qualityConds) {
                     var leastDiff = Number.MAX_VALUE;
                     var bestStream = null;
 
                     var bestAudio = 0;
 
+                    const tracks = player
+                        .getVariantTracks()
+                        .filter(track => track.language == lang || track.language == "und");
+
                     // Choose the best audio stream
                     if (quality >= 480)
-                        player.getVariantTracks().forEach(track => {
+                        tracks.forEach(track => {
                             const audioBandwidth = track.audioBandwidth;
                             if (audioBandwidth > bestAudio) bestAudio = audioBandwidth;
                         });
 
                     // Find best matching stream based on resolution and bitrate
-                    player
-                        .getVariantTracks()
+                    tracks
                         .sort((a, b) => a.bandwidth - b.bandwidth)
                         .forEach(stream => {
                             if (stream.audioBandwidth < bestAudio) return;
@@ -514,7 +577,7 @@ export default {
                     player.addTextTrackAsync(
                         subtitle.url,
                         subtitle.code,
-                        "SUBTITLE",
+                        "subtitles",
                         subtitle.mimeType,
                         null,
                         subtitle.name,
@@ -525,6 +588,10 @@ export default {
                 videoEl.playbackRate = rate;
                 videoEl.defaultPlaybackRate = rate;
             });
+
+            // expand the player to fullscreen when the fullscreen query equals true
+            if (this.$route.query.fullscreen === "true" && !this.$ui.getControls().isFullScreenEnabled())
+                this.$ui.getControls().toggleFullScreen();
         },
         async updateProgressDatabase(time) {
             // debounce
@@ -548,29 +615,6 @@ export default {
             if (this.$refs.videoEl) {
                 this.$refs.videoEl.currentTime = time;
             }
-        },
-        navigateNext() {
-            const params = this.$route.query;
-            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
-            const searchParams = new URLSearchParams();
-            for (var param in params)
-                switch (param) {
-                    case "v":
-                    case "t":
-                        break;
-                    case "index":
-                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("index", this.index + 1);
-                        break;
-                    case "list":
-                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("list", params.list);
-                        break;
-                    default:
-                        searchParams.set(param, params[param]);
-                        break;
-                }
-            const paramStr = searchParams.toString();
-            if (paramStr.length > 0) url += "&" + paramStr;
-            this.$router.push(url);
         },
         updateMarkers() {
             const markers = this.$refs.container.querySelector(".shaka-ad-markers");
@@ -624,27 +668,118 @@ export default {
 
             if (markers) markers.style.background = `linear-gradient(${array.join(",")})`;
         },
+        updateSponsors() {
+            const skipOptions = this.getPreferenceJSON("skipOptions", {});
+            this.sponsors?.segments?.forEach(segment => {
+                const option = skipOptions[segment.category];
+                segment.autoskip = option === undefined || option === "auto";
+            });
+            if (this.getPreferenceBoolean("showMarkers", true)) {
+                this.shakaPromise.then(() => {
+                    this.updateMarkers();
+                });
+            }
+        },
+        setupSeekbarPreview() {
+            if (!this.video.previewFrames) return;
+            let seekBar = document.querySelector(".shaka-seek-bar");
+            // load the thumbnail preview when the user moves over the seekbar
+            seekBar.addEventListener("mousemove", e => {
+                this.isHoveringTimebar = true;
+                const position = (e.offsetX / e.target.offsetWidth) * this.video.duration;
+                this.showSeekbarPreview(position * 1000);
+            });
+            // hide the preview when the user stops hovering the seekbar
+            seekBar.addEventListener("mouseout", () => {
+                this.isHoveringTimebar = false;
+                let canvas = document.querySelector("#preview");
+                canvas.style.display = "none";
+            });
+        },
+        async showSeekbarPreview(position) {
+            const frame = this.getFrame(position);
+            const originalImage = await this.loadImage(frame.url);
+            if (!this.isHoveringTimebar) return;
+
+            const seekBar = document.querySelector(".shaka-seek-bar");
+            const canvas = document.querySelector("#preview");
+            const ctx = canvas.getContext("2d");
+
+            // get the new sizes for the image to be drawn into the canvas
+            const originalWidth = originalImage.naturalWidth;
+            const originalHeight = originalImage.naturalHeight;
+            // image can have less frames than server told us so calculate them ourselves
+            const imageFramesPerPageX = originalImage.naturalWidth / frame.frameWidth;
+            const imageFramesPerPageY = originalImage.naturalHeight / frame.frameHeight;
+            const offsetX = originalWidth * (frame.positionX / imageFramesPerPageX);
+            const offsetY = originalHeight * (frame.positionY / imageFramesPerPageY);
+
+            canvas.width = frame.frameWidth > 100 ? frame.frameWidth : frame.frameWidth * 2;
+            canvas.height = frame.frameWidth > 100 ? frame.frameHeight : frame.frameHeight * 2;
+            // draw the thumbnail preview into the canvas by cropping only the relevant part
+            ctx.drawImage(
+                originalImage,
+                offsetX,
+                offsetY,
+                frame.frameWidth,
+                frame.frameHeight,
+                0,
+                0,
+                canvas.width,
+                canvas.height,
+            );
+
+            // calculate the thumbnail preview offset and display it
+            const seekbarPadding = 2; // percentage of seekbar padding
+            const centerOffset = position / this.video.duration / 10;
+            const left = centerOffset - ((0.5 * canvas.width) / seekBar.clientWidth) * 100;
+            const maxLeft = ((seekBar.clientWidth - canvas.clientWidth) / seekBar.clientWidth) * 100 - seekbarPadding;
+            canvas.style.left = `max(${seekbarPadding}%, min(${left}%, ${maxLeft}%))`;
+            canvas.style.display = "block";
+        },
+        // ineffective algorithm to find the thumbnail corresponding to the currently hovered position in the video
+        getFrame(position) {
+            let startPosition = 0;
+            const framePage = this.video.previewFrames.at(-1);
+            for (let i = 0; i < framePage.urls.length; i++) {
+                for (let positionY = 0; positionY < framePage.framesPerPageY; positionY++) {
+                    for (let positionX = 0; positionX < framePage.framesPerPageX; positionX++) {
+                        const endPosition = startPosition + framePage.durationPerFrame;
+                        if (position >= startPosition && position <= endPosition) {
+                            return {
+                                url: framePage.urls[i],
+                                positionX: positionX,
+                                positionY: positionY,
+                                frameWidth: framePage.frameWidth,
+                                frameHeight: framePage.frameHeight,
+                            };
+                        }
+                        startPosition = endPosition;
+                    }
+                }
+            }
+            return null;
+        },
+        // creates a new image from an URL
+        loadImage(url) {
+            return new Promise(r => {
+                const i = new Image();
+                i.onload = () => r(i);
+                i.src = url;
+            });
+        },
         destroy(hotkeys) {
-            if (this.$ui) {
+            if (this.$ui && !document.pictureInPictureElement) {
                 this.$ui.destroy();
                 this.$ui = undefined;
                 this.$player = undefined;
             }
             if (this.$player) {
                 this.$player.destroy();
-                this.$player = undefined;
+                if (!document.pictureInPictureElement) this.$player = undefined;
             }
             if (hotkeys) this.$hotkeys?.unbind();
             this.$refs.container?.querySelectorAll("div").forEach(node => node.remove());
-        },
-    },
-    watch: {
-        sponsors() {
-            if (this.getPreferenceBoolean("showMarkers", true)) {
-                this.shakaPromise.then(() => {
-                    this.updateMarkers();
-                });
-            }
         },
     },
 };
@@ -680,5 +815,44 @@ export default {
 .shaka-text-wrapper > span > span *:first-child:last-child {
     background-color: rgba(0, 0, 0, 0.6) !important;
     padding: 0.09em 0;
+}
+
+.skip-segment-button {
+    /* position button above player overlay */
+    z-index: 1000;
+
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+    right: 0;
+
+    background-color: rgb(0 0 0 / 0.5);
+    border: 2px rgba(255, 255, 255, 0.75) solid;
+    border-right: 0;
+    border-radius: 0.75em;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0.5em;
+
+    /* center text vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    line-height: 1.5em;
+}
+
+.skip-segment-button .material-icons-round {
+    font-size: 1.6em !important;
+    line-height: inherit !important;
+}
+
+#preview {
+    position: absolute;
+    z-index: 2000;
+    bottom: 0;
+    margin-bottom: 4.5%;
+    border-radius: 0.3rem;
 }
 </style>

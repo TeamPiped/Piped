@@ -17,7 +17,7 @@ jobs:
               with:
                   cache: "yarn"
             - run: yarn install --prefer-offline
-            - run: yarn build --out-dir dist-ci && sed -i 's/fonts.gstatic.com/fonts.kavin.rocks/g' dist-ci/assets/*.css
+            - run: yarn build && ./localizefonts.sh && mv dist/ dist-ci/
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v2
               with:
@@ -33,7 +33,7 @@ jobs:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
             - name: Build and push
-              uses: docker/build-push-action@v3
+              uses: docker/build-push-action@v4
               with:
                   context: .
                   file: ./Dockerfile.ci

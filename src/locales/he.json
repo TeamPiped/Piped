@@ -12,7 +12,8 @@
         "playlists": "רשימות נגינה",
         "instance": "עותק",
         "livestreams": "שידורים חיים",
-        "channels": "ערוצים"
+        "channels": "ערוצים",
+        "bookmarks": "סימניות"
     },
     "player": {
         "watch_on": "לצפות ב־{0}"
@@ -52,7 +53,7 @@
         "instances_list": "רשימת עותקים",
         "enabled_codecs": "מפענחים פעילים (מגוון)",
         "instance_selection": "בחירת עותק",
-        "show_more": "להציג עוד",
+        "show_more": "להציג יותר",
         "yes": "כן",
         "no": "לא",
         "export_to_json": "ייצוא ל־JSON",
@@ -99,7 +100,7 @@
         "disable_lbry": "השבתת הזרמה עם LBRY",
         "enable_lbry_proxy": "הפעלת מתווך ל־LBRY",
         "view_ssl_score": "הצגת דירוג SSL",
-        "search": "חיפוש",
+        "search": "חיפוש (Ctrl+K)",
         "loop_this_video": "ניגון הסרטון בלולאה",
         "minimize_recommendations": "מזעור המלצות",
         "rename_playlist": "שינוי שם רשימת נגינה",
@@ -116,7 +117,20 @@
         "instance_donations": "תרומות להפעלה",
         "reply_count": "{count} תגובות",
         "minimize_comments_default": "צמצום הערות כברירת מחדל",
-        "minimize_comments": "צמצום הערות"
+        "minimize_comments": "צמצום הערות",
+        "minimize_chapters_default": "מזעור הפרקים כברירת מחדל",
+        "show_watch_on_youtube": "הצגת כפתור לצפייה ב־YouTube",
+        "no_valid_playlists": "הקובץ לא מכיל רשימות נגינה תקפות!",
+        "with_playlist": "שיתוף עם רשימת נגינה",
+        "playlist_bookmarked": "נוסף לסימניות",
+        "bookmark_playlist": "סימנייה",
+        "skip_button_only": "הצגת כפתור דילוג",
+        "min_segment_length": "אורך מקטע מזערי (בשניות)",
+        "skip_segment": "דילוג על מקטע",
+        "skip_automatically": "אוטומטית",
+        "show_less": "להציג פחות",
+        "autoplay_next_countdown": "ספירה לאחור כברירת מחדל עד לסרטון הבא (בשניות)",
+        "dismiss": "התעלמות"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
@@ -145,7 +159,9 @@
         "ratings_disabled": "הדירוגים מושבתים",
         "chapters": "פרקים",
         "live": "{0} בשידור חי",
-        "shorts": "קצרצרים"
+        "shorts": "קצרצרים",
+        "all": "הכול",
+        "category": "קטגוריה"
     },
     "search": {
         "did_you_mean": "האם התכוונת לביטוי {0}?",
@@ -162,7 +178,10 @@
         "preferences_note": "לתשומת לבך: ההעדפות נשמרות באחסון המקומי של הדפדפן שלך. מחיקת נתוני הדפדפן שלך תאפס אותם.",
         "page_not_found": "העמוד לא נמצא",
         "copied": "הועתק!",
-        "cannot_copy": "לא ניתן להעתיק!"
+        "cannot_copy": "לא ניתן להעתיק!",
+        "local_storage": "פעולה זו דורשת אחסון מקומי (localStorage), האם עוגיות פעילות?",
+        "register_no_email_note": "לא מומלץ להשתמש בכתובת דוא״ל כשם משתמש. להמשיך בכל זאת?",
+        "next_video_countdown": "הסרטון הבא יתנגן בעוד {0} שניות"
     },
     "subscriptions": {
         "subscribed_channels_count": "נרשמת אל: {0}"

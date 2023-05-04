@@ -4,15 +4,16 @@
         "login": "تسجيل الدخول",
         "register": "إنشاء حساب",
         "preferences": "الإعدادات",
-        "history": "تاريخ التصفح",
+        "history": "سجل المشاهدة",
         "subscriptions": "الاشتراكات",
         "playlists": "قوائم التشغيل",
-        "feed": "التغذية",
+        "feed": "محتوى الاشتراكات",
         "account": "الحساب",
         "instance": "الخادم",
         "player": "المشغل",
         "livestreams": "البث المباشر",
-        "channels": "القنوات"
+        "channels": "القنوات",
+        "bookmarks": "الاشارات المرجعيه"
     },
     "player": {
         "watch_on": "شاهد عبر"
@@ -41,7 +42,7 @@
         "enable_sponsorblock": "تفعيل مانع الإعلانات",
         "auto": "تلقائي",
         "dark": "داكن",
-        "search": "بحث",
+        "search": "‏بحث (Ctrl+K)",
         "autoplay_video": "تشغيل تلقائي",
         "audio_only": "صوت فقط",
         "default_quality": "الجودة الأساسية",
@@ -117,7 +118,19 @@
         "reply_count": "{count} الردود",
         "minimize_comments_default": "تصغير التعليقات بشكل افتراضي",
         "minimize_comments": "تصغير التعليقات",
-        "show_watch_on_youtube": "عرض زر مشاهدة على يوتيوب"
+        "show_watch_on_youtube": "عرض زر مشاهدة على يوتيوب",
+        "minimize_chapters_default": "تصغير الفصول بشكل افتراضي",
+        "no_valid_playlists": "لا يحتوي الملف على قوائم تشغيل صالحة!",
+        "with_playlist": "المشاركة مع قائمة التشغيل",
+        "bookmark_playlist": "الاشاره المرجعيه",
+        "playlist_bookmarked": "تم وضعها في الاشارات المرجعية",
+        "skip_button_only": "إظهار زر التخطي",
+        "skip_automatically": "تلقائيا",
+        "min_segment_length": "الحد الأدنى لطول الفصل (بالثواني)",
+        "skip_segment": "تخطي الجزء",
+        "show_less": "عرض أقل",
+        "autoplay_next_countdown": "العد التنازلي الافتراضي حتى الفيديو التالي ( ثانية )",
+        "dismiss": "تجاهل"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
@@ -127,7 +140,9 @@
         "views": "{views} عدد المشاهدات",
         "shorts": "فديوهات قصيرة",
         "videos": "الفيديوات",
-        "live": "{0} مباشر"
+        "live": "{0} مباشر",
+        "all": "الكل",
+        "category": "الفئة"
     },
     "search": {
         "channels": "يوتيوب: القنوات",
@@ -169,6 +184,9 @@
         "preferences_note": "ملاحظة: يتم حفظ التفضيلات في وحدة التخزين المحلية في متصفحك. سيؤدي حذف بيانات المتصفح إلى إعادة تعيينها.",
         "page_not_found": "لم يتم العثور على الصفحة",
         "copied": "نسخ!",
-        "cannot_copy": "لا يمكن نسخه!"
+        "cannot_copy": "لا يمكن نسخه!",
+        "local_storage": "يتطلب هذا الإجراء التخزين المحلي، هل يتم تمكين ملفات تعريف الارتباط؟",
+        "register_no_email_note": "لا ينصح باستخدام البريد الإلكتروني كاسم مستخدم. المضي قدما على أي حال؟",
+        "next_video_countdown": "تشغيل الفيديو التالي بعد { 0 } ق"
     }
 }

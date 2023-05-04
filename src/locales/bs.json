@@ -47,7 +47,7 @@
         "country_selection": "Izbor zemalja",
         "minimize_description_default": "Umanji Opis po podrazumijevanim podešavanjima",
         "no": "Ne",
-        "donations": "Donacije",
+        "donations": "Donacije za razvoj",
         "show_description": "Prikaži opis",
         "load_more_replies": "Učitajte još odgovora",
         "enabled_codecs": "Omogućeni kodeci (množina)",
@@ -63,9 +63,53 @@
         "view_ssl_score": "Pogledajte SSL rezultat",
         "hide_replies": "Sakrijte odgovore",
         "remove_from_playlist": "Uklonite iz popisa snimaka",
-        "delete_playlist_video_confirm": "Jel baš želite ukloniti ovaj video iz ovog popisa snimaka?",
+        "delete_playlist_video_confirm": "Uklonite ovaj video iz popisa snimaka?",
         "select_playlist": "Odaberite popis snimaka",
-        "delete_playlist_confirm": "Jeste li sigurni da želite izbrisati ovaj popis snimaka?"
+        "delete_playlist_confirm": "Izbrisati ovaj popis snimaka?",
+        "show_markers": "Prikaži markere na Pokretniku",
+        "share": "Podijeli",
+        "invalidate_session": "Odjavite se sa svih uređaja",
+        "show_chapters": "Poglavlja",
+        "status_page": "Status",
+        "source_code": "Izvorni kod",
+        "clone_playlist_success": "Uspješno klonirano!",
+        "store_search_history": "Pohrani historiju pretraživanja",
+        "minimize_chapters_default": "Smanjite poglavlja po zadanom",
+        "show_watch_on_youtube": "Prikaži „Gledaj na YouTube-u” dugme",
+        "different_auth_instance": "Koristite drugu instancu za autentifikaciju",
+        "rename_playlist": "Preimenuj listu izvođenja",
+        "new_playlist_name": "Novi naziv liste izvođenja",
+        "with_timecode": "Podijelite s vremenskim kodom",
+        "piped_link": "Piped poveznica",
+        "follow_link": "Prati poveznicu",
+        "time_code": "Vremenski kod (u sekundama)",
+        "hide_watched": "Sakrijte gledane videozapise u sažetku sadržaja",
+        "instance_donations": "Donacije za instancu",
+        "reply_count": "{count} odgovora",
+        "logout": "Odjavite se sa ovog uređaja",
+        "download_as_txt": "Preuzmite kao .txt",
+        "backup_preferences": "Spremi sigurnosnu kopiju postavki",
+        "instance_auth_selection": "Odabir instance autentikacije",
+        "restore_preferences": "Vrati postavke",
+        "back_to_home": "Povratak na početnu",
+        "copy_link": "Kopiraj poveznicu",
+        "no_valid_playlists": "Datoteka ne sadrži važeće liste za reprodukciju!",
+        "with_playlist": "Podijeli sa listom izvođenja",
+        "clone_playlist": "Kloniraj listu za reprodukciju",
+        "documentation": "Dokumentacija",
+        "confirm_reset_preferences": "Jeste li sigurni da želite obnoviti svoje postavke?",
+        "minimize_comments_default": "Po zadanom smanjite komentare",
+        "minimize_comments": "Minimizirajte komentare",
+        "delete_account": "Izbriši račun",
+        "minimize_recommendations_default": "Smanjite preporuke po zadanom",
+        "reset_preferences": "Vrati postavke na zadano",
+        "bookmark_playlist": "Bilježak",
+        "playlist_bookmarked": "Obilježeno",
+        "show_less": "Prikaži manje",
+        "skip_button_only": "Prikaži dugme za preskakanje",
+        "skip_automatically": "Automatski",
+        "min_segment_length": "Najmanja dužina segmenta (u sekundama)",
+        "skip_segment": "Preskoči segment"
     },
     "titles": {
         "register": "Registrirajte se",
@@ -75,7 +119,13 @@
         "feed": "Novosti",
         "preferences": "Podešavanja",
         "playlists": "Popisi Snimaka",
-        "subscriptions": "Pretplate"
+        "subscriptions": "Pretplate",
+        "instance": "Instanca",
+        "account": "Račun",
+        "player": "Pokretnik",
+        "channels": "Kanali",
+        "livestreams": "Prijenosi uživo",
+        "bookmarks": "Bilješci"
     },
     "search": {
         "music_songs": "YT Music: Pjesme",
@@ -111,9 +161,26 @@
         "ratings_disabled": "Ocjene su isključene",
         "watched": "Pogledano",
         "videos": "Video zapisi",
-        "live": "{0} Uživo"
+        "live": "{0} Uživo",
+        "shorts": "Kratki videi",
+        "category": "Kategorija",
+        "all": "Sve"
     },
     "comment": {
-        "pinned_by": "Prikačeno od {author}"
+        "pinned_by": "Prikačeno od {author}",
+        "disabled": "Komentari su onemogućeni od strane prijenosnika.",
+        "loading": "Učitavanje komentara...",
+        "user_disabled": "Komentari su onemogućeni u postavkama."
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Pretplaćeni ste na: {0}"
+    },
+    "info": {
+        "preferences_note": "Napomena: Preferencije se čuvaju u lokalnom skladištu vašeg pretraživača. Brisanje podataka vašeg preglednika će ih resetirati.",
+        "cannot_copy": "Nije moguće kopirati!",
+        "page_not_found": "Stranica nije pronađena",
+        "copied": "Kopirano!",
+        "local_storage": "Ova radnja zahtijeva lokalno pohranjivanje, jesu li kolačići omogućeni?",
+        "register_no_email_note": "Korištenje e-maila kao korisničko ime se ne preporučuje. Svejedno nastaviti?"
     }
 }

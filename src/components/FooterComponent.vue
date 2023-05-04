@@ -1,10 +1,10 @@
 <template>
-    <footer class="text-center py-4 rounded-xl children:(mx-3) w-full mt-10 mb-5">
+    <footer class="text-center py-4 rounded-xl children:(mx-3) w-full mt-10">
         <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped" target="_blank">
             <font-awesome-icon :icon="['fab', 'github']" />
             <span class="ml-2" v-t="'actions.source_code'" />
         </a>
-        <a href="https://piped-docs.kavin.rocks/" target="_blank">
+        <a href="https://docs.piped.video/" target="_blank">
             <font-awesome-icon :icon="['fa', 'book']" />
             <span class="ml-2" v-t="'actions.documentation'" />
         </a>

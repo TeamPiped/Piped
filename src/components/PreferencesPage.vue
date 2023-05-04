@@ -45,6 +45,16 @@
             @change="onChange($event)"
         />
     </label>
+    <label class="pref" for="chkAutoPlayNextCountdown">
+        <strong v-t="'actions.autoplay_next_countdown'" />
+        <input
+            id="chkAutoPlayNextCountdown"
+            v-model="autoPlayNextCountdown"
+            class="input w-24"
+            type="number"
+            @change="onChange($event)"
+        />
+    </label>
     <label class="pref" for="chkAudioOnly">
         <strong v-t="'actions.audio_only'" />
         <input id="chkAudioOnly" v-model="listen" class="checkbox" type="checkbox" @change="onChange($event)" />
@@ -183,71 +193,36 @@
             @change="onChange($event)"
         />
     </label>
-    <label class="pref" for="chkSkipSponsors">
-        <strong v-t="'actions.skip_sponsors'" />
-        <input id="chkSkipSponsors" v-model="skipSponsor" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkSkipIntro">
-        <strong v-t="'actions.skip_intro'" />
-        <input id="chkSkipIntro" v-model="skipIntro" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkSkipOutro">
-        <strong v-t="'actions.skip_outro'" />
-        <input id="chkSkipOutro" v-model="skipOutro" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkSkipPreview">
-        <strong v-t="'actions.skip_preview'" />
-        <input id="chkSkipPreview" v-model="skipPreview" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkSkipInteraction">
-        <strong v-t="'actions.skip_interaction'" />
-        <input
-            id="chkSkipInteraction"
-            v-model="skipInteraction"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
-    <label class="pref" for="chkSkipSelfPromo">
-        <strong v-t="'actions.skip_self_promo'" />
-        <input
-            id="chkSkipSelfPromo"
-            v-model="skipSelfPromo"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
-    <label class="pref" for="chkSkipNonMusic">
-        <strong v-t="'actions.skip_non_music'" />
-        <input
-            id="chkSkipNonMusic"
-            v-model="skipMusicOffTopic"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
-    <label class="pref" for="chkSkipHighlight">
-        <strong v-t="'actions.skip_highlight'" />
-        <input
-            id="chkSkipHighlight"
-            v-model="skipHighlight"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        />
-    </label>
-    <label class="pref" for="chkSkipFiller">
-        <strong v-t="'actions.skip_filler_tangent'" />
-        <input id="chkSkipFiller" v-model="skipFiller" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-    <label class="pref" for="chkShowMarkers">
-        <strong v-t="'actions.show_markers'" />
-        <input id="chkShowMarkers" v-model="showMarkers" class="checkbox" type="checkbox" @change="onChange($event)" />
-    </label>
-
+    <div v-if="sponsorBlock">
+        <label v-for="[name, item] in skipOptions" class="pref" :for="'ddlSkip_' + name" :key="name">
+            <strong v-t="item.label" />
+            <select :id="'ddlSkip_' + name" v-model="item.value" class="select w-auto" @change="onChange($event)">
+                <option v-t="'actions.no'" value="no" />
+                <option v-t="'actions.skip_button_only'" value="button" />
+                <option v-t="'actions.skip_automatically'" value="auto" />
+            </select>
+        </label>
+        <label class="pref" for="chkShowMarkers">
+            <strong v-t="'actions.show_markers'" />
+            <input
+                id="chkShowMarkers"
+                v-model="showMarkers"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="txtMinSegmentLength">
+            <strong v-t="'actions.min_segment_length'" />
+            <input
+                id="txtMinSegmentLength"
+                v-model="minSegmentLength"
+                class="input w-24"
+                type="text"
+                @change="onChange($event)"
+            />
+        </label>
+    </div>
     <h2 class="text-center" v-t="'titles.instance'" />
     <label class="pref" for="ddlInstanceSelection">
         <strong v-text="`${$t('actions.instance_selection')}:`" />
@@ -366,18 +341,22 @@ export default {
             selectedAuthInstance: null,
             instances: [],
             sponsorBlock: true,
-            skipSponsor: true,
-            skipIntro: false,
-            skipOutro: false,
-            skipPreview: false,
-            skipInteraction: true,
-            skipSelfPromo: true,
-            skipMusicOffTopic: true,
-            skipHighlight: false,
-            skipFiller: false,
+            skipOptions: new Map([
+                ["sponsor", { value: "auto", label: "actions.skip_sponsors" }],
+                ["intro", { value: "no", label: "actions.skip_intro" }],
+                ["outro", { value: "no", label: "actions.skip_outro" }],
+                ["preview", { value: "no", label: "actions.skip_preview" }],
+                ["interaction", { value: "auto", label: "actions.skip_interaction" }],
+                ["selfpromo", { value: "auto", label: "actions.skip_self_promo" }],
+                ["music_offtopic", { value: "auto", label: "actions.skip_non_music" }],
+                ["poi_highlight", { value: "no", label: "actions.skip_highlight" }],
+                ["filler", { value: "no", label: "actions.skip_filler_tangent" }],
+            ]),
             showMarkers: true,
+            minSegmentLength: 0,
             selectedTheme: "dark",
             autoPlayVideo: true,
+            autoPlayNextCountdown: 5,
             listen: false,
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
             defaultQuality: 0,
@@ -397,6 +376,7 @@ export default {
             languages: [
                 { code: "ar", name: "Arabic" },
                 { code: "az", name: "Azərbaycan" },
+                { code: "bg", name: "Български" },
                 { code: "bn", name: "বাংলা" },
                 { code: "bs", name: "Bosanski" },
                 { code: "ca", name: "Català" },
@@ -415,6 +395,7 @@ export default {
                 { code: "hi", name: "हिंदी" },
                 { code: "id", name: "Indonesia" },
                 { code: "is", name: "Íslenska" },
+                { code: "kab", name: "Taqbaylit" },
                 { code: "hr", name: "Hrvatski" },
                 { code: "it", name: "Italiano" },
                 { code: "ja", name: "日本語" },
@@ -423,12 +404,15 @@ export default {
                 { code: "ml", name: "മലയാളം" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
                 { code: "nl", name: "Nederlands" },
+                { code: "oc", name: "Occitan" },
                 { code: "or", name: "ଓଡ଼ିଆ" },
                 { code: "pl", name: "Polski" },
                 { code: "pt", name: "Português" },
                 { code: "pt_PT", name: "Português (Portugal)" },
                 { code: "pt_BR", name: "Português (Brasil)" },
+                { code: "ro", name: "Română" },
                 { code: "ru", name: "Русский" },
+                { code: "si", name: "සිංහල" },
                 { code: "sr", name: "Српски" },
                 { code: "sv", name: "Svenska" },
                 { code: "ta", name: "தமிழ்" },
@@ -453,7 +437,7 @@ export default {
 
         this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
             this.instances = resp;
-            if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
+            if (!this.instances.some(instance => instance.api_url == this.apiUrl()))
                 this.instances.push({
                     name: "Custom Instance",
                     api_url: this.apiUrl(),
@@ -468,57 +452,28 @@ export default {
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
 
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
-            if (localStorage.getItem("selectedSkip") !== null) {
-                var skipList = localStorage.getItem("selectedSkip").split(",");
-                this.skipSponsor =
-                    this.skipIntro =
-                    this.skipOutro =
-                    this.skipPreview =
-                    this.skipInteraction =
-                    this.skipSelfPromo =
-                    this.skipMusicOffTopic =
-                    this.skipHighlight =
-                    this.skipFiller =
-                        false;
+            var skipOptions, skipList;
+            if ((skipOptions = this.getPreferenceJSON("skipOptions")) !== undefined) {
+                Object.entries(skipOptions).forEach(([key, value]) => {
+                    var opt = this.skipOptions.get(key);
+                    if (opt !== undefined) opt.value = value;
+                    else console.log("Unknown sponsor type: " + key);
+                });
+            } else if ((skipList = this.getPreferenceString("selectedSkip")) !== undefined) {
+                skipList = skipList.split(",");
+                this.skipOptions.forEach(opt => (opt.value = "no"));
                 skipList.forEach(skip => {
-                    switch (skip) {
-                        case "sponsor":
-                            this.skipSponsor = true;
-                            break;
-                        case "intro":
-                            this.skipIntro = true;
-                            break;
-                        case "outro":
-                            this.skipOutro = true;
-                            break;
-                        case "preview":
-                            this.skipPreview = true;
-                            break;
-                        case "interaction":
-                            this.skipInteraction = true;
-                            break;
-                        case "selfpromo":
-                            this.skipSelfPromo = true;
-                            break;
-                        case "music_offtopic":
-                            this.skipMusicOffTopic = true;
-                            break;
-                        case "poi_highlight":
-                            this.skipHighlight = true;
-                            break;
-                        case "filler":
-                            this.skipFiller = true;
-                            break;
-                        default:
-                            console.log("Unknown sponsor type: " + skip);
-                            break;
-                    }
+                    var opt = this.skipOptions.get(skip);
+                    if (opt !== undefined) opt.value = "auto";
+                    else console.log("Unknown sponsor type: " + skip);
                 });
             }
 
             this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
+            this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
+            this.autoPlayNextCountdown = this.getPreferenceNumber("autoPlayNextCountdown", 5);
             this.listen = this.getPreferenceBoolean("listen", false);
             this.defaultQuality = Number(localStorage.getItem("quality"));
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
@@ -565,21 +520,15 @@ export default {
                 localStorage.setItem("auth_instance_url", this.selectedAuthInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
 
-                var sponsorSelected = [];
-                if (this.skipSponsor) sponsorSelected.push("sponsor");
-                if (this.skipIntro) sponsorSelected.push("intro");
-                if (this.skipOutro) sponsorSelected.push("outro");
-                if (this.skipPreview) sponsorSelected.push("preview");
-                if (this.skipInteraction) sponsorSelected.push("interaction");
-                if (this.skipSelfPromo) sponsorSelected.push("selfpromo");
-                if (this.skipMusicOffTopic) sponsorSelected.push("music_offtopic");
-                if (this.skipHighlight) sponsorSelected.push("poi_highlight");
-                if (this.skipFiller) sponsorSelected.push("filler");
-                localStorage.setItem("selectedSkip", sponsorSelected);
+                var skipOptions = {};
+                this.skipOptions.forEach((v, k) => (skipOptions[k] = v.value));
+                localStorage.setItem("skipOptions", JSON.stringify(skipOptions));
 
                 localStorage.setItem("showMarkers", this.showMarkers);
+                localStorage.setItem("minSegmentLength", this.minSegmentLength);
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
+                localStorage.setItem("autoPlayNextCountdown", this.autoPlayNextCountdown);
                 localStorage.setItem("listen", this.listen);
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
@@ -666,5 +615,11 @@ export default {
 <style>
 .pref {
     @apply flex justify-between items-center my-2 mx-[15vw] lt-md:mx-[2vw];
+}
+.pref:nth-child(odd) {
+    @apply bg-gray-200;
+}
+.dark .pref:nth-child(odd) {
+    @apply bg-dark-800;
 }
 </style>

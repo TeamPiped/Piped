@@ -12,7 +12,8 @@
         "instance": "Instance",
         "player": "Player",
         "livestreams": "Livestreams",
-        "channels": "Channels"
+        "channels": "Channels",
+        "bookmarks": "Bookmarks"
     },
     "player": {
         "watch_on": "Watch on {0}"
@@ -29,6 +30,8 @@
         "back": "Back",
         "uses_api_from": "Uses the API from ",
         "enable_sponsorblock": "Enable Sponsorblock",
+        "skip_button_only": "Show skip button",
+        "skip_automatically": "Automatically",
         "skip_sponsors": "Skip Sponsors",
         "skip_intro": "Skip Intermission/Intro Animation",
         "skip_outro": "Skip Endcards/Credits",
@@ -39,11 +42,14 @@
         "skip_highlight": "Skip Highlight",
         "skip_filler_tangent": "Skip Filler Tangent",
         "show_markers": "Show Markers on Player",
+        "min_segment_length": "Minimum Segment Length (in seconds)",
+        "skip_segment": "Skip Segment",
         "theme": "Theme",
         "auto": "Auto",
         "dark": "Dark",
         "light": "Light",
         "autoplay_video": "Autoplay Video",
+        "autoplay_next_countdown": "Default Countdown until next video (in seconds)",
         "audio_only": "Audio Only",
         "default_quality": "Default Quality",
         "buffering_goal": "Buffering Goal (in seconds)",
@@ -73,7 +79,7 @@
         "disable_lbry": "Disable LBRY for Streaming",
         "enable_lbry_proxy": "Enable Proxy for LBRY",
         "view_ssl_score": "View SSL Score",
-        "search": "Search",
+        "search": "Search (Ctrl+K)",
         "filter": "Filter",
         "loading": "Loading...",
         "clear_history": "Clear History",
@@ -114,13 +120,20 @@
         "show_chapters": "Chapters",
         "store_search_history": "Store Search history",
         "hide_watched": "Hide watched videos in the feed",
+        "mark_as_watched": "Mark as Watched",
+        "mark_as_unwatched": "Mark as Unwatched",
         "documentation": "Documentation",
         "status_page": "Status",
         "source_code": "Source code",
         "instance_donations": "Instance donations",
         "reply_count": "{count} replies",
-        "mark_as_watched": "Mark as Watched",
-        "mark_as_unwatched": "Mark as Unwatched"
+        "no_valid_playlists": "The file doesn't contain valid playlists!",
+        "with_playlist": "Share with playlist",
+        "bookmark_playlist": "Bookmark",
+        "playlist_bookmarked": "Bookmarked",
+        "dismiss": "Dismiss",
+        "show_more": "Show more",
+        "show_less": "Show less"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
@@ -149,7 +162,9 @@
         "ratings_disabled": "Ratings Disabled",
         "chapters": "Chapters",
         "live": "{0} Live",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "All",
+        "category": "Category"
     },
     "search": {
         "did_you_mean": "Did you mean: {0}?",
@@ -169,6 +184,9 @@
         "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them.",
         "page_not_found": "Page not found",
         "copied": "Copied!",
-        "cannot_copy": "Can't copy!"
+        "cannot_copy": "Can't copy!",
+        "local_storage": "This action requires localStorage, are cookies enabled?",
+        "register_no_email_note": "Using an e-mail as username is not recommended. Proceed anyways?",
+        "next_video_countdown": "Playing next video in {0}s"
     }
 }

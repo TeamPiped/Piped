@@ -11,38 +11,45 @@
         </a>
     </span>
 
+    <label for="filters" class="ml-10 mr-2">
+        <strong v-text="`${$t('actions.filter')}:`" />
+    </label>
+    <select id="filters" v-model="selectedFilter" default="all" class="select w-auto" @change="onFilterChange()">
+        <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`video.${filter}`" />
+    </select>
+
     <span class="md:float-right">
         <SortingSelector by-key="uploaded" @apply="order => videos.sort(order)" />
     </span>
 
     <hr />
 
-    <div class="video-grid">
-        <VideoItem
-            :is-feed="true"
-            v-for="video in videos"
-            :key="video.url"
-            :item="video"
-            @update:watched="onUpdateWatched"
-        />
-    </div>
+    <LoadingIndicatorPage :show-content="videosStore != null" class="video-grid">
+        <template v-for="video in videos" :key="video.url">
+            <VideoItem v-if="shouldShowVideo(video)" :is-feed="true" :item="video" @update:watched="onUpdateWatched" />
+        </template>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
 import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 
 export default {
     components: {
         VideoItem,
         SortingSelector,
+        LoadingIndicatorPage,
     },
     data() {
         return {
             currentVideoCount: 0,
             videoStep: 100,
-            videosStore: [],
+            videosStore: null,
             videos: [],
+            availableFilters: ["all", "shorts", "videos"],
+            selectedFilter: "all",
         };
     },
     computed: {
@@ -57,6 +64,8 @@ export default {
             this.loadMoreVideos();
             this.updateWatched(this.videos);
         });
+
+        this.selectedFilter = this.getPreferenceString("feedFilter") ?? "all";
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
@@ -99,6 +108,19 @@ export default {
 
             const subset = this.videos.filter(({ url }) => urls.includes(url));
             if (subset.length > 0) this.updateWatched(subset);
+        },
+        shouldShowVideo(video) {
+            switch (this.selectedFilter.toLowerCase()) {
+                case "shorts":
+                    return video.isShort;
+                case "videos":
+                    return !video.isShort;
+                default:
+                    return true;
+            }
+        },
+        onFilterChange() {
+            this.setPreference("feedFilter", this.selectedFilter);
         },
     },
 };

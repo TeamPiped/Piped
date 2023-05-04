@@ -18,19 +18,21 @@
         </i18n-t>
     </div>
 
-    <div v-if="results" class="video-grid">
+    <LoadingIndicatorPage :show-content="results != null && results.items?.length" class="video-grid">
         <template v-for="result in results.items" :key="result.url">
             <ContentItem :item="result" height="94" width="168" />
         </template>
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
 import ContentItem from "./ContentItem.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 
 export default {
     components: {
         ContentItem,
+        LoadingIndicatorPage,
     },
     data() {
         return {
@@ -72,7 +74,10 @@ export default {
         },
         async updateResults() {
             document.title = this.$route.query.search_query + " - Piped";
-            this.results = this.fetchResults().then(json => (this.results = json));
+            this.results = this.fetchResults().then(json => {
+                this.results = json;
+                this.updateWatched(this.results.items);
+            });
         },
         updateFilter() {
             this.$router.replace({

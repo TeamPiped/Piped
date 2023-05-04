@@ -1,7 +1,7 @@
 {
     "actions": {
         "skip_sponsors": "Sponsors Overslaan",
-        "skip_outro": "Eindkaarten/Credits overslaan",
+        "skip_outro": "Eindkaarten/Credits Overslaan",
         "add_to_playlist": "Aan Afspeellijst Toevoegen",
         "sort_by": "Sorteer op:",
         "buffering_goal": "Bufferdoel (in seconden)",
@@ -20,7 +20,7 @@
         "skip_self_promo": "Onbetaalde/Zelf-promotie Overslaan",
         "skip_highlight": "Markering Overslaan",
         "skip_interaction": "Interactieherinnering Overslaan (Abonneren)",
-        "show_more": "Toon Meer",
+        "show_more": "Toon meer",
         "unsubscribe": "Afmelden - {count}",
         "view_subscriptions": "Abonnementen Bekijken",
         "enable_sponsorblock": "Sponsorblok Inschakelen",
@@ -30,7 +30,7 @@
         "light": "Licht",
         "default_quality": "Standaard Kwaliteit",
         "loop_this_video": "Deze Video Herhalen",
-        "donations": "Donaties",
+        "donations": "Ontwikkelingsdonaties",
         "minimize_description": "Beschrijving Minimaliseren",
         "show_description": "Toon Beschrijving",
         "minimize_recommendations": "Aanbevelingen Minimaliseren",
@@ -57,15 +57,59 @@
         "auto_play_next_video": "Volgende Video Automatisch Afspelen",
         "remove_from_playlist": "Uit Afspeellijst Verwijderen",
         "select_playlist": "Selecteer een Afspeellijst",
-        "delete_playlist_confirm": "Weet u zeker dat u deze afspeellijst wilt verwijderen?",
-        "please_select_playlist": "Kies een afspeellijst a.u.b.",
+        "delete_playlist_confirm": "Deze afspeellijst verwijderen?",
+        "please_select_playlist": "Selecteer een afspeellijst alsjeblief",
         "instance_selection": "Instantie Selectie",
         "import_from_json": "Importeren uit JSON/CSV",
         "clear_history": "Geschiedenis Wissen",
         "load_more_replies": "Laad meer Antwoorden",
-        "delete_playlist_video_confirm": "Weet u zeker dat u deze video uit deze afspeellijst wilt verwijderen?",
+        "delete_playlist_video_confirm": "Video uit deze afspeellijst verwijderen?",
         "create_playlist": "Afspeellijst Maken",
-        "delete_playlist": "Afspeellijst Verwijderen"
+        "delete_playlist": "Afspeellijst Verwijderen",
+        "show_markers": "Laat markeringen op speler zien",
+        "store_search_history": "Zoekgeschiedenis Opslaan",
+        "minimize_chapters_default": "Hoofdstukken Standaard Minimaliseren",
+        "show_watch_on_youtube": "Toon Bekijk op YouTube knop",
+        "restore_preferences": "Voorkeuren herstellen",
+        "with_timecode": "Delen met tijdcode",
+        "piped_link": "Piped link",
+        "follow_link": "Volg link",
+        "copy_link": "Link kopiëren",
+        "hide_watched": "Verberg bekeken video's in de feed",
+        "minimize_comments": "Opmerkingen minimaliseren",
+        "instance_auth_selection": "Selectie authenticatie-instantie",
+        "clone_playlist": "Afspeellijst dupliceren",
+        "download_as_txt": "Downloaden als .txt",
+        "rename_playlist": "Afspeellijst hernoemen",
+        "new_playlist_name": "Nieuwe afspeellijstnaam",
+        "share": "Delen",
+        "documentation": "Documentatie",
+        "status_page": "Status",
+        "time_code": "Tijdcode (in seconden)",
+        "show_chapters": "Hoofdstukken",
+        "source_code": "Broncode",
+        "instance_donations": "Instantie donaties",
+        "reply_count": "{count} antwoorden",
+        "no_valid_playlists": "Het bestand bevat geen geldige afspeellijsten!",
+        "clone_playlist_success": "Dupliceren gelukt!",
+        "reset_preferences": "Voorkeuren herstellen",
+        "back_to_home": "Terug naar de start",
+        "minimize_comments_default": "Opmerkingen Standaard Minimaliseren",
+        "delete_account": "Account Verwijderen",
+        "logout": "Uitloggen op dit apparaat",
+        "minimize_recommendations_default": "Aanbevelingen Standaard Minimaliseren",
+        "confirm_reset_preferences": "Weet u zeker dat u uw voorkeuren opnieuw wilt instellen?",
+        "backup_preferences": "Back-up voorkeuren",
+        "invalidate_session": "Uitloggen op alle apparaten",
+        "different_auth_instance": "Gebruik een andere instantie voor authenticatie",
+        "with_playlist": "Delen met afspeellijst",
+        "playlist_bookmarked": "Bladwijzer gemaakt",
+        "bookmark_playlist": "Bladwijzer",
+        "skip_automatically": "Automatisch",
+        "skip_button_only": "toon de overslaan knop",
+        "min_segment_length": "Minimale segmentlengte (in seconden)",
+        "skip_segment": "segment overslaan",
+        "show_less": "Toon minder"
     },
     "titles": {
         "register": "Registreren",
@@ -74,8 +118,14 @@
         "preferences": "Voorkeuren",
         "history": "Geschiedenis",
         "subscriptions": "Abonnementen",
-        "trending": "Trending",
-        "playlists": "Afspeellijsten"
+        "trending": "populair",
+        "playlists": "Afspeellijsten",
+        "account": "profiel",
+        "instance": "Instantie",
+        "player": "Speler",
+        "livestreams": "Livestreams",
+        "channels": "Kanalen",
+        "bookmarks": "Bladwijzers"
     },
     "player": {
         "watch_on": "Kijk op {0}"
@@ -102,7 +152,10 @@
         "watched": "Gekeken",
         "sponsor_segments": "Sponsorsegmenten",
         "ratings_disabled": "Beoordelingen Uitgeschakeld",
-        "live": "{0} Live"
+        "live": "{0} Live",
+        "shorts": "Shorts",
+        "category": "Categorie",
+        "all": "Alle"
     },
     "preferences": {
         "has_cdn": "Heeft CDN?",
@@ -114,6 +167,20 @@
         "ssl_score": "SSL-score"
     },
     "comment": {
-        "pinned_by": "Vastgemaakt door {author}"
+        "pinned_by": "Vastgemaakt door {author}",
+        "user_disabled": "Opmerkingen zijn uitgeschakeld in de instellingen.",
+        "loading": "Opmerkingen laden...",
+        "disabled": "Reacties zijn uitgeschakeld door de uploader."
+    },
+    "info": {
+        "preferences_note": "Let op: voorkeuren worden opgeslagen in de lokale opslag van uw browser. Als u uw browsergegevens verwijdert, worden ze opnieuw ingesteld.",
+        "copied": "Gekopieerd!",
+        "cannot_copy": "Kan niet kopiëren!",
+        "page_not_found": "Pagina niet gevonden",
+        "local_storage": "Deze actie vereist lokale opslag, zijn cookies ingeschakeld?",
+        "register_no_email_note": "Een e-mailadres als gebruikersnaam gebruiken wordt afgeraden. Toch doorgaan?"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Geabonneerd op: {0}"
     }
 }

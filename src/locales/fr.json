@@ -12,7 +12,8 @@
         "instance": "Instance",
         "player": "Lecteur",
         "livestreams": "Diffusions en direct",
-        "channels": "Chaînes"
+        "channels": "Chaînes",
+        "bookmarks": "Marque-pages"
     },
     "actions": {
         "subscribe": "S'abonner - {count}",
@@ -114,7 +115,17 @@
         "reply_count": "{count} réponses",
         "minimize_comments_default": "Minimiser les commentaires par défaut",
         "minimize_comments": "Minimiser les commentaires",
-        "show_watch_on_youtube": "Afficher le bouton Regarder sur YouTube"
+        "show_watch_on_youtube": "Afficher le bouton Regarder sur YouTube",
+        "minimize_chapters_default": "Minimiser les chapitres par défaut",
+        "no_valid_playlists": "Le fichier ne contient pas de listes de lecture valides !",
+        "bookmark_playlist": "Marque-page",
+        "playlist_bookmarked": "Dans les marque-pages",
+        "with_playlist": "Partager avec la liste de lecture",
+        "skip_button_only": "Afficher le bouton de saut",
+        "skip_automatically": "Automatiquement",
+        "min_segment_length": "Longueur minimale du segment (en secondes)",
+        "skip_segment": "Sauter le segment",
+        "show_less": "Afficher moins"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
@@ -127,7 +138,9 @@
         "ratings_disabled": "Évaluations désactivées",
         "chapters": "Chapitres",
         "live": "{0} en direct",
-        "shorts": "Courtes"
+        "shorts": "Courtes",
+        "all": "Tout",
+        "category": "Catégorie"
     },
     "preferences": {
         "ssl_score": "Score SSL",
@@ -169,6 +182,8 @@
         "preferences_note": "Remarque : les préférences sont enregistrées dans la mémoire locale de votre navigateur. La suppression des données de votre navigateur les réinitialisera.",
         "page_not_found": "Page non trouvée",
         "copied": "Copié !",
-        "cannot_copy": "Impossible de copier !"
+        "cannot_copy": "Impossible de copier !",
+        "local_storage": "Cette action nécessite localStorage, les cookies sont-ils activés ?",
+        "register_no_email_note": "Il n'est pas recommandé d'utiliser une adresse courriel omme nom d'utilisateur. Continuer quand même ?"
     }
 }

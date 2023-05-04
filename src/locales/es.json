@@ -7,7 +7,9 @@
         "ratings_disabled": "Valoraciones Desactivadas",
         "chapters": "Capítulos",
         "live": "{0} Directo",
-        "shorts": "Cortos"
+        "shorts": "Cortos",
+        "all": "Todos",
+        "category": "Categoría"
     },
     "preferences": {
         "ssl_score": "Puntuación SSL",
@@ -40,7 +42,7 @@
         "instance_selection": "Selección de instancias",
         "enabled_codecs": "Códecs habilitados (múltiples)",
         "instances_list": "Lista de instancias",
-        "language_selection": "Selección de lenguajes",
+        "language_selection": "Selección de idioma",
         "store_watch_history": "Recordar historial de visualización",
         "minimize_description_default": "Minimizar la descripción por defecto",
         "show_comments": "Mostrar comentarios",
@@ -74,7 +76,7 @@
         "subscribe": "Suscribirme - {count}",
         "loading": "Cargando…",
         "filter": "Filtrar",
-        "search": "Buscar",
+        "search": "Buscar (Ctrl+K)",
         "view_ssl_score": "Ver la puntuación SSL",
         "minimize_recommendations": "Minimizar recomendaciones",
         "show_recommendations": "Mostrar recomendaciones",
@@ -124,7 +126,19 @@
         "reply_count": "{count} respuestas",
         "minimize_comments_default": "Minimizar comentarios por defecto",
         "minimize_comments": "Minimizar comentarios",
-        "show_watch_on_youtube": "Mostrar botón Ver en YouTube"
+        "show_watch_on_youtube": "Mostrar botón Ver en YouTube",
+        "minimize_chapters_default": "Minimiza capítulos por defecto",
+        "no_valid_playlists": "¡El archivo no contiene listas de reproducción válidas!",
+        "with_playlist": "Compartir con lista de reproducción",
+        "playlist_bookmarked": "Marcado",
+        "bookmark_playlist": "Marcador",
+        "skip_button_only": "Muestra botón de saltar",
+        "skip_automatically": "Automáticamente",
+        "min_segment_length": "Mínima Duración de Segmento (en segundos)",
+        "skip_segment": "Saltar Segmento",
+        "show_less": "Mostrar menos",
+        "autoplay_next_countdown": "Cuenta atrás predeterminada antes del siguiente vídeo (en segundos)",
+        "dismiss": "Cancelar"
     },
     "titles": {
         "feed": "Fuente web",
@@ -139,7 +153,8 @@
         "instance": "Instancia",
         "player": "Reproductor",
         "livestreams": "Directos",
-        "channels": "Canales"
+        "channels": "Canales",
+        "bookmarks": "Marcadores"
     },
     "player": {
         "watch_on": "Ver en {0}"
@@ -166,6 +181,9 @@
         "preferences_note": "Nota: las preferencias se guardan en el almacenamiento local de tu navegador. Al borrar los datos del navegador se restablecerán.",
         "page_not_found": "Página no encontrada",
         "copied": "¡Copiado!",
-        "cannot_copy": "¡No se puede copiar!"
+        "cannot_copy": "¡No se puede copiar!",
+        "local_storage": "Esta acción requiere «localStorage», ¿están activadas las «cookies»?",
+        "register_no_email_note": "No se recomienda usar un correo electrónico como nombre de usuario. ¿Continuar de todos modos?",
+        "next_video_countdown": "El próximo vídeo se reproducirá en {0}s"
     }
 }

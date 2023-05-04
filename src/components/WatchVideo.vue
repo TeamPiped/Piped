@@ -4,29 +4,33 @@
             ref="videoPlayer"
             :video="video"
             :sponsors="sponsors"
-            :playlist="playlist"
-            :index="index"
             :selected-auto-play="false"
             :selected-auto-loop="selectedAutoLoop"
             :is-embed="isEmbed"
         />
     </div>
 
-    <div v-if="video && !isEmbed" class="w-full">
+    <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
+        <Transition>
+            <ToastComponent v-if="shouldShowToast" @dismissed="dismiss">
+                <i18n-t keypath="info.next_video_countdown">{{ counter }}</i18n-t>
+            </ToastComponent>
+        </Transition>
 
         <div v-show="!video.error">
             <div :class="isMobile ? 'flex-col' : 'flex'">
-                <VideoPlayer
-                    ref="videoPlayer"
-                    :video="video"
-                    :sponsors="sponsors"
-                    :playlist="playlist"
-                    :index="index"
-                    :selected-auto-play="selectedAutoPlay"
-                    :selected-auto-loop="selectedAutoLoop"
-                    @timeupdate="onTimeUpdate"
-                />
+                <keep-alive>
+                    <VideoPlayer
+                        ref="videoPlayer"
+                        :video="video"
+                        :sponsors="sponsors"
+                        :selected-auto-play="selectedAutoPlay"
+                        :selected-auto-loop="selectedAutoLoop"
+                        @timeupdate="onTimeUpdate"
+                        @ended="onVideoEnded"
+                    />
+                </keep-alive>
                 <ChaptersBar
                     :mobileLayout="isMobile"
                     v-if="video?.chapters?.length > 0 && showChapters"
@@ -92,6 +96,8 @@
                     v-if="showShareModal"
                     :video-id="getVideoId()"
                     :current-time="currentTime"
+                    :playlist-id="playlistId"
+                    :playlist-index="index"
                     @close="showShareModal = !showShareModal"
                 />
                 <div class="flex">
@@ -146,10 +152,13 @@
 
             <!-- eslint-disable-next-line vue/no-v-html -->
             <div v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
-            <div
-                v-if="showDesc && sponsors && sponsors.segments"
-                v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
-            />
+            <template v-if="showDesc">
+                <div
+                    v-if="sponsors && sponsors.segments"
+                    v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
+                />
+                <div v-if="video.category" v-text="`${$t('video.category')}: ${video.category}`" />
+            </template>
         </div>
 
         <hr />
@@ -212,7 +221,7 @@
                 <hr class="sm:hidden" />
             </div>
         </div>
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
@@ -225,6 +234,8 @@ import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
+import ToastComponent from "./ToastComponent.vue";
 
 export default {
     name: "App",
@@ -238,13 +249,13 @@ export default {
         ShareModal,
         PlaylistVideos,
         WatchOnYouTubeButton,
+        LoadingIndicatorPage,
+        ToastComponent,
     },
     data() {
         const smallViewQuery = window.matchMedia("(max-width: 640px)");
         return {
-            video: {
-                title: "Loading...",
-            },
+            video: null,
             playlistId: null,
             playlist: null,
             index: null,
@@ -265,6 +276,9 @@ export default {
             showShareModal: false,
             isMobile: true,
             currentTime: 0,
+            shouldShowToast: false,
+            timeoutCounter: null,
+            counter: 0,
         };
     },
     computed: {
@@ -286,6 +300,9 @@ export default {
                 year: "numeric",
             });
         },
+        defaultCounter(_this) {
+            return _this.getPreferenceNumber("autoPlayNextCountdown", 5);
+        },
     },
     mounted() {
         // check screen size
@@ -304,7 +321,7 @@ export default {
             (async () => {
                 const videoId = this.getVideoId();
                 const instance = this;
-                if (window.db && !this.video.error) {
+                if (window.db && this.getPreferenceBoolean("watchHistory", false) && !this.video.error) {
                     var tx = window.db.transaction("watch_history", "readwrite");
                     var store = tx.objectStore("watch_history");
                     var request = store.get(videoId);
@@ -334,6 +351,7 @@ export default {
         this.getPlaylistData();
         this.getSponsors();
         if (!this.isEmbed && this.showComments) this.getComments();
+        window.addEventListener("click", this.handleClick);
         window.addEventListener("resize", () => {
             this.smallView = this.smallViewQuery.matches;
         });
@@ -345,7 +363,7 @@ export default {
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         this.showChapters = !this.getPreferenceBoolean("minimizeChapters", false);
-        if (this.video.duration) {
+        if (this.video?.duration) {
             document.title = this.video.title + " - Piped";
             this.$refs.videoPlayer.loadVideo();
         }
@@ -354,24 +372,40 @@ export default {
     deactivated() {
         this.active = false;
         window.removeEventListener("scroll", this.handleScroll);
+        this.dismiss();
     },
     unmounted() {
         window.removeEventListener("scroll", this.handleScroll);
+        window.removeEventListener("click", this.handleClick);
+        this.dismiss();
     },
     methods: {
         fetchVideo() {
             return this.fetchJson(this.apiUrl() + "/streams/" + this.getVideoId());
         },
         async fetchSponsors() {
-            return await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
-                category:
-                    '["' +
-                    this.getPreferenceString("selectedSkip", "sponsor,interaction,selfpromo,music_offtopic").replaceAll(
-                        ",",
-                        '","',
-                    ) +
-                    '"]',
+            var selectedSkip = this.getPreferenceString(
+                "selectedSkip",
+                "sponsor,interaction,selfpromo,music_offtopic",
+            ).split(",");
+            const skipOptions = this.getPreferenceJSON("skipOptions");
+            if (skipOptions !== undefined) {
+                selectedSkip = Object.keys(skipOptions).filter(
+                    k => skipOptions[k] !== undefined && skipOptions[k] !== "no",
+                );
+            }
+
+            const sponsors = await this.fetchJson(this.apiUrl() + "/sponsors/" + this.getVideoId(), {
+                category: JSON.stringify(selectedSkip),
             });
+
+            const minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
+            sponsors.segments = sponsors.segments?.filter(segment => {
+                const length = segment.segment[1] - segment.segment[0];
+                return length >= minSegmentLength;
+            });
+
+            return sponsors;
         },
         toggleComments() {
             this.showComments = !this.showComments;
@@ -383,7 +417,7 @@ export default {
             return this.fetchJson(this.apiUrl() + "/comments/" + this.getVideoId());
         },
         onChange() {
-            this.setPreference("autoplay", this.selectedAutoPlay);
+            this.setPreference("autoplay", this.selectedAutoPlay, true);
         },
         async getVideoData() {
             await this.fetchVideo()
@@ -404,13 +438,8 @@ export default {
                                 elem.outerHTML = elem.getAttribute("href");
                         });
                         xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
-                        this.video.description = this.urlify(xmlDoc.querySelector("body").innerHTML)
-                            .replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm, "$1")
-                            .replaceAll(
-                                /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm,
-                                "/watch?v=$1",
-                            )
-                            .replaceAll("\n", "<br>");
+                        this.video.description = this.rewriteDescription(xmlDoc.querySelector("body").innerHTML);
+                        this.updateWatched(this.video.relatedStreams);
                     }
                 });
         },
@@ -449,7 +478,10 @@ export default {
                 this.fetchSponsors().then(data => (this.sponsors = data));
         },
         async getComments() {
-            this.fetchComments().then(data => (this.comments = data));
+            this.fetchComments().then(data => {
+                this.rewriteComments(data.comments);
+                this.comments = data;
+            });
         },
         async fetchSubscribedStatus() {
             if (!this.channelId) return;
@@ -472,6 +504,23 @@ export default {
                 this.subscribed = json.subscribed;
             });
         },
+        rewriteComments(data) {
+            data.forEach(comment => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(comment.commentText, "text/html");
+                xmlDoc.querySelectorAll("a").forEach(elem => {
+                    if (!elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/))
+                        elem.outerHTML = elem.getAttribute("href");
+                });
+                comment.commentText = xmlDoc
+                    .querySelector("body")
+                    .innerHTML.replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm, "$1")
+                    .replaceAll(
+                        /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm,
+                        "/watch?v=$1",
+                    );
+            });
+        },
         subscribeHandler() {
             if (this.authenticated) {
                 this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
@@ -485,9 +534,22 @@ export default {
                     },
                 });
             } else {
-                this.handleLocalSubscriptions(this.channelId);
+                if (!this.handleLocalSubscriptions(this.channelId)) return;
             }
             this.subscribed = !this.subscribed;
+        },
+        handleClick(event) {
+            if (!event || !event.target) return;
+            var target = event.target;
+            if (
+                !target.nodeName == "A" ||
+                !target.getAttribute("href") ||
+                !target.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/)
+            )
+                return;
+            const time = parseInt(target.getAttribute("href").match(/(?<=t=)\d+/)[0]);
+            this.navigate(time);
+            event.preventDefault();
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
@@ -498,7 +560,8 @@ export default {
                 }).then(json => {
                     this.comments.nextpage = json.nextpage;
                     this.loading = false;
-                    json.comments.map(comment => this.comments.comments.push(comment));
+                    this.rewriteComments(json.comments);
+                    this.comments.comments = this.comments.comments.concat(json.comments);
                 });
             }
         },
@@ -511,6 +574,68 @@ export default {
         onTimeUpdate(time) {
             this.currentTime = time;
         },
+        onVideoEnded() {
+            if (
+                !this.selectedAutoLoop &&
+                this.selectedAutoPlay &&
+                (this.playlist?.relatedStreams?.length > 0 || this.video.relatedStreams.length > 0)
+            ) {
+                this.showToast();
+            }
+        },
+        showToast() {
+            this.counter = this.defaultCounter;
+            if (this.counter < 1) {
+                this.navigateNext();
+                return;
+            }
+            if (this.timeoutCounter) clearInterval(this.timeoutCounter);
+            this.timeoutCounter = setInterval(() => {
+                this.counter--;
+                if (this.counter === 0) {
+                    this.dismiss();
+                    this.navigateNext();
+                }
+            }, 1000);
+            this.shouldShowToast = true;
+        },
+        dismiss() {
+            clearInterval(this.timeoutCounter);
+            this.shouldShowToast = false;
+        },
+        navigateNext() {
+            const params = this.$route.query;
+            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            const searchParams = new URLSearchParams();
+            for (var param in params)
+                switch (param) {
+                    case "v":
+                    case "t":
+                        break;
+                    case "index":
+                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("index", this.index + 1);
+                        break;
+                    case "list":
+                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("list", params.list);
+                        break;
+                    default:
+                        searchParams.set(param, params[param]);
+                        break;
+                }
+            // save the fullscreen state
+            searchParams.set("fullscreen", this.$refs.videoPlayer.$ui.getControls().isFullScreenEnabled());
+            const paramStr = searchParams.toString();
+            if (paramStr.length > 0) url += "&" + paramStr;
+            this.$router.push(url);
+        },
     },
 };
 </script>
+
+<style>
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+    transform: translateX(100%) scale(0.5);
+}
+</style>
