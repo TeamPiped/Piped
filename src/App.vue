@@ -53,6 +53,7 @@ export default {
         darkModePreference.addEventListener("change", () => {
             this.setTheme();
         });
+
         if ("indexedDB" in window) {
             const request = indexedDB.open("piped-db", 3);
             request.onupgradeneeded = ev => {
