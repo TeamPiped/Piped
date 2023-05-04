@@ -115,7 +115,7 @@ export default {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 if (this.loading) return;
                 if (this.videos == null) return;
-                if (this.videosCount % 100 != 0) return;
+                if (this.videosCount > 0 && this.videosCount % 100 != 0) return;
 
                 this.loading = true;
                 this.loadMoreVideos();
