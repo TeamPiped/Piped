@@ -109,7 +109,9 @@
         "min_segment_length": "最小分段长度（以秒为单位）",
         "skip_segment": "跳过分段",
         "skip_button_only": "显示跳过按钮",
-        "show_less": "显示更少"
+        "show_less": "显示更少",
+        "autoplay_next_countdown": "下一个视频开始前的默认倒计时长（以秒计）",
+        "dismiss": "解除"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -184,6 +186,7 @@
         "copied": "已复制！",
         "cannot_copy": "无法复制！",
         "local_storage": "此操作需要本地存储，是否启用了Cookie？",
-        "register_no_email_note": "不建议使用电子邮件作为用户名。仍要继续吗？"
+        "register_no_email_note": "不建议使用电子邮件作为用户名。仍要继续吗？",
+        "next_video_countdown": "在{0}秒后播放下一个视频"
     }
 }
