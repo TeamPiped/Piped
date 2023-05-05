@@ -10,7 +10,7 @@
         "disable_lbry": "LBRY voor Streamen Uitschakelen",
         "enable_lbry_proxy": "Proxy voor LBRY Inschakelen",
         "view_ssl_score": "SSL-score Bekijken",
-        "search": "Zoeken",
+        "search": "Zoeken (Ctrl+K)",
         "filter": "Filter",
         "skip_filler_tangent": "Opvultangens Overslaan",
         "theme": "Thema",
@@ -109,7 +109,9 @@
         "skip_button_only": "toon de overslaan knop",
         "min_segment_length": "Minimale segmentlengte (in seconden)",
         "skip_segment": "segment overslaan",
-        "show_less": "Toon minder"
+        "show_less": "Toon minder",
+        "autoplay_next_countdown": "Standaard aftellen tot de volgende video (in seconden)",
+        "dismiss": "Afwijzen"
     },
     "titles": {
         "register": "Registreren",
@@ -178,7 +180,8 @@
         "cannot_copy": "Kan niet kopiëren!",
         "page_not_found": "Pagina niet gevonden",
         "local_storage": "Deze actie vereist lokale opslag, zijn cookies ingeschakeld?",
-        "register_no_email_note": "Een e-mailadres als gebruikersnaam gebruiken wordt afgeraden. Toch doorgaan?"
+        "register_no_email_note": "Een e-mailadres als gebruikersnaam gebruiken wordt afgeraden. Toch doorgaan?",
+        "next_video_countdown": "Volgende video afspelen in {0}s"
     },
     "subscriptions": {
         "subscribed_channels_count": "Geabonneerd op: {0}"
