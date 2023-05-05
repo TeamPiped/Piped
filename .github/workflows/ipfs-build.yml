@@ -1,31 +1,35 @@
 name: Build and Deploy
 
 on:
-  push:
-    paths-ignore:
-      - "**.md"
-    branches:
-      - master
+    push:
+        paths-ignore:
+            - "**.md"
+        branches:
+            - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          cache: "yarn"
-      - run: yarn install --prefer-offline
-      - run: yarn build && ./localizefonts.sh && cp dist/index.html dist/ipfs-404.html
-      - uses: aquiladev/ipfs-action@v0.3.1-alpha.2
-        id: ipfs-add
-        with:
-          path: ./dist
-          service: infura
-          infuraProjectId: ${{ secrets.INFURA_PROJECT_ID }}
-          infuraProjectSecret: ${{ secrets.INFURA_PROJECT_SECRET }}
-      - name: Update DNSLink
-        run: npx dnslink-cloudflare -d kavin.rocks -l /ipfs/${{ steps.ipfs-add.outputs.hash }} -r _dnslink.piped-ipfs
-        env:
-          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: latest
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  cache: "pnpm"
+            - run: pnpm install
+            - run: pnpm build && ./localizefonts.sh && cp dist/index.html dist/ipfs-404.html
+            - uses: aquiladev/ipfs-action@v0.3.1-alpha.2
+              id: ipfs-add
+              with:
+                  path: ./dist
+                  service: infura
+                  infuraProjectId: ${{ secrets.INFURA_PROJECT_ID }}
+                  infuraProjectSecret: ${{ secrets.INFURA_PROJECT_SECRET }}
+            - name: Update DNSLink
+              run: npx dnslink-cloudflare -d kavin.rocks -l /ipfs/${{ steps.ipfs-add.outputs.hash }} -r _dnslink.piped-ipfs
+              env:
+                  CF_API_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
