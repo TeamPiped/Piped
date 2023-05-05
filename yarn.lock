@@ -1021,14 +1021,14 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@iconify-json/fa6-brands@^1.1.11":
+"@iconify-json/fa6-brands@1.1.11":
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/@iconify-json/fa6-brands/-/fa6-brands-1.1.11.tgz#71db4426ec6f9a018ee942792955b84181a068f3"
   integrity sha512-+/dsIafxFCXlUvti0EHzVas9tnYXGqcSpybTBzzXbSVl2Ay1v26e/so/fz2Wrh8L3JrXq0LrMUYDsgZ4geQOqw==
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/fa6-solid@^1.1.13":
+"@iconify-json/fa6-solid@1.1.13":
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/@iconify-json/fa6-solid/-/fa6-solid-1.1.13.tgz#4719fb8c384612ca1e2f9a6e04f295bb2e11d4ca"
   integrity sha512-4rpV5lqeerkL3PBuoIYFKtOWjEIcv2q9g+lai0jSTlgzmF/hcxkozXzhhGtEjQhYqAIPR01wxlHFIhwhLN2O9w==
@@ -3815,10 +3815,10 @@ vite-plugin-pwa@0.14.7:
     workbox-build "^6.5.4"
     workbox-window "^6.5.4"
 
-vite@4.3.4:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.3.4.tgz#1c518d763d5a700d890c3a19ab59220f06e7a7d5"
-  integrity sha512-f90aqGBoxSFxWph2b39ae2uHAxm5jFBBdnfueNxZAT1FTpM13ccFQExCaKbR2xFW5atowjleRniQ7onjJ22QEg==
+vite@4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-4.3.5.tgz#3871fe0f4b582ea7f49a85386ac80e84826367d9"
+  integrity sha512-0gEnL9wiRFxgz40o/i/eTBwm+NEbpUeTWhzKrZDSdKm6nplj+z4lKz8ANDgildxHm47Vg8EUia0aicKbawUVVA==
   dependencies:
     esbuild "^0.17.5"
     postcss "^8.4.23"
