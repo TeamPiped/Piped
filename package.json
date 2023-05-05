@@ -27,7 +27,8 @@
         "xml-js": "1.6.11"
     },
     "devDependencies": {
-        "@iconify/json": "2.2.60",
+        "@iconify-json/fa6-brands": "1.1.11",
+        "@iconify-json/fa6-solid": "1.1.13",
         "@intlify/vite-plugin-vue-i18n": "6.0.3",
         "@unocss/preset-icons": "0.51.8",
         "@unocss/preset-web-fonts": "0.51.8",
