@@ -25,7 +25,7 @@
         "audio_only": "Samo zvuk",
         "default_homepage": "Zadana početna stranica",
         "loop_this_video": "Stavite ovaj video na ponavljanje",
-        "search": "Pretraga",
+        "search": "Pretraga (Ctrl+K)",
         "skip_preview": "Preskočite pregled",
         "skip_non_music": "Preskočite muziku: sekcija bez muzike",
         "skip_self_promo": "Preskočite neplaćenu/samo-promociju",
@@ -109,7 +109,9 @@
         "skip_button_only": "Prikaži dugme za preskakanje",
         "skip_automatically": "Automatski",
         "min_segment_length": "Najmanja dužina segmenta (u sekundama)",
-        "skip_segment": "Preskoči segment"
+        "skip_segment": "Preskoči segment",
+        "autoplay_next_countdown": "Zadano odbrojavanje do sljedećeg videa (u sekundama)",
+        "dismiss": "Odbaci"
     },
     "titles": {
         "register": "Registrirajte se",
@@ -181,6 +183,7 @@
         "page_not_found": "Stranica nije pronađena",
         "copied": "Kopirano!",
         "local_storage": "Ova radnja zahtijeva lokalno pohranjivanje, jesu li kolačići omogućeni?",
-        "register_no_email_note": "Korištenje e-maila kao korisničko ime se ne preporučuje. Svejedno nastaviti?"
+        "register_no_email_note": "Korištenje e-maila kao korisničko ime se ne preporučuje. Svejedno nastaviti?",
+        "next_video_countdown": "Reproduciranje sljedećeg videa u {0}"
     }
 }
