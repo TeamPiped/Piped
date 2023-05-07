@@ -13,7 +13,8 @@
         "player": "Player",
         "livestreams": "Livestreams",
         "channels": "Channels",
-        "bookmarks": "Bookmarks"
+        "bookmarks": "Bookmarks",
+        "channel_groups": "Channel groups"
     },
     "player": {
         "watch_on": "Watch on {0}"
@@ -131,7 +132,9 @@
         "playlist_bookmarked": "Bookmarked",
         "dismiss": "Dismiss",
         "show_more": "Show more",
-        "show_less": "Show less"
+        "show_less": "Show less",
+        "create_group": "Create group",
+        "group_name": "Group name"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
