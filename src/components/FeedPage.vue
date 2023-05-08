@@ -24,7 +24,7 @@
 
     <hr />
 
-    <LoadingIndicatorPage :show-content="videosStore != null" class="video-grid">
+    <LoadingIndicatorPage :show-content="videos != null" class="video-grid">
         <template v-for="video in videos" :key="video.url">
             <VideoItem v-if="shouldShowVideo(video)" :is-feed="true" :item="video" />
         </template>
@@ -44,12 +44,11 @@ export default {
     },
     data() {
         return {
-            currentVideoCount: 0,
-            videoStep: 100,
-            videosStore: null,
-            videos: [],
+            videos: null,
+            videosCount: 0,
             availableFilters: ["all", "shorts", "videos"],
             selectedFilter: "all",
+            loading: false,
         };
     },
     computed: {
@@ -60,8 +59,8 @@ export default {
     },
     mounted() {
         this.fetchFeed().then(videos => {
-            this.videosStore = videos;
-            this.loadMoreVideos();
+            this.videos = videos;
+            this.videosCount = videos.length;
             this.updateWatched(this.videos);
         });
 
@@ -69,7 +68,7 @@ export default {
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
-        if (this.videos.length > 0) this.updateWatched(this.videos);
+        if (this.videos?.length > 0) this.updateWatched(this.videos);
         window.addEventListener("scroll", this.handleScroll);
     },
     deactivated() {
@@ -90,13 +89,35 @@ export default {
                 });
             }
         },
-        loadMoreVideos() {
-            this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
-            if (this.videos.length != this.videosStore.length)
-                this.videos = this.videosStore.slice(0, this.currentVideoCount);
+        async loadMoreVideos() {
+            const start = this.videos[this.videos.length - 1].uploaded;
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/feed", {
+                    authToken: this.getAuthToken(),
+                    start,
+                }).then(videos => {
+                    this.videos = this.videos.concat(videos);
+                    this.videosCount = videos.length > 0 ? this.videos.length : -1;
+                    this.loading = false;
+                });
+            } else {
+                return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
+                    channels: this.getUnauthenticatedChannels(),
+                    start,
+                }).then(videos => {
+                    this.videos = this.videos.concat(videos);
+                    this.videosCount = videos.length > 0 ? this.videos.length : -1;
+                    this.loading = false;
+                });
+            }
         },
         handleScroll() {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+                if (this.loading) return;
+                if (this.videos == null) return;
+                if (this.videosCount > 0 && this.videosCount % 100 != 0) return;
+
+                this.loading = true;
                 this.loadMoreVideos();
             }
         },
