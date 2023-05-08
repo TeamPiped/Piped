@@ -55,7 +55,7 @@ export default {
         });
 
         if ("indexedDB" in window) {
-            const request = indexedDB.open("piped-db", 3);
+            const request = indexedDB.open("piped-db", 4);
             request.onupgradeneeded = ev => {
                 const db = request.result;
                 console.log("Upgrading object store.");
@@ -72,6 +72,10 @@ export default {
                     const store = db.createObjectStore("playlist_bookmarks", { keyPath: "playlistId" });
                     store.createIndex("playlist_id_idx", "playlistId", { unique: true });
                     store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
+                }
+                if (!db.objectStoreNames.contains("channel_groups")) {
+                    const store = db.createObjectStore("channel_groups", { keyPath: "groupName" });
+                    store.createIndex("groupName", "groupName", { unique: true });
                 }
             };
             request.onsuccess = e => {

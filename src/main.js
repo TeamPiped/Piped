@@ -21,6 +21,7 @@ import {
     faServer,
     faDonate,
     faBookmark,
+    faEdit,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -48,6 +49,7 @@ library.add(
     faServer,
     faDonate,
     faBookmark,
+    faEdit,
 );
 
 import router from "@/router/router.js";
@@ -270,6 +272,25 @@ const mixin = {
                     "/watch?v=$1",
                 )
                 .replaceAll("\n", "<br>");
+        },
+        getChannelGroupsCursor() {
+            if (!window.db) return;
+            var tx = window.db.transaction("channel_groups", "readonly");
+            var store = tx.objectStore("channel_groups");
+            return store.index("groupName").openCursor();
+        },
+        createOrUpdateChannelGroup(group) {
+            var tx = window.db.transaction("channel_groups", "readwrite");
+            var store = tx.objectStore("channel_groups");
+            store.put({
+                groupName: group.groupName,
+                channels: JSON.stringify(group.channels),
+            });
+        },
+        deleteChannelGroup(groupName) {
+            var tx = window.db.transaction("channel_groups", "readwrite");
+            var store = tx.objectStore("channel_groups");
+            store.delete(groupName);
         },
     },
     computed: {
