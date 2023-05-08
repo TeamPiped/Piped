@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
     faEye,
+    faEyeSlash,
     faThumbtack,
     faCheck,
     faHeart,
@@ -26,6 +27,7 @@ import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-ico
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(
     faEye,
+    faEyeSlash,
     faGithub,
     faBitcoin,
     faThumbtack,

@@ -118,6 +118,18 @@
                 >
                     <font-awesome-icon icon="circle-minus" />
                 </button>
+                <button
+                    v-if="
+                        isFeed &&
+                        (this.getPreferenceBoolean('watchHistory', false) ||
+                            this.getPreferenceBoolean('hideWatched', false))
+                    "
+                    @click="toggleWatched(item.url.substr(-11))"
+                    ref="watchButton"
+                >
+                    <font-awesome-icon icon="eye-slash" v-if="item.watched" :title="$t('actions.mark_as_unwatched')" />
+                    <font-awesome-icon icon="eye" v-else :title="$t('actions.mark_as_watched')" />
+                </button>
                 <PlaylistAddModal v-if="showModal" :video-id="item.url.substr(-11)" @close="showModal = !showModal" />
             </div>
         </div>
@@ -152,6 +164,7 @@ export default {
         playlistId: { type: String, default: null },
         admin: { type: Boolean, default: false },
     },
+    emits: ["update:watched"],
     data() {
         return {
             showModal: false,
@@ -193,6 +206,48 @@ export default {
                     return;
                 }
             };
+        },
+        toggleWatched(videoId) {
+            if (window.db) {
+                // Should match WatchVideo.vue
+                var tx = window.db.transaction("watch_history", "readwrite");
+                var store = tx.objectStore("watch_history");
+                var instance = this;
+
+                if (this.item.watched) {
+                    let request = store.delete(videoId);
+                    request.onsuccess = function () {
+                        instance.$emit("update:watched", [instance.item.url]);
+                    };
+                    return;
+                }
+
+                var request = store.get(videoId);
+                request.onsuccess = function (event) {
+                    var video = event.target.result;
+                    if (video) {
+                        video.watchedAt = Date.now();
+                    } else {
+                        // Should match WatchVideo.vue
+                        video = {
+                            videoId: videoId,
+                            title: instance.item.title,
+                            duration: instance.item.duration,
+                            thumbnail: instance.item.thumbnailUrl,
+                            uploaderUrl: instance.item.uploaderUrl,
+                            uploaderName: instance.item.uploader,
+                            watchedAt: Date.now(),
+                        };
+                    }
+                    // Set time to end for shouldShowVideo
+                    video.currentTime = instance.item.duration;
+                    // Save
+                    store.put(video);
+                    // Disappear if hideWatched is on
+                    instance.$emit("update:watched", [instance.item.url]);
+                    instance.shouldShowVideo();
+                };
+            }
         },
     },
     components: { PlaylistAddModal },
