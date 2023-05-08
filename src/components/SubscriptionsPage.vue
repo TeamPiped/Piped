@@ -71,9 +71,11 @@
             <div v-for="subscription in subscriptions" :key="subscription.name">
                 <div class="flex justify-between">
                     <span>{{ subscription.name }}</span>
-                    <DefaultValueCheckbox
-                        :default-value="selectedGroup.channels.includes(subscription.url.substr(-11))"
-                        :callback="() => checkedChange(subscription)"
+                    <input
+                        type="checkbox"
+                        class="checkbox"
+                        :checked="selectedGroup.channels.includes(subscription.url.substr(-11))"
+                        @change="checkedChange(subscription)"
                     />
                 </div>
                 <hr />
@@ -83,7 +85,6 @@
 </template>
 
 <script>
-import DefaultValueCheckbox from "./DefaultValueCheckbox.vue";
 import ModalComponent from "./ModalComponent.vue";
 
 export default {
@@ -106,7 +107,7 @@ export default {
             this.subscriptions.forEach(subscription => (subscription.subscribed = true));
         });
 
-        this.channelGroups = this.channelGroups.concat(this.selectedGroup);
+        this.channelGroups.push(this.selectedGroup);
 
         if (!window.db) return;
         const cursor = this.getChannelGroupsCursor();
@@ -114,10 +115,11 @@ export default {
             const cursor = e.target.result;
             if (cursor) {
                 const group = cursor.value;
-                this.channelGroups = this.channelGroups.concat({
+                this.channelGroups.push({
                     groupName: group.groupName,
                     channels: JSON.parse(group.channels),
                 });
+                cursor.continue();
             }
         };
     },
@@ -179,7 +181,7 @@ export default {
                 groupName: this.newGroupName,
                 channels: [],
             };
-            this.channelGroups = this.channelGroups.concat(newGroup);
+            this.channelGroups.push(newGroup);
             this.createOrUpdateChannelGroup(newGroup);
 
             this.newGroupName = "";
@@ -206,7 +208,7 @@ export default {
                 : _this.subscriptions.filter(channel => _this.selectedGroup.channels.includes(channel.url.substr(-11)));
         },
     },
-    components: { ModalComponent, DefaultValueCheckbox },
+    components: { ModalComponent },
 };
 </script>
 

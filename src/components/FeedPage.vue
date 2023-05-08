@@ -95,10 +95,11 @@ export default {
             const cursor = e.target.result;
             if (cursor) {
                 const group = cursor.value;
-                this.channelGroups = this.channelGroups.concat({
+                this.channelGroups.push({
                     groupName: group.groupName,
                     channels: JSON.parse(group.channels),
                 });
+                cursor.continue();
             }
         };
     },
