@@ -138,7 +138,9 @@
         "skip_segment": "Saltar Segmento",
         "show_less": "Mostrar menos",
         "autoplay_next_countdown": "Cuenta atrás predeterminada antes del siguiente vídeo (en segundos)",
-        "dismiss": "Cancelar"
+        "dismiss": "Cancelar",
+        "group_name": "Nombre del grupo",
+        "create_group": "Crear grupo"
     },
     "titles": {
         "feed": "Fuente web",
@@ -154,7 +156,8 @@
         "player": "Reproductor",
         "livestreams": "Directos",
         "channels": "Canales",
-        "bookmarks": "Marcadores"
+        "bookmarks": "Marcadores",
+        "channel_groups": "Grupos de canales"
     },
     "player": {
         "watch_on": "Ver en {0}"
