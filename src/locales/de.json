@@ -111,7 +111,9 @@
         "skip_button_only": "Überspringen-Schaltfläche anzeigen",
         "show_less": "Weniger anzeigen",
         "autoplay_next_countdown": "Anzahl der Sekunden bis das nächste Video automatisch startet",
-        "dismiss": "Ablehnen"
+        "dismiss": "Ablehnen",
+        "group_name": "Gruppenname",
+        "create_group": "Gruppe erstellen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -130,7 +132,8 @@
         "instance": "Instanz",
         "livestreams": "Livestreams",
         "channels": "Kanäle",
-        "bookmarks": "Lesezeichen"
+        "bookmarks": "Lesezeichen",
+        "channel_groups": "Kanalgruppen"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Abschnitte",
