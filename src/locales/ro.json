@@ -111,7 +111,9 @@
         "playlist_bookmarked": "Marcat",
         "show_less": "Mai puțin",
         "autoplay_next_countdown": "Numărătoarea inversă implicită până la următorul videoclip (în secunde)",
-        "dismiss": "Concediază"
+        "dismiss": "Concediază",
+        "group_name": "Numele grupului",
+        "create_group": "Creați un grup"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -181,7 +183,8 @@
         "channels": "Canale",
         "preferences": "Preferințe",
         "player": "Player-ul",
-        "bookmarks": "Marcaje"
+        "bookmarks": "Marcaje",
+        "channel_groups": "Grupuri de canale"
     },
     "player": {
         "watch_on": "Vizionați pe {0}"
