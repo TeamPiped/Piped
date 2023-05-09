@@ -13,7 +13,8 @@
         "instance": "עותק",
         "livestreams": "שידורים חיים",
         "channels": "ערוצים",
-        "bookmarks": "סימניות"
+        "bookmarks": "סימניות",
+        "channel_groups": "קבוצות ערוץ"
     },
     "player": {
         "watch_on": "לצפות ב־{0}"
@@ -130,7 +131,9 @@
         "skip_automatically": "אוטומטית",
         "show_less": "להציג פחות",
         "autoplay_next_countdown": "ספירה לאחור כברירת מחדל עד לסרטון הבא (בשניות)",
-        "dismiss": "התעלמות"
+        "dismiss": "התעלמות",
+        "create_group": "יצירת קבוצה",
+        "group_name": "שם הקבוצה"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
