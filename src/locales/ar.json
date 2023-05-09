@@ -13,7 +13,8 @@
         "player": "المشغل",
         "livestreams": "البث المباشر",
         "channels": "القنوات",
-        "bookmarks": "الاشارات المرجعيه"
+        "bookmarks": "الاشارات المرجعيه",
+        "channel_groups": "مجموعات القنوات"
     },
     "player": {
         "watch_on": "شاهد عبر"
@@ -130,7 +131,9 @@
         "skip_segment": "تخطي الجزء",
         "show_less": "عرض أقل",
         "autoplay_next_countdown": "العد التنازلي الافتراضي حتى الفيديو التالي ( ثانية )",
-        "dismiss": "تجاهل"
+        "dismiss": "تجاهل",
+        "group_name": "أسم المجموعة",
+        "create_group": "إنشاء مجموعة"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
