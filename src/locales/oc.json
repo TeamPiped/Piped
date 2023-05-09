@@ -13,7 +13,8 @@
         "register": "S’inscriure",
         "subscriptions": "Abonaments",
         "playlists": "Listas de lecturas",
-        "bookmarks": "Marcapaginas"
+        "bookmarks": "Marcapaginas",
+        "channel_groups": "Grops de cadenas"
     },
     "player": {
         "watch_on": "Agachar sus {0}"
@@ -130,7 +131,9 @@
         "skip_segment": "Sautar lo segment",
         "show_less": "Ne mostrar mens",
         "autoplay_next_countdown": "Descompte per defaut abans de passar a la vidèo seguenta (en segondas)",
-        "dismiss": "Ignorar"
+        "dismiss": "Ignorar",
+        "create_group": "Crear un grop",
+        "group_name": "Nom del grop"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",

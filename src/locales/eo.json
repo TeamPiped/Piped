@@ -13,7 +13,8 @@
         "instance": "Nodo",
         "channels": "Kanaloj",
         "livestreams": "Tujelsendoj",
-        "bookmarks": "Legosignoj"
+        "bookmarks": "Legosignoj",
+        "channel_groups": "Kanalaroj"
     },
     "player": {
         "watch_on": "Vidi en {0}"
@@ -130,7 +131,9 @@
         "skip_segment": "Preterpasi Segmenton",
         "show_less": "Montri malpli",
         "dismiss": "Nuligi",
-        "autoplay_next_countdown": "Implicita retronombrado ĝis sekva video (en sekundoj)"
+        "autoplay_next_countdown": "Implicita retronombrado ĝis sekva video (en sekundoj)",
+        "group_name": "Nomo de la aro",
+        "create_group": "Krei aron"
     },
     "video": {
         "chapters": "Sekcioj",

@@ -138,7 +138,9 @@
         "min_segment_length": "Najmanja duljina segmenta (u sekundama)",
         "show_less": "Prikaži manje",
         "autoplay_next_countdown": "Standardno odbrojavanje do sljedećeg videa (u sekundama)",
-        "dismiss": "Odbaci"
+        "dismiss": "Odbaci",
+        "create_group": "Stvori grupu",
+        "group_name": "Ime grupe"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -157,7 +159,8 @@
         "player": "Player",
         "channels": "Kanali",
         "livestreams": "Prijenosi uživo",
-        "bookmarks": "Zabilješke"
+        "bookmarks": "Zabilješke",
+        "channel_groups": "Grupe kanala"
     },
     "login": {
         "password": "Lozinka",

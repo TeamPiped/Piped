@@ -13,7 +13,8 @@
         "instance": "Instancja",
         "livestreams": "Na żywo",
         "channels": "Kanały",
-        "bookmarks": "Zakładki"
+        "bookmarks": "Zakładki",
+        "channel_groups": "Grupy kanałów"
     },
     "player": {
         "watch_on": "Obejrzyj na {0}"
@@ -130,7 +131,9 @@
         "skip_segment": "Pomiń segment",
         "show_less": "Pokaż mniej",
         "autoplay_next_countdown": "Domyślne odliczanie do następnego filmu (w sekundach)",
-        "dismiss": "Odrzuć"
+        "dismiss": "Odrzuć",
+        "group_name": "Nazwa grupy",
+        "create_group": "Utwórz grupę"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
