@@ -30,7 +30,7 @@
             </div>
             <div class="whitespace-pre-wrap" v-html="purifyHTML(comment.commentText)" />
             <div class="comment-footer mt-1 flex items-center">
-                <div class="i-fa-solid:thumbs-up" />
+                <div class="i-fa6-solid:thumbs-up" />
                 <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
                 <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
             </div>
