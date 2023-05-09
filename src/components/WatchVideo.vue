@@ -52,11 +52,11 @@
                 <div class="flex children:mr-2">
                     <template v-if="video.likes >= 0">
                         <div class="flex items-center">
-                            <div class="i-fa-solid:thumbs-up" />
+                            <div class="i-fa6-solid:thumbs-up" />
                             <strong class="ml-1" v-text="addCommas(video.likes)" />
                         </div>
                         <div class="flex items-center">
-                            <div class="i-fa-solid:thumbs-down" />
+                            <div class="i-fa6-solid:thumbs-down" />
                             <strong class="ml-1" v-text="video.dislikes >= 0 ? addCommas(video.dislikes) : '?'" />
                         </div>
                     </template>
