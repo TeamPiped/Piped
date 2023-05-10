@@ -13,10 +13,11 @@
         "instance": "インスタンス",
         "channels": "チャンネル",
         "livestreams": "ライブ配信",
-        "bookmarks": "ブックマーク"
+        "bookmarks": "ブックマーク",
+        "channel_groups": "グループ"
     },
     "player": {
-        "watch_on": "{0}で見る"
+        "watch_on": "{0}上で視聴"
     },
     "actions": {
         "subscribe": "チャンネル登録 - {count}",
@@ -128,7 +129,11 @@
         "skip_button_only": "スキップボタン表示",
         "skip_segment": "ここをスキップ",
         "min_segment_length": "最小の区切りの長さ (秒)",
-        "show_less": "少なく見る"
+        "show_less": "少なく見る",
+        "autoplay_next_countdown": "次の動画の再生までの時間 (秒)",
+        "dismiss": "無視",
+        "create_group": "グループ作成",
+        "group_name": "グループ名"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -178,7 +183,8 @@
         "cannot_copy": "コピーできません！",
         "preferences_note": "注意: 設定は、お使いのブラウザの保存領域に保存されます。ブラウザのデータを削除すると初期化されます。",
         "local_storage": "この操作にはlocalStorageが必要です。Cookieは有効ですか？",
-        "register_no_email_note": "Eメールアドレスをユーザー名として使用することは推奨されていません。それでも続行しますか？"
+        "register_no_email_note": "Eメールアドレスをユーザー名として使用することは推奨されていません。それでも続行しますか？",
+        "next_video_countdown": "{0} 秒後に次の動画を再生"
     },
     "subscriptions": {
         "subscribed_channels_count": "チャンネル登録: {0}"
