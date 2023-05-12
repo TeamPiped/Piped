@@ -13,7 +13,8 @@
         "player": "Pemain",
         "livestreams": "Siaran Langsung",
         "channels": "Saluran",
-        "bookmarks": "Markah"
+        "bookmarks": "Markah",
+        "channel_groups": "Grup saluran"
     },
     "player": {
         "watch_on": "Tonton di {0}"
@@ -130,7 +131,9 @@
         "skip_segment": "Lewati Segmen",
         "show_less": "Tampilkan lebih sedikit",
         "autoplay_next_countdown": "Hitungan mundur bawaan sebelum video berikutnya (dalam detik)",
-        "dismiss": "Abaikan"
+        "dismiss": "Abaikan",
+        "create_group": "Buat grup",
+        "group_name": "Nama grup"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
