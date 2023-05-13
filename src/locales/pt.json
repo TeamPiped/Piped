@@ -13,7 +13,8 @@
         "player": "Reprodutor",
         "livestreams": "Transmissões ao vivo",
         "channels": "Canais",
-        "bookmarks": "Marcadores"
+        "bookmarks": "Marcadores",
+        "channel_groups": "Grupos de canais"
     },
     "actions": {
         "sort_by": "Ordenar por:",
@@ -127,7 +128,9 @@
         "skip_segment": "Saltar Segmento",
         "show_less": "Mostrar menos",
         "dismiss": "Ignorar",
-        "autoplay_next_countdown": "Predefinição Contagem decrescente até ao próximo vídeo (em segundos)"
+        "autoplay_next_countdown": "Predefinição Contagem decrescente até ao próximo vídeo (em segundos)",
+        "create_group": "Criar grupo",
+        "group_name": "Nome do grupo"
     },
     "preferences": {
         "instance_name": "Nome da Instância",
