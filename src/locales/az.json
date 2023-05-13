@@ -13,7 +13,8 @@
         "player": "Oynadıcı",
         "livestreams": "Canlı Yayımlar",
         "channels": "Kanallar",
-        "bookmarks": "Əlfəcinlər"
+        "bookmarks": "Əlfəcinlər",
+        "channel_groups": "Kanal qrupları"
     },
     "player": {
         "watch_on": "{0} saytında bax"
@@ -130,7 +131,9 @@
         "skip_segment": "Seqmenti ötür",
         "show_less": "Daha az göstər",
         "autoplay_next_countdown": "Növbəti videoya qədər standart geri sayım (saniyə)",
-        "dismiss": "Rədd et"
+        "dismiss": "Rədd et",
+        "create_group": "Qrup yarat",
+        "group_name": "Qrup adı"
     },
     "comment": {
         "pinned_by": "{author} tərəfindən sabitlənib",
