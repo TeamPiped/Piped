@@ -111,7 +111,9 @@
         "skip_automatically": "Otomatik olarak",
         "show_less": "Daha az göster",
         "dismiss": "Kapat",
-        "autoplay_next_countdown": "Bir sonraki videoya kadar öntanımlı geri sayım (saniye cinsinden)"
+        "autoplay_next_countdown": "Bir sonraki videoya kadar öntanımlı geri sayım (saniye cinsinden)",
+        "create_group": "Grup oluştur",
+        "group_name": "Grup adı"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
@@ -130,7 +132,8 @@
         "player": "Oynatıcı",
         "livestreams": "Canlı Yayınlar",
         "channels": "Kanallar",
-        "bookmarks": "Yer İmleri"
+        "bookmarks": "Yer İmleri",
+        "channel_groups": "Kanal grupları"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
