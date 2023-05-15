@@ -854,5 +854,6 @@ export default {
     bottom: 0;
     margin-bottom: 4.5%;
     border-radius: 0.3rem;
+    display: none;
 }
 </style>
