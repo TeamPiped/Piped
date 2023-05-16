@@ -40,6 +40,7 @@ watch(selectedSort, value => {
             break;
         case "random":
             emit("apply", (a, b) => Math.random() - 0.5);
+            break;
         default:
             console.error("Unexpected sort value");
     }
