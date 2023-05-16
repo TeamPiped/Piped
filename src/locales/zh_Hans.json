@@ -111,7 +111,9 @@
         "skip_button_only": "显示跳过按钮",
         "show_less": "显示更少",
         "autoplay_next_countdown": "下一个视频开始前的默认倒计时长（以秒计）",
-        "dismiss": "解除"
+        "dismiss": "解除",
+        "group_name": "组名称",
+        "create_group": "创建组"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -157,7 +159,8 @@
         "player": "播放器",
         "livestreams": "直播",
         "channels": "频道",
-        "bookmarks": "书签"
+        "bookmarks": "书签",
+        "channel_groups": "频道组"
     },
     "login": {
         "password": "密码",
