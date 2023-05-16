@@ -13,6 +13,7 @@ const options = {
     least_recent: "ascending",
     channel_name_asc: "channel_ascending",
     channel_name_desc: "channel_descending",
+    random: "random",
 };
 
 const selectedSort = ref("descending");
@@ -37,6 +38,8 @@ watch(selectedSort, value => {
         case "channel_descending":
             emit("apply", (a, b) => b.uploaderName.localeCompare(a.uploaderName));
             break;
+        case "random":
+            emit("apply", (a, b) => Math.random() - 0.5);
         default:
             console.error("Unexpected sort value");
     }
