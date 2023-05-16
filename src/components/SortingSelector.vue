@@ -39,7 +39,7 @@ watch(selectedSort, value => {
             emit("apply", (a, b) => b.uploaderName.localeCompare(a.uploaderName));
             break;
         case "random":
-            emit("apply", (a, b) => Math.random() - 0.5);
+            emit("apply", () => Math.random() - 0.5);
             break;
         default:
             console.error("Unexpected sort value");
