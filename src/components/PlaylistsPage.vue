@@ -10,7 +10,14 @@
                 class="btn"
                 @click="exportPlaylists"
             />
-            <input id="fileSelector" ref="fileSelector" type="file" class="display-none" @change="importPlaylists" />
+            <input
+                id="fileSelector"
+                ref="fileSelector"
+                type="file"
+                class="display-none"
+                @change="importPlaylists"
+                multiple="multiple"
+            />
             <label for="fileSelector" v-t="'actions.import_from_json'" class="btn ml-2" />
         </div>
     </div>
@@ -180,7 +187,13 @@ export default {
             return playlistJson;
         },
         async importPlaylists() {
-            const file = this.$refs.fileSelector.files[0];
+            const files = this.$refs.fileSelector.files;
+            for (let file of files) {
+                await this.importPlaylistFile(file);
+            }
+            window.location.reload();
+        },
+        async importPlaylistFile(file) {
             let text = await file.text();
             let tasks = [];
             // list of playlists exported from Piped
@@ -209,7 +222,6 @@ export default {
                 return;
             }
             await Promise.all(tasks);
-            window.location.reload();
         },
         async createPlaylistWithVideos(playlist) {
             let newPlaylist = await this.createPlaylist(playlist.name);
