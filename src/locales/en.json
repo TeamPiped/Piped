@@ -70,6 +70,7 @@
         "import_from_json": "Import from JSON/CSV",
         "loop_this_video": "Loop this Video",
         "auto_play_next_video": "Auto Play next Video",
+        "auto_display_captions": "Auto Display Captions",
         "donations": "Development donations",
         "minimize_comments": "Minimize Comments",
         "show_comments": "Show Comments",
