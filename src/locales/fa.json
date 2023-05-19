@@ -74,7 +74,9 @@
         "remove_from_playlist": "حذف از لیست پخش",
         "skip_button_only": "دکمه‌ی گذر را نشان بده",
         "skip_automatically": "خودکار",
-        "skip_segment": "گذر از بخش"
+        "skip_segment": "گذر از بخش",
+        "minimize_recommendations_default": "به طور پیش فرض پیشنهادها را حداقل کنید.",
+        "min_segment_length": "حداقل طول بخش (به ثانیه)"
     },
     "titles": {
         "history": "تاریخچه",
@@ -90,7 +92,8 @@
         "player": "پخش کننده",
         "bookmarks": "نشان‌دارها",
         "livestreams": "پخش زنده",
-        "channels": "کانال‌ها"
+        "channels": "کانال‌ها",
+        "channel_groups": "گروه های کانال"
     },
     "player": {
         "watch_on": "تماشا روی {0}"
