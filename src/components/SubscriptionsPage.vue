@@ -67,9 +67,9 @@
 
     <ModalComponent v-if="showEditGroupModal" @close="showEditGroupModal = false">
         <h2>{{ selectedGroup.groupName }}</h2>
-        <div class="flex flex-col mt-3 mb-2">
+        <div class="flex flex-col mt-3 mb-2 overflow-y-scroll h-70">
             <div v-for="subscription in subscriptions" :key="subscription.name">
-                <div class="flex justify-between">
+                <div class="flex justify-between mr-3">
                     <span>{{ subscription.name }}</span>
                     <input
                         type="checkbox"
