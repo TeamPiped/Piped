@@ -587,6 +587,9 @@ export default {
                 const rate = this.getPreferenceNumber("rate", 1);
                 videoEl.playbackRate = rate;
                 videoEl.defaultPlaybackRate = rate;
+
+                const autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
+                this.$player.setTextTrackVisibility(autoDisplayCaptions);
             });
 
             // expand the player to fullscreen when the fullscreen query equals true

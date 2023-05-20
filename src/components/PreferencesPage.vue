@@ -45,6 +45,16 @@
             @change="onChange($event)"
         />
     </label>
+    <label class="pref" for="chkAutoDisplayCaptions">
+        <strong v-t="'actions.auto_display_captions'" />
+        <input
+            id="chkAutoDisplayCaptions"
+            v-model="autoDisplayCaptions"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
     <label class="pref" for="chkAutoPlayNextCountdown">
         <strong v-t="'actions.autoplay_next_countdown'" />
         <input
@@ -356,6 +366,7 @@ export default {
             minSegmentLength: 0,
             selectedTheme: "dark",
             autoPlayVideo: true,
+            autoDisplayCaptions: false,
             autoPlayNextCountdown: 5,
             listen: false,
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
@@ -473,6 +484,7 @@ export default {
             this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
+            this.autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
             this.autoPlayNextCountdown = this.getPreferenceNumber("autoPlayNextCountdown", 5);
             this.listen = this.getPreferenceBoolean("listen", false);
             this.defaultQuality = Number(localStorage.getItem("quality"));
@@ -528,6 +540,7 @@ export default {
                 localStorage.setItem("minSegmentLength", this.minSegmentLength);
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
+                localStorage.setItem("autoDisplayCaptions", this.autoDisplayCaptions);
                 localStorage.setItem("autoPlayNextCountdown", this.autoPlayNextCountdown);
                 localStorage.setItem("listen", this.listen);
                 localStorage.setItem("quality", this.defaultQuality);
