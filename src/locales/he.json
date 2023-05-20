@@ -133,7 +133,8 @@
         "autoplay_next_countdown": "ספירה לאחור כברירת מחדל עד לסרטון הבא (בשניות)",
         "dismiss": "התעלמות",
         "create_group": "יצירת קבוצה",
-        "group_name": "שם הקבוצה"
+        "group_name": "שם הקבוצה",
+        "auto_display_captions": "הצגת כתוביות אוטומטית"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
