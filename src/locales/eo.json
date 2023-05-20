@@ -133,7 +133,8 @@
         "dismiss": "Nuligi",
         "autoplay_next_countdown": "Implicita retronombrado ĝis sekva video (en sekundoj)",
         "group_name": "Nomo de la aro",
-        "create_group": "Krei aron"
+        "create_group": "Krei aron",
+        "auto_display_captions": "Aŭtomate montri subtekstojn"
     },
     "video": {
         "chapters": "Sekcioj",
