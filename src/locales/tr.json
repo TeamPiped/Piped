@@ -113,7 +113,8 @@
         "dismiss": "Kapat",
         "autoplay_next_countdown": "Bir sonraki videoya kadar öntanımlı geri sayım (saniye cinsinden)",
         "create_group": "Grup oluştur",
-        "group_name": "Grup adı"
+        "group_name": "Grup adı",
+        "auto_display_captions": "Alt Yazıları Otomatik Görüntüle"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
