@@ -133,7 +133,8 @@
         "autoplay_next_countdown": "العد التنازلي الافتراضي حتى الفيديو التالي ( ثانية )",
         "dismiss": "تجاهل",
         "group_name": "أسم المجموعة",
-        "create_group": "إنشاء مجموعة"
+        "create_group": "إنشاء مجموعة",
+        "auto_display_captions": "عرض التسميات التوضيحية تلقائيا"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
