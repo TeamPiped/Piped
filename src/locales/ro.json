@@ -113,7 +113,8 @@
         "autoplay_next_countdown": "Numărătoarea inversă implicită până la următorul videoclip (în secunde)",
         "dismiss": "Concediază",
         "group_name": "Numele grupului",
-        "create_group": "Creați un grup"
+        "create_group": "Creați un grup",
+        "auto_display_captions": "Afișează automat subtitrările"
     },
     "preferences": {
         "ssl_score": "Scor SSL",

@@ -113,7 +113,8 @@
         "autoplay_next_countdown": "下一个视频开始前的默认倒计时长（以秒计）",
         "dismiss": "解除",
         "group_name": "组名称",
-        "create_group": "创建组"
+        "create_group": "创建组",
+        "auto_display_captions": "自动显示字幕"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
