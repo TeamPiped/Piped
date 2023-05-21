@@ -140,7 +140,8 @@
         "autoplay_next_countdown": "Cuenta atrás predeterminada antes del siguiente vídeo (en segundos)",
         "dismiss": "Cancelar",
         "group_name": "Nombre del grupo",
-        "create_group": "Crear grupo"
+        "create_group": "Crear grupo",
+        "auto_display_captions": "Mostrar automáticamente subtítulos"
     },
     "titles": {
         "feed": "Fuente web",

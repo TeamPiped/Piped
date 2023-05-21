@@ -133,7 +133,8 @@
         "autoplay_next_countdown": "Domyślne odliczanie do następnego filmu (w sekundach)",
         "dismiss": "Odrzuć",
         "group_name": "Nazwa grupy",
-        "create_group": "Utwórz grupę"
+        "create_group": "Utwórz grupę",
+        "auto_display_captions": "Automatyczne wyświetlanie napisów"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",

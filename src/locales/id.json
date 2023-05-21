@@ -133,7 +133,8 @@
         "autoplay_next_countdown": "Hitungan mundur bawaan sebelum video berikutnya (dalam detik)",
         "dismiss": "Abaikan",
         "create_group": "Buat grup",
-        "group_name": "Nama grup"
+        "group_name": "Nama grup",
+        "auto_display_captions": "Tampilkan Takarir Secara Otomatis"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
