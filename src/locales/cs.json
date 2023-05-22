@@ -130,7 +130,8 @@
         "autoplay_next_countdown": "Výchozí odpočet do dalšího videa (v sekundách)",
         "dismiss": "Zavřít",
         "group_name": "Název skupiny",
-        "create_group": "Vytvořit skupinu"
+        "create_group": "Vytvořit skupinu",
+        "auto_display_captions": "Automatické zobrazení titulků"
     },
     "player": {
         "watch_on": "Sledovat na {0}"

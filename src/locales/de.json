@@ -113,7 +113,8 @@
         "autoplay_next_countdown": "Anzahl der Sekunden bis das nächste Video automatisch startet",
         "dismiss": "Ablehnen",
         "group_name": "Gruppenname",
-        "create_group": "Gruppe erstellen"
+        "create_group": "Gruppe erstellen",
+        "auto_display_captions": "Untertitel automatisch anzeigen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
