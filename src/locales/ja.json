@@ -133,7 +133,8 @@
         "autoplay_next_countdown": "次の動画の再生までの時間 (秒)",
         "dismiss": "無視",
         "create_group": "グループ作成",
-        "group_name": "グループ名"
+        "group_name": "グループ名",
+        "auto_display_captions": "自動で字幕を表示"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
