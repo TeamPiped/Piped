@@ -140,7 +140,8 @@
         "autoplay_next_countdown": "Standardno odbrojavanje do sljedećeg videa (u sekundama)",
         "dismiss": "Odbaci",
         "create_group": "Stvori grupu",
-        "group_name": "Ime grupe"
+        "group_name": "Ime grupe",
+        "auto_display_captions": "Automatski prikaži titlove"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
