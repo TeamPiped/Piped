@@ -1,20 +1,21 @@
 <template>
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
-    <LoadingIndicatorPage :show-content="playlist" v-show="!playlist.error">
-        <h1 class="text-center my-4" v-text="playlist.name" />
+    <LoadingIndicatorPage :show-content="playlist" v-show="!playlist?.error">
+        <h1 class="ml-1 mb-1 mt-4 text-3xl!" v-text="playlist.name" />
 
-        <div class="flex justify-between items-center">
+        <CollapsableText :text="playlist.description" />
+
+        <div class="flex justify-between items-center mt-1">
             <div>
-                <router-link class="link" :to="playlist.uploaderUrl || '/'">
+                <router-link class="link flex items-center gap-3" :to="playlist.uploaderUrl || '/'">
                     <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
                     <strong v-text="playlist.uploader" />
                 </router-link>
             </div>
             <div>
-                <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
-                <br />
-                <button class="btn mr-1" v-if="!isPipedPlaylist" @click="bookmarkPlaylist">
+                <strong v-text="`${playlist.videos} ${$t('video.videos')}`" class="mr-2" />
+                <button class="btn mx-1" v-if="!isPipedPlaylist" @click="bookmarkPlaylist">
                     {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
                     }}<font-awesome-icon class="ml-3" icon="bookmark" />
                 </button>
@@ -52,6 +53,7 @@
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
+import CollapsableText from "./CollapsableText.vue";
 import VideoItem from "./VideoItem.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 
@@ -61,6 +63,7 @@ export default {
         VideoItem,
         WatchOnYouTubeButton,
         LoadingIndicatorPage,
+        CollapsableText,
     },
     data() {
         return {
