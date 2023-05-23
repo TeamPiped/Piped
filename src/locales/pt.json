@@ -130,7 +130,8 @@
         "dismiss": "Ignorar",
         "autoplay_next_countdown": "Predefinição Contagem decrescente até ao próximo vídeo (em segundos)",
         "create_group": "Criar grupo",
-        "group_name": "Nome do grupo"
+        "group_name": "Nome do grupo",
+        "auto_display_captions": "Visualização automática de legendas"
     },
     "preferences": {
         "instance_name": "Nome da Instância",
