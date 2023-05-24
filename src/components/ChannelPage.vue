@@ -42,19 +42,7 @@
             </div>
         </div>
 
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div v-if="channel.description" class="whitespace-pre-wrap py-2 mx-1">
-            <span v-if="fullDescription" v-html="purifyHTML(rewriteDescription(channel.description))" />
-            <span v-html="purifyHTML(rewriteDescription(channel.description.slice(0, 100)))" v-else />
-            <span v-if="channel.description.length > 100 && !fullDescription">...</span>
-            <button
-                v-if="channel.description.length > 100"
-                class="hover:underline font-semibold text-neutral-500 block whitespace-normal"
-                @click="fullDescription = !fullDescription"
-            >
-                [{{ fullDescription ? $t("actions.show_less") : $t("actions.show_more") }}]
-            </button>
-        </div>
+        <CollapsableText :text="channel.description" />
 
         <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
 
@@ -90,6 +78,7 @@ import ErrorHandler from "./ErrorHandler.vue";
 import ContentItem from "./ContentItem.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
+import CollapsableText from "./CollapsableText.vue";
 
 export default {
     components: {
@@ -97,6 +86,7 @@ export default {
         ContentItem,
         WatchOnYouTubeButton,
         LoadingIndicatorPage,
+        CollapsableText,
     },
     data() {
         return {
@@ -105,7 +95,6 @@ export default {
             tabs: [],
             selectedTab: 0,
             contentItems: [],
-            fullDescription: false,
         };
     },
     mounted() {
