@@ -44,7 +44,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.21.7.tgz#61caffb60776e49a57ba61a88f02bedd8714f6bc"
   integrity sha512-KYMqFYTaenzMK4yUtf4EW9wc4N9ef80FsbMtkwool5zpwl4YrT1SdWYSTRcT94KO4hannogdS+LxY7L+arP3gA==
 
-"@babel/core@^7.11.1", "@babel/core@^7.21.3":
+"@babel/core@^7.11.1", "@babel/core@^7.21.4":
   version "7.21.8"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.21.8.tgz#2a8c7f0f53d60100ba4c32470ba0281c92aa9aa4"
   integrity sha512-YeM22Sondbo523Sz0+CirSPnbj9bG3P0CdHcBZdqUuaeOaYEFbOLoGU7lebvGP6P5J/WE9wOn7u7C4J9HvS1xQ==
@@ -795,7 +795,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.18.6"
     "@babel/helper-plugin-utils" "^7.18.6"
 
-"@babel/preset-env@^7.11.0", "@babel/preset-env@^7.20.2":
+"@babel/preset-env@^7.11.0", "@babel/preset-env@^7.21.4":
   version "7.21.5"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.21.5.tgz#db2089d99efd2297716f018aeead815ac3decffb"
   integrity sha512-wH00QnTTldTbf/IefEVyChtRdw5RJvODT/Vb4Vcxq1AZvtXj6T0YeX0cAcXhI6/BdGuiP3GcNIL4OQbI2DVNxg==
@@ -1600,18 +1600,18 @@
     fast-glob "^3.2.12"
     magic-string "^0.30.0"
 
-"@vitejs/plugin-legacy@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-4.0.3.tgz#dbcd356cf4d7e36530cc4090b29872e622e89c96"
-  integrity sha512-RqDQOSEmFSNL42vITkNp8HE8Ak1yjGgaav4B6BGcZ8/URK0wikzwSyhNRirHDkp+snflEEk7iPZXTXUYA9exbg==
+"@vitejs/plugin-legacy@4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-4.0.4.tgz#3b661ead636f55715c19dff833b71050f9d12974"
+  integrity sha512-UwVfkMfUEszbQ2vs3RDfiDxxvYnIjmtIrGxTnxRev5Sh8ZoDpieV2dwvTUB7zXKJpfRsOgimM6MxQ65VDHJeQw==
   dependencies:
-    "@babel/core" "^7.21.3"
-    "@babel/preset-env" "^7.20.2"
+    "@babel/core" "^7.21.4"
+    "@babel/preset-env" "^7.21.4"
     browserslist "^4.21.5"
-    core-js "^3.29.1"
+    core-js "^3.30.1"
     magic-string "^0.30.0"
     regenerator-runtime "^0.13.11"
-    systemjs "^6.14.0"
+    systemjs "^6.14.1"
 
 "@vitejs/plugin-vue@4.2.3":
   version "4.2.3"
@@ -2013,7 +2013,7 @@ core-js-compat@^3.25.1:
   dependencies:
     browserslist "^4.21.5"
 
-core-js@^3.29.1:
+core-js@^3.30.1:
   version "3.30.2"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.30.2.tgz#6528abfda65e5ad728143ea23f7a14f0dcf503fc"
   integrity sha512-uBJiDmwqsbJCWHAwjrx3cvjbMXP7xD72Dmsn5LOJpiRmE3WbBbN5rCqQ2Qh6Ek6/eOrjlWngEynBWo4VxerQhg==
@@ -3706,7 +3706,7 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-systemjs@^6.14.0:
+systemjs@^6.14.1:
   version "6.14.1"
   resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-6.14.1.tgz#95a580b91b50d0d69ff178ed4816f0ddbcea23c1"
   integrity sha512-8ftwWd+XnQtZ/aGbatrN4QFNGrKJzmbtixW+ODpci7pyoTajg4sonPP8aFLESAcuVxaC1FyDESt+SpfFCH9rZQ==
