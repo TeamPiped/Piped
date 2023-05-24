@@ -34,7 +34,7 @@
         "@unocss/preset-web-fonts": "0.52.3",
         "@unocss/transformer-directives": "0.52.3",
         "@unocss/transformer-variant-group": "0.52.3",
-        "@vitejs/plugin-legacy": "4.0.3",
+        "@vitejs/plugin-legacy": "4.0.4",
         "@vitejs/plugin-vue": "4.2.3",
         "@vue/compiler-sfc": "3.3.4",
         "eslint": "8.41.0",
