@@ -236,6 +236,7 @@ import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import ToastComponent from "./ToastComponent.vue";
+import { parseTimeParam } from "@/utils/Misc";
 
 export default {
     name: "App",
@@ -540,16 +541,32 @@ export default {
         },
         handleClick(event) {
             if (!event || !event.target) return;
-            var target = event.target;
-            if (
-                !target.nodeName == "A" ||
-                !target.getAttribute("href") ||
-                !target.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/)
-            )
-                return;
-            const time = parseInt(target.getAttribute("href").match(/(?<=t=)\d+/)[0]);
-            this.navigate(time);
-            event.preventDefault();
+            if (!event.target.matches("a[href]")) return;
+            const target = event.target;
+            if (!target.getAttribute("href")) return;
+            if (this.handleTimestampLinks(target)) {
+                event.preventDefault();
+            }
+        },
+        handleTimestampLinks(target) {
+            try {
+                const url = new URL(target.getAttribute("href"), document.baseURI);
+                if (
+                    url.searchParams.size > 2 ||
+                    url.searchParams.get("v") !== this.getVideoId() ||
+                    !url.searchParams.has("t")
+                ) {
+                    return false;
+                }
+                const time = parseTimeParam(url.searchParams.get("t"));
+                if (time) {
+                    this.navigate(time);
+                }
+                return true;
+            } catch (e) {
+                console.error(e);
+            }
+            return false;
         },
         handleScroll() {
             if (this.loading || !this.comments || !this.comments.nextpage) return;
