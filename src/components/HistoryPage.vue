@@ -1,14 +1,16 @@
 <template>
-    <h1 class="font-bold text-center" v-t="'titles.history'" />
+    <h1 class="font-bold text-center my-2" v-t="'titles.history'" />
 
-    <div class="flex">
-        <div>
-            <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
+    <div class="flex flex-col gap-2 items-center lg:flex-row">
+        <div class="flex flex-wrap gap-2 justify-center">
+            <button class="btn w-54" v-t="'actions.clear_history'" @click="clearHistory" />
 
-            <button class="btn mx-3" v-t="'actions.export_to_json'" @click="exportHistory" />
+            <button class="btn w-54" v-t="'actions.export_to_json'" @click="showExportModal = !showExportModal" />
+
+            <button class="btn w-54" v-t="'actions.import_from_json'" @click="showImportModal = !showImportModal" />
         </div>
 
-        <div class="right-1">
+        <div class="lg:right-1">
             <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" />
         </div>
     </div>
@@ -20,20 +22,28 @@
     </div>
 
     <br />
+    <ExportHistoryModal v-if="showExportModal" @close="showExportModal = false" />
+    <ImportHistoryModal v-if="showImportModal" @close="showImportModal = false" />
 </template>
 
 <script>
 import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
+import ExportHistoryModal from "./ExportHistoryModal.vue";
+import ImportHistoryModal from "./ImportHistoryModal.vue";
 
 export default {
     components: {
         VideoItem,
         SortingSelector,
+        ExportHistoryModal,
+        ImportHistoryModal,
     },
     data() {
         return {
             videos: [],
+            showExportModal: false,
+            showImportModal: false,
         };
     },
     mounted() {
@@ -50,8 +60,8 @@ export default {
                             url: "/watch?v=" + video.videoId,
                             title: video.title,
                             uploaderName: video.uploaderName,
-                            uploaderUrl: video.uploaderUrl,
-                            duration: video.duration,
+                            uploaderUrl: video.uploaderUrl ?? "", // Router doesn't like undefined
+                            duration: video.duration ?? 0, // Undefined duration shows "Live"
                             thumbnail: video.thumbnail,
                             watchedAt: video.watchedAt,
                             watched: true,
@@ -74,22 +84,6 @@ export default {
                 store.clear();
             }
             this.videos = [];
-        },
-        exportHistory() {
-            const dateStr = new Date().toISOString().split(".")[0];
-            let json = {
-                format: "Piped",
-                version: 1,
-                playlists: [
-                    {
-                        name: `Piped History ${dateStr}`,
-                        type: "history",
-                        visibility: "private",
-                        videos: this.videos.map(video => "https://youtube.com" + video.url),
-                    },
-                ],
-            };
-            this.download(JSON.stringify(json), `piped_history_${dateStr}.json`, "application/json");
         },
     },
 };
