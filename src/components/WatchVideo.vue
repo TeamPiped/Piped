@@ -43,13 +43,13 @@
             <div class="font-bold mt-2 text-2xl break-words" v-text="video.title" />
             <div class="flex flex-wrap mt-3 mb-3">
                 <!-- views / date -->
-                <div class="flex flex-auto children:ml-2">
+                <div class="flex flex-auto gap-2">
                     <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
                     <span> | </span>
                     <span v-text="uploadDate" />
                 </div>
                 <!-- Likes/dilikes -->
-                <div class="flex children:mr-2">
+                <div class="flex gap-2">
                     <template v-if="video.likes >= 0">
                         <div class="flex items-center">
                             <div class="i-fa6-solid:thumbs-up" />
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <!-- Channel info & options flex container -->
-            <div class="flex">
+            <div class="flex flex-wrap gap-1">
                 <!-- Channel Image & Info -->
                 <div class="flex items-center">
                     <img :src="video.uploaderAvatar" alt="" loading="lazy" class="rounded-full" />
@@ -77,19 +77,6 @@
                     }}</router-link>
                     <!-- Verified Badge -->
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
-                </div>
-                <div class="flex relative ml-auto children:mr-1 items-center">
-                    <button class="btn" v-if="authenticated" @click="showModal = !showModal">
-                        {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
-                    </button>
-                    <button
-                        class="btn"
-                        @click="subscribeHandler"
-                        v-t="{
-                            path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                            args: { count: numberFormat(video.uploaderSubscriberCount) },
-                        }"
-                    />
                 </div>
                 <PlaylistAddModal v-if="showModal" :video-id="getVideoId()" @close="showModal = !showModal" />
                 <ShareModal
@@ -100,8 +87,20 @@
                     :playlist-index="index"
                     @close="showShareModal = !showShareModal"
                 />
-                <div class="flex">
-                    <div class="self-center children:mr-1 my-1">
+                <div class="flex flex-wrap gap-1 ml-auto">
+                    <!-- Subscribe Button -->
+                    <button class="btn flex items-center" v-if="authenticated" @click="showModal = !showModal">
+                        {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
+                    </button>
+                    <button
+                        class="btn"
+                        @click="subscribeHandler"
+                        v-t="{
+                            path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
+                            args: { count: numberFormat(video.uploaderSubscriberCount) },
+                        }"
+                    />
+                    <div class="flex flex-wrap gap-1">
                         <!-- RSS Feed button -->
                         <a
                             aria-label="RSS feed"
@@ -110,18 +109,22 @@
                             v-if="video.uploaderUrl"
                             :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${video.uploaderUrl.split('/')[2]}`"
                             target="_blank"
-                            class="btn flex-col"
+                            class="btn flex items-center"
                         >
-                            <font-awesome-icon icon="rss" />
+                            <font-awesome-icon class="mx-1.5" icon="rss" />
                         </a>
                         <WatchOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
                         <!-- Share Dialog -->
-                        <button class="btn" @click="showShareModal = !showShareModal">
+                        <button class="btn flex items-center" @click="showShareModal = !showShareModal">
                             <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
                             <font-awesome-icon class="mx-1.5" icon="fa-share" />
                         </button>
                         <!-- LBRY -->
-                        <a v-if="video.lbryId" :href="'https://odysee.com/' + video.lbryId" class="btn">
+                        <a
+                            v-if="video.lbryId"
+                            :href="'https://odysee.com/' + video.lbryId"
+                            class="btn flex items-center"
+                        >
                             <i18n-t keypath="player.watch_on" tag="strong">LBRY</i18n-t>
                         </a>
                         <!-- listen / watch toggle -->
@@ -129,9 +132,9 @@
                             :to="toggleListenUrl"
                             :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
                             :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
-                            class="btn flex-col"
+                            class="btn flex items-center"
                         >
-                            <font-awesome-icon :icon="isListening ? 'tv' : 'headphones'" />
+                            <font-awesome-icon class="mx-1.5" :icon="isListening ? 'tv' : 'headphones'" />
                         </router-link>
                     </div>
                 </div>
