@@ -216,8 +216,10 @@ b {
 }
 
 .input:focus {
-    @apply border-2 border-red-500 outline-none;
-    box-shadow: 0 0 15px rgba(239, 68, 68, var(--un-border-opacity));
+    @apply outline-red-500;
+    outline-style: solid;
+    outline-width: 2px;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 1);
 }
 
 hr {
