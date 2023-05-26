@@ -1,7 +1,7 @@
 <template>
     <h1 class="font-bold text-center" v-t="'titles.history'" />
 
-    <div class="flex items-center gap-2">
+    <div class="flex md:items-center gap-2 flex-col md:flex-row">
         <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
 
         <button class="btn" v-t="'actions.export_to_json'" @click="exportHistory" />
