@@ -45,13 +45,13 @@ export default {
 }
 
 .modal-container {
-    @apply w-min m-auto px-8 bg-white p-6 rounded-xl min-w-[20vw] relative;
+    @apply w-min m-auto bg-white p-5 rounded-xl min-w-[20vw] relative;
 }
 .dark .modal-container {
     @apply bg-dark-700;
 }
 
 .modal-container > button {
-    @apply absolute right-8 top-6;
+    @apply absolute right-2.5 top-1;
 }
 </style>

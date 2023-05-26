@@ -1,14 +1,12 @@
 <template>
     <h1 class="font-bold text-center" v-t="'titles.history'" />
 
-    <div class="flex">
-        <div>
-            <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
+    <div class="flex md:items-center gap-2 flex-col md:flex-row">
+        <button class="btn" v-t="'actions.clear_history'" @click="clearHistory" />
 
-            <button class="btn mx-3" v-t="'actions.export_to_json'" @click="exportHistory" />
-        </div>
+        <button class="btn" v-t="'actions.export_to_json'" @click="exportHistory" />
 
-        <div class="right-1">
+        <div class="ml-auto flex gap-1 items-center">
             <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" />
         </div>
     </div>
