@@ -195,7 +195,7 @@ export default {
     @apply absolute right-3 cursor-pointer rounded-full bg-[#ccc] w-4 h-4 text-center text-black opacity-50 hover:(opacity-70) text-size-[13px];
     line-height: 1.05;
 }
-.mobile-nav svg {
-    width: 16px;
+.mobile-nav div {
+    @apply mx-1;
 }
 </style>
