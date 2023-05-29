@@ -17,7 +17,7 @@
         "channel_groups": "グループ"
     },
     "player": {
-        "watch_on": "{0}上で視聴"
+        "watch_on": "{0}で視聴"
     },
     "actions": {
         "subscribe": "チャンネル登録 - {count}",
@@ -68,7 +68,7 @@
         "minimize_recommendations": "おすすめを最小化",
         "show_recommendations": "おすすめを見る",
         "disable_lbry": "ストリーミングのLBRYを無効化",
-        "enable_lbry_proxy": "LBRYプロキシをオン",
+        "enable_lbry_proxy": "LBRYにプロキシを使用",
         "view_ssl_score": "SSLの評価を表示",
         "search": "検索 (Ctrl+K)",
         "filter": "フィルター",
@@ -102,7 +102,7 @@
         "minimize_recommendations_default": "最初からおすすめを最小化",
         "hide_watched": "再生済みの動画をフィードに表示しない",
         "minimize_chapters_default": "最初からチャプターを最小化",
-        "show_watch_on_youtube": "「YouTubeで見る」ボタンを表示",
+        "show_watch_on_youtube": "「YouTubeで視聴」ボタンを表示",
         "invalidate_session": "すべての端末からログアウト",
         "instance_auth_selection": "認証用インスタンスの選択",
         "clone_playlist_success": "複製に成功しました！",
