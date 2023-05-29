@@ -156,7 +156,7 @@
         "password": "パスワード"
     },
     "video": {
-        "videos": "本の動画",
+        "videos": "動画",
         "views": "{views} 回再生",
         "watched": "再生済み",
         "sponsor_segments": "スポンサーによる広告",
