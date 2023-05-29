@@ -12,7 +12,9 @@
         "account": "Reikningur",
         "instance": "Tilvik",
         "livestreams": "Útsendingar í beinni",
-        "channels": "Rásir"
+        "channels": "Rásir",
+        "bookmarks": "Bókamerki",
+        "channel_groups": "Rásarhópar"
     },
     "actions": {
         "sort_by": "Raða eftir:",
