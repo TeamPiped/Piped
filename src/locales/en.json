@@ -111,7 +111,9 @@
         "backup_preferences": "Backup preferences",
         "restore_preferences": "Restore preferences",
         "back_to_home": "Back to home",
-        "rename_playlist": "Rename playlist",
+        "edit_playlist": "Edit playlist",
+        "playlist_name": "Playlist name",
+        "playlist_description": "Playlist description",
         "new_playlist_name": "New playlist name",
         "share": "Share",
         "with_timecode": "Share with time code",
@@ -135,7 +137,8 @@
         "show_more": "Show more",
         "show_less": "Show less",
         "create_group": "Create group",
-        "group_name": "Group name"
+        "group_name": "Group name",
+        "okay": "Okay"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
