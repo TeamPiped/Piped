@@ -135,7 +135,9 @@
         "show_more": "Show more",
         "show_less": "Show less",
         "create_group": "Create group",
-        "group_name": "Group name"
+        "group_name": "Group name",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

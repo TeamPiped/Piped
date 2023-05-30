@@ -40,7 +40,13 @@
                 />
             </router-link>
             <button class="btn h-auto" @click="renamePlaylist(playlist.id)" v-t="'actions.rename_playlist'" />
-            <button class="btn h-auto ml-2" @click="deletePlaylist(playlist.id)" v-t="'actions.delete_playlist'" />
+            <button class="btn h-auto ml-2" @click="playlistToDelete = playlist.id" v-t="'actions.delete_playlist'" />
+            <ConfirmModal
+                v-if="playlistToDelete == playlist.id"
+                :message="$t('actions.delete_playlist_confirm')"
+                @close="playlistToDelete = null"
+                @confirm="deletePlaylist(playlist.id)"
+            />
         </div>
     </div>
     <hr />
@@ -76,11 +82,14 @@
 </template>
 
 <script>
+import ConfirmModal from "./ConfirmModal.vue";
+
 export default {
     data() {
         return {
             playlists: [],
             bookmarks: [],
+            playlistToDelete: null,
         };
     },
     mounted() {
@@ -126,20 +135,20 @@ export default {
             });
         },
         deletePlaylist(id) {
-            if (confirm(this.$t("actions.delete_playlist_confirm")))
-                this.fetchJson(this.authApiUrl() + "/user/playlists/delete", null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        playlistId: id,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                }).then(json => {
-                    if (json.error) alert(json.error);
-                    else this.playlists = this.playlists.filter(playlist => playlist.id !== id);
-                });
+            this.fetchJson(this.authApiUrl() + "/user/playlists/delete", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    playlistId: id,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            }).then(json => {
+                if (json.error) alert(json.error);
+                else this.playlists = this.playlists.filter(playlist => playlist.id !== id);
+            });
+            this.playlistToDelete = null;
         },
         onCreatePlaylist() {
             const name = prompt(this.$t("actions.create_playlist"));
@@ -262,5 +271,6 @@ export default {
             this.bookmarks.splice(index, 1);
         },
     },
+    components: { ConfirmModal },
 };
 </script>
