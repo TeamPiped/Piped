@@ -132,7 +132,12 @@
         "dismiss": "تجاهل",
         "group_name": "أسم المجموعة",
         "create_group": "إنشاء مجموعة",
-        "auto_display_captions": "عرض التسميات التوضيحية تلقائيا"
+        "auto_display_captions": "عرض التسميات التوضيحية تلقائيا",
+        "cancel": "إلغاء",
+        "okay": "حسنًا",
+        "playlist_description": "وصف قائمة التشغيل",
+        "playlist_name": "اسم قائمة التشغيل",
+        "edit_playlist": "تعديل قائمة التشغيل"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",

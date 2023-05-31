@@ -51,7 +51,7 @@
         "instances_list": "Daftar Instansi",
         "enabled_codecs": "Kodek yang Diaktifkan (Beberapa)",
         "instance_selection": "Pemilihan Instansi",
-        "show_more": "Tampilkan lebih banyak",
+        "show_more": "Tampilkan Lebih Banyak",
         "yes": "Iya",
         "no": "Tidak",
         "import_from_json": "Impor dari JSON/CSV",
@@ -132,7 +132,12 @@
         "dismiss": "Abaikan",
         "create_group": "Buat grup",
         "group_name": "Nama grup",
-        "auto_display_captions": "Tampilkan Takarir Secara Otomatis"
+        "auto_display_captions": "Tampilkan Takarir Secara Otomatis",
+        "cancel": "Batal",
+        "playlist_description": "Deskripsi daftar putar",
+        "edit_playlist": "Sunting daftar putar",
+        "playlist_name": "Nama daftar putar",
+        "okay": "Oke"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",

@@ -129,7 +129,12 @@
         "dismiss": "Zavřít",
         "group_name": "Název skupiny",
         "create_group": "Vytvořit skupinu",
-        "auto_display_captions": "Automatické zobrazení titulků"
+        "auto_display_captions": "Automatické zobrazení titulků",
+        "playlist_name": "Název playlistu",
+        "cancel": "Zrušit",
+        "edit_playlist": "Upravit playlist",
+        "playlist_description": "Popis playlistu",
+        "okay": "Okay"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
