@@ -136,7 +136,8 @@
         "edit_playlist": "Edytuj playlistę",
         "playlist_name": "Nazwa playlisty",
         "playlist_description": "Opis playlisty",
-        "okay": "OK"
+        "okay": "OK",
+        "cancel": "Anuluj"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
