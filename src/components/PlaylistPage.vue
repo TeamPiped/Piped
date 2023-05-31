@@ -84,7 +84,6 @@ export default {
         },
     },
     mounted() {
-        this.getPlaylistData();
         const playlistId = this.$route.query.list;
         if (this.authenticated && playlistId?.length == 36)
             this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
@@ -98,6 +97,7 @@ export default {
         this.isPlaylistBookmarked();
     },
     activated() {
+        this.getPlaylistData();
         window.addEventListener("scroll", this.handleScroll);
         if (this.playlist) this.updateTitle();
     },
