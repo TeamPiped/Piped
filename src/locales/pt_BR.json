@@ -36,7 +36,7 @@
         "enabled_codecs": "Codecs Ativados (Múltiplos)",
         "language_selection": "Seleção de Idioma",
         "yes": "Sim",
-        "show_more": "Mostrar mais",
+        "show_more": "Mostrar Mais",
         "export_to_json": "Exportar para JSON",
         "donations": "Doações de desenvolvimento",
         "minimize_recommendations": "Minimizar Recomendações",
@@ -109,7 +109,15 @@
         "skip_button_only": "Mostrar botão pular",
         "show_less": "Mostrar menos",
         "autoplay_next_countdown": "Contagem regressiva padrão até o próximo vídeo (em segundos)",
-        "dismiss": "Liberar"
+        "dismiss": "Liberar",
+        "cancel": "Cancelar",
+        "edit_playlist": "Editar playlist",
+        "playlist_description": "Descrição da playlist",
+        "okay": "Ok",
+        "playlist_name": "Nome da playlist",
+        "auto_display_captions": "Exibição Automática de Legendas",
+        "create_group": "Criar grupo",
+        "group_name": "Nome do grupo"
     },
     "titles": {
         "history": "Histórico",
@@ -125,7 +133,8 @@
         "account": "Conta",
         "channels": "Canais",
         "livestreams": "Transmissões ao vivo",
-        "bookmarks": "Favoritos"
+        "bookmarks": "Favoritos",
+        "channel_groups": "Grupos de Canais"
     },
     "player": {
         "watch_on": "Assistir no {0}"
