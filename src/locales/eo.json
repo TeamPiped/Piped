@@ -136,7 +136,8 @@
         "playlist_name": "Nomo de la ludlisto",
         "edit_playlist": "Redakti ludliston",
         "okay": "Bone",
-        "playlist_description": "Priskribo de la ludlisto"
+        "playlist_description": "Priskribo de la ludlisto",
+        "cancel": "Nuligi"
     },
     "video": {
         "chapters": "Sekcioj",
