@@ -30,16 +30,29 @@
             </div>
         </form>
     </div>
+    <ConfirmModal
+        v-if="showUnsecureRegisterDialog"
+        @close="showUnsecureRegisterDialog = false"
+        @confirm="
+            forceUnsecureRegister = true;
+            showUnsecureRegisterDialog = false;
+            register();
+        "
+        :message="$t('info.register_no_email_note')"
+    />
 </template>
 
 <script>
 import { isEmail } from "../utils/Misc.js";
+import ConfirmModal from "./ConfirmModal.vue";
 
 export default {
     data() {
         return {
             username: null,
             password: null,
+            showUnsecureRegisterDialog: false,
+            forceUnsecureRegister: false,
         };
     },
     mounted() {
@@ -54,8 +67,10 @@ export default {
     methods: {
         register() {
             if (!this.username || !this.password) return;
-            if (isEmail(this.username) && !confirm(this.$t("info.register_no_email_note"))) return;
-
+            if (isEmail(this.username) && !this.forceUnsecureRegister) {
+                this.showUnsecureRegisterDialog = true;
+                return;
+            }
             this.fetchJson(this.authApiUrl() + "/register", null, {
                 method: "POST",
                 body: JSON.stringify({
@@ -70,5 +85,6 @@ export default {
             });
         },
     },
+    components: { ConfirmModal },
 };
 </script>

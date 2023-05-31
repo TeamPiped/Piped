@@ -114,10 +114,16 @@
                     v-if="admin"
                     :title="$t('actions.remove_from_playlist')"
                     ref="removeButton"
-                    @click="removeVideo(item.url.substr(-11))"
+                    @click="showConfirmRemove = true"
                 >
                     <font-awesome-icon icon="circle-minus" />
                 </button>
+                <ConfirmModal
+                    v-if="showConfirmRemove"
+                    @close="showConfirmRemove = false"
+                    @confirm="removeVideo(item.url.substr(-11))"
+                    :message="$t('actions.delete_playlist_video_confirm')"
+                />
                 <PlaylistAddModal v-if="showModal" :video-id="item.url.substr(-11)" @close="showModal = !showModal" />
             </div>
         </div>
@@ -132,6 +138,7 @@
 
 <script>
 import PlaylistAddModal from "./PlaylistAddModal.vue";
+import ConfirmModal from "./ConfirmModal.vue";
 
 export default {
     props: {
@@ -156,6 +163,7 @@ export default {
         return {
             showModal: false,
             showVideo: true,
+            showConfirmRemove: false,
         };
     },
     mounted() {
@@ -163,23 +171,21 @@ export default {
     },
     methods: {
         removeVideo() {
-            if (confirm(this.$t("actions.delete_playlist_video_confirm"))) {
-                this.$refs.removeButton.disabled = true;
-                this.fetchJson(this.authApiUrl() + "/user/playlists/remove", null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        playlistId: this.playlistId,
-                        index: this.index,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                }).then(json => {
-                    if (json.error) alert(json.error);
-                    else this.$emit("remove");
-                });
-            }
+            this.$refs.removeButton.disabled = true;
+            this.fetchJson(this.authApiUrl() + "/user/playlists/remove", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    playlistId: this.playlistId,
+                    index: this.index,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            }).then(json => {
+                if (json.error) alert(json.error);
+                else this.$emit("remove");
+            });
         },
         shouldShowVideo() {
             if (!this.isFeed || !this.getPreferenceBoolean("hideWatched", false)) return;
@@ -195,6 +201,6 @@ export default {
             };
         },
     },
-    components: { PlaylistAddModal },
+    components: { PlaylistAddModal, ConfirmModal },
 };
 </script>

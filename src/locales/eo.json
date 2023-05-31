@@ -132,7 +132,11 @@
         "autoplay_next_countdown": "Implicita retronombrado ĝis sekva video (en sekundoj)",
         "group_name": "Nomo de la aro",
         "create_group": "Krei aron",
-        "auto_display_captions": "Aŭtomate montri subtekstojn"
+        "auto_display_captions": "Aŭtomate montri subtekstojn",
+        "playlist_name": "Nomo de la ludlisto",
+        "edit_playlist": "Redakti ludliston",
+        "okay": "Bone",
+        "playlist_description": "Priskribo de la ludlisto"
     },
     "video": {
         "chapters": "Sekcioj",

@@ -132,7 +132,11 @@
         "dismiss": "Odrzuć",
         "group_name": "Nazwa grupy",
         "create_group": "Utwórz grupę",
-        "auto_display_captions": "Automatyczne wyświetlanie napisów"
+        "auto_display_captions": "Automatyczne wyświetlanie napisów",
+        "edit_playlist": "Edytuj playlistę",
+        "playlist_name": "Nazwa playlisty",
+        "playlist_description": "Opis playlisty",
+        "okay": "OK"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",

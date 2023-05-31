@@ -335,14 +335,21 @@
     <br />
     <p v-t="'info.preferences_note'" />
     <br />
-    <button class="btn" v-t="'actions.reset_preferences'" @click="resetPreferences()" />
+    <button class="btn" v-t="'actions.reset_preferences'" @click="showConfirmResetPrefsDialog = true" />
     <button class="btn mx-4" v-t="'actions.backup_preferences'" @click="backupPreferences()" />
     <label for="fileSelector" class="btn" v-t="'actions.restore_preferences'" @click="restorePreferences()" />
     <input class="hidden" id="fileSelector" ref="fileSelector" type="file" @change="restorePreferences()" />
+    <ConfirmModal
+        v-if="showConfirmResetPrefsDialog"
+        @close="showConfirmResetPrefsDialog = false"
+        @confirm="resetPreferences()"
+        :message="$t('actions.confirm_reset_preferences')"
+    />
 </template>
 
 <script>
 import CountryMap from "@/utils/CountryMaps/en.json";
+import ConfirmModal from "./ConfirmModal.vue";
 export default {
     data() {
         return {
@@ -438,6 +445,7 @@ export default {
             disableLBRY: false,
             proxyLBRY: false,
             password: null,
+            showConfirmResetPrefsDialog: false,
         };
     },
     activated() {
@@ -589,7 +597,7 @@ export default {
             window.location = "/";
         },
         resetPreferences() {
-            if (!confirm(this.$t("actions.confirm_reset_preferences"))) return;
+            this.showConfirmResetPrefsDialog = false;
             // clear the local storage
             localStorage.clear();
             // redirect to the home page
@@ -621,6 +629,9 @@ export default {
                 window.location.reload();
             });
         },
+    },
+    components: {
+        ConfirmModal,
     },
 };
 </script>
