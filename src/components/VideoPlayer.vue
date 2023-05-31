@@ -23,6 +23,7 @@
 
 <script>
 import "shaka-player/dist/controls.css";
+import { parseTimeParam } from "@/utils/Misc";
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
 if (!window.muxjs) {
     import("mux.js").then(muxjs => {
@@ -231,24 +232,7 @@ export default {
             const time = this.$route.query.t ?? this.$route.query.start;
 
             if (time) {
-                let start = 0;
-                if (/^[\d]*$/g.test(time)) {
-                    start = time;
-                } else {
-                    const hours = /([\d]*)h/gi.exec(time)?.[1];
-                    const minutes = /([\d]*)m/gi.exec(time)?.[1];
-                    const seconds = /([\d]*)s/gi.exec(time)?.[1];
-                    if (hours) {
-                        start += parseInt(hours) * 60 * 60;
-                    }
-                    if (minutes) {
-                        start += parseInt(minutes) * 60;
-                    }
-                    if (seconds) {
-                        start += parseInt(seconds);
-                    }
-                }
-                videoEl.currentTime = start;
+                videoEl.currentTime = parseTimeParam(time);
                 this.initialSeekComplete = true;
             } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
                 var tx = window.db.transaction("watch_history", "readonly");
