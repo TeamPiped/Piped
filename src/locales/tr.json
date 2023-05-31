@@ -45,7 +45,7 @@
         "export_to_json": "JSON Olarak Dışa Aktar",
         "no": "Hayır",
         "yes": "Evet",
-        "show_more": "Daha fazla göster",
+        "show_more": "Daha Fazla Göster",
         "instance_selection": "Örnek Seçimi",
         "loading": "Yükleniyor...",
         "filter": "Filtrele",
@@ -112,7 +112,12 @@
         "autoplay_next_countdown": "Bir sonraki videoya kadar öntanımlı geri sayım (saniye cinsinden)",
         "create_group": "Grup oluştur",
         "group_name": "Grup adı",
-        "auto_display_captions": "Alt Yazıları Otomatik Görüntüle"
+        "auto_display_captions": "Alt Yazıları Otomatik Görüntüle",
+        "cancel": "İptal et",
+        "okay": "Tamam",
+        "edit_playlist": "Oynatma listesini düzenle",
+        "playlist_name": "Oynatma listesi adı",
+        "playlist_description": "Oynatma listesi açıklaması"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
