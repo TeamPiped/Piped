@@ -1,40 +1,49 @@
 <template>
     <h1 v-t="'titles.feed'" class="font-bold text-center my-4" />
 
-    <button class="btn mr-2" @click="exportHandler">
-        <router-link to="/subscriptions">Subscriptions</router-link>
-    </button>
+    <div class="flex flex-wrap md:items-center flex-col md:flex-row gap-2 children:(flex gap-1 items-center)">
+        <span>
+            <label for="filters">
+                <strong v-text="`${$t('actions.filter')}:`" />
+            </label>
+            <select
+                id="filters"
+                v-model="selectedFilter"
+                default="all"
+                class="select flex-grow"
+                @change="onFilterChange()"
+            >
+                <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`video.${filter}`" />
+            </select>
+        </span>
 
-    <span>
-        <a :href="getRssUrl">
+        <span>
+            <label for="group-selector">
+                <strong v-text="`${$t('titles.channel_groups')}:`" />
+            </label>
+            <select id="group-selector" v-model="selectedGroupName" default="" class="select flex-grow">
+                <option value="" v-t="`video.all`" />
+                <option
+                    v-for="group in channelGroups"
+                    :key="group.groupName"
+                    :value="group.groupName"
+                    v-text="group.groupName"
+                />
+            </select>
+        </span>
+
+        <span class="md:ml-auto">
+            <SortingSelector by-key="uploaded" @apply="order => videos.sort(order)" />
+        </span>
+    </div>
+    <hr />
+
+    <span class="flex gap-2">
+        <router-link class="btn" to="/subscriptions">Subscriptions</router-link>
+        <a :href="getRssUrl" class="btn">
             <font-awesome-icon icon="rss" />
         </a>
     </span>
-
-    <label for="filters" class="ml-10 mr-2">
-        <strong v-text="`${$t('actions.filter')}:`" />
-    </label>
-    <select id="filters" v-model="selectedFilter" default="all" class="select w-auto" @change="onFilterChange()">
-        <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`video.${filter}`" />
-    </select>
-
-    <label for="group-selector" class="ml-10 mr-2">
-        <strong v-text="`${$t('titles.channel_groups')}:`" />
-    </label>
-    <select id="group-selector" v-model="selectedGroupName" default="" class="select w-auto">
-        <option value="" v-t="`video.all`" />
-        <option
-            v-for="group in channelGroups"
-            :key="group.groupName"
-            :value="group.groupName"
-            v-text="group.groupName"
-        />
-    </select>
-
-    <span class="md:float-right">
-        <SortingSelector by-key="uploaded" @apply="order => videos.sort(order)" />
-    </span>
-
     <hr />
 
     <LoadingIndicatorPage :show-content="videosStore != null" class="video-grid">

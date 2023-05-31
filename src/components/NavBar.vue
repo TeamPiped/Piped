@@ -59,35 +59,41 @@
         </ul>
     </nav>
     <!-- navigation bar for mobile devices -->
-    <ul
+    <div
         v-if="showTopNav"
-        class="flex flex-col justify-center items-end mb-4 children:(my-0.5 mr-5)"
-        @click="showTopNav = false"
+        class="mobile-nav flex flex-col mb-4 children:(p-1 w-full border-b border-dark-100 flex items-center gap-1)"
     >
-        <li v-if="shouldShowTrending">
-            <router-link v-t="'titles.trending'" to="/trending" />
-        </li>
-        <li>
-            <router-link v-t="'titles.preferences'" to="/preferences" />
-        </li>
-        <li v-if="shouldShowLogin">
-            <router-link v-t="'titles.login'" to="/login" />
-        </li>
-        <li v-if="shouldShowLogin">
-            <router-link v-t="'titles.register'" to="/register" />
-        </li>
-        <li v-if="shouldShowHistory">
-            <router-link v-t="'titles.history'" to="/history" />
-        </li>
-        <li>
-            <router-link v-t="'titles.playlists'" to="/playlists" />
-        </li>
-        <li v-if="!shouldShowTrending">
-            <router-link v-t="'titles.feed'" to="/feed" />
-        </li>
-    </ul>
+        <router-link v-if="shouldShowTrending" to="/trending">
+            <div class="i-fa6-solid:fire"></div>
+            <i18n-t keypath="titles.trending"></i18n-t>
+        </router-link>
+        <router-link to="/preferences">
+            <div class="i-fa6-solid:gear"></div>
+            <i18n-t keypath="titles.preferences"></i18n-t>
+        </router-link>
+        <router-link v-if="shouldShowLogin" to="/login">
+            <div class="i-fa6-solid:user"></div>
+            <i18n-t keypath="titles.login"></i18n-t>
+        </router-link>
+        <router-link v-if="shouldShowLogin" to="/register">
+            <div class="i-fa6-solid:user-plus"></div>
+            <i18n-t keypath="titles.register"></i18n-t>
+        </router-link>
+        <router-link v-if="shouldShowHistory" to="/history">
+            <div class="i-fa6-solid:clock-rotate-left"></div>
+            <i18n-t keypath="titles.history"></i18n-t>
+        </router-link>
+        <router-link to="/playlists">
+            <div class="i-fa6-solid:list"></div>
+            <i18n-t keypath="titles.playlists"></i18n-t>
+        </router-link>
+        <router-link v-if="!shouldShowTrending" to="/feed">
+            <div class="i-fa6-solid:play"></div>
+            <i18n-t keypath="titles.feed"></i18n-t>
+        </router-link>
+    </div>
     <!-- search suggestions for mobile devices -->
-    <div class="mobile-search md:hidden mx-2 search-container">
+    <div class="w-full mb-2 md:hidden search-container">
         <input
             v-model="searchText"
             class="input h-10 w-full"
@@ -189,8 +195,7 @@ export default {
     @apply absolute right-3 cursor-pointer rounded-full bg-[#ccc] w-4 h-4 text-center text-black opacity-50 hover:(opacity-70) text-size-[13px];
     line-height: 1.05;
 }
-.mobile-search {
-    width: calc(100% - 1rem);
-    @apply mx-2;
+.mobile-nav div {
+    @apply mx-1;
 }
 </style>

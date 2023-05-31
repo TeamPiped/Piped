@@ -113,7 +113,6 @@
         "confirm_reset_preferences": "Stvarno želiš resetirati tvoje postavke?",
         "backup_preferences": "Spremi sigurnosnu kopiju postavki",
         "with_timecode": "Dijeli s vremenskim kodom",
-        "rename_playlist": "Preimenuj popis snimaka",
         "new_playlist_name": "Ime novog popisa snimaka",
         "share": "Dijeli",
         "show_chapters": "Poglavlja",
@@ -140,7 +139,8 @@
         "autoplay_next_countdown": "Standardno odbrojavanje do sljedećeg videa (u sekundama)",
         "dismiss": "Odbaci",
         "create_group": "Stvori grupu",
-        "group_name": "Ime grupe"
+        "group_name": "Ime grupe",
+        "auto_display_captions": "Automatski prikaži titlove"
     },
     "player": {
         "watch_on": "Gledaj na {0}"

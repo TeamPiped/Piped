@@ -39,8 +39,26 @@
                     v-text="playlist.name"
                 />
             </router-link>
-            <button class="btn h-auto" @click="renamePlaylist(playlist.id)" v-t="'actions.rename_playlist'" />
+            <button class="btn h-auto" @click="showPlaylistEditModal(playlist)" v-t="'actions.edit_playlist'" />
             <button class="btn h-auto ml-2" @click="playlistToDelete = playlist.id" v-t="'actions.delete_playlist'" />
+            <ModalComponent v-if="playlist.id == playlistToEdit" @close="playlistToEdit = null">
+                <div class="flex flex-col gap-2">
+                    <h2 v-t="'actions.edit_playlist'" />
+                    <input
+                        class="input"
+                        type="text"
+                        v-model="newPlaylistName"
+                        :placeholder="$t('actions.playlist_name')"
+                    />
+                    <input
+                        class="input"
+                        type="text"
+                        v-model="newPlaylistDescription"
+                        :placeholder="$t('actions.playlist_description')"
+                    />
+                    <button class="btn ml-auto" @click="editPlaylist(playlist)" v-t="'actions.okay'" />
+                </div>
+            </ModalComponent>
             <ConfirmModal
                 v-if="playlistToDelete == playlist.id"
                 :message="$t('actions.delete_playlist_confirm')"
@@ -83,6 +101,7 @@
 
 <script>
 import ConfirmModal from "./ConfirmModal.vue";
+import ModalComponent from "./ModalComponent.vue";
 
 export default {
     data() {
@@ -90,6 +109,9 @@ export default {
             playlists: [],
             bookmarks: [],
             playlistToDelete: null,
+            playlistToEdit: null,
+            newPlaylistName: "",
+            newPlaylistDescription: "",
         };
     },
     mounted() {
@@ -109,30 +131,48 @@ export default {
                 this.playlists = json;
             });
         },
-        renamePlaylist(id) {
-            const newName = prompt(this.$t("actions.new_playlist_name"));
-            if (!newName) return;
-            this.fetchJson(this.authApiUrl() + "/user/playlists/rename", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    playlistId: id,
-                    newName: newName,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            }).then(json => {
-                if (json.error) alert(json.error);
-                else {
-                    this.playlists.forEach((playlist, index) => {
-                        if (playlist.id == id) {
-                            this.playlists[index].name = newName;
-                            return;
-                        }
-                    });
-                }
-            });
+        showPlaylistEditModal(playlist) {
+            this.newPlaylistName = playlist.name;
+            this.newPlaylistDescription = playlist.description;
+            this.playlistToEdit = playlist.id;
+        },
+        editPlaylist(selectedPlaylist) {
+            // save the new name and description since they could be overwritten during the http request
+            const newName = this.newPlaylistName;
+            const newDescription = this.newPlaylistDescription;
+            if (newName != selectedPlaylist.name) {
+                this.fetchJson(this.authApiUrl() + "/user/playlists/rename", null, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        playlistId: selectedPlaylist.id,
+                        newName: newName,
+                    }),
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                        "Content-Type": "application/json",
+                    },
+                }).then(json => {
+                    if (json.error) alert(json.error);
+                    else selectedPlaylist.name = newName;
+                });
+            }
+            if (newDescription != selectedPlaylist.description) {
+                this.fetchJson(this.authApiUrl() + "/user/playlists/description", null, {
+                    method: "PATCH",
+                    body: JSON.stringify({
+                        playlistId: selectedPlaylist.id,
+                        description: newDescription,
+                    }),
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                        "Content-Type": "application/json",
+                    },
+                }).then(json => {
+                    if (json.error) alert(json.error);
+                    else selectedPlaylist.description = newDescription;
+                });
+            }
+            this.playlistToEdit = null;
         },
         deletePlaylist(id) {
             this.fetchJson(this.authApiUrl() + "/user/playlists/delete", null, {
@@ -271,6 +311,6 @@ export default {
             this.bookmarks.splice(index, 1);
         },
     },
-    components: { ConfirmModal },
+    components: { ConfirmModal, ModalComponent },
 };
 </script>
