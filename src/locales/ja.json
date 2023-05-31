@@ -132,7 +132,12 @@
         "dismiss": "無視",
         "create_group": "グループ作成",
         "group_name": "グループ名",
-        "auto_display_captions": "自動で字幕を表示"
+        "auto_display_captions": "自動で字幕を表示",
+        "okay": "OK",
+        "cancel": "キャンセル",
+        "edit_playlist": "再生リストを編集",
+        "playlist_name": "再生リスト名",
+        "playlist_description": "再生リストの説明"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
