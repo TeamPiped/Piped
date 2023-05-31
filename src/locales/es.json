@@ -140,7 +140,11 @@
         "dismiss": "Cancelar",
         "group_name": "Nombre del grupo",
         "create_group": "Crear grupo",
-        "auto_display_captions": "Mostrar automáticamente subtítulos"
+        "auto_display_captions": "Mostrar automáticamente subtítulos",
+        "edit_playlist": "Editar lista de reproducción",
+        "okay": "Vale",
+        "playlist_name": "Nombre de la lista de reproducción",
+        "playlist_description": "Descripción de la lista de reproducción"
     },
     "titles": {
         "feed": "Fuente web",

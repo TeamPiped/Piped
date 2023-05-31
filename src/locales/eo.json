@@ -67,7 +67,7 @@
         "remove_from_playlist": "Forigi el ludlisto",
         "create_playlist": "Krei Ludliston",
         "delete_account": "Forigi Konton",
-        "new_playlist_name": "Nomo de nova ludlisto",
+        "new_playlist_name": "Nova nomo de la ludlisto",
         "reply_count": "{count} respondoj",
         "load_more_replies": "Ŝargi pli da Respondoj",
         "share": "Konigi",
@@ -133,7 +133,11 @@
         "autoplay_next_countdown": "Implicita retronombrado ĝis sekva video (en sekundoj)",
         "group_name": "Nomo de la aro",
         "create_group": "Krei aron",
-        "auto_display_captions": "Aŭtomate montri subtekstojn"
+        "auto_display_captions": "Aŭtomate montri subtekstojn",
+        "playlist_name": "Nomo de la ludlisto",
+        "edit_playlist": "Redakti ludliston",
+        "okay": "Bone",
+        "playlist_description": "Priskribo de la ludlisto"
     },
     "video": {
         "chapters": "Sekcioj",

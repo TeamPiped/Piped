@@ -113,7 +113,11 @@
         "dismiss": "Concediază",
         "group_name": "Numele grupului",
         "create_group": "Creați un grup",
-        "auto_display_captions": "Afișează automat subtitrările"
+        "auto_display_captions": "Afișează automat subtitrările",
+        "playlist_name": "Numele playlist-ului",
+        "okay": "Bine",
+        "playlist_description": "Descrierea playlist-ului",
+        "edit_playlist": "Editează playlist-ul"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
