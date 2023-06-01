@@ -45,7 +45,7 @@
         "unocss": "0.52.7",
         "vite": "4.3.9",
         "vite-plugin-eslint": "1.8.1",
-        "vite-plugin-pwa": "0.16.0"
+        "vite-plugin-pwa": "0.16.1"
     },
     "eslintConfig": {
         "root": true,
