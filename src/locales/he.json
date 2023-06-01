@@ -132,7 +132,12 @@
         "dismiss": "התעלמות",
         "create_group": "יצירת קבוצה",
         "group_name": "שם הקבוצה",
-        "auto_display_captions": "הצגת כתוביות אוטומטית"
+        "auto_display_captions": "הצגת כתוביות אוטומטית",
+        "cancel": "ביטול",
+        "edit_playlist": "עריכת רשימת נגינה",
+        "playlist_name": "שם רשימת הנגינה",
+        "playlist_description": "תיאור רשימת הנגינה",
+        "okay": "אישור"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
