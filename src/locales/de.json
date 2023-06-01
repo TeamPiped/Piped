@@ -112,7 +112,12 @@
         "dismiss": "Ablehnen",
         "group_name": "Gruppenname",
         "create_group": "Gruppe erstellen",
-        "auto_display_captions": "Untertitel automatisch anzeigen"
+        "auto_display_captions": "Untertitel automatisch anzeigen",
+        "cancel": "Abbrechen",
+        "okay": "Okay",
+        "edit_playlist": "Playlist bearbeiten",
+        "playlist_name": "Name der Playlist",
+        "playlist_description": "Beschreibung der Playlist"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
