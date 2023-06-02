@@ -19,9 +19,9 @@
     find-up "^5.0.0"
 
 "@antfu/utils@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.7.2.tgz#3bb6f37a6b188056fe9e2f363b6aa735ed65d7ca"
-  integrity sha512-vy9fM3pIxZmX07dL+VX1aZe7ynZ+YyB0jY+jE6r3hOK6GNY2t6W8rzpFC4tgpbXUYABkFQwgJq2XYXlxbXAI0g==
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.7.4.tgz#b1c11b95f89f13842204d3d83de01e10bb9257db"
+  integrity sha512-qe8Nmh9rYI/HIspLSTwtbMFPj6dISG6+dJnOguTlPNXtCvS2uezdxscVBb7/3DrmNbQK49TDqpkSQ1chbRGdpQ==
 
 "@apideck/better-ajv-errors@^0.3.1":
   version "0.3.6"
