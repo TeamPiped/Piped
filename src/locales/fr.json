@@ -13,7 +13,8 @@
         "player": "Lecteur",
         "livestreams": "Diffusions en direct",
         "channels": "Chaînes",
-        "bookmarks": "Marque-pages"
+        "bookmarks": "Marque-pages",
+        "channel_groups": "Groupes de chaînes"
     },
     "actions": {
         "subscribe": "S'abonner - {count}",
@@ -123,7 +124,8 @@
         "skip_automatically": "Automatiquement",
         "min_segment_length": "Longueur minimale du segment (en secondes)",
         "skip_segment": "Sauter le segment",
-        "show_less": "Afficher moins"
+        "show_less": "Afficher moins",
+        "okay": "OK"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
