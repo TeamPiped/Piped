@@ -51,7 +51,7 @@
         "import_from_json": "Importar de JSON/CSV",
         "loop_this_video": "Repetir este Vídeo",
         "auto_play_next_video": "Reproduzir Automaticamente o próximo Vídeo",
-        "donations": "Doações de desenvolvimento",
+        "donations": "Doações para o desenvolvimento",
         "minimize_description": "Minimizar Descrição",
         "show_description": "Mostrar Descrição",
         "minimize_recommendations": "Minimizar Recomendações",
@@ -129,7 +129,12 @@
         "dismiss": "Ignorar",
         "create_group": "Criar grupo",
         "group_name": "Nome do grupo",
-        "auto_display_captions": "Visualização automática de legendas"
+        "auto_display_captions": "Visualização automática de legendas",
+        "playlist_description": "Descrição da lista de reprodução",
+        "edit_playlist": "Editar lista de reprodução",
+        "playlist_name": "Nome da lista de reprodução",
+        "cancel": "Cancelar",
+        "okay": "Ok"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
