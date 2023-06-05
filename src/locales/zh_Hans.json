@@ -112,7 +112,12 @@
         "dismiss": "解除",
         "group_name": "组名称",
         "create_group": "创建组",
-        "auto_display_captions": "自动显示字幕"
+        "auto_display_captions": "自动显示字幕",
+        "playlist_name": "播放列表名称",
+        "playlist_description": "播放列表描述",
+        "cancel": "取消",
+        "okay": "好的",
+        "edit_playlist": "编辑播放列表"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
