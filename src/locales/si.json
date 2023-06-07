@@ -128,7 +128,13 @@
         "dismiss": "අස් කරන්න",
         "autoplay_next_countdown": "ඊළඟ වීඩියෝව තෙක් ගණන් කිරීම (තත්පර වලින්)",
         "group_name": "කණ්ඩායමේ නම",
-        "create_group": "කණ්ඩායම සාදන්න"
+        "create_group": "කණ්ඩායම සාදන්න",
+        "cancel": "අවලංගු කරන්න",
+        "okay": "හරි",
+        "edit_playlist": "වාදන ලැයිස්තුව සංස්කරණය කරන්න",
+        "playlist_name": "වාදන ලැයිස්තුවේ නම",
+        "playlist_description": "වාදන ලැයිස්තු විස්තරය",
+        "auto_display_captions": "ස්වයංක්‍රීය උපසිරැසි පෙන්වන්න"
     },
     "player": {
         "watch_on": "{0} එකේ නරඹන්න"
