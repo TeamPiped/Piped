@@ -129,7 +129,12 @@
         "edit_playlist": "Éditer la liste de lecture",
         "playlist_name": "Nom de la liste de lecture",
         "auto_display_captions": "Afficer sous-titres automatiquement",
-        "dismiss": "Rejeter"
+        "dismiss": "Rejeter",
+        "cancel": "Annuler",
+        "playlist_description": "Description de la liste de lecture",
+        "create_group": "Créer un groupe",
+        "group_name": "Nom du groupe",
+        "autoplay_next_countdown": "Temps par défaut avant la prochaine vidéo (en secondes)"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
