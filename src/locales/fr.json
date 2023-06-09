@@ -68,7 +68,7 @@
         "yes": "Oui",
         "loading": "Chargement…",
         "filter": "Filtrer",
-        "search": "Rechercher",
+        "search": "Rechercher (Ctrl+K)",
         "view_ssl_score": "Afficher le score SSL",
         "clear_history": "Effacer l'historique",
         "load_more_replies": "Charger plus de réponses",
@@ -125,7 +125,11 @@
         "min_segment_length": "Longueur minimale du segment (en secondes)",
         "skip_segment": "Sauter le segment",
         "show_less": "Afficher moins",
-        "okay": "OK"
+        "okay": "OK",
+        "edit_playlist": "Éditer la liste de lecture",
+        "playlist_name": "Nom de la liste de lecture",
+        "auto_display_captions": "Afficer sous-titres automatiquement",
+        "dismiss": "Rejeter"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
@@ -184,6 +188,7 @@
         "copied": "Copié !",
         "cannot_copy": "Impossible de copier !",
         "local_storage": "Cette action nécessite localStorage, les cookies sont-ils activés ?",
-        "register_no_email_note": "Il n'est pas recommandé d'utiliser une adresse courriel omme nom d'utilisateur. Continuer quand même ?"
+        "register_no_email_note": "Il n'est pas recommandé d'utiliser une adresse courriel omme nom d'utilisateur. Continuer quand même ?",
+        "next_video_countdown": "Lecture de la prochaine vidéo dans {0}s"
     }
 }
