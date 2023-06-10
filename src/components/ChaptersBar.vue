@@ -1,6 +1,12 @@
 <template>
-    <!-- desktop view -->
-    <div v-if="!mobileLayout" class="flex-col overflow-y-scroll max-w-35vw max-h-75vh min-h-64 lt-lg:hidden">
+    <!-- desktop / mobile view -->
+    <div
+        :class="
+            !mobileLayout
+                ? 'flex-col overflow-y-scroll max-w-35vw max-h-75vh min-h-64 lt-lg:hidden'
+                : 'flex flex-col overflow-y-scroll max-h-64'
+        "
+    >
         <h2 class="mb-2 bg-gray-500/50 p-2" aria-label="chapters" title="chapters">
             {{ $t("video.chapters") }} ({{ chapters.length }})
         </h2>
@@ -21,8 +27,8 @@
             </div>
         </div>
     </div>
-    <!-- mobile view -->
-    <div v-else class="flex overflow-x-auto">
+    <!-- old mobile view -->
+    <!-- <div v-else class="flex overflow-x-auto">
         <div
             :key="chapter.start"
             v-for="(chapter, index) in chapters"
@@ -36,7 +42,7 @@
                 <span class="px-1 text-sm font-bold text-blue-500" v-text="timeFormat(chapter.start)" />
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <style>
