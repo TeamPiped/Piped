@@ -55,7 +55,7 @@
         "instances_list": "Список зеркал сервиса Piped",
         "enabled_codecs": "Включённые кодеки (Можно выбрать несколько)",
         "instance_selection": "Выбор зеркала сервиса Piped",
-        "show_more": "Показать больше",
+        "show_more": "Показать еще",
         "yes": "Да",
         "no": "Нет",
         "export_to_json": "Экспорт в JSON",
@@ -131,7 +131,13 @@
         "autoplay_next_countdown": "Отсчет по умолчанию до следующего видео (в секундах)",
         "dismiss": "Отклонить",
         "group_name": "Имя группы",
-        "create_group": "Создать группу"
+        "create_group": "Создать группу",
+        "cancel": "Отмена",
+        "edit_playlist": "Редактировать плейлист",
+        "playlist_description": "Описание плейлиста",
+        "okay": "Хорошо",
+        "auto_display_captions": "Авто-отображение субтитров",
+        "playlist_name": "Название плейлиста"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
