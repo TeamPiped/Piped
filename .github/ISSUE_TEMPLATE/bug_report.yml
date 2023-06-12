@@ -67,6 +67,7 @@ body:
         If applicable, add browser, and OS with version.
       placeholder: >-
         Brave 1.x.x on Arch Linux.
+    validations:
       required: true
 
   - type: textarea
