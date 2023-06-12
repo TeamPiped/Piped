@@ -189,8 +189,8 @@
         "cannot_copy": "Não foi possível copiar!",
         "page_not_found": "Página não encontrada",
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
-        "preferences_note": "Nota: as configurações são guardadas no armazenamento local to seu navegador. Eliminar os dados de navegação irá redefini-las.",
-        "register_no_email_note": "Não recomendamos utilizar um endereço de email como nome de utilizador. Continuar?",
-        "next_video_countdown": "A reproduzir o vídeo seguinte em {0}s"
+        "preferences_note": "Nota: as preferências são guardadas no armazenamento local do seu navegador. Se limpar os dados de navegação, também limpa as preferências.",
+        "register_no_email_note": "Não recomendamos utilizar um endereço de e-mail como nome de utilizador. Continuar?",
+        "next_video_countdown": "O próximo vídeo será reproduzido dentro de {0} segundos."
     }
 }
