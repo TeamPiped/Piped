@@ -58,7 +58,7 @@ body:
       description: |
         If applicable, add logs from the JavaScript console and/or backend server.
     validations:
-      required: true
+      required: false
 
   - type: textarea
     attributes:
@@ -67,6 +67,7 @@ body:
         If applicable, add browser, and OS with version.
       placeholder: >-
         Brave 1.x.x on Arch Linux.
+      required: true
 
   - type: textarea
     attributes:
