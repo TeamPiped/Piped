@@ -134,7 +134,8 @@
         "cancel": "Zrušit",
         "edit_playlist": "Upravit playlist",
         "playlist_description": "Popis playlistu",
-        "okay": "Okay"
+        "okay": "Okay",
+        "show_search_suggestions": "Zobrazit našeptávání ve vyhledávání"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
