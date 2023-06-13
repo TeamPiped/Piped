@@ -99,6 +99,7 @@
         "logout": "Logout from this device",
         "minimize_recommendations_default": "Minimize Recommendations by default",
         "minimize_chapters_default": "Minimize Chapters by default",
+        "chapters_layout_mobile": "Chapters Layout On Mobile",
         "show_watch_on_youtube": "Show Watch on YouTube button",
         "invalidate_session": "Logout all devices",
         "different_auth_instance": "Use a different instance for authentication",
@@ -168,7 +169,10 @@
         "live": "{0} Live",
         "shorts": "Shorts",
         "all": "All",
-        "category": "Category"
+        "category": "Category",
+				"chapters_horizontal": "Horizontal",
+				"chapters_vertical": "Vertical"
+
     },
     "search": {
         "did_you_mean": "Did you mean: {0}?",

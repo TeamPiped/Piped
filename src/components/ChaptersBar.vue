@@ -1,11 +1,31 @@
 <template>
-    <!-- desktop / mobile view -->
+    <!-- desktop view -->
+    <div v-if="!mobileLayout" class="flex-col overflow-y-scroll max-w-35vw max-h-75vh min-h-64 lt-lg:hidden">
+        <h2 class="mb-2 bg-gray-500/50 p-2" aria-label="chapters" title="chapters">
+            {{ $t("video.chapters") }} ({{ chapters.length }})
+        </h2>
+        <div
+            :key="chapter.start"
+            v-for="(chapter, index) in chapters"
+            @click="$emit('seek', chapter.start)"
+            class="chapter-vertical"
+            :class="{ 'bg-red-500/50': isCurrentChapter(index) }"
+        >
+            <div class="flex">
+                <span class="mt-5 mr-2 text-current" v-text="index + 1" />
+                <img class="shrink-0" :src="chapter.image" :alt="chapter.title" />
+                <div class="flex flex-col m-2">
+                    <span class="text-sm" :title="chapter.title" v-text="chapter.title" />
+                    <span class="text-sm font-bold text-blue-500" v-text="timeFormat(chapter.start)" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- mobile vertical view -->
     <div
-        :class="
-            !mobileLayout
-                ? 'flex-col overflow-y-scroll max-w-35vw max-h-75vh min-h-64 lt-lg:hidden'
-                : 'flex flex-col overflow-y-scroll max-h-64'
-        "
+        v-if="mobileLayout && getPreferenceString('mobileChapterLayout') == 'Vertical'"
+        class="flex flex-col overflow-y-scroll max-h-64"
     >
         <h2 class="mb-2 bg-gray-500/50 p-2" aria-label="chapters" title="chapters">
             {{ $t("video.chapters") }} ({{ chapters.length }})
@@ -27,8 +47,8 @@
             </div>
         </div>
     </div>
-    <!-- old mobile view -->
-    <!-- <div v-else class="flex overflow-x-auto">
+    <!-- mobile Horizontal view -->
+    <div v-if="getPreferenceString('mobileChapterLayout') == 'Horizontal' && mobileLayout" class="flex overflow-x-auto">
         <div
             :key="chapter.start"
             v-for="(chapter, index) in chapters"
@@ -42,7 +62,7 @@
                 <span class="px-1 text-sm font-bold text-blue-500" v-text="timeFormat(chapter.start)" />
             </div>
         </div>
-    </div> -->
+    </div>
 </template>
 
 <style>
