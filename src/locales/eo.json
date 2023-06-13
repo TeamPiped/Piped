@@ -137,7 +137,8 @@
         "edit_playlist": "Redakti ludliston",
         "okay": "Bone",
         "playlist_description": "Priskribo de la ludlisto",
-        "cancel": "Nuligi"
+        "cancel": "Nuligi",
+        "show_search_suggestions": "Montri serĉ-sugestojn"
     },
     "video": {
         "chapters": "Sekcioj",
