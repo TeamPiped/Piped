@@ -127,20 +127,13 @@
         />
     </label>
     <!-- chapters layout on mobile -->
-    <label class="pref" for="chkMinimizeChapters">
+    <label class="lg:invisible pref" for="chkMinimizeChapters">
         <strong v-t="'actions.chapters_layout_mobile'" />
 
         <select id="ddlDefaultHomepage" v-model="mobileChapterLayout" class="select w-auto" @change="onChange($event)">
             <option v-t="'video.chapters_horizontal'" value="Horizontal" />
             <option v-t="'video.chapters_vertical'" value="Vertical" />
         </select>
-        <!-- <input
-            id="chkMinimizeChapters"
-            v-model="minimizeChapters"
-            class="checkbox"
-            type="checkbox"
-            @change="onChange($event)"
-        /> -->
     </label>
     <label class="pref" for="chkShowWatchOnYouTube">
         <strong v-t="'actions.show_watch_on_youtube'" />
@@ -528,10 +521,7 @@ export default {
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
             this.hideWatched = this.getPreferenceBoolean("hideWatched", false);
-            this.mobileChapterLayout = this.getPreferenceString(
-                "mobileChapterLayout",
-                localStorage.getItem("mobileChapterLayout") || "Vertical",
-            );
+            this.mobileChapterLayout = this.getPreferenceString("mobileChapterLayout", "Vertical");
             if (this.selectedLanguage != "en") {
                 try {
                     this.CountryMap = await import(`../utils/CountryMaps/${this.selectedLanguage}.json`).then(
