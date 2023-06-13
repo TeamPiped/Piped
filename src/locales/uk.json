@@ -118,7 +118,12 @@
         "dismiss": "Відхилити",
         "autoplay_next_countdown": "Зворотний відлік до наступного відео (у секундах)",
         "create_group": "Створити групу",
-        "group_name": "Назва групи"
+        "group_name": "Назва групи",
+        "edit_playlist": "Редагувати список відтворення",
+        "playlist_name": "Назва списку відтворення",
+        "playlist_description": "Опис списку відтворення",
+        "auto_display_captions": "Автоматичне відображення субтитрів",
+        "cancel": "Скасувати"
     },
     "titles": {
         "register": "Реєстрація",
