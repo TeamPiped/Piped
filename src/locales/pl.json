@@ -137,7 +137,8 @@
         "playlist_name": "Nazwa playlisty",
         "playlist_description": "Opis playlisty",
         "okay": "OK",
-        "cancel": "Anuluj"
+        "cancel": "Anuluj",
+        "show_search_suggestions": "Pokaż sugestie wyszukiwania"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
