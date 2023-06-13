@@ -137,7 +137,8 @@
         "edit_playlist": "עריכת רשימת נגינה",
         "playlist_name": "שם רשימת הנגינה",
         "playlist_description": "תיאור רשימת הנגינה",
-        "okay": "אישור"
+        "okay": "אישור",
+        "show_search_suggestions": "הצגת הצעות חיפוש"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
