@@ -134,7 +134,8 @@
         "okay": "Ok",
         "cancel": "Cancelar",
         "edit_playlist": "Editar lista de reprodução",
-        "playlist_name": "Nome da lista de reprodução"
+        "playlist_name": "Nome da lista de reprodução",
+        "show_search_suggestions": "Mostrar sugestões de pesquisa"
     },
     "preferences": {
         "instance_name": "Nome da instância",
