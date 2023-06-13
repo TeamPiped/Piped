@@ -137,7 +137,8 @@
         "create_group": "Create group",
         "group_name": "Group name",
         "cancel": "Cancel",
-        "okay": "Okay"
+        "okay": "Okay",
+        "show_search_suggestions": "Show search suggestions"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

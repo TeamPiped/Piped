@@ -136,6 +136,16 @@
             @change="onChange($event)"
         />
     </label>
+    <label class="pref" for="chkShowSearchSuggestions">
+        <strong v-t="'actions.show_search_suggestions'" />
+        <input
+            id="chkShowSearchSuggestions"
+            v-model="searchSuggestions"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
     <label class="pref" for="chkStoreSearchHistory">
         <strong v-t="'actions.store_search_history'" />
         <input
@@ -387,6 +397,7 @@ export default {
             minimizeRecommendations: false,
             minimizeChapters: false,
             showWatchOnYouTube: false,
+            searchSuggestions: true,
             watchHistory: false,
             searchHistory: false,
             hideWatched: false,
@@ -504,6 +515,7 @@ export default {
             this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
             this.minimizeChapters = this.getPreferenceBoolean("minimizeChapters", false);
             this.showWatchOnYouTube = this.getPreferenceBoolean("showWatchOnYouTube", false);
+            this.searchSuggestions = this.getPreferenceBoolean("searchSuggestions", true);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
             this.searchHistory = this.getPreferenceBoolean("searchHistory", false);
             this.selectedLanguage = this.getPreferenceString("hl", await this.defaultLanguage);
@@ -560,6 +572,7 @@ export default {
                 localStorage.setItem("minimizeRecommendations", this.minimizeRecommendations);
                 localStorage.setItem("minimizeChapters", this.minimizeChapters);
                 localStorage.setItem("showWatchOnYouTube", this.showWatchOnYouTube);
+                localStorage.setItem("searchSuggestions", this.searchSuggestions);
                 localStorage.setItem("watchHistory", this.watchHistory);
                 localStorage.setItem("searchHistory", this.searchHistory);
                 if (!this.searchHistory) localStorage.removeItem("search_history");

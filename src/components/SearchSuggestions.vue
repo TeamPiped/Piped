@@ -50,13 +50,16 @@ export default {
             if (!this.searchText) {
                 if (this.getPreferenceBoolean("searchHistory", false))
                     this.searchSuggestions = JSON.parse(localStorage.getItem("search_history")) ?? [];
-            } else {
+            } else if (this.getPreferenceBoolean("searchSuggestions", true)) {
                 this.searchSuggestions =
                     (
                         await this.fetchJson(this.apiUrl() + "/opensearch/suggestions", {
                             query: this.searchText,
                         })
                     )?.[1] ?? [];
+            } else {
+                this.searchSuggestions = [];
+                return;
             }
             this.searchSuggestions.unshift(this.searchText);
             this.setSelected(0);
