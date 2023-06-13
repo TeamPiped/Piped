@@ -144,7 +144,8 @@
         "okay": "Vale",
         "playlist_name": "Nombre de la lista de reproducción",
         "playlist_description": "Descripción de la lista de reproducción",
-        "cancel": "Cancelar"
+        "cancel": "Cancelar",
+        "show_search_suggestions": "Mostrar sugerencias de búsqueda"
     },
     "titles": {
         "feed": "Fuente web",

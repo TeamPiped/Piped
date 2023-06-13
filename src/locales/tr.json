@@ -117,7 +117,8 @@
         "okay": "Tamam",
         "edit_playlist": "Oynatma listesini düzenle",
         "playlist_name": "Oynatma listesi adı",
-        "playlist_description": "Oynatma listesi açıklaması"
+        "playlist_description": "Oynatma listesi açıklaması",
+        "show_search_suggestions": "Arama önerilerini göster"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
