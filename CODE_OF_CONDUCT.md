@@ -22,6 +22,7 @@ Examples of unacceptable behavior include but are not limited to:
 -   Publishing others' private information, such as a physical or electronic address, without explicit permission from the individual
 -   Derailling conversations unnecessarily in a way that is not constructive, such as repeatedly posting off-topic comments whilest not in an off-topic channel
 -   Other conduct which could reasonably be considered inappropriate in a professional setting
+-   Tagging maintainers or project members without being one yourself
 
 ## Enforcement Responsibilities
 
