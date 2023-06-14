@@ -170,9 +170,8 @@
         "shorts": "Shorts",
         "all": "All",
         "category": "Category",
-				"chapters_horizontal": "Horizontal",
-				"chapters_vertical": "Vertical"
-
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertical"
     },
     "search": {
         "did_you_mean": "Did you mean: {0}?",
