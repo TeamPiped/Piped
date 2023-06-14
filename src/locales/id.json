@@ -137,7 +137,8 @@
         "playlist_description": "Deskripsi daftar putar",
         "edit_playlist": "Sunting daftar putar",
         "playlist_name": "Nama daftar putar",
-        "okay": "Oke"
+        "okay": "Oke",
+        "show_search_suggestions": "Tampilkan saran pencarian"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
