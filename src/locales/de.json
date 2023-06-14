@@ -117,7 +117,8 @@
         "okay": "Okay",
         "edit_playlist": "Playlist bearbeiten",
         "playlist_name": "Name der Playlist",
-        "playlist_description": "Beschreibung der Playlist"
+        "playlist_description": "Beschreibung der Playlist",
+        "show_search_suggestions": "Suchvorschläge anzeigen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"

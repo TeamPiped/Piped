@@ -137,7 +137,8 @@
         "edit_playlist": "Modificar la lista de lectura",
         "playlist_name": "Nom de la lista de lectura",
         "playlist_description": "Descripcion de la lista de lectura",
-        "auto_display_captions": "Afichatge auto dels sostítols"
+        "auto_display_captions": "Afichatge auto dels sostítols",
+        "show_search_suggestions": "Mostrar las suggestions de recèrcas"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",

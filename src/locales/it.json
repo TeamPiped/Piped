@@ -108,7 +108,15 @@
         "skip_button_only": "Mostra pulsante di salto",
         "skip_segment": "Salta segmento",
         "show_less": "Mostra meno",
-        "autoplay_next_countdown": "Conto alla rovescia predefinito prima del video successivo (in secondi)"
+        "autoplay_next_countdown": "Conto alla rovescia predefinito prima del video successivo (in secondi)",
+        "cancel": "Annulla",
+        "okay": "Va bene",
+        "edit_playlist": "Modifica playlist",
+        "playlist_name": "Nome playilist",
+        "playlist_description": "Descrizione playlist",
+        "group_name": "Nome gruppo",
+        "create_group": "Crea gruppo",
+        "show_search_suggestions": "Mostra suggerimenti di ricerca"
     },
     "player": {
         "watch_on": "Guarda su {0}"
