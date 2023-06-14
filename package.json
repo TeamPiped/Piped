@@ -6,7 +6,7 @@
         "serve": "vite",
         "build": "vite build",
         "preview": "vite preview",
-        "format": "prettier -w --ignore-path .gitignore **/**.{js,vue}",
+        "format": "prettier -w --ignore-path .gitignore **/**.{js,vue,json}",
         "lint": "eslint --fix --color --ignore-path .gitignore --ext .js,.vue ."
     },
     "dependencies": {
