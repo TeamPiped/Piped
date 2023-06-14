@@ -192,6 +192,6 @@
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
         "preferences_note": "Nota: as preferências são guardadas no armazenamento local do seu navegador. Se limpar os dados de navegação, também limpa as preferências.",
         "register_no_email_note": "Não recomendamos utilizar um endereço de e-mail como nome de utilizador. Continuar?",
-        "next_video_countdown": "O próximo vídeo será reproduzido dentro de {0} segundos."
+        "next_video_countdown": "O próximo vídeo será reproduzido dentro de {0} segundos"
     }
 }

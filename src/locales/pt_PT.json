@@ -134,7 +134,8 @@
         "edit_playlist": "Editar lista de reprodução",
         "playlist_name": "Nome da lista de reprodução",
         "cancel": "Cancelar",
-        "okay": "Ok"
+        "okay": "Ok",
+        "show_search_suggestions": "Mostrar sugestões de pesquisa"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
