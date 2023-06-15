@@ -121,23 +121,7 @@
                         <!-- YouTube -->
                         <WatchOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
                         <!-- Odysee -->
-                        <!-- For large screens -->
-                        <a
-                            v-if="video.lbryId"
-                            :href="'https://odysee.com/' + video.lbryId"
-                            class="btn lt-lg:hidden flex items-center"
-                        >
-                            <i18n-t keypath="player.watch_on" tag="strong">Odysee</i18n-t>
-                            <font-awesome-icon class="mx-1.5" :icon="['fab', 'odysee']" />
-                        </a>
-                        <!-- For small screens -->
-                        <a
-                            v-if="video.lbryId"
-                            :href="'https://odysee.com/' + video.lbryId"
-                            class="btn lg:hidden flex items-center"
-                        >
-                            <font-awesome-icon class="mx-1.5" :icon="['fab', 'odysee']" />
-                        </a>
+                        <WatchOnOdyseeButton :link="`https://odysee.com/${video.lbryId}`" />
                         <!-- listen / watch toggle -->
                         <router-link
                             :to="toggleListenUrl"
@@ -251,6 +235,7 @@ import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import ToastComponent from "./ToastComponent.vue";
 import { parseTimeParam } from "@/utils/Misc";
+import WatchOnOdyseeButton from "./WatchOnOdyseeButton.vue";
 
 export default {
     name: "App",
@@ -264,6 +249,7 @@ export default {
         ShareModal,
         PlaylistVideos,
         WatchOnYouTubeButton,
+        WatchOnOdyseeButton,
         LoadingIndicatorPage,
         ToastComponent,
     },
