@@ -385,7 +385,6 @@ const mixin = {
                 const videoIds = JSON.parse(playlist.videoIds);
                 const videosFuture = videoIds.map(videoId => this.getLocalPlaylistVideo(videoId));
                 playlist.relatedStreams = await Promise.all(videosFuture);
-                console.log(playlist);
                 return playlist;
             }
 

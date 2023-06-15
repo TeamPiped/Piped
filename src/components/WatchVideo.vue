@@ -112,7 +112,7 @@
                             title="RSS feed"
                             role="button"
                             v-if="video.uploaderUrl"
-                            :href="`${apiUrl()}/fss?channels=${video.uploaderUrl.split('/')[2]}`"
+                            :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${video.uploaderUrl.split('/')[2]}`"
                             target="_blank"
                             class="btn flex items-center"
                         >
@@ -494,7 +494,7 @@ export default {
         },
         async fetchSubscribedStatus() {
             if (!this.channelId) return;
-            if ({
+            if (!this.authenticated) {
                 this.subscribed = this.isSubscribedLocally(this.channelId);
                 return;
             }
@@ -531,7 +531,7 @@ export default {
             });
         },
         subscribeHandler() {
-            if {
+            if (this.authenticated) {
                 this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
                     method: "POST",
                     body: JSON.stringify({
