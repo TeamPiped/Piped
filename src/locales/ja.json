@@ -36,7 +36,7 @@
         "skip_outro": "終了シーン/クレジットをスキップ",
         "skip_preview": "予告/あらすじをスキップ",
         "skip_interaction": "登録など操作を頼む自己宣伝をスキップ",
-        "skip_self_promo": "無報酬/自己の宣伝をスキップ",
+        "skip_self_promo": "無償または自己の宣伝をスキップ",
         "skip_non_music": "音楽: 非音楽部分をスキップ",
         "theme": "テーマ",
         "auto": "自動",
@@ -137,7 +137,9 @@
         "cancel": "キャンセル",
         "edit_playlist": "再生リストを編集",
         "playlist_name": "再生リスト名",
-        "playlist_description": "再生リストの説明"
+        "playlist_description": "再生リストの説明",
+        "chapters_layout_mobile": "モバイル端末でのチャプターの配置",
+        "show_search_suggestions": "検索語句の候補を表示"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -168,7 +170,9 @@
         "live": "{0} ライブ配信",
         "shorts": "ショート",
         "all": "すべて",
-        "category": "分類"
+        "category": "分類",
+        "chapters_horizontal": "横方向",
+        "chapters_vertical": "縦方向"
     },
     "search": {
         "did_you_mean": "もしかして: {0}？",
