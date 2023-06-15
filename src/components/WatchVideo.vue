@@ -113,12 +113,13 @@
                         >
                             <font-awesome-icon class="mx-1.5" icon="rss" />
                         </a>
-                        <WatchOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
                         <!-- Share Dialog -->
                         <button class="btn flex items-center" @click="showShareModal = !showShareModal">
                             <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
                             <font-awesome-icon class="mx-1.5" icon="fa-share" />
                         </button>
+                        <!-- YouTube -->
+                        <WatchOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
                         <!-- LBRY -->
                         <a
                             v-if="video.lbryId"
