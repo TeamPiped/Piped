@@ -138,7 +138,8 @@
         "playlist_description": "Opis playlisty",
         "okay": "OK",
         "cancel": "Anuluj",
-        "show_search_suggestions": "Pokaż sugestie wyszukiwania"
+        "show_search_suggestions": "Pokaż sugestie wyszukiwania",
+        "chapters_layout_mobile": "Układ rozdziałów na urządzeniach mobilnych"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
@@ -169,7 +170,9 @@
         "live": "{0} na żywo",
         "shorts": "Krótkie wideo",
         "all": "Wszystkie",
-        "category": "Kategoria"
+        "category": "Kategoria",
+        "chapters_horizontal": "Poziomy",
+        "chapters_vertical": "Pionowy"
     },
     "search": {
         "did_you_mean": "Czy chodziło ci o: {0}?",
