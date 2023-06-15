@@ -1,7 +1,7 @@
 <template>
-    <h2 v-if="authenticated" class="font-bold my-4" v-t="'titles.playlists'" />
+    <h2 class="font-bold my-4" v-t="'titles.playlists'" />
 
-    <div v-if="authenticated" class="flex justify-between mb-3">
+    <div class="flex justify-between mb-3">
         <button v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
         <div class="flex">
             <button
@@ -63,7 +63,7 @@
                 v-if="playlistToDelete == playlist.id"
                 :message="$t('actions.delete_playlist_confirm')"
                 @close="playlistToDelete = null"
-                @confirm="deletePlaylist(playlist.id)"
+                @confirm="onDeletePlaylist(playlist.id)"
             />
         </div>
     </div>
@@ -115,7 +115,7 @@ export default {
         };
     },
     mounted() {
-        if (this.authenticated) this.fetchPlaylists();
+        this.fetchPlaylists();
         this.loadPlaylistBookmarks();
     },
     activated() {
@@ -123,11 +123,7 @@ export default {
     },
     methods: {
         fetchPlaylists() {
-            this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-            }).then(json => {
+            this.getPlaylists().then(json => {
                 this.playlists = json;
             });
         },
@@ -141,50 +137,21 @@ export default {
             const newName = this.newPlaylistName;
             const newDescription = this.newPlaylistDescription;
             if (newName != selectedPlaylist.name) {
-                this.fetchJson(this.authApiUrl() + "/user/playlists/rename", null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        playlistId: selectedPlaylist.id,
-                        newName: newName,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                }).then(json => {
+                this.renamePlaylist(selectedPlaylist.id, newName).then(json => {
                     if (json.error) alert(json.error);
                     else selectedPlaylist.name = newName;
                 });
             }
             if (newDescription != selectedPlaylist.description) {
-                this.fetchJson(this.authApiUrl() + "/user/playlists/description", null, {
-                    method: "PATCH",
-                    body: JSON.stringify({
-                        playlistId: selectedPlaylist.id,
-                        description: newDescription,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                }).then(json => {
+                this.changePlaylistDescription(selectedPlaylist.id, newDescription).then(json => {
                     if (json.error) alert(json.error);
                     else selectedPlaylist.description = newDescription;
                 });
             }
             this.playlistToEdit = null;
         },
-        deletePlaylist(id) {
-            this.fetchJson(this.authApiUrl() + "/user/playlists/delete", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    playlistId: id,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            }).then(json => {
+        onDeletePlaylist(id) {
+            this.deletePlaylist(id).then(json => {
                 if (json.error) alert(json.error);
                 else this.playlists = this.playlists.filter(playlist => playlist.id !== id);
             });
@@ -198,19 +165,6 @@ export default {
                 else this.fetchPlaylists();
             });
         },
-        async createPlaylist(name) {
-            let json = await this.fetchJson(this.authApiUrl() + "/user/playlists/create", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    name: name,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            });
-            return json;
-        },
         async exportPlaylists() {
             if (!this.playlists) return;
             let json = {
@@ -223,8 +177,8 @@ export default {
             this.download(JSON.stringify(json), "playlists.json", "application/json");
         },
         async fetchPlaylistJson(playlistId) {
-            let playlist = await this.fetchJson(this.authApiUrl() + "/playlists/" + playlistId);
-            let playlistJson = {
+            let playlist = await this.getPlaylist(playlistId);
+            return {
                 name: playlist.name,
                 // possible other types: history, watch later, ...
                 type: "playlist",
@@ -233,7 +187,6 @@ export default {
                 // list of the videos, starting with "https://youtube.com" to clarify that those are YT videos
                 videos: playlist.relatedStreams.map(stream => "https://youtube.com" + stream.url),
             };
-            return playlistJson;
         },
         async importPlaylists() {
             const files = this.$refs.fileSelector.files;
@@ -252,8 +205,8 @@ export default {
                     alert(this.$t("actions.no_valid_playlists"));
                     return;
                 }
-                for (var i = 0; i < playlists.length; i++) {
-                    tasks.push(this.createPlaylistWithVideos(playlists[i]));
+                for (let playlist of playlists) {
+                    tasks.push(this.createPlaylistWithVideos(playlist));
                 }
                 // CSV from Google Takeout
             } else if (file.name.slice(-4).toLowerCase() == ".csv") {
@@ -276,19 +229,6 @@ export default {
             let newPlaylist = await this.createPlaylist(playlist.name);
             let videoIds = playlist.videos.map(url => url.substr(-11));
             await this.addVideosToPlaylist(newPlaylist.playlistId, videoIds);
-        },
-        async addVideosToPlaylist(playlistId, videoIds) {
-            await this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    playlistId: playlistId,
-                    videoIds: videoIds,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            });
         },
         async loadPlaylistBookmarks() {
             if (!window.db) return;

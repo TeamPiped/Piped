@@ -23,8 +23,12 @@ export default {
         ModalComponent,
     },
     props: {
+        videoInfo: {
+            type: Object,
+            required: true,
+        },
         videoId: {
-            type: String,
+            type: Object,
             required: true,
         },
     },
@@ -62,28 +66,14 @@ export default {
             this.$refs.addButton.disabled = true;
             this.processing = true;
 
-            this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    playlistId: playlistId,
-                    videoId: this.videoId,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            }).then(json => {
+            this.addVideosToPlaylist(playlistId, [this.videoId], [this.videoInfo]).then(json => {
                 this.setPreference("selectedPlaylist" + this.hashCode(this.authApiUrl()), playlistId);
                 this.$emit("close");
                 if (json.error) alert(json.error);
             });
         },
         async fetchPlaylists() {
-            this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-            }).then(json => {
+            this.getPlaylists().then(json => {
                 this.playlists = json;
             });
         },

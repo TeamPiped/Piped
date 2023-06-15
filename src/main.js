@@ -292,6 +292,93 @@ const mixin = {
             var store = tx.objectStore("channel_groups");
             store.delete(groupName);
         },
+        async getPlaylists() {
+            return await this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
+                headers: {
+                    Authorization: this.getAuthToken(),
+                },
+            });
+        },
+        async getPlaylist(playlistId) {
+            return await this.fetchJson(this.authApiUrl() + "/playlists/" + playlistId);
+        },
+        async createPlaylist(name) {
+            return await this.fetchJson(this.authApiUrl() + "/user/playlists/create", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    name: name,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+        },
+        async deletePlaylist(playlistId) {
+            return await this.fetchJson(this.authApiUrl() + "/user/playlists/delete", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    playlistId: playlistId,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+        },
+        async renamePlaylist(playlistId, newName) {
+            return await this.fetchJson(this.authApiUrl() + "/user/playlists/rename", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    playlistId: playlistId,
+                    newName: newName,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+        },
+        async changePlaylistDescription(playlistId, newDescription) {
+            return await this.fetchJson(this.authApiUrl() + "/user/playlists/description", null, {
+                method: "PATCH",
+                body: JSON.stringify({
+                    playlistId: playlistId,
+                    description: newDescription,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+        },
+        async addVideosToPlaylist(playlistId, videoIds, videoInfos) {
+            if (videoInfos == "hallo") return; //TODO, only needed for local vids
+            return await this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    playlistId: playlistId,
+                    videoIds: videoIds,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+        },
+        async removeVideoFromPlaylist(playlistId, videoId) {
+            return await this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
+                method: "POST",
+                body: JSON.stringify({
+                    playlistId: playlistId,
+                    videoId: videoId,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+        },
     },
     computed: {
         authenticated(_this) {

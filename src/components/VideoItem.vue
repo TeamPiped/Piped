@@ -124,7 +124,12 @@
                     @confirm="removeVideo(item.url.substr(-11))"
                     :message="$t('actions.delete_playlist_video_confirm')"
                 />
-                <PlaylistAddModal v-if="showModal" :video-id="item.url.substr(-11)" @close="showModal = !showModal" />
+                <PlaylistAddModal
+                    v-if="showModal"
+                    :video-id="item.url.substr(-11)"
+                    video-info="item"
+                    @close="showModal = !showModal"
+                />
             </div>
         </div>
     </div>
