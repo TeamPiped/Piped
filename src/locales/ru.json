@@ -137,7 +137,8 @@
         "playlist_description": "Описание плейлиста",
         "okay": "Хорошо",
         "auto_display_captions": "Авто-отображение субтитров",
-        "playlist_name": "Название плейлиста"
+        "playlist_name": "Название плейлиста",
+        "show_search_suggestions": "Показать поисковые предложения"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
