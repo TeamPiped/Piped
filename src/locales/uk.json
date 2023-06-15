@@ -123,7 +123,8 @@
         "playlist_name": "Назва списку відтворення",
         "playlist_description": "Опис списку відтворення",
         "auto_display_captions": "Автоматичне відображення субтитрів",
-        "cancel": "Скасувати"
+        "cancel": "Скасувати",
+        "show_search_suggestions": "Показати пошукові пропозицій"
     },
     "titles": {
         "register": "Реєстрація",
