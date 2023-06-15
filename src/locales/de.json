@@ -118,7 +118,8 @@
         "edit_playlist": "Playlist bearbeiten",
         "playlist_name": "Name der Playlist",
         "playlist_description": "Beschreibung der Playlist",
-        "show_search_suggestions": "Suchvorschläge anzeigen"
+        "show_search_suggestions": "Suchvorschläge anzeigen",
+        "chapters_layout_mobile": "Kapitel-Layout auf Mobilgeräten"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -150,7 +151,9 @@
         "chapters": "Kapitel",
         "shorts": "Shorts",
         "all": "Alle",
-        "category": "Kategorie"
+        "category": "Kategorie",
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertikal"
     },
     "preferences": {
         "ssl_score": "SSL-Bewertung",
