@@ -316,7 +316,7 @@ const mixin = {
         },
         // needs to handle both, streamInfo items and streams items
         createLocalPlaylistVideo(videoId, videoInfo) {
-            if (videoInfo === null || videoId === null) return;
+            if (videoInfo === undefined || videoId === null) return;
 
             var tx = window.db.transaction("playlistVideos", "readwrite");
             var store = tx.objectStore("playlistVideos");
@@ -326,7 +326,7 @@ const mixin = {
                 type: "stream",
                 shortDescription: videoInfo.shortDescription ?? videoInfo.description,
                 url: `/watch?v=${videoId}`,
-                thumbnailUrl: videoInfo.thumbnailUrl,
+                thumbnail: videoInfo.thumbnail ?? videoInfo.thumbnailUrl,
                 uploaderVerified: videoInfo.uploaderVerified,
                 duration: videoInfo.duration,
                 uploaderAvatar: videoInfo.uploaderAvatar,
@@ -341,7 +341,7 @@ const mixin = {
             const req = store.openCursor(videoId);
             let video = null;
             req.onsuccess = e => {
-                video = e.target.result;
+                video = e.target.result.value;
             };
             while (video == null) {
                 await this.delay(10);
@@ -384,7 +384,8 @@ const mixin = {
                 const playlist = await this.getLocalPlaylist(playlistId);
                 const videoIds = JSON.parse(playlist.videoIds);
                 const videosFuture = videoIds.map(videoId => this.getLocalPlaylistVideo(videoId));
-                playlist.relatedStreams = Promise.all(videosFuture);
+                playlist.relatedStreams = await Promise.all(videosFuture);
+                console.log(playlist);
                 return playlist;
             }
 
@@ -392,7 +393,8 @@ const mixin = {
         },
         async createPlaylist(name) {
             if (!this.authenticated) {
-                const playlistId = "local-1";
+                const uuid = crypto.randomUUID();
+                const playlistId = `local-${uuid}`;
                 this.createOrUpdateLocalPlaylist({
                     playlistId: playlistId,
                     // remapping needed for the playlists page
@@ -479,9 +481,9 @@ const mixin = {
             if (!this.authenticated) {
                 const playlist = await this.getLocalPlaylist(playlistId);
                 const currentVideoIds = JSON.parse(playlist.videoIds);
-                if (currentVideoIds.length == 0) playlist.thumbnailUrl = videoInfos[0].thumbnailUrl;
-                videoIds.push(...videoIds);
-                playlist.videoIds = JSON.stringify(videoIds);
+                if (currentVideoIds.length == 0) playlist.thumbnail = videoInfos[0].thumbnail;
+                currentVideoIds.push(...videoIds);
+                playlist.videoIds = JSON.stringify(currentVideoIds);
                 this.createOrUpdateLocalPlaylist(playlist);
                 for (let i in videoIds) {
                     this.createLocalPlaylistVideo(videoIds[i], videoInfos[i]);
@@ -501,22 +503,22 @@ const mixin = {
                 },
             });
         },
-        async removeVideoFromPlaylist(playlistId, videoId) {
+        async removeVideoFromPlaylist(playlistId, videoId, index) {
             if (!this.authenticated) {
                 const playlist = await this.getLocalPlaylist(playlistId);
                 const videoIds = JSON.parse(playlist.videoIds);
                 videoIds.splice(videoIds.indexOf(videoId), 1);
                 playlist.videoIds = JSON.stringify(videoIds);
-                if (videoIds.length == 0) playlist.thumbnailUrl = "";
+                if (videoIds.length == 0) playlist.thumbnail = "https://pipedproxy.kavin.rocks/?host=i.ytimg.com";
                 this.createOrUpdateLocalPlaylist(playlist);
                 return { message: "ok" };
             }
 
-            return await this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
+            return await this.fetchJson(this.authApiUrl() + "/user/playlists/remove", null, {
                 method: "POST",
                 body: JSON.stringify({
                     playlistId: playlistId,
-                    videoId: videoId,
+                    index: index,
                 }),
                 headers: {
                     Authorization: this.getAuthToken(),

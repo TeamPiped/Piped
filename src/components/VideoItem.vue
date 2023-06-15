@@ -177,17 +177,7 @@ export default {
     methods: {
         removeVideo() {
             this.$refs.removeButton.disabled = true;
-            this.fetchJson(this.authApiUrl() + "/user/playlists/remove", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    playlistId: this.playlistId,
-                    index: this.index,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            }).then(json => {
+            this.removeVideoFromPlaylist(this.playlistId, null, this.index).then(json => {
                 if (json.error) alert(json.error);
                 else this.$emit("remove");
             });

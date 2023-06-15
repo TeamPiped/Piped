@@ -28,7 +28,7 @@ export default {
             required: true,
         },
         videoId: {
-            type: Object,
+            type: String,
             required: true,
         },
     },
