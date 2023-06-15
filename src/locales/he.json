@@ -138,7 +138,8 @@
         "playlist_name": "שם רשימת הנגינה",
         "playlist_description": "תיאור רשימת הנגינה",
         "okay": "אישור",
-        "show_search_suggestions": "הצגת הצעות חיפוש"
+        "show_search_suggestions": "הצגת הצעות חיפוש",
+        "chapters_layout_mobile": "פריסת פרקים בנייד"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
@@ -169,7 +170,9 @@
         "live": "{0} בשידור חי",
         "shorts": "קצרצרים",
         "all": "הכול",
-        "category": "קטגוריה"
+        "category": "קטגוריה",
+        "chapters_horizontal": "אופקית",
+        "chapters_vertical": "אנכית"
     },
     "search": {
         "did_you_mean": "האם התכוונת לביטוי {0}?",
