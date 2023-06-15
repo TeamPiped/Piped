@@ -138,7 +138,8 @@
         "okay": "Bone",
         "playlist_description": "Priskribo de la ludlisto",
         "cancel": "Nuligi",
-        "show_search_suggestions": "Montri serĉ-sugestojn"
+        "show_search_suggestions": "Montri serĉ-sugestojn",
+        "chapters_layout_mobile": "Aranĝo de ĉapitroj en poŝtelefono"
     },
     "video": {
         "chapters": "Sekcioj",
@@ -150,7 +151,9 @@
         "ratings_disabled": "Taksadoj Malebligitaj",
         "shorts": "Mallongaj",
         "all": "Ĉiuj",
-        "category": "Kategorio"
+        "category": "Kategorio",
+        "chapters_horizontal": "Horizontala",
+        "chapters_vertical": "Vertikala"
     },
     "search": {
         "music_albums": "YT Music: Albumoj",

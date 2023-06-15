@@ -135,7 +135,8 @@
         "edit_playlist": "Upravit playlist",
         "playlist_description": "Popis playlistu",
         "okay": "Okay",
-        "show_search_suggestions": "Zobrazit našeptávání ve vyhledávání"
+        "show_search_suggestions": "Zobrazit našeptávání ve vyhledávání",
+        "chapters_layout_mobile": "Rozložení kapitol na mobilu"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
@@ -169,7 +170,9 @@
         "live": "{0} Živě",
         "shorts": "Shorts",
         "all": "Vše",
-        "category": "Kategorie"
+        "category": "Kategorie",
+        "chapters_horizontal": "Horizontální",
+        "chapters_vertical": "Vertikální"
     },
     "search": {
         "did_you_mean": "Mysleli jste: {0}?",

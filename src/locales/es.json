@@ -9,7 +9,9 @@
         "live": "{0} Directo",
         "shorts": "Cortos",
         "all": "Todos",
-        "category": "Categoría"
+        "category": "Categoría",
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertical"
     },
     "preferences": {
         "ssl_score": "Puntuación SSL",
@@ -145,7 +147,8 @@
         "playlist_name": "Nombre de la lista de reproducción",
         "playlist_description": "Descripción de la lista de reproducción",
         "cancel": "Cancelar",
-        "show_search_suggestions": "Mostrar sugerencias de búsqueda"
+        "show_search_suggestions": "Mostrar sugerencias de búsqueda",
+        "chapters_layout_mobile": "Disposición de capítulos en móvil"
     },
     "titles": {
         "feed": "Fuente web",
