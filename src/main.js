@@ -316,10 +316,10 @@ const mixin = {
         },
         // needs to handle both, streamInfo items and streams items
         createLocalPlaylistVideo(videoId, videoInfo) {
-            if (videoInfo === undefined || videoId === null) return;
+            if (videoInfo === undefined || videoId === null || videoInfo?.error) return;
 
-            var tx = window.db.transaction("playlistVideos", "readwrite");
-            var store = tx.objectStore("playlistVideos");
+            var tx = window.db.transaction("playlist_videos", "readwrite");
+            var store = tx.objectStore("playlist_videos");
             const video = {
                 videoId: videoId,
                 title: videoInfo.title,
@@ -336,8 +336,8 @@ const mixin = {
             store.put(video);
         },
         async getLocalPlaylistVideo(videoId) {
-            var tx = window.db.transaction("playlistVideos", "readonly");
-            var store = tx.objectStore("playlistVideos");
+            var tx = window.db.transaction("playlist_videos", "readonly");
+            var store = tx.objectStore("playlist_videos");
             const req = store.openCursor(videoId);
             let video = null;
             req.onsuccess = e => {
@@ -420,9 +420,22 @@ const mixin = {
         },
         async deletePlaylist(playlistId) {
             if (!this.authenticated) {
+                const playlist = await this.getLocalPlaylist(playlistId);
                 var tx = window.db.transaction("playlists", "readwrite");
                 var store = tx.objectStore("playlists");
                 store.delete(playlistId);
+                // delete videos that don't need to be store anymore
+                const playlists = await this.getPlaylists();
+                const usedVideoIds = playlists
+                    .filter(playlist => playlist.id != playlistId)
+                    .map(playlist => JSON.parse(playlist.videoIds))
+                    .flat();
+                const potentialDeletableVideos = JSON.parse(playlist.videoIds);
+                var videoTx = window.db.transaction("playlist_videos", "readwrite");
+                var videoStore = videoTx.objectStore("playlist_videos");
+                for (let videoId of potentialDeletableVideos) {
+                    if (!usedVideoIds.includes(videoId)) videoStore.delete(videoId);
+                }
                 return { message: "ok" };
             }
 
@@ -485,8 +498,11 @@ const mixin = {
                 currentVideoIds.push(...videoIds);
                 playlist.videoIds = JSON.stringify(currentVideoIds);
                 this.createOrUpdateLocalPlaylist(playlist);
+                let streamInfos =
+                    videoInfos ??
+                    (await Promise.all(videoIds.map(videoId => this.fetchJson(this.apiUrl() + "/streams/" + videoId))));
                 for (let i in videoIds) {
-                    this.createLocalPlaylistVideo(videoIds[i], videoInfos[i]);
+                    this.createLocalPlaylistVideo(videoIds[i], streamInfos[i]);
                 }
                 return { message: "ok" };
             }

@@ -80,7 +80,7 @@ export default {
                 if (!db.objectStoreNames.contains("playlists")) {
                     const playlistStore = db.createObjectStore("playlists", { keyPath: "playlistId" });
                     playlistStore.createIndex("playlistId", "playlistId", { unique: true });
-                    const playlistVideosStore = db.createObjectStore("playlistVideos", { keyPath: "videoId" });
+                    const playlistVideosStore = db.createObjectStore("playlist_videos", { keyPath: "videoId" });
                     playlistVideosStore.createIndex("videoId", "videoId", { unique: true });
                 }
             };
