@@ -238,8 +238,7 @@ export default {
             cursorRequest.onsuccess = e => {
                 const cursor = e.target.result;
                 if (cursor) {
-                    const bookmark = cursor.value;
-                    this.bookmarks.push(bookmark);
+                    this.bookmarks.push(cursor.value);
                     cursor.continue();
                 }
             };

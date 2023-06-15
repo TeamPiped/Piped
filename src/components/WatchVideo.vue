@@ -94,7 +94,7 @@
                 />
                 <div class="flex flex-wrap gap-1 ml-auto">
                     <!-- Subscribe Button -->
-                    <button class="btn flex items-center" v-if="authenticated" @click="showModal = !showModal">
+                    <button class="btn flex items-center" @click="showModal = !showModal">
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
                     </button>
                     <button
@@ -112,7 +112,7 @@
                             title="RSS feed"
                             role="button"
                             v-if="video.uploaderUrl"
-                            :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${video.uploaderUrl.split('/')[2]}`"
+                            :href="`${apiUrl()}/fss?channels=${video.uploaderUrl.split('/')[2]}`"
                             target="_blank"
                             class="btn flex items-center"
                         >
@@ -494,7 +494,7 @@ export default {
         },
         async fetchSubscribedStatus() {
             if (!this.channelId) return;
-            if (!this.authenticated) {
+            if ({
                 this.subscribed = this.isSubscribedLocally(this.channelId);
                 return;
             }
@@ -531,7 +531,7 @@ export default {
             });
         },
         subscribeHandler() {
-            if (this.authenticated) {
+            if {
                 this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
                     method: "POST",
                     body: JSON.stringify({

@@ -194,6 +194,9 @@ const mixin = {
         timeAgo(time) {
             return timeAgo.format(time);
         },
+        async delay(millis) {
+            return await new Promise(r => setTimeout(r, millis));
+        },
         urlify(string) {
             if (!string) return "";
             const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
@@ -292,7 +295,84 @@ const mixin = {
             var store = tx.objectStore("channel_groups");
             store.delete(groupName);
         },
+        async getLocalPlaylist(playlistId) {
+            var tx = window.db.transaction("playlists", "readonly");
+            var store = tx.objectStore("playlists");
+            const req = store.openCursor(playlistId);
+            let playlist = null;
+            req.onsuccess = e => {
+                playlist = e.target.result.value;
+            };
+            while (playlist == null) {
+                await this.delay(10);
+            }
+            playlist.videos = JSON.parse(playlist.videoIds).length;
+            return playlist;
+        },
+        createOrUpdateLocalPlaylist(playlist) {
+            var tx = window.db.transaction("playlists", "readwrite");
+            var store = tx.objectStore("playlists");
+            store.put(playlist);
+        },
+        // needs to handle both, streamInfo items and streams items
+        createLocalPlaylistVideo(videoId, videoInfo) {
+            if (videoInfo === null || videoId === null) return;
+
+            var tx = window.db.transaction("playlistVideos", "readwrite");
+            var store = tx.objectStore("playlistVideos");
+            const video = {
+                videoId: videoId,
+                title: videoInfo.title,
+                type: "stream",
+                shortDescription: videoInfo.shortDescription ?? videoInfo.description,
+                url: `/watch?v=${videoId}`,
+                thumbnailUrl: videoInfo.thumbnailUrl,
+                uploaderVerified: videoInfo.uploaderVerified,
+                duration: videoInfo.duration,
+                uploaderAvatar: videoInfo.uploaderAvatar,
+                uploaderUrl: videoInfo.uploaderUrl,
+                uploaderName: videoInfo.uploaderName ?? videoInfo.uploader,
+            };
+            store.put(video);
+        },
+        async getLocalPlaylistVideo(videoId) {
+            var tx = window.db.transaction("playlistVideos", "readonly");
+            var store = tx.objectStore("playlistVideos");
+            const req = store.openCursor(videoId);
+            let video = null;
+            req.onsuccess = e => {
+                video = e.target.result;
+            };
+            while (video == null) {
+                await this.delay(10);
+            }
+            return video;
+        },
         async getPlaylists() {
+            if (!this.authenticated) {
+                if (!window.db) return [];
+                let finished = false;
+                let playlists = [];
+                var tx = window.db.transaction("playlists", "readonly");
+                var store = tx.objectStore("playlists");
+                const cursorRequest = store.openCursor();
+                cursorRequest.onsuccess = e => {
+                    const cursor = e.target.result;
+                    if (cursor) {
+                        let playlist = cursor.value;
+                        playlist.videos = JSON.parse(playlist.videoIds).length;
+                        playlists.push(playlist);
+                        cursor.continue();
+                    } else {
+                        finished = true;
+                    }
+                };
+                while (!finished) {
+                    await this.delay(10);
+                }
+                return playlists;
+            }
+
             return await this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
                 headers: {
                     Authorization: this.getAuthToken(),
@@ -300,9 +380,31 @@ const mixin = {
             });
         },
         async getPlaylist(playlistId) {
+            if (!this.authenticated) {
+                const playlist = await this.getLocalPlaylist(playlistId);
+                const videoIds = JSON.parse(playlist.videoIds);
+                const videosFuture = videoIds.map(videoId => this.getLocalPlaylistVideo(videoId));
+                playlist.relatedStreams = Promise.all(videosFuture);
+                return playlist;
+            }
+
             return await this.fetchJson(this.authApiUrl() + "/playlists/" + playlistId);
         },
         async createPlaylist(name) {
+            if (!this.authenticated) {
+                const playlistId = "local-1";
+                this.createOrUpdateLocalPlaylist({
+                    playlistId: playlistId,
+                    // remapping needed for the playlists page
+                    id: playlistId,
+                    name: name,
+                    description: "",
+                    thumbnail: "https://pipedproxy.kavin.rocks/?host=i.ytimg.com",
+                    videoIds: "[]", // empty list
+                });
+                return { playlistId: playlistId };
+            }
+
             return await this.fetchJson(this.authApiUrl() + "/user/playlists/create", null, {
                 method: "POST",
                 body: JSON.stringify({
@@ -315,6 +417,13 @@ const mixin = {
             });
         },
         async deletePlaylist(playlistId) {
+            if (!this.authenticated) {
+                var tx = window.db.transaction("playlists", "readwrite");
+                var store = tx.objectStore("playlists");
+                store.delete(playlistId);
+                return { message: "ok" };
+            }
+
             return await this.fetchJson(this.authApiUrl() + "/user/playlists/delete", null, {
                 method: "POST",
                 body: JSON.stringify({
@@ -327,6 +436,13 @@ const mixin = {
             });
         },
         async renamePlaylist(playlistId, newName) {
+            if (!this.authenticated) {
+                const playlist = await this.getLocalPlaylist(playlistId);
+                playlist.name = newName;
+                this.createOrUpdateLocalPlaylist(playlist);
+                return { message: "ok" };
+            }
+
             return await this.fetchJson(this.authApiUrl() + "/user/playlists/rename", null, {
                 method: "POST",
                 body: JSON.stringify({
@@ -340,6 +456,13 @@ const mixin = {
             });
         },
         async changePlaylistDescription(playlistId, newDescription) {
+            if (!this.authenticated) {
+                const playlist = await this.getLocalPlaylist(playlistId);
+                playlist.description = newDescription;
+                this.createOrUpdateLocalPlaylist(playlist);
+                return { message: "ok" };
+            }
+
             return await this.fetchJson(this.authApiUrl() + "/user/playlists/description", null, {
                 method: "PATCH",
                 body: JSON.stringify({
@@ -353,7 +476,19 @@ const mixin = {
             });
         },
         async addVideosToPlaylist(playlistId, videoIds, videoInfos) {
-            if (videoInfos == "hallo") return; //TODO, only needed for local vids
+            if (!this.authenticated) {
+                const playlist = await this.getLocalPlaylist(playlistId);
+                const currentVideoIds = JSON.parse(playlist.videoIds);
+                if (currentVideoIds.length == 0) playlist.thumbnailUrl = videoInfos[0].thumbnailUrl;
+                videoIds.push(...videoIds);
+                playlist.videoIds = JSON.stringify(videoIds);
+                this.createOrUpdateLocalPlaylist(playlist);
+                for (let i in videoIds) {
+                    this.createLocalPlaylistVideo(videoIds[i], videoInfos[i]);
+                }
+                return { message: "ok" };
+            }
+
             return await this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
                 method: "POST",
                 body: JSON.stringify({
@@ -367,6 +502,16 @@ const mixin = {
             });
         },
         async removeVideoFromPlaylist(playlistId, videoId) {
+            if (!this.authenticated) {
+                const playlist = await this.getLocalPlaylist(playlistId);
+                const videoIds = JSON.parse(playlist.videoIds);
+                videoIds.splice(videoIds.indexOf(videoId), 1);
+                playlist.videoIds = JSON.stringify(videoIds);
+                if (videoIds.length == 0) playlist.thumbnailUrl = "";
+                this.createOrUpdateLocalPlaylist(playlist);
+                return { message: "ok" };
+            }
+
             return await this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
                 method: "POST",
                 body: JSON.stringify({

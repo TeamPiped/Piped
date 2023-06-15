@@ -107,7 +107,7 @@
                 >
                     <font-awesome-icon icon="headphones" />
                 </router-link>
-                <button v-if="authenticated" :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
+                <button :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
                     <font-awesome-icon icon="circle-plus" />
                 </button>
                 <button
@@ -127,7 +127,7 @@
                 <PlaylistAddModal
                     v-if="showModal"
                     :video-id="item.url.substr(-11)"
-                    video-info="item"
+                    :video-info="item"
                     @close="showModal = !showModal"
                 />
             </div>
