@@ -117,7 +117,9 @@
         "playlist_name": "Nome da playlist",
         "auto_display_captions": "Exibição Automática de Legendas",
         "create_group": "Criar grupo",
-        "group_name": "Nome do grupo"
+        "group_name": "Nome do grupo",
+        "show_search_suggestions": "Mostrar sugestões de pesquisa",
+        "chapters_layout_mobile": "Layout dos Capítulos no Celular"
     },
     "titles": {
         "history": "Histórico",
@@ -168,7 +170,9 @@
         "sponsor_segments": "Segmentos de Patrocinadores",
         "shorts": "Shorts",
         "all": "Todos",
-        "category": "Categoria"
+        "category": "Categoria",
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertical"
     },
     "search": {
         "did_you_mean": "Você quis dizer: {0}?",
