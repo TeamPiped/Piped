@@ -119,9 +119,9 @@
                             <font-awesome-icon class="mx-1.5" icon="fa-share" />
                         </button>
                         <!-- YouTube -->
-                        <WatchOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
+                        <WatchOnButton :link="`https://youtu.be/${getVideoId()}`" />
                         <!-- Odysee -->
-                        <WatchOnOdyseeButton :link="`https://odysee.com/${video.lbryId}`" />
+                        <WatchOnButton :link="`https://odysee.com/${video.lbryId}`" platform="Odysee" />
                         <!-- listen / watch toggle -->
                         <router-link
                             :to="toggleListenUrl"
@@ -231,11 +231,10 @@ import ChaptersBar from "./ChaptersBar.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
-import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import WatchOnButton from "./WatchOnButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import ToastComponent from "./ToastComponent.vue";
 import { parseTimeParam } from "@/utils/Misc";
-import WatchOnOdyseeButton from "./WatchOnOdyseeButton.vue";
 
 export default {
     name: "App",
@@ -248,8 +247,7 @@ export default {
         PlaylistAddModal,
         ShareModal,
         PlaylistVideos,
-        WatchOnYouTubeButton,
-        WatchOnOdyseeButton,
+        WatchOnButton,
         LoadingIndicatorPage,
         ToastComponent,
     },
