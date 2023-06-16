@@ -76,7 +76,7 @@
         "disable_lbry": "Desativar \"LBRY\" para emissões",
         "loading": "A carregar...",
         "please_select_playlist": "Selecione uma lista de reprodução",
-        "select_playlist": "Selecione uma lista de reprodução",
+        "select_playlist": "Selecionar uma lista de reprodução",
         "add_to_playlist": "Adicionar à lista de reprodução",
         "delete_playlist": "Apagar lista de reprodução",
         "download_as_txt": "Descarregar como .txt",
@@ -135,7 +135,8 @@
         "playlist_name": "Nome da lista de reprodução",
         "cancel": "Cancelar",
         "okay": "Ok",
-        "show_search_suggestions": "Mostrar sugestões de pesquisa"
+        "show_search_suggestions": "Mostrar sugestões de pesquisa",
+        "chapters_layout_mobile": "Aplicações recentemente adicionadas"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
@@ -166,7 +167,9 @@
         "live": "{0} em direto",
         "shorts": "Curtos",
         "all": "Todos",
-        "category": "Categoria"
+        "category": "Categoria",
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertical"
     },
     "search": {
         "did_you_mean": "Será que queria dizer: {0}?",
@@ -192,6 +195,6 @@
         "cannot_copy": "Não foi possível copiar!",
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
         "register_no_email_note": "Não recomendamos utilizar um endereço de e-mail como nome de utilizador. Continuar?",
-        "next_video_countdown": "O próximo vídeo será reproduzido dentro de {0} segundos."
+        "next_video_countdown": "A reproduzir o vídeo seguinte em {0}s"
     }
 }
