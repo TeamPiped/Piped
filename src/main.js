@@ -518,11 +518,11 @@ const mixin = {
                 },
             });
         },
-        async removeVideoFromPlaylist(playlistId, videoId, index) {
+        async removeVideoFromPlaylist(playlistId, index) {
             if (!this.authenticated) {
                 const playlist = await this.getLocalPlaylist(playlistId);
                 const videoIds = JSON.parse(playlist.videoIds);
-                videoIds.splice(videoIds.indexOf(videoId), 1);
+                videoIds.splice(index, 1);
                 playlist.videoIds = JSON.stringify(videoIds);
                 if (videoIds.length == 0) playlist.thumbnail = "https://pipedproxy.kavin.rocks/?host=i.ytimg.com";
                 this.createOrUpdateLocalPlaylist(playlist);

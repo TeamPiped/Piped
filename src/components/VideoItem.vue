@@ -177,7 +177,7 @@ export default {
     methods: {
         removeVideo() {
             this.$refs.removeButton.disabled = true;
-            this.removeVideoFromPlaylist(this.playlistId, null, this.index).then(json => {
+            this.removeVideoFromPlaylist(this.playlistId, this.index).then(json => {
                 if (json.error) alert(json.error);
                 else this.$emit("remove");
             });
