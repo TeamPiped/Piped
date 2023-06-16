@@ -113,20 +113,15 @@
                         >
                             <font-awesome-icon class="mx-1.5" icon="rss" />
                         </a>
-                        <WatchOnYouTubeButton :link="`https://youtu.be/${getVideoId()}`" />
                         <!-- Share Dialog -->
                         <button class="btn flex items-center" @click="showShareModal = !showShareModal">
                             <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
                             <font-awesome-icon class="mx-1.5" icon="fa-share" />
                         </button>
-                        <!-- LBRY -->
-                        <a
-                            v-if="video.lbryId"
-                            :href="'https://odysee.com/' + video.lbryId"
-                            class="btn flex items-center"
-                        >
-                            <i18n-t keypath="player.watch_on" tag="strong">LBRY</i18n-t>
-                        </a>
+                        <!-- YouTube -->
+                        <WatchOnButton :link="`https://youtu.be/${getVideoId()}`" />
+                        <!-- Odysee -->
+                        <WatchOnButton :link="`https://odysee.com/${video.lbryId}`" platform="Odysee" />
                         <!-- listen / watch toggle -->
                         <router-link
                             :to="toggleListenUrl"
@@ -236,7 +231,7 @@ import ChaptersBar from "./ChaptersBar.vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import PlaylistVideos from "./PlaylistVideos.vue";
-import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import WatchOnButton from "./WatchOnButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import ToastComponent from "./ToastComponent.vue";
 import { parseTimeParam } from "@/utils/Misc";
@@ -252,7 +247,7 @@ export default {
         PlaylistAddModal,
         ShareModal,
         PlaylistVideos,
-        WatchOnYouTubeButton,
+        WatchOnButton,
         LoadingIndicatorPage,
         ToastComponent,
     },

@@ -28,7 +28,7 @@
                 <a class="btn mr-1" :href="getRssUrl">
                     <font-awesome-icon icon="rss" />
                 </a>
-                <WatchOnYouTubeButton :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`" />
+                <WatchOnButton :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`" />
             </div>
         </div>
 
@@ -55,13 +55,13 @@ import ErrorHandler from "./ErrorHandler.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import CollapsableText from "./CollapsableText.vue";
 import VideoItem from "./VideoItem.vue";
-import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import WatchOnButton from "./WatchOnButton.vue";
 
 export default {
     components: {
         ErrorHandler,
         VideoItem,
-        WatchOnYouTubeButton,
+        WatchOnButton,
         LoadingIndicatorPage,
         CollapsableText,
     },

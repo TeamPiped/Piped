@@ -23,7 +23,7 @@ import {
     faBookmark,
     faEdit,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faBitcoin, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faBitcoin, faYoutube, faOdysee } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(
     faEye,
@@ -34,6 +34,7 @@ library.add(
     faHeart,
     faHeadphones,
     faYoutube,
+    faOdysee,
     faRss,
     faChevronLeft,
     faLevelDownAlt,

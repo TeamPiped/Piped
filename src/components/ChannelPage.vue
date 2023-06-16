@@ -44,7 +44,7 @@
 
         <CollapsableText :text="channel.description" />
 
-        <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
+        <WatchOnButton :link="`https://youtube.com/channel/${this.channel.id}`" />
 
         <div class="flex my-2 mx-1">
             <button
@@ -76,7 +76,7 @@
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import ContentItem from "./ContentItem.vue";
-import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import WatchOnButton from "./WatchOnButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import CollapsableText from "./CollapsableText.vue";
 
@@ -84,7 +84,7 @@ export default {
     components: {
         ErrorHandler,
         ContentItem,
-        WatchOnYouTubeButton,
+        WatchOnButton,
         LoadingIndicatorPage,
         CollapsableText,
     },
