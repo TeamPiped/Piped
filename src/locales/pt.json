@@ -77,7 +77,7 @@
         "skip_filler_tangent": "Ignorar segmentos de preenchimento",
         "add_to_playlist": "Adicionar à lista de reprodução",
         "delete_playlist": "Apagar lista de reprodução",
-        "select_playlist": "Selecione uma lista de reprodução",
+        "select_playlist": "Selecionar uma lista de reprodução",
         "delete_playlist_confirm": "Apagar esta lista de reprodução?",
         "please_select_playlist": "Selecione uma lista de reprodução",
         "delete_playlist_video_confirm": "Remover vídeo da lista de reprodução?",
@@ -135,7 +135,8 @@
         "cancel": "Cancelar",
         "edit_playlist": "Editar lista de reprodução",
         "playlist_name": "Nome da lista de reprodução",
-        "show_search_suggestions": "Mostrar sugestões de pesquisa"
+        "show_search_suggestions": "Mostrar sugestões de pesquisa",
+        "chapters_layout_mobile": "Aplicações recentemente adicionadas"
     },
     "preferences": {
         "instance_name": "Nome da instância",
@@ -160,7 +161,9 @@
         "live": "{0} em direto",
         "shorts": "Curtos",
         "all": "Todos",
-        "category": "Categoria"
+        "category": "Categoria",
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertical"
     },
     "search": {
         "did_you_mean": "Será que queria dizer: {0}?",
