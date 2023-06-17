@@ -8,10 +8,12 @@ RUN --mount=type=cache,target=/var/cache/apk \
 
 COPY . .
 
-RUN --mount=type=cache,target=/root/.cache/yarn \
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+RUN --mount=type=cache,target=/root/.local/share/pnpm \
     --mount=type=cache,target=/app/node_modules \
-    yarn install --prefer-offline && \
-    yarn build && ./localizefonts.sh
+    pnpm install --prefer-offline && \
+    pnpm build && ./localizefonts.sh
 
 FROM nginx:alpine
 
