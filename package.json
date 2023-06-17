@@ -29,7 +29,7 @@
     "devDependencies": {
         "@iconify-json/fa6-brands": "1.1.11",
         "@iconify-json/fa6-solid": "1.1.13",
-        "@intlify/vite-plugin-vue-i18n": "6.0.3",
+        "@intlify/unplugin-vue-i18n": "0.11.0",
         "@unocss/preset-icons": "0.53.1",
         "@unocss/preset-web-fonts": "0.53.1",
         "@unocss/reset": "0.53.1",
