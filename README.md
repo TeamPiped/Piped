@@ -103,13 +103,13 @@ You can help by translating the project to a language you speak at https://hoste
 ### Development Setup
 
 ```
-yarn install
+pnpm install
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn serve
+pnpm serve
 ```
 
 You can now make changes and view then in realtime!
