@@ -118,7 +118,8 @@
         "cancel": "取消",
         "okay": "好的",
         "edit_playlist": "编辑播放列表",
-        "show_search_suggestions": "显示搜索建议"
+        "show_search_suggestions": "显示搜索建议",
+        "chapters_layout_mobile": "移动设备上的章节布局"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -130,7 +131,9 @@
         "ratings_disabled": "已禁用评价",
         "shorts": "短视频",
         "all": "全部",
-        "category": "类别"
+        "category": "类别",
+        "chapters_horizontal": "水平",
+        "chapters_vertical": "垂直"
     },
     "preferences": {
         "ssl_score": "SSL 分数",
