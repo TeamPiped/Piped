@@ -32,6 +32,7 @@
         "@intlify/vite-plugin-vue-i18n": "6.0.3",
         "@unocss/preset-icons": "0.53.1",
         "@unocss/preset-web-fonts": "0.53.1",
+        "@unocss/reset": "0.53.1",
         "@unocss/transformer-directives": "0.53.1",
         "@unocss/transformer-variant-group": "0.53.1",
         "@vitejs/plugin-legacy": "4.0.4",
@@ -45,7 +46,8 @@
         "unocss": "0.53.1",
         "vite": "4.3.9",
         "vite-plugin-eslint": "1.8.1",
-        "vite-plugin-pwa": "0.16.4"
+        "vite-plugin-pwa": "0.16.4",
+        "workbox-window": "6.5.4"
     },
     "eslintConfig": {
         "root": true,

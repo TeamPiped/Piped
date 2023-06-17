@@ -12,12 +12,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: latest
             - name: Setup Node.js
               uses: actions/setup-node@v3
               with:
-                  cache: "yarn"
-            - run: yarn install --prefer-offline
-            - run: yarn build && ./localizefonts.sh && mv dist/ dist-ci/
+                  cache: "pnpm"
+            - run: pnpm install
+            - run: pnpm build && ./localizefonts.sh && mv dist/ dist-ci/
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v2
               with:

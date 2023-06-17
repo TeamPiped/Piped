@@ -9,10 +9,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: latest
             - name: Setup Node.js
               uses: actions/setup-node@v3
               with:
-                  cache: "yarn"
-            - run: yarn install --prefer-offline
-            - run: yarn build
-            - run: yarn lint --no-fix
+                  cache: "pnpm"
+            - run: pnpm install
+            - run: pnpm build
+            - run: pnpm lint --no-fix
