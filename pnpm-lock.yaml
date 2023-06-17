@@ -111,10 +111,10 @@ devDependencies:
     version: 1.8.1(eslint@8.42.0)(vite@4.3.9)
   vite-plugin-pwa:
     specifier: 0.16.4
-    version: 0.16.4(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@6.5.4)
+    version: 0.16.4(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@6.6.0)
   workbox-window:
-    specifier: 6.5.4
-    version: 6.5.4
+    specifier: 6.6.0
+    version: 6.6.0
 
 packages:
 
@@ -4397,7 +4397,7 @@ packages:
       vite: 4.3.9(terser@5.18.0)
     dev: true
 
-  /vite-plugin-pwa@0.16.4(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@6.5.4):
+  /vite-plugin-pwa@0.16.4(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@6.6.0):
     resolution: {integrity: sha512-lmwHFIs9zI2H9bXJld/zVTbCqCQHZ9WrpyDMqosICDV0FVnCJwniX1NMDB79HGTIZzOQkY4gSZaVTJTw6maz/Q==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -4410,7 +4410,7 @@ packages:
       pretty-bytes: 6.1.0
       vite: 4.3.9(terser@5.18.0)
       workbox-build: 7.0.0
-      workbox-window: 6.5.4
+      workbox-window: 6.6.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4608,8 +4608,8 @@ packages:
       workbox-core: 7.0.0
     dev: true
 
-  /workbox-core@6.5.4:
-    resolution: {integrity: sha512-OXYb+m9wZm8GrORlV2vBbE5EC1FKu71GGp0H4rjmxmF4/HLbMCoTFws87M3dFwgpmg0v00K++PImpNQ6J5NQ6Q==}
+  /workbox-core@6.6.0:
+    resolution: {integrity: sha512-GDtFRF7Yg3DD859PMbPAYPeJyg5gJYXuBQAC+wyrWuuXgpfoOrIQIvFRZnQ7+czTIQjIr1DhLEGFzZanAT/3bQ==}
     dev: true
 
   /workbox-core@7.0.0:
@@ -4686,11 +4686,11 @@ packages:
     resolution: {integrity: sha512-SWfEouQfjRiZ7GNABzHUKUyj8pCoe+RwjfOIajcx6J5mtgKkN+t8UToHnpaJL5UVVOf5YhJh+OHhbVNIHe+LVA==}
     dev: true
 
-  /workbox-window@6.5.4:
-    resolution: {integrity: sha512-HnLZJDwYBE+hpG25AQBO8RUWBJRaCsI9ksQJEp3aCOFCaG5kqaToAYXFRAHxzRluM2cQbGzdQF5rjKPWPA1fug==}
+  /workbox-window@6.6.0:
+    resolution: {integrity: sha512-L4N9+vka17d16geaJXXRjENLFldvkWy7JyGxElRD0JvBxvFEd8LOhr+uXCcar/NzAmIBRv9EZ+M+Qr4mOoBITw==}
     dependencies:
       '@types/trusted-types': 2.0.3
-      workbox-core: 6.5.4
+      workbox-core: 6.6.0
     dev: true
 
   /workbox-window@7.0.0:
