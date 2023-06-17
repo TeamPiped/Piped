@@ -138,7 +138,8 @@
         "edit_playlist": "Sunting daftar putar",
         "playlist_name": "Nama daftar putar",
         "okay": "Oke",
-        "show_search_suggestions": "Tampilkan saran pencarian"
+        "show_search_suggestions": "Tampilkan saran pencarian",
+        "chapters_layout_mobile": "Tata Letak Bab di Ponsel"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -169,7 +170,9 @@
         "live": "{0} Langsung",
         "shorts": "Shorts",
         "all": "Semua",
-        "category": "Kategori"
+        "category": "Kategori",
+        "chapters_horizontal": "Horisontal",
+        "chapters_vertical": "Vertikal"
     },
     "search": {
         "did_you_mean": "Apakah Anda bermaksud: {0}?",
