@@ -121,7 +121,11 @@
                         <!-- YouTube -->
                         <WatchOnButton :link="`https://youtu.be/${getVideoId()}`" />
                         <!-- Odysee -->
-                        <WatchOnButton :link="`https://odysee.com/${video.lbryId}`" platform="Odysee" />
+                        <WatchOnButton
+                            v-if="video.lbryId"
+                            :link="`https://odysee.com/${video.lbryId}`"
+                            platform="Odysee"
+                        />
                         <!-- listen / watch toggle -->
                         <router-link
                             :to="toggleListenUrl"
