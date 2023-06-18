@@ -28,6 +28,11 @@
             <div>
                 <a class="btn w-auto" @click="login" v-t="'titles.login'" />
             </div>
+            <ul class="md:flex-1 md:justify-center md:flex">
+                <li v-for="provider in oidcProviders" :key="provider.name">
+                    <a class="btn w-auto" :href="provider.authUrl">Log in with {{ provider.name }}</a>
+                </li>
+            </ul>
         </form>
     </div>
 </template>
@@ -38,9 +43,18 @@ export default {
         return {
             username: null,
             password: null,
+            oidcProviders: null,
         };
     },
     mounted() {
+        //TODO: Maybe there is a better way to do this?
+        const urlParams = new URLSearchParams(window.location.search);
+        const session = urlParams.get("session");
+        if (session) {
+            this.setPreference("authToken" + this.hashCode(this.authApiUrl()), session);
+            this.$router.push("/");
+        }
+        this.fetchConfig();
         //TODO: Add Server Side check
         if (this.getAuthToken()) {
             this.$router.push("/");
@@ -50,6 +64,16 @@ export default {
         document.title = this.$t("titles.login") + " - Piped";
     },
     methods: {
+        async fetchConfig() {
+            this.fetchJson(this.apiUrl() + "/config").then(config => {
+                this.oidcProviders = config?.oidcProviders.map(name => {
+                    return {
+                        name,
+                        authUrl: `${this.authApiUrl()}/oidc/${name}/login`,
+                    };
+                });
+            });
+        },
         login() {
             if (!this.username || !this.password) return;
             this.fetchJson(this.authApiUrl() + "/login", null, {
