@@ -138,7 +138,8 @@
         "playlist_name": "Nom de la lista de lectura",
         "playlist_description": "Descripcion de la lista de lectura",
         "auto_display_captions": "Afichatge auto dels sostítols",
-        "show_search_suggestions": "Mostrar las suggestions de recèrcas"
+        "show_search_suggestions": "Mostrar las suggestions de recèrcas",
+        "chapters_layout_mobile": "Disposicion capítols sus mobil"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
@@ -163,7 +164,9 @@
         "chapters": "Capítols",
         "videos": "Vidèos",
         "all": "Totas",
-        "category": "Categoria"
+        "category": "Categoria",
+        "chapters_horizontal": "Orizontal",
+        "chapters_vertical": "Vertical"
     },
     "info": {
         "preferences_note": "Nòta : las preferéncias son gardadas dins l’espaci d’emmagazinatge del navegador. La supression de las donadas del navegador las restablirà.",
