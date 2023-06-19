@@ -81,7 +81,7 @@
         "minimize_description_default": "Açıqlamanı Standart Olaraq Kiçilt",
         "language_selection": "Dil Seçimi",
         "instances_list": "Nümunələr Siyahısı",
-        "show_more": "Daha çox göstər",
+        "show_more": "Daha Çox Göstər",
         "no": "Xeyr",
         "store_watch_history": "Baxış Tarixçəsin Saxla",
         "enabled_codecs": "Aktiv Kodlayıcılar (Çoxlu)",
@@ -131,7 +131,15 @@
         "autoplay_next_countdown": "Növbəti videoya qədər standart geri sayım (saniyə)",
         "dismiss": "Rədd et",
         "create_group": "Qrup yarat",
-        "group_name": "Qrup adı"
+        "group_name": "Qrup adı",
+        "cancel": "Ləğv et",
+        "edit_playlist": "Oynatma siyahısın redaktə et",
+        "playlist_description": "Oynatma siyahısı təsviri",
+        "okay": "Oldu!",
+        "chapters_layout_mobile": "Mobildə Bölmələrin Tərtibatı",
+        "playlist_name": "Oynatma siyahısı adı",
+        "show_search_suggestions": "Axtarış təkliflərin göstər",
+        "auto_display_captions": "Titrləri Avtomatik Göstər"
     },
     "comment": {
         "pinned_by": "{author} tərəfindən sabitlənib",
@@ -162,7 +170,9 @@
         "live": "{0} Canlı",
         "shorts": "Qısa",
         "all": "Hamısı",
-        "category": "Kateqoriya"
+        "category": "Kateqoriya",
+        "chapters_horizontal": "Üfüqi",
+        "chapters_vertical": "Şaquli"
     },
     "search": {
         "did_you_mean": "Bunu nəzərdə tutursunuz: {0}?",
