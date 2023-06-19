@@ -19,7 +19,7 @@ export default defineConfig({
             targets: ["defaults", "not IE 11"],
         }),
         VitePWA({
-            registerType: "autoUpdate",
+            registerType: "prompt",
             workbox: {
                 globPatterns: ["**/*.{js,css,html,ico,svg,png}", "manifest.webmanifest"],
                 globIgnores: ["**/*-legacy-*.js"],

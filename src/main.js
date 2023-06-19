@@ -71,8 +71,6 @@ import "uno.css";
 
 const timeAgo = new TimeAgo("en-US");
 
-import("./registerServiceWorker");
-
 const mixin = {
     methods: {
         timeFormat: function (duration) {

@@ -9,6 +9,7 @@
             </router-view>
         </div>
 
+        <ReloadPrompt />
         <FooterComponent />
     </div>
 </template>
@@ -16,6 +17,7 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import FooterComponent from "./components/FooterComponent.vue";
+import ReloadPrompt from "./components/ReloadPrompt.vue";
 
 const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -23,6 +25,7 @@ export default {
     components: {
         NavBar,
         FooterComponent,
+        ReloadPrompt,
     },
     data() {
         return {
