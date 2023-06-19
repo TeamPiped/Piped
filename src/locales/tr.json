@@ -118,7 +118,8 @@
         "edit_playlist": "Oynatma listesini düzenle",
         "playlist_name": "Oynatma listesi adı",
         "playlist_description": "Oynatma listesi açıklaması",
-        "show_search_suggestions": "Arama önerilerini göster"
+        "show_search_suggestions": "Arama önerilerini göster",
+        "chapters_layout_mobile": "Mobilde Bölüm Düzeni"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
@@ -150,7 +151,9 @@
         "live": "{0} Canlı",
         "shorts": "Kısa çekimler",
         "all": "Tümü",
-        "category": "Kategori"
+        "category": "Kategori",
+        "chapters_horizontal": "Yatay",
+        "chapters_vertical": "Dikey"
     },
     "preferences": {
         "ssl_score": "SSL Puanı",
