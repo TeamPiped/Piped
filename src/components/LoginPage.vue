@@ -30,7 +30,7 @@
             </div>
             <ul class="md:flex-1 md:justify-center md:flex">
                 <li v-for="provider in oidcProviders" :key="provider.name">
-                    <a class="btn w-auto" :href="provider.authUrl">Log in with {{ provider.name }}</a>
+                    <a class="btn w-auto" :href="provider.authUri">Log in with {{ provider.name }}</a>
                 </li>
             </ul>
         </form>
@@ -69,7 +69,7 @@ export default {
                 this.oidcProviders = config?.oidcProviders.map(name => {
                     return {
                         name,
-                        authUrl: `${this.authApiUrl()}/oidc/${name}/login`,
+                        authUri: `${this.authApiUrl()}/oidc/${name}/login?redirect=${window.location.origin}/login`,
                     };
                 });
             });
