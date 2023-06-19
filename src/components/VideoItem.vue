@@ -107,7 +107,7 @@
                 >
                     <font-awesome-icon icon="headphones" />
                 </router-link>
-                <button v-if="authenticated" :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
+                <button :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
                     <font-awesome-icon icon="circle-plus" />
                 </button>
                 <button
@@ -124,7 +124,12 @@
                     @confirm="removeVideo(item.url.substr(-11))"
                     :message="$t('actions.delete_playlist_video_confirm')"
                 />
-                <PlaylistAddModal v-if="showModal" :video-id="item.url.substr(-11)" @close="showModal = !showModal" />
+                <PlaylistAddModal
+                    v-if="showModal"
+                    :video-id="item.url.substr(-11)"
+                    :video-info="item"
+                    @close="showModal = !showModal"
+                />
             </div>
         </div>
     </div>
@@ -172,17 +177,7 @@ export default {
     methods: {
         removeVideo() {
             this.$refs.removeButton.disabled = true;
-            this.fetchJson(this.authApiUrl() + "/user/playlists/remove", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    playlistId: this.playlistId,
-                    index: this.index,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            }).then(json => {
+            this.removeVideoFromPlaylist(this.playlistId, this.index).then(json => {
                 if (json.error) alert(json.error);
                 else this.$emit("remove");
             });

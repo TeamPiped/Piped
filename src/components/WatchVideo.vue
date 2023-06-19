@@ -78,7 +78,12 @@
                     <!-- Verified Badge -->
                     <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
                 </div>
-                <PlaylistAddModal v-if="showModal" :video-id="getVideoId()" @close="showModal = !showModal" />
+                <PlaylistAddModal
+                    v-if="showModal"
+                    :video-id="getVideoId()"
+                    :video-info="video"
+                    @close="showModal = !showModal"
+                />
                 <ShareModal
                     v-if="showShareModal"
                     :video-id="getVideoId()"
@@ -89,7 +94,7 @@
                 />
                 <div class="flex flex-wrap gap-1 ml-auto">
                     <!-- Subscribe Button -->
-                    <button class="btn flex items-center" v-if="authenticated" @click="showModal = !showModal">
+                    <button class="btn flex items-center" @click="showModal = !showModal">
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
                     </button>
                     <button

@@ -86,14 +86,11 @@ export default {
     mounted() {
         const playlistId = this.$route.query.list;
         if (this.authenticated && playlistId?.length == 36)
-            this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-            }).then(json => {
+            this.getPlaylists().then(json => {
                 if (json.error) alert(json.error);
                 else if (json.some(playlist => playlist.id === playlistId)) this.admin = true;
             });
+        else if (playlistId.startsWith("local")) this.admin = true;
         this.isPlaylistBookmarked();
     },
     activated() {
@@ -106,6 +103,11 @@ export default {
     },
     methods: {
         async fetchPlaylist() {
+            const playlistId = this.$route.query.list;
+            if (playlistId.startsWith("local")) {
+                return this.getPlaylist(playlistId);
+            }
+
             return await await this.fetchJson(this.authApiUrl() + "/playlists/" + this.$route.query.list);
         },
         async getPlaylistData() {
