@@ -194,9 +194,6 @@ const mixin = {
         timeAgo(time) {
             return timeAgo.format(time);
         },
-        async delay(millis) {
-            return await new Promise(r => setTimeout(r, millis));
-        },
         urlify(string) {
             if (!string) return "";
             const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
@@ -296,18 +293,17 @@ const mixin = {
             store.delete(groupName);
         },
         async getLocalPlaylist(playlistId) {
-            var tx = window.db.transaction("playlists", "readonly");
-            var store = tx.objectStore("playlists");
-            const req = store.openCursor(playlistId);
-            let playlist = null;
-            req.onsuccess = e => {
-                playlist = e.target.result.value;
-            };
-            while (playlist == null) {
-                await this.delay(10);
-            }
-            playlist.videos = JSON.parse(playlist.videoIds).length;
-            return playlist;
+            return await new Promise(resolve => {
+                var tx = window.db.transaction("playlists", "readonly");
+                var store = tx.objectStore("playlists");
+                const req = store.openCursor(playlistId);
+                let playlist = null;
+                req.onsuccess = e => {
+                    playlist = e.target.result.value;
+                    playlist.videos = JSON.parse(playlist.videoIds).length;
+                    resolve(playlist);
+                };
+            });
         },
         createOrUpdateLocalPlaylist(playlist) {
             var tx = window.db.transaction("playlists", "readwrite");
@@ -336,41 +332,35 @@ const mixin = {
             store.put(video);
         },
         async getLocalPlaylistVideo(videoId) {
-            var tx = window.db.transaction("playlist_videos", "readonly");
-            var store = tx.objectStore("playlist_videos");
-            const req = store.openCursor(videoId);
-            let video = null;
-            req.onsuccess = e => {
-                video = e.target.result.value;
-            };
-            while (video == null) {
-                await this.delay(10);
-            }
-            return video;
+            return await new Promise(resolve => {
+                var tx = window.db.transaction("playlist_videos", "readonly");
+                var store = tx.objectStore("playlist_videos");
+                const req = store.openCursor(videoId);
+                req.onsuccess = e => {
+                    resolve(e.target.result.value);
+                };
+            });
         },
         async getPlaylists() {
             if (!this.authenticated) {
                 if (!window.db) return [];
-                let finished = false;
-                let playlists = [];
-                var tx = window.db.transaction("playlists", "readonly");
-                var store = tx.objectStore("playlists");
-                const cursorRequest = store.openCursor();
-                cursorRequest.onsuccess = e => {
-                    const cursor = e.target.result;
-                    if (cursor) {
-                        let playlist = cursor.value;
-                        playlist.videos = JSON.parse(playlist.videoIds).length;
-                        playlists.push(playlist);
-                        cursor.continue();
-                    } else {
-                        finished = true;
-                    }
-                };
-                while (!finished) {
-                    await this.delay(10);
-                }
-                return playlists;
+                return await new Promise(resolve => {
+                    let playlists = [];
+                    var tx = window.db.transaction("playlists", "readonly");
+                    var store = tx.objectStore("playlists");
+                    const cursorRequest = store.openCursor();
+                    cursorRequest.onsuccess = e => {
+                        const cursor = e.target.result;
+                        if (cursor) {
+                            let playlist = cursor.value;
+                            playlist.videos = JSON.parse(playlist.videoIds).length;
+                            playlists.push(playlist);
+                            cursor.continue();
+                        } else {
+                            resolve(playlists);
+                        }
+                    };
+                });
             }
 
             return await this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
