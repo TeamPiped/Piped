@@ -484,13 +484,13 @@ const mixin = {
             if (!this.authenticated) {
                 const playlist = await this.getLocalPlaylist(playlistId);
                 const currentVideoIds = JSON.parse(playlist.videoIds);
-                if (currentVideoIds.length == 0) playlist.thumbnail = videoInfos[0].thumbnail;
                 currentVideoIds.push(...videoIds);
                 playlist.videoIds = JSON.stringify(currentVideoIds);
-                this.createOrUpdateLocalPlaylist(playlist);
                 let streamInfos =
                     videoInfos ??
                     (await Promise.all(videoIds.map(videoId => this.fetchJson(this.apiUrl() + "/streams/" + videoId))));
+                playlist.thumbnail = streamInfos[0].thumbnail || streamInfos[0].thumbnailUrl;
+                this.createOrUpdateLocalPlaylist(playlist);
                 for (let i in videoIds) {
                     this.createLocalPlaylistVideo(videoIds[i], streamInfos[i]);
                 }
