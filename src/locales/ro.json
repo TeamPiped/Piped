@@ -112,11 +112,14 @@
         "dismiss": "Concediază",
         "group_name": "Numele grupului",
         "create_group": "Creați un grup",
-        "auto_display_captions": "Afișează automat subtitrările",
+        "auto_display_captions": "Afișare automată subtitrări",
         "playlist_name": "Numele playlist-ului",
-        "okay": "Bine",
+        "okay": "OK",
         "playlist_description": "Descrierea playlist-ului",
-        "edit_playlist": "Editează playlist-ul"
+        "edit_playlist": "Editează playlist-ul",
+        "cancel": "Anulare",
+        "chapters_layout_mobile": "Mod afișare capitole pe mobil",
+        "show_search_suggestions": "Afișare sugestii căutare"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -143,7 +146,9 @@
         "live": "{0} în direct",
         "videos": "Videoclipuri",
         "category": "Categorie",
-        "all": "Tot"
+        "all": "Tot",
+        "chapters_horizontal": "Orizontal",
+        "chapters_vertical": "Vertical"
     },
     "login": {
         "username": "Nume de utilizator",
