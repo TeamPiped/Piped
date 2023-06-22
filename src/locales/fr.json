@@ -128,13 +128,15 @@
         "okay": "OK",
         "edit_playlist": "Éditer la liste de lecture",
         "playlist_name": "Nom de la liste de lecture",
-        "auto_display_captions": "Afficer sous-titres automatiquement",
+        "auto_display_captions": "Afficher sous-titres automatiquement",
         "dismiss": "Rejeter",
         "cancel": "Annuler",
         "playlist_description": "Description de la liste de lecture",
         "create_group": "Créer un groupe",
         "group_name": "Nom du groupe",
-        "autoplay_next_countdown": "Temps par défaut avant la prochaine vidéo (en secondes)"
+        "autoplay_next_countdown": "Temps par défaut avant la prochaine vidéo (en secondes)",
+        "chapters_layout_mobile": "Format des chapitres sur mobile",
+        "show_search_suggestions": "Afficher les suggestions de recherche"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
@@ -149,7 +151,9 @@
         "live": "{0} en direct",
         "shorts": "Courtes",
         "all": "Tout",
-        "category": "Catégorie"
+        "category": "Catégorie",
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertical"
     },
     "preferences": {
         "ssl_score": "Score SSL",
