@@ -129,7 +129,7 @@
         "min_segment_length": "最小の区切りの長さ (秒)",
         "show_less": "少なく見る",
         "autoplay_next_countdown": "次の動画の再生までの時間 (秒)",
-        "dismiss": "無視",
+        "dismiss": "却下",
         "create_group": "グループ作成",
         "group_name": "グループ名",
         "auto_display_captions": "自動で字幕を表示",

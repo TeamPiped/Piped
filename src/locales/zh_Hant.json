@@ -79,7 +79,12 @@
         "subscriptions": "訂閱內容",
         "playlists": "播放清單",
         "account": "帳戶",
-        "player": "播放器"
+        "player": "播放器",
+        "instance": "站台",
+        "bookmarks": "書籤",
+        "livestreams": "直播",
+        "channels": "頻道",
+        "channel_groups": "頻道群組"
     },
     "preferences": {
         "registered_users": "已註冊的使用者",
@@ -118,5 +123,8 @@
         "cannot_copy": "無法複製！",
         "page_not_found": "找不到頁面",
         "preferences_note": "註：偏好設定儲存在本機的瀏覽器的儲存空間內。如果清除瀏覽器的資料，偏好設定就會重設。"
+    },
+    "player": {
+        "watch_on": "在 {0} 觀看"
     }
 }
