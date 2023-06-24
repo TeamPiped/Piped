@@ -138,7 +138,8 @@
         "okay": "Хорошо",
         "auto_display_captions": "Авто-отображение субтитров",
         "playlist_name": "Название плейлиста",
-        "show_search_suggestions": "Показать поисковые предложения"
+        "show_search_suggestions": "Показать поисковые предложения",
+        "chapters_layout_mobile": "Расположение глав в мобильном виде"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
@@ -169,7 +170,9 @@
         "chapters": "Содержание",
         "shorts": "Shorts",
         "all": "Все",
-        "category": "Категория"
+        "category": "Категория",
+        "chapters_horizontal": "Горизонтально",
+        "chapters_vertical": "Вертикально"
     },
     "search": {
         "did_you_mean": "Может быть вы имели в виду: {0}?",
