@@ -9,7 +9,9 @@
         "live": "{0} uživo",
         "shorts": "Kratka videa",
         "all": "Sva",
-        "category": "Kategorija"
+        "category": "Kategorija",
+        "chapters_horizontal": "Vodoravno",
+        "chapters_vertical": "Okomito"
     },
     "preferences": {
         "ssl_score": "SSL ocjena",
@@ -144,7 +146,9 @@
         "okay": "U redu",
         "edit_playlist": "Uredi playlistu",
         "playlist_name": "Ime playliste",
-        "playlist_description": "Opis playliste"
+        "playlist_description": "Opis playliste",
+        "chapters_layout_mobile": "Raspored poglavlja na mobilnim uređajima",
+        "show_search_suggestions": "Prikaži prijedloge pretrage"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
