@@ -2,7 +2,7 @@
     <div>
         <router-link :to="props.item.url">
             <div class="relative">
-                <img class="w-full" :src="props.item.thumbnail" loading="lazy" />
+                <img class="w-full aspect-square" :src="props.item.thumbnail" loading="lazy" />
             </div>
             <p>
                 <span v-text="props.item.name" />
