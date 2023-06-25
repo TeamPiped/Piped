@@ -46,6 +46,7 @@ export default {
                 "music_videos",
                 "music_albums",
                 "music_playlists",
+                "music_artists",
             ],
             selectedFilter: this.$route.query.filter ?? "all",
         };
