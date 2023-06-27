@@ -2,11 +2,18 @@
     <div
         ref="container"
         data-shaka-player-container
-        class="w-full max-h-screen flex justify-center"
+        class="w-full max-h-screen flex justify-center relative"
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
-        <canvas id="preview" />
+        <span
+            ref="previewContainer"
+            id="preview-container"
+            class="hidden flex-col absolute bottom-0 z-[2000] mb-[4.5%] items-center"
+        >
+            <canvas ref="preview" id="preview" class="rounded-sm" />
+            <span v-text="timeFormat(currentTime)" class="text-sm mt-2 rounded-xl pb-1 pt-1.5 px-2 bg-dark-700 w-min" />
+        </span>
         <button
             v-if="inSegment"
             class="skip-segment-button"
@@ -58,6 +65,8 @@ export default {
             destroying: false,
             inSegment: false,
             isHoveringTimebar: false,
+            currentTime: 0,
+            seekbarPadding: 2,
         };
     },
     computed: {
@@ -679,8 +688,7 @@ export default {
             // hide the preview when the user stops hovering the seekbar
             seekBar.addEventListener("mouseout", () => {
                 this.isHoveringTimebar = false;
-                let canvas = document.querySelector("#preview");
-                canvas.style.display = "none";
+                this.$refs.previewContainer.style.display = "none";
             });
         },
         async showSeekbarPreview(position) {
@@ -689,17 +697,12 @@ export default {
             if (!this.isHoveringTimebar) return;
 
             const seekBar = document.querySelector(".shaka-seek-bar");
-            const canvas = document.querySelector("#preview");
+            const container = this.$refs.previewContainer;
+            const canvas = this.$refs.preview;
             const ctx = canvas.getContext("2d");
 
-            // get the new sizes for the image to be drawn into the canvas
-            const originalWidth = originalImage.naturalWidth;
-            const originalHeight = originalImage.naturalHeight;
-            // image can have less frames than server told us so calculate them ourselves
-            const imageFramesPerPageX = originalImage.naturalWidth / frame.frameWidth;
-            const imageFramesPerPageY = originalImage.naturalHeight / frame.frameHeight;
-            const offsetX = originalWidth * (frame.positionX / imageFramesPerPageX);
-            const offsetY = originalHeight * (frame.positionY / imageFramesPerPageY);
+            const offsetX = frame.positionX * frame.frameWidth;
+            const offsetY = frame.positionY * frame.frameHeight;
 
             canvas.width = frame.frameWidth > 100 ? frame.frameWidth : frame.frameWidth * 2;
             canvas.height = frame.frameWidth > 100 ? frame.frameHeight : frame.frameHeight * 2;
@@ -717,12 +720,15 @@ export default {
             );
 
             // calculate the thumbnail preview offset and display it
-            const seekbarPadding = 2; // percentage of seekbar padding
             const centerOffset = position / this.video.duration / 10;
             const left = centerOffset - ((0.5 * canvas.width) / seekBar.clientWidth) * 100;
-            const maxLeft = ((seekBar.clientWidth - canvas.clientWidth) / seekBar.clientWidth) * 100 - seekbarPadding;
-            canvas.style.left = `max(${seekbarPadding}%, min(${left}%, ${maxLeft}%))`;
-            canvas.style.display = "block";
+            const maxLeft =
+                ((seekBar.clientWidth - canvas.clientWidth) / seekBar.clientWidth) * 100 - this.seekbarPadding;
+
+            this.currentTime = position / 1000;
+
+            container.style.left = `max(${this.seekbarPadding}%, min(${left}%, ${maxLeft}%))`;
+            container.style.display = "flex";
         },
         // ineffective algorithm to find the thumbnail corresponding to the currently hovered position in the video
         getFrame(position) {
@@ -833,14 +839,5 @@ export default {
 .skip-segment-button .material-icons-round {
     font-size: 1.6em !important;
     line-height: inherit !important;
-}
-
-#preview {
-    position: absolute;
-    z-index: 2000;
-    bottom: 0;
-    margin-bottom: 4.5%;
-    border-radius: 0.3rem;
-    display: none;
 }
 </style>
