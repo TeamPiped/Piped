@@ -178,7 +178,11 @@
                 <button
                     class="btn mb-2"
                     @click="toggleComments"
-                    v-t="`actions.${showComments ? 'minimize_comments' : 'show_comments'}`"
+                    v-text="
+                        `${$t(showComments ? 'actions.minimize_comments' : 'actions.show_comments')} (${numberFormat(
+                            comments?.commentCount,
+                        )})`
+                    "
                 />
             </div>
             <div v-if="!showComments" class="xl:col-span-4 sm:col-span-3"></div>
