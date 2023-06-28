@@ -9,7 +9,7 @@
         <span
             ref="previewContainer"
             id="preview-container"
-            class="hidden flex-col absolute bottom-0 z-[2000] mb-[4.5%] items-center"
+            class="hidden flex-col absolute bottom-0 z-[2000] mb-[3.5%] items-center"
         >
             <canvas ref="preview" id="preview" class="rounded-sm" />
             <span v-text="timeFormat(currentTime)" class="text-sm mt-2 rounded-xl pb-1 pt-1.5 px-2 bg-dark-700 w-min" />
