@@ -183,7 +183,8 @@
         "music_songs": "YT Music: 音楽",
         "music_videos": "YT Music: 動画",
         "music_albums": "YT Music: アルバム",
-        "music_playlists": "YT Music: 再生リスト"
+        "music_playlists": "YT Music: 再生リスト",
+        "music_artists": "YT Music: アーティスト"
     },
     "info": {
         "page_not_found": "ページが見つかりません",
