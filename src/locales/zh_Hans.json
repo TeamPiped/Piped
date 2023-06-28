@@ -183,7 +183,8 @@
         "music_songs": "YT Music：歌曲",
         "music_videos": "YT Music：视频",
         "music_albums": "YT Music：专辑",
-        "music_playlists": "YT Music：播放列表"
+        "music_playlists": "YT Music：播放列表",
+        "music_artists": "YT Music：艺人"
     },
     "subscriptions": {
         "subscribed_channels_count": "已订阅：{0}"
