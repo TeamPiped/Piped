@@ -183,7 +183,8 @@
         "playlists": "YouTube: Playlisty",
         "music_videos": "YT Music: Videa",
         "music_albums": "YT Music: Alba",
-        "music_playlists": "YT Music: Playlisty"
+        "music_playlists": "YT Music: Playlisty",
+        "music_artists": "YT Music: Umělci"
     },
     "subscriptions": {
         "subscribed_channels_count": "Přihlášeno k odběru: {0}"
