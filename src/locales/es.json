@@ -183,7 +183,8 @@
         "videos": "YouTube: Vídeos",
         "channels": "YouTube: Canales",
         "playlists": "YouTube: Listas de reproducción",
-        "music_albums": "YT Music: Álbumes"
+        "music_albums": "YT Music: Álbumes",
+        "music_artists": "YT Music: Artistas"
     },
     "subscriptions": {
         "subscribed_channels_count": "Suscrito a: {0}"
