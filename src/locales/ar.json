@@ -164,7 +164,8 @@
         "music_videos": "YT Music: مقاطع فيديو",
         "did_you_mean": "هل تقصد: {0}؟",
         "music_playlists": "YT Music: قوائم التشغيل",
-        "music_albums": "YT Music: ألبومات"
+        "music_albums": "YT Music: ألبومات",
+        "music_artists": "YT الموسيقى: الفنانين"
     },
     "preferences": {
         "version": "الإصدار",
