@@ -183,7 +183,8 @@
         "videos": "YouTube: Videolar",
         "music_songs": "YT Müzik: Şarkılar",
         "music_videos": "YT Müzik: Videolar",
-        "music_albums": "YT Müzik: Albümler"
+        "music_albums": "YT Müzik: Albümler",
+        "music_artists": "YT Müzik: Sanatçılar"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abone Olunan: {0}"

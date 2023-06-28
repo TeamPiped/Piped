@@ -183,7 +183,8 @@
         "music_songs": "YT Music: Utwory",
         "music_videos": "YT Music: Teledyski",
         "music_albums": "YT Music: Albumy",
-        "music_playlists": "YT Music: Playlisty"
+        "music_playlists": "YT Music: Playlisty",
+        "music_artists": "YT Music: Wykonawcy"
     },
     "info": {
         "cannot_copy": "Nie można skopiować!",

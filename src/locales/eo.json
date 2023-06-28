@@ -164,7 +164,8 @@
         "music_videos": "YT Music: Videoj",
         "music_songs": "YT Music: Muzikaĵoj",
         "all": "YouTube: Ĉio",
-        "did_you_mean": "Ĉu vi volis diri «{0}»?"
+        "did_you_mean": "Ĉu vi volis diri «{0}»?",
+        "music_artists": "YT Music: Artistoj"
     },
     "info": {
         "copied": "Kopiita!",
