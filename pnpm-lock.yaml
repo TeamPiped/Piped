@@ -21,8 +21,8 @@ dependencies:
     specifier: 6.0.3
     version: 6.0.3
   dompurify:
-    specifier: 3.0.3
-    version: 3.0.3
+    specifier: 3.0.4
+    version: 3.0.4
   hotkeys-js:
     specifier: 3.10.3
     version: 3.10.3
@@ -2645,8 +2645,8 @@ packages:
     resolution: {integrity: sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==}
     dev: false
 
-  /dompurify@3.0.3:
-    resolution: {integrity: sha512-axQ9zieHLnAnHh0sfAamKYiqXMJAVwu+LM/alQ7WDagoWessyWvMSFyW65CqF3owufNu8HBcE4cM2Vflu7YWcQ==}
+  /dompurify@3.0.4:
+    resolution: {integrity: sha512-ae0mA+Qiqp6C29pqZX3fQgK+F91+F7wobM/v8DRzDqJdZJELXiFUx4PP4pK/mzUS0xkiSEx3Ncd9gr69jg3YsQ==}
     dev: false
 
   /duplexer@0.1.2:
