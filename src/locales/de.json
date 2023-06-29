@@ -183,7 +183,8 @@
         "music_songs": "YT Music: Lieder",
         "music_videos": "YT Music: Videos",
         "music_albums": "YT Music: Alben",
-        "music_playlists": "YT Music: Playlists"
+        "music_playlists": "YT Music: Playlists",
+        "music_artists": "YT Music: Künstler und Künstlerinnen"
     },
     "subscriptions": {
         "subscribed_channels_count": "Anzahl Abos: {0}"
