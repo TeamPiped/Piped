@@ -183,7 +183,8 @@
         "music_songs": "YT Music: שירים",
         "music_videos": "YT Music: סרטונים",
         "music_albums": "YT Music: אלבומים",
-        "music_playlists": "YT Music: רשימות נגינה"
+        "music_playlists": "YT Music: רשימות נגינה",
+        "music_artists": "YT Music: אומנים"
     },
     "info": {
         "preferences_note": "לתשומת לבך: ההעדפות נשמרות באחסון המקומי של הדפדפן שלך. מחיקת נתוני הדפדפן שלך תאפס אותם.",
