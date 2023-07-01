@@ -84,7 +84,15 @@
         "minimize_comments_default": "預設為收起留言",
         "instance_selection": "選擇站台",
         "skip_automatically": "自動",
-        "skip_segment": "跳過分段"
+        "skip_segment": "跳過分段",
+        "edit_playlist": "編輯播放清單",
+        "playlist_name": "播放清單名稱",
+        "instance_auth_selection": "選擇身份驗証站台",
+        "instance_donations": "站台捐款",
+        "invalidate_session": "從所有裝置登出",
+        "clone_playlist": "複製播放清單",
+        "clone_playlist_success": "複製成功!",
+        "different_auth_instance": "使用其他站台進行身份驗証"
     },
     "titles": {
         "history": "歷史記錄",
@@ -106,7 +114,9 @@
     "preferences": {
         "registered_users": "已註冊的使用者",
         "version": "版本",
-        "has_cdn": "是否有 CDN？"
+        "has_cdn": "是否有 CDN？",
+        "instance_name": "站台名稱",
+        "instance_locations": "站台位置"
     },
     "login": {
         "username": "使用者名",
