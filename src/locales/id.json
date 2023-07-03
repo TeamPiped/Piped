@@ -183,7 +183,8 @@
         "music_videos": "YT Music: Video",
         "music_albums": "YT Music: Album",
         "music_playlists": "YT Music: Daftar Putar",
-        "all": "YouTube: Semua"
+        "all": "YouTube: Semua",
+        "music_artists": "YT Music: Artis"
     },
     "subscriptions": {
         "subscribed_channels_count": "Berlangganan ke: {0}"
