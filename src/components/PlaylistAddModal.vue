@@ -4,7 +4,8 @@
         <select class="select w-full mt-3" v-model="selectedPlaylist">
             <option v-for="playlist in playlists" :value="playlist.id" :key="playlist.id" v-text="playlist.name" />
         </select>
-        <div class="flex justify-end mt-3">
+        <div class="flex justify-between w-full mt-3">
+            <button class="btn" @click="onCreatePlaylist" ref="addButton" v-t="'actions.create_playlist'" />
             <button
                 class="btn"
                 @click="handleClick(selectedPlaylist)"
@@ -75,6 +76,14 @@ export default {
         async fetchPlaylists() {
             this.getPlaylists().then(json => {
                 this.playlists = json;
+            });
+        },
+        onCreatePlaylist() {
+            const name = prompt(this.$t("actions.create_playlist"));
+            if (!name) return;
+            this.createPlaylist(name).then(json => {
+                if (json.error) alert(json.error);
+                else this.fetchPlaylists();
             });
         },
     },
