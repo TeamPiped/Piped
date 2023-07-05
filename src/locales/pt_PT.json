@@ -180,7 +180,8 @@
         "music_songs": "YT Music: Músicas",
         "music_videos": "YT Music: Vídeos",
         "music_albums": "YT Music: Álbuns",
-        "music_playlists": "YT Music: Listas de reprodução"
+        "music_playlists": "YT Music: Listas de reprodução",
+        "music_artists": "YT Music: Artistas"
     },
     "player": {
         "watch_on": "Ver em {0}"
