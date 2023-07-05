@@ -174,7 +174,8 @@
         "music_videos": "YT Music: Vídeos",
         "music_albums": "YT Music: Álbuns",
         "music_playlists": "YT Music: Listas de reprodução",
-        "playlists": "YouTube: Listas de reprodução"
+        "playlists": "YouTube: Listas de reprodução",
+        "music_artists": "YT Music: Artistas"
     },
     "player": {
         "watch_on": "Ver em {0}"
