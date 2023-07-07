@@ -1,8 +1,14 @@
 <template>
     <nav class="flex flex-wrap items-center justify-center px-2 sm:px-4 pb-2.5 w-full relative">
         <div class="flex-1 flex justify-start">
-            <span class="flex font-bold text-3xl items-center font-sans cursor-pointer" @click="openHomePage(this)"
-                ><img alt="logo" src="/img/icons/logo.svg" height="32" width="32" class="w-10 mr-[-0.6rem]" />iped</span
+            <router-link class="flex font-bold text-3xl items-center font-sans" :to="homePagePath"
+                ><img
+                    alt="logo"
+                    src="/img/icons/logo.svg"
+                    height="32"
+                    width="32"
+                    class="w-10 mr-[-0.6rem]"
+                />iped</router-link
             >
         </div>
         <div class="lt-md:hidden search-container">
@@ -122,12 +128,14 @@ export default {
             searchText: "",
             suggestionsVisible: false,
             showTopNav: false,
+            homePagePath: "/",
         };
     },
     mounted() {
         const query = new URLSearchParams(window.location.search).get("search_query");
         if (query) this.onSearchTextChange(query);
         this.focusOnSearchBar();
+        this.homePagePath = this.getHomePage(this);
     },
     computed: {
         shouldShowLogin(_this) {
