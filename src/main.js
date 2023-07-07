@@ -532,19 +532,15 @@ const mixin = {
                 },
             });
         },
-        openHomePage(_this) {
-            let route;
+        getHomePage(_this) {
             switch (_this.getPreferenceString("homepage", "trending")) {
                 case "trending":
-                    route = "/trending";
-                    break;
+                    return "/trending";
                 case "feed":
-                    route = "/feed";
-                    break;
+                    return "/feed";
                 default:
-                    break;
+                    return undefined;
             }
-            if (route !== undefined) _this.$router.push(route);
         },
     },
     computed: {

@@ -34,7 +34,10 @@ export default {
     activated() {
         document.title = this.$t("titles.trending") + " - Piped";
         if (this.videos.length > 0) this.updateWatched(this.videos);
-        if (this.$route.path == "/") this.openHomePage(this);
+        if (this.$route.path == "/") {
+            let homepage = this.getHomePage(this);
+            if (homepage !== undefined) this.$router.push(homepage);
+        }
     },
     methods: {
         async fetchTrending(region) {
