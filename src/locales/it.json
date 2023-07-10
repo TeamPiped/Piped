@@ -37,7 +37,7 @@
         "enable_lbry_proxy": "Abilita il proxy per LBRY",
         "disable_lbry": "Disabilita LBRY per lo streaming",
         "show_description": "Mostra la descrizione",
-        "minimize_description": "Minimizza la descrizione per impostazione predefinita",
+        "minimize_description": "Minimizza descrizione",
         "minimize_recommendations": "Minimizza consigli",
         "show_recommendations": "Mostra consigli",
         "donations": "Donazioni per lo sviluppo",
@@ -116,7 +116,8 @@
         "playlist_description": "Descrizione playlist",
         "group_name": "Nome gruppo",
         "create_group": "Crea gruppo",
-        "show_search_suggestions": "Mostra suggerimenti di ricerca"
+        "show_search_suggestions": "Mostra suggerimenti di ricerca",
+        "dismiss": "Chiudi"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -147,7 +148,9 @@
         "chapters": "Capitoli",
         "shorts": "Short",
         "all": "Tutti",
-        "category": "Categoria"
+        "category": "Categoria",
+        "chapters_horizontal": "Orizzontale",
+        "chapters_vertical": "Verticale"
     },
     "preferences": {
         "ssl_score": "Valutazione SSL",
@@ -177,7 +180,8 @@
         "channels": "YouTube: Canali",
         "music_songs": "YT Music: Canzoni",
         "all": "YouTube: Tutto",
-        "videos": "YouTube: Video"
+        "videos": "YouTube: Video",
+        "music_artists": "YT Music: Artisti"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abbonato a: {0}"
