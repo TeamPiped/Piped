@@ -61,6 +61,10 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   You can join us via Matrix at [#piped](https://matrix.to/#/#piped:matrix.org).
 -   You can also join us at the libera.chat IRC network which is bridged to the Matrix room at [#piped](https://web.libera.chat/#piped).
 
+## Public Communities
+
+-   You can join us on Lemmy on the [!piped@feddit.rocks](https://feddit.rocks/c/piped) community.
+
 ## Self-Hosting
 
 See https://docs.piped.video/docs/self-hosting/ for more details.
