@@ -183,7 +183,8 @@
         "music_songs": "YT Music: Композиции",
         "music_videos": "YT Music: Видео",
         "music_albums": "YT Music: Альбомы",
-        "music_playlists": "YT Music: Плейлисты"
+        "music_playlists": "YT Music: Плейлисты",
+        "music_artists": "YT Music: Исполнители"
     },
     "subscriptions": {
         "subscribed_channels_count": "Подписан на: {0}"
