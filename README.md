@@ -150,6 +150,7 @@ Contributions in any other form are also welcomed.
 -   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads on Android, Linux, Windows, iOS, and Mac OSX.
 -   [Piped-Material](https://github.com/mmjee/Piped-Material) - A fork of Piped, focusing on better performance and a more usable design.
 -   [ReacTube](https://github.com/NeeRaj-2401/ReacTube) - Privacy friendly & distraction free Youtube front-end using Piped API.
+-   [YTDLnis](https://github.com/deniscerri/ytdlnis) -Video and audio downloader for Android that uses Piped to update formats.
 
 ## YourKit
 
