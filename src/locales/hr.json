@@ -183,7 +183,8 @@
         "music_songs": "YT Music: Pjesme",
         "music_videos": "YT Music: Videa",
         "music_albums": "YT Music: Albumi",
-        "music_playlists": "YT Music: Playliste"
+        "music_playlists": "YT Music: Playliste",
+        "music_artists": "YT Music: Izvođači"
     },
     "subscriptions": {
         "subscribed_channels_count": "Broj pretplata: {0}"
