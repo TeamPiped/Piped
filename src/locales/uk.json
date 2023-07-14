@@ -124,7 +124,9 @@
         "playlist_description": "Опис списку відтворення",
         "auto_display_captions": "Автоматичне відображення субтитрів",
         "cancel": "Скасувати",
-        "show_search_suggestions": "Показати пошукові пропозицій"
+        "show_search_suggestions": "Показувати пошукові пропозицій",
+        "okay": "Добре",
+        "chapters_layout_mobile": "Макет розділів на телефоні"
     },
     "titles": {
         "register": "Реєстрація",
@@ -168,7 +170,9 @@
         "live": "{0} Наживо",
         "shorts": "Shorts",
         "all": "Усі",
-        "category": "Категорія"
+        "category": "Категорія",
+        "chapters_horizontal": "Горизонтальний",
+        "chapters_vertical": "Вертикальний"
     },
     "search": {
         "did_you_mean": "Можливо, ви мали на увазі: {0}?",
@@ -179,7 +183,8 @@
         "music_songs": "YT Music: Пісні",
         "music_videos": "TY Music: Відео",
         "playlists": "YouTube: Списки відтворення",
-        "music_albums": "YT Music: Альбоми"
+        "music_albums": "YT Music: Альбоми",
+        "music_artists": "YT Music: Артисти"
     },
     "subscriptions": {
         "subscribed_channels_count": "Підписано на: {0}"
