@@ -44,7 +44,7 @@
             <li v-if="shouldShowLogin">
                 <router-link v-t="'titles.login'" to="/login" />
             </li>
-            <li v-if="shouldShowLogin">
+            <li v-if="shouldShowRegister">
                 <router-link v-t="'titles.register'" to="/register" />
             </li>
             <li v-if="shouldShowHistory">
@@ -129,9 +129,11 @@ export default {
             suggestionsVisible: false,
             showTopNav: false,
             homePagePath: "/",
+            registrationDisabled: false,
         };
     },
     mounted() {
+        this.fetchAuthConfig();
         const query = new URLSearchParams(window.location.search).get("search_query");
         if (query) this.onSearchTextChange(query);
         this.focusOnSearchBar();
@@ -140,6 +142,9 @@ export default {
     computed: {
         shouldShowLogin(_this) {
             return _this.getAuthToken() == null;
+        },
+        shouldShowRegister(_this) {
+            return _this.registrationDisabled == false ? _this.shouldShowLogin : false;
         },
         shouldShowHistory(_this) {
             return _this.getPreferenceBoolean("watchHistory", false);
@@ -184,6 +189,11 @@ export default {
         },
         onSearchTextChange(searchText) {
             this.searchText = searchText;
+        },
+        async fetchAuthConfig() {
+            this.fetchJson(this.authApiUrl() + "/config").then(config => {
+                this.registrationDisabled = config?.registrationDisabled === true;
+            });
         },
     },
 };
