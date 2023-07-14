@@ -163,7 +163,8 @@
         "playlists": "YouTube: Liste de redare",
         "music_songs": "YT Music: Muzică",
         "music_videos": "YT Music: Videoclipuri",
-        "music_albums": "YT Music: Albume"
+        "music_albums": "YT Music: Albume",
+        "music_artists": "YT Music: Artiști"
     },
     "info": {
         "cannot_copy": "Nu s-a putut copia!",
