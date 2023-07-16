@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showVideo">
+    <div class="flex flex-col flex-justify-between" v-if="showVideo">
         <router-link
             class="focus:underline hover:underline inline-block w-full"
             :to="{
