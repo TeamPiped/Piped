@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="flex flex-col flex-justify-between">
         <router-link :to="props.item.url">
             <div class="relative">
                 <img class="w-full" :src="props.item.thumbnail" loading="lazy" />

@@ -8,6 +8,7 @@ import presetWebFonts from "@unocss/preset-web-fonts";
 
 export default defineConfig({
     transformers: [transformerDirective(), transformerVariantGroup()],
+    rules: [[/^h-([\.\d]+)-rem$/, ([_, num]) => ({ height: `${num}rem` })]],
     presets: [
         presetUno({
             dark: "media",
