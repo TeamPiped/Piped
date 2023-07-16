@@ -1,8 +1,8 @@
 <template>
     <div>
         <router-link :to="props.item.url">
-            <div class="relative">
-                <img class="w-full aspect-square rounded-full" :src="props.item.thumbnail" loading="lazy" />
+            <div class="flex justify-center h-30">
+                <img class="aspect-square rounded-full" :src="props.item.thumbnail" loading="lazy" />
             </div>
             <p>
                 <span v-text="props.item.name" />
