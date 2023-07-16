@@ -27,6 +27,9 @@
             />
             <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
         </div>
+        <button @click="onSearchClick" id="search-btn" class="input btn mx-1 h-10">
+            <div class="i-fa6-solid:magnifying-glass"></div>
+        </button>
         <!-- three vertical lines for toggling the hamburger menu on mobile -->
         <button class="md:hidden flex flex-col justify-end mr-3" @click="showTopNav = !showTopNav">
             <span class="line"></span>
@@ -172,12 +175,7 @@ export default {
         },
         onKeyPress(e) {
             if (e.key === "Enter") {
-                e.target.blur();
-                this.$router.push({
-                    name: "SearchResults",
-                    query: { search_query: this.searchText },
-                });
-                return;
+                this.submitSearch();
             }
         },
         onInputFocus() {
@@ -195,6 +193,17 @@ export default {
                 this.registrationDisabled = config?.registrationDisabled === true;
             });
         },
+        onSearchClick(e) {
+            this.submitSearch(e);
+        },
+        submitSearch(e) {
+            e.target.blur();
+            this.$router.push({
+                name: "SearchResults",
+                query: { search_query: this.searchText },
+            });
+            return;
+        },
     },
 };
 </script>
@@ -209,5 +218,11 @@ export default {
 }
 .mobile-nav div {
     @apply mx-1;
+}
+
+@media screen and (max-width: 848px) {
+    #search-btn {
+        display: none;
+    }
 }
 </style>
