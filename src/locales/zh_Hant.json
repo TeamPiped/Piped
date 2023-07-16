@@ -112,7 +112,14 @@
         "show_search_suggestions": "顯示搜尋建議",
         "copy_link": "複製連結",
         "time_code": "時間碼（以秒計算）",
-        "minimize_chapters_default": "預設收起章節"
+        "minimize_chapters_default": "預設收起章節",
+        "dismiss": "解散",
+        "chapters_layout_mobile": "在手提裝置上的章節佈局",
+        "hide_watched": "在摘要中隱藏看過的影片",
+        "reply_count": "{count} 個回覆",
+        "minimize_recommendations_default": "預設收起推薦影片",
+        "show_watch_on_youtube": "顯示「在Youtube 觀看」按鈕",
+        "show_less": "顯示更少"
     },
     "titles": {
         "history": "歷史記錄",
@@ -136,7 +143,9 @@
         "version": "版本",
         "has_cdn": "是否有 CDN？",
         "instance_name": "站台名稱",
-        "instance_locations": "站台位置"
+        "instance_locations": "站台位置",
+        "up_to_date": "最新？",
+        "ssl_score": "SSL 分數"
     },
     "login": {
         "username": "使用者名",
@@ -147,7 +156,14 @@
         "watched": "有看過",
         "sponsor_segments": "贊助廣告片段",
         "ratings_disabled": "評價已停用",
-        "chapters": "章節"
+        "chapters": "章節",
+        "shorts": "短影片",
+        "category": "類別",
+        "chapters_horizontal": "水平",
+        "chapters_vertical": "垂直",
+        "views": "觀看次數：{views}",
+        "live": "{0} 直播",
+        "all": "全部"
     },
     "search": {
         "did_you_mean": "您是否想找 {0}？",
@@ -158,20 +174,28 @@
         "playlists": "YouTube：播放清單",
         "music_songs": "YT Music：歌曲",
         "music_videos": "YT Music：影片",
-        "music_albums": "YT Music：專輯"
+        "music_albums": "YT Music：專輯",
+        "music_artists": "YT Music: 藝人"
     },
     "comment": {
         "pinned_by": "置頂者： {author}",
         "disabled": "上傳者停用了留言功能。",
-        "loading": "留言載入中……"
+        "loading": "留言載入中……",
+        "user_disabled": "留言在設置中被關閉。"
     },
     "info": {
         "copied": "已複製！",
         "cannot_copy": "無法複製！",
         "page_not_found": "找不到頁面",
-        "preferences_note": "註：偏好設定儲存在本機的瀏覽器的儲存空間內。如果清除瀏覽器的資料，偏好設定就會重設。"
+        "preferences_note": "註：偏好設定儲存在本機的瀏覽器的儲存空間內。如果清除瀏覽器的資料，偏好設定就會重設。",
+        "register_no_email_note": "不建議使用電子郵件地址作為用戶名稱。仍要繼續嗎？",
+        "local_storage": "此動作需要儲存資料在本機，請確認是否啟用了Cookies？",
+        "next_video_countdown": "在{0}秒後播放下一段影片"
     },
     "player": {
         "watch_on": "在 {0} 觀看"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "己訂閱： {0}"
     }
 }
