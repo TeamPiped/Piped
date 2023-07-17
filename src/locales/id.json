@@ -139,7 +139,8 @@
         "playlist_name": "Nama daftar putar",
         "okay": "Oke",
         "show_search_suggestions": "Tampilkan saran pencarian",
-        "chapters_layout_mobile": "Tata Letak Bab di Ponsel"
+        "chapters_layout_mobile": "Tata Letak Bab di Ponsel",
+        "delete_automatically": "Hapus secara otomatis setelah"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -199,6 +200,10 @@
         "cannot_copy": "Tidak dapat menyalin!",
         "local_storage": "Tindakan ini membutuhkan localStorage, apakah kuki diaktifkan?",
         "register_no_email_note": "Menggunakan surel sebagai nama pengguna tidak disarankan. Lanjut?",
-        "next_video_countdown": "Memutar video berikutnya dalam {0} detik"
+        "next_video_countdown": "Memutar video berikutnya dalam {0} detik",
+        "weeks": "{amount} minggu",
+        "hours": "{amount} jam",
+        "days": "{amount hari",
+        "months": "{amount} bulan"
     }
 }
