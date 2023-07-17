@@ -31,6 +31,9 @@ export default {
     },
     data() {
         return {
+            currentVideoCount: 0,
+            videoStep: 100,
+            videosStore: [],
             videos: [],
         };
     },
@@ -40,29 +43,39 @@ export default {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
                 const cursorRequest = store.index("watchedAt").openCursor(null, "prev");
-                cursorRequest.onsuccess = e => {
-                    const cursor = e.target.result;
-                    if (cursor) {
-                        const video = cursor.value;
-                        this.videos.push({
-                            url: "/watch?v=" + video.videoId,
-                            title: video.title,
-                            uploaderName: video.uploaderName,
-                            uploaderUrl: video.uploaderUrl,
-                            duration: video.duration,
-                            thumbnail: video.thumbnail,
-                            watchedAt: video.watchedAt,
-                            watched: true,
-                            currentTime: video.currentTime,
-                        });
-                        if (this.videos.length < 1000) cursor.continue();
-                    }
-                };
+                const cursorPromise = new Promise(resolve => {
+                    cursorRequest.onsuccess = e => {
+                        const cursor = e.target.result;
+                        if (cursor) {
+                            const video = cursor.value;
+                            this.videosStore.push({
+                                url: "/watch?v=" + video.videoId,
+                                title: video.title,
+                                uploaderName: video.uploaderName,
+                                uploaderUrl: video.uploaderUrl,
+                                duration: video.duration,
+                                thumbnail: video.thumbnail,
+                                watchedAt: video.watchedAt,
+                                watched: true,
+                                currentTime: video.currentTime,
+                            });
+                            if (this.videosStore.length < 1000) cursor.continue();
+                            else resolve();
+                        } else resolve();
+                    };
+                });
+                await cursorPromise;
             }
-        })();
+        })().then(() => {
+            this.loadMoreVideos();
+        });
     },
     activated() {
         document.title = "Watch History - Piped";
+        window.addEventListener("scroll", this.handleScroll);
+    },
+    deactivated() {
+        window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
         clearHistory() {
@@ -88,6 +101,16 @@ export default {
                 ],
             };
             this.download(JSON.stringify(json), `piped_history_${dateStr}.json`, "application/json");
+        },
+        loadMoreVideos() {
+            this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
+            if (this.videos.length != this.videosStore.length)
+                this.videos = this.videosStore.slice(0, this.currentVideoCount);
+        },
+        handleScroll() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+                this.loadMoreVideos();
+            }
         },
     },
 };
