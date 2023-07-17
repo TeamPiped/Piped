@@ -363,6 +363,7 @@ export default {
         this.getPlaylistData();
         this.getSponsors();
         if (!this.isEmbed && this.showComments) this.getComments();
+        if (this.isEmbed) document.querySelector("html").style.overflow = "hidden";
         window.addEventListener("click", this.handleClick);
         window.addEventListener("resize", () => {
             this.smallView = this.smallViewQuery.matches;
