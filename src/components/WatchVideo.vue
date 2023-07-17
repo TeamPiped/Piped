@@ -158,7 +158,7 @@
             </span>
 
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <div v-show="showDesc" class="break-words" v-html="purifyHTML(video.description)" />
+            <div v-show="showDesc" class="break-words description" v-html="purifyHTML(video.description)" />
             <template v-if="showDesc">
                 <div
                     v-if="sponsors && sponsors.segments"
@@ -665,5 +665,10 @@ export default {
 .v-leave-to {
     opacity: 0;
     transform: translateX(100%) scale(0.5);
+}
+
+.description a {
+    text-decoration: underline;
+    filter: brightness(0.75);
 }
 </style>
