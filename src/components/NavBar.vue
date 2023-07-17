@@ -213,8 +213,7 @@ export default {
     @apply relative inline-flex items-center;
 }
 .delete-search {
-    @apply absolute right-3 cursor-pointer rounded-full bg-[#ccc] w-4 h-4 text-center text-black opacity-50 hover:(opacity-70) text-size-[13px];
-    line-height: 1.05;
+    @apply absolute right-3 cursor-pointer rounded-full bg-[#ccc] w-4 h-4 text-center text-black opacity-50 hover:(opacity-70) text-size-[10px];
 }
 .mobile-nav div {
     @apply mx-1;
