@@ -139,7 +139,8 @@
         "playlist_name": "اسم قائمة التشغيل",
         "edit_playlist": "تعديل قائمة التشغيل",
         "show_search_suggestions": "إظهار اقتراحات البحث",
-        "chapters_layout_mobile": "تخطيط الفصول على الهاتف"
+        "chapters_layout_mobile": "تخطيط الفصول على الهاتف",
+        "delete_automatically": "الحذف تلقائيا بعد"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
@@ -199,6 +200,10 @@
         "cannot_copy": "لا يمكن نسخه!",
         "local_storage": "يتطلب هذا الإجراء التخزين المحلي، هل يتم تمكين ملفات تعريف الارتباط؟",
         "register_no_email_note": "لا ينصح باستخدام البريد الإلكتروني كاسم مستخدم. المضي قدما على أي حال؟",
-        "next_video_countdown": "تشغيل الفيديو التالي بعد { 0 } ق"
+        "next_video_countdown": "تشغيل الفيديو التالي بعد { 0 } ق",
+        "weeks": "{amount} أسبوع (أسابيع)",
+        "hours": "{amount} ساعة (ساعات)",
+        "months": "{amount} شهر (أشهر)",
+        "days": "{amount} يوم (أيام)"
     }
 }
