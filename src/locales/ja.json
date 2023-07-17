@@ -139,7 +139,8 @@
         "playlist_name": "再生リスト名",
         "playlist_description": "再生リストの説明",
         "chapters_layout_mobile": "モバイル端末でのチャプターの配置",
-        "show_search_suggestions": "検索語句の候補を表示"
+        "show_search_suggestions": "検索語句の候補を表示",
+        "delete_automatically": "指定時間後に自動削除"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -193,7 +194,11 @@
         "preferences_note": "注意: 設定は、お使いのブラウザの保存領域に保存されます。ブラウザのデータを削除すると初期化されます。",
         "local_storage": "この操作にはlocalStorageが必要です。Cookieは有効ですか？",
         "register_no_email_note": "ユーザー名としてのメールアドレスの使用は推奨しません。それでも続けますか？",
-        "next_video_countdown": "{0} 秒後に次の動画"
+        "next_video_countdown": "{0} 秒後に次の動画",
+        "days": "{amount}日",
+        "weeks": "{amount}週",
+        "hours": "{amount}時間",
+        "months": "{amount}月"
     },
     "subscriptions": {
         "subscribed_channels_count": "チャンネル登録: {0}"
