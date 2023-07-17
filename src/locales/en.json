@@ -139,7 +139,8 @@
         "group_name": "Group name",
         "cancel": "Cancel",
         "okay": "Okay",
-        "show_search_suggestions": "Show search suggestions"
+        "show_search_suggestions": "Show search suggestions",
+        "delete_automatically": "Delete automatically after"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
@@ -196,6 +197,10 @@
         "cannot_copy": "Can't copy!",
         "local_storage": "This action requires localStorage, are cookies enabled?",
         "register_no_email_note": "Using an e-mail as username is not recommended. Proceed anyways?",
-        "next_video_countdown": "Playing next video in {0}s"
+        "next_video_countdown": "Playing next video in {0}s",
+        "hours": "{amount} hour(s)",
+        "days": "{amount} day(s)",
+        "weeks": "{amount} week(s)",
+        "months": "{amount} month(s)"
     }
 }
