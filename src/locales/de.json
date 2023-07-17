@@ -119,7 +119,8 @@
         "playlist_name": "Name der Playlist",
         "playlist_description": "Beschreibung der Playlist",
         "show_search_suggestions": "Suchvorschläge anzeigen",
-        "chapters_layout_mobile": "Kapitel-Layout auf Mobilgeräten"
+        "chapters_layout_mobile": "Kapitel-Layout auf Mobilgeräten",
+        "delete_automatically": "Automatisch löschen nach"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -184,7 +185,7 @@
         "music_videos": "YT Music: Videos",
         "music_albums": "YT Music: Alben",
         "music_playlists": "YT Music: Playlists",
-        "music_artists": "YT Music: Künstler und Künstlerinnen"
+        "music_artists": "YT Music: Künstler:innen"
     },
     "subscriptions": {
         "subscribed_channels_count": "Anzahl Abos: {0}"
@@ -196,6 +197,10 @@
         "cannot_copy": "Kopieren nicht möglich!",
         "local_storage": "Diese Aktion erfordert „localStorage“, sind Cookies aktiviert?",
         "register_no_email_note": "Es wird nicht empfohlen, eine E-Mail als Benutzernamen zu verwenden. Trotzdem fortfahren?",
-        "next_video_countdown": "Nächstes Video startet in {0}s"
+        "next_video_countdown": "Nächstes Video startet in {0}s",
+        "weeks": "{amount} Woche(n)",
+        "months": "{amount} Monat(en)",
+        "hours": "{amount} Stunde(n)",
+        "days": "{amount} Tag(e)"
     }
 }
