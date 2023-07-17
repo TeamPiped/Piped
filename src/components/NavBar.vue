@@ -175,7 +175,7 @@ export default {
         },
         onKeyPress(e) {
             if (e.key === "Enter") {
-                this.submitSearch();
+                this.submitSearch(e);
             }
         },
         onInputFocus() {
