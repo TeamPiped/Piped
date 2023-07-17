@@ -139,7 +139,8 @@
         "okay": "OK",
         "cancel": "Anuluj",
         "show_search_suggestions": "Pokaż sugestie wyszukiwania",
-        "chapters_layout_mobile": "Układ rozdziałów na urządzeniach mobilnych"
+        "chapters_layout_mobile": "Układ rozdziałów na urządzeniach mobilnych",
+        "delete_automatically": "Usuń automatycznie po"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
@@ -193,7 +194,11 @@
         "preferences_note": "Uwaga: ustawienia są zapisywane w lokalnej pamięci przeglądarki. Usunięcie danych przeglądarki spowoduje ich zresetowanie.",
         "local_storage": "Ta akcja wymaga dostępu do lokalnej pamięci, czy pliki cookie są włączone?",
         "register_no_email_note": "Użycie adresu email jako nazwy użytkownika jest niezalecane. Kontynuować mimo to?",
-        "next_video_countdown": "Odtwarzanie następnego filmu za {0} s"
+        "next_video_countdown": "Odtwarzanie następnego filmu za {0} s",
+        "days": "{amount} dni",
+        "weeks": "{amount} tygodnie",
+        "hours": "{amount} godziny",
+        "months": "{amount} miesiące"
     },
     "subscriptions": {
         "subscribed_channels_count": "Licznik subskrybcji: {0}"
