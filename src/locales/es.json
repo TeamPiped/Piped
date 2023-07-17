@@ -148,7 +148,8 @@
         "playlist_description": "Descripción de la lista de reproducción",
         "cancel": "Cancelar",
         "show_search_suggestions": "Mostrar sugerencias de búsqueda",
-        "chapters_layout_mobile": "Disposición de capítulos en móvil"
+        "chapters_layout_mobile": "Disposición de capítulos en móvil",
+        "delete_automatically": "Borrar automáticamente después de"
     },
     "titles": {
         "feed": "Lista de vídeos",
@@ -196,6 +197,10 @@
         "cannot_copy": "¡No se puede copiar!",
         "local_storage": "Esta acción requiere «localStorage», ¿están activadas las «cookies»?",
         "register_no_email_note": "No se recomienda usar un correo electrónico como nombre de usuario. ¿Continuar de todos modos?",
-        "next_video_countdown": "El próximo vídeo se reproducirá en {0}s"
+        "next_video_countdown": "El próximo vídeo se reproducirá en {0}s",
+        "hours": "{amount} hora(s)",
+        "days": "{amount} día(s)",
+        "weeks": "{amount} semana(s)",
+        "months": "{amount} mes(es)"
     }
 }
