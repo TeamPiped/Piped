@@ -139,7 +139,8 @@
         "playlist_description": "תיאור רשימת הנגינה",
         "okay": "אישור",
         "show_search_suggestions": "הצגת הצעות חיפוש",
-        "chapters_layout_mobile": "פריסת פרקים בנייד"
+        "chapters_layout_mobile": "פריסת פרקים בנייד",
+        "delete_automatically": "למחוק אוטומטית לאחר"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
@@ -193,7 +194,11 @@
         "cannot_copy": "לא ניתן להעתיק!",
         "local_storage": "פעולה זו דורשת אחסון מקומי (localStorage), האם עוגיות פעילות?",
         "register_no_email_note": "לא מומלץ להשתמש בכתובת דוא״ל כשם משתמש. להמשיך בכל זאת?",
-        "next_video_countdown": "הסרטון הבא יתנגן בעוד {0} שניות"
+        "next_video_countdown": "הסרטון הבא יתנגן בעוד {0} שניות",
+        "days": "{amount} ימים",
+        "weeks": "{amount} שבועות",
+        "months": "{amount} חודשים",
+        "hours": "{amount} שעות"
     },
     "subscriptions": {
         "subscribed_channels_count": "נרשמת אל: {0}"
