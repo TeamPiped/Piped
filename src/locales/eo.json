@@ -14,7 +14,8 @@
         "channels": "Kanaloj",
         "livestreams": "Tujelsendoj",
         "bookmarks": "Legosignoj",
-        "channel_groups": "Kanalaroj"
+        "channel_groups": "Kanalaroj",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Vidi en {0}"
@@ -140,7 +141,8 @@
         "cancel": "Nuligi",
         "show_search_suggestions": "Montri serĉ-sugestojn",
         "chapters_layout_mobile": "Aranĝo de ĉapitroj en poŝtelefono",
-        "delete_automatically": "Aŭtomate forigi post"
+        "delete_automatically": "Aŭtomate forigi post",
+        "enable_dearrow": "Ebligi DeArrow"
     },
     "video": {
         "chapters": "Sekcioj",
