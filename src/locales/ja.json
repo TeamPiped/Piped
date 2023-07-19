@@ -14,7 +14,8 @@
         "channels": "チャンネル",
         "livestreams": "ライブ配信",
         "bookmarks": "ブックマーク",
-        "channel_groups": "グループ"
+        "channel_groups": "グループ",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "{0}で視聴"
