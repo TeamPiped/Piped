@@ -120,7 +120,8 @@
         "playlist_description": "Oynatma listesi açıklaması",
         "show_search_suggestions": "Arama önerilerini göster",
         "chapters_layout_mobile": "Mobilde Bölüm Düzeni",
-        "delete_automatically": "Şundan sonra otomatik olarak sil"
+        "delete_automatically": "Şundan sonra otomatik olarak sil",
+        "enable_dearrow": "DeArrow'u Etkinleştir"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
@@ -140,7 +141,8 @@
         "livestreams": "Canlı Yayınlar",
         "channels": "Kanallar",
         "bookmarks": "Yer İmleri",
-        "channel_groups": "Kanal grupları"
+        "channel_groups": "Kanal grupları",
+        "dearrow": "DeArrow"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
