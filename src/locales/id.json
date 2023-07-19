@@ -14,7 +14,8 @@
         "livestreams": "Siaran Langsung",
         "channels": "Saluran",
         "bookmarks": "Markah",
-        "channel_groups": "Grup saluran"
+        "channel_groups": "Grup saluran",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Tonton di {0}"
@@ -140,7 +141,8 @@
         "okay": "Oke",
         "show_search_suggestions": "Tampilkan saran pencarian",
         "chapters_layout_mobile": "Tata Letak Bab di Ponsel",
-        "delete_automatically": "Hapus secara otomatis setelah"
+        "delete_automatically": "Hapus secara otomatis setelah",
+        "enable_dearrow": "Aktifkan DeArrow"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
