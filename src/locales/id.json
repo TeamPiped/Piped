@@ -203,7 +203,7 @@
         "next_video_countdown": "Memutar video berikutnya dalam {0} detik",
         "weeks": "{amount} minggu",
         "hours": "{amount} jam",
-        "days": "{amount hari",
+        "days": "{amount} hari",
         "months": "{amount} bulan"
     }
 }
