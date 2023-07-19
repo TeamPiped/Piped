@@ -14,7 +14,8 @@
         "livestreams": "Na żywo",
         "channels": "Kanały",
         "bookmarks": "Zakładki",
-        "channel_groups": "Grupy kanałów"
+        "channel_groups": "Grupy kanałów",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Obejrzyj na {0}"
@@ -140,7 +141,8 @@
         "cancel": "Anuluj",
         "show_search_suggestions": "Pokaż sugestie wyszukiwania",
         "chapters_layout_mobile": "Układ rozdziałów na urządzeniach mobilnych",
-        "delete_automatically": "Usuń automatycznie po"
+        "delete_automatically": "Usuń automatycznie po",
+        "enable_dearrow": "Włącz DeArrow"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
