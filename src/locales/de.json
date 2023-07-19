@@ -120,7 +120,8 @@
         "playlist_description": "Beschreibung der Playlist",
         "show_search_suggestions": "Suchvorschläge anzeigen",
         "chapters_layout_mobile": "Kapitel-Layout auf Mobilgeräten",
-        "delete_automatically": "Automatisch löschen nach"
+        "delete_automatically": "Automatisch löschen nach",
+        "enable_dearrow": "DeArrow verwenden"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
@@ -140,7 +141,8 @@
         "livestreams": "Livestreams",
         "channels": "Kanäle",
         "bookmarks": "Lesezeichen",
-        "channel_groups": "Kanalgruppen"
+        "channel_groups": "Kanalgruppen",
+        "dearrow": "DeArrow"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Abschnitte",

@@ -149,7 +149,8 @@
         "cancel": "Cancelar",
         "show_search_suggestions": "Mostrar sugerencias de búsqueda",
         "chapters_layout_mobile": "Disposición de capítulos en móvil",
-        "delete_automatically": "Borrar automáticamente después de"
+        "delete_automatically": "Borrar automáticamente después de",
+        "enable_dearrow": "Activar DeArrow"
     },
     "titles": {
         "feed": "Lista de vídeos",
@@ -166,7 +167,8 @@
         "livestreams": "Directos",
         "channels": "Canales",
         "bookmarks": "Marcadores",
-        "channel_groups": "Grupos de canales"
+        "channel_groups": "Grupos de canales",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Ver en {0}"
