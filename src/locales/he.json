@@ -14,7 +14,8 @@
         "livestreams": "שידורים חיים",
         "channels": "ערוצים",
         "bookmarks": "סימניות",
-        "channel_groups": "קבוצות ערוץ"
+        "channel_groups": "קבוצות ערוץ",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "לצפות ב־{0}"
@@ -140,7 +141,8 @@
         "okay": "אישור",
         "show_search_suggestions": "הצגת הצעות חיפוש",
         "chapters_layout_mobile": "פריסת פרקים בנייד",
-        "delete_automatically": "למחוק אוטומטית לאחר"
+        "delete_automatically": "למחוק אוטומטית לאחר",
+        "enable_dearrow": "הפעלת DeArrow"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
