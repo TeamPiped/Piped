@@ -119,7 +119,8 @@
         "okay": "好的",
         "edit_playlist": "编辑播放列表",
         "show_search_suggestions": "显示搜索建议",
-        "chapters_layout_mobile": "移动设备上的章节布局"
+        "chapters_layout_mobile": "移动设备上的章节布局",
+        "delete_automatically": "多久后自动删除"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -199,6 +200,10 @@
         "cannot_copy": "无法复制！",
         "local_storage": "此操作需要本地存储，是否启用了Cookie？",
         "register_no_email_note": "不建议使用电子邮件作为用户名。仍要继续吗？",
-        "next_video_countdown": "在{0}秒后播放下一个视频"
+        "next_video_countdown": "在{0}秒后播放下一个视频",
+        "days": "{amount} 天",
+        "weeks": "{amount} 周",
+        "months": "{amount} 个月",
+        "hours": "{amount} 小时"
     }
 }

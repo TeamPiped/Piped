@@ -139,7 +139,8 @@
         "playlist_description": "Priskribo de la ludlisto",
         "cancel": "Nuligi",
         "show_search_suggestions": "Montri serĉ-sugestojn",
-        "chapters_layout_mobile": "Aranĝo de ĉapitroj en poŝtelefono"
+        "chapters_layout_mobile": "Aranĝo de ĉapitroj en poŝtelefono",
+        "delete_automatically": "Aŭtomate forigi post"
     },
     "video": {
         "chapters": "Sekcioj",
@@ -174,7 +175,11 @@
         "page_not_found": "Paĝo ne trovita",
         "local_storage": "Ĉi tiu ago postulas localStorage, ĉu kuketoj estas ebligitaj?",
         "register_no_email_note": "Uzi retadreson kiel uzantnomon ne estas rekomendita. Ĉu daŭrigi ĉiuokaze?",
-        "next_video_countdown": "Oni ludos la sekvan videon post {0}s"
+        "next_video_countdown": "Oni ludos la sekvan videon post {0}s",
+        "hours": "{amount} horo(j)",
+        "days": "{amount} tago(j)",
+        "weeks": "{amount} semajno(j)",
+        "months": "{amount} monato(j)"
     },
     "login": {
         "username": "Uzantnomo",

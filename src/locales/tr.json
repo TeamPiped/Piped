@@ -119,7 +119,8 @@
         "playlist_name": "Oynatma listesi adı",
         "playlist_description": "Oynatma listesi açıklaması",
         "show_search_suggestions": "Arama önerilerini göster",
-        "chapters_layout_mobile": "Mobilde Bölüm Düzeni"
+        "chapters_layout_mobile": "Mobilde Bölüm Düzeni",
+        "delete_automatically": "Şundan sonra otomatik olarak sil"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
@@ -199,6 +200,10 @@
         "cannot_copy": "Kopyalanamıyor!",
         "local_storage": "Bu eylem yerel depolama gerektirir, çerezler etkin mi?",
         "register_no_email_note": "Kullanıcı adı olarak e-posta kullanılması tavsiye edilmez. Yine de devam edilsin mi?",
-        "next_video_countdown": "Sonraki video {0}s içinde oynatılıyor"
+        "next_video_countdown": "Sonraki video {0}s içinde oynatılıyor",
+        "days": "{amount} gün",
+        "months": "{amount} ay",
+        "hours": "{amount} saat",
+        "weeks": "{amount} hafta"
     }
 }
