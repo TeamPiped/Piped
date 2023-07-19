@@ -482,9 +482,9 @@ export default {
                 const config = {
                     overflowMenuButtons: overflowMenuButtons,
                     seekBarColors: {
-                        base: "rgba(255, 255, 255, 0.3)",
-                        buffered: "rgba(255, 255, 255, 0.54)",
-                        played: "rgb(255, 0, 0)",
+                        base: "var(--player-base)",
+                        buffered: "var(--player-buffered)",
+                        played: "var(--player-played)",
                     },
                 };
 
@@ -612,6 +612,7 @@ export default {
                 this.$refs.videoEl.currentTime = time;
             }
         },
+
         updateMarkers() {
             const markers = this.$refs.container.querySelector(".shaka-ad-markers");
             const array = ["to right"];
@@ -619,38 +620,19 @@ export default {
                 const start = (segment.segment[0] / this.video.duration) * 100;
                 const end = (segment.segment[1] / this.video.duration) * 100;
 
-                var color;
-                switch (segment.category) {
-                    case "sponsor":
-                        color = "#00d400";
-                        break;
-                    case "selfpromo":
-                        color = "#ffff00";
-                        break;
-                    case "interaction":
-                        color = "#cc00ff";
-                        break;
-                    case "poi_highlight":
-                        color = "#ff1684";
-                        break;
-                    case "intro":
-                        color = "#00ffff";
-                        break;
-                    case "outro":
-                        color = "#0202ed";
-                        break;
-                    case "preview":
-                        color = "#008fd6";
-                        break;
-                    case "filler":
-                        color = "#7300FF";
-                        break;
-                    case "music_offtopic":
-                        color = "#ff9900";
-                        break;
-                    default:
-                        color = "white";
-                }
+                var color = [
+                    "sponsor",
+                    "selfpromo",
+                    "interaction",
+                    "poi_highlight",
+                    "intro",
+                    "outro",
+                    "preview",
+                    "filler",
+                    "music_offtopic",
+                ].includes(segment.category)
+                    ? `var(--spon-seg-${segment.category})`
+                    : "var(--spon-seg-default)";
 
                 array.push(`transparent ${start}%`);
                 array.push(`${color} ${start}%`);
@@ -779,6 +761,23 @@ export default {
 </script>
 
 <style>
+:root {
+    --player-base: rgba(255, 255, 255, 0.3);
+    --player-buffered: rgba(255, 255, 255, 0.54);
+    --player-played: rgba(255, 0, 0);
+
+    --spon-seg-sponsor: #00d400;
+    --spon-seg-selfpromo: #ffff00;
+    --spon-seg-interaction: #cc00ff;
+    --spon-seg-poi_highlight: #ff1684;
+    --spon-seg-intro: #00ffff;
+    --spon-seg-outro: #0202ed;
+    --spon-seg-preview: #008fd6;
+    --spon-seg-filler: #7300ff;
+    --spon-seg-music_offtopic: #ff9900;
+    --spon-seg-default: white;
+}
+
 .player-container {
     @apply max-h-75vh min-h-64 bg-black;
 }
