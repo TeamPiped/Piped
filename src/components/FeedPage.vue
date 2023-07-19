@@ -170,11 +170,6 @@ export default {
         onFilterChange() {
             this.setPreference("feedFilter", this.selectedFilter);
         },
-        fetchDeArrowContent(videoIds) {
-            return this.fetchJson(this.apiUrl() + "/dearrow", {
-                videoIds: videoIds.join(","),
-            });
-        },
     },
 };
 </script>

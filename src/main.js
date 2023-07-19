@@ -542,6 +542,11 @@ const mixin = {
                     return undefined;
             }
         },
+        fetchDeArrowContent(videoIds) {
+            return this.fetchJson(this.apiUrl() + "/dearrow", {
+                videoIds: videoIds.join(","),
+            });
+        },
     },
     computed: {
         authenticated(_this) {

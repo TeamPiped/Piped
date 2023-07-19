@@ -29,6 +29,13 @@ export default {
         this.fetchTrending(region).then(videos => {
             this.videos = videos;
             this.updateWatched(this.videos);
+            const videoIds = this.videos.map(video => video.url.substr(-11)).sort();
+            this.fetchDeArrowContent(videoIds).then(json => {
+                Object.keys(json).forEach(key => {
+                    const video = this.videos.find(video => video.url.substr(-11) == key);
+                    video.dearrow = json[key];
+                });
+            });
         });
     },
     activated() {
