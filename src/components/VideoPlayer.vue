@@ -616,6 +616,19 @@ export default {
                 this.$refs.videoEl.currentTime = time;
             }
         },
+
+        document.documentElement.style.setProperty('--spon-seg-sponsor', '#00d400');
+        document.documentElement.style.setProperty('--spon-seg-selfpromo', '#ffff00');
+        document.documentElement.style.setProperty('--spon-seg-interaction', '#cc00ff');
+        document.documentElement.style.setProperty('--spon-seg-poi_highlight', '#ff1684');
+        document.documentElement.style.setProperty('--spon-seg-intro', '#00ffff');
+        document.documentElement.style.setProperty('--spon-seg-outro', '#0202ed');
+        document.documentElement.style.setProperty('--spon-seg-preview', '#008fd6');
+        document.documentElement.style.setProperty('--spon-seg-filler', '#7300FF');
+        document.documentElement.style.setProperty('--spon-seg-music_offtopic', '#ff9900');
+        document.documentElement.style.setProperty('--spon-seg-default', 'white');
+
+
         updateMarkers() {
             const markers = this.$refs.container.querySelector(".shaka-ad-markers");
             const array = ["to right"];
@@ -626,34 +639,17 @@ export default {
                 var color;
                 switch (segment.category) {
                     case "sponsor":
-                        color = "#00d400";
-                        break;
                     case "selfpromo":
-                        color = "#ffff00";
-                        break;
                     case "interaction":
-                        color = "#cc00ff";
-                        break;
                     case "poi_highlight":
-                        color = "#ff1684";
-                        break;
                     case "intro":
-                        color = "#00ffff";
-                        break;
                     case "outro":
-                        color = "#0202ed";
-                        break;
                     case "preview":
-                        color = "#008fd6";
-                        break;
                     case "filler":
-                        color = "#7300FF";
-                        break;
                     case "music_offtopic":
-                        color = "#ff9900";
-                        break;
+                        color = "var(--spon-seg-${segment.category})"
                     default:
-                        color = "white";
+                        color = "var(--spon-seg-default)";
                 }
 
                 array.push(`transparent ${start}%`);
