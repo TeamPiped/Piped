@@ -14,7 +14,8 @@
         "livestreams": "البث المباشر",
         "channels": "القنوات",
         "bookmarks": "الاشارات المرجعيه",
-        "channel_groups": "مجموعات القنوات"
+        "channel_groups": "مجموعات القنوات",
+        "dearrow": "دي ارو"
     },
     "player": {
         "watch_on": "شاهد عبر"
@@ -140,7 +141,8 @@
         "edit_playlist": "تعديل قائمة التشغيل",
         "show_search_suggestions": "إظهار اقتراحات البحث",
         "chapters_layout_mobile": "تخطيط الفصول على الهاتف",
-        "delete_automatically": "الحذف تلقائيا بعد"
+        "delete_automatically": "الحذف تلقائيا بعد",
+        "enable_dearrow": "تمكين دي ارو"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
