@@ -479,12 +479,16 @@ export default {
                     overflowMenuButtons.push("open_new_tab");
                 }
 
+                document.documentElement.style.setProperty('--player-base', 'rgba(255, 255, 255, 0.3)');
+                document.documentElement.style.setProperty('--player-buffered', 'rgba(255, 255, 255, 0.54)');
+                document.documentElement.style.setProperty('--player-played', 'rgb(255, 0, 0)');
+
                 const config = {
                     overflowMenuButtons: overflowMenuButtons,
                     seekBarColors: {
-                        base: "rgba(255, 255, 255, 0.3)",
-                        buffered: "rgba(255, 255, 255, 0.54)",
-                        played: "rgb(255, 0, 0)",
+                        base: "var(--player-base)",
+                        buffered: "var(--player-buffered)",
+                        played: "var(--player-played)",
                     },
                 };
 
