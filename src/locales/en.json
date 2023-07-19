@@ -14,7 +14,8 @@
         "livestreams": "Livestreams",
         "channels": "Channels",
         "bookmarks": "Bookmarks",
-        "channel_groups": "Channel groups"
+        "channel_groups": "Channel groups",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Watch on {0}"
@@ -45,6 +46,7 @@
         "show_markers": "Show Markers on Player",
         "min_segment_length": "Minimum Segment Length (in seconds)",
         "skip_segment": "Skip Segment",
+        "enable_dearrow": "Enable DeArrow",
         "theme": "Theme",
         "auto": "Auto",
         "dark": "Dark",

@@ -252,6 +252,16 @@
             />
         </label>
     </div>
+
+    <h2 class="text-center" v-t="'titles.dearrow'" />
+    <p class="text-center">
+        <span v-t="'actions.uses_api_from'" /><a class="link" href="https://sponsor.ajay.app/">sponsor.ajay.app</a>
+    </p>
+    <label class="pref" for="chkDeArrow">
+        <strong v-t="'actions.enable_dearrow'" />
+        <input id="chkDeArrow" v-model="dearrow" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+
     <h2 class="text-center" v-t="'titles.instance'" />
     <label class="pref" for="ddlInstanceSelection">
         <strong v-text="`${$t('actions.instance_selection')}:`" />
@@ -391,6 +401,7 @@ export default {
             ]),
             showMarkers: true,
             minSegmentLength: 0,
+            dearrow: false,
             selectedTheme: "dark",
             autoPlayVideo: true,
             autoDisplayCaptions: false,
@@ -511,6 +522,7 @@ export default {
 
             this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
             this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
+            this.dearrow = this.getPreferenceBoolean("dearrow", false);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
             this.autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
@@ -569,6 +581,9 @@ export default {
 
                 localStorage.setItem("showMarkers", this.showMarkers);
                 localStorage.setItem("minSegmentLength", this.minSegmentLength);
+
+                localStorage.setItem("dearrow", this.dearrow);
+
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
                 localStorage.setItem("autoDisplayCaptions", this.autoDisplayCaptions);

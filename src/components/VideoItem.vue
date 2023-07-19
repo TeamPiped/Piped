@@ -14,8 +14,8 @@
             <div class="w-full">
                 <img
                     class="w-full aspect-video object-contain"
-                    :src="item.thumbnail"
-                    :alt="item.title"
+                    :src="thumbnail"
+                    :alt="title"
                     :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
                     loading="lazy"
                 />
@@ -52,8 +52,8 @@
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
                     class="pt-2 overflow-hidden flex link font-bold"
-                    :title="item.title"
-                    v-text="item.title"
+                    :title="title"
+                    v-text="title"
                 />
             </div>
         </router-link>
@@ -102,8 +102,8 @@
                             listen: '1',
                         },
                     }"
-                    :aria-label="'Listen to ' + item.title"
-                    :title="'Listen to ' + item.title"
+                    :aria-label="'Listen to ' + title"
+                    :title="'Listen to ' + title"
                 >
                     <font-awesome-icon icon="headphones" />
                 </router-link>
@@ -173,6 +173,14 @@ export default {
     },
     mounted() {
         this.shouldShowVideo();
+    },
+    computed: {
+        title() {
+            return this.item.dearrow?.titles[0]?.title ?? this.item.title;
+        },
+        thumbnail() {
+            return this.item.dearrow?.thumbnails[0]?.thumbnail ?? this.item.thumbnail;
+        },
     },
     methods: {
         removeVideo() {
