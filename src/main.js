@@ -543,6 +543,7 @@ const mixin = {
             }
         },
         fetchDeArrowContent(videoIds) {
+            if (!this.getPreferenceBoolean("dearrow", false)) return {};
             return this.fetchJson(this.apiUrl() + "/dearrow", {
                 videoIds: videoIds.join(","),
             });
