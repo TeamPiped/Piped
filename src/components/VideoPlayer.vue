@@ -636,21 +636,8 @@ export default {
                 const start = (segment.segment[0] / this.video.duration) * 100;
                 const end = (segment.segment[1] / this.video.duration) * 100;
 
-                var color;
-                switch (segment.category) {
-                    case "sponsor":
-                    case "selfpromo":
-                    case "interaction":
-                    case "poi_highlight":
-                    case "intro":
-                    case "outro":
-                    case "preview":
-                    case "filler":
-                    case "music_offtopic":
-                        color = "var(--spon-seg-${segment.category})"
-                    default:
-                        color = "var(--spon-seg-default)";
-                }
+                var color = ["sponsor", "selfpromo", "interaction", "poi_highlight", "intro", "outro", "preview", "filler", "music_offtopic", ].includes(segment.category) ? "var(--spon-seg-${segment.category})" : "var(--spon-seg-default)";
+
 
                 array.push(`transparent ${start}%`);
                 array.push(`${color} ${start}%`);
