@@ -148,7 +148,9 @@
         "playlist_name": "Ime playliste",
         "playlist_description": "Opis playliste",
         "chapters_layout_mobile": "Raspored poglavlja na mobilnim uređajima",
-        "show_search_suggestions": "Prikaži prijedloge pretrage"
+        "show_search_suggestions": "Prikaži prijedloge pretrage",
+        "delete_automatically": "Automatski izbriši nakon",
+        "enable_dearrow": "Aktiviraj DeArrow"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
@@ -168,7 +170,8 @@
         "channels": "Kanali",
         "livestreams": "Prijenosi uživo",
         "bookmarks": "Zabilješke",
-        "channel_groups": "Grupe kanala"
+        "channel_groups": "Grupe kanala",
+        "dearrow": "DeArrow"
     },
     "login": {
         "password": "Lozinka",
@@ -199,6 +202,10 @@
         "cannot_copy": "Nije moguće kopirati!",
         "local_storage": "Ova radnja zahtijeva lokalno spremište. Jesu li kolačići uključeni?",
         "register_no_email_note": "Korištenje e-mail adrese kao korisničkog imena se ne preporučuje. Svejedno nastaviti?",
-        "next_video_countdown": "Reprodukcija sljedećeg videa za {0} s"
+        "next_video_countdown": "Reprodukcija sljedećeg videa za {0} s",
+        "hours": "{amount} h",
+        "days": "{amount} dan(a)",
+        "weeks": "{amount} tj",
+        "months": "{amount} mj"
     }
 }
