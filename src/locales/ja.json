@@ -97,7 +97,7 @@
         "minimize_comments": "コメントを最小化",
         "share": "共有",
         "with_timecode": "時間指定",
-        "different_auth_instance": "認証には別のインスタンスを使う",
+        "different_auth_instance": "認証に別のインスタンスを使用",
         "download_as_txt": ".txtでダウンロード",
         "logout": "この端末からログアウト",
         "minimize_recommendations_default": "最初からおすすめを最小化",
@@ -141,7 +141,8 @@
         "playlist_description": "再生リストの説明",
         "chapters_layout_mobile": "モバイル端末でのチャプターの配置",
         "show_search_suggestions": "検索語句の候補を表示",
-        "delete_automatically": "指定時間後に自動削除"
+        "delete_automatically": "指定時間後に自動削除",
+        "enable_dearrow": "DeArrow を使用"
     },
     "comment": {
         "pinned_by": "{author} によって固定",

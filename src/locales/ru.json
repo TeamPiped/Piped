@@ -14,7 +14,8 @@
         "livestreams": "Прямые трансляции",
         "channels": "Каналы",
         "bookmarks": "Закладки",
-        "channel_groups": "Группы каналов"
+        "channel_groups": "Группы каналов",
+        "dearrow": "ДеЭрроу"
     },
     "player": {
         "watch_on": "Смотреть на {0}"
@@ -139,7 +140,9 @@
         "auto_display_captions": "Авто-отображение субтитров",
         "playlist_name": "Название плейлиста",
         "show_search_suggestions": "Показать поисковые предложения",
-        "chapters_layout_mobile": "Расположение глав в мобильном виде"
+        "chapters_layout_mobile": "Расположение глав в мобильном виде",
+        "delete_automatically": "Автоматическое удаление после",
+        "enable_dearrow": "Включить ДеЭрроу"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
@@ -196,6 +199,10 @@
         "page_not_found": "Страница не найдена",
         "local_storage": "Это действие требует разрешения localStorage, включены ли cookie-файлы?",
         "register_no_email_note": "Использование электронной почты в качестве имени пользователя не рекомендуется. Продолжить?",
-        "next_video_countdown": "Воспроизведение следующего видео через {0} с."
+        "next_video_countdown": "Воспроизведение следующего видео через {0} с.",
+        "days": "{amount} дней",
+        "hours": "{amount} час(ов)",
+        "weeks": "{amount} недель",
+        "months": "{amount} месяцев"
     }
 }
