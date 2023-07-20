@@ -78,7 +78,11 @@
         "minimize_comments": "Thu nhỏ bình luận",
         "reply_count": "{count} phản hồi",
         "status_page": "Trạng thái",
-        "skip_automatically": "Tự động"
+        "skip_automatically": "Tự động",
+        "show_chapters": "Chương",
+        "show_less": "Hiển thị ít hơn",
+        "cancel": "Hủy",
+        "okay": "OK"
     },
     "titles": {
         "register": "Đăng ký",
