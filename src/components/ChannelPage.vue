@@ -148,6 +148,7 @@ export default {
                         this.contentItems = this.channel.relatedStreams;
                         this.fetchSubscribedStatus();
                         this.updateWatched(this.channel.relatedStreams);
+                        this.fetchDeArrowContent(this.channel.relatedStreams);
                         this.tabs.push({
                             translatedName: this.$t("video.videos"),
                         });
@@ -186,6 +187,7 @@ export default {
                 this.loading = false;
                 this.updateWatched(json.relatedStreams);
                 json.relatedStreams.map(stream => this.contentItems.push(stream));
+                this.fetchDeArrowContent(this.contentItems);
             });
         },
         fetchChannelTabNextPage() {
@@ -196,6 +198,7 @@ export default {
                 this.tabs[this.selectedTab].tabNextPage = json.nextpage;
                 this.loading = false;
                 json.content.map(item => this.contentItems.push(item));
+                this.fetchDeArrowContent(this.contentItems);
                 this.tabs[this.selectedTab].content = this.contentItems;
             });
         },
@@ -258,6 +261,7 @@ export default {
                 data: this.tabs[index].data,
             }).then(tab => {
                 this.contentItems = this.tabs[index].content = tab.content;
+                this.fetchDeArrowContent(this.contentItems);
                 this.tabs[this.selectedTab].tabNextPage = tab.nextpage;
             });
         },

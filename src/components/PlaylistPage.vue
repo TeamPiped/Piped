@@ -116,6 +116,7 @@ export default {
                 .then(() => {
                     this.updateTitle();
                     this.updateWatched(this.playlist.relatedStreams);
+                    this.fetchDeArrowContent(this.playlist.relatedStreams);
                 });
         },
         async updateTitle() {
@@ -132,6 +133,7 @@ export default {
                     this.playlist.nextpage = json.nextpage;
                     this.loading = false;
                     json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
+                    this.fetchDeArrowContent(this.playlist.relatedStreams);
                 });
             }
         },

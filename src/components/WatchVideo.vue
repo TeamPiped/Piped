@@ -454,16 +454,7 @@ export default {
                         this.video.description = this.rewriteDescription(xmlDoc.querySelector("body").innerHTML);
                         this.updateWatched(this.video.relatedStreams);
 
-                        const videoIds = this.video.relatedStreams
-                            .filter(obj => obj.type === "stream")
-                            .map(video => video.url.substr(-11))
-                            .sort();
-                        this.fetchDeArrowContent(videoIds).then(json => {
-                            Object.keys(json).forEach(key => {
-                                const video = this.video.relatedStreams.find(video => video.url.substr(-11) == key);
-                                video.dearrow = json[key];
-                            });
-                        });
+                        this.fetchDeArrowContent(this.video.relatedStreams);
                     }
                 });
         },
@@ -485,16 +476,7 @@ export default {
                     }
                 });
                 await this.fetchPlaylistPages().then(() => {
-                    const videoIds = this.playlist.relatedStreams
-                        .filter(obj => obj.type === "stream")
-                        .map(video => video.url.substr(-11))
-                        .sort();
-                    this.fetchDeArrowContent(videoIds).then(json => {
-                        Object.keys(json).forEach(key => {
-                            const video = this.playlist.relatedStreams.find(video => video.url.substr(-11) == key);
-                            video.dearrow = json[key];
-                        });
-                    });
+                    this.fetchDeArrowContent(this.playlist.relatedStreams);
                 });
             }
         },

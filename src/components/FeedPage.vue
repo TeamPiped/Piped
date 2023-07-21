@@ -138,18 +138,8 @@ export default {
         loadMoreVideos() {
             this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
             if (this.videos.length != this.videosStore.length) {
-                const videoIds = this.videosStore
-                    .slice(this.videos.length, this.currentVideoCount)
-                    .map(video => video.url.substr(-11))
-                    .sort();
-                if (this.getPreferenceBoolean("dearrow", false))
-                    this.fetchDeArrowContent(videoIds).then(json => {
-                        Object.keys(json).forEach(key => {
-                            const video = this.videosStore.find(video => video.url.substr(-11) == key);
-                            video.dearrow = json[key];
-                        });
-                    });
                 this.videos = this.videosStore.slice(0, this.currentVideoCount);
+                this.fetchDeArrowContent(this.videos);
             }
         },
         handleScroll() {

@@ -542,10 +542,24 @@ const mixin = {
                     return undefined;
             }
         },
-        fetchDeArrowContent(videoIds) {
-            if (!this.getPreferenceBoolean("dearrow", false)) return new Promise(resolve => resolve({}));
-            return this.fetchJson(this.apiUrl() + "/dearrow", {
+        fetchDeArrowContent(content) {
+            if (!this.getPreferenceBoolean("dearrow", false)) return;
+
+            const videoIds = content
+                .filter(item => item.type === "stream")
+                .filter(item => item.dearrow === undefined)
+                .map(item => item.url.substr(-11))
+                .sort();
+
+            if (videoIds.length === 0) return;
+
+            this.fetchJson(this.apiUrl() + "/dearrow", {
                 videoIds: videoIds.join(","),
+            }).then(json => {
+                Object.keys(json).forEach(videoId => {
+                    const item = content.find(item => item.url.endsWith(videoId));
+                    if (item) item.dearrow = json[videoId];
+                });
             });
         },
     },
