@@ -33,8 +33,8 @@ dependencies:
     specifier: 6.3.0
     version: 6.3.0
   shaka-player:
-    specifier: 4.3.7
-    version: 4.3.7
+    specifier: 4.3.8
+    version: 4.3.8
   stream-browserify:
     specifier: 3.0.0
     version: 3.0.0
@@ -4319,8 +4319,8 @@ packages:
       randombytes: 2.1.0
     dev: true
 
-  /shaka-player@4.3.7:
-    resolution: {integrity: sha512-3aeRb/AdVnGJKI1i23pD+b2e4eXljjJflxW+RLeWrSGHNRt/givvV3DyGIzpNQ9icUDatUyOtSkx8AdTXZWYXQ==}
+  /shaka-player@4.3.8:
+    resolution: {integrity: sha512-P67GLel4JoaYBsftic+FS2TH5xaBsJnk5y4WTncGIx2WY5qfHOPBNrtTslOuPbOXydOa2P4rWYeV5ZJu5K7XCA==}
     engines: {node: '>=14'}
     dependencies:
       eme-encryption-scheme-polyfill: 2.1.1
