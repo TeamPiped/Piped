@@ -45,7 +45,7 @@
         "lightningcss": "1.21.5",
         "prettier": "3.0.0",
         "unocss": "0.53.5",
-        "vite": "4.4.5",
+        "vite": "4.4.6",
         "vite-plugin-eslint": "1.8.1",
         "vite-plugin-pwa": "0.16.4",
         "workbox-window": "7.0.0"
