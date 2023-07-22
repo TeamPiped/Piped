@@ -158,7 +158,7 @@
             </span>
 
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <div v-show="showDesc" class="break-words description" v-html="purifyHTML(video.description)" />
+            <div v-show="showDesc" class="break-words description" v-html="purifiedDescription" />
             <template v-if="showDesc">
                 <div
                     v-if="sponsors && sponsors.segments"
@@ -248,6 +248,7 @@ import WatchOnButton from "./WatchOnButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import ToastComponent from "./ToastComponent.vue";
 import { parseTimeParam } from "@/utils/Misc";
+import { purifyHTML, rewriteDescription } from "@/utils/HtmlUtils";
 
 export default {
     name: "App",
@@ -314,6 +315,9 @@ export default {
         },
         defaultCounter(_this) {
             return _this.getPreferenceNumber("autoPlayNextCountdown", 5);
+        },
+        purifiedDescription() {
+            return purifyHTML(this.video.description);
         },
     },
     mounted() {
@@ -451,7 +455,7 @@ export default {
                                 elem.outerHTML = elem.getAttribute("href");
                         });
                         xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
-                        this.video.description = this.rewriteDescription(xmlDoc.querySelector("body").innerHTML);
+                        this.video.description = rewriteDescription(xmlDoc.querySelector("body").innerHTML);
                         this.updateWatched(this.video.relatedStreams);
 
                         this.fetchDeArrowContent(this.video.relatedStreams);

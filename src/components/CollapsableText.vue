@@ -1,8 +1,8 @@
 <template>
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-if="text" class="whitespace-pre-wrap py-2 mx-1">
-        <span v-if="showFullText" v-html="purifyHTML(rewriteDescription(text))" />
-        <span v-else v-html="purifyHTML(rewriteDescription(text.slice(0, 100)))" />
+        <span v-if="showFullText" v-html="fullText()" />
+        <span v-else v-html="colapsedText()" />
         <span v-if="text.length > 100 && !showFullText">...</span>
         <button
             v-if="text.length > 100"
@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { purifyHTML, rewriteDescription } from "@/utils/HtmlUtils";
+
 export default {
     props: {
         text: String,
@@ -23,6 +25,14 @@ export default {
         return {
             showFullText: false,
         };
+    },
+    methods: {
+        fullText() {
+            return purifyHTML(rewriteDescription(this.text));
+        },
+        colapsedText() {
+            return purifyHTML(rewriteDescription(this.text.slice(0, 100)));
+        },
     },
 };
 </script>

@@ -64,6 +64,9 @@ devDependencies:
   '@unocss/preset-icons':
     specifier: 0.53.6
     version: 0.53.6
+  '@unocss/preset-uno':
+    specifier: 0.53.6
+    version: 0.53.6
   '@unocss/preset-web-fonts':
     specifier: 0.53.6
     version: 0.53.6

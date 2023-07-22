@@ -28,7 +28,7 @@
                 </div>
                 <div class="comment-meta text-sm mb-1.5" v-text="comment.commentedTime" />
             </div>
-            <div class="whitespace-pre-wrap" v-html="purifyHTML(comment.commentText)" />
+            <div class="whitespace-pre-wrap" v-html="purifiedText" />
             <div class="comment-footer mt-1 flex items-center">
                 <div class="i-fa6-solid:thumbs-up" />
                 <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
@@ -60,6 +60,8 @@
 </template>
 
 <script>
+import { purifyHTML } from "@/utils/HtmlUtils";
+
 export default {
     props: {
         comment: {
@@ -78,6 +80,11 @@ export default {
             replies: [],
             nextpage: null,
         };
+    },
+    computed: {
+        purifiedText() {
+            return purifyHTML(this.comment.commentText);
+        },
     },
     methods: {
         async loadReplies() {

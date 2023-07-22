@@ -56,8 +56,6 @@ library.add(
 import router from "@/router/router.js";
 import App from "./App.vue";
 
-import DOMPurify from "dompurify";
-
 import TimeAgo from "javascript-time-ago";
 
 import en from "javascript-time-ago/locale/en";
@@ -119,9 +117,6 @@ const mixin = {
             return fetch(url, options).then(response => {
                 return response.json();
             });
-        },
-        purifyHTML(original) {
-            return DOMPurify.sanitize(original);
         },
         setPreference(key, value, disableAlert = false) {
             try {
@@ -195,19 +190,6 @@ const mixin = {
         timeAgo(time) {
             return timeAgo.format(time);
         },
-        urlify(string) {
-            if (!string) return "";
-            const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
-            const emailRegex = /([\w-\\.]+@(?:[\w-]+\.)+[\w-]{2,4})/g;
-            return string
-                .replace(urlRegex, url => {
-                    if (url.endsWith("</a>") || url.endsWith("<a")) return url;
-                    return `<a href="${url}" target="_blank">${url}</a>`;
-                })
-                .replace(emailRegex, email => {
-                    return `<a href="mailto:${email}">${email}</a>`;
-                });
-        },
         async updateWatched(videos) {
             if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
                 var tx = window.db.transaction("watch_history", "readonly");
@@ -264,15 +246,6 @@ const mixin = {
             elem.download = filename;
             elem.click();
             elem.remove();
-        },
-        rewriteDescription(text) {
-            return this.urlify(text)
-                .replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm, "$1")
-                .replaceAll(
-                    /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm,
-                    "/watch?v=$1",
-                )
-                .replaceAll("\n", "<br>");
         },
         getChannelGroupsCursor() {
             if (!window.db) return;
