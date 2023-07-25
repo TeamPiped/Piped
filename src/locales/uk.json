@@ -23,8 +23,8 @@
         "default_homepage": "Домашня сторінка за замовчуванням",
         "show_comments": "Показати коментарі",
         "store_watch_history": "Зберігати історію перегляду",
-        "language_selection": "Вибір мови",
-        "instance_selection": "Вибір екземпляра",
+        "language_selection": "Мова",
+        "instance_selection": "Екземпляр",
         "show_more": "Показати більше",
         "no": "Ні",
         "export_to_json": "Експортувати в JSON",
@@ -50,7 +50,7 @@
         "instances_list": "Список екземплярів",
         "enabled_codecs": "Увімкнені кодеки (можна вибрати декілька)",
         "default_quality": "Якість за замовчуванням",
-        "country_selection": "Вибір країни (для трендів)",
+        "country_selection": "Країна (для трендів)",
         "minimize_description_default": "Не розгортати опис за замовчуванням",
         "yes": "Так",
         "import_from_json": "Імпортувати з JSON/CSV",
@@ -92,7 +92,7 @@
         "copy_link": "Копіювати посилання",
         "store_search_history": "Зберігати історію пошуку",
         "documentation": "Документація",
-        "instance_auth_selection": "Вибір екземпляра для автентифікації",
+        "instance_auth_selection": "Екземпляр для автентифікації",
         "minimize_chapters_default": "Згортати розділи за замовчуванням",
         "show_watch_on_youtube": "Показати кнопку Дивитися на YouTube",
         "restore_preferences": "Відновити налаштування",
@@ -126,7 +126,9 @@
         "cancel": "Скасувати",
         "show_search_suggestions": "Показувати пошукові пропозицій",
         "okay": "Добре",
-        "chapters_layout_mobile": "Макет розділів на телефоні"
+        "chapters_layout_mobile": "Макет розділів на телефоні",
+        "enable_dearrow": "Увімкнути DeArrow",
+        "delete_automatically": "Видаляти автоматично після"
     },
     "titles": {
         "register": "Реєстрація",
@@ -143,7 +145,8 @@
         "livestreams": "Наживо",
         "channels": "Канали",
         "bookmarks": "Закладки",
-        "channel_groups": "Групи каналів"
+        "channel_groups": "Групи каналів",
+        "dearrow": "DeArrow"
     },
     "comment": {
         "pinned_by": "Прикріплено користувачем {author}",
@@ -196,6 +199,10 @@
         "preferences_note": "Примітка: налаштування зберігаються в локальній пам'яті вашого браузера. Видалення даних браузера призведе до їх скидання.",
         "local_storage": "Ця дія потребує localStorage, чи ввімкнуті файли cookie?",
         "register_no_email_note": "Використання електронної пошти як імені користувача не рекомендується. Все одно продовжити?",
-        "next_video_countdown": "Наступне відео через {0} секунд"
+        "next_video_countdown": "Наступне відео через {0} секунд",
+        "weeks": "{amount} тиждень(-і)",
+        "hours": "{amount} годин(-и)",
+        "months": "{amount} місяць(-і)",
+        "days": "{amount} день(-і)"
     }
 }
