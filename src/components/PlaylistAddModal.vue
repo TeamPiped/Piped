@@ -1,16 +1,16 @@
 <template>
     <ModalComponent>
-        <span class="text-2xl w-max inline-block" v-t="'actions.select_playlist'" />
-        <select class="select w-full mt-3" v-model="selectedPlaylist">
-            <option v-for="playlist in playlists" :value="playlist.id" :key="playlist.id" v-text="playlist.name" />
+        <span v-t="'actions.select_playlist'" class="text-2xl w-max inline-block" />
+        <select v-model="selectedPlaylist" class="select w-full mt-3">
+            <option v-for="playlist in playlists" :key="playlist.id" :value="playlist.id" v-text="playlist.name" />
         </select>
         <div class="flex justify-between w-full mt-3">
-            <button class="btn" @click="onCreatePlaylist" ref="addButton" v-t="'actions.create_playlist'" />
+            <button ref="addButton" v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
             <button
-                class="btn"
-                @click="handleClick(selectedPlaylist)"
                 ref="addButton"
                 v-t="'actions.add_to_playlist'"
+                class="btn"
+                @click="handleClick(selectedPlaylist)"
             />
         </div>
     </ModalComponent>
@@ -33,6 +33,7 @@ export default {
             required: true,
         },
     },
+    emits: ["close"],
     data() {
         return {
             playlists: [],

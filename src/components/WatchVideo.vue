@@ -32,8 +32,8 @@
                     />
                 </keep-alive>
                 <ChaptersBar
-                    :mobileLayout="isMobile"
                     v-if="video?.chapters?.length > 0 && showChapters"
+                    :mobile-layout="isMobile"
                     :chapters="video.chapters"
                     :player-position="currentTime"
                     @seek="navigate"
@@ -76,7 +76,7 @@
                         video.uploader
                     }}</router-link>
                     <!-- Verified Badge -->
-                    <font-awesome-icon class="ml-1" v-if="video.uploaderVerified" icon="check" />
+                    <font-awesome-icon v-if="video.uploaderVerified" class="ml-1" icon="check" />
                 </div>
                 <PlaylistAddModal
                     v-if="showModal"
@@ -98,20 +98,20 @@
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
                     </button>
                     <button
-                        class="btn"
-                        @click="subscribeHandler"
                         v-t="{
                             path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
                             args: { count: numberFormat(video.uploaderSubscriberCount) },
                         }"
+                        class="btn"
+                        @click="subscribeHandler"
                     />
                     <div class="flex flex-wrap gap-1">
                         <!-- RSS Feed button -->
                         <a
+                            v-if="video.uploaderUrl"
                             aria-label="RSS feed"
                             title="RSS feed"
                             role="button"
-                            v-if="video.uploaderUrl"
                             :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${video.uploaderUrl.split('/')[2]}`"
                             target="_blank"
                             class="btn flex items-center"
@@ -147,14 +147,14 @@
             <hr />
 
             <button
+                v-t="`actions.${showDesc ? 'minimize_description' : 'show_description'}`"
                 class="btn mb-2"
                 @click="showDesc = !showDesc"
-                v-t="`actions.${showDesc ? 'minimize_description' : 'show_description'}`"
             />
 
-            <span class="btn ml-2" v-show="video?.chapters?.length > 0">
-                <input id="showChapters" type="checkbox" v-model="showChapters" />
-                <label class="ml-2" for="showChapters" v-t="'actions.show_chapters'" />
+            <span v-show="video?.chapters?.length > 0" class="btn ml-2">
+                <input id="showChapters" v-model="showChapters" type="checkbox" />
+                <label v-t="'actions.show_chapters'" class="ml-2" for="showChapters" />
             </span>
 
             <!-- eslint-disable-next-line vue/no-v-html -->
@@ -192,10 +192,10 @@
             </div>
             <div v-if="!showComments" class="xl:col-span-4 sm:col-span-3"></div>
             <div v-else-if="!comments" class="xl:col-span-4 sm:col-span-3">
-                <p class="text-center mt-8" v-t="'comment.loading'"></p>
+                <p v-t="'comment.loading'" class="text-center mt-8"></p>
             </div>
             <div v-else-if="comments.disabled" class="xl:col-span-4 sm:col-span-3">
-                <p class="text-center mt-8" v-t="'comment.disabled'"></p>
+                <p v-t="'comment.disabled'" class="text-center mt-8"></p>
             </div>
             <div v-else ref="comments" class="xl:col-span-4 sm:col-span-3">
                 <CommentItem
@@ -215,9 +215,9 @@
                     :selected-index="index"
                 />
                 <a
+                    v-t="`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`"
                     class="btn mb-2"
                     @click="showRecs = !showRecs"
-                    v-t="`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`"
                 />
                 <hr v-show="showRecs" />
                 <div v-show="showRecs">

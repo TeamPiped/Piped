@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
         <button @click="$router.go(-1) || $router.push('/')">
-            <font-awesome-icon icon="chevron-left" /><span class="ml-1.5" v-t="'actions.back'" />
+            <font-awesome-icon icon="chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
         </button>
     </div>
     <h1 v-t="'titles.preferences'" class="font-bold text-center" />
@@ -34,7 +34,7 @@
         </select>
     </label>
 
-    <h2 class="text-center" v-t="'titles.player'" />
+    <h2 v-t="'titles.player'" class="text-center" />
     <label class="pref" for="chkAutoPlayVideo">
         <strong v-t="'actions.autoplay_video'" />
         <input
@@ -223,7 +223,7 @@
         />
     </label>
     <div v-if="sponsorBlock">
-        <label v-for="[name, item] in skipOptions" class="pref" :for="'ddlSkip_' + name" :key="name">
+        <label v-for="[name, item] in skipOptions" :key="name" class="pref" :for="'ddlSkip_' + name">
             <strong v-t="item.label" />
             <select :id="'ddlSkip_' + name" v-model="item.value" class="select w-auto" @change="onChange($event)">
                 <option v-t="'actions.no'" value="no" />
@@ -253,7 +253,7 @@
         </label>
     </div>
 
-    <h2 class="text-center" v-t="'titles.dearrow'" />
+    <h2 v-t="'titles.dearrow'" class="text-center" />
     <p class="text-center">
         <span v-t="'actions.uses_api_from'" /><a class="link" href="https://sponsor.ajay.app/">sponsor.ajay.app</a>
     </p>
@@ -262,7 +262,7 @@
         <input id="chkDeArrow" v-model="dearrow" class="checkbox" type="checkbox" @change="onChange($event)" />
     </label>
 
-    <h2 class="text-center" v-t="'titles.instance'" />
+    <h2 v-t="'titles.instance'" class="text-center" />
     <label class="pref" for="ddlInstanceSelection">
         <strong v-text="`${$t('actions.instance_selection')}:`" />
         <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
@@ -305,8 +305,8 @@
     <br />
 
     <!-- options that are visible only when logged in -->
-    <div v-if="this.authenticated">
-        <h2 class="text-center" v-t="'titles.account'"></h2>
+    <div v-if="authenticated">
+        <h2 v-t="'titles.account'" class="text-center"></h2>
         <label class="pref" for="txtDeleteAccountPassword">
             <strong v-t="'actions.delete_account'" />
             <div class="flex items-center">
@@ -314,22 +314,22 @@
                     id="txtDeleteAccountPassword"
                     ref="txtDeleteAccountPassword"
                     v-model="password"
-                    v-on:keyup.enter="deleteAccount"
                     :placeholder="$t('login.password')"
                     :aria-label="$t('login.password')"
                     class="input w-auto mr-2"
                     type="password"
+                    @keyup.enter="deleteAccount"
                 />
-                <a class="btn w-auto" @click="deleteAccount" v-t="'actions.delete_account'" />
+                <a v-t="'actions.delete_account'" class="btn w-auto" @click="deleteAccount" />
             </div>
         </label>
         <div class="pref">
-            <a class="btn w-auto" @click="logout" v-t="'actions.logout'" />
+            <a v-t="'actions.logout'" class="btn w-auto" @click="logout" />
             <a
+                v-t="'actions.invalidate_session'"
                 class="btn w-auto"
                 style="margin-left: 0.5em"
                 @click="invalidateSession"
-                v-t="'actions.invalidate_session'"
             />
         </div>
         <br />
@@ -342,7 +342,7 @@
                 <th v-t="'preferences.instance_locations'" />
                 <th v-t="'preferences.has_cdn'" />
                 <th v-t="'preferences.registered_users'" />
-                <th class="lt-md:hidden" v-t="'preferences.version'" />
+                <th v-t="'preferences.version'" class="lt-md:hidden" />
                 <th v-t="'preferences.up_to_date'" />
                 <th v-t="'preferences.ssl_score'" />
             </tr>
@@ -356,7 +356,7 @@
                 <td class="lt-md:hidden" v-text="instance.version" />
                 <td v-text="`${instance.up_to_date ? '&#9989;' : '&#10060;'}`" />
                 <td>
-                    <a :href="sslScore(instance.api_url)" target="_blank" v-t="'actions.view_ssl_score'" />
+                    <a v-t="'actions.view_ssl_score'" :href="sslScore(instance.api_url)" target="_blank" />
                 </td>
             </tr>
         </tbody>
@@ -364,15 +364,15 @@
     <br />
     <p v-t="'info.preferences_note'" />
     <br />
-    <button class="btn" v-t="'actions.reset_preferences'" @click="showConfirmResetPrefsDialog = true" />
-    <button class="btn mx-4" v-t="'actions.backup_preferences'" @click="backupPreferences()" />
-    <label for="fileSelector" class="btn" v-t="'actions.restore_preferences'" @click="restorePreferences()" />
-    <input class="hidden" id="fileSelector" ref="fileSelector" type="file" @change="restorePreferences()" />
+    <button v-t="'actions.reset_preferences'" class="btn" @click="showConfirmResetPrefsDialog = true" />
+    <button v-t="'actions.backup_preferences'" class="btn mx-4" @click="backupPreferences()" />
+    <label v-t="'actions.restore_preferences'" for="fileSelector" class="btn" @click="restorePreferences()" />
+    <input id="fileSelector" ref="fileSelector" class="hidden" type="file" @change="restorePreferences()" />
     <ConfirmModal
         v-if="showConfirmResetPrefsDialog"
+        :message="$t('actions.confirm_reset_preferences')"
         @close="showConfirmResetPrefsDialog = false"
         @confirm="resetPreferences()"
-        :message="$t('actions.confirm_reset_preferences')"
     />
 </template>
 
@@ -380,6 +380,9 @@
 import CountryMap from "@/utils/CountryMaps/en.json";
 import ConfirmModal from "./ConfirmModal.vue";
 export default {
+    components: {
+        ConfirmModal,
+    },
     data() {
         return {
             mobileChapterLayout: "Vertical",
@@ -669,9 +672,6 @@ export default {
                 window.location.reload();
             });
         },
-    },
-    components: {
-        ConfirmModal,
     },
 };
 </script>

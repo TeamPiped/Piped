@@ -11,7 +11,7 @@
                     autocomplete="username"
                     :placeholder="$t('login.username')"
                     :aria-label="$t('login.username')"
-                    v-on:keyup.enter="login"
+                    @keyup.enter="login"
                 />
             </div>
             <div>
@@ -22,11 +22,11 @@
                     autocomplete="password"
                     :placeholder="$t('login.password')"
                     :aria-label="$t('login.password')"
-                    v-on:keyup.enter="login"
+                    @keyup.enter="login"
                 />
             </div>
             <div>
-                <a class="btn w-auto" @click="login" v-t="'titles.login'" />
+                <a v-t="'titles.login'" class="btn w-auto" @click="login" />
             </div>
         </form>
     </div>

@@ -29,25 +29,6 @@ export default {
             theme: "dark",
         };
     },
-    methods: {
-        setTheme() {
-            let themePref = this.getPreferenceString("theme", "dark");
-            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
-            else this.theme = themePref;
-
-            // Change title bar color based on user's theme
-            const themeColor = document.querySelector("meta[name='theme-color']");
-            if (this.theme === "light") {
-                themeColor.setAttribute("content", "#FFF");
-            } else {
-                themeColor.setAttribute("content", "#0F0F0F");
-            }
-
-            // Used for the scrollbar
-            const root = document.querySelector(":root");
-            this.theme == "dark" ? root.classList.add("dark") : root.classList.remove("dark");
-        },
-    },
     mounted() {
         this.setTheme();
         darkModePreference.addEventListener("change", () => {
@@ -111,6 +92,25 @@ export default {
                 window.i18n.global.locale.value = locale;
             }
         })();
+    },
+    methods: {
+        setTheme() {
+            let themePref = this.getPreferenceString("theme", "dark");
+            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
+            else this.theme = themePref;
+
+            // Change title bar color based on user's theme
+            const themeColor = document.querySelector("meta[name='theme-color']");
+            if (this.theme === "light") {
+                themeColor.setAttribute("content", "#FFF");
+            } else {
+                themeColor.setAttribute("content", "#0F0F0F");
+            }
+
+            // Used for the scrollbar
+            const root = document.querySelector(":root");
+            this.theme == "dark" ? root.classList.add("dark") : root.classList.remove("dark");
+        },
     },
 };
 </script>

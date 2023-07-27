@@ -1,12 +1,13 @@
 <template>
     <div class="toast">
         <slot />
-        <button @click="dismiss" v-t="'actions.dismiss'" />
+        <button v-t="'actions.dismiss'" @click="dismiss" />
     </div>
 </template>
 
 <script>
 export default {
+    emits: ["dismissed"],
     methods: {
         dismiss() {
             this.$emit("dismissed");

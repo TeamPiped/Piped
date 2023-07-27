@@ -1,5 +1,5 @@
 <template>
-    <div class="overflow-x-scroll h-screen-sm" ref="scrollable">
+    <div ref="scrollable" class="overflow-x-scroll h-screen-sm">
         <VideoItem
             v-for="(related, index) in playlist.relatedStreams"
             :key="related.url"
@@ -28,6 +28,18 @@ export default {
         },
         selectedIndex: {
             type: Number,
+            required: true,
+        },
+    },
+    watch: {
+        playlist: {
+            handler() {
+                if (this.selectedIndex - 1 < this.playlist.relatedStreams.length)
+                    nextTick(() => {
+                        this.updateScroll();
+                    });
+            },
+            deep: true,
         },
     },
     mounted() {
@@ -41,17 +53,6 @@ export default {
             if (index < elems.length)
                 this.$refs.scrollable.scrollTop =
                     elems[this.selectedIndex - 1].offsetTop - this.$refs.scrollable.offsetTop;
-        },
-    },
-    watch: {
-        playlist: {
-            handler() {
-                if (this.selectedIndex - 1 < this.playlist.relatedStreams.length)
-                    nextTick(() => {
-                        this.updateScroll();
-                    });
-            },
-            deep: true,
         },
     },
 };

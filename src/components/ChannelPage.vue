@@ -12,27 +12,27 @@
             <div class="flex place-items-center">
                 <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
                 <div class="flex gap-1 items-center">
-                    <h1 v-text="channel.name" class="!text-xl" />
-                    <font-awesome-icon class="!text-xl" v-if="channel.verified" icon="check" />
+                    <h1 class="!text-xl" v-text="channel.name" />
+                    <font-awesome-icon v-if="channel.verified" class="!text-xl" icon="check" />
                 </div>
             </div>
 
             <div class="flex gap-2">
                 <button
-                    class="btn"
-                    @click="subscribeHandler"
                     v-t="{
                         path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
                         args: { count: numberFormat(channel.subscriberCount) },
                     }"
+                    class="btn"
+                    @click="subscribeHandler"
                 ></button>
 
                 <!-- RSS Feed button -->
                 <a
+                    v-if="channel.id"
                     aria-label="RSS feed"
                     title="RSS feed"
                     role="button"
-                    v-if="channel.id"
                     :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
                     target="_blank"
                     class="btn flex-col"
@@ -44,15 +44,15 @@
 
         <CollapsableText :text="channel.description" />
 
-        <WatchOnButton :link="`https://youtube.com/channel/${this.channel.id}`" />
+        <WatchOnButton :link="`https://youtube.com/channel/${channel.id}`" />
 
         <div class="flex my-2 mx-1">
             <button
                 v-for="(tab, index) in tabs"
                 :key="tab.name"
                 class="btn mr-2"
-                @click="loadTab(index)"
                 :class="{ active: selectedTab == index }"
+                @click="loadTab(index)"
             >
                 <span v-text="tab.translatedName"></span>
             </button>

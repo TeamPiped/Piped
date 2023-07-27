@@ -1,7 +1,7 @@
 <template>
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
-    <LoadingIndicatorPage :show-content="playlist" v-show="!playlist?.error">
+    <LoadingIndicatorPage v-show="!playlist?.error" :show-content="playlist">
         <h1 class="ml-1 mb-1 mt-4 text-3xl!" v-text="playlist.name" />
 
         <CollapsableText :text="playlist.description" />
@@ -14,12 +14,12 @@
                 </router-link>
             </div>
             <div>
-                <strong v-text="`${playlist.videos} ${$t('video.videos')}`" class="mr-2" />
-                <button class="btn mx-1" v-if="!isPipedPlaylist" @click="bookmarkPlaylist">
+                <strong class="mr-2" v-text="`${playlist.videos} ${$t('video.videos')}`" />
+                <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
                     {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
                     }}<font-awesome-icon class="ml-3" icon="bookmark" />
                 </button>
-                <button class="btn mr-1" v-if="authenticated && !isPipedPlaylist" @click="clonePlaylist">
+                <button v-if="authenticated && !isPipedPlaylist" class="btn mr-1" @click="clonePlaylist">
                     {{ $t("actions.clone_playlist") }}<font-awesome-icon class="ml-3" icon="clone" />
                 </button>
                 <button class="btn mr-1" @click="downloadPlaylistAsTxt">
@@ -28,7 +28,7 @@
                 <a class="btn mr-1" :href="getRssUrl">
                     <font-awesome-icon icon="rss" />
                 </a>
-                <WatchOnButton :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`" />
+                <WatchOnButton :link="`https://www.youtube.com/playlist?list=${$route.query.list}`" />
             </div>
         </div>
 
@@ -42,9 +42,9 @@
                 :index="index"
                 :playlist-id="$route.query.list"
                 :admin="admin"
-                @remove="removeVideo(index)"
                 height="94"
                 width="168"
+                @remove="removeVideo(index)"
             />
         </div>
     </LoadingIndicatorPage>

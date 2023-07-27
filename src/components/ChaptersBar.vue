@@ -5,11 +5,11 @@
             {{ $t("video.chapters") }} ({{ chapters.length }})
         </h2>
         <div
-            :key="chapter.start"
             v-for="(chapter, index) in chapters"
-            @click="$emit('seek', chapter.start)"
+            :key="chapter.start"
             class="chapter-vertical"
             :class="{ 'bg-red-500/50': isCurrentChapter(index) }"
+            @click="$emit('seek', chapter.start)"
         >
             <div class="flex">
                 <span class="mt-5 mr-2 text-current" v-text="index + 1" />
@@ -31,11 +31,11 @@
             {{ $t("video.chapters") }} ({{ chapters.length }})
         </h2>
         <div
-            :key="chapter.start"
             v-for="(chapter, index) in chapters"
-            @click="$emit('seek', chapter.start)"
+            :key="chapter.start"
             class="chapter-vertical"
             :class="{ 'bg-red-500/50': isCurrentChapter(index) }"
+            @click="$emit('seek', chapter.start)"
         >
             <div class="flex">
                 <span class="mt-5 mr-2 text-current" v-text="index + 1" />
@@ -50,11 +50,11 @@
     <!-- mobile Horizontal view -->
     <div v-if="getPreferenceString('mobileChapterLayout') == 'Horizontal' && mobileLayout" class="flex overflow-x-auto">
         <div
-            :key="chapter.start"
             v-for="(chapter, index) in chapters"
-            @click="$emit('seek', chapter.start)"
+            :key="chapter.start"
             class="chapter"
             :class="{ 'bg-red-500/50': isCurrentChapter(index) }"
+            @click="$emit('seek', chapter.start)"
         >
             <img :src="chapter.image" :alt="chapter.title" />
             <div class="m-1 flex">
@@ -64,6 +64,32 @@
         </div>
     </div>
 </template>
+
+<script setup>
+const props = defineProps({
+    chapters: {
+        type: Object,
+        default: () => null,
+    },
+    mobileLayout: {
+        type: Boolean,
+        default: () => true,
+    },
+    playerPosition: {
+        type: Number,
+        default: () => 0,
+    },
+});
+
+const isCurrentChapter = index => {
+    return (
+        props.playerPosition >= props.chapters[index].start &&
+        props.playerPosition < (props.chapters[index + 1]?.start ?? Infinity)
+    );
+};
+
+defineEmits(["seek"]);
+</script>
 
 <style>
 ::-webkit-scrollbar {
@@ -89,26 +115,3 @@
     @apply truncate overflow-hidden inline-block w-10em;
 }
 </style>
-
-<script setup>
-const props = defineProps({
-    chapters: Object,
-    mobileLayout: {
-        type: Boolean,
-        default: () => true,
-    },
-    playerPosition: {
-        type: Number,
-        default: () => 0,
-    },
-});
-
-const isCurrentChapter = index => {
-    return (
-        props.playerPosition >= props.chapters[index].start &&
-        props.playerPosition < (props.chapters[index + 1]?.start ?? Infinity)
-    );
-};
-
-defineEmits(["seek"]);
-</script>

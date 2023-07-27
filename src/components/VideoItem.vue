@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col flex-justify-between" v-if="showVideo">
+    <div v-if="showVideo" class="flex flex-col flex-justify-between">
         <router-link
             class="focus:underline hover:underline inline-block w-full"
             :to="{
@@ -22,8 +22,8 @@
                 <!-- progress bar -->
                 <div class="relative w-full h-1">
                     <div
-                        class="absolute bottom-0 left-0 h-1 bg-red-600"
                         v-if="item.watched && item.duration > 0"
+                        class="absolute bottom-0 left-0 h-1 bg-red-600"
                         :style="{ width: `clamp(0%, ${(item.currentTime / item.duration) * 100}%, 100%` }"
                     />
                 </div>
@@ -31,21 +31,21 @@
 
             <div class="relative text-sm">
                 <span
-                    class="thumbnail-overlay thumbnail-right"
                     v-if="item.duration > 0"
+                    class="thumbnail-overlay thumbnail-right"
                     v-text="timeFormat(item.duration)"
                 />
                 <!-- shorts thumbnail -->
-                <span class="thumbnail-overlay thumbnail-left" v-if="item.isShort" v-t="'video.shorts'" />
+                <span v-if="item.isShort" v-t="'video.shorts'" class="thumbnail-overlay thumbnail-left" />
                 <span
-                    class="thumbnail-overlay thumbnail-right"
                     v-else-if="item.duration >= 0"
+                    class="thumbnail-overlay thumbnail-right"
                     v-text="timeFormat(item.duration)"
                 />
                 <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right !bg-red-600" tag="div">
                     <font-awesome-icon class="w-3" :icon="['fas', 'broadcast-tower']" />
                 </i18n-t>
-                <span v-if="item.watched" class="thumbnail-overlay bottom-5px left-5px" v-t="'video.watched'" />
+                <span v-if="item.watched" v-t="'video.watched'" class="thumbnail-overlay bottom-5px left-5px" />
             </div>
 
             <div>
@@ -78,7 +78,7 @@
                     :title="item.uploaderName"
                 >
                     <span v-text="item.uploaderName" />
-                    <font-awesome-icon class="ml-1.5" v-if="item.uploaderVerified" icon="check" />
+                    <font-awesome-icon v-if="item.uploaderVerified" class="ml-1.5" icon="check" />
                 </router-link>
 
                 <div v-if="item.views >= 0 || item.uploadedDate" class="text-xs font-normal text-gray-300 mt-1">
@@ -112,17 +112,17 @@
                 </button>
                 <button
                     v-if="admin"
-                    :title="$t('actions.remove_from_playlist')"
                     ref="removeButton"
+                    :title="$t('actions.remove_from_playlist')"
                     @click="showConfirmRemove = true"
                 >
                     <font-awesome-icon icon="circle-minus" />
                 </button>
                 <ConfirmModal
                     v-if="showConfirmRemove"
+                    :message="$t('actions.delete_playlist_video_confirm')"
                     @close="showConfirmRemove = false"
                     @confirm="removeVideo(item.url.substr(-11))"
-                    :message="$t('actions.delete_playlist_video_confirm')"
                 />
                 <PlaylistAddModal
                     v-if="showModal"
@@ -135,17 +135,12 @@
     </div>
 </template>
 
-<style>
-.shorts-img {
-    @apply w-full object-contain;
-}
-</style>
-
 <script>
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ConfirmModal from "./ConfirmModal.vue";
 
 export default {
+    components: { PlaylistAddModal, ConfirmModal },
     props: {
         item: {
             type: Object,
@@ -164,15 +159,13 @@ export default {
         playlistId: { type: String, default: null },
         admin: { type: Boolean, default: false },
     },
+    emits: ["remove"],
     data() {
         return {
             showModal: false,
             showVideo: true,
             showConfirmRemove: false,
         };
-    },
-    mounted() {
-        this.shouldShowVideo();
     },
     computed: {
         title() {
@@ -181,6 +174,9 @@ export default {
         thumbnail() {
             return this.item.dearrow?.thumbnails[0]?.thumbnail ?? this.item.thumbnail;
         },
+    },
+    mounted() {
+        this.shouldShowVideo();
     },
     methods: {
         removeVideo() {
@@ -204,6 +200,11 @@ export default {
             };
         },
     },
-    components: { PlaylistAddModal, ConfirmModal },
 };
 </script>
+
+<style>
+.shorts-img {
+    @apply w-full object-contain;
+}
+</style>

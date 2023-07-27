@@ -13,7 +13,7 @@
                 class="select flex-grow"
                 @change="onFilterChange()"
             >
-                <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`video.${filter}`" />
+                <option v-for="filter in availableFilters" :key="filter" v-t="`video.${filter}`" :value="filter" />
             </select>
         </span>
 
@@ -22,7 +22,7 @@
                 <strong v-text="`${$t('titles.channel_groups')}:`" />
             </label>
             <select id="group-selector" v-model="selectedGroupName" default="" class="select flex-grow">
-                <option value="" v-t="`video.all`" />
+                <option v-t="`video.all`" value="" />
                 <option
                     v-for="group in channelGroups"
                     :key="group.groupName"
