@@ -7,6 +7,17 @@
     </div>
 </template>
 
+<script>
+export default {
+    props: {
+        showContent: {
+            type: Boolean,
+            required: true,
+        },
+    },
+};
+</script>
+
 <style>
 #spinner:after {
     --spinner-color: #000;
@@ -42,14 +53,3 @@
     }
 }
 </style>
-
-<script>
-export default {
-    props: {
-        showContent: {
-            type: Boolean,
-            required: true,
-        },
-    },
-};
-</script>

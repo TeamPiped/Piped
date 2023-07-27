@@ -13,11 +13,11 @@
         </div>
         <div class="lt-md:hidden search-container">
             <input
+                ref="videoSearch"
                 v-model="searchText"
                 class="input w-72 h-10 pr-20"
                 type="text"
                 role="search"
-                ref="videoSearch"
                 :title="$t('actions.search')"
                 :placeholder="$t('actions.search')"
                 @keyup="onKeyUp"
@@ -27,7 +27,7 @@
             />
             <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
         </div>
-        <button @click="onSearchClick" id="search-btn" class="input btn mx-1 h-10">
+        <button id="search-btn" class="input btn mx-1 h-10" @click="onSearchClick">
             <div class="i-fa6-solid:magnifying-glass"></div>
         </button>
         <!-- three vertical lines for toggling the hamburger menu on mobile -->
@@ -135,13 +135,6 @@ export default {
             registrationDisabled: false,
         };
     },
-    mounted() {
-        this.fetchAuthConfig();
-        const query = new URLSearchParams(window.location.search).get("search_query");
-        if (query) this.onSearchTextChange(query);
-        this.focusOnSearchBar();
-        this.homePagePath = this.getHomePage(this);
-    },
     computed: {
         shouldShowLogin(_this) {
             return _this.getAuthToken() == null;
@@ -158,6 +151,13 @@ export default {
         showSearchHistory(_this) {
             return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
         },
+    },
+    mounted() {
+        this.fetchAuthConfig();
+        const query = new URLSearchParams(window.location.search).get("search_query");
+        if (query) this.onSearchTextChange(query);
+        this.focusOnSearchBar();
+        this.homePagePath = this.getHomePage(this);
     },
     methods: {
         // focus on search bar when Ctrl+k is pressed

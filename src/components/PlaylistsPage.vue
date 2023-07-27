@@ -1,24 +1,19 @@
 <template>
-    <h2 class="font-bold my-4" v-t="'titles.playlists'" />
+    <h2 v-t="'titles.playlists'" class="font-bold my-4" />
 
     <div class="flex justify-between mb-3">
         <button v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
         <div class="flex">
-            <button
-                v-if="this.playlists.length > 0"
-                v-t="'actions.export_to_json'"
-                class="btn"
-                @click="exportPlaylists"
-            />
+            <button v-if="playlists.length > 0" v-t="'actions.export_to_json'" class="btn" @click="exportPlaylists" />
             <input
                 id="fileSelector"
                 ref="fileSelector"
                 type="file"
                 class="display-none"
-                @change="importPlaylists"
                 multiple="multiple"
+                @change="importPlaylists"
             />
-            <label for="fileSelector" v-t="'actions.import_from_json'" class="btn ml-2" />
+            <label v-t="'actions.import_from_json'" for="fileSelector" class="btn ml-2" />
         </div>
     </div>
 
@@ -39,24 +34,24 @@
                     v-text="playlist.name"
                 />
             </router-link>
-            <button class="btn h-auto" @click="showPlaylistEditModal(playlist)" v-t="'actions.edit_playlist'" />
-            <button class="btn h-auto ml-2" @click="playlistToDelete = playlist.id" v-t="'actions.delete_playlist'" />
+            <button v-t="'actions.edit_playlist'" class="btn h-auto" @click="showPlaylistEditModal(playlist)" />
+            <button v-t="'actions.delete_playlist'" class="btn h-auto ml-2" @click="playlistToDelete = playlist.id" />
             <ModalComponent v-if="playlist.id == playlistToEdit" @close="playlistToEdit = null">
                 <div class="flex flex-col gap-2">
                     <h2 v-t="'actions.edit_playlist'" />
                     <input
+                        v-model="newPlaylistName"
                         class="input"
                         type="text"
-                        v-model="newPlaylistName"
                         :placeholder="$t('actions.playlist_name')"
                     />
                     <input
+                        v-model="newPlaylistDescription"
                         class="input"
                         type="text"
-                        v-model="newPlaylistDescription"
                         :placeholder="$t('actions.playlist_description')"
                     />
-                    <button class="btn ml-auto" @click="editPlaylist(playlist)" v-t="'actions.okay'" />
+                    <button v-t="'actions.okay'" class="btn ml-auto" @click="editPlaylist(playlist)" />
                 </div>
             </ModalComponent>
             <ConfirmModal
@@ -69,7 +64,7 @@
     </div>
     <hr />
 
-    <h2 class="font-bold my-4" v-t="'titles.bookmarks'" />
+    <h2 v-t="'titles.bookmarks'" class="font-bold my-4" />
 
     <div v-if="bookmarks" class="video-grid">
         <router-link
@@ -104,6 +99,7 @@ import ConfirmModal from "./ConfirmModal.vue";
 import ModalComponent from "./ModalComponent.vue";
 
 export default {
+    components: { ConfirmModal, ModalComponent },
     data() {
         return {
             playlists: [],
@@ -250,6 +246,5 @@ export default {
             this.bookmarks.splice(index, 1);
         },
     },
-    components: { ConfirmModal, ModalComponent },
 };
 </script>

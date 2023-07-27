@@ -1,7 +1,10 @@
 <script>
 export default {
     props: {
-        link: String,
+        link: {
+            type: String,
+            required: true,
+        },
         platform: {
             type: String,
             required: false,
@@ -12,7 +15,7 @@ export default {
 </script>
 
 <template>
-    <template v-if="this.getPreferenceBoolean('showWatchOnYouTube', false)">
+    <template v-if="getPreferenceBoolean('showWatchOnYouTube', false)">
         <!-- For large screens -->
         <a :href="link" class="btn lt-lg:hidden flex items-center">
             <i18n-t keypath="player.watch_on" tag="strong">{{ platform }}</i18n-t>

@@ -1,12 +1,12 @@
 <template>
-    <h1 class="font-bold text-center my-4" v-t="'titles.subscriptions'" />
+    <h1 v-t="'titles.subscriptions'" class="font-bold text-center my-4" />
     <!-- import / export section -->
     <div class="flex justify-between w-full">
         <div class="flex">
             <button class="btn mx-1">
-                <router-link to="/import" v-t="'actions.import_from_json'" />
+                <router-link v-t="'actions.import_from_json'" to="/import" />
             </button>
-            <button class="btn" @click="exportHandler" v-t="'actions.export_to_json'" />
+            <button v-t="'actions.export_to_json'" class="btn" @click="exportHandler" />
         </div>
         <!-- subscriptions count, only shown if there are any  -->
         <i18n-t v-if="subscriptions.length > 0" keypath="subscriptions.subscribed_channels_count">{{
@@ -18,9 +18,9 @@
     <div class="w-full flex flex-wrap">
         <button
             v-for="group in channelGroups"
+            :key="group.groupName"
             class="btn mx-1 w-max"
             :class="{ selected: selectedGroup === group }"
-            :key="group.groupName"
             @click="selectedGroup = group"
         >
             <span v-text="group.groupName !== '' ? group.groupName : $t('video.all')" />
@@ -39,9 +39,9 @@
     <div class="xl:grid xl:grid-cols-5 <md:flex-wrap">
         <!-- channel info card -->
         <div
-            class="col m-2 p-1 border rounded-lg border-gray-500"
             v-for="subscription in filteredSubscriptions"
             :key="subscription.url"
+            class="col m-2 p-1 border rounded-lg border-gray-500"
         >
             <router-link :to="subscription.url" class="flex p-2 font-bold text-4x4">
                 <img :src="subscription.avatar" class="rounded-full h-[fit-content]" width="48" height="48" />
@@ -49,9 +49,9 @@
             </router-link>
             <!-- subscribe / unsubscribe btn -->
             <button
+                v-t="`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`"
                 class="btn w-full mt-2"
                 @click="handleButton(subscription)"
-                v-t="`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`"
             />
         </div>
     </div>
@@ -60,8 +60,8 @@
     <ModalComponent v-if="showCreateGroupModal" @close="showCreateGroupModal = !showCreateGroupModal">
         <h2 v-t="'actions.create_group'" />
         <div class="flex flex-col">
-            <input class="input my-4" type="text" v-model="newGroupName" :placeholder="$t('actions.group_name')" />
-            <button class="ml-auto btn w-max" v-t="'actions.create_group'" @click="createGroup()" />
+            <input v-model="newGroupName" class="input my-4" type="text" :placeholder="$t('actions.group_name')" />
+            <button v-t="'actions.create_group'" class="ml-auto btn w-max" @click="createGroup()" />
         </div>
     </ModalComponent>
 
@@ -88,6 +88,7 @@
 import ModalComponent from "./ModalComponent.vue";
 
 export default {
+    components: { ModalComponent },
     data() {
         return {
             subscriptions: [],
@@ -100,6 +101,13 @@ export default {
             showEditGroupModal: false,
             newGroupName: "",
         };
+    },
+    computed: {
+        filteredSubscriptions(_this) {
+            return _this.selectedGroup.groupName == ""
+                ? _this.subscriptions
+                : _this.subscriptions.filter(channel => _this.selectedGroup.channels.includes(channel.url.substr(-11)));
+        },
     },
     mounted() {
         this.fetchSubscriptions().then(json => {
@@ -201,14 +209,6 @@ export default {
             this.createOrUpdateChannelGroup(this.selectedGroup);
         },
     },
-    computed: {
-        filteredSubscriptions(_this) {
-            return _this.selectedGroup.groupName == ""
-                ? _this.subscriptions
-                : _this.subscriptions.filter(channel => _this.selectedGroup.channels.includes(channel.url.substr(-11)));
-        },
-    },
-    components: { ModalComponent },
 };
 </script>
 

@@ -51,18 +51,6 @@
         "vite-plugin-pwa": "0.16.4",
         "workbox-window": "7.0.0"
     },
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/vue3-essential",
-            "plugin:prettier/recommended",
-            "eslint:recommended"
-        ],
-        "rules": {}
-    },
     "browserslist": [
         "last 1 chrome version",
         "last 1 firefox version"

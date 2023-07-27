@@ -5,7 +5,7 @@
         <strong v-text="`${$t('actions.filter')}:`" />
     </label>
     <select id="ddlSearchFilters" v-model="selectedFilter" default="all" class="select w-auto" @change="updateFilter()">
-        <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`search.${filter}`" />
+        <option v-for="filter in availableFilters" :key="filter" v-t="`search.${filter}`" :value="filter" />
     </select>
 
     <hr />
