@@ -4,7 +4,7 @@
     <LoadingIndicatorPage v-show="!playlist?.error" :show-content="playlist">
         <h1 class="ml-1 mb-1 mt-4 text-3xl!" v-text="playlist.name" />
 
-        <CollapsableText :text="playlist.description" />
+        <CollapsableText v-if="playlist?.description" :text="playlist.description" />
 
         <div class="flex justify-between items-center mt-1">
             <div>
