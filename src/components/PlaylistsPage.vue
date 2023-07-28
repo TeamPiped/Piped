@@ -195,7 +195,20 @@ export default {
             let text = await file.text();
             let tasks = [];
             // list of playlists exported from Piped
-            if (text.includes("playlists")) {
+            if (file.name.slice(-4).toLowerCase() == ".csv") {
+                const lines = text.split("\n");
+                const playlistName = lines[1].split(",")[4];
+                const playlist = {
+                    name: playlistName != "" ? playlistName : new Date().toJSON(),
+                    videos: lines
+                        .slice(4, lines.length)
+                        .filter(line => line != "")
+                        .slice(1)
+                        .map(line => `https://youtube.com/watch?v=${line.split(",")[0]}`),
+                };
+                tasks.push(this.createPlaylistWithVideos(playlist));
+            } else if (text.includes('"Piped"')) {
+                // CSV from Google Takeout
                 let playlists = JSON.parse(text).playlists;
                 if (!playlists.length) {
                     alert(this.$t("actions.no_valid_playlists"));
@@ -204,17 +217,6 @@ export default {
                 for (let playlist of playlists) {
                     tasks.push(this.createPlaylistWithVideos(playlist));
                 }
-                // CSV from Google Takeout
-            } else if (file.name.slice(-4).toLowerCase() == ".csv") {
-                const lines = text.split("\n");
-                const playlist = {
-                    name: lines[1].split(",")[4],
-                    videos: lines
-                        .slice(4, lines.length)
-                        .filter(line => line != "")
-                        .map(line => `https://youtube.com/watch?v=${line.split(",")[0]}`),
-                };
-                tasks.push(this.createPlaylistWithVideos(playlist));
             } else {
                 alert(this.$t("actions.no_valid_playlists"));
                 return;
