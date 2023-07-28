@@ -21,7 +21,7 @@
             :key="group.groupName"
             class="btn mx-1 w-max"
             :class="{ selected: selectedGroup === group }"
-            @click="selectedGroup = group"
+            @click="selectGroup(group)"
         >
             <span v-text="group.groupName !== '' ? group.groupName : $t('video.all')" />
             <div v-if="group.groupName != '' && selectedGroup == group">
@@ -66,7 +66,10 @@
     </ModalComponent>
 
     <ModalComponent v-if="showEditGroupModal" @close="showEditGroupModal = false">
-        <h2>{{ selectedGroup.groupName }}</h2>
+        <div class="flex justify-between mt-3 mb-5">
+            <input v-model="editedGroupName" type="text" class="input" />
+            <button v-t="'actions.okay'" class="btn" :placeholder="$t('actions.group_name')" @click="editGroupName()" />
+        </div>
         <div class="flex flex-col mt-3 mb-2 overflow-y-scroll h-70">
             <div v-for="subscription in subscriptions" :key="subscription.name">
                 <div class="flex justify-between mr-3">
@@ -100,6 +103,7 @@ export default {
             showCreateGroupModal: false,
             showEditGroupModal: false,
             newGroupName: "",
+            editedGroupName: "",
         };
     },
     computed: {
@@ -182,6 +186,10 @@ export default {
             });
             this.download(json, "subscriptions.json", "application/json");
         },
+        selectGroup(group) {
+            this.selectedGroup = group;
+            this.editedGroupName = group.groupName;
+        },
         createGroup() {
             if (!this.newGroupName || this.channelGroups.some(group => group.groupName == this.newGroupName)) return;
 
@@ -195,6 +203,21 @@ export default {
             this.newGroupName = "";
 
             this.showCreateGroupModal = false;
+        },
+        editGroupName() {
+            const oldGroupName = this.selectedGroup.groupName;
+            const newGroupName = this.editedGroupName;
+
+            // the group mustn't yet exist and the name can't be empty
+            if (!newGroupName || newGroupName == oldGroupName) return;
+            if (this.channelGroups.some(group => group.groupName == newGroupName)) return;
+
+            // create a new group with the same info and delete the old one
+            this.selectedGroup.groupName = newGroupName;
+            this.createOrUpdateChannelGroup(this.selectedGroup);
+            this.deleteChannelGroup(oldGroupName);
+
+            this.showEditGroupModal = false;
         },
         deleteGroup(group) {
             this.deleteChannelGroup(group.groupName);
