@@ -175,7 +175,9 @@
         "all": "הכול",
         "category": "קטגוריה",
         "chapters_horizontal": "אופקית",
-        "chapters_vertical": "אנכית"
+        "chapters_vertical": "אנכית",
+        "visibility": "חשיפה",
+        "license": "רישיון"
     },
     "search": {
         "did_you_mean": "האם התכוונת לביטוי {0}?",
