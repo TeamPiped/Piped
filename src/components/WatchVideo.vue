@@ -160,11 +160,24 @@
             <!-- eslint-disable-next-line vue/no-v-html -->
             <div v-show="showDesc" class="break-words description" v-html="purifiedDescription" />
             <template v-if="showDesc">
+                <br />
                 <div
                     v-if="sponsors && sponsors.segments"
                     v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
                 />
                 <div v-if="video.category" v-text="`${$t('video.category')}: ${video.category}`" />
+                <div v-text="`${$t('video.license')}: ${video.license}`" />
+                <div class="capitalize" v-text="`${$t('video.visibility')}: ${video.visibility}`" />
+
+                <div v-if="video.tags" class="flex gap-2 mt-2">
+                    <router-link
+                        v-for="tag in video.tags"
+                        :key="tag"
+                        class="rounded-s px-2 py-1 btn"
+                        :to="`/results?search_query=${encodeURIComponent(tag)}`"
+                        >{{ tag }}</router-link
+                    >
+                </div>
             </template>
         </div>
 
