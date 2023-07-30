@@ -175,7 +175,9 @@
         "all": "Wszystkie",
         "category": "Kategoria",
         "chapters_horizontal": "Poziomy",
-        "chapters_vertical": "Pionowy"
+        "chapters_vertical": "Pionowy",
+        "license": "Licencja",
+        "visibility": "Widoczność"
     },
     "search": {
         "did_you_mean": "Czy chodziło ci o: {0}?",
