@@ -11,7 +11,9 @@
         "all": "Todos",
         "category": "Categoría",
         "chapters_horizontal": "Horizontal",
-        "chapters_vertical": "Vertical"
+        "chapters_vertical": "Vertical",
+        "license": "Licencia",
+        "visibility": "Visibilidad"
     },
     "preferences": {
         "ssl_score": "Puntuación SSL",
