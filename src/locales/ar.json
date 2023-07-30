@@ -156,7 +156,9 @@
         "all": "الكل",
         "category": "الفئة",
         "chapters_vertical": "رَأسِيّ",
-        "chapters_horizontal": "أفقي"
+        "chapters_horizontal": "أفقي",
+        "visibility": "الظهور",
+        "license": "الترخيص"
     },
     "search": {
         "channels": "يوتيوب: القنوات",
