@@ -135,7 +135,9 @@
         "all": "全部",
         "category": "类别",
         "chapters_horizontal": "水平",
-        "chapters_vertical": "垂直"
+        "chapters_vertical": "垂直",
+        "license": "许可证",
+        "visibility": "可见性"
     },
     "preferences": {
         "ssl_score": "SSL 分数",
