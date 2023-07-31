@@ -11,7 +11,9 @@
         "all": "Sva",
         "category": "Kategorija",
         "chapters_horizontal": "Vodoravno",
-        "chapters_vertical": "Okomito"
+        "chapters_vertical": "Okomito",
+        "license": "Licenca",
+        "visibility": "Vidljivost"
     },
     "preferences": {
         "ssl_score": "SSL ocjena",
