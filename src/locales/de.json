@@ -156,7 +156,9 @@
         "all": "Alle",
         "category": "Kategorie",
         "chapters_horizontal": "Horizontal",
-        "chapters_vertical": "Vertikal"
+        "chapters_vertical": "Vertikal",
+        "license": "Lizenz",
+        "visibility": "Sichtbarkeit"
     },
     "preferences": {
         "ssl_score": "SSL-Bewertung",
