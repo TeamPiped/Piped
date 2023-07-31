@@ -175,7 +175,9 @@
         "all": "Все",
         "category": "Категория",
         "chapters_horizontal": "Горизонтально",
-        "chapters_vertical": "Вертикально"
+        "chapters_vertical": "Вертикально",
+        "visibility": "Видимость",
+        "license": "Лицензия"
     },
     "search": {
         "did_you_mean": "Может быть вы имели в виду: {0}?",
