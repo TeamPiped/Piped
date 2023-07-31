@@ -175,7 +175,9 @@
         "all": "Vše",
         "category": "Kategorie",
         "chapters_horizontal": "Horizontální",
-        "chapters_vertical": "Vertikální"
+        "chapters_vertical": "Vertikální",
+        "license": "Licence",
+        "visibility": "Viditelnost"
     },
     "search": {
         "did_you_mean": "Mysleli jste: {0}?",

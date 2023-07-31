@@ -175,7 +175,9 @@
         "all": "すべて",
         "category": "分類",
         "chapters_horizontal": "横方向",
-        "chapters_vertical": "縦方向"
+        "chapters_vertical": "縦方向",
+        "visibility": "公開状態",
+        "license": "ライセンス"
     },
     "search": {
         "did_you_mean": "もしかして: {0}？",
