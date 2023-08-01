@@ -15,7 +15,7 @@
         "channels": "Каналы",
         "bookmarks": "Закладки",
         "channel_groups": "Группы каналов",
-        "dearrow": "ДеЭрроу"
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Смотреть на {0}"
@@ -142,7 +142,7 @@
         "show_search_suggestions": "Показать поисковые предложения",
         "chapters_layout_mobile": "Расположение глав в мобильном виде",
         "delete_automatically": "Автоматическое удаление после",
-        "enable_dearrow": "Включить ДеЭрроу"
+        "enable_dearrow": "Включить DeArrow"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
