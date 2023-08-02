@@ -172,7 +172,9 @@
         "all": "Todos",
         "category": "Categoria",
         "chapters_horizontal": "Horizontal",
-        "chapters_vertical": "Vertical"
+        "chapters_vertical": "Vertical",
+        "license": "Licença",
+        "visibility": "Visibilidade"
     },
     "search": {
         "did_you_mean": "Será que queria dizer: {0}?",
