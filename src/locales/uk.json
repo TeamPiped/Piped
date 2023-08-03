@@ -175,7 +175,9 @@
         "all": "Усі",
         "category": "Категорія",
         "chapters_horizontal": "Горизонтальний",
-        "chapters_vertical": "Вертикальний"
+        "chapters_vertical": "Вертикальний",
+        "visibility": "Видимість",
+        "license": "Ліцензія"
     },
     "search": {
         "did_you_mean": "Можливо, ви мали на увазі: {0}?",
