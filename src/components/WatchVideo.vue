@@ -197,9 +197,11 @@
                     class="btn mb-2"
                     @click="toggleComments"
                     v-text="
-                        `${$t(showComments ? 'actions.minimize_comments' : 'actions.show_comments')} (${numberFormat(
-                            comments?.commentCount,
-                        )})`
+                        comments?.disabled
+                            ? $t('actions.comments_disabled')
+                            : `${$t(showComments ? 'actions.minimize_comments' : 'actions.show_comments')} (${numberFormat(
+                                comments?.commentCount,
+                            )})`
                     "
                 />
             </div>
