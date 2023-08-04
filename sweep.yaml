@@ -7,6 +7,6 @@ branch: 'master'
 gha_enabled: True
 # This is the description of your project. It will be used by sweep when creating PRs. You can tell Sweep what's unique about your project, what frameworks you use, or anything else you want.
 # Here's an example: sweepai/sweep is a python project. The main api endpoints are in sweepai/api.py. Write code that adheres to PEP8.
-description: ''
+description: 'TeamPiped/Piped is a Vue 3 project that uses UnoCSS (similar to Tailwind).'
 
 # Default Values: https://github.com/sweepai/sweep/blob/main/sweep.yaml
