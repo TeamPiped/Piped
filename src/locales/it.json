@@ -66,9 +66,10 @@
         "remove_from_playlist": "Rimuovi dalla playlist",
         "delete_playlist_video_confirm": "Rimuovere il video dalla playlist?",
         "select_playlist": "Seleziona una playlist",
-        "show_markers": "Mostra i marcatori sul lettore",
-        "delete_account": "Elimina l'account",
-        "logout": "Disconnetti da questo dispositivo",
+        "show_search_suggestions": "Mostra suggerimenti di ricerca",
+        "dismiss": "Chiudi",
+        "comments_disabled": "I commenti sono stati disabilitati per questo video."
+    }
         "minimize_recommendations_default": "Riduci al minimo le raccomandazioni per impostazione predefinita",
         "different_auth_instance": "Usa un'istanza diversa per l'autenticazione",
         "invalidate_session": "Disconnetti su tutti i dispositivi",
