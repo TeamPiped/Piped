@@ -196,6 +196,7 @@
                 <button
                     class="btn mb-2"
                     @click="toggleComments"
+                    v-if="!comments.disabled"
                     v-text="
                         `${$t(showComments ? 'actions.minimize_comments' : 'actions.show_comments')} (${numberFormat(
                             comments?.commentCount,
