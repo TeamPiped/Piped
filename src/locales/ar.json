@@ -142,7 +142,8 @@
         "show_search_suggestions": "إظهار اقتراحات البحث",
         "chapters_layout_mobile": "تخطيط الفصول على الهاتف",
         "delete_automatically": "الحذف تلقائيا بعد",
-        "enable_dearrow": "تمكين دي ارو"
+        "enable_dearrow": "تمكين دي ارو",
+        "generate_qrcode": "إنشاء رمز الاستجابة السريعة"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
