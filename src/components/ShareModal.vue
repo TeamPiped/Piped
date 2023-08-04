@@ -15,12 +15,14 @@
         </div>
         <div v-if="withTimeCode" class="flex justify-between mt-2">
             <label v-t="'actions.time_code'" />
-            <input v-model="timeStamp" class="input w-12" type="text" />
+            <input v-model="timeStamp" class="input w-12" type="text" @change="onChange" />
         </div>
         <a :href="generatedLink" target="_blank">
             <h3 class="mt-4" v-text="generatedLink" />
         </a>
+        <canvas v-show="showQrCode" ref="qrCodeCanvas" class="mx-auto my-2" />
         <div class="flex justify-end mt-4">
+            <button v-t="'actions.generate_qrcode'" class="btn" @click="generateQrCode()" />
             <button v-t="'actions.follow_link'" class="btn" @click="followLink()" />
             <button v-t="'actions.copy_link'" class="btn ml-3" @click="copyLink()" />
         </div>
@@ -29,6 +31,7 @@
 
 <script>
 import ModalComponent from "./ModalComponent.vue";
+import QRCode from "qrcode";
 
 export default {
     components: {
@@ -59,6 +62,7 @@ export default {
             withPlaylist: true,
             timeStamp: null,
             hasPlaylist: false,
+            showQrCode: false,
         };
     },
     computed: {
@@ -101,6 +105,13 @@ export default {
             this.setPreference("shareWithTimeCode", this.withTimeCode, true);
             this.setPreference("shareAsPipedLink", this.pipedLink, true);
             this.setPreference("shareWithPlaylist", this.withPlaylist, true);
+            if (this.showQrCode) this.generateQrCode();
+        },
+        generateQrCode() {
+            QRCode.toCanvas(this.$refs.qrCodeCanvas, this.generatedLink, error => {
+                if (error) console.error(error);
+                else this.showQrCode = true;
+            });
         },
     },
 };
