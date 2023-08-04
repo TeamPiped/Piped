@@ -532,5 +532,4 @@ const app = createApp(App);
 app.use(i18n);
 app.use(router);
 app.mixin(mixin);
-app.component("FontAwesomeIcon", FontAwesomeIcon);
 app.mount("#app");
