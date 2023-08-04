@@ -23,7 +23,7 @@
             @click="onClickSkipSegment"
         >
             <span v-t="'actions.skip_segment'" />
-            <i class="material-icons-round">skip_next</i>
+            <i class="i-fa6:skip_next"></i>
         </button>
     </div>
 </template>
