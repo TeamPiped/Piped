@@ -25,12 +25,12 @@
         >
             <span v-text="group.groupName !== '' ? group.groupName : $t('video.all')" />
             <div v-if="group.groupName != '' && selectedGroup == group">
-                <i class="unocss-icon fa6 fa6-edit mx-2" @click="showEditGroupModal = true"></i>
-                <i class="unocss-icon fa6 fa6-circle-minus mx-2" @click="deleteGroup(group)"></i>
+                <i class="i-fa6:edit mx-2" @click="showEditGroupModal = true"></i>
+                <i class="i-fa6:circle-minus mx-2" @click="deleteGroup(group)"></i>
             </div>
         </button>
         <button class="btn mx-1">
-            <i class="unocss-icon fa6 fa6-circle-plus" @click="showCreateGroupModal = true"></i>
+            <i class="i-fa6:circle-plus" @click="showCreateGroupModal = true"></i>
         </button>
     </div>
     <br />
