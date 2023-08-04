@@ -152,7 +152,8 @@
         "show_search_suggestions": "Mostrar sugerencias de búsqueda",
         "chapters_layout_mobile": "Disposición de capítulos en móvil",
         "delete_automatically": "Borrar automáticamente después de",
-        "enable_dearrow": "Activar DeArrow"
+        "enable_dearrow": "Activar DeArrow",
+        "generate_qrcode": "Generar código QR"
     },
     "titles": {
         "feed": "Contenido",
