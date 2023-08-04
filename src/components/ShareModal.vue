@@ -13,19 +13,27 @@
             <label v-t="'actions.with_timecode'" for="withTimeCode" />
             <input id="withTimeCode" v-model="withTimeCode" type="checkbox" @change="onChange" />
         </div>
-        <div v-if="withTimeCode" class="flex justify-between mt-2">
+        <div v-if="withTimeCode" class="flex justify-between mt-2 items-center">
             <label v-t="'actions.time_code'" />
-            <input v-model="timeStamp" class="input w-12" type="text" />
+            <input v-model="timeStamp" class="input w-12" type="text" @change="onChange" />
         </div>
         <a :href="generatedLink" target="_blank">
             <h3 class="mt-4" v-text="generatedLink" />
         </a>
+        <QrCode v-if="showQrCode" :text="generatedLink" />
         <div class="flex justify-end mt-4">
-            <button v-t="'actions.follow_link'" class="btn" @click="followLink()" />
+            <button v-t="'actions.generate_qrcode'" class="btn" @click="showQrCode = !showQrCode" />
+            <button v-t="'actions.follow_link'" class="btn ml-3" @click="followLink()" />
             <button v-t="'actions.copy_link'" class="btn ml-3" @click="copyLink()" />
         </div>
     </ModalComponent>
 </template>
+
+<script setup>
+import { defineAsyncComponent } from "vue";
+
+const QrCode = defineAsyncComponent(() => import("./QrCode.vue"));
+</script>
 
 <script>
 import ModalComponent from "./ModalComponent.vue";
@@ -59,6 +67,7 @@ export default {
             withPlaylist: true,
             timeStamp: null,
             hasPlaylist: false,
+            showQrCode: false,
         };
     },
     computed: {

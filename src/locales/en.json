@@ -142,7 +142,8 @@
         "cancel": "Cancel",
         "okay": "Okay",
         "show_search_suggestions": "Show search suggestions",
-        "delete_automatically": "Delete automatically after"
+        "delete_automatically": "Delete automatically after",
+        "generate_qrcode": "Generate QR Code"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
