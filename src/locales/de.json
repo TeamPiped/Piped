@@ -121,7 +121,8 @@
         "show_search_suggestions": "Suchvorschläge anzeigen",
         "chapters_layout_mobile": "Kapitel-Layout auf Mobilgeräten",
         "delete_automatically": "Automatisch löschen nach",
-        "enable_dearrow": "DeArrow verwenden"
+        "enable_dearrow": "DeArrow verwenden",
+        "generate_qrcode": "QR-Code generieren"
     },
     "player": {
         "watch_on": "Auf {0} ansehen"
