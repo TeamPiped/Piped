@@ -69,8 +69,7 @@
         "show_search_suggestions": "Suchvorschläge anzeigen",
         "dismiss": "Ablehnen",
         "comments_disabled": "Kommentare wurden für dieses Video deaktiviert.",
-    }
-        "minimize_recommendations_default": "Empfehlungen standardmäßig minimieren",
+    },
         "invalidate_session": "Von allen Geräten abmelden",
         "different_auth_instance": "Eine andere Instanz für die Authentifizierung verwenden",
         "instance_auth_selection": "Authentifizierungsinstanz",
