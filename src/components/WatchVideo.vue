@@ -194,8 +194,8 @@
         <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
             <div class="xl:col-span-4 sm:col-span-3">
                 <button
-                    class="btn mb-2"
                     v-if="!comments.disabled"
+                    class="btn mb-2"
                     @click="toggleComments"
                     v-text="
                         `${$t(showComments ? 'actions.minimize_comments' : 'actions.show_comments')} (${numberFormat(
