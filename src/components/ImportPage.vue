@@ -106,13 +106,12 @@ export default {
                 // FreeTube DB
                 else if (text.indexOf("allChannels") != -1) {
                     const lines = text.split("\n");
-                    for (let i = 0; i < lines.length; i++) {
-                        if (lines[i] !== "") {
-                            const json = JSON.parse(lines[i]);
-                            json.subscriptions.forEach(item => {
-                                this.subscriptions.push(item.id);
-                            });
-                        }
+                    for (let line of lines) {
+                        if (line === "") continue;
+                        const json = JSON.parse(line);
+                        json.subscriptions.forEach(item => {
+                            this.subscriptions.push(item.id);
+                        });
                     }
                 }
                 // Google Takeout JSON
