@@ -835,7 +835,7 @@ export default {
     line-height: 1.5em;
 }
 
-.skip-segment-button .material-icons-round {
+.skip-segment-button .unocss-icon {
     font-size: 1.6em !important;
     line-height: inherit !important;
 }
