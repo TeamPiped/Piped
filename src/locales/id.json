@@ -142,7 +142,8 @@
         "show_search_suggestions": "Tampilkan saran pencarian",
         "chapters_layout_mobile": "Tata Letak Bab di Ponsel",
         "delete_automatically": "Hapus secara otomatis setelah",
-        "enable_dearrow": "Aktifkan DeArrow"
+        "enable_dearrow": "Aktifkan DeArrow",
+        "generate_qrcode": "Buat Kode QR"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
