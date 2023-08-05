@@ -139,7 +139,8 @@
         "show_search_suggestions": "Zobrazit našeptávání ve vyhledávání",
         "chapters_layout_mobile": "Rozložení kapitol na mobilu",
         "enable_dearrow": "Povolit DeArrow",
-        "delete_automatically": "Automaticky odstranit po"
+        "delete_automatically": "Automaticky odstranit po",
+        "generate_qrcode": "Vygenerovat QR kód"
     },
     "player": {
         "watch_on": "Sledovat na {0}"
