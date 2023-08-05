@@ -29,6 +29,12 @@ dependencies:
   javascript-time-ago:
     specifier: 2.5.9
     version: 2.5.9
+  linkify-html:
+    specifier: 4.1.1
+    version: 4.1.1(linkifyjs@4.1.1)
+  linkifyjs:
+    specifier: 4.1.1
+    version: 4.1.1
   mux.js:
     specifier: 6.3.0
     version: 6.3.0
@@ -3800,6 +3806,18 @@ packages:
       lightningcss-linux-x64-musl: 1.21.5
       lightningcss-win32-x64-msvc: 1.21.5
     dev: true
+
+  /linkify-html@4.1.1(linkifyjs@4.1.1):
+    resolution: {integrity: sha512-7RcF7gIhEOGBBvs7orCJ2tevaz7iF0ZLZSRPWNNBOnW/uGjOOQYB+ztSeHF6dchMC2dM9H8zZlt6Z959bjteaw==}
+    peerDependencies:
+      linkifyjs: ^4.0.0
+    dependencies:
+      linkifyjs: 4.1.1
+    dev: false
+
+  /linkifyjs@4.1.1:
+    resolution: {integrity: sha512-zFN/CTVmbcVef+WaDXT63dNzzkfRBKT1j464NJQkV7iSgJU0sLBus9W0HBwnXK13/hf168pbrx/V/bjEHOXNHA==}
+    dev: false
 
   /local-pkg@0.4.3:
     resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==}
