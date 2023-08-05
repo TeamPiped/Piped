@@ -462,14 +462,14 @@ export default {
                         this.channelId = this.video.uploaderUrl.split("/")[2];
                         if (!this.isEmbed) this.fetchSubscribedStatus();
 
-                        const parser = new DOMParser();
-                        const xmlDoc = parser.parseFromString(this.video.description, "text/html");
-                        xmlDoc.querySelectorAll("a").forEach(elem => {
-                            if (!elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/))
-                                elem.outerHTML = elem.getAttribute("href");
-                        });
-                        xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
-                        this.video.description = rewriteDescription(xmlDoc.querySelector("body").innerHTML);
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(this.video.description, "text/html");
+        xmlDoc.querySelectorAll("a").forEach(elem => {
+            if (!elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/))
+                elem.outerHTML = elem.getAttribute("href").replace(/https:\/\/www\.youtube\.com\/watch\?v=/, "/watch?v=");
+        });
+        xmlDoc.querySelectorAll("br").forEach(elem => (elem.outerHTML = "\n"));
+        this.video.description = rewriteDescription(xmlDoc.querySelector("body").innerHTML);
                         this.updateWatched(this.video.relatedStreams);
 
                         this.fetchDeArrowContent(this.video.relatedStreams);
