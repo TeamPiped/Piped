@@ -142,7 +142,8 @@
         "show_search_suggestions": "Montri serĉ-sugestojn",
         "chapters_layout_mobile": "Aranĝo de ĉapitroj en poŝtelefono",
         "delete_automatically": "Aŭtomate forigi post",
-        "enable_dearrow": "Ebligi DeArrow"
+        "enable_dearrow": "Ebligi DeArrow",
+        "generate_qrcode": "Generi QR-kodon"
     },
     "video": {
         "chapters": "Sekcioj",

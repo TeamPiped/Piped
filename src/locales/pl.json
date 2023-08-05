@@ -142,7 +142,8 @@
         "show_search_suggestions": "Pokaż sugestie wyszukiwania",
         "chapters_layout_mobile": "Układ rozdziałów na urządzeniach mobilnych",
         "delete_automatically": "Usuń automatycznie po",
-        "enable_dearrow": "Włącz DeArrow"
+        "enable_dearrow": "Włącz DeArrow",
+        "generate_qrcode": "Wygeneruj kod QR"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",

@@ -121,7 +121,8 @@
         "show_search_suggestions": "Arama önerilerini göster",
         "chapters_layout_mobile": "Mobilde Bölüm Düzeni",
         "delete_automatically": "Şundan sonra otomatik olarak sil",
-        "enable_dearrow": "DeArrow'u Etkinleştir"
+        "enable_dearrow": "DeArrow'u Etkinleştir",
+        "generate_qrcode": "QR Kodu Oluştur"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"

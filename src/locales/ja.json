@@ -142,7 +142,8 @@
         "chapters_layout_mobile": "モバイル端末でのチャプターの配置",
         "show_search_suggestions": "検索語句の候補を表示",
         "delete_automatically": "指定時間後に自動削除",
-        "enable_dearrow": "DeArrow を使用"
+        "enable_dearrow": "DeArrow を使用",
+        "generate_qrcode": "QRコードの生成"
     },
     "comment": {
         "pinned_by": "{author} によって固定",

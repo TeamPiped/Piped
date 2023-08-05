@@ -128,7 +128,8 @@
         "okay": "Добре",
         "chapters_layout_mobile": "Макет розділів на телефоні",
         "enable_dearrow": "Увімкнути DeArrow",
-        "delete_automatically": "Видаляти автоматично після"
+        "delete_automatically": "Видаляти автоматично після",
+        "generate_qrcode": "Згенерувати QR-код"
     },
     "titles": {
         "register": "Реєстрація",
