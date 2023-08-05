@@ -463,7 +463,7 @@ export default {
                         if (!this.isEmbed) this.fetchSubscribedStatus();
 
         const parser = new DOMParser();
-                        const xmlDoc = parser.parseFromString(this.video.description, "text/html");
+        const xmlDoc = parser.parseFromString(this.video.description, "text/html");
         xmlDoc.querySelectorAll("a").forEach(elem => {
             if (!elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/))
                 elem.outerHTML = elem
