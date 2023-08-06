@@ -62,8 +62,8 @@ dependencies:
 
 devDependencies:
   '@iconify-json/fa6-brands':
-    specifier: 1.1.12
-    version: 1.1.12
+    specifier: 1.1.13
+    version: 1.1.13
   '@iconify-json/fa6-solid':
     specifier: 1.1.14
     version: 1.1.14
@@ -1628,8 +1628,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iconify-json/fa6-brands@1.1.12:
-    resolution: {integrity: sha512-uvdxg7qBAOEkFI7xaXDp+JEUavGJGysAF+0x8xFVOtYIYjuvjCHa92TQhj96WorqpipwRihpGvQiBX3kiuZVuQ==}
+  /@iconify-json/fa6-brands@1.1.13:
+    resolution: {integrity: sha512-7toccM334NO1jIsfnqTK9Bo12CIuE4ClnfW9SyRFKFax7b/oKOsgnvokgCAtQgomiQ6ODjC1zWCpzSDidtBUXw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
