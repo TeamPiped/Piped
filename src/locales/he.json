@@ -142,7 +142,8 @@
         "show_search_suggestions": "הצגת הצעות חיפוש",
         "chapters_layout_mobile": "פריסת פרקים בנייד",
         "delete_automatically": "למחוק אוטומטית לאחר",
-        "enable_dearrow": "הפעלת DeArrow"
+        "enable_dearrow": "הפעלת DeArrow",
+        "generate_qrcode": "יצירת קוד QR"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
