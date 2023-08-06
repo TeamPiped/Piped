@@ -139,7 +139,8 @@
         "show_search_suggestions": "Mostrar sugestões de pesquisa",
         "chapters_layout_mobile": "Aplicações recentemente adicionadas",
         "enable_dearrow": "Ativar o DeArrow",
-        "delete_automatically": "Eliminar automaticamente após"
+        "delete_automatically": "Eliminar automaticamente após",
+        "generate_qrcode": "Gerar código QR"
     },
     "preferences": {
         "instance_name": "Nome da instância",
