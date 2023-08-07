@@ -144,7 +144,19 @@
                 </div>
             </div>
 
-            <hr />
+            <hr class="mb-2" />
+
+            <div
+                v-for="metaInfo in video?.metaInfo ?? []"
+                :key="metaInfo.title"
+                class="btn px-4 py-2 flex flex-wrap gap-2 my-3 cursor-default"
+            >
+                <span>{{ metaInfo.description ?? metaInfo.title }}</span>
+                <a v-for="(link, linkIndex) in metaInfo.urls" :key="linkIndex" :href="link" class="underline">{{
+                    metaInfo.urlTexts[linkIndex]
+                }}</a>
+                <br />
+            </div>
 
             <button
                 v-t="`actions.${showDesc ? 'minimize_description' : 'show_description'}`"
@@ -158,9 +170,10 @@
             </span>
 
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <div v-show="showDesc" class="break-words description" v-html="purifiedDescription" />
             <template v-if="showDesc">
+                <div class="break-words description" v-html="purifiedDescription" />
                 <br />
+
                 <div
                     v-if="sponsors && sponsors.segments"
                     v-text="`${$t('video.sponsor_segments')}: ${sponsors.segments.length}`"
