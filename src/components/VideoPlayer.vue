@@ -57,7 +57,7 @@ export default {
         selectedAutoLoop: Boolean,
         isEmbed: Boolean,
     },
-    emits: ["timeupdate", "ended"],
+    emits: ["timeupdate", "ended", "navigateNext"],
     data() {
         return {
             lastUpdate: new Date().getTime(),
@@ -191,7 +191,7 @@ export default {
                             e.preventDefault();
                             break;
                         case "shift+n":
-                            self.navigateNext();
+                            self.$emit("navigateNext");
                             e.preventDefault();
                             break;
                         case "shift+,":

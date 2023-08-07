@@ -29,6 +29,7 @@
                         :selected-auto-loop="selectedAutoLoop"
                         @timeupdate="onTimeUpdate"
                         @ended="onVideoEnded"
+                        @navigate-next="navigateNext"
                     />
                 </keep-alive>
                 <ChaptersBar
