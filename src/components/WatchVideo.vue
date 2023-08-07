@@ -169,8 +169,8 @@
                 <label v-t="'actions.show_chapters'" class="ml-2" for="showChapters" />
             </span>
 
-            <!-- eslint-disable-next-line vue/no-v-html -->
             <template v-if="showDesc">
+                <!-- eslint-disable-next-line vue/no-v-html -->
                 <div class="break-words description" v-html="purifiedDescription" />
                 <br />
 
