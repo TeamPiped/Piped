@@ -444,6 +444,11 @@ export default {
                 category: JSON.stringify(selectedSkip),
             });
 
+            sponsors?.segments?.forEach(segment => {
+                const option = skipOptions[segment.category];
+                segment.autoskip = option === undefined || option === "auto";
+            });
+
             const minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
             sponsors.segments = sponsors.segments?.filter(segment => {
                 const length = segment.segment[1] - segment.segment[0];

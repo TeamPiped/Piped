@@ -647,11 +647,6 @@ export default {
             if (markers) markers.style.background = `linear-gradient(${array.join(",")})`;
         },
         updateSponsors() {
-            const skipOptions = this.getPreferenceJSON("skipOptions", {});
-            this.sponsors?.segments?.forEach(segment => {
-                const option = skipOptions[segment.category];
-                segment.autoskip = option === undefined || option === "auto";
-            });
             if (this.getPreferenceBoolean("showMarkers", true)) {
                 this.shakaPromise.then(() => {
                     this.updateMarkers();
