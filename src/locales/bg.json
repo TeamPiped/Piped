@@ -3,7 +3,7 @@
         "channels": "Канали",
         "login": "Вход",
         "register": "Регистрация",
-        "feed": "Абонаменти",
+        "feed": "Емисия",
         "history": "История",
         "playlists": "Плейлисти",
         "instance": "Инстанция",
@@ -13,7 +13,9 @@
         "trending": "Набиращи популярност",
         "account": "Профил",
         "preferences": "Настройки",
-        "subscriptions": "Абонаменти"
+        "subscriptions": "Абонаменти",
+        "dearrow": "DeArrow",
+        "channel_groups": "Канални групи"
     },
     "actions": {
         "most_recent": "Най-скорошен",
@@ -110,7 +112,8 @@
         "store_search_history": "Запазване на историята на търсене",
         "instance_auth_selection": "Избор на инстанция за удостоверяване",
         "confirm_reset_preferences": "Сигурни ли сте, че искате да нулирате настройките?",
-        "hide_watched": "Скриване на гледани видеоклипове в Абонаменти"
+        "hide_watched": "Скриване на гледани видеоклипове в Абонаменти",
+        "enable_dearrow": "Включи DeArrow"
     },
     "player": {
         "watch_on": "Гледай в {0}"
