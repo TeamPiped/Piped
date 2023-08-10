@@ -152,7 +152,8 @@
         "chapters_layout_mobile": "Raspored poglavlja na mobilnim uređajima",
         "show_search_suggestions": "Prikaži prijedloge pretrage",
         "delete_automatically": "Automatski izbriši nakon",
-        "enable_dearrow": "Aktiviraj DeArrow"
+        "enable_dearrow": "Aktiviraj DeArrow",
+        "generate_qrcode": "Generiraj QR kod"
     },
     "player": {
         "watch_on": "Gledaj na {0}"
