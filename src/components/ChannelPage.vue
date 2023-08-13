@@ -5,13 +5,13 @@
         <img
             v-if="channel.bannerUrl"
             :src="channel.bannerUrl"
-            class="w-full py-1.5 h-30 md:h-50 object-cover"
+            class="h-30 w-full object-cover py-1.5 md:h-50"
             loading="lazy"
         />
-        <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex flex-col items-center justify-between md:flex-row">
             <div class="flex place-items-center">
-                <img height="48" width="48" class="rounded-full m-1" :src="channel.avatarUrl" />
-                <div class="flex gap-1 items-center">
+                <img height="48" width="48" class="m-1 rounded-full" :src="channel.avatarUrl" />
+                <div class="flex items-center gap-1">
                     <h1 class="!text-xl" v-text="channel.name" />
                     <font-awesome-icon v-if="channel.verified" class="!text-xl" icon="check" />
                 </div>
@@ -46,7 +46,7 @@
 
         <WatchOnButton :link="`https://youtube.com/channel/${channel.id}`" />
 
-        <div class="flex my-2 mx-1">
+        <div class="mx-1 my-2 flex">
             <button
                 v-for="(tab, index) in tabs"
                 :key="tab.name"

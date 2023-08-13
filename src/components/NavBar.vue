@@ -1,21 +1,21 @@
 <template>
-    <nav class="flex flex-wrap items-center justify-center px-2 sm:px-4 pb-2.5 w-full relative">
-        <div class="flex-1 flex justify-start">
-            <router-link class="flex font-bold text-3xl items-center font-sans" :to="homePagePath"
+    <nav class="relative w-full flex flex-wrap items-center justify-center px-2 pb-2.5 sm:px-4">
+        <div class="flex flex-1 justify-start">
+            <router-link class="flex items-center text-3xl font-bold font-sans" :to="homePagePath"
                 ><img
                     alt="logo"
                     src="/img/icons/logo.svg"
                     height="32"
                     width="32"
-                    class="w-10 mr-[-0.6rem]"
+                    class="mr-[-0.6rem] w-10"
                 />iped</router-link
             >
         </div>
-        <div class="lt-md:hidden search-container">
+        <div class="search-container lt-md:hidden">
             <input
                 ref="videoSearch"
                 v-model="searchText"
-                class="input w-72 h-10 pr-20"
+                class="input h-10 w-72 pr-20"
                 type="text"
                 role="search"
                 :title="$t('actions.search')"
@@ -31,13 +31,13 @@
             <div class="i-fa6-solid:magnifying-glass"></div>
         </button>
         <!-- three vertical lines for toggling the hamburger menu on mobile -->
-        <button class="md:hidden flex flex-col justify-end mr-3" @click="showTopNav = !showTopNav">
+        <button class="mr-3 flex flex-col justify-end md:hidden" @click="showTopNav = !showTopNav">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>
         </button>
         <!-- navigation bar for large screen devices -->
-        <ul class="hidden md:(flex-1 flex justify-end flex text-1xl children:pl-3)">
+        <ul class="md:text-1xl hidden md:(flex flex flex-1 justify-end children:pl-3)">
             <li v-if="shouldShowTrending">
                 <router-link v-t="'titles.trending'" to="/trending" />
             </li>
@@ -64,7 +64,7 @@
     <!-- navigation bar for mobile devices -->
     <div
         v-if="showTopNav"
-        class="mobile-nav flex flex-col mb-4 children:(p-1 w-full border-b border-dark-100 flex items-center gap-1)"
+        class="mobile-nav mb-4 flex flex-col children:(w-full flex items-center gap-1 border-b border-dark-100 p-1)"
     >
         <router-link v-if="shouldShowTrending" to="/trending">
             <div class="i-fa6-solid:fire"></div>
@@ -96,7 +96,7 @@
         </router-link>
     </div>
     <!-- search suggestions for mobile devices -->
-    <div class="w-full mb-2 md:hidden search-container">
+    <div class="search-container mb-2 w-full md:hidden">
         <input
             v-model="searchText"
             class="input h-10 w-full"

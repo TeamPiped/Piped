@@ -1,8 +1,8 @@
 <template>
-    <div class="comment flex mt-1.5">
+    <div class="comment mt-1.5 flex">
         <img
             :src="comment.thumbnail"
-            class="comment-avatar rounded-full w-12 h-12"
+            class="comment-avatar h-12 w-12 rounded-full"
             height="48"
             width="48"
             loading="lazy"
@@ -23,10 +23,10 @@
                 </div>
 
                 <div class="comment-author">
-                    <router-link class="font-bold link" :to="comment.commentorUrl">{{ comment.author }}</router-link>
+                    <router-link class="link font-bold" :to="comment.commentorUrl">{{ comment.author }}</router-link>
                     <font-awesome-icon v-if="comment.verified" class="ml-1.5" icon="check" />
                 </div>
-                <div class="comment-meta text-sm mb-1.5" v-text="comment.commentedTime" />
+                <div class="comment-meta mb-1.5 text-sm" v-text="comment.commentedTime" />
             </div>
             <!-- eslint-disable-next-line vue/no-v-html -->
             <div class="whitespace-pre-wrap" v-html="purifiedText" />

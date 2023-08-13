@@ -1,5 +1,5 @@
 <template>
-    <div ref="scrollable" class="overflow-x-scroll h-screen-sm">
+    <div ref="scrollable" class="h-screen-sm overflow-x-scroll">
         <VideoItem
             v-for="(related, index) in playlist.relatedStreams"
             :key="related.url"

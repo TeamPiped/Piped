@@ -33,6 +33,7 @@
         "@iconify-json/fa6-brands": "1.1.13",
         "@iconify-json/fa6-solid": "1.1.15",
         "@intlify/unplugin-vue-i18n": "0.12.2",
+        "@unocss/eslint-config": "0.55.0",
         "@unocss/preset-icons": "0.55.0",
         "@unocss/preset-uno": "0.55.0",
         "@unocss/preset-web-fonts": "0.55.0",

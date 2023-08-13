@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full min-h-screen px-1vw py-5 antialiased reset" :class="[theme]">
+    <div class="reset min-h-screen w-full flex flex-col px-1vw py-5 antialiased" :class="[theme]">
         <div class="flex-1">
             <NavBar />
             <router-view v-slot="{ Component }">

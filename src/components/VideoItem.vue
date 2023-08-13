@@ -1,7 +1,7 @@
 <template>
     <div v-if="showVideo" class="flex flex-col flex-justify-between">
         <router-link
-            class="focus:underline hover:underline inline-block w-full"
+            class="inline-block w-full focus:underline hover:underline"
             :to="{
                 path: '/watch',
                 query: {
@@ -13,14 +13,14 @@
         >
             <div class="w-full">
                 <img
-                    class="w-full aspect-video object-contain"
+                    class="aspect-video w-full object-contain"
                     :src="thumbnail"
                     :alt="title"
                     :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
                     loading="lazy"
                 />
                 <!-- progress bar -->
-                <div class="relative w-full h-1">
+                <div class="relative h-1 w-full">
                     <div
                         v-if="item.watched && item.duration > 0"
                         class="absolute bottom-0 left-0 h-1 bg-red-600"
@@ -51,7 +51,7 @@
             <div>
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="pt-2 overflow-hidden flex link font-bold"
+                    class="link flex overflow-hidden pt-2 font-bold"
                     :title="title"
                     v-text="title"
                 />
@@ -64,16 +64,16 @@
                     v-if="item.uploaderAvatar"
                     :src="item.uploaderAvatar"
                     loading="lazy"
-                    class="rounded-full mr-0.5 mt-0.5 w-32px h-32px"
+                    class="mr-0.5 mt-0.5 h-32px w-32px rounded-full"
                     width="68"
                     height="68"
                 />
             </router-link>
 
-            <div class="px-2 flex-1">
+            <div class="flex-1 px-2">
                 <router-link
                     v-if="item.uploaderUrl && item.uploaderName && !hideChannel"
-                    class="link-secondary overflow-hidden block text-sm"
+                    class="link-secondary block overflow-hidden text-sm"
                     :to="item.uploaderUrl"
                     :title="item.uploaderName"
                 >
@@ -81,7 +81,7 @@
                     <font-awesome-icon v-if="item.uploaderVerified" class="ml-1.5" icon="check" />
                 </router-link>
 
-                <div v-if="item.views >= 0 || item.uploadedDate" class="text-xs font-normal text-gray-300 mt-1">
+                <div v-if="item.views >= 0 || item.uploadedDate" class="mt-1 text-xs font-normal text-gray-300">
                     <span v-if="item.views >= 0">
                         <font-awesome-icon icon="eye" />
                         <span class="pl-1" v-text="`${numberFormat(item.views)} •`" />

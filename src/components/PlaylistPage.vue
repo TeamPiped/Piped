@@ -2,11 +2,11 @@
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
     <LoadingIndicatorPage v-show="!playlist?.error" :show-content="playlist">
-        <h1 class="ml-1 mb-1 mt-4 text-3xl!" v-text="playlist.name" />
+        <h1 class="mb-1 ml-1 mt-4 text-3xl!" v-text="playlist.name" />
 
         <CollapsableText v-if="playlist?.description" :text="playlist.description" />
 
-        <div class="flex justify-between items-center mt-1">
+        <div class="mt-1 flex items-center justify-between">
             <div>
                 <router-link class="link flex items-center gap-3" :to="playlist.uploaderUrl || '/'">
                     <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />

@@ -4,7 +4,7 @@
             <font-awesome-icon icon="chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
         </button>
     </div>
-    <h1 v-t="'titles.preferences'" class="font-bold text-center" />
+    <h1 v-t="'titles.preferences'" class="text-center font-bold" />
     <hr />
     <label for="ddlTheme" class="pref">
         <strong v-t="'actions.theme'" />
@@ -127,7 +127,7 @@
         />
     </label>
     <!-- chapters layout on mobile -->
-    <label class="lg:invisible pref" for="chkMinimizeChapters">
+    <label class="pref lg:invisible" for="chkMinimizeChapters">
         <strong v-t="'actions.chapters_layout_mobile'" />
 
         <select id="ddlDefaultHomepage" v-model="mobileChapterLayout" class="select w-auto" @change="onChange($event)">
@@ -184,7 +184,7 @@
         <select
             id="ddlEnabledCodecs"
             v-model="enabledCodecs"
-            class="select w-auto h-auto"
+            class="select h-auto w-auto"
             multiple
             @change="onChange($event)"
         >
@@ -316,7 +316,7 @@
                     v-model="password"
                     :placeholder="$t('login.password')"
                     :aria-label="$t('login.password')"
-                    class="input w-auto mr-2"
+                    class="input mr-2 w-auto"
                     type="password"
                     @keyup.enter="deleteAccount"
                 />

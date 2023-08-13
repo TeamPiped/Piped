@@ -1,5 +1,5 @@
 <template>
-    <div v-if="video && isEmbed" class="absolute top-0 left-0 h-full w-full bg-black z-50">
+    <div v-if="video && isEmbed" class="absolute left-0 top-0 z-50 h-full w-full bg-black">
         <VideoPlayer
             ref="videoPlayer"
             :video="video"
@@ -41,8 +41,8 @@
                 />
             </div>
             <!-- video title -->
-            <div class="font-bold mt-2 text-2xl break-words" v-text="video.title" />
-            <div class="flex flex-wrap mt-3 mb-3">
+            <div class="mt-2 break-words text-2xl font-bold" v-text="video.title" />
+            <div class="mb-3 mt-3 flex flex-wrap">
                 <!-- views / date -->
                 <div class="flex flex-auto gap-2">
                     <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
@@ -93,7 +93,7 @@
                     :playlist-index="index"
                     @close="showShareModal = !showShareModal"
                 />
-                <div class="flex flex-wrap gap-1 ml-auto">
+                <div class="ml-auto flex flex-wrap gap-1">
                     <!-- Subscribe Button -->
                     <button class="btn flex items-center" @click="showModal = !showModal">
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
@@ -150,7 +150,7 @@
             <div
                 v-for="metaInfo in video?.metaInfo ?? []"
                 :key="metaInfo.title"
-                class="btn px-4 py-2 flex flex-wrap gap-2 my-3 cursor-default"
+                class="btn my-3 flex flex-wrap cursor-default gap-2 px-4 py-2"
             >
                 <span>{{ metaInfo.description ?? metaInfo.title }}</span>
                 <a v-for="(link, linkIndex) in metaInfo.urls" :key="linkIndex" :href="link" class="underline">{{
@@ -172,7 +172,7 @@
 
             <template v-if="showDesc">
                 <!-- eslint-disable-next-line vue/no-v-html -->
-                <div class="break-words description" v-html="purifiedDescription" />
+                <div class="description break-words" v-html="purifiedDescription" />
                 <br />
 
                 <div
@@ -183,11 +183,11 @@
                 <div v-text="`${$t('video.license')}: ${video.license}`" />
                 <div class="capitalize" v-text="`${$t('video.visibility')}: ${video.visibility}`" />
 
-                <div v-if="video.tags" class="flex flex-wrap gap-2 mt-2">
+                <div v-if="video.tags" class="mt-2 flex flex-wrap gap-2">
                     <router-link
                         v-for="tag in video.tags"
                         :key="tag"
-                        class="rounded-s px-2 py-1 btn line-clamp-1"
+                        class="btn line-clamp-1 rounded-s px-2 py-1"
                         :to="`/results?search_query=${encodeURIComponent(tag)}`"
                         >{{ tag }}</router-link
                     >
@@ -205,8 +205,8 @@
 
         <hr />
 
-        <div class="grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-1">
-            <div class="xl:col-span-4 sm:col-span-3">
+        <div class="grid grid-cols-1 sm:grid-cols-4 xl:grid-cols-5">
+            <div class="sm:col-span-3 xl:col-span-4">
                 <button
                     v-if="!comments?.disabled"
                     class="btn mb-2"
@@ -218,14 +218,14 @@
                     "
                 />
             </div>
-            <div v-if="!showComments" class="xl:col-span-4 sm:col-span-3"></div>
-            <div v-else-if="!comments" class="xl:col-span-4 sm:col-span-3">
-                <p v-t="'comment.loading'" class="text-center mt-8"></p>
+            <div v-if="!showComments" class="sm:col-span-3 xl:col-span-4"></div>
+            <div v-else-if="!comments" class="sm:col-span-3 xl:col-span-4">
+                <p v-t="'comment.loading'" class="mt-8 text-center"></p>
             </div>
-            <div v-else-if="comments.disabled" class="xl:col-span-4 sm:col-span-3">
-                <p v-t="'comment.disabled'" class="text-center mt-8"></p>
+            <div v-else-if="comments.disabled" class="sm:col-span-3 xl:col-span-4">
+                <p v-t="'comment.disabled'" class="mt-8 text-center"></p>
             </div>
-            <div v-else ref="comments" class="xl:col-span-4 sm:col-span-3">
+            <div v-else ref="comments" class="sm:col-span-3 xl:col-span-4">
                 <CommentItem
                     v-for="comment in comments.comments"
                     :key="comment.commentId"

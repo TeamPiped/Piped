@@ -1,7 +1,7 @@
 <template>
-    <h2 v-t="'titles.playlists'" class="font-bold my-4" />
+    <h2 v-t="'titles.playlists'" class="my-4 font-bold" />
 
-    <div class="flex justify-between mb-3">
+    <div class="mb-3 flex justify-between">
         <button v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
         <div class="flex">
             <button v-if="playlists.length > 0" v-t="'actions.export_to_json'" class="btn" @click="exportPlaylists" />
@@ -29,13 +29,13 @@
                 </div>
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="my-2 overflow-hidden flex link"
+                    class="link my-2 flex overflow-hidden"
                     :title="playlist.name"
                     v-text="playlist.name"
                 />
             </router-link>
             <button v-t="'actions.edit_playlist'" class="btn h-auto" @click="showPlaylistEditModal(playlist)" />
-            <button v-t="'actions.delete_playlist'" class="btn h-auto ml-2" @click="playlistToDelete = playlist.id" />
+            <button v-t="'actions.delete_playlist'" class="btn ml-2 h-auto" @click="playlistToDelete = playlist.id" />
             <ModalComponent v-if="playlist.id == playlistToEdit" @close="playlistToEdit = null">
                 <div class="flex flex-col gap-2">
                     <h2 v-t="'actions.edit_playlist'" />
@@ -64,7 +64,7 @@
     </div>
     <hr />
 
-    <h2 v-t="'titles.bookmarks'" class="font-bold my-4" />
+    <h2 v-t="'titles.bookmarks'" class="my-4 font-bold" />
 
     <div v-if="bookmarks" class="video-grid">
         <router-link
@@ -75,18 +75,18 @@
             <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
             <div class="relative text-sm">
                 <span class="thumbnail-overlay thumbnail-right" v-text="`${playlist.videos} ${$t('video.videos')}`" />
-                <div class="absolute bottom-100px right-5px px-5px z-100" @click.prevent="removeBookmark(index)">
+                <div class="absolute bottom-100px right-5px z-100 px-5px" @click.prevent="removeBookmark(index)">
                     <font-awesome-icon class="ml-3" icon="bookmark" />
                 </div>
             </div>
             <p
                 style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                class="my-2 overflow-hidden flex link"
+                class="link my-2 flex overflow-hidden"
                 :title="playlist.name"
                 v-text="playlist.name"
             />
             <a :href="playlist.uploaderUrl" class="flex items-center">
-                <img class="rounded-full w-32px h-32px" :src="playlist.uploaderAvatar" />
+                <img class="h-32px w-32px rounded-full" :src="playlist.uploaderAvatar" />
                 <span class="ml-3 hover:underline" v-text="playlist.uploader" />
             </a>
         </router-link>

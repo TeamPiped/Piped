@@ -1,7 +1,7 @@
 <template>
-    <h1 v-t="'titles.subscriptions'" class="font-bold text-center my-4" />
+    <h1 v-t="'titles.subscriptions'" class="my-4 text-center font-bold" />
     <!-- import / export section -->
-    <div class="flex justify-between w-full">
+    <div class="w-full flex justify-between">
         <div class="flex">
             <button class="btn mx-1">
                 <router-link v-t="'actions.import_from_json'" to="/import" />
@@ -41,16 +41,16 @@
         <div
             v-for="subscription in filteredSubscriptions"
             :key="subscription.url"
-            class="col m-2 p-1 border rounded-lg border-gray-500"
+            class="col m-2 border border-gray-500 rounded-lg p-1"
         >
-            <router-link :to="subscription.url" class="flex p-2 font-bold text-4x4">
-                <img :src="subscription.avatar" class="rounded-full h-[fit-content]" width="48" height="48" />
-                <span class="self-center mx-2" v-text="subscription.name" />
+            <router-link :to="subscription.url" class="text-4x4 flex p-2 font-bold">
+                <img :src="subscription.avatar" class="h-[fit-content] rounded-full" width="48" height="48" />
+                <span class="mx-2 self-center" v-text="subscription.name" />
             </router-link>
             <!-- subscribe / unsubscribe btn -->
             <button
                 v-t="`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`"
-                class="btn w-full mt-2"
+                class="btn mt-2 w-full"
                 @click="handleButton(subscription)"
             />
         </div>
@@ -61,18 +61,18 @@
         <h2 v-t="'actions.create_group'" />
         <div class="flex flex-col">
             <input v-model="newGroupName" class="input my-4" type="text" :placeholder="$t('actions.group_name')" />
-            <button v-t="'actions.create_group'" class="ml-auto btn w-max" @click="createGroup()" />
+            <button v-t="'actions.create_group'" class="btn ml-auto w-max" @click="createGroup()" />
         </div>
     </ModalComponent>
 
     <ModalComponent v-if="showEditGroupModal" @close="showEditGroupModal = false">
-        <div class="flex justify-between mt-3 mb-5">
+        <div class="mb-5 mt-3 flex justify-between">
             <input v-model="editedGroupName" type="text" class="input" />
             <button v-t="'actions.okay'" class="btn" :placeholder="$t('actions.group_name')" @click="editGroupName()" />
         </div>
-        <div class="flex flex-col mt-3 mb-2 overflow-y-scroll h-70">
+        <div class="mb-2 mt-3 h-70 flex flex-col overflow-y-scroll">
             <div v-for="subscription in subscriptions" :key="subscription.name">
-                <div class="flex justify-between mr-3">
+                <div class="mr-3 flex justify-between">
                     <span>{{ subscription.name }}</span>
                     <input
                         type="checkbox"

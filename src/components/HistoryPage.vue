@@ -1,21 +1,21 @@
 <template>
-    <h1 v-t="'titles.history'" class="font-bold text-center mb-3" />
+    <h1 v-t="'titles.history'" class="mb-3 text-center font-bold" />
 
     <div class="flex">
-        <div class="flex md:items-center gap-2 flex-col md:flex-row">
+        <div class="flex flex-col gap-2 md:flex-row md:items-center">
             <button v-t="'actions.clear_history'" class="btn" @click="clearHistory" />
 
             <button v-t="'actions.export_to_json'" class="btn" @click="exportHistory" />
 
-            <div class="ml-auto flex gap-1 items-center">
+            <div class="ml-auto flex items-center gap-1">
                 <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" />
             </div>
         </div>
 
-        <div class="flex ml-4 items-center">
+        <div class="ml-4 flex items-center">
             <input id="autoDelete" v-model="autoDeleteHistory" type="checkbox" @change="onChange" />
             <label v-t="'actions.delete_automatically'" class="ml-2" for="autoDelete" />
-            <select v-model="autoDeleteDelayHours" class="pl-3 ml-3 select" @change="onChange">
+            <select v-model="autoDeleteDelayHours" class="select ml-3 pl-3" @change="onChange">
                 <option v-t="{ path: 'info.hours', args: { amount: '1' } }" value="1" />
                 <option v-t="{ path: 'info.hours', args: { amount: '3' } }" value="3" />
                 <option v-t="{ path: 'info.hours', args: { amount: '6' } }" value="6" />

@@ -1,5 +1,5 @@
 <template>
-    <h1 v-t="'titles.register'" class="font-bold text-center my-4" />
+    <h1 v-t="'titles.register'" class="my-4 text-center font-bold" />
     <hr />
     <div class="text-center">
         <form class="children:pb-3">

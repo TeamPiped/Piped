@@ -2,17 +2,17 @@
     <div
         ref="container"
         data-shaka-player-container
-        class="w-full max-h-screen flex justify-center relative"
+        class="relative max-h-screen w-full flex justify-center"
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
         <span
             id="preview-container"
             ref="previewContainer"
-            class="hidden flex-col absolute bottom-0 z-[2000] mb-[3.5%] items-center"
+            class="absolute bottom-0 z-[2000] mb-[3.5%] hidden flex-col items-center"
         >
             <canvas id="preview" ref="preview" class="rounded-sm" />
-            <span class="text-sm mt-2 rounded-xl pb-1 pt-1.5 px-2 bg-dark-700 w-min" v-text="timeFormat(currentTime)" />
+            <span class="mt-2 w-min rounded-xl bg-dark-700 px-2 pb-1 pt-1.5 text-sm" v-text="timeFormat(currentTime)" />
         </span>
         <button
             v-if="inSegment"

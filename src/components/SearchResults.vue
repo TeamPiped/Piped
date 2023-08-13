@@ -1,5 +1,5 @@
 <template>
-    <h1 class="text-center my-2" v-text="$route.query.search_query" />
+    <h1 class="my-2 text-center" v-text="$route.query.search_query" />
 
     <label for="ddlSearchFilters">
         <strong v-text="`${$t('actions.filter')}:`" />
