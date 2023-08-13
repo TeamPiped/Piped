@@ -121,7 +121,8 @@
         "show_search_suggestions": "Mostrar sugestões de pesquisa",
         "chapters_layout_mobile": "Layout dos Capítulos no Celular",
         "delete_automatically": "Deletar automaticamente após",
-        "generate_qrcode": "Gerar código QR"
+        "generate_qrcode": "Gerar código QR",
+        "enable_dearrow": "Ativar DeArrow"
     },
     "titles": {
         "history": "Histórico",
@@ -138,7 +139,8 @@
         "channels": "Canais",
         "livestreams": "Transmissões ao vivo",
         "bookmarks": "Favoritos",
-        "channel_groups": "Grupos de Canais"
+        "channel_groups": "Grupos de Canais",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Assistir no {0}"
@@ -197,7 +199,11 @@
         "page_not_found": "página não encontrada",
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
         "register_no_email_note": "Usar um e-mail como nome de usuário não é recomendado. Continuar mesmo assim?",
-        "next_video_countdown": "Reproduzindo o próximo vídeo em {0}s"
+        "next_video_countdown": "Reproduzindo o próximo vídeo em {0}s",
+        "hours": "{amount} hora(s)",
+        "days": "{amount} dia(s)",
+        "weeks": "{amount} semana(s)",
+        "months": "{amount} mês/meses"
     },
     "subscriptions": {
         "subscribed_channels_count": "Inscrito em: {0}"
