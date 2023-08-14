@@ -162,7 +162,9 @@
     },
     "login": {
         "username": "Uživatelské jméno",
-        "password": "Heslo"
+        "password": "Heslo",
+        "password_confirm": "Potvrzení hesla",
+        "passwords_incorrect": "Hesla se neshodují!"
     },
     "video": {
         "videos": "Videa",
