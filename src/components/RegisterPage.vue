@@ -26,6 +26,17 @@
                 />
             </div>
             <div>
+                <input
+                    v-model="passwordConfirm"
+                    class="input"
+                    type="password"
+                    autocomplete="password"
+                    :placeholder="$t('login.password_confirm')"
+                    :aria-label="$t('login.password_confirm')"
+                    @keyup.enter="register"
+                />
+            </div>
+            <div>
                 <a v-t="'titles.register'" class="btn w-auto" @click="register" />
             </div>
         </form>
@@ -68,6 +79,10 @@ export default {
     methods: {
         register() {
             if (!this.username || !this.password) return;
+            if (this.password != this.passwordConfirm) {
+                alert(this.$t("login.passwords_incorrect"));
+                return;
+            }
             if (isEmail(this.username) && !this.forceUnsecureRegister) {
                 this.showUnsecureRegisterDialog = true;
                 return;
