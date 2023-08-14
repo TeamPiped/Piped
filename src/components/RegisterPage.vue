@@ -1,12 +1,12 @@
 <template>
     <h1 v-t="'titles.register'" class="my-4 text-center font-bold" />
     <hr />
-    <div class="text-center">
-        <form class="children:pb-3">
+    <div class="flex justify-center text-center">
+        <form class="items-center px-3 children:pb-3">
             <div>
                 <input
                     v-model="username"
-                    class="input"
+                    class="input w-full"
                     type="text"
                     autocomplete="username"
                     :placeholder="$t('login.username')"
@@ -14,27 +14,33 @@
                     @keyup.enter="register"
                 />
             </div>
-            <div>
+            <div class="flex justify-center">
                 <input
                     v-model="password"
-                    class="input"
-                    type="password"
+                    class="input w-full"
+                    :type="showPassword ? 'text' : 'password'"
                     autocomplete="password"
                     :placeholder="$t('login.password')"
                     :aria-label="$t('login.password')"
                     @keyup.enter="register"
                 />
+                <button type="button" class="btn ml-2" @click="showPassword = !showPassword">
+                    <div class="i-fa6-solid:eye" />
+                </button>
             </div>
-            <div>
+            <div class="flex justify-center">
                 <input
                     v-model="passwordConfirm"
-                    class="input"
-                    type="password"
+                    class="input w-full"
+                    :type="showConfirmPassword ? 'text' : 'password'"
                     autocomplete="password"
                     :placeholder="$t('login.password_confirm')"
                     :aria-label="$t('login.password_confirm')"
                     @keyup.enter="register"
                 />
+                <button type="button" class="btn ml-2" @click="showConfirmPassword = !showConfirmPassword">
+                    <div class="i-fa6-solid:eye" />
+                </button>
             </div>
             <div>
                 <a v-t="'titles.register'" class="btn w-auto" @click="register" />
@@ -63,6 +69,9 @@ export default {
         return {
             username: null,
             password: null,
+            passwordConfirm: null,
+            showPassword: false,
+            showConfirmPassword: false,
             showUnsecureRegisterDialog: false,
             forceUnsecureRegister: false,
         };
