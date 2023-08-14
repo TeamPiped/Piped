@@ -178,7 +178,9 @@
     },
     "login": {
         "password": "密码",
-        "username": "帐号"
+        "username": "帐号",
+        "password_confirm": "确认密码",
+        "passwords_incorrect": "密码不匹配！"
     },
     "search": {
         "did_you_mean": "你是指 {0} 吗？",
