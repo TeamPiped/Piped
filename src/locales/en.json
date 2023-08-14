@@ -162,7 +162,9 @@
     },
     "login": {
         "username": "Username",
-        "password": "Password"
+        "password": "Password",
+        "password_confirm": "Confirm password",
+        "passwords_incorrect": "Passwords don't match!"
     },
     "video": {
         "videos": "Videos",
