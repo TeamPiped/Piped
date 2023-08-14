@@ -162,7 +162,9 @@
     },
     "login": {
         "username": "Nama Pengguna",
-        "password": "Kata Sandi"
+        "password": "Kata Sandi",
+        "password_confirm": "Konfirmasi kata sandi",
+        "passwords_incorrect": "Kata sandi tidak cocok!"
     },
     "video": {
         "videos": "Video",

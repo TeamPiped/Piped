@@ -162,7 +162,9 @@
     },
     "login": {
         "username": "Nazwa użytkownika",
-        "password": "Hasło"
+        "password": "Hasło",
+        "password_confirm": "Potwierdź hasło",
+        "passwords_incorrect": "Hasła się nie zgadzają!"
     },
     "video": {
         "videos": "Filmy",
