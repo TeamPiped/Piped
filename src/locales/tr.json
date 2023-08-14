@@ -178,7 +178,9 @@
     },
     "login": {
         "password": "Parola",
-        "username": "Kullanıcı Adı"
+        "username": "Kullanıcı Adı",
+        "password_confirm": "Parolayı doğrula",
+        "passwords_incorrect": "Parolalar eşleşmiyor!"
     },
     "search": {
         "did_you_mean": "Bunu mu demek istediniz: {0}?",
