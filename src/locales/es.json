@@ -178,7 +178,9 @@
     },
     "login": {
         "password": "Contraseña",
-        "username": "Nombre de usuario"
+        "username": "Nombre de usuario",
+        "passwords_incorrect": "¡Las contraseñas no coinciden!",
+        "password_confirm": "Confirma la contraseña"
     },
     "search": {
         "did_you_mean": "¿Quisiste decir {0}?",
