@@ -190,7 +190,9 @@
     },
     "login": {
         "username": "اسم المستخدم",
-        "password": "كلمة السر"
+        "password": "كلمة السر",
+        "passwords_incorrect": "كلمة المرور لم تتطابق!",
+        "password_confirm": "تأكيد كلمة المرور"
     },
     "subscriptions": {
         "subscribed_channels_count": "مشترك في: {0}"
