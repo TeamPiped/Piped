@@ -188,7 +188,9 @@
     },
     "login": {
         "username": "Uzantnomo",
-        "password": "Pasvorto"
+        "password": "Pasvorto",
+        "password_confirm": "Konfirmu la pasvorton",
+        "passwords_incorrect": "Pasvortoj ne kongruas!"
     },
     "preferences": {
         "version": "Versio",
