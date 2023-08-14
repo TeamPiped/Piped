@@ -11,7 +11,9 @@
     --efy_font_family: 'nunito', sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     --efy_audio_folder: ./efy/audio;
     --efy_folder: ./efy;
+    --efy_lang_code: en;
     --efy_modules: efy_quick, efy_mode, efy_filters, efy_backup, efy_accessibility, efy_audio, efy_language, efy_extra;
+    --efy_protocol: http;
 }
 /*Default Mode*/ [efy_mode=default] {
     --efy_scheme: dark;
