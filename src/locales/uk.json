@@ -4,7 +4,9 @@
     },
     "login": {
         "username": "Ім'я користувача",
-        "password": "Пароль"
+        "password": "Пароль",
+        "password_confirm": "Підтвердіть пароль",
+        "passwords_incorrect": "Паролі не збігаються!"
     },
     "actions": {
         "unsubscribe": "Відписатися - {count}",
@@ -50,7 +52,7 @@
         "instances_list": "Список екземплярів",
         "enabled_codecs": "Увімкнені кодеки (можна вибрати декілька)",
         "default_quality": "Якість за замовчуванням",
-        "country_selection": "Країна (для трендів)",
+        "country_selection": "Країна",
         "minimize_description_default": "Не розгортати опис за замовчуванням",
         "yes": "Так",
         "import_from_json": "Імпортувати з JSON/CSV",
