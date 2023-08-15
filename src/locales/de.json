@@ -178,7 +178,9 @@
     },
     "login": {
         "password": "Passwort",
-        "username": "Benutzername"
+        "username": "Benutzername",
+        "password_confirm": "Passwort bestätigen",
+        "passwords_incorrect": "Passwörter stimmen nicht überein!"
     },
     "search": {
         "did_you_mean": "Hast du gemeint: {0}?",
@@ -196,7 +198,7 @@
         "subscribed_channels_count": "Anzahl Abos: {0}"
     },
     "info": {
-        "preferences_note": "Achtung: Die Einstellung werden lokal in deinem Browser gespeichert. Wenn du deine Browserdaten löschst, werden auch deine Einstellungen zurückgesetzt.",
+        "preferences_note": "Achtung: Die Einstellungen werden lokal in deinem Browser gespeichert. Wenn du deine Browserdaten löschst, werden auch deine Einstellungen zurückgesetzt.",
         "page_not_found": "Seite nicht gefunden",
         "copied": "Kopiert!",
         "cannot_copy": "Kopieren nicht möglich!",
