@@ -156,7 +156,9 @@
     },
     "login": {
         "username": "Användarnamn",
-        "password": "Lösenord"
+        "password": "Lösenord",
+        "password_confirm": "Bekräfta lösenord",
+        "passwords_incorrect": "Lösenorden stämmer inte överens!"
     },
     "video": {
         "videos": "Videor",
