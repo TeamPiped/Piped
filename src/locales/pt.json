@@ -153,7 +153,9 @@
     },
     "login": {
         "password": "Palavra-passe",
-        "username": "Nome de utilizador"
+        "username": "Nome de utilizador",
+        "passwords_incorrect": "As palavras-passe não coincidem!",
+        "password_confirm": "Confirmar a palavra-passe"
     },
     "video": {
         "videos": "Vídeos",
