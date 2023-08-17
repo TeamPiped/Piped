@@ -68,8 +68,8 @@ devDependencies:
     specifier: 1.1.15
     version: 1.1.15
   '@intlify/unplugin-vue-i18n':
-    specifier: 0.12.2
-    version: 0.12.2(rollup@2.79.1)(vue-i18n@9.2.2)
+    specifier: 0.12.3
+    version: 0.12.3(rollup@2.79.1)(vue-i18n@9.2.2)
   '@unocss/eslint-config':
     specifier: 0.55.1
     version: 0.55.1(eslint@8.47.0)(typescript@5.1.6)
@@ -1709,8 +1709,8 @@ packages:
     engines: {node: '>= 16'}
     dev: true
 
-  /@intlify/unplugin-vue-i18n@0.12.2(rollup@2.79.1)(vue-i18n@9.2.2):
-    resolution: {integrity: sha512-IIgzLRSPUKZM1FBdUAZ9NwVPiLUr4ea5g/HLWe2lB7gNtPDz4FOfUNUllIT504hT+3pDoJmjaYJ6pyqT7F4Wuw==}
+  /@intlify/unplugin-vue-i18n@0.12.3(rollup@2.79.1)(vue-i18n@9.2.2):
+    resolution: {integrity: sha512-0riPtSfTM58JmGNMmJho/aHD2z3K24BESYAmkLvKlo61/LbaPvnjYU1DbSbJEm6bSjE2oEjUj+di3QaYxXei/w==}
     engines: {node: '>= 14.16'}
     peerDependencies:
       petite-vue-i18n: '*'
