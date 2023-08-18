@@ -162,7 +162,9 @@
     },
     "login": {
         "username": "ユーザー名",
-        "password": "パスワード"
+        "password": "パスワード",
+        "password_confirm": "パスワードの確認",
+        "passwords_incorrect": "パスワードが一致しません！"
     },
     "video": {
         "videos": "動画",
