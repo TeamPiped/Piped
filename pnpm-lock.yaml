@@ -113,8 +113,8 @@ devDependencies:
     specifier: 9.17.0
     version: 9.17.0(eslint@8.47.0)
   lightningcss:
-    specifier: 1.21.5
-    version: 1.21.5
+    specifier: 1.21.6
+    version: 1.21.6
   prettier:
     specifier: 3.0.2
     version: 3.0.2
@@ -123,7 +123,7 @@ devDependencies:
     version: 0.55.2(postcss@8.4.27)(rollup@2.79.1)(vite@4.4.9)
   vite:
     specifier: 4.4.9
-    version: 4.4.9(lightningcss@1.21.5)(terser@5.19.2)
+    version: 4.4.9(lightningcss@1.21.6)(terser@5.19.2)
   vite-plugin-eslint:
     specifier: 1.8.1
     version: 1.8.1(eslint@8.47.0)(vite@4.4.9)
@@ -2017,7 +2017,7 @@ packages:
       '@unocss/core': 0.55.2
       '@unocss/reset': 0.55.2
       '@unocss/vite': 0.55.2(rollup@2.79.1)(vite@4.4.9)
-      vite: 4.4.9(lightningcss@1.21.5)(terser@5.19.2)
+      vite: 4.4.9(lightningcss@1.21.6)(terser@5.19.2)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -2221,7 +2221,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.3.1
       magic-string: 0.30.2
-      vite: 4.4.9(lightningcss@1.21.5)(terser@5.19.2)
+      vite: 4.4.9(lightningcss@1.21.6)(terser@5.19.2)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -2241,7 +2241,7 @@ packages:
       regenerator-runtime: 0.13.11
       systemjs: 6.14.1
       terser: 5.19.2
-      vite: 4.4.9(lightningcss@1.21.5)(terser@5.19.2)
+      vite: 4.4.9(lightningcss@1.21.6)(terser@5.19.2)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2253,7 +2253,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.9(lightningcss@1.21.5)(terser@5.19.2)
+      vite: 4.4.9(lightningcss@1.21.6)(terser@5.19.2)
       vue: 3.3.4
     dev: true
 
@@ -3823,8 +3823,8 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /lightningcss-darwin-arm64@1.21.5:
-    resolution: {integrity: sha512-z05hyLX85WY0UfhkFUOrWEFqD69lpVAmgl3aDzMKlIZJGygbhbegqb4PV8qfUrKKNBauut/qVNPKZglhTaDDxA==}
+  /lightningcss-darwin-arm64@1.21.6:
+    resolution: {integrity: sha512-NVPFGkn9o3Z06IpT9aO2OnlQObmVtjaHMwerpHbGUJpQiDOUC0EckK/+EUtVuUoz6r2nk3tUFBzE/q6q5nRzbw==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [darwin]
@@ -3832,8 +3832,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-darwin-x64@1.21.5:
-    resolution: {integrity: sha512-MSJhmej/U9MrdPxDk7+FWhO8+UqVoZUHG4VvKT5RQ4RJtqtANTiWiI97LvoVNMtdMnHaKs1Pkji6wHUFxjJsHQ==}
+  /lightningcss-darwin-x64@1.21.6:
+    resolution: {integrity: sha512-YefJilvIq4PodtRqjIxGlncxcWx/F83hzW4NWG6WkB+O/CyoAcH4ejRUt5iwcfocPfeEwPoCtFA8GrOKpVaA1A==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [darwin]
@@ -3841,8 +3841,17 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-arm-gnueabihf@1.21.5:
-    resolution: {integrity: sha512-xN6+5/JsMrbZHL1lPl+MiNJ3Xza12ueBKPepiyDCFQzlhFRTj7D0LG+cfNTzPBTO8KcYQynLpl1iBB8LGp3Xtw==}
+  /lightningcss-freebsd-x64@1.21.6:
+    resolution: {integrity: sha512-L/fiLBo75v3CfvgaHqpuk7NY8hl7fJwoHFH6gwEUyurv88BjDNY6I4yHzyYSv6v7rsx34mQtSQY8K1XdnKWWBQ==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss-linux-arm-gnueabihf@1.21.6:
+    resolution: {integrity: sha512-56JTC6YbmliaegbvJD1188z1jPC9CcIdiYO8sjSDLkxif3dhB+8YDOn5Wob7FW5rg6v0Qc2/7+ogNs/s73Na8Q==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm]
     os: [linux]
@@ -3850,8 +3859,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-arm64-gnu@1.21.5:
-    resolution: {integrity: sha512-KfzFNhC4XTbmG3ma/xcTs/IhCwieW89XALIusKmnV0N618ZDXEB0XjWOYQRCXeK9mfqPdbTBpurEHV/XZtkniQ==}
+  /lightningcss-linux-arm64-gnu@1.21.6:
+    resolution: {integrity: sha512-qDlQR2yLSEPOvZ9NQRnnft9lG3Aan0YZZUsurECuCbOcVW0HPW17wOMeK80hQxaOwD3o0mdjTGYzVP9oFthDeA==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
@@ -3859,8 +3868,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-arm64-musl@1.21.5:
-    resolution: {integrity: sha512-bc0GytQO5Mn9QM6szaZ+31fQHNdidgpM1sSCwzPItz8hg3wOvKl8039rU0veMJV3ZgC9z0ypNRceLrSHeRHmXw==}
+  /lightningcss-linux-arm64-musl@1.21.6:
+    resolution: {integrity: sha512-Yfy7yi+VCkaw711aJJR4spH1ou/sTBCxy8AIAVby7Nb/cqSeD4PelgDoiOQ18tKskzQC3LD3NMbJH+1Wl3DJ9A==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
@@ -3868,8 +3877,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-x64-gnu@1.21.5:
-    resolution: {integrity: sha512-JwMbgypPQgc2kW2av3OwzZ8cbrEuIiDiXPJdXRE6aVxu67yHauJawQLqJKTGUhiAhy6iLDG8Wg0a3/ziL+m+Kw==}
+  /lightningcss-linux-x64-gnu@1.21.6:
+    resolution: {integrity: sha512-MvtCaPavt1wbmA7ksTVbl53bAvYEvnAvKjL9risLk9tZCigKIXFtiWhdFHTRl0Y0yz/D5yHV0tvrFJTJreYiNw==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
@@ -3877,8 +3886,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-x64-musl@1.21.5:
-    resolution: {integrity: sha512-Ib8b6IQ/OR/VrPU6YBgy4T3QnuHY7DUa95O+nz+cwrTkMSN6fuHcTcIaz4t8TJ6HI5pl3uxUOZjmtls2pyQWow==}
+  /lightningcss-linux-x64-musl@1.21.6:
+    resolution: {integrity: sha512-m5VrLGfAuJ2axk6bgPzOx5XBVxOGw5DTGySIoN7QSlFauFAwcGN/5iZbM6Gil0F7pY1Xy2iuouaMxs620zvlLQ==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
@@ -3886,8 +3895,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-win32-x64-msvc@1.21.5:
-    resolution: {integrity: sha512-A8cSi8lUpBeVmoF+DqqW7cd0FemDbCuKr490IXdjyeI+KL8adpSKUs8tcqO0OXPh1EoDqK7JNkD/dELmd4Iz5g==}
+  /lightningcss-win32-x64-msvc@1.21.6:
+    resolution: {integrity: sha512-ZLZlkOOxcKVGxJA51HZBUvtuXHb4tC9HRiPyiCfAGWQbIWGNfAMU9gH0RzWgpcOSAl81vkH67kA7KRVc0EptYw==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [win32]
@@ -3895,20 +3904,21 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss@1.21.5:
-    resolution: {integrity: sha512-/pEUPeih2EwIx9n4T82aOG6CInN83tl/mWlw6B5gWLf36UplQi1L+5p3FUHsdt4fXVfOkkh9KIaM3owoq7ss8A==}
+  /lightningcss@1.21.6:
+    resolution: {integrity: sha512-6J1/sHNgeLDiq0x1uPwKNLP4VWxdynH4+ewmJX28ivF4x/EmBAcBtIKkDGWZKgpy2Zq6FhgVWRWG7pf+fWybHw==}
     engines: {node: '>= 12.0.0'}
     dependencies:
       detect-libc: 1.0.3
     optionalDependencies:
-      lightningcss-darwin-arm64: 1.21.5
-      lightningcss-darwin-x64: 1.21.5
-      lightningcss-linux-arm-gnueabihf: 1.21.5
-      lightningcss-linux-arm64-gnu: 1.21.5
-      lightningcss-linux-arm64-musl: 1.21.5
-      lightningcss-linux-x64-gnu: 1.21.5
-      lightningcss-linux-x64-musl: 1.21.5
-      lightningcss-win32-x64-msvc: 1.21.5
+      lightningcss-darwin-arm64: 1.21.6
+      lightningcss-darwin-x64: 1.21.6
+      lightningcss-freebsd-x64: 1.21.6
+      lightningcss-linux-arm-gnueabihf: 1.21.6
+      lightningcss-linux-arm64-gnu: 1.21.6
+      lightningcss-linux-arm64-musl: 1.21.6
+      lightningcss-linux-x64-gnu: 1.21.6
+      lightningcss-linux-x64-musl: 1.21.6
+      lightningcss-win32-x64-msvc: 1.21.6
     dev: true
 
   /linkify-html@4.1.1(linkifyjs@4.1.1):
@@ -4963,7 +4973,7 @@ packages:
       '@unocss/transformer-directives': 0.55.2
       '@unocss/transformer-variant-group': 0.55.2
       '@unocss/vite': 0.55.2(rollup@2.79.1)(vite@4.4.9)
-      vite: 4.4.9(lightningcss@1.21.5)(terser@5.19.2)
+      vite: 4.4.9(lightningcss@1.21.6)(terser@5.19.2)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -5019,7 +5029,7 @@ packages:
       '@types/eslint': 8.44.2
       eslint: 8.47.0
       rollup: 2.79.1
-      vite: 4.4.9(lightningcss@1.21.5)(terser@5.19.2)
+      vite: 4.4.9(lightningcss@1.21.6)(terser@5.19.2)
     dev: true
 
   /vite-plugin-pwa@0.16.4(vite@4.4.9)(workbox-build@7.0.0)(workbox-window@7.0.0):
@@ -5033,14 +5043,14 @@ packages:
       debug: 4.3.4
       fast-glob: 3.3.1
       pretty-bytes: 6.1.1
-      vite: 4.4.9(lightningcss@1.21.5)(terser@5.19.2)
+      vite: 4.4.9(lightningcss@1.21.6)(terser@5.19.2)
       workbox-build: 7.0.0
       workbox-window: 7.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@4.4.9(lightningcss@1.21.5)(terser@5.19.2):
+  /vite@4.4.9(lightningcss@1.21.6)(terser@5.19.2):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -5069,7 +5079,7 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.18.20
-      lightningcss: 1.21.5
+      lightningcss: 1.21.6
       postcss: 8.4.27
       rollup: 3.28.0
       terser: 5.19.2
