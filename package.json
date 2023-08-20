@@ -47,7 +47,7 @@
         "eslint-config-prettier": "9.0.0",
         "eslint-plugin-prettier": "5.0.0",
         "eslint-plugin-vue": "9.17.0",
-        "lightningcss": "1.21.6",
+        "lightningcss": "1.21.7",
         "prettier": "3.0.2",
         "unocss": "0.55.2",
         "vite": "4.4.9",
