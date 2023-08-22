@@ -142,7 +142,8 @@
         "show_search_suggestions": "Показать поисковые предложения",
         "chapters_layout_mobile": "Расположение глав в мобильном виде",
         "delete_automatically": "Автоматическое удаление после",
-        "enable_dearrow": "Включить DeArrow"
+        "enable_dearrow": "Включить DeArrow",
+        "generate_qrcode": "Создать QR-код"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
@@ -161,7 +162,9 @@
     },
     "login": {
         "username": "Имя пользователя",
-        "password": "Пароль"
+        "password": "Пароль",
+        "password_confirm": "Повторите пароль",
+        "passwords_incorrect": "Пароль не совпадает!"
     },
     "video": {
         "videos": "Видео",
