@@ -136,7 +136,8 @@
         "player": "Riproduttore",
         "livestreams": "Streaming live",
         "channels": "Canali",
-        "bookmarks": "Segnalibri"
+        "bookmarks": "Segnalibri",
+        "dearrow": "DeArrow"
     },
     "video": {
         "sponsor_segments": "Segmenti sponsor",
@@ -150,7 +151,8 @@
         "all": "Tutti",
         "category": "Categoria",
         "chapters_horizontal": "Orizzontale",
-        "chapters_vertical": "Verticale"
+        "chapters_vertical": "Verticale",
+        "license": "Licenza"
     },
     "preferences": {
         "ssl_score": "Valutazione SSL",
