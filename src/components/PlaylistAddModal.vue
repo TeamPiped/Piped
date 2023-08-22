@@ -1,5 +1,5 @@
 <template>
-    <ModalComponent>
+    <ModalComponent @close="$emit('close')">
         <span v-t="'actions.select_playlist'" class="inline-block w-max text-2xl" />
         <select v-model="selectedPlaylist" class="select mt-3 w-full">
             <option v-for="playlist in playlists" :key="playlist.id" :value="playlist.id" v-text="playlist.name" />
