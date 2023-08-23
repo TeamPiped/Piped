@@ -2,11 +2,29 @@
     <h1 v-t="'titles.subscriptions'" class="my-4 text-center font-bold" />
     <!-- import / export section -->
     <div class="w-full flex justify-between">
-        <div class="flex">
-            <button class="btn mx-1">
-                <router-link v-t="'actions.import_from_json'" to="/import" />
+        <div class="flex gap-2">
+            <button class="btn">
+                <router-link v-t="'actions.import_from_json_csv'" to="/import" />
             </button>
             <button v-t="'actions.export_to_json'" class="btn" @click="exportHandler" />
+            <input
+                id="fileSelector"
+                ref="fileSelector"
+                type="file"
+                class="display-none"
+                multiple="multiple"
+                @change="importGroupsHandler"
+            />
+            <label
+                for="fileSelector"
+                class="btn"
+                v-text="`${$t('actions.import_from_json')} (${$t('titles.channel_groups')})`"
+            />
+            <button
+                class="btn"
+                @click="exportGroupsHandler"
+                v-text="`${$t('actions.export_to_json')} (${$t('titles.channel_groups')})`"
+            />
         </div>
         <!-- subscriptions count, only shown if there are any  -->
         <i18n-t v-if="subscriptions.length > 0" keypath="subscriptions.subscribed_channels_count">{{
@@ -230,6 +248,24 @@ export default {
                 ? this.selectedGroup.channels.filter(channel => channel != channelId)
                 : this.selectedGroup.channels.concat(channelId);
             this.createOrUpdateChannelGroup(this.selectedGroup);
+        },
+        async importGroupsHandler() {
+            const files = this.$refs.fileSelector.files;
+            for (let file of files) {
+                const groups = JSON.parse(await file.text()).groups;
+                for (let group of groups) {
+                    this.createOrUpdateChannelGroup(group);
+                    this.channelGroups.push(group);
+                }
+            }
+        },
+        exportGroupsHandler() {
+            const json = {
+                format: "Piped",
+                version: 1,
+                groups: this.channelGroups.slice(1),
+            };
+            this.download(JSON.stringify(json), "channel_groups.json", "application/json");
         },
     },
 };

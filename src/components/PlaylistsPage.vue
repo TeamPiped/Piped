@@ -13,7 +13,7 @@
                 multiple="multiple"
                 @change="importPlaylists"
             />
-            <label v-t="'actions.import_from_json'" for="fileSelector" class="btn ml-2" />
+            <label v-t="'actions.import_from_json_csv'" for="fileSelector" class="btn ml-2" />
         </div>
     </div>
 
