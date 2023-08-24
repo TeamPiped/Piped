@@ -178,7 +178,9 @@
     },
     "login": {
         "password": "Lozinka",
-        "username": "Korisničko ime"
+        "username": "Korisničko ime",
+        "password_confirm": "Potvrdi lozinku",
+        "passwords_incorrect": "Lozinke se ne poklapaju!"
     },
     "search": {
         "did_you_mean": "Misliš li: {0}?",
