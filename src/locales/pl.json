@@ -62,7 +62,7 @@
         "yes": "Tak",
         "no": "Nie",
         "export_to_json": "Eksport do pliku JSON",
-        "import_from_json": "Import z pliku JSON/CSV",
+        "import_from_json": "Import z pliku JSON",
         "loop_this_video": "Zapętlaj ten film",
         "auto_play_next_video": "Autoodtwarzanie następnego filmu",
         "donations": "Wsparcie",
@@ -143,7 +143,8 @@
         "chapters_layout_mobile": "Układ rozdziałów na urządzeniach mobilnych",
         "delete_automatically": "Usuń automatycznie po",
         "enable_dearrow": "Włącz DeArrow",
-        "generate_qrcode": "Wygeneruj kod QR"
+        "generate_qrcode": "Wygeneruj kod QR",
+        "import_from_json_csv": "Import z pliku JSON/CSV"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
