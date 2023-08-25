@@ -218,7 +218,7 @@ b {
 }
 
 .input {
-    @apply pl-2.5;
+    @apply px-2.5;
 }
 
 .input:focus {
