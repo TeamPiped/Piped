@@ -38,7 +38,7 @@
         "donations": "Donaciones para desarrollo",
         "auto_play_next_video": "Reproducción automática del siguiente vídeo",
         "loop_this_video": "Poner en bucle este vídeo",
-        "import_from_json": "Importar desde JSON/CSV",
+        "import_from_json": "Importar desde JSON",
         "export_to_json": "Exportar a JSON",
         "no": "No",
         "yes": "Sí",
@@ -153,7 +153,8 @@
         "chapters_layout_mobile": "Disposición de capítulos en móvil",
         "delete_automatically": "Borrar automáticamente después de",
         "enable_dearrow": "Activar DeArrow",
-        "generate_qrcode": "Generar código QR"
+        "generate_qrcode": "Generar código QR",
+        "import_from_json_csv": "Importar desde JSON/CSV"
     },
     "titles": {
         "feed": "Contenido",
