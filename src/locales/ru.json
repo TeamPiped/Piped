@@ -143,7 +143,7 @@
         "chapters_layout_mobile": "Расположение глав в мобильном виде",
         "delete_automatically": "Автоматическое удаление после",
         "enable_dearrow": "Включить DeArrow",
-        "generate_qrcode": "Создать QR-код"
+        "generate_qrcode": "Сгенерировать QR Код"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
