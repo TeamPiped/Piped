@@ -78,7 +78,7 @@
         "export_to_json": "Elporti JSON-n",
         "loop_this_video": "Ripetadi ĉi tiun Videon",
         "enable_lbry_proxy": "Ebligi Prokurilon por LBRY",
-        "import_from_json": "Importi el JSON/CSV",
+        "import_from_json": "Importi el JSON",
         "show_description": "Montri Priskribon",
         "instances_list": "Listo de Nodoj",
         "auto_play_next_video": "Aŭtomate Ludi sekvan Videon",
@@ -143,7 +143,8 @@
         "chapters_layout_mobile": "Aranĝo de ĉapitroj en poŝtelefono",
         "delete_automatically": "Aŭtomate forigi post",
         "enable_dearrow": "Ebligi DeArrow",
-        "generate_qrcode": "Generi QR-kodon"
+        "generate_qrcode": "Generi QR-kodon",
+        "import_from_json_csv": "Importi el JSON/CSV"
     },
     "video": {
         "chapters": "Sekcioj",
