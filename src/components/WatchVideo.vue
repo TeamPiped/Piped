@@ -95,6 +95,9 @@
                 />
                 <div class="ml-auto flex flex-wrap gap-1">
                     <!-- Subscribe Button -->
+                    <button class="btn flex items-center gap-1 <md:hidden" @click="downloadCurrentFrame">
+                        {{ $t("actions.download_frame") }}<i class="i-fa6-solid:download" />
+                    </button>
                     <button class="btn flex items-center" @click="showModal = !showModal">
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
                     </button>
@@ -698,6 +701,21 @@ export default {
             const paramStr = searchParams.toString();
             if (paramStr.length > 0) url += "&" + paramStr;
             this.$router.push(url);
+        },
+        downloadCurrentFrame() {
+            const video = document.querySelector("video");
+            const canvas = document.createElement("canvas");
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+
+            const context = canvas.getContext("2d");
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            let link = document.createElement("a");
+            const currentTime = Math.round(video.currentTime * 1000) / 1000;
+            link.download = `${this.video.title}_${currentTime}s.png`;
+            link.href = canvas.toDataURL();
+            link.click();
         },
     },
 };

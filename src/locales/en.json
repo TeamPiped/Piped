@@ -144,7 +144,8 @@
         "okay": "Okay",
         "show_search_suggestions": "Show search suggestions",
         "delete_automatically": "Delete automatically after",
-        "generate_qrcode": "Generate QR Code"
+        "generate_qrcode": "Generate QR Code",
+        "download_frame": "Download frame"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
