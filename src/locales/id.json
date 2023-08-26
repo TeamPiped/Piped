@@ -55,7 +55,7 @@
         "show_more": "Tampilkan Lebih Banyak",
         "yes": "Iya",
         "no": "Tidak",
-        "import_from_json": "Impor dari JSON/CSV",
+        "import_from_json": "Impor dari JSON",
         "loop_this_video": "Ulangi Video ini",
         "auto_play_next_video": "Mainkan video berikutnya secara otomatis",
         "donations": "Donasi pengembangan",
@@ -143,7 +143,8 @@
         "chapters_layout_mobile": "Tata Letak Bab di Ponsel",
         "delete_automatically": "Hapus secara otomatis setelah",
         "enable_dearrow": "Aktifkan DeArrow",
-        "generate_qrcode": "Buat Kode QR"
+        "generate_qrcode": "Buat Kode QR",
+        "import_from_json_csv": "Impor dari JSON/CSV"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
