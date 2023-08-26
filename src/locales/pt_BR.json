@@ -122,7 +122,8 @@
         "chapters_layout_mobile": "Layout dos Capítulos no Celular",
         "delete_automatically": "Deletar automaticamente após",
         "generate_qrcode": "Gerar código QR",
-        "enable_dearrow": "Ativar DeArrow"
+        "enable_dearrow": "Ativar DeArrow",
+        "import_from_json_csv": "Importar de JSON/CSV"
     },
     "titles": {
         "history": "Histórico",
@@ -162,7 +163,9 @@
     },
     "login": {
         "username": "Nome de usuário",
-        "password": "Senha"
+        "password": "Senha",
+        "password_confirm": "Confirme senha",
+        "passwords_incorrect": "As senhas não correspondem!"
     },
     "video": {
         "videos": "Vídeos",
