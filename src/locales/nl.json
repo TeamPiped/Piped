@@ -60,7 +60,7 @@
         "delete_playlist_confirm": "Deze afspeellijst verwijderen?",
         "please_select_playlist": "Selecteer een afspeellijst alsjeblief",
         "instance_selection": "Instantie",
-        "import_from_json": "Importeren uit JSON/CSV",
+        "import_from_json": "Importeren uit JSON",
         "clear_history": "Geschiedenis Wissen",
         "load_more_replies": "Meer reacties laden",
         "delete_playlist_video_confirm": "Video uit deze afspeellijst verwijderen?",
@@ -122,7 +122,8 @@
         "group_name": "Groep­naam",
         "generate_qrcode": "QR-code genereren",
         "chapters_layout_mobile": "Mobiele lay-out voor hoofdstukken",
-        "auto_display_captions": "Ondertiteling automatisch tonen"
+        "auto_display_captions": "Ondertiteling automatisch tonen",
+        "import_from_json_csv": "Importeren uit JSON/CSV"
     },
     "titles": {
         "register": "Registreren",
