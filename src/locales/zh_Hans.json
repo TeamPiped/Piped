@@ -9,7 +9,7 @@
         "donations": "开发捐赠",
         "auto_play_next_video": "自动播放下一个视频",
         "loop_this_video": "循环播放此视频",
-        "import_from_json": "从 JSON/CSV 导入",
+        "import_from_json": "从 JSON 导入",
         "export_to_json": "导出为 JSON",
         "no": "否",
         "yes": "是",
@@ -122,7 +122,8 @@
         "chapters_layout_mobile": "移动设备上的章节布局",
         "delete_automatically": "多久后自动删除",
         "enable_dearrow": "启用 DeArrow",
-        "generate_qrcode": "生成二维码"
+        "generate_qrcode": "生成二维码",
+        "import_from_json_csv": "从 JSON/CSV 文件导入"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
