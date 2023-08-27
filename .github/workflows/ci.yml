@@ -19,4 +19,8 @@ jobs:
                   cache: "pnpm"
             - run: pnpm install
             - run: pnpm build
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: build
+                  path: dist
             - run: pnpm lint --no-fix
