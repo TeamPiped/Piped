@@ -60,7 +60,7 @@
         "yes": "はい",
         "no": "いいえ",
         "export_to_json": "JSONに出力",
-        "import_from_json": "JSON/CSVを読み込む",
+        "import_from_json": "JSONから読み込む",
         "loop_this_video": "この動画をループ再生",
         "auto_play_next_video": "次の動画を自動再生",
         "donations": "開発者に寄付",
@@ -143,7 +143,8 @@
         "show_search_suggestions": "検索語句の候補を表示",
         "delete_automatically": "指定時間後に自動削除",
         "enable_dearrow": "DeArrow を使用",
-        "generate_qrcode": "QRコードの生成"
+        "generate_qrcode": "QRコードの生成",
+        "import_from_json_csv": "JSON/CSVから読み込む"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
