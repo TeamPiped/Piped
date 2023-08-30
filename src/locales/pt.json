@@ -141,7 +141,8 @@
         "enable_dearrow": "Ativar o DeArrow",
         "delete_automatically": "Eliminar automaticamente após",
         "generate_qrcode": "Gerar código QR",
-        "import_from_json_csv": "Importar de JSON/CSV"
+        "import_from_json_csv": "Importar de JSON/CSV",
+        "download_frame": "Quadro de transferência"
     },
     "preferences": {
         "instance_name": "Nome da instância",
@@ -187,7 +188,8 @@
         "music_artists": "YT Music: Artistas"
     },
     "player": {
-        "watch_on": "Ver em {0}"
+        "watch_on": "Ver em {0}",
+        "failed": "Falha com o código de erro {0}, ver registos para mais informações"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
