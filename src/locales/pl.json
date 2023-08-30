@@ -18,7 +18,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Obejrzyj na {0}"
+        "watch_on": "Obejrzyj na {0}",
+        "failed": "Niepowodzenie z powodu kodu błędu {0}. Więcej informacji znajdziesz w dziennikach"
     },
     "actions": {
         "subscribe": "Subskrybuj - {count}",
@@ -144,7 +145,8 @@
         "delete_automatically": "Usuń automatycznie po",
         "enable_dearrow": "Włącz DeArrow",
         "generate_qrcode": "Wygeneruj kod QR",
-        "import_from_json_csv": "Import z pliku JSON/CSV"
+        "import_from_json_csv": "Import z pliku JSON/CSV",
+        "download_frame": "Pobierz klatkę"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
