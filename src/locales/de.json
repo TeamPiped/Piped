@@ -127,7 +127,8 @@
         "download_frame": "Einzelbild (Frame) downloaden"
     },
     "player": {
-        "watch_on": "Auf {0} ansehen"
+        "watch_on": "Auf {0} ansehen",
+        "failed": "Fehlgeschlagen mit Fehlercode {0}, siehe Protokolle für weitere Informationen"
     },
     "titles": {
         "history": "Verlauf",
