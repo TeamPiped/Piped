@@ -41,7 +41,7 @@
         "donations": "Geliştirme Bağışları",
         "auto_play_next_video": "Sonraki Videoyu Otomatik Oynat",
         "loop_this_video": "Bu Videoyu Döngüye Al",
-        "import_from_json": "JSON/CSV Dosyasından İçe Aktar",
+        "import_from_json": "JSON Dosyasından İçe Aktar",
         "export_to_json": "JSON Olarak Dışa Aktar",
         "no": "Hayır",
         "yes": "Evet",
@@ -122,10 +122,13 @@
         "chapters_layout_mobile": "Mobilde Bölüm Düzeni",
         "delete_automatically": "Şundan sonra otomatik olarak sil",
         "enable_dearrow": "DeArrow'u Etkinleştir",
-        "generate_qrcode": "QR Kodu Oluştur"
+        "generate_qrcode": "QR Kodu Oluştur",
+        "import_from_json_csv": "JSON/CSV Dosyasından İçe Aktar",
+        "download_frame": "Kareyi indir"
     },
     "player": {
-        "watch_on": "{0} Üzerinde İzle"
+        "watch_on": "{0} Üzerinde İzle",
+        "failed": "{0} hata kodu ile başarısız oldu, daha fazla bilgi için günlüklere bakın"
     },
     "titles": {
         "history": "Geçmiş",
