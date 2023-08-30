@@ -28,7 +28,7 @@
         <span
             v-if="error > 0"
             v-t="{ path: 'player.failed', args: [error] }"
-            class="absolute top-8 bg-black/80 backdrop-blur-sm p-2 text-lg rounded"
+            class="absolute top-8 rounded bg-black/80 p-2 text-lg backdrop-blur-sm"
         />
     </div>
 </template>
