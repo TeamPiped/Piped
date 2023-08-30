@@ -18,7 +18,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "לצפות ב־{0}"
+        "watch_on": "לצפות ב־{0}",
+        "failed": "חל כשל עם קוד שגיאה {0}, מידע נוסף ביומנים"
     },
     "actions": {
         "subscribe": "מינוי - {count}",
@@ -144,7 +145,8 @@
         "delete_automatically": "למחוק אוטומטית לאחר",
         "enable_dearrow": "הפעלת DeArrow",
         "generate_qrcode": "יצירת קוד QR",
-        "import_from_json_csv": "ייבוא מ־JSON/CSV"
+        "import_from_json_csv": "ייבוא מ־JSON/CSV",
+        "download_frame": "הורדת תמונית"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
