@@ -18,7 +18,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Vidi en {0}"
+        "watch_on": "Vidi en {0}",
+        "failed": "Fiaskis kun erarkodo {0}, vidu protokolojn por pli da informo"
     },
     "actions": {
         "subscribe": "Aboni - {count}",
@@ -144,7 +145,8 @@
         "delete_automatically": "Aŭtomate forigi post",
         "enable_dearrow": "Ebligi DeArrow",
         "generate_qrcode": "Generi QR-kodon",
-        "import_from_json_csv": "Importi el JSON/CSV"
+        "import_from_json_csv": "Importi el JSON/CSV",
+        "download_frame": "Elŝuti bildon"
     },
     "video": {
         "chapters": "Sekcioj",
