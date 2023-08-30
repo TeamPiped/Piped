@@ -19,7 +19,7 @@
     },
     "player": {
         "watch_on": "Obejrzyj na {0}",
-        "failed": "Niepowodzenie z powodu kodu błędu {0}. Więcej informacji znajdziesz w dziennikach"
+        "failed": "Niepowodzenie z powodu kodu błędu {0}, przejrzyj logi, aby uzyskać więcej informacji"
     },
     "actions": {
         "subscribe": "Subskrybuj - {count}",
