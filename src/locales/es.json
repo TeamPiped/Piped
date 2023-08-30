@@ -154,7 +154,8 @@
         "delete_automatically": "Borrar automáticamente después de",
         "enable_dearrow": "Activar DeArrow",
         "generate_qrcode": "Generar código QR",
-        "import_from_json_csv": "Importar desde JSON/CSV"
+        "import_from_json_csv": "Importar desde JSON/CSV",
+        "download_frame": "Descargar fotograma"
     },
     "titles": {
         "feed": "Contenido",
@@ -175,7 +176,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Ver en {0}"
+        "watch_on": "Ver en {0}",
+        "failed": "Falló con el código de error {0}, consulta los registros para más información"
     },
     "login": {
         "password": "Contraseña",
