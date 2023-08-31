@@ -516,6 +516,9 @@ export default {
                 manifest: {
                     disableVideo: disableVideo,
                 },
+                streaming: {
+                    segmentPrefetchLimit: 10,
+                },
             });
 
             const quality = this.getPreferenceNumber("quality", 0);
