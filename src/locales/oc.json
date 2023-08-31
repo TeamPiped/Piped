@@ -169,7 +169,9 @@
         "all": "Totas",
         "category": "Categoria",
         "chapters_horizontal": "Orizontal",
-        "chapters_vertical": "Vertical"
+        "chapters_vertical": "Vertical",
+        "license": "Licéncia",
+        "visibility": "Visibilitat"
     },
     "info": {
         "preferences_note": "Nòta : las preferéncias son gardadas dins l’espaci d’emmagazinatge del navegador. La supression de las donadas del navegador las restablirà.",
@@ -178,7 +180,11 @@
         "cannot_copy": "Còpia impossibla !",
         "local_storage": "Aquesta accion requerís lo localStorage, son activats los cookies ?",
         "register_no_email_note": "Es pas recomandat d’utilizar una adreça electronica coma nom d’utilizaire. Contunhar çaquelà ?",
-        "next_video_countdown": "La vidèo seguenta començarà d’aquí {0}s"
+        "next_video_countdown": "La vidèo seguenta començarà d’aquí {0}s",
+        "hours": "{amount} ora(s)",
+        "months": "{amount} mes(es)",
+        "days": "{amount} jorn(s)",
+        "weeks": "{amount} setmana(s)"
     },
     "comment": {
         "disabled": "L’autor a desactivat los comentaris.",
@@ -195,7 +201,8 @@
         "music_songs": "YT Music : Cançons",
         "music_videos": "YT Music : Vidèos",
         "music_albums": "YT Music : Albums",
-        "music_playlists": "YT Music : Listas de lectura"
+        "music_playlists": "YT Music : Listas de lectura",
+        "music_artists": "YT Music : Artistas"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonat a : {0}"
