@@ -123,7 +123,8 @@
         "delete_automatically": "多久后自动删除",
         "enable_dearrow": "启用 DeArrow",
         "generate_qrcode": "生成二维码",
-        "import_from_json_csv": "从 JSON/CSV 文件导入"
+        "import_from_json_csv": "从 JSON/CSV 文件导入",
+        "download_frame": "下载视频帧"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -157,7 +158,8 @@
         "user_disabled": "评论在设置中被禁用。"
     },
     "player": {
-        "watch_on": "在 {0} 观看"
+        "watch_on": "在 {0} 观看",
+        "failed": "播放器出错，错误代码 {0}，查看日志了解更多信息"
     },
     "titles": {
         "feed": "订阅流",
