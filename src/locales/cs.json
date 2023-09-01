@@ -145,7 +145,8 @@
         "download_frame": "Stáhnout snímek"
     },
     "player": {
-        "watch_on": "Sledovat na {0}"
+        "watch_on": "Sledovat na {0}",
+        "failed": "Akce se nezdařila. Chybový kód {0}, pro více informací viz protokol"
     },
     "comment": {
         "pinned_by": "Připnuto uživatelem {author}",
