@@ -123,7 +123,8 @@
         "delete_automatically": "Deletar automaticamente após",
         "generate_qrcode": "Gerar código QR",
         "enable_dearrow": "Ativar DeArrow",
-        "import_from_json_csv": "Importar de JSON/CSV"
+        "import_from_json_csv": "Importar de JSON/CSV",
+        "download_frame": "Baixar quadro"
     },
     "titles": {
         "history": "Histórico",
@@ -144,7 +145,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Assistir no {0}"
+        "watch_on": "Assistir no {0}",
+        "failed": "Falhou com código de erro {0}, veja os logs para mais informações"
     },
     "comment": {
         "pinned_by": "Fixado por {author}",
