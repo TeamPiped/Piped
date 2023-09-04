@@ -8,7 +8,8 @@
         "login": "പ്രവേശിക്കുക",
         "subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ",
         "playlists": "പ്ലേലിസ്റ്റുകൾ",
-        "player": "കളിക്കാരൻ"
+        "player": "കളിക്കാരൻ",
+        "account": "അക്കോണട്"
     },
     "actions": {
         "view_subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ കാണുക",
@@ -55,7 +56,7 @@
         "yes": "അതെ",
         "show_more": "കൂടുതൽ കാണിക്കുക",
         "buffering_goal": "ബഫറിംഗ് ലക്ഷ്യം(സെക്കൻഡുകളിൽ)",
-        "import_from_json": "JSON/CSV നിന്ന് ഇറക്കുമതി ചെയ്യൂ",
+        "import_from_json": "JSONിൽ നിന്ന് ഇറക്കുമതി ചെയ്യൂ",
         "export_to_json": "JSON-ലേക്ക് എക്സ്പ്പോർട്ട് ചെയ്യുക",
         "instance_selection": "ഇൻസ്റ്റ്ൻസ് തിരഞ്ഞെടുക്കുക",
         "loading": "ലഭ്യമാക്കുന്നു...",
@@ -74,16 +75,32 @@
         "please_select_playlist": "ഒരു പ്ലേലിസ്റ്റ് തിരഞ്ഞെടുക്കുക",
         "delete_playlist_video_confirm": "ഈ പ്ലേലിസ്റ്റിൽ നിന്ന് ഈ വീഡിയോ ഒഴിവാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?",
         "delete_playlist_confirm": "ഈ പ്ലേലിസ്റ്റ് ഇല്ലാതാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടൊ?",
-        "skip_automatically": "സ്വയമേവ"
+        "skip_automatically": "സ്വയമേവ",
+        "show_watch_on_youtube": "YouTubeിൽ കാണാം എന്ന button കാണിക്കുകാ",
+        "time_code": "സമയമായം (സെക്കന്റുകളിൽ)",
+        "show_less": "കുറച്ച്മാതറം",
+        "with_timecode": "സമയമായവുമായി പങ്കുവെക്കുക",
+        "back_to_home": "തിരിച്ച് വീട്ടിലേക്ക്",
+        "dismiss": "തിരിച്ച്",
+        "create_group": "കൂട്ടം ഉണടാക്കുകാ",
+        "okay": "ശരി",
+        "invalidate_session": "എല ടിവയഡിൽ നിന്നും ലൊഗൗഠ അവുകാ",
+        "enabled_codecs": "ഉപയോഗിക്കുന്ന കോടെക്കൃകൽ",
+        "share": "പങ്കുവെക്കുക",
+        "documentation": "സഹായക്കുറിപ്പുകൽ",
+        "cancel": "റദ്ദാക്കുക",
+        "generate_qrcode": "QR Code ഉണ്ടാക്കുക",
+        "import_from_json_csv": "JSON/CSVിൽ നിന്ന് ഇറക്കുമതി ചെയ്യൂ"
     },
     "player": {
-        "watch_on": "കാണുക {0}"
+        "watch_on": "{0}ിൻ കാണൃകാ"
     },
     "video": {
         "watched": "കണ്ടതാണ്",
         "views": "{views} കാഴ്ചകൾ",
         "videos": "വിഡിയോകൾ",
-        "sponsor_segments": "സ്പോൺസർമാരുടെ ഭാഗങ്ങൾ"
+        "sponsor_segments": "സ്പോൺസർമാരുടെ ഭാഗങ്ങൾ",
+        "all": "എല്ലാം"
     },
     "comment": {
         "pinned_by": "പിൻ ചെയ്തിരിക്കുന്നത് {author}"
@@ -98,5 +115,8 @@
     "login": {
         "password": "രഹസ്യവാക്ക്",
         "username": "ഉപയോക്തൃനാമം"
+    },
+    "search": {
+        "did_you_mean": "{0} ആണൊ ഉദേശിച്ചെ?"
     }
 }
