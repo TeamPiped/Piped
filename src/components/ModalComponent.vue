@@ -11,6 +11,7 @@
 
 <script>
 export default {
+    emits: ["close"],
     mounted() {
         window.addEventListener("keydown", this.handleKeyDown);
     },
@@ -34,7 +35,10 @@ export default {
 
 <style>
 .modal {
-    @apply fixed z-50 top-0 left-0 w-full h-full bg-dark-900 bg-opacity-80 transition-opacity table;
+    @apply fixed z-50 top-0 left-0 w-full h-full bg-gray bg-opacity-80 transition-opacity table;
+}
+.dark .modal {
+    @apply bg-dark-900 bg-opacity-80;
 }
 
 .modal > div {
@@ -42,7 +46,7 @@ export default {
 }
 
 .modal-container {
-    @apply w-300rem m-auto max-w-[100vw] relative;
+    @apply w-100% m-auto max-w-[410rem] relative;
 }
 
 .modal-container > button {

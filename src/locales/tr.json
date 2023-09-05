@@ -1,12 +1,12 @@
 {
     "actions": {
-        "instances_list": "Örnek Listesi",
-        "language_selection": "Dil Seçimi",
+        "instances_list": "Sunucu Listesi",
+        "language_selection": "Dil",
         "store_watch_history": "İzleme Geçmişini Sakla",
         "minimize_description_default": "Açıklamayı Öntanımlı Olarak Küçült",
         "show_comments": "Yorumları Göster",
         "default_homepage": "Öntanımlı Ana Sayfa",
-        "country_selection": "Ülke Seçimi",
+        "country_selection": "Ülke",
         "buffering_goal": "Arabelleğe Alma Hedefi (Saniye Cinsinden)",
         "default_quality": "Öntanımlı Kalite",
         "audio_only": "Yalnızca Ses",
@@ -46,10 +46,10 @@
         "no": "Hayır",
         "yes": "Evet",
         "show_more": "Daha Fazla Göster",
-        "instance_selection": "Örnek Seçimi",
+        "instance_selection": "Sunucu",
         "loading": "Yükleniyor...",
         "filter": "Filtrele",
-        "search": "Ara",
+        "search": "Ara (Ctrl+K)",
         "view_ssl_score": "SSL Puanını Görüntüle",
         "minimize_recommendations": "Önerileri Küçült",
         "show_recommendations": "Önerileri Göster",
@@ -70,9 +70,9 @@
         "delete_account": "Hesabı Sil",
         "logout": "Bu Aygıttan Oturumu Kapat",
         "minimize_recommendations_default": "Önerileri Öntanımlı Olarak Küçült",
-        "different_auth_instance": "Kimlik Doğrulama İçin Farklı Bir Örnek Kullan",
+        "different_auth_instance": "Kimlik Doğrulama İçin Farklı Bir Sunucu Kullan",
         "invalidate_session": "Tüm Aygıtlardan Oturumu Kapat",
-        "instance_auth_selection": "Kimlik Doğrulama Örneği Seçimi",
+        "instance_auth_selection": "Kimlik Doğrulama Sunucusu",
         "clone_playlist": "Oynatma Listesini Kopyala",
         "clone_playlist_success": "Başarıyla kopyalandı!",
         "download_as_txt": ".txt Olarak İndir",
@@ -87,14 +87,12 @@
         "with_timecode": "Zaman Koduyla Paylaş",
         "piped_link": "Piped Bağlantısı",
         "share": "Paylaş",
-        "rename_playlist": "Oynatma Listesini Yeniden Adlandır",
-        "new_playlist_name": "Yeni Oynatma Listesi Adı",
         "show_chapters": "Bölümler",
         "store_search_history": "Arama Geçmişini Sakla",
         "hide_watched": "Akışta İzlenen Videoları Gizle",
         "source_code": "Kaynak Kodu",
         "documentation": "Belgelendirme",
-        "instance_donations": "Örnek Bağışları",
+        "instance_donations": "Sunucu Bağışları",
         "status_page": "Durum",
         "reply_count": "{count} Yanıt",
         "minimize_comments": "Yorumları Küçült",
@@ -102,7 +100,29 @@
         "show_watch_on_youtube": "YouTube'da İzle Düğmesini Göster",
         "minimize_chapters_default": "Bölümleri Öntanımlı Olarak Küçült",
         "no_valid_playlists": "Dosya geçerli oynatma listeleri içermiyor!",
-        "with_playlist": "Oynatma listesiyle paylaş"
+        "with_playlist": "Oynatma listesiyle paylaş",
+        "bookmark_playlist": "Yer imlerine ekle",
+        "playlist_bookmarked": "Yer imlerine eklendi",
+        "min_segment_length": "En Küçük Bölüm Uzunluğu (saniye cinsinden)",
+        "skip_segment": "Bölümü Atla",
+        "skip_button_only": "Atla düğmesini göster",
+        "skip_automatically": "Otomatik olarak",
+        "show_less": "Daha az göster",
+        "dismiss": "Kapat",
+        "autoplay_next_countdown": "Bir sonraki videoya kadar öntanımlı geri sayım (saniye cinsinden)",
+        "create_group": "Grup oluştur",
+        "group_name": "Grup adı",
+        "auto_display_captions": "Alt Yazıları Otomatik Görüntüle",
+        "cancel": "İptal et",
+        "okay": "Tamam",
+        "edit_playlist": "Oynatma listesini düzenle",
+        "playlist_name": "Oynatma listesi adı",
+        "playlist_description": "Oynatma listesi açıklaması",
+        "show_search_suggestions": "Arama önerilerini göster",
+        "chapters_layout_mobile": "Mobilde Bölüm Düzeni",
+        "delete_automatically": "Şundan sonra otomatik olarak sil",
+        "enable_dearrow": "DeArrow'u Etkinleştir",
+        "generate_qrcode": "QR Kodu Oluştur"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle"
@@ -117,10 +137,13 @@
         "subscriptions": "Abonelikler",
         "playlists": "Oynatma Listeleri",
         "account": "Hesap",
-        "instance": "Örnek",
+        "instance": "Sunucu",
         "player": "Oynatıcı",
         "livestreams": "Canlı Yayınlar",
-        "channels": "Kanallar"
+        "channels": "Kanallar",
+        "bookmarks": "Yer İmleri",
+        "channel_groups": "Kanal grupları",
+        "dearrow": "DeArrow"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
@@ -130,13 +153,19 @@
         "ratings_disabled": "Derecelendirmeler Devre Dışı",
         "chapters": "Bölümler",
         "live": "{0} Canlı",
-        "shorts": "Kısa çekimler"
+        "shorts": "Kısa çekimler",
+        "all": "Tümü",
+        "category": "Kategori",
+        "chapters_horizontal": "Yatay",
+        "chapters_vertical": "Dikey",
+        "license": "Lisans",
+        "visibility": "Görünürlük"
     },
     "preferences": {
         "ssl_score": "SSL Puanı",
         "has_cdn": "CDN Var Mı?",
-        "instance_locations": "Örnek Konumları",
-        "instance_name": "Örnek Adı",
+        "instance_locations": "Sunucu Konumları",
+        "instance_name": "Sunucu Adı",
         "registered_users": "Kayıtlı Kullanıcılar",
         "version": "Sürüm",
         "up_to_date": "Güncel Mi?"
@@ -149,7 +178,9 @@
     },
     "login": {
         "password": "Parola",
-        "username": "Kullanıcı Adı"
+        "username": "Kullanıcı Adı",
+        "password_confirm": "Parolayı doğrula",
+        "passwords_incorrect": "Parolalar eşleşmiyor!"
     },
     "search": {
         "did_you_mean": "Bunu mu demek istediniz: {0}?",
@@ -160,7 +191,8 @@
         "videos": "YouTube: Videolar",
         "music_songs": "YT Müzik: Şarkılar",
         "music_videos": "YT Müzik: Videolar",
-        "music_albums": "YT Müzik: Albümler"
+        "music_albums": "YT Müzik: Albümler",
+        "music_artists": "YT Müzik: Sanatçılar"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abone Olunan: {0}"
@@ -173,6 +205,12 @@
         "page_not_found": "Sayfa Bulunamadı",
         "copied": "Kopyalandı!",
         "cannot_copy": "Kopyalanamıyor!",
-        "local_storage": "Bu eylem yerel depolama gerektirir, çerezler etkin mi?"
+        "local_storage": "Bu eylem yerel depolama gerektirir, çerezler etkin mi?",
+        "register_no_email_note": "Kullanıcı adı olarak e-posta kullanılması tavsiye edilmez. Yine de devam edilsin mi?",
+        "next_video_countdown": "Sonraki video {0}s içinde oynatılıyor",
+        "days": "{amount} gün",
+        "months": "{amount} ay",
+        "hours": "{amount} saat",
+        "weeks": "{amount} hafta"
     }
 }

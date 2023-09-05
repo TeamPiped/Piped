@@ -45,7 +45,7 @@
         "import_from_json": "وارد کردن از JSON/CSV",
         "export_to_json": "دادن خروجی با فرمت JSON",
         "show_description": "نمایش توضیحات ویدئو",
-        "donations": "کمک های مالی",
+        "donations": "کمک های مالی برای توسعه",
         "clear_history": "تخلیه تاریخچه",
         "loop_this_video": "تکرار شدن این ویدئو",
         "auto_play_next_video": "پخش خودکار ویدئو بعدی",
@@ -57,16 +57,43 @@
         "hide_replies": "پنهان کردن پاسخ ها",
         "load_more_replies": "بارگذاری پاسخ های بیشتر",
         "disable_lbry": "غیرفعال کردن LBRY برای استریم ها",
-        "enable_lbry_proxy": "فعال کردن پراکسی برای LBRY"
+        "enable_lbry_proxy": "فعال کردن پراکسی برای LBRY",
+        "delete_playlist": "حذف لیست پخش",
+        "show_markers": "نشانگر را روی پخش کننده نشان دهد",
+        "select_playlist": "انتخاب لیست پخش",
+        "add_to_playlist": "افزودن به لیست پخش",
+        "create_playlist": "ایجاد لیست پخش",
+        "delete_playlist_confirm": "این لیست پخش حذف شود؟",
+        "delete_account": "حذف اکانت",
+        "logout": "خروج از این دستگاه",
+        "delete_playlist_video_confirm": "ویدیو از لیست پخش حذف شود؟",
+        "autoplay_next_countdown": "پیش‌فرض شمارش‌معکوس پخش ویدیوی بعدی ( به ثانیه )",
+        "please_select_playlist": "انتخاب لیست پخش",
+        "minimize_comments_default": "کوچک کردن کامنت‌ها به صورت پیش فرض",
+        "minimize_comments": "کوچک کردن کامنت (نظرات)",
+        "remove_from_playlist": "حذف از لیست پخش",
+        "skip_button_only": "دکمه‌ی گذر را نشان بده",
+        "skip_automatically": "خودکار",
+        "skip_segment": "گذر از بخش",
+        "minimize_recommendations_default": "به طور پیش فرض پیشنهادها را حداقل کنید.",
+        "min_segment_length": "حداقل طول بخش (به ثانیه)"
     },
     "titles": {
-        "history": "سابقه",
+        "history": "تاریخچه",
         "preferences": "تنظیمات",
         "feed": "خوراک",
         "register": "ثبت نام",
         "login": "ورود",
         "trending": "محبوب",
-        "subscriptions": "اشتراک‌ها"
+        "subscriptions": "اشتراک‌ها",
+        "account": "حساب کاربری",
+        "instance": "نمونه",
+        "playlists": "لیست پخش",
+        "player": "پخش کننده",
+        "bookmarks": "نشان‌دارها",
+        "livestreams": "پخش زنده",
+        "channels": "کانال‌ها",
+        "channel_groups": "گروه های کانال"
     },
     "player": {
         "watch_on": "تماشا روی {0}"
@@ -86,7 +113,9 @@
         "instance_locations": "محل های سرویس",
         "has_cdn": "CDN دارد؟",
         "ssl_score": "امتیاز SSL",
-        "instance_name": "نام سرویس"
+        "instance_name": "نام سرویس",
+        "version": "نسخه",
+        "registered_users": "کاربران تایید شده"
     },
     "comment": {
         "pinned_by": "سنجاق شده توسط {author}"

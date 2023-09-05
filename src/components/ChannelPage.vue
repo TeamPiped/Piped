@@ -1,88 +1,93 @@
 <template>
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
-
     <div v-if="channel" v-show="!channel.error">
-        <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
-        <div class="pp-channel-page-author flex place-items-center">
-            <img height="48" width="48" class="m-1" :src="channel.avatarUrl" />
-            <h5 v-text="channel.name" />
-            <font-awesome-icon class="ml-1.5" v-if="channel.verified" icon="check" />
-        </div>
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <p class="whitespace-pre-wrap mt-2">
-            <span v-html="purifyHTML(urlify(channel.description))" />
-        </p>
+        <LoadingIndicatorPage :show-content="channel != null && !channel.error">
+            <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
+            <div class="pp-channel-page-author flex">
+                <img height="48" width="48" class="m-1" :src="channel.avatarUrl" />
+                <h5 v-text="channel.name" />
+                <font-awesome-icon v-if="channel.verified" class="ml-1.5" icon="check" />
+            </div>
+            <p v-text="channel.description" style="margin: 10rem 0 0 0" />
 
-        <div class="flex mt-4 mb-2 pp-channel-tabs">
-            <button
-                class="btn pp-subscribe"
-                @click="subscribeHandler"
-                v-t="{
-                    path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                    args: { count: numberFormat(channel.subscriberCount) },
-                }"
-            ></button>
+            <div class="pp-channel-tabs">
+                <button
+                    v-t="{
+                        path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
+                        args: { count: numberFormat(channel.subscriberCount) },
+                    }"
+                    class="pp-subscribe"
+                    @click="subscribeHandler"
+                ></button>
 
-            <!-- RSS Feed button -->
-            <a
-                aria-label="RSS feed"
-                title="RSS feed"
-                role="button"
-                v-if="channel.id"
-                :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
-                target="_blank"
-                class="btn"
-                style="display: inline; float: unset; margin-left: var(--efy_gap0)"
-            >
-                <font-awesome-icon icon="rss" />
-            </a>
-            <WatchOnYouTubeButton :link="`https://youtube.com/channel/${this.channel.id}`" />
-            <p>|</p>
-            <button
-                v-for="(tab, index) in tabs"
-                :key="tab.name"
-                style="margin-right: var(--efy_gap0)"
-                @click="loadTab(index)"
-                :class="{ active: selectedTab == index }"
-            >
-                <span v-text="tab.translatedName"></span>
-            </button>
-        </div>
+                <!-- RSS Feed button -->
+                <a
+                    v-if="channel.id"
+                    aria-label="RSS feed"
+                    title="RSS feed"
+                    role="button"
+                    :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
+                    target="_blank"
+                    class="pp-square"
+                    style="display: inline; float: unset"
+                >
+                    <font-awesome-icon icon="rss" />
+                </a>
+                <WatchOnButton :link="`https://youtube.com/channel/${channel.id}`" />
+                <p style="place-self: center">|</p>
+                <button
+                    v-for="(tab, index) in tabs"
+                    :key="tab.name"
+                    :class="{ active: selectedTab == index }"
+                    @click="loadTab(index)"
+                >
+                    <span v-text="tab.translatedName"></span>
+                </button>
+            </div>
 
-        <hr />
+            <hr />
 
-        <div class="video-grid">
-            <ContentItem
-                v-for="item in contentItems"
-                :key="item.url"
-                :item="item"
-                height="94"
-                width="168"
-                hide-channel
-                class="efy_trans_filter"
-            />
-        </div>
+            <div class="video-grid">
+                <ContentItem
+                    v-for="item in contentItems"
+                    :key="item.url"
+                    :item="item"
+                    height="94"
+                    width="168"
+                    hide-channel
+                    class="efy_trans_filter"
+                />
+            </div>
+        </LoadingIndicatorPage>
     </div>
 </template>
 
 <style>
-.pp-channel-tabs > p {
-    place-self: center;
-    padding: 0 10rem;
-    -webkit-text-fill-color: var(--efy_text_trans2);
+.pp-channel-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15rem 0;
+    gap: var(--efy_gap0);
+}
+.pp-channel-tabs :is(button, [role="button"]) {
+    margin: 0;
 }
 </style>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
 import ContentItem from "./ContentItem.vue";
-import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import WatchOnButton from "./WatchOnButton.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
+// import CollapsableText from "./CollapsableText.vue";
 
 export default {
     components: {
         ErrorHandler,
         ContentItem,
-        WatchOnYouTubeButton,
+        WatchOnButton,
+        LoadingIndicatorPage,
+        // CollapsableText,
     },
     data() {
         return {
@@ -130,7 +135,9 @@ export default {
             });
         },
         async fetchChannel() {
-            const url = this.apiUrl() + "/" + this.$route.params.path + "/" + this.$route.params.channelId;
+            const url = this.$route.path.includes("@")
+                ? this.apiUrl() + "/@/" + this.$route.params.channelId
+                : this.apiUrl() + "/" + this.$route.params.path + "/" + this.$route.params.channelId;
             return await this.fetchJson(url);
         },
         async getChannelData() {
@@ -142,13 +149,16 @@ export default {
                         this.contentItems = this.channel.relatedStreams;
                         this.fetchSubscribedStatus();
                         this.updateWatched(this.channel.relatedStreams);
+                        this.fetchDeArrowContent(this.channel.relatedStreams);
                         this.tabs.push({
                             translatedName: this.$t("video.videos"),
                         });
+                        const tabQuery = this.$route.query.tab;
                         for (let i = 0; i < this.channel.tabs.length; i++) {
                             let tab = this.channel.tabs[i];
                             tab.translatedName = this.getTranslatedTabName(tab.name);
                             this.tabs.push(tab);
+                            if (tab.name === tabQuery) this.loadTab(i + 1);
                         }
                     }
                 });
@@ -178,6 +188,7 @@ export default {
                 this.loading = false;
                 this.updateWatched(json.relatedStreams);
                 json.relatedStreams.map(stream => this.contentItems.push(stream));
+                this.fetchDeArrowContent(this.contentItems);
             });
         },
         fetchChannelTabNextPage() {
@@ -188,6 +199,7 @@ export default {
                 this.tabs[this.selectedTab].tabNextPage = json.nextpage;
                 this.loading = false;
                 json.content.map(item => this.contentItems.push(item));
+                this.fetchDeArrowContent(this.contentItems);
                 this.tabs[this.selectedTab].content = this.contentItems;
             });
         },
@@ -231,10 +243,17 @@ export default {
         },
         loadTab(index) {
             this.selectedTab = index;
+
+            // update the tab query in the url path
+            const url = new URL(window.location);
+            url.searchParams.set("tab", this.tabs[index].name ?? "videos");
+            window.history.replaceState(window.history.state, "", url);
+
             if (index == 0) {
                 this.contentItems = this.channel.relatedStreams;
                 return;
             }
+
             if (this.tabs[index].content) {
                 this.contentItems = this.tabs[index].content;
                 return;
@@ -243,6 +262,7 @@ export default {
                 data: this.tabs[index].data,
             }).then(tab => {
                 this.contentItems = this.tabs[index].content = tab.content;
+                this.fetchDeArrowContent(this.contentItems);
                 this.tabs[this.selectedTab].tabNextPage = tab.nextpage;
             });
         },

@@ -12,7 +12,10 @@
         "account": "Akun",
         "player": "Pemain",
         "livestreams": "Siaran Langsung",
-        "channels": "Saluran"
+        "channels": "Saluran",
+        "bookmarks": "Markah",
+        "channel_groups": "Grup saluran",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Tonton di {0}"
@@ -41,14 +44,14 @@
         "audio_only": "Audio Saja",
         "default_quality": "Kualitas Bawaan",
         "buffering_goal": "Tujuan Buffering (dalam detik)",
-        "country_selection": "Pemilihan Negara",
+        "country_selection": "Negara",
         "default_homepage": "Halaman Beranda Bawaan",
         "show_comments": "Tampilkan Komentar",
         "minimize_description_default": "Kecilkan Deskripsi secara default",
-        "language_selection": "Pemilihan Bahasa",
+        "language_selection": "Bahasa",
         "instances_list": "Daftar Instansi",
         "enabled_codecs": "Kodek yang Diaktifkan (Beberapa)",
-        "instance_selection": "Pemilihan Instansi",
+        "instance_selection": "Instansi",
         "show_more": "Tampilkan Lebih Banyak",
         "yes": "Iya",
         "no": "Tidak",
@@ -63,7 +66,7 @@
         "disable_lbry": "Nonaktifkan LBRY untuk Streaming",
         "enable_lbry_proxy": "Aktifkan Proksi untuk LBRY",
         "view_ssl_score": "Tampilkan Skor SSL",
-        "search": "Telusuri",
+        "search": "Telusuri (Ctrl+K)",
         "filter": "Saring",
         "loading": "Memuat...",
         "clear_history": "Hapus Riwayat",
@@ -89,7 +92,7 @@
         "logout": "Keluar dari perangkat ini",
         "minimize_recommendations_default": "Kecilkan Rekomendasi secara bawaan",
         "invalidate_session": "Keluarkan semua perangkat",
-        "instance_auth_selection": "Pemilihan Instansi Otentikasi",
+        "instance_auth_selection": "Instance Otentikasi",
         "different_auth_instance": "Gunakan instansi lain untuk otentikasi",
         "clone_playlist_success": "Berhasil disalin!",
         "clone_playlist": "Salin Daftar Putar",
@@ -98,8 +101,6 @@
         "restore_preferences": "Pulihkan preferensi",
         "confirm_reset_preferences": "Apakah Anda yakin ingin mengatur ulang preferensi Anda?",
         "backup_preferences": "Cadangkan preferensi",
-        "rename_playlist": "Ubah nama daftar putar",
-        "new_playlist_name": "Nama daftar putar baru",
         "share": "Bagikan",
         "with_timecode": "Bagikan dengan kode waktu",
         "piped_link": "Tautan Piped",
@@ -120,7 +121,29 @@
         "show_watch_on_youtube": "Tampilkan tombol Tonton di YouTube",
         "minimize_chapters_default": "Kecilkan Bab secara bawaan",
         "no_valid_playlists": "Berkas ini tidak berisi daftar putar yang valid!",
-        "with_playlist": "Bagikan dengan daftar putar"
+        "with_playlist": "Bagikan dengan daftar putar",
+        "playlist_bookmarked": "Dimarkahi",
+        "bookmark_playlist": "Markahi",
+        "skip_button_only": "Tampilkan tombol lewati",
+        "skip_automatically": "Secara otomatis",
+        "min_segment_length": "Panjang Segmen Minimum (dalam detik)",
+        "skip_segment": "Lewati Segmen",
+        "show_less": "Tampilkan lebih sedikit",
+        "autoplay_next_countdown": "Hitungan mundur bawaan sebelum video berikutnya (dalam detik)",
+        "dismiss": "Abaikan",
+        "create_group": "Buat grup",
+        "group_name": "Nama grup",
+        "auto_display_captions": "Tampilkan Takarir Secara Otomatis",
+        "cancel": "Batal",
+        "playlist_description": "Deskripsi daftar putar",
+        "edit_playlist": "Sunting daftar putar",
+        "playlist_name": "Nama daftar putar",
+        "okay": "Oke",
+        "show_search_suggestions": "Tampilkan saran pencarian",
+        "chapters_layout_mobile": "Tata Letak Bab di Ponsel",
+        "delete_automatically": "Hapus secara otomatis setelah",
+        "enable_dearrow": "Aktifkan DeArrow",
+        "generate_qrcode": "Buat Kode QR"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -139,7 +162,9 @@
     },
     "login": {
         "username": "Nama Pengguna",
-        "password": "Kata Sandi"
+        "password": "Kata Sandi",
+        "password_confirm": "Konfirmasi kata sandi",
+        "passwords_incorrect": "Kata sandi tidak cocok!"
     },
     "video": {
         "videos": "Video",
@@ -149,7 +174,13 @@
         "ratings_disabled": "Penilaian Dinonaktifkan",
         "chapters": "Bagian",
         "live": "{0} Langsung",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Semua",
+        "category": "Kategori",
+        "chapters_horizontal": "Horisontal",
+        "chapters_vertical": "Vertikal",
+        "license": "Lisensi",
+        "visibility": "Visibilitas"
     },
     "search": {
         "did_you_mean": "Apakah Anda bermaksud: {0}?",
@@ -160,7 +191,8 @@
         "music_videos": "YT Music: Video",
         "music_albums": "YT Music: Album",
         "music_playlists": "YT Music: Daftar Putar",
-        "all": "YouTube: Semua"
+        "all": "YouTube: Semua",
+        "music_artists": "YT Music: Artis"
     },
     "subscriptions": {
         "subscribed_channels_count": "Berlangganan ke: {0}"
@@ -173,6 +205,12 @@
         "preferences_note": "Catatan: preferensi disimpan dalam penyimpanan lokal peramban Anda. Menghapus data peramban Anda akan mengatur ulang.",
         "copied": "Disalin!",
         "cannot_copy": "Tidak dapat menyalin!",
-        "local_storage": "Tindakan ini membutuhkan localStorage, apakah kuki diaktifkan?"
+        "local_storage": "Tindakan ini membutuhkan localStorage, apakah kuki diaktifkan?",
+        "register_no_email_note": "Menggunakan surel sebagai nama pengguna tidak disarankan. Lanjut?",
+        "next_video_countdown": "Memutar video berikutnya dalam {0} detik",
+        "weeks": "{amount} minggu",
+        "hours": "{amount} jam",
+        "days": "{amount} hari",
+        "months": "{amount} bulan"
     }
 }

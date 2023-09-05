@@ -3,7 +3,7 @@
         "subscribe": "Đăng ký - {count}",
         "autoplay_video": "Video tự động phát",
         "unsubscribe": "Hủy đăng ký - {count}",
-        "view_subscriptions": "Lượt đăng ký",
+        "view_subscriptions": "Xem những kênh đã đăng ký",
         "sort_by": "Sắp xếp theo:",
         "most_recent": "Gần đây nhất",
         "channel_name_asc": "Tên kênh (A-Z)",
@@ -14,7 +14,7 @@
         "theme": "Giao diện",
         "auto": "Tự động",
         "buffering_goal": "Bộ nhớ đệm (tính bằng giây)",
-        "least_recent": "Ít nhất gần đây",
+        "least_recent": "Cũ nhất",
         "skip_intro": "Bỏ qua gián đoạn/hoạt hình intro",
         "skip_outro": "Bỏ qua màn hình kết thúc/danh đề",
         "skip_interaction": "Bỏ qua lời nhắc tương tác (Đăng ký)",
@@ -28,7 +28,7 @@
         "show_comments": "Hiển thị bình luận",
         "store_watch_history": "Lịch sử xem trên cửa hàng",
         "language_selection": "Lựa chọn ngôn ngữ",
-        "instances_list": "Danh sách phiên bản",
+        "instances_list": "Danh sách instance",
         "show_more": "Hiện thị nhiều hơn",
         "import_from_json": "Nhập từ JSON/CSV",
         "loop_this_video": "Lặp lại video này",
@@ -43,7 +43,7 @@
         "disable_lbry": "Tắt LBRY để phát trực tuyến",
         "enable_lbry_proxy": "Bật proxy cho LBRY",
         "view_ssl_score": "Hiện thị điểm số SSL",
-        "search": "Tìm kiếm",
+        "search": "Tìm kiếm (Ctrl+K)",
         "filter": "Bộ lọc",
         "loading": "Đang tải...",
         "clear_history": "Xóa lịch sử",
@@ -53,7 +53,7 @@
         "light": "Sáng",
         "audio_only": "Chỉ có âm thanh",
         "minimize_description_default": "Thu nhỏ mô tả theo mặc định",
-        "instance_selection": "Lựa chọn phiên bản",
+        "instance_selection": "Lựa chọn instance",
         "yes": "Có",
         "enabled_codecs": "Các codec được bật (Nhiều)",
         "export_to_json": "Xuất định dạng JSON",
@@ -78,7 +78,11 @@
         "minimize_comments": "Thu nhỏ bình luận",
         "reply_count": "{count} phản hồi",
         "status_page": "Trạng thái",
-        "new_playlist_name": "Tên danh sách phát mới"
+        "skip_automatically": "Tự động",
+        "show_chapters": "Chương",
+        "show_less": "Hiển thị ít hơn",
+        "cancel": "Hủy",
+        "okay": "OK"
     },
     "titles": {
         "register": "Đăng ký",
@@ -92,7 +96,8 @@
         "account": "Tài khoản",
         "channels": "Kênh",
         "instance": "Instance",
-        "player": "Trình phát video"
+        "player": "Trình phát video",
+        "livestreams": "Phát sóng trực tiếp"
     },
     "player": {
         "watch_on": "Xem trên {0}"
@@ -104,8 +109,8 @@
         "disabled": "Bình luận đã bị tắt bởi người đăng video."
     },
     "preferences": {
-        "instance_name": "Tên phiên bản",
-        "instance_locations": "Vị trí phiên bản",
+        "instance_name": "Tên instance",
+        "instance_locations": "Vị trí instance",
         "has_cdn": "Có CDN?",
         "registered_users": "Người dùng đã đăng ký",
         "version": "Phiên bản",
@@ -124,7 +129,8 @@
         "live": "{0} Trực tiếp",
         "chapters": "Chương",
         "videos": "Video",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "Tất cả"
     },
     "search": {
         "did_you_mean": "Ý của bạn là: {0}?",
@@ -140,7 +146,8 @@
     "info": {
         "copied": "Đã sao chép!",
         "cannot_copy": "Không thể sao chép!",
-        "page_not_found": "Không tìm thấy trang"
+        "page_not_found": "Không tìm thấy trang",
+        "next_video_countdown": "Tự động phát video tiếp theo trong {0} giây"
     },
     "subscriptions": {
         "subscribed_channels_count": "Đã đăng ký cho: {0}"

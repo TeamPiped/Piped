@@ -34,7 +34,7 @@ video {
 
 /*Radius 0*/
 .video-grid img {
-    border-radius: var(--efy_radius0);
+    border-radius: var(--efy_radius) var(--efy_radius) 0 0;
 }
 
 /*Radius 2*/
@@ -68,7 +68,7 @@ video {
     display: flex;
     flex-wrap: wrap;
     gap: var(--efy_gap0);
-    margin: 5rem 0 0;
+    margin: 5rem 15rem 15rem 15rem;
 }
 .pp-video-card-buttons :is(a, button) {
     padding: 4rem 8rem;
@@ -141,38 +141,46 @@ export default {
             theme: "dark",
         };
     },
-    methods: {
-        setTheme() {
-            let themePref = this.getPreferenceString("theme", "dark");
-            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
-            else this.theme = themePref;
-        },
-    },
     mounted() {
         this.setTheme();
         darkModePreference.addEventListener("change", () => {
             this.setTheme();
         });
-        if (this.getPreferenceBoolean("watchHistory", false))
-            if ("indexedDB" in window) {
-                const request = indexedDB.open("piped-db", 2);
-                request.onupgradeneeded = ev => {
-                    const db = request.result;
-                    console.log("Upgrading object store.");
-                    if (!db.objectStoreNames.contains("watch_history")) {
-                        const store = db.createObjectStore("watch_history", { keyPath: "videoId" });
-                        store.createIndex("video_id_idx", "videoId", { unique: true });
-                        store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
-                    }
-                    if (ev.oldVersion < 2) {
-                        const store = request.transaction.objectStore("watch_history");
-                        store.createIndex("watchedAt", "watchedAt", { unique: false });
-                    }
-                };
-                request.onsuccess = e => {
-                    window.db = e.target.result;
-                };
-            } else console.log("This browser doesn't support IndexedDB");
+
+        if ("indexedDB" in window) {
+            const request = indexedDB.open("piped-db", 5);
+            request.onupgradeneeded = ev => {
+                const db = request.result;
+                console.log("Upgrading object store.");
+                if (!db.objectStoreNames.contains("watch_history")) {
+                    const store = db.createObjectStore("watch_history", { keyPath: "videoId" });
+                    store.createIndex("video_id_idx", "videoId", { unique: true });
+                    store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
+                }
+                if (ev.oldVersion < 2) {
+                    const store = request.transaction.objectStore("watch_history");
+                    store.createIndex("watchedAt", "watchedAt", { unique: false });
+                }
+                if (!db.objectStoreNames.contains("playlist_bookmarks")) {
+                    const store = db.createObjectStore("playlist_bookmarks", { keyPath: "playlistId" });
+                    store.createIndex("playlist_id_idx", "playlistId", { unique: true });
+                    store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
+                }
+                if (!db.objectStoreNames.contains("channel_groups")) {
+                    const store = db.createObjectStore("channel_groups", { keyPath: "groupName" });
+                    store.createIndex("groupName", "groupName", { unique: true });
+                }
+                if (!db.objectStoreNames.contains("playlists")) {
+                    const playlistStore = db.createObjectStore("playlists", { keyPath: "playlistId" });
+                    playlistStore.createIndex("playlistId", "playlistId", { unique: true });
+                    const playlistVideosStore = db.createObjectStore("playlist_videos", { keyPath: "videoId" });
+                    playlistVideosStore.createIndex("videoId", "videoId", { unique: true });
+                }
+            };
+            request.onsuccess = e => {
+                window.db = e.target.result;
+            };
+        } else console.log("This browser doesn't support IndexedDB");
 
         const App = this;
 
@@ -196,6 +204,25 @@ export default {
                 window.i18n.global.locale.value = locale;
             }
         })();
+    },
+    methods: {
+        setTheme() {
+            let themePref = this.getPreferenceString("theme", "dark");
+            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
+            else this.theme = themePref;
+
+            // Change title bar color based on user's theme
+            const themeColor = document.querySelector("meta[name='theme-color']");
+            if (this.theme === "light") {
+                themeColor.setAttribute("content", "#FFF");
+            } else {
+                themeColor.setAttribute("content", "#0F0F0F");
+            }
+
+            // Used for the scrollbar
+            const root = document.querySelector(":root");
+            this.theme == "dark" ? root.classList.add("dark") : root.classList.remove("dark");
+        },
     },
 };
 </script>

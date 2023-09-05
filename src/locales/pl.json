@@ -12,7 +12,10 @@
         "account": "Konto",
         "instance": "Instancja",
         "livestreams": "Na żywo",
-        "channels": "Kanały"
+        "channels": "Kanały",
+        "bookmarks": "Zakładki",
+        "channel_groups": "Grupy kanałów",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Obejrzyj na {0}"
@@ -46,15 +49,15 @@
         "audio_only": "Tylko audio",
         "default_quality": "Domyślna jakość",
         "buffering_goal": "Cel buforowania (w sekundach)",
-        "country_selection": "Wybór kraju",
+        "country_selection": "Kraj",
         "default_homepage": "Domyślna strona główna",
         "show_comments": "Pokaż komentarze",
         "minimize_description_default": "Ukryj opis",
         "store_watch_history": "Zapamiętaj historię oglądania",
-        "language_selection": "Wybór języka",
+        "language_selection": "Język",
         "instances_list": "Lista instancji",
         "enabled_codecs": "Włączone kodeki (lista wielokrotnego wyboru)",
-        "instance_selection": "Wybór instancji",
+        "instance_selection": "Instancja",
         "show_more": "Pokaż więcej",
         "yes": "Tak",
         "no": "Nie",
@@ -67,10 +70,10 @@
         "show_description": "Pokaż opis",
         "minimize_recommendations": "Ukryj proponowane",
         "show_recommendations": "Pokaż proponowane",
-        "disable_lbry": "Wyłącz LBRY dla streaming-u",
+        "disable_lbry": "Wyłącz LBRY dla przesyłania strumieniowego",
         "enable_lbry_proxy": "Włącz proxy dla LBRY",
         "view_ssl_score": "Pokaż ocenę SSL",
-        "search": "Szukaj",
+        "search": "Szukaj (Ctrl+K)",
         "filter": "Filtruj",
         "loading": "Ładowanie...",
         "clear_history": "Wyczyść historię",
@@ -92,7 +95,7 @@
         "documentation": "Dokumentacja",
         "instance_donations": "Darowizny na rzecz instancji",
         "back_to_home": "Idź do strony głównej",
-        "instance_auth_selection": "Wybrana instancja autoryzacyjna",
+        "instance_auth_selection": "Instancja uwierzytelniania",
         "time_code": "Kod czasowy (w sekundach)",
         "show_markers": "Pokaż segmenty na odtwarzaczu",
         "store_search_history": "Zapamiętaj historię wyszukiwania",
@@ -100,7 +103,6 @@
         "source_code": "Kod źródłowy",
         "show_chapters": "Rozdziały",
         "minimize_chapters_default": "Ukryj rozdziały",
-        "rename_playlist": "Zmień nazwę playlisty",
         "follow_link": "Otwórz link",
         "minimize_comments_default": "Ukryj sekcję komentarzy",
         "minimize_comments": "Ukryj komentarze",
@@ -113,14 +115,35 @@
         "backup_preferences": "Pobierz kopię zapasową ustawień",
         "download_as_txt": "Pobierz jako .txt",
         "reset_preferences": "Zresetuj ustawienia",
-        "new_playlist_name": "Nowa nazwa playlisty",
         "share": "Udostępnij",
         "with_timecode": "Udostępnij z kodem czasowym",
         "piped_link": "Link Piped",
         "status_page": "Status",
         "reply_count": "{count} odpowiedzi",
         "no_valid_playlists": "Ten plik nie zawiera poprawnych playlist!",
-        "with_playlist": "Udostępnij z playlistą"
+        "with_playlist": "Udostępnij z playlistą",
+        "playlist_bookmarked": "Dodano do zakładek",
+        "bookmark_playlist": "Zakładka",
+        "skip_button_only": "Pokaż przycisk pomijania",
+        "skip_automatically": "Automatycznie",
+        "min_segment_length": "Minimalna długość segmentu (w sekundach)",
+        "skip_segment": "Pomiń segment",
+        "show_less": "Pokaż mniej",
+        "autoplay_next_countdown": "Domyślne odliczanie do następnego filmu (w sekundach)",
+        "dismiss": "Odrzuć",
+        "group_name": "Nazwa grupy",
+        "create_group": "Utwórz grupę",
+        "auto_display_captions": "Automatyczne wyświetlanie napisów",
+        "edit_playlist": "Edytuj playlistę",
+        "playlist_name": "Nazwa playlisty",
+        "playlist_description": "Opis playlisty",
+        "okay": "OK",
+        "cancel": "Anuluj",
+        "show_search_suggestions": "Pokaż sugestie wyszukiwania",
+        "chapters_layout_mobile": "Układ rozdziałów na urządzeniach mobilnych",
+        "delete_automatically": "Usuń automatycznie po",
+        "enable_dearrow": "Włącz DeArrow",
+        "generate_qrcode": "Wygeneruj kod QR"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
@@ -139,7 +162,9 @@
     },
     "login": {
         "username": "Nazwa użytkownika",
-        "password": "Hasło"
+        "password": "Hasło",
+        "password_confirm": "Potwierdź hasło",
+        "passwords_incorrect": "Hasła się nie zgadzają!"
     },
     "video": {
         "videos": "Filmy",
@@ -148,8 +173,14 @@
         "sponsor_segments": "Segmenty sponsorowane",
         "ratings_disabled": "Ocenianie wyłączone",
         "chapters": "Rozdziały",
-        "live": "{0} Na żywo",
-        "shorts": "Krótkie wideo"
+        "live": "{0} na żywo",
+        "shorts": "Krótkie wideo",
+        "all": "Wszystkie",
+        "category": "Kategoria",
+        "chapters_horizontal": "Poziomy",
+        "chapters_vertical": "Pionowy",
+        "license": "Licencja",
+        "visibility": "Widoczność"
     },
     "search": {
         "did_you_mean": "Czy chodziło ci o: {0}?",
@@ -160,14 +191,21 @@
         "music_songs": "YT Music: Utwory",
         "music_videos": "YT Music: Teledyski",
         "music_albums": "YT Music: Albumy",
-        "music_playlists": "YT Music: Playlisty"
+        "music_playlists": "YT Music: Playlisty",
+        "music_artists": "YT Music: Wykonawcy"
     },
     "info": {
         "cannot_copy": "Nie można skopiować!",
         "copied": "Skopiowano!",
         "page_not_found": "Strona nie znaleziona",
         "preferences_note": "Uwaga: ustawienia są zapisywane w lokalnej pamięci przeglądarki. Usunięcie danych przeglądarki spowoduje ich zresetowanie.",
-        "local_storage": "Ta akcja wymaga dostępu do lokalnej pamięci, czy pliki cookie są włączone?"
+        "local_storage": "Ta akcja wymaga dostępu do lokalnej pamięci, czy pliki cookie są włączone?",
+        "register_no_email_note": "Użycie adresu email jako nazwy użytkownika jest niezalecane. Kontynuować mimo to?",
+        "next_video_countdown": "Odtwarzanie następnego filmu za {0} s",
+        "days": "{amount} dni",
+        "weeks": "{amount} tygodnie",
+        "hours": "{amount} godziny",
+        "months": "{amount} miesiące"
     },
     "subscriptions": {
         "subscribed_channels_count": "Licznik subskrybcji: {0}"

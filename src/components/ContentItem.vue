@@ -6,7 +6,10 @@
 import { defineAsyncComponent } from "vue";
 
 const props = defineProps({
-    item: Object,
+    item: {
+        type: Object,
+        required: true,
+    },
 });
 
 const VideoItem = defineAsyncComponent(() => import("./VideoItem.vue"));

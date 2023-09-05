@@ -1,10 +1,12 @@
 <template>
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
-    <div v-if="playlist" v-show="!playlist.error">
-        <h1 class="text-center my-4" v-text="playlist.name" />
+    <LoadingIndicatorPage v-show="!playlist?.error" :show-content="playlist">
+        <h5 class="mb-1 ml-1" v-text="playlist.name" />
 
-        <div class="flex justify-between items-center">
+        <CollapsableText v-if="playlist?.description" :text="playlist.description" />
+
+        <div class="mt-1 flex items-center justify-between">
             <div>
                 <router-link class="link" :to="playlist.uploaderUrl || '/'">
                     <img :src="playlist.uploaderAvatar" loading="lazy" />
@@ -14,7 +16,11 @@
             <div>
                 <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
                 <br />
-                <button class="btn mr-1 ml-2" v-if="authenticated && !isPipedPlaylist" @click="clonePlaylist">
+                <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
+                    {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
+                    }}<font-awesome-icon class="ml-3" icon="bookmark" />
+                </button>
+                <button v-if="authenticated && !isPipedPlaylist" class="btn mr-1 ml-2" @click="clonePlaylist">
                     {{ $t("actions.clone_playlist") }}<font-awesome-icon class="ml-3" icon="clone" />
                 </button>
                 <button class="btn mr-1" @click="downloadPlaylistAsTxt">
@@ -23,7 +29,7 @@
                 <a class="btn" :href="getRssUrl">
                     <font-awesome-icon icon="rss" />
                 </a>
-                <WatchOnYouTubeButton :link="`https://www.youtube.com/playlist?list=${this.$route.query.list}`" />
+                <WatchOnButton :link="`https://www.youtube.com/playlist?list=${$route.query.list}`" />
             </div>
         </div>
 
@@ -37,29 +43,34 @@
                 :index="index"
                 :playlist-id="$route.query.list"
                 :admin="admin"
-                @remove="removeVideo(index)"
                 height="94"
                 width="168"
+                @remove="removeVideo(index)"
             />
         </div>
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
+import CollapsableText from "./CollapsableText.vue";
 import VideoItem from "./VideoItem.vue";
-import WatchOnYouTubeButton from "./WatchOnYouTubeButton.vue";
+import WatchOnButton from "./WatchOnButton.vue";
 
 export default {
     components: {
         ErrorHandler,
         VideoItem,
-        WatchOnYouTubeButton,
+        WatchOnButton,
+        LoadingIndicatorPage,
+        CollapsableText,
     },
     data() {
         return {
             playlist: null,
             admin: false,
+            isBookmarked: false,
         };
     },
     computed: {
@@ -74,19 +85,17 @@ export default {
         },
     },
     mounted() {
-        this.getPlaylistData();
         const playlistId = this.$route.query.list;
         if (this.authenticated && playlistId?.length == 36)
-            this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-            }).then(json => {
+            this.getPlaylists().then(json => {
                 if (json.error) alert(json.error);
-                else if (json.filter(playlist => playlist.id === playlistId).length > 0) this.admin = true;
+                else if (json.some(playlist => playlist.id === playlistId)) this.admin = true;
             });
+        else if (playlistId.startsWith("local")) this.admin = true;
+        this.isPlaylistBookmarked();
     },
     activated() {
+        this.getPlaylistData();
         window.addEventListener("scroll", this.handleScroll);
         if (this.playlist) this.updateTitle();
     },
@@ -95,12 +104,21 @@ export default {
     },
     methods: {
         async fetchPlaylist() {
+            const playlistId = this.$route.query.list;
+            if (playlistId.startsWith("local")) {
+                return this.getPlaylist(playlistId);
+            }
+
             return await await this.fetchJson(this.authApiUrl() + "/playlists/" + this.$route.query.list);
         },
         async getPlaylistData() {
             this.fetchPlaylist()
                 .then(data => (this.playlist = data))
-                .then(() => this.updateTitle());
+                .then(() => {
+                    this.updateTitle();
+                    this.updateWatched(this.playlist.relatedStreams);
+                    this.fetchDeArrowContent(this.playlist.relatedStreams);
+                });
         },
         async updateTitle() {
             document.title = this.playlist.name + " - Piped";
@@ -116,6 +134,7 @@ export default {
                     this.playlist.nextpage = json.nextpage;
                     this.loading = false;
                     json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
+                    this.fetchDeArrowContent(this.playlist.relatedStreams);
                 });
             }
         },
@@ -143,6 +162,48 @@ export default {
                 data += "https://piped.video" + element.url + "\n";
             });
             this.download(data, this.playlist.name + ".txt", "text/plain");
+        },
+        async bookmarkPlaylist() {
+            if (!this.playlist) return;
+
+            if (this.isBookmarked) {
+                this.removePlaylistBookmark();
+                return;
+            }
+
+            if (window.db) {
+                const playlistId = this.$route.query.list;
+                var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+                var store = tx.objectStore("playlist_bookmarks");
+                store.put({
+                    playlistId: playlistId,
+                    name: this.playlist.name,
+                    uploader: this.playlist.uploader,
+                    uploaderUrl: this.playlist.uploaderUrl,
+                    thumbnail: this.playlist.thumbnailUrl,
+                    uploaderAvatar: this.playlist.uploaderAvatar,
+                    videos: this.playlist.videos,
+                });
+                this.isBookmarked = true;
+            }
+        },
+        async removePlaylistBookmark() {
+            var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+            var store = tx.objectStore("playlist_bookmarks");
+            store.delete(this.$route.query.list);
+            this.isBookmarked = false;
+        },
+        async isPlaylistBookmarked() {
+            // needed in order to change the is bookmarked var later
+            const App = this;
+            const playlistId = this.$route.query.list;
+            var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+            var store = tx.objectStore("playlist_bookmarks");
+            var req = store.openCursor(playlistId);
+            req.onsuccess = function (e) {
+                var cursor = e.target.result;
+                App.isBookmarked = cursor ? true : false;
+            };
         },
     },
 };

@@ -8,6 +8,12 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Check if en.json has been updated
+        run: |
+          if -n git diff ${{ github.event.pull_request.base.sha }}..${{ github.sha }} src/locales/en.json; then
+            exit 1
+          fi
       - name: AutoMerge Weblate translations
         if: github.event.pull_request.user.login == 'weblate'
         run: gh pr merge --auto --delete-branch --merge "$PR_URL"

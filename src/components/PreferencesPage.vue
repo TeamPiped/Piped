@@ -1,4 +1,5 @@
 <template>
+    <!--efy-->
     <div class="pp-pref-cards">
         <div efy_card="grid">
             <h2>Quick</h2>
@@ -96,6 +97,342 @@
                 v-t="'actions.restore_preferences'"
                 @click="restorePreferences()"
             />
+        </div>
+    </div>
+    <!--master-->
+    <div class="flex">
+        <button @click="$router.go(-1) || $router.push('/')">
+            <font-awesome-icon icon="chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
+        </button>
+    </div>
+    <h1 v-t="'titles.preferences'" class="text-center font-bold" />
+    <hr />
+    <label for="ddlTheme" class="pref">
+        <strong v-t="'actions.theme'" />
+        <select id="ddlTheme" v-model="selectedTheme" class="select w-auto" @change="onChange($event)">
+            <option v-t="'actions.auto'" value="auto" />
+            <option v-t="'actions.dark'" value="dark" />
+            <option v-t="'actions.light'" value="light" />
+        </select>
+    </label>
+    <label class="pref" for="ddlLanguageSelection">
+        <strong v-t="'actions.language_selection'" />
+        <select id="ddlLanguageSelection" v-model="selectedLanguage" class="select w-auto" @change="onChange($event)">
+            <option v-for="language in languages" :key="language.code" :value="language.code" v-text="language.name" />
+        </select>
+    </label>
+    <label class="pref" for="ddlCountrySelection">
+        <strong v-t="'actions.country_selection'" />
+        <select id="ddlCountrySelection" v-model="countrySelected" class="select w-50" @change="onChange($event)">
+            <option v-for="country in countryMap" :key="country.code" :value="country.code" v-text="country.name" />
+        </select>
+    </label>
+    <label class="pref" for="ddlDefaultHomepage">
+        <strong v-t="'actions.default_homepage'" />
+        <select id="ddlDefaultHomepage" v-model="defaultHomepage" class="select w-auto" @change="onChange($event)">
+            <option v-t="'titles.trending'" value="trending" />
+            <option v-t="'titles.feed'" value="feed" />
+        </select>
+    </label>
+
+    <h2 v-t="'titles.player'" class="text-center" />
+    <label class="pref" for="chkAutoPlayVideo">
+        <strong v-t="'actions.autoplay_video'" />
+        <input
+            id="chkAutoPlayVideo"
+            v-model="autoPlayVideo"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkAutoDisplayCaptions">
+        <strong v-t="'actions.auto_display_captions'" />
+        <input
+            id="chkAutoDisplayCaptions"
+            v-model="autoDisplayCaptions"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkAutoPlayNextCountdown">
+        <strong v-t="'actions.autoplay_next_countdown'" />
+        <input
+            id="chkAutoPlayNextCountdown"
+            v-model="autoPlayNextCountdown"
+            class="input w-24"
+            type="number"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkAudioOnly">
+        <strong v-t="'actions.audio_only'" />
+        <input id="chkAudioOnly" v-model="listen" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="ddlDefaultQuality">
+        <strong v-t="'actions.default_quality'" />
+        <select id="ddlDefaultQuality" v-model="defaultQuality" class="select w-auto" @change="onChange($event)">
+            <option v-t="'actions.auto'" value="0" />
+            <option v-for="resolution in resolutions" :key="resolution" :value="resolution" v-text="`${resolution}p`" />
+        </select>
+    </label>
+    <label class="pref" for="txtBufferingGoal">
+        <strong v-t="'actions.buffering_goal'" />
+        <input
+            id="txtBufferingGoal"
+            v-model="bufferingGoal"
+            class="input w-24"
+            type="text"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkMinimizeComments">
+        <strong v-t="'actions.minimize_comments_default'" />
+        <input
+            id="chkMinimizeComments"
+            v-model="minimizeComments"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkMinimizeDescription">
+        <strong v-t="'actions.minimize_description_default'" />
+        <input
+            id="chkMinimizeDescription"
+            v-model="minimizeDescription"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkMinimizeRecommendations">
+        <strong v-t="'actions.minimize_recommendations_default'" />
+        <input
+            id="chkMinimizeRecommendations"
+            v-model="minimizeRecommendations"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkMinimizeChapters">
+        <strong v-t="'actions.minimize_chapters_default'" />
+        <input
+            id="chkMinimizeChapters"
+            v-model="minimizeChapters"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <!-- chapters layout on mobile -->
+    <label class="pref lg:invisible" for="chkMinimizeChapters">
+        <strong v-t="'actions.chapters_layout_mobile'" />
+
+        <select id="ddlDefaultHomepage" v-model="mobileChapterLayout" class="select w-auto" @change="onChange($event)">
+            <option v-t="'video.chapters_horizontal'" value="Horizontal" />
+            <option v-t="'video.chapters_vertical'" value="Vertical" />
+        </select>
+    </label>
+    <label class="pref" for="chkShowWatchOnYouTube">
+        <strong v-t="'actions.show_watch_on_youtube'" />
+        <input
+            id="chkShowWatchOnYouTube"
+            v-model="showWatchOnYouTube"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkShowSearchSuggestions">
+        <strong v-t="'actions.show_search_suggestions'" />
+        <input
+            id="chkShowSearchSuggestions"
+            v-model="searchSuggestions"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkStoreSearchHistory">
+        <strong v-t="'actions.store_search_history'" />
+        <input
+            id="chkStoreSearchHistory"
+            v-model="searchHistory"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label class="pref" for="chkStoreWatchHistory">
+        <strong v-t="'actions.store_watch_history'" />
+        <input
+            id="chkStoreWatchHistory"
+            v-model="watchHistory"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <label v-if="watchHistory" class="pref" for="chkHideWatched">
+        <strong v-t="'actions.hide_watched'" />
+        <input id="chkHideWatched" v-model="hideWatched" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="ddlEnabledCodecs">
+        <strong v-t="'actions.enabled_codecs'" />
+        <select
+            id="ddlEnabledCodecs"
+            v-model="enabledCodecs"
+            class="select h-auto w-auto"
+            multiple
+            @change="onChange($event)"
+        >
+            <option value="av1">AV1</option>
+            <option value="vp9">VP9</option>
+            <option value="avc">AVC (h.264)</option>
+        </select>
+    </label>
+    <label class="pref" for="chkDisableLBRY">
+        <strong v-t="'actions.disable_lbry'" />
+        <input id="chkDisableLBRY" v-model="disableLBRY" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="chkEnableLBRYProxy">
+        <strong v-t="'actions.enable_lbry_proxy'" />
+        <input
+            id="chkEnableLBRYProxy"
+            v-model="proxyLBRY"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+
+    <h2 class="text-center">SponsorBlock</h2>
+    <p class="text-center">
+        <span v-t="'actions.uses_api_from'" /><a class="link" href="https://sponsor.ajay.app/">sponsor.ajay.app</a>
+    </p>
+    <label class="pref" for="chkEnableSponsorblock">
+        <strong v-t="'actions.enable_sponsorblock'" />
+        <input
+            id="chkEnableSponsorblock"
+            v-model="sponsorBlock"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <div v-if="sponsorBlock">
+        <label v-for="[name, item] in skipOptions" :key="name" class="pref" :for="'ddlSkip_' + name">
+            <strong v-t="item.label" />
+            <select :id="'ddlSkip_' + name" v-model="item.value" class="select w-auto" @change="onChange($event)">
+                <option v-t="'actions.no'" value="no" />
+                <option v-t="'actions.skip_button_only'" value="button" />
+                <option v-t="'actions.skip_automatically'" value="auto" />
+            </select>
+        </label>
+        <label class="pref" for="chkShowMarkers">
+            <strong v-t="'actions.show_markers'" />
+            <input
+                id="chkShowMarkers"
+                v-model="showMarkers"
+                class="checkbox"
+                type="checkbox"
+                @change="onChange($event)"
+            />
+        </label>
+        <label class="pref" for="txtMinSegmentLength">
+            <strong v-t="'actions.min_segment_length'" />
+            <input
+                id="txtMinSegmentLength"
+                v-model="minSegmentLength"
+                class="input w-24"
+                type="text"
+                @change="onChange($event)"
+            />
+        </label>
+    </div>
+
+    <h2 v-t="'titles.dearrow'" class="text-center" />
+    <p class="text-center">
+        <span v-t="'actions.uses_api_from'" /><a class="link" href="https://sponsor.ajay.app/">sponsor.ajay.app</a>
+    </p>
+    <label class="pref" for="chkDeArrow">
+        <strong v-t="'actions.enable_dearrow'" />
+        <input id="chkDeArrow" v-model="dearrow" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+
+    <h2 v-t="'titles.instance'" class="text-center" />
+    <label class="pref" for="ddlInstanceSelection">
+        <strong v-text="`${$t('actions.instance_selection')}:`" />
+        <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
+            <option
+                v-for="instance in instances"
+                :key="instance.name"
+                :value="instance.api_url"
+                v-text="instance.name"
+            />
+        </select>
+    </label>
+    <label class="pref" for="chkAuthInstance">
+        <strong v-text="`${$t('actions.different_auth_instance')}:`" />
+        <input
+            id="chkAuthInstance"
+            v-model="authInstance"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+    <template v-if="authInstance">
+        <label class="pref" for="ddlAuthInstanceSelection">
+            <strong v-text="`${$t('actions.instance_auth_selection')}:`" />
+            <select
+                id="ddlAuthInstanceSelection"
+                v-model="selectedAuthInstance"
+                class="select w-auto"
+                @change="onChange($event)"
+            >
+                <option
+                    v-for="instance in instances"
+                    :key="instance.name"
+                    :value="instance.api_url"
+                    v-text="instance.name"
+                />
+            </select>
+        </label>
+    </template>
+    <br />
+
+    <!-- options that are visible only when logged in -->
+    <div v-if="authenticated">
+        <h2 v-t="'titles.account'" class="text-center"></h2>
+        <label class="pref" for="txtDeleteAccountPassword">
+            <strong v-t="'actions.delete_account'" />
+            <div class="flex items-center">
+                <input
+                    id="txtDeleteAccountPassword"
+                    ref="txtDeleteAccountPassword"
+                    v-model="password"
+                    :placeholder="$t('login.password')"
+                    :aria-label="$t('login.password')"
+                    class="input mr-2 w-auto"
+                    type="password"
+                    @keyup.enter="deleteAccount"
+                />
+                <a v-t="'actions.delete_account'" class="btn w-auto" @click="deleteAccount" />
+            </div>
+        </label>
+        <div class="pref">
+            <a v-t="'actions.logout'" class="btn w-auto" @click="logout" />
+            <a
+                v-t="'actions.invalidate_session'"
+                class="btn w-auto"
+                style="margin-left: 0.5em"
+                @click="invalidateSession"
+            />
+            <!--masterend-->
             <input class="hidden" id="fileSelector" ref="fileSelector" type="file" @change="restorePreferences()" />
 
             <!-- options that are visible only when logged in -->
@@ -406,7 +743,7 @@
                 <th v-t="'preferences.instance_locations'" />
                 <th v-t="'preferences.has_cdn'" />
                 <th v-t="'preferences.registered_users'" />
-                <th class="lt-md:hidden" v-t="'preferences.version'" />
+                <th v-t="'preferences.version'" class="lt-md:hidden" />
                 <th v-t="'preferences.up_to_date'" />
                 <th v-t="'preferences.ssl_score'" />
             </tr>
@@ -420,35 +757,61 @@
                 <td class="lt-md:hidden" v-text="instance.version" />
                 <td v-text="`${instance.up_to_date ? '&#9989;' : '&#10060;'}`" />
                 <td>
-                    <a :href="sslScore(instance.api_url)" target="_blank" v-t="'actions.view_ssl_score'" />
+                    <a v-t="'actions.view_ssl_score'" :href="sslScore(instance.api_url)" target="_blank" />
                 </td>
             </tr>
         </tbody>
     </table>
+    <!--master-->
+    <br />
+    <p v-t="'info.preferences_note'" />
+    <br />
+    <button v-t="'actions.reset_preferences'" class="btn" @click="showConfirmResetPrefsDialog = true" />
+    <button v-t="'actions.backup_preferences'" class="btn mx-4" @click="backupPreferences()" />
+    <label v-t="'actions.restore_preferences'" for="fileSelector" class="btn" @click="restorePreferences()" />
+    <input id="fileSelector" ref="fileSelector" class="hidden" type="file" @change="restorePreferences()" />
+    <ConfirmModal
+        v-if="showConfirmResetPrefsDialog"
+        :message="$t('actions.confirm_reset_preferences')"
+        @close="showConfirmResetPrefsDialog = false"
+        @confirm="resetPreferences()"
+    />
+    <!--masterend-->
 </template>
 
 <script>
 import CountryMap from "@/utils/CountryMaps/en.json";
+import ConfirmModal from "./ConfirmModal.vue";
 export default {
+    components: {
+        ConfirmModal,
+    },
     data() {
         return {
+            mobileChapterLayout: "Vertical",
             selectedInstance: null,
             authInstance: false,
             selectedAuthInstance: null,
             instances: [],
             sponsorBlock: true,
-            skipSponsor: true,
-            skipIntro: false,
-            skipOutro: false,
-            skipPreview: false,
-            skipInteraction: true,
-            skipSelfPromo: true,
-            skipMusicOffTopic: true,
-            skipHighlight: false,
-            skipFiller: false,
+            skipOptions: new Map([
+                ["sponsor", { value: "auto", label: "actions.skip_sponsors" }],
+                ["intro", { value: "no", label: "actions.skip_intro" }],
+                ["outro", { value: "no", label: "actions.skip_outro" }],
+                ["preview", { value: "no", label: "actions.skip_preview" }],
+                ["interaction", { value: "auto", label: "actions.skip_interaction" }],
+                ["selfpromo", { value: "auto", label: "actions.skip_self_promo" }],
+                ["music_offtopic", { value: "auto", label: "actions.skip_non_music" }],
+                ["poi_highlight", { value: "no", label: "actions.skip_highlight" }],
+                ["filler", { value: "no", label: "actions.skip_filler_tangent" }],
+            ]),
             showMarkers: true,
+            minSegmentLength: 0,
+            dearrow: false,
             selectedTheme: "dark",
             autoPlayVideo: true,
+            autoDisplayCaptions: false,
+            autoPlayNextCountdown: 5,
             listen: false,
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
             defaultQuality: 0,
@@ -461,6 +824,7 @@ export default {
             minimizeRecommendations: false,
             minimizeChapters: false,
             showWatchOnYouTube: false,
+            searchSuggestions: true,
             watchHistory: false,
             searchHistory: false,
             hideWatched: false,
@@ -468,6 +832,7 @@ export default {
             languages: [
                 { code: "ar", name: "Arabic" },
                 { code: "az", name: "Azərbaycan" },
+                { code: "bg", name: "Български" },
                 { code: "bn", name: "বাংলা" },
                 { code: "bs", name: "Bosanski" },
                 { code: "ca", name: "Català" },
@@ -495,6 +860,7 @@ export default {
                 { code: "ml", name: "മലയാളം" },
                 { code: "nb_NO", name: "Norwegian Bokmål" },
                 { code: "nl", name: "Nederlands" },
+                { code: "oc", name: "Occitan" },
                 { code: "or", name: "ଓଡ଼ିଆ" },
                 { code: "pl", name: "Polski" },
                 { code: "pt", name: "Português" },
@@ -502,6 +868,7 @@ export default {
                 { code: "pt_BR", name: "Português (Brasil)" },
                 { code: "ro", name: "Română" },
                 { code: "ru", name: "Русский" },
+                { code: "si", name: "සිංහල" },
                 { code: "sr", name: "Српски" },
                 { code: "sv", name: "Svenska" },
                 { code: "ta", name: "தமிழ்" },
@@ -516,6 +883,7 @@ export default {
             disableLBRY: false,
             proxyLBRY: false,
             password: null,
+            showConfirmResetPrefsDialog: false,
         };
     },
     activated() {
@@ -526,7 +894,7 @@ export default {
 
         this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
             this.instances = resp;
-            if (this.instances.filter(instance => instance.api_url == this.apiUrl()).length == 0)
+            if (!this.instances.some(instance => instance.api_url == this.apiUrl()))
                 this.instances.push({
                     name: "Custom Instance",
                     api_url: this.apiUrl(),
@@ -541,57 +909,30 @@ export default {
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
 
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
-            if (localStorage.getItem("selectedSkip") !== null) {
-                var skipList = localStorage.getItem("selectedSkip").split(",");
-                this.skipSponsor =
-                    this.skipIntro =
-                    this.skipOutro =
-                    this.skipPreview =
-                    this.skipInteraction =
-                    this.skipSelfPromo =
-                    this.skipMusicOffTopic =
-                    this.skipHighlight =
-                    this.skipFiller =
-                        false;
+            var skipOptions, skipList;
+            if ((skipOptions = this.getPreferenceJSON("skipOptions")) !== undefined) {
+                Object.entries(skipOptions).forEach(([key, value]) => {
+                    var opt = this.skipOptions.get(key);
+                    if (opt !== undefined) opt.value = value;
+                    else console.log("Unknown sponsor type: " + key);
+                });
+            } else if ((skipList = this.getPreferenceString("selectedSkip")) !== undefined) {
+                skipList = skipList.split(",");
+                this.skipOptions.forEach(opt => (opt.value = "no"));
                 skipList.forEach(skip => {
-                    switch (skip) {
-                        case "sponsor":
-                            this.skipSponsor = true;
-                            break;
-                        case "intro":
-                            this.skipIntro = true;
-                            break;
-                        case "outro":
-                            this.skipOutro = true;
-                            break;
-                        case "preview":
-                            this.skipPreview = true;
-                            break;
-                        case "interaction":
-                            this.skipInteraction = true;
-                            break;
-                        case "selfpromo":
-                            this.skipSelfPromo = true;
-                            break;
-                        case "music_offtopic":
-                            this.skipMusicOffTopic = true;
-                            break;
-                        case "poi_highlight":
-                            this.skipHighlight = true;
-                            break;
-                        case "filler":
-                            this.skipFiller = true;
-                            break;
-                        default:
-                            console.log("Unknown sponsor type: " + skip);
-                            break;
-                    }
+                    var opt = this.skipOptions.get(skip);
+                    if (opt !== undefined) opt.value = "auto";
+                    else console.log("Unknown sponsor type: " + skip);
                 });
             }
 
             this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
+            this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
+            this.dearrow = this.getPreferenceBoolean("dearrow", false);
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
+            this.autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
+            this.autoPlayNextCountdown = this.getPreferenceNumber("autoPlayNextCountdown", 5);
             this.listen = this.getPreferenceBoolean("listen", false);
             this.defaultQuality = Number(localStorage.getItem("quality"));
             this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
@@ -602,6 +943,7 @@ export default {
             this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
             this.minimizeChapters = this.getPreferenceBoolean("minimizeChapters", false);
             this.showWatchOnYouTube = this.getPreferenceBoolean("showWatchOnYouTube", false);
+            this.searchSuggestions = this.getPreferenceBoolean("searchSuggestions", true);
             this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
             this.searchHistory = this.getPreferenceBoolean("searchHistory", false);
             this.selectedLanguage = this.getPreferenceString("hl", await this.defaultLanguage);
@@ -609,6 +951,7 @@ export default {
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
             this.hideWatched = this.getPreferenceBoolean("hideWatched", false);
+            this.mobileChapterLayout = this.getPreferenceString("mobileChapterLayout", "Vertical");
             if (this.selectedLanguage != "en") {
                 try {
                     this.CountryMap = await import(`../utils/CountryMaps/${this.selectedLanguage}.json`).then(
@@ -638,21 +981,19 @@ export default {
                 localStorage.setItem("auth_instance_url", this.selectedAuthInstance);
                 localStorage.setItem("sponsorblock", this.sponsorBlock);
 
-                var sponsorSelected = [];
-                if (this.skipSponsor) sponsorSelected.push("sponsor");
-                if (this.skipIntro) sponsorSelected.push("intro");
-                if (this.skipOutro) sponsorSelected.push("outro");
-                if (this.skipPreview) sponsorSelected.push("preview");
-                if (this.skipInteraction) sponsorSelected.push("interaction");
-                if (this.skipSelfPromo) sponsorSelected.push("selfpromo");
-                if (this.skipMusicOffTopic) sponsorSelected.push("music_offtopic");
-                if (this.skipHighlight) sponsorSelected.push("poi_highlight");
-                if (this.skipFiller) sponsorSelected.push("filler");
-                localStorage.setItem("selectedSkip", sponsorSelected);
+                var skipOptions = {};
+                this.skipOptions.forEach((v, k) => (skipOptions[k] = v.value));
+                localStorage.setItem("skipOptions", JSON.stringify(skipOptions));
 
                 localStorage.setItem("showMarkers", this.showMarkers);
+                localStorage.setItem("minSegmentLength", this.minSegmentLength);
+
+                localStorage.setItem("dearrow", this.dearrow);
+
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
+                localStorage.setItem("autoDisplayCaptions", this.autoDisplayCaptions);
+                localStorage.setItem("autoPlayNextCountdown", this.autoPlayNextCountdown);
                 localStorage.setItem("listen", this.listen);
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
@@ -663,6 +1004,7 @@ export default {
                 localStorage.setItem("minimizeRecommendations", this.minimizeRecommendations);
                 localStorage.setItem("minimizeChapters", this.minimizeChapters);
                 localStorage.setItem("showWatchOnYouTube", this.showWatchOnYouTube);
+                localStorage.setItem("searchSuggestions", this.searchSuggestions);
                 localStorage.setItem("watchHistory", this.watchHistory);
                 localStorage.setItem("searchHistory", this.searchHistory);
                 if (!this.searchHistory) localStorage.removeItem("search_history");
@@ -671,6 +1013,7 @@ export default {
                 localStorage.setItem("disableLBRY", this.disableLBRY);
                 localStorage.setItem("proxyLBRY", this.proxyLBRY);
                 localStorage.setItem("hideWatched", this.hideWatched);
+                localStorage.setItem("mobileChapterLayout", this.mobileChapterLayout);
 
                 if (shouldReload) window.location.reload();
             }
@@ -700,7 +1043,7 @@ export default {
             window.location = "/";
         },
         resetPreferences() {
-            if (!confirm(this.$t("actions.confirm_reset_preferences"))) return;
+            this.showConfirmResetPrefsDialog = false;
             // clear the local storage
             localStorage.clear();
             // redirect to the home page
@@ -739,5 +1082,11 @@ export default {
 <style>
 .pref {
     @apply flex justify-between items-center;
+}
+.pref:nth-child(odd) {
+    @apply bg-gray-200;
+}
+.dark .pref:nth-child(odd) {
+    @apply bg-dark-800;
 }
 </style>

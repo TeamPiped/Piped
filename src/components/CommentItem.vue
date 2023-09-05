@@ -1,38 +1,43 @@
 <template>
     <div class="comment flex mt-1.5">
-        <img :src="comment.thumbnail" class="comment-avatar" height="48" width="48" loading="lazy" alt="Avatar" />
+        <router-link style="height: fit-content" :to="comment.commentorUrl">
+            <img :src="comment.thumbnail" class="comment-avatar" height="48" width="48" loading="lazy" alt="Avatar" />
+        </router-link>
 
         <div class="comment-content pl-2">
             <div class="comment-header">
                 <div v-if="comment.pinned" class="comment-pinned">
                     <font-awesome-icon icon="thumbtack" />
                     <span
-                        class="ml-1.5"
                         v-t="{
                             path: 'comment.pinned_by',
                             args: { author: uploader },
                         }"
+                        class="ml-1.5"
                     />
                 </div>
 
-                <div class="comment-author mt-1 flex">
-                    <router-link class="font-bold link" :to="comment.commentorUrl">{{ comment.author }}</router-link>
-                    <font-awesome-icon class="ml-1.5" v-if="comment.verified" icon="check" />
+                <div class="comment-author flex align-center">
+                    <router-link class="link font-bold" :to="comment.commentorUrl">{{ comment.author }}</router-link>
+                    <font-awesome-icon v-if="comment.verified" class="ml-1.5" icon="check" />
                     <div class="comment-meta mb-1.5" v-text="' • ' + comment.commentedTime + ' •'" />
-                    <div class="i-fa-solid:thumbs-up" />
-                    <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
-                    <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
+                    <div class="comment-footer mt-1 flex items-center">
+                        <div class="i-fa6-solid:thumbs-up" />
+                        <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
+                        <font-awesome-icon v-if="comment.hearted" class="ml-1" icon="heart" />
+                    </div>
                 </div>
             </div>
-            <div class="whitespace-pre-wrap" v-html="purifyHTML(comment.commentText)" />
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <div class="whitespace-pre-wrap" v-html="purifiedText" />
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
-                <div @click="loadReplies" class="cursor-pointer">
+                <div class="cursor-pointer" @click="loadReplies">
                     <a v-text="`${$t('actions.reply_count', comment.replyCount)}`" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </template>
             <template v-if="showingReplies">
-                <div @click="hideReplies" class="cursor-pointer">
+                <div class="cursor-pointer" @click="hideReplies">
                     <a v-t="'actions.hide_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-up-alt" />
                 </div>
@@ -41,7 +46,7 @@
                 <div v-for="reply in replies" :key="reply.commentId" class="w-full">
                     <CommentItem :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>
-                <div v-if="nextpage" @click="loadReplies" class="cursor-pointer">
+                <div v-if="nextpage" class="cursor-pointer" @click="loadReplies">
                     <a v-t="'actions.load_more_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
@@ -51,6 +56,8 @@
 </template>
 
 <script>
+import { purifyHTML } from "@/utils/HtmlUtils";
+
 export default {
     props: {
         comment: {
@@ -69,6 +76,11 @@ export default {
             replies: [],
             nextpage: null,
         };
+    },
+    computed: {
+        purifiedText() {
+            return purifyHTML(this.comment.commentText);
+        },
     },
     methods: {
         async loadReplies() {
@@ -96,5 +108,8 @@ export default {
 <style>
 .comment-content {
     overflow-wrap: anywhere;
+}
+.comment-avatar {
+    max-width: unset;
 }
 </style>

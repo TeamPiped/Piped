@@ -22,7 +22,7 @@ body:
       label: Official Instance
       description: Can the bug be reproduced on the official instance?
       options:
-        - label: The bug is reproducable on the [official hosted instance](http://piped.video/) or is API related.
+        - label: The bug is reproducible on the [official hosted instance](http://piped.video/), or is API-related.
 
   - type: textarea
     attributes:
@@ -58,7 +58,7 @@ body:
       description: |
         If applicable, add logs from the JavaScript console and/or backend server.
     validations:
-      required: true
+      required: false
 
   - type: textarea
     attributes:
@@ -67,6 +67,8 @@ body:
         If applicable, add browser, and OS with version.
       placeholder: >-
         Brave 1.x.x on Arch Linux.
+    validations:
+      required: true
 
   - type: textarea
     attributes:

@@ -12,7 +12,9 @@
         "account": "Reikningur",
         "instance": "Tilvik",
         "livestreams": "Útsendingar í beinni",
-        "channels": "Rásir"
+        "channels": "Rásir",
+        "bookmarks": "Bókamerki",
+        "channel_groups": "Rásarhópar"
     },
     "actions": {
         "sort_by": "Raða eftir:",
@@ -94,8 +96,6 @@
         "instance_donations": "Framlög til netþjóns",
         "status_page": "Staða",
         "source_code": "Frumkóði",
-        "rename_playlist": "Endurnefna spilunarlista",
-        "new_playlist_name": "Nýtt heiti spilunarlista",
         "share": "Deila",
         "with_timecode": "Deilа með tímakóða",
         "piped_link": "Hlekkur Piped",

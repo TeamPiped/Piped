@@ -7,7 +7,8 @@
         "feed": "ഫീഡ്",
         "login": "പ്രവേശിക്കുക",
         "subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ",
-        "playlists": "പ്ലേലിസ്റ്റുകൾ"
+        "playlists": "പ്ലേലിസ്റ്റുകൾ",
+        "player": "കളിക്കാരൻ"
     },
     "actions": {
         "view_subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ കാണുക",
@@ -72,7 +73,8 @@
         "select_playlist": "ഒരു പ്ലേലിസ്റ്റ് തിരഞ്ഞെടുക്കൂ",
         "please_select_playlist": "ഒരു പ്ലേലിസ്റ്റ് തിരഞ്ഞെടുക്കുക",
         "delete_playlist_video_confirm": "ഈ പ്ലേലിസ്റ്റിൽ നിന്ന് ഈ വീഡിയോ ഒഴിവാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?",
-        "delete_playlist_confirm": "ഈ പ്ലേലിസ്റ്റ് ഇല്ലാതാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടൊ?"
+        "delete_playlist_confirm": "ഈ പ്ലേലിസ്റ്റ് ഇല്ലാതാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടൊ?",
+        "skip_automatically": "സ്വയമേവ"
     },
     "player": {
         "watch_on": "കാണുക {0}"

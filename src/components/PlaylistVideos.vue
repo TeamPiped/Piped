@@ -29,18 +29,7 @@ export default {
         },
         selectedIndex: {
             type: Number,
-        },
-    },
-    mounted() {
-        this.updateScroll();
-    },
-    methods: {
-        updateScroll() {
-            const elems = Array.from(this.$refs.scrollable.children).filter(elm => elm.matches("div"));
-            const index = this.selectedIndex - 1;
-            if (index < elems.length)
-                this.$refs.scrollable.scrollTop =
-                    elems[this.selectedIndex - 1].offsetTop - this.$refs.scrollable.offsetTop;
+            required: true,
         },
     },
     watch: {
@@ -52,6 +41,19 @@ export default {
                     });
             },
             deep: true,
+        },
+    },
+    mounted() {
+        this.updateScroll();
+        this.updateWatched(this.playlist.relatedStreams);
+    },
+    methods: {
+        updateScroll() {
+            const elems = Array.from(this.$refs.scrollable.children).filter(elm => elm.matches("div"));
+            const index = this.selectedIndex - 1;
+            if (index < elems.length)
+                this.$refs.scrollable.scrollTop =
+                    elems[this.selectedIndex - 1].offsetTop - this.$refs.scrollable.offsetTop;
         },
     },
 };

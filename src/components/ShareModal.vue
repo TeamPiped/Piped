@@ -3,34 +3,45 @@
         <h4 v-t="'actions.share'" />
         <div class="flex justify-between mt-2 mb-2">
             <label v-t="'actions.piped_link'" />
-            <input type="checkbox" v-model="pipedLink" @change="onChange" />
+            <input v-model="pipedLink" type="checkbox" @change="onChange" />
         </div>
-        <div v-if="this.hasPlaylist" class="flex justify-between">
+        <div v-if="hasPlaylist" class="flex justify-between">
             <label v-t="'actions.with_playlist'" />
-            <input type="checkbox" v-model="withPlaylist" @change="onChange" />
+            <input v-model="withPlaylist" type="checkbox" @change="onChange" />
         </div>
         <div class="flex justify-between">
             <label v-t="'actions.with_timecode'" for="withTimeCode" />
-            <input id="withTimeCode" type="checkbox" v-model="withTimeCode" @change="onChange" />
+            <input id="withTimeCode" v-model="withTimeCode" type="checkbox" @change="onChange" />
         </div>
-        <div v-if="this.withTimeCode" class="flex justify-between mt-2" style="align-items: center">
+        <div v-if="withTimeCode" class="flex justify-between mt-2" style="align-items: center">
             <label v-t="'actions.time_code'" />
-            <input class="input w-300 mb-0rem" type="text" v-model="timeStamp" />
+            <input v-model="timeStamp" class="input w-12" type="text" @change="onChange" />
         </div>
         <a :href="generatedLink" target="_blank">
             <h6 class="mb-2 mt-2" v-text="generatedLink" />
         </a>
-        <div class="flex justify-end mt-4">
-            <button class="btn" style="margin-right: 15rem" v-t="'actions.follow_link'" @click="followLink()" />
-            <button class="btn" v-t="'actions.copy_link'" @click="copyLink()" />
+        <QrCode v-if="showQrCode" :text="generatedLink" />
+        <div class="mt-4 flex justify-end">
+            <button v-t="'actions.generate_qrcode'" class="btn" @click="showQrCode = !showQrCode" />
+            <button v-t="'actions.follow_link'" class="btn ml-3" @click="followLink()" />
+            <button v-t="'actions.copy_link'" class="btn ml-3" @click="copyLink()" />
         </div>
     </ModalComponent>
 </template>
+
+<script setup>
+import { defineAsyncComponent } from "vue";
+
+const QrCode = defineAsyncComponent(() => import("./QrCode.vue"));
+</script>
 
 <script>
 import ModalComponent from "./ModalComponent.vue";
 
 export default {
+    components: {
+        ModalComponent,
+    },
     props: {
         videoId: {
             type: String,
@@ -42,13 +53,12 @@ export default {
         },
         playlistId: {
             type: String,
+            default: undefined,
         },
         playlistIndex: {
             type: Number,
+            default: undefined,
         },
-    },
-    components: {
-        ModalComponent,
     },
     data() {
         return {
@@ -57,7 +67,22 @@ export default {
             withPlaylist: true,
             timeStamp: null,
             hasPlaylist: false,
+            showQrCode: false,
         };
+    },
+    computed: {
+        generatedLink() {
+            var baseUrl = this.pipedLink
+                ? window.location.origin + "/watch?v=" + this.videoId
+                : "https://youtu.be/" + this.videoId;
+            var url = new URL(baseUrl);
+            if (this.withTimeCode && this.timeStamp > 0) url.searchParams.append("t", this.timeStamp);
+            if (this.hasPlaylist && this.withPlaylist) {
+                url.searchParams.append("list", this.playlistId);
+                url.searchParams.append("index", this.playlistIndex);
+            }
+            return url.href;
+        },
     },
     mounted() {
         this.timeStamp = parseInt(this.currentTime);
@@ -85,20 +110,6 @@ export default {
             this.setPreference("shareWithTimeCode", this.withTimeCode, true);
             this.setPreference("shareAsPipedLink", this.pipedLink, true);
             this.setPreference("shareWithPlaylist", this.withPlaylist, true);
-        },
-    },
-    computed: {
-        generatedLink() {
-            var baseUrl = this.pipedLink
-                ? window.location.origin + "/watch?v=" + this.videoId
-                : "https://youtu.be/" + this.videoId;
-            var url = new URL(baseUrl);
-            if (this.withTimeCode && this.timeStamp > 0) url.searchParams.append("t", this.timeStamp);
-            if (this.hasPlaylist && this.withPlaylist) {
-                url.searchParams.append("list", this.playlistId);
-                url.searchParams.append("index", this.playlistIndex);
-            }
-            return url.href;
         },
     },
 };

@@ -12,7 +12,10 @@
         "instance": "Instance",
         "player": "Player",
         "livestreams": "Livestreams",
-        "channels": "Channels"
+        "channels": "Channels",
+        "bookmarks": "Bookmarks",
+        "channel_groups": "Channel groups",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Watch on {0}"
@@ -29,6 +32,8 @@
         "back": "Back",
         "uses_api_from": "Uses the API from ",
         "enable_sponsorblock": "Enable Sponsorblock",
+        "skip_button_only": "Show skip button",
+        "skip_automatically": "Automatically",
         "skip_sponsors": "Skip Sponsors",
         "skip_intro": "Skip Intermission/Intro Animation",
         "skip_outro": "Skip Endcards/Credits",
@@ -39,23 +44,27 @@
         "skip_highlight": "Skip Highlight",
         "skip_filler_tangent": "Skip Filler Tangent",
         "show_markers": "Show Markers on Player",
+        "min_segment_length": "Minimum Segment Length (in seconds)",
+        "skip_segment": "Skip Segment",
+        "enable_dearrow": "Enable DeArrow",
         "theme": "Theme",
         "auto": "Auto",
         "dark": "Dark",
         "light": "Light",
         "autoplay_video": "Autoplay Video",
+        "autoplay_next_countdown": "Default Countdown until next video (in seconds)",
         "audio_only": "Audio Only",
         "default_quality": "Default Quality",
         "buffering_goal": "Buffering Goal (in seconds)",
-        "country_selection": "Country Selection",
+        "country_selection": "Country",
         "default_homepage": "Default Homepage",
         "minimize_comments_default": "Minimize Comments by default",
         "minimize_description_default": "Minimize Description by default",
         "store_watch_history": "Store Watch History",
-        "language_selection": "Language Selection",
+        "language_selection": "Language",
         "instances_list": "Instances List",
         "enabled_codecs": "Enabled Codecs (Multiple)",
-        "instance_selection": "Instance Selection",
+        "instance_selection": "Instance",
         "show_more": "Show More",
         "yes": "Yes",
         "no": "No",
@@ -63,6 +72,7 @@
         "import_from_json": "Import from JSON/CSV",
         "loop_this_video": "Loop this Video",
         "auto_play_next_video": "Auto Play next Video",
+        "auto_display_captions": "Auto Display Captions",
         "donations": "Development donations",
         "minimize_comments": "Minimize Comments",
         "show_comments": "Comments",
@@ -73,7 +83,7 @@
         "disable_lbry": "Disable LBRY for Streaming",
         "enable_lbry_proxy": "Enable Proxy for LBRY",
         "view_ssl_score": "View SSL Score",
-        "search": "Search",
+        "search": "Search (Ctrl+K)",
         "filter": "Filter",
         "loading": "Loading...",
         "clear_history": "Clear History",
@@ -91,10 +101,11 @@
         "logout": "Logout from this device",
         "minimize_recommendations_default": "Minimize Recommendations by default",
         "minimize_chapters_default": "Minimize Chapters by default",
+        "chapters_layout_mobile": "Chapters Layout On Mobile",
         "show_watch_on_youtube": "Show Watch on YouTube button",
         "invalidate_session": "Logout all devices",
         "different_auth_instance": "Use a different instance for authentication",
-        "instance_auth_selection": "Autentication Instance Selection",
+        "instance_auth_selection": "Authentication Instance",
         "clone_playlist": "Clone Playlist",
         "clone_playlist_success": "Successfully cloned!",
         "download_as_txt": "Download as .txt",
@@ -103,8 +114,9 @@
         "backup_preferences": "Backup preferences",
         "restore_preferences": "Restore preferences",
         "back_to_home": "Back to home",
-        "rename_playlist": "Rename",
-        "new_playlist_name": "New playlist name",
+        "edit_playlist": "Edit",
+        "playlist_name": "Playlist name",
+        "playlist_description": "Playlist description",
         "share": "Share",
         "with_timecode": "Share with time code",
         "piped_link": "Piped link",
@@ -112,7 +124,7 @@
         "copy_link": "Copy link",
         "time_code": "Time code (in seconds)",
         "show_chapters": "Chapters",
-        "store_search_history": "Store Search history",
+        "store_search_history": "Store Search History",
         "hide_watched": "Hide watched videos in the feed",
         "documentation": "Documentation",
         "status_page": "Status",
@@ -120,7 +132,18 @@
         "instance_donations": "Instance donations",
         "reply_count": "{count} replies",
         "no_valid_playlists": "The file doesn't contain valid playlists!",
-        "with_playlist": "Share with playlist"
+        "with_playlist": "Share with playlist",
+        "bookmark_playlist": "Bookmark",
+        "playlist_bookmarked": "Bookmarked",
+        "dismiss": "Dismiss",
+        "show_less": "Show less",
+        "create_group": "Create group",
+        "group_name": "Group name",
+        "cancel": "Cancel",
+        "okay": "Okay",
+        "show_search_suggestions": "Show search suggestions",
+        "delete_automatically": "Delete automatically after",
+        "generate_qrcode": "Generate QR Code"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
@@ -139,7 +162,9 @@
     },
     "login": {
         "username": "Username",
-        "password": "Password"
+        "password": "Password",
+        "password_confirm": "Confirm password",
+        "passwords_incorrect": "Passwords don't match!"
     },
     "video": {
         "videos": "Videos",
@@ -149,7 +174,13 @@
         "ratings_disabled": "Ratings Disabled",
         "chapters": "Chapters",
         "live": "{0} Live",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "all": "All",
+        "category": "Category",
+        "license": "License",
+        "visibility": "Visibility",
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertical"
     },
     "search": {
         "did_you_mean": "Did you mean: {0}?",
@@ -160,7 +191,8 @@
         "music_songs": "YT Music: Songs",
         "music_videos": "YT Music: Videos",
         "music_albums": "YT Music: Albums",
-        "music_playlists": "YT Music: Playlists"
+        "music_playlists": "YT Music: Playlists",
+        "music_artists": "YT Music: Artists"
     },
     "subscriptions": {
         "subscribed_channels_count": "Subscribed to: {0}"
@@ -170,6 +202,12 @@
         "page_not_found": "Page not found",
         "copied": "Copied!",
         "cannot_copy": "Can't copy!",
-        "local_storage": "This action requires localStorage, are cookies enabled?"
+        "local_storage": "This action requires localStorage, are cookies enabled?",
+        "register_no_email_note": "Using an e-mail as username is not recommended. Proceed anyways?",
+        "next_video_countdown": "Playing next video in {0}s",
+        "hours": "{amount} hour(s)",
+        "days": "{amount} day(s)",
+        "weeks": "{amount} week(s)",
+        "months": "{amount} month(s)"
     }
 }
