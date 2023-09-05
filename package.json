@@ -25,7 +25,7 @@
         "shaka-player": "4.4.1",
         "stream-browserify": "3.0.0",
         "vue": "3.3.4",
-        "vue-i18n": "9.2.2",
+        "vue-i18n": "9.3.0",
         "vue-router": "4.2.4",
         "xml-js": "1.6.11"
     },
