@@ -38,7 +38,7 @@
         "donations": "Donaciones para desarrollo",
         "auto_play_next_video": "Reproducción automática del siguiente vídeo",
         "loop_this_video": "Poner en bucle este vídeo",
-        "import_from_json": "Importar desde JSON/CSV",
+        "import_from_json": "Importar desde JSON",
         "export_to_json": "Exportar a JSON",
         "no": "No",
         "yes": "Sí",
@@ -95,8 +95,8 @@
         "create_playlist": "Crear una lista de reproducción",
         "add_to_playlist": "Añadir a la lista de reproducción",
         "delete_playlist_video_confirm": "¿Eliminar vídeo de lista de reproducción?",
-        "please_select_playlist": "Seleccione una lista de reproducción",
-        "select_playlist": "Seleccione una lista de reproducción",
+        "please_select_playlist": "Por favor, selecciona una lista de reproducción",
+        "select_playlist": "Selecciona una lista de reproducción",
         "show_markers": "Mostrar Marcadores en Reproductor",
         "delete_account": "Eliminar Cuenta",
         "different_auth_instance": "Usar una instancia diferente para autenticación",
@@ -140,7 +140,7 @@
         "skip_segment": "Saltar Segmento",
         "show_less": "Mostrar menos",
         "autoplay_next_countdown": "Cuenta atrás predeterminada antes del siguiente vídeo (en segundos)",
-        "dismiss": "Cancelar",
+        "dismiss": "Descartar",
         "group_name": "Nombre del grupo",
         "create_group": "Crear grupo",
         "auto_display_captions": "Mostrar automáticamente subtítulos",
@@ -153,7 +153,9 @@
         "chapters_layout_mobile": "Disposición de capítulos en móvil",
         "delete_automatically": "Borrar automáticamente después de",
         "enable_dearrow": "Activar DeArrow",
-        "generate_qrcode": "Generar código QR"
+        "generate_qrcode": "Generar código QR",
+        "import_from_json_csv": "Importar desde JSON/CSV",
+        "download_frame": "Descargar fotograma"
     },
     "titles": {
         "feed": "Contenido",
@@ -174,7 +176,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Ver en {0}"
+        "watch_on": "Ver en {0}",
+        "failed": "Falló con el código de error {0}, consulta los registros para más información"
     },
     "login": {
         "password": "Contraseña",

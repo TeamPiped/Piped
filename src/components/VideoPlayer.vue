@@ -25,6 +25,11 @@
             <span v-t="'actions.skip_segment'" />
             <i class="material-icons-round">skip_next</i>
         </button>
+        <span
+            v-if="error > 0"
+            v-t="{ path: 'player.failed', args: [error] }"
+            class="absolute top-8 rounded bg-black/80 p-2 text-lg backdrop-blur-sm"
+        />
     </div>
 </template>
 
@@ -67,6 +72,7 @@ export default {
             isHoveringTimebar: false,
             currentTime: 0,
             seekbarPadding: 2,
+            error: 0,
         };
     },
     computed: {
@@ -510,6 +516,9 @@ export default {
                 manifest: {
                     disableVideo: disableVideo,
                 },
+                streaming: {
+                    segmentPrefetchLimit: 10,
+                },
             });
 
             const quality = this.getPreferenceNumber("quality", 0);
@@ -517,73 +526,79 @@ export default {
                 quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream) && !disableVideo;
             if (qualityConds) this.$player.configure("abr.enabled", false);
 
-            player.load(uri, 0, mime).then(() => {
-                const isSafari = window.navigator?.vendor?.includes("Apple");
+            player
+                .load(uri, 0, mime)
+                .then(() => {
+                    const isSafari = window.navigator?.vendor?.includes("Apple");
 
-                if (!isSafari) {
-                    // Set the audio language
-                    const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
-                    var lang = "en";
-                    for (var l in player.getAudioLanguages()) {
-                        if (l == prefLang) {
-                            lang = l;
-                            return;
-                        }
-                    }
-                    player.selectAudioLanguage(lang);
-                }
-
-                if (qualityConds) {
-                    var leastDiff = Number.MAX_VALUE;
-                    var bestStream = null;
-
-                    var bestAudio = 0;
-
-                    const tracks = player
-                        .getVariantTracks()
-                        .filter(track => track.language == lang || track.language == "und");
-
-                    // Choose the best audio stream
-                    if (quality >= 480)
-                        tracks.forEach(track => {
-                            const audioBandwidth = track.audioBandwidth;
-                            if (audioBandwidth > bestAudio) bestAudio = audioBandwidth;
-                        });
-
-                    // Find best matching stream based on resolution and bitrate
-                    tracks
-                        .sort((a, b) => a.bandwidth - b.bandwidth)
-                        .forEach(stream => {
-                            if (stream.audioBandwidth < bestAudio) return;
-
-                            const diff = Math.abs(quality - stream.height);
-                            if (diff < leastDiff) {
-                                leastDiff = diff;
-                                bestStream = stream;
+                    if (!isSafari) {
+                        // Set the audio language
+                        const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
+                        var lang = "en";
+                        for (var l in player.getAudioLanguages()) {
+                            if (l == prefLang) {
+                                lang = l;
+                                return;
                             }
-                        });
+                        }
+                        player.selectAudioLanguage(lang);
+                    }
 
-                    player.selectVariantTrack(bestStream);
-                }
+                    if (qualityConds) {
+                        var leastDiff = Number.MAX_VALUE;
+                        var bestStream = null;
 
-                this.video.subtitles.map(subtitle => {
-                    player.addTextTrackAsync(
-                        subtitle.url,
-                        subtitle.code,
-                        "subtitles",
-                        subtitle.mimeType,
-                        null,
-                        subtitle.name,
-                    );
+                        var bestAudio = 0;
+
+                        const tracks = player
+                            .getVariantTracks()
+                            .filter(track => track.language == lang || track.language == "und");
+
+                        // Choose the best audio stream
+                        if (quality >= 480)
+                            tracks.forEach(track => {
+                                const audioBandwidth = track.audioBandwidth;
+                                if (audioBandwidth > bestAudio) bestAudio = audioBandwidth;
+                            });
+
+                        // Find best matching stream based on resolution and bitrate
+                        tracks
+                            .sort((a, b) => a.bandwidth - b.bandwidth)
+                            .forEach(stream => {
+                                if (stream.audioBandwidth < bestAudio) return;
+
+                                const diff = Math.abs(quality - stream.height);
+                                if (diff < leastDiff) {
+                                    leastDiff = diff;
+                                    bestStream = stream;
+                                }
+                            });
+
+                        player.selectVariantTrack(bestStream);
+                    }
+
+                    this.video.subtitles.map(subtitle => {
+                        player.addTextTrackAsync(
+                            subtitle.url,
+                            subtitle.code,
+                            "subtitles",
+                            subtitle.mimeType,
+                            null,
+                            subtitle.name,
+                        );
+                    });
+                    videoEl.volume = this.getPreferenceNumber("volume", 1);
+                    const rate = this.getPreferenceNumber("rate", 1);
+                    videoEl.playbackRate = rate;
+                    videoEl.defaultPlaybackRate = rate;
+
+                    const autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
+                    this.$player.setTextTrackVisibility(autoDisplayCaptions);
+                })
+                .catch(e => {
+                    console.error(e);
+                    this.error = e.code;
                 });
-                videoEl.volume = this.getPreferenceNumber("volume", 1);
-                const rate = this.getPreferenceNumber("rate", 1);
-                videoEl.playbackRate = rate;
-                videoEl.defaultPlaybackRate = rate;
-
-                const autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
-                this.$player.setTextTrackVisibility(autoDisplayCaptions);
-            });
 
             // expand the player to fullscreen when the fullscreen query equals true
             if (this.$route.query.fullscreen === "true" && !this.$ui.getControls().isFullScreenEnabled())

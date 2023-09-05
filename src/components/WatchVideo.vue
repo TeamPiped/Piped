@@ -90,10 +90,15 @@
                         @click="subscribeHandler"
                     />
                     <!-- Playlist Add button -->
-                    <button v-if="authenticated" class="btn" @click="showModal = !showModal">
+                    <button class="btn flex items-center" @click="showModal = !showModal">
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
                     </button>
-                    <PlaylistAddModal v-if="showModal" :video-id="getVideoId()" @close="showModal = !showModal" />
+                    <PlaylistAddModal
+                        v-if="showModal"
+                        :video-id="getVideoId()"
+                        :video-info="video"
+                        @close="showModal = !showModal"
+                    />
                     <!-- Share Dialog -->
                     <ShareModal
                         v-if="showShareModal"
@@ -133,6 +138,9 @@
                     >
                         <font-awesome-icon class="mx-1.5" icon="rss" />
                     </a>
+                    <button class="btn flex items-center gap-1 <md:hidden" @click="downloadCurrentFrame">
+                        <i class="i-fa6-solid:download" />{{ $t("actions.download_frame") }}
+                    </button>
                 </div>
             </div>
 
@@ -673,6 +681,21 @@ export default {
             const paramStr = searchParams.toString();
             if (paramStr.length > 0) url += "&" + paramStr;
             this.$router.push(url);
+        },
+        downloadCurrentFrame() {
+            const video = document.querySelector("video");
+            const canvas = document.createElement("canvas");
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+
+            const context = canvas.getContext("2d");
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            let link = document.createElement("a");
+            const currentTime = Math.round(video.currentTime * 1000) / 1000;
+            link.download = `${this.video.title}_${currentTime}s.png`;
+            link.href = canvas.toDataURL();
+            link.click();
         },
     },
 };

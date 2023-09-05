@@ -1,8 +1,8 @@
 <template>
-    <ModalComponent>
+    <ModalComponent @close="$emit('close')">
         <h4 v-t="'actions.select_playlist'" class="mb-2" />
-        <select class="select w-full mb-2" v-model="selectedPlaylist">
-            <option v-for="playlist in playlists" :value="playlist.id" :key="playlist.id" v-text="playlist.name" />
+        <select v-model="selectedPlaylist" class="select w-full mb-2">
+            <option v-for="playlist in playlists" :key="playlist.id" :value="playlist.id" v-text="playlist.name" />
         </select>
         <div class="flex justify-end">
             <button ref="addButton" v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />

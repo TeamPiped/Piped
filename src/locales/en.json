@@ -18,7 +18,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Watch on {0}"
+        "watch_on": "Watch on {0}",
+        "failed": "Failed with error code {0}, see logs for more info"
     },
     "actions": {
         "subscribe": "Subscribe - {count}",
@@ -69,7 +70,8 @@
         "yes": "Yes",
         "no": "No",
         "export_to_json": "Export to JSON",
-        "import_from_json": "Import from JSON/CSV",
+        "import_from_json": "Import from JSON",
+        "import_from_json_csv": "Import from JSON/CSV",
         "loop_this_video": "Loop this Video",
         "auto_play_next_video": "Auto Play next Video",
         "auto_display_captions": "Auto Display Captions",
@@ -143,7 +145,8 @@
         "okay": "Okay",
         "show_search_suggestions": "Show search suggestions",
         "delete_automatically": "Delete automatically after",
-        "generate_qrcode": "Generate QR Code"
+        "generate_qrcode": "Generate QR Code",
+        "download_frame": "Download frame"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

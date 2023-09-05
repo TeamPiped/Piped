@@ -51,7 +51,7 @@
         "yes": "Ano",
         "no": "Ne",
         "export_to_json": "Exportovat do JSON",
-        "import_from_json": "Importovat z JSON/CSV",
+        "import_from_json": "Importovat z JSON",
         "auto_play_next_video": "Automaticky přehrát další video",
         "donations": "Dary na vývoj",
         "show_description": "Zobrazit popis",
@@ -140,10 +140,13 @@
         "chapters_layout_mobile": "Rozložení kapitol na mobilu",
         "enable_dearrow": "Povolit DeArrow",
         "delete_automatically": "Automaticky odstranit po",
-        "generate_qrcode": "Vygenerovat QR kód"
+        "generate_qrcode": "Vygenerovat QR kód",
+        "import_from_json_csv": "Importovat z JSON/CSV",
+        "download_frame": "Stáhnout snímek"
     },
     "player": {
-        "watch_on": "Sledovat na {0}"
+        "watch_on": "Sledovat na {0}",
+        "failed": "Akce se nezdařila. Chybový kód {0}, pro více informací viz protokol"
     },
     "comment": {
         "pinned_by": "Připnuto uživatelem {author}",

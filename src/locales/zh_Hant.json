@@ -3,14 +3,14 @@
         "skip_intro": "跳過中場休息／開場動畫",
         "skip_sponsors": "跳過贊助廣告",
         "enable_sponsorblock": "啟用 SponsorBlock",
-        "country_selection": "選擇國家",
+        "country_selection": "國家",
         "channel_name_desc": "頻道名 (Z-A)",
         "channel_name_asc": "頻道名 (A-Z)",
         "unsubscribe": "取消訂閱 - {count}",
         "subscribe": "訂閱 - {count}",
         "sort_by": "排序依據：",
         "view_subscriptions": "檢視訂閱內容",
-        "language_selection": "選擇語言",
+        "language_selection": "語言",
         "skip_non_music": "跳過音樂中的非音樂片段",
         "theme": "主題",
         "show_description": "顯示說明",
@@ -119,7 +119,8 @@
         "reply_count": "{count} 個回覆",
         "minimize_recommendations_default": "預設收起推薦影片",
         "show_watch_on_youtube": "顯示「在Youtube 觀看」按鈕",
-        "show_less": "顯示更少"
+        "show_less": "顯示更少",
+        "generate_qrcode": "產生 QR 碼"
     },
     "titles": {
         "history": "歷史記錄",
@@ -149,7 +150,8 @@
     },
     "login": {
         "username": "使用者名",
-        "password": "密碼"
+        "password": "密碼",
+        "password_confirm": "確認密碼"
     },
     "video": {
         "videos": "影片",
@@ -190,7 +192,11 @@
         "preferences_note": "註：偏好設定儲存在本機的瀏覽器的儲存空間內。如果清除瀏覽器的資料，偏好設定就會重設。",
         "register_no_email_note": "不建議使用電子郵件地址作為用戶名稱。仍要繼續嗎？",
         "local_storage": "此動作需要儲存資料在本機，請確認是否啟用了Cookies？",
-        "next_video_countdown": "在{0}秒後播放下一段影片"
+        "next_video_countdown": "在{0}秒後播放下一段影片",
+        "days": "{amount} 天",
+        "weeks": "{amount} 個星期",
+        "months": "{amount} 個月",
+        "hours": "{amount} 小時"
     },
     "player": {
         "watch_on": "在 {0} 觀看"

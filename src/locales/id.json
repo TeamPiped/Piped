@@ -18,7 +18,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Tonton di {0}"
+        "watch_on": "Tonton di {0}",
+        "failed": "Gagal dengan kode kesalahan {0}, lihat catatan untuk info lebih lanjut"
     },
     "actions": {
         "subscribe": "Berlangganan - {count}",
@@ -55,7 +56,7 @@
         "show_more": "Tampilkan Lebih Banyak",
         "yes": "Iya",
         "no": "Tidak",
-        "import_from_json": "Impor dari JSON/CSV",
+        "import_from_json": "Impor dari JSON",
         "loop_this_video": "Ulangi Video ini",
         "auto_play_next_video": "Mainkan video berikutnya secara otomatis",
         "donations": "Donasi pengembangan",
@@ -143,7 +144,9 @@
         "chapters_layout_mobile": "Tata Letak Bab di Ponsel",
         "delete_automatically": "Hapus secara otomatis setelah",
         "enable_dearrow": "Aktifkan DeArrow",
-        "generate_qrcode": "Buat Kode QR"
+        "generate_qrcode": "Buat Kode QR",
+        "import_from_json_csv": "Impor dari JSON/CSV",
+        "download_frame": "Unduh bingkai"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",

@@ -60,7 +60,7 @@
         "yes": "Да",
         "no": "Нет",
         "export_to_json": "Экспорт в JSON",
-        "import_from_json": "Импорт из JSON/CSV",
+        "import_from_json": "Импорт из JSON",
         "loop_this_video": "Повтор текущего видео",
         "auto_play_next_video": "Сразу проигрывать следующее рекомендованное видео",
         "donations": "Пожертвования на разработку",
@@ -142,7 +142,9 @@
         "show_search_suggestions": "Показать поисковые предложения",
         "chapters_layout_mobile": "Расположение глав в мобильном виде",
         "delete_automatically": "Автоматическое удаление после",
-        "enable_dearrow": "Включить DeArrow"
+        "enable_dearrow": "Включить DeArrow",
+        "generate_qrcode": "Сгенерировать QR Код",
+        "import_from_json_csv": "Импорт из JSON/CSV"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
@@ -161,7 +163,9 @@
     },
     "login": {
         "username": "Имя пользователя",
-        "password": "Пароль"
+        "password": "Пароль",
+        "password_confirm": "Повторите пароль",
+        "passwords_incorrect": "Пароль не совпадает!"
     },
     "video": {
         "videos": "Видео",

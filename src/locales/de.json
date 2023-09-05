@@ -44,7 +44,7 @@
         "donations": "Spenden",
         "auto_play_next_video": "Nächstes Video automatisch abspielen",
         "loop_this_video": "Dieses Video wiederholen",
-        "import_from_json": "Aus JSON/CSV importieren",
+        "import_from_json": "Aus JSON importieren",
         "export_to_json": "Als JSON exportieren",
         "show_more": "Mehr anzeigen",
         "no": "Nein",
@@ -122,10 +122,13 @@
         "chapters_layout_mobile": "Kapitel-Layout auf Mobilgeräten",
         "delete_automatically": "Automatisch löschen nach",
         "enable_dearrow": "DeArrow verwenden",
-        "generate_qrcode": "QR-Code generieren"
+        "generate_qrcode": "QR-Code generieren",
+        "import_from_json_csv": "Aus JSON/CSV importieren",
+        "download_frame": "Einzelbild (Frame) downloaden"
     },
     "player": {
-        "watch_on": "Auf {0} ansehen"
+        "watch_on": "Auf {0} ansehen",
+        "failed": "Fehlgeschlagen mit Fehlercode {0}, siehe Protokolle für weitere Informationen"
     },
     "titles": {
         "history": "Verlauf",

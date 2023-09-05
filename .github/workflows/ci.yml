@@ -8,20 +8,19 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-<<<<<<< HEAD
-              with:
-                  submodules: true
-=======
+            - uses: actions/checkout@v4
             - name: Setup pnpm
               uses: pnpm/action-setup@v2
               with:
                   version: latest
->>>>>>> master
             - name: Setup Node.js
               uses: actions/setup-node@v3
               with:
                   cache: "pnpm"
             - run: pnpm install
             - run: pnpm build
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: build
+                  path: dist
             - run: pnpm lint --no-fix

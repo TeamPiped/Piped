@@ -1,6 +1,7 @@
 {
     "player": {
-        "watch_on": "Дивитися на {0}"
+        "watch_on": "Дивитися на {0}",
+        "failed": "Помилка з кодом {0}, дивіться журнали для отримання додаткової інформації"
     },
     "login": {
         "username": "Ім'я користувача",
@@ -55,7 +56,7 @@
         "country_selection": "Країна",
         "minimize_description_default": "Не розгортати опис за замовчуванням",
         "yes": "Так",
-        "import_from_json": "Імпортувати з JSON/CSV",
+        "import_from_json": "Імпортувати з JSON",
         "loop_this_video": "Зациклити це відео",
         "auto_play_next_video": "Автоматичне відтворення наступного відео",
         "donations": "Пожертвування на розробку",
@@ -131,7 +132,9 @@
         "chapters_layout_mobile": "Макет розділів на телефоні",
         "enable_dearrow": "Увімкнути DeArrow",
         "delete_automatically": "Видаляти автоматично після",
-        "generate_qrcode": "Згенерувати QR-код"
+        "generate_qrcode": "Згенерувати QR-код",
+        "import_from_json_csv": "Імпортувати з JSON/CSV",
+        "download_frame": "Завантажити кадр"
     },
     "titles": {
         "register": "Реєстрація",

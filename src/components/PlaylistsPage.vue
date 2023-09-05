@@ -4,8 +4,15 @@
         <button v-t="'actions.create_playlist'" class="btn mr-2" @click="onCreatePlaylist" />
         <div class="flex">
             <button v-if="playlists.length > 0" v-t="'actions.export_to_json'" @click="exportPlaylists" />
-            <input id="fileSelector" ref="fileSelector" type="file" class="display-none" @change="importPlaylists" />
-            <label for="fileSelector" v-t="'actions.import_from_json'" class="btn ml-2" role="button" />
+            <input
+                id="fileSelector"
+                ref="fileSelector"
+                type="file"
+                class="display-none"
+                multiple="multiple"
+                @change="importPlaylists"
+            />
+            <label v-t="'actions.import_from_json_csv'" for="fileSelector" class="btn ml-2" role="button" />
         </div>
     </div>
 

@@ -51,7 +51,7 @@
         "store_watch_history": "Spara titthistorik",
         "instances_list": "Lista över instanser",
         "enabled_codecs": "Aktivera codecs (flera)",
-        "import_from_json": "Importera från JSON/CSV",
+        "import_from_json": "Importera från JSON",
         "donations": "Donationer till utveckling",
         "filter": "Filter",
         "hide_replies": "Dölj svar",
@@ -140,10 +140,13 @@
         "playlist_bookmarked": "Bokmärkt",
         "create_group": "Skapa grupp",
         "skip_button_only": "Visa hoppa över-knapp",
-        "skip_automatically": "Automatiskt"
+        "skip_automatically": "Automatiskt",
+        "download_frame": "Ladda ner bildruta",
+        "import_from_json_csv": "Importera från JSON/CSV"
     },
     "player": {
-        "watch_on": "Titta på {0}"
+        "watch_on": "Titta på {0}",
+        "failed": "Misslyckades med felkod {0}, se loggar för mer information"
     },
     "preferences": {
         "instance_name": "Instansnamn",
@@ -156,7 +159,9 @@
     },
     "login": {
         "username": "Användarnamn",
-        "password": "Lösenord"
+        "password": "Lösenord",
+        "password_confirm": "Bekräfta lösenord",
+        "passwords_incorrect": "Lösenorden stämmer inte överens!"
     },
     "video": {
         "videos": "Videor",

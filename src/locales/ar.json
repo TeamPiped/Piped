@@ -18,7 +18,8 @@
         "dearrow": "دي ارو"
     },
     "player": {
-        "watch_on": "شاهد عبر"
+        "watch_on": "شاهد عبر",
+        "failed": "فشل مع رمز الخطأ {0}، راجع السجلات لمزيد من المعلومات"
     },
     "actions": {
         "subscribe": "اشتراك - {count}",
@@ -71,7 +72,7 @@
         "language_selection": "اللغة",
         "instances_list": "قائمة المثيلات",
         "enabled_codecs": "برامج الترميز الممكنة (متعددة)",
-        "import_from_json": "استيراد من JSON/CSV",
+        "import_from_json": "استيراد من JSON",
         "loop_this_video": "تكرار هذا الفيديو",
         "auto_play_next_video": "التشغيل التلقائي للفيديو التالي",
         "donations": "التبرعات للتطوير",
@@ -143,7 +144,9 @@
         "chapters_layout_mobile": "تخطيط الفصول على الهاتف",
         "delete_automatically": "الحذف تلقائيا بعد",
         "enable_dearrow": "تمكين دي ارو",
-        "generate_qrcode": "إنشاء رمز الاستجابة السريعة"
+        "generate_qrcode": "إنشاء رمز الاستجابة السريعة",
+        "import_from_json_csv": "استيراد من JSON/CSV",
+        "download_frame": "إطار التحميل"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",

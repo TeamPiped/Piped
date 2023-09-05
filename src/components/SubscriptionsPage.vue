@@ -1,10 +1,26 @@
 <template>
-    <div class="flex justify-between w-full">
-        <div class="flex">
-            <button class="btn mr-2">
-                <router-link to="/import" v-t="'actions.import_from_json'" />
-            </button>
-            <button v-t="'actions.export_to_json'" class="btn" @click="exportHandler" />
+    <!-- import / export section -->
+    <div class="w-full flex justify-between">
+        <div class="flex gap-2">
+            <router-link v-t="'actions.import_from_json_csv'" to="/import" role="button" />
+            <button v-t="'actions.export_to_json'" @click="exportHandler" />
+            <input
+                id="fileSelector"
+                ref="fileSelector"
+                type="file"
+                class="display-none"
+                multiple="multiple"
+                @change="importGroupsHandler"
+            />
+            <label
+                for="fileSelector"
+                role="button"
+                v-text="`${$t('actions.import_from_json')} (${$t('titles.channel_groups')})`"
+            />
+            <button
+                @click="exportGroupsHandler"
+                v-text="`${$t('actions.export_to_json')} (${$t('titles.channel_groups')})`"
+            />
         </div>
         <i18n-t keypath="subscriptions.subscribed_channels_count">{{ subscriptions.length }}</i18n-t>
     </div>
@@ -13,7 +29,7 @@
         <button
             v-for="group in channelGroups"
             :key="group.groupName"
-            class="btn mx-1 w-max"
+            class="mx-1 w-max"
             :class="{ selected: selectedGroup === group }"
             @click="selectGroup(group)"
         >
@@ -238,6 +254,24 @@ export default {
                 ? this.selectedGroup.channels.filter(channel => channel != channelId)
                 : this.selectedGroup.channels.concat(channelId);
             this.createOrUpdateChannelGroup(this.selectedGroup);
+        },
+        async importGroupsHandler() {
+            const files = this.$refs.fileSelector.files;
+            for (let file of files) {
+                const groups = JSON.parse(await file.text()).groups;
+                for (let group of groups) {
+                    this.createOrUpdateChannelGroup(group);
+                    this.channelGroups.push(group);
+                }
+            }
+        },
+        exportGroupsHandler() {
+            const json = {
+                format: "Piped",
+                version: 1,
+                groups: this.channelGroups.slice(1),
+            };
+            this.download(JSON.stringify(json), "channel_groups.json", "application/json");
         },
     },
 };
