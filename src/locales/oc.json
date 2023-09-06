@@ -18,7 +18,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Agachar sus {0}"
+        "watch_on": "Agachar sus {0}",
+        "failed": "Fracàs amb lo còdi d’error {0}, consultat los jornals d’audit per mai d’informacions"
     },
     "actions": {
         "subscribe": "S’abonar - {count}",
@@ -142,7 +143,10 @@
         "show_search_suggestions": "Mostrar las suggestions de recèrcas",
         "chapters_layout_mobile": "Disposicion capítols sus mobil",
         "enable_dearrow": "Activar DeArrow",
-        "import_from_json_csv": "Importar d’un JSON/CSV"
+        "import_from_json_csv": "Importar d’un JSON/CSV",
+        "delete_automatically": "Suprimir automaticament aprèp",
+        "download_frame": "Telecargar fotograma",
+        "generate_qrcode": "Generar un còdi QR"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
@@ -155,7 +159,9 @@
     },
     "login": {
         "username": "Nom d’utilizaire",
-        "password": "Senhal"
+        "password": "Senhal",
+        "password_confirm": "Confirmar lo senhal",
+        "passwords_incorrect": "Los senhals correspondon pas !"
     },
     "video": {
         "views": "{views} visualizacions",
