@@ -20,6 +20,10 @@
             <font-awesome-icon :icon="['fa', 'donate']" />
             <span v-t="'actions.instance_donations'" class="ml-2" />
         </a>
+        <a v-if="privacyPolicyHref" :href="privacyPolicyHref" target="_blank">
+            <font-awesome-icon :icon="['fa', 'eye']" />
+            <span v-t="'actions.instance_privacy_policy'" class="ml-2" />
+        </a>
     </footer>
 </template>
 
@@ -29,6 +33,7 @@ export default {
         return {
             donationHref: null,
             statusPageHref: null,
+            privacyPolicyHref: null,
         };
     },
     mounted() {
@@ -39,6 +44,7 @@ export default {
             this.fetchJson(this.apiUrl() + "/config").then(config => {
                 this.donationHref = config?.donationUrl;
                 this.statusPageHref = config?.statusPageUrl;
+                this.privacyPolicyHref = config?.privacyPolicyUrl;
             });
         },
     },
