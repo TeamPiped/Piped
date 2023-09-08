@@ -142,7 +142,8 @@
         "delete_automatically": "Automaticky odstranit po",
         "generate_qrcode": "Vygenerovat QR kód",
         "import_from_json_csv": "Importovat z JSON/CSV",
-        "download_frame": "Stáhnout snímek"
+        "download_frame": "Stáhnout snímek",
+        "instance_privacy_policy": "Ochrana údajů"
     },
     "player": {
         "watch_on": "Sledovat na {0}",
