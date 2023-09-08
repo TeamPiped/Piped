@@ -124,7 +124,8 @@
         "enable_dearrow": "DeArrow'u Etkinleştir",
         "generate_qrcode": "QR Kodu Oluştur",
         "import_from_json_csv": "JSON/CSV Dosyasından İçe Aktar",
-        "download_frame": "Kareyi indir"
+        "download_frame": "Kareyi indir",
+        "instance_privacy_policy": "Gizlilik Politikası"
     },
     "player": {
         "watch_on": "{0} Üzerinde İzle",
