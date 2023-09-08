@@ -128,8 +128,8 @@ devDependencies:
     specifier: 1.8.1
     version: 1.8.1(eslint@8.48.0)(vite@4.4.9)
   vite-plugin-pwa:
-    specifier: 0.16.4
-    version: 0.16.4(vite@4.4.9)(workbox-build@7.0.0)(workbox-window@7.0.0)
+    specifier: 0.16.5
+    version: 0.16.5(vite@4.4.9)(workbox-build@7.0.0)(workbox-window@7.0.0)
   workbox-window:
     specifier: 7.0.0
     version: 7.0.0
@@ -4995,8 +4995,8 @@ packages:
       vite: 4.4.9(lightningcss@1.21.7)(terser@5.19.3)
     dev: true
 
-  /vite-plugin-pwa@0.16.4(vite@4.4.9)(workbox-build@7.0.0)(workbox-window@7.0.0):
-    resolution: {integrity: sha512-lmwHFIs9zI2H9bXJld/zVTbCqCQHZ9WrpyDMqosICDV0FVnCJwniX1NMDB79HGTIZzOQkY4gSZaVTJTw6maz/Q==}
+  /vite-plugin-pwa@0.16.5(vite@4.4.9)(workbox-build@7.0.0)(workbox-window@7.0.0):
+    resolution: {integrity: sha512-Ahol4dwhMP2UHPQXkllSlXbihOaDFnvBIDPmAxoSZ1EObBUJGP4CMRyCyAVkIHjd6/H+//vH0DM2ON+XxHr81g==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       vite: ^3.1.0 || ^4.0.0
