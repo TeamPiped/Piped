@@ -132,6 +132,7 @@
         "status_page": "Status",
         "source_code": "Source code",
         "instance_donations": "Instance donations",
+        "instance_privacy_policy": "Privacy Policy",
         "reply_count": "{count} replies",
         "no_valid_playlists": "The file doesn't contain valid playlists!",
         "with_playlist": "Share with playlist",
