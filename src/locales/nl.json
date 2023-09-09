@@ -124,7 +124,8 @@
         "chapters_layout_mobile": "Mobiele lay-out voor hoofdstukken",
         "auto_display_captions": "Ondertiteling automatisch tonen",
         "import_from_json_csv": "Importeren uit JSON/CSV",
-        "download_frame": "Beeld downloaden"
+        "download_frame": "Beeld downloaden",
+        "instance_privacy_policy": "Privacybeleid"
     },
     "titles": {
         "register": "Registreren",
