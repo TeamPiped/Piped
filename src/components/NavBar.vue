@@ -121,13 +121,13 @@
 
 <style>
 .pp-nav {
-    margin-bottom: 15rem;
     gap: 15rem;
 }
 .pp-nav > .pp-logo > a {
     font-size: 25rem;
     font-family: "nunito";
     background: transparent;
+    margin-left: 5rem;
 }
 .pp-nav > div input {
     margin: 0 !important;

@@ -1,4 +1,5 @@
 <template>
+    <hr />
     <div>
         <form style="display: grid; gap: 15rem">
             <div>
@@ -11,9 +12,7 @@
                 <input v-model="override" id="import-override" type="checkbox" />
                 <label for="import-override">Override</label>
             </div>
-            <div>
-                <a class="btn w-auto" @click="handleImport">Import</a>
-            </div>
+            <a class="btn w-auto" @click="handleImport" role="button" style="margin: 0">Import</a>
         </form>
         <br />
         <strong>Importing Subscriptions from YouTube</strong>

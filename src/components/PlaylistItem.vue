@@ -1,30 +1,36 @@
 <template>
-    <div class="flex flex-col flex-justify-between">
+    <div class="video-card flex flex-col flex-justify-between efy_shadow_trans">
         <router-link :to="props.item.url">
             <div class="relative">
-                <img class="w-full" :src="props.item.thumbnail" loading="lazy" />
+                <img class="thumbnail" :src="props.item.thumbnail" loading="lazy" />
             </div>
             <p>
-                <span v-text="props.item.name" />
+                <span v-text="props.item.name" class="pp-video-card-title" />
                 <font-awesome-icon v-if="props.item.verified" class="ml-1.5" icon="check" />
             </p>
         </router-link>
         <p v-if="props.item.description" v-text="props.item.description" />
 
-        <router-link v-if="props.item.uploaderUrl" class="link" :to="props.item.uploaderUrl">
-            <p>
-                <span v-text="props.item.uploaderName" />
-                <font-awesome-icon v-if="props.item.uploaderVerified" class="ml-1.5" icon="check" />
-            </p>
-        </router-link>
-        <a v-else-if="props.item.uploaderName" class="link" v-text="props.item.uploaderName" />
-
-        <template v-if="props.item.videos >= 0">
-            <br v-if="props.item.uploaderName" />
-            <strong v-text="`${props.item.videos} ${$t('video.videos')}`" />
-        </template>
-
-        <br />
+        <div class="pp-video-card-buttons">
+            <button
+                v-if="props.item.videos >= 0"
+                v-text="`${props.item.videos} ${$t('video.videos')}`"
+                class="efy_shadow_trans efy_shadow_button_off efy_button_text_off"
+            />
+            <router-link
+                v-if="props.item.uploaderUrl && item.uploaderName"
+                :to="props.item.uploaderUrl"
+                :title="props.item.uploaderName"
+                class="pp-video-card-channel"
+                style="padding: 0; flex-grow: 1; background: transparent; border: 0"
+            >
+                <div class="pp-text efy_shadow_trans efy_shadow_button_off flex-grow-1">
+                    <span v-text="props.item.uploaderName" style="max-width: 106rem" />
+                    <font-awesome-icon class="ml-1.5" v-if="item.uploaderVerified" icon="check" />
+                </div>
+            </router-link>
+            <a v-else-if="props.item.uploaderName" class="pp-video-card-channel" v-text="props.item.uploaderName" />
+        </div>
     </div>
 </template>
 

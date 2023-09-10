@@ -10,7 +10,7 @@
         />
     </div>
 
-    <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full">
+    <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full mt-[15rem]">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
         <Transition>
             <ToastComponent v-if="shouldShowToast" @dismissed="dismiss">

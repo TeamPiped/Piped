@@ -1,13 +1,20 @@
 <template>
-    <h1 class="my-2 text-center" v-text="$route.query.search_query" />
-
-    <label for="ddlSearchFilters" class="mr-2">
-        <strong v-text="`${$t('actions.filter')}:`" />
-    </label>
-    <select id="ddlSearchFilters" v-model="selectedFilter" default="all" class="select w-auto" @change="updateFilter()">
-        <option v-for="filter in availableFilters" :key="filter" v-t="`search.${filter}`" :value="filter" />
-    </select>
-
+    <hr />
+    <div class="flex flex-wrap place-content-between items-center">
+        <h5 class="ml-[5rem]" v-text="$route.query.search_query" />
+        <div class="flex items-center" style="gap: var(--efy_gap0)">
+            <label v-text="`${$t('actions.filter')}:`" for="ddlSearchFilters" />
+            <select
+                id="ddlSearchFilters"
+                v-model="selectedFilter"
+                default="all"
+                class="w-auto; m-0"
+                @change="updateFilter()"
+            >
+                <option v-for="filter in availableFilters" :key="filter" v-t="`search.${filter}`" :value="filter" />
+            </select>
+        </div>
+    </div>
     <hr />
 
     <div v-if="results && results.corrected">

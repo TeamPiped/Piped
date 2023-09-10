@@ -1,7 +1,11 @@
 <template>
+    <hr />
     <!-- import / export section -->
-    <div class="w-full flex justify-between">
-        <div class="flex gap-2">
+    <div class="flex justify-between flex-wrap m0c">
+        <div efy_card class="w-auto!" style="padding: var(--efy_padding)">
+            <i18n-t keypath="titles.subscriptions" efy_card />{{ ": " + subscriptions.length }}
+        </div>
+        <div class="m0c flex flex-wrap">
             <router-link v-t="'actions.import_from_json_csv'" to="/import" role="button" />
             <button v-t="'actions.export_to_json'" @click="exportHandler" />
             <input
@@ -16,26 +20,28 @@
                 for="fileSelector"
                 role="button"
                 v-text="`${$t('actions.import_from_json')} (${$t('titles.channel_groups')})`"
+                class="font-bold"
             />
             <button
                 @click="exportGroupsHandler"
                 v-text="`${$t('actions.export_to_json')} (${$t('titles.channel_groups')})`"
             />
         </div>
-        <i18n-t keypath="subscriptions.subscribed_channels_count">{{ subscriptions.length }}</i18n-t>
     </div>
     <hr />
-    <div class="w-full flex flex-wrap">
+    <div class="m0c w-full flex flex-wrap">
         <button
             v-for="group in channelGroups"
             :key="group.groupName"
-            class="mx-1 w-max"
+            class="flex gap-[10rem] items-center"
             :class="{ selected: selectedGroup === group }"
             @click="selectGroup(group)"
         >
             <span v-text="group.groupName !== '' ? group.groupName : $t('video.all')" />
-            <div v-if="group.groupName != '' && selectedGroup == group">
+            <div v-if="group.groupName != '' && selectedGroup == group" class="flex flex-wrap gap-[10rem] items-center">
+                <div>|</div>
                 <font-awesome-icon class="mx-2" icon="edit" @click="showEditGroupModal = true" />
+                <div>|</div>
                 <font-awesome-icon class="mx-2" icon="circle-minus" @click="deleteGroup(group)" />
             </div>
         </button>
@@ -43,7 +49,6 @@
             <font-awesome-icon icon="circle-plus" @click="showCreateGroupModal = true" />
         </button>
     </div>
-    <br />
     <hr />
     <!-- Subscriptions card list -->
     <div class="pp-subs-cards">
@@ -61,7 +66,6 @@
             />
         </div>
     </div>
-    <br />
 
     <ModalComponent v-if="showCreateGroupModal" @close="showCreateGroupModal = !showCreateGroupModal">
         <h2 v-t="'actions.create_group'" />
@@ -101,6 +105,9 @@
 }
 .pp-subs-card :is(a, span) {
     -webkit-text-fill-color: var(--efy_text) !important;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .pp-subs-card button {
     margin-bottom: 0;
@@ -108,6 +115,12 @@
 }
 .selected {
     border: 0.1rem outset red;
+}
+.m0c {
+    gap: var(--efy_gap0);
+}
+.m0c :is(button, [role="button"]) {
+    margin: 0;
 }
 </style>
 

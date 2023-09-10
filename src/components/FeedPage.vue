@@ -1,6 +1,6 @@
 <template>
     <hr />
-    <div class="flex flex-wrap align-center" style="place-content: space-between">
+    <div class="flex flex-wrap align-center" style="place-content: space-between; gap: var(--efy_gap0)">
         <span class="buttons flex" style="gap: var(--efy_gap0)">
             <router-link role="button" to="/subscriptions">Subscriptions</router-link>
             <a :href="getRssUrl" role="button" class="pp-square">

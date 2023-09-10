@@ -1,9 +1,18 @@
 <template>
     <hr />
-    <div class="flex justify-between">
-        <button v-t="'actions.create_playlist'" class="btn mr-2" @click="onCreatePlaylist" />
-        <div class="flex">
-            <button v-if="playlists.length > 0" v-t="'actions.export_to_json'" @click="exportPlaylists" />
+    <div class="flex justify-between items-center">
+        <button
+            v-t="'actions.create_playlist'"
+            style="height: var(--efy_ratio_width); margin: 0"
+            @click="onCreatePlaylist"
+        />
+        <div class="flex flex-wrap" style="gap: var(--efy_gap0)">
+            <button
+                v-if="playlists.length > 0"
+                v-t="'actions.export_to_json'"
+                @click="exportPlaylists"
+                style="height: var(--efy_ratio_width); margin: 0"
+            />
             <input
                 id="fileSelector"
                 ref="fileSelector"
@@ -12,14 +21,15 @@
                 multiple="multiple"
                 @change="importPlaylists"
             />
-            <label v-t="'actions.import_from_json_csv'" for="fileSelector" class="btn ml-2" role="button" />
+            <label v-t="'actions.import_from_json_csv'" for="fileSelector" class="m-0! font-bold" role="button" />
         </div>
     </div>
+    <hr />
 
     <div class="video-grid">
-        <div v-for="playlist in playlists" :key="playlist.id" class="efy_trans_filter">
+        <div v-for="playlist in playlists" :key="playlist.id" class="video-card efy_trans_filter">
             <router-link :to="`/playlist?list=${playlist.id}`">
-                <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
+                <img class="thumbnail" :src="playlist.thumbnail" alt="thumbnail" />
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin: 0 15rem"
                     class="flex link"
@@ -68,32 +78,32 @@
     </div>
     <hr />
 
-    <h2 v-t="'titles.bookmarks'" class="my-4 font-bold" />
-
+    <h5 v-if="bookmarks" v-t="'titles.bookmarks'" class="mb-[15rem]" />
     <div v-if="bookmarks" class="video-grid">
-        <router-link
+        <div
             v-for="(playlist, index) in bookmarks"
             :key="playlist.playlistId"
-            :to="`/playlist?list=${playlist.playlistId}`"
+            class="pp-bookmark video-card efy_trans_filter"
         >
-            <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
-            <div class="relative text-sm">
-                <span class="thumbnail-overlay thumbnail-right" v-text="`${playlist.videos} ${$t('video.videos')}`" />
-                <div class="absolute bottom-100px right-5px z-100 px-5px" @click.prevent="removeBookmark(index)">
-                    <font-awesome-icon class="ml-3" icon="bookmark" />
+            <router-link :to="`/playlist?list=${playlist.playlistId}`">
+                <img class="thumbnail" :src="playlist.thumbnail" alt="thumbnail" />
+                <div class="flex items-center h-[44rem] overflow-hidden">
+                    <p class="pp-video-card-title" :title="playlist.name" v-text="playlist.name" />
                 </div>
+            </router-link>
+            <div class="pp-video-card-buttons flex gap-15rem">
+                <button @click.prevent="removeBookmark(index)">
+                    <font-awesome-icon class="ml-3" icon="bookmark" />
+                </button>
+                <button v-text="`${playlist.videos} ${$t('video.videos')}`" class="thumbnail-overlay" />
             </div>
-            <p
-                style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin: 0 0 0 10rem"
-                class="link my-2 flex overflow-hidden"
-                :title="playlist.name"
-                v-text="playlist.name"
-            />
-            <a :href="playlist.uploaderUrl" class="flex items-center">
-                <img class="h-32px w-32px rounded-full" :src="playlist.uploaderAvatar" />
-                <span class="ml-3 hover:underline" v-text="playlist.uploader" />
+            <a :href="playlist.uploaderUrl" class="pp-video-card-channel">
+                <img class="w-36rem h-36rem efy_shadow_trans" :src="playlist.uploaderAvatar" width="36" height="36" />
+                <div class="pp-text efy_shadow_trans efy_shadow_button_off">
+                    <span v-text="playlist.uploader" />
+                </div>
             </a>
-        </router-link>
+        </div>
     </div>
 </template>
 

@@ -11,8 +11,17 @@
             ref="previewContainer"
             class="absolute bottom-0 z-[2000] mb-[3.5%] hidden flex-col items-center"
         >
-            <canvas id="preview" ref="preview" class="rounded-sm" />
-            <span class="mt-2 w-min rounded-xl bg-dark-700 px-2 pb-1 pt-1.5 text-sm" v-text="timeFormat(currentTime)" />
+            <canvas id="preview" ref="preview" style="border-radius: var(--efy_radius0)" />
+            <span
+                class="w-min"
+                style="
+                    border-radius: var(--efy_radius0);
+                    background: var(--efy_text2);
+                    color: var(--efy_text);
+                    padding: 3rem 6rem;
+                "
+                v-text="timeFormat(currentTime)"
+            />
         </span>
         <button
             v-if="inSegment"

@@ -1,18 +1,22 @@
 <template>
-    <div>
-        <NavBar />
-
+    <NavBar />
+    <div class="flex-1">
         <router-view v-slot="{ Component }">
             <keep-alive :max="5">
                 <component :is="Component" :key="$route.fullPath" />
             </keep-alive>
         </router-view>
-
-        <FooterComponent />
     </div>
+    <FooterComponent />
 </template>
 
 <style>
+#app {
+    min-height: calc(var(--efy_100vh) - var(--efy_gap2));
+    display: flex;
+    flex-direction: column;
+}
+
 /*Radius*/
 input,
 .btn,
@@ -32,8 +36,7 @@ video {
     border-radius: var(--efy_radius) !important;
 }
 
-/*Radius 0*/
-.video-grid img {
+.video-card .thumbnail {
     border-radius: var(--efy_radius) var(--efy_radius) 0 0;
 }
 
@@ -61,14 +64,15 @@ video {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    margin: 0 0 5rem 0;
+    padding: 0 10rem 5rem 10rem;
     line-height: 22rem;
+    overflow: hidden;
 }
 .pp-video-card-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: var(--efy_gap0);
-    margin: 5rem 15rem 15rem 15rem;
+    margin: 5rem 10rem 10rem 10rem;
 }
 .pp-video-card-buttons :is(a, button) {
     padding: 4rem 8rem;
@@ -113,7 +117,7 @@ video {
     gap: var(--efy_gap0);
     place-items: center;
     background: transparent;
-    margin: var(--efy_gap0) 0 0;
+    margin: var(--efy_gap0) 0 var(--efy_gap0) var(--efy_gap0);
     width: fit-content;
 }
 .pp-video-card-channel > a {

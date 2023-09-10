@@ -1,10 +1,10 @@
 <template>
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
-    <div v-if="channel" v-show="!channel.error">
+    <div v-if="channel" v-show="!channel.error" class="mt-[15rem]">
         <LoadingIndicatorPage :show-content="channel != null && !channel.error">
-            <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full pb-1.5" loading="lazy" />
+            <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full efy_shadow_trans" loading="lazy" />
             <div class="pp-channel-page-author flex">
-                <img height="48" width="48" class="m-1" :src="channel.avatarUrl" />
+                <img height="48" width="48" class="efy_shadow_trans" :src="channel.avatarUrl" />
                 <h5 v-text="channel.name" />
                 <font-awesome-icon v-if="channel.verified" class="ml-1.5" icon="check" />
             </div>
@@ -71,6 +71,7 @@
 }
 .pp-channel-tabs :is(button, [role="button"]) {
     margin: 0;
+    border: 0;
 }
 </style>
 

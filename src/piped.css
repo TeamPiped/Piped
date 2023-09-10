@@ -7,7 +7,7 @@
     --efy_gap: 15rem;
     --efy_sidebar_button: right_middle, off;
     --efy_body_width: 100%;
-     --efy_body_padding: 15rem calc(15rem + var(--efy_gap));
+     --efy_body_padding: 15rem;
     --efy_font_family: 'nunito', sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     --efy_audio_folder: ./efy/audio;
     --efy_folder: ./efy;
@@ -44,8 +44,6 @@
 /*Avatar*/ .comment-avatar, .pp-import-channel img {width: 40rem; height:  40rem}
 
 /*Video Grid */ .video-grid {display: grid; gap: var(--efy_gap); grid-template-columns: repeat(auto-fill, minmax(240rem, 1fr))}
-
-tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 0 0 1.5px var(--efy_bg1)}
 
 /*Bellow*/ .pp-watch-bellow-options {margin-top: 15rem}
 .pp-watch-buttons {flex-wrap: wrap; gap: var(--efy_gap0)}
@@ -95,13 +93,6 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 /*Preferences*/ .pp-pref-cards {display: grid; grid-template-columns: repeat(auto-fit, minmax(300rem, 1fr))}
 table {margin-top: 0}
 
-/*Chapters*/ .pp-chapters {margin-left: var(--efy_gap); max-width: 400rem; gap: var(--efy_gap0); border-radius: var(--efy_radius)}
-.pp-chapters .chapter {padding: 10rem; border-radius: var(--efy_radius); border: var(--efy_border)}
-.pp-chapters [title=chapters] {padding: 5rem 10rem; border-radius: var(--efy_radius); border: var(--efy_border)}
-.pp-chapters .chapter .flex {gap: 0 15rem}
-
- .pp-chapters.pp-mobile {margin: 15rem 0 0 0; max-width: 100%}
-
 /*Modal*/ .modal {backdrop-filter: blur(5px)}
 .modal-container {background: var(--efy_text2)!important; padding: 15rem!important; box-shadow: 0 0 1px var(--efy_text_trans)}
 .modal-container button + button {margin-left: 10rem}
@@ -115,7 +106,7 @@ table {margin-top: 0}
 
 /*Other*/ .pp-show-recs, .pp-show-playlist, .pp-show-playlist {display: grid; gap: var(--efy_gap)}
 .pp-show-playlist {margin-bottom: 15rem}
-:is(.video-grid, .pp-show-recs, .pp-show-playlist) div {padding: 15rem; background: var(--efy_bg1); border: var(--efy_border)}
+:is(.video-grid, .pp-show-recs, .pp-show-playlist) div {background: var(--efy_bg1); border: var(--efy_border)}
 :is(.video-grid, .pp-show-recs, .pp-show-playlist) div div {padding: 0; border: none; background: transparent}
 
 .video-grid > div {
@@ -160,6 +151,10 @@ table {margin-top: 0}
     padding: 4rem 10rem;
     font-weight: normal;
 }
+.thumbnail[src*="/?host=i.ytimg.com"] {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
 
 /*Convergence*/
 /*Desktop*/
@@ -172,7 +167,6 @@ table {margin-top: 0}
 @media (max-width: 767.9px) {
     .pp-rec-vids {grid-template-columns: 1fr 1fr}
     .\<md\:hidden {display: none}
-    .md\:hidden {margin-bottom: 16rem}
 }
 @media (max-width: 639px) {
     .pp-rec-vids {grid-template-columns: 1fr}

@@ -1,7 +1,7 @@
 <template>
     <div class="toast">
         <slot />
-        <button v-t="'actions.dismiss'" @click="dismiss" />
+        <button v-t="'actions.dismiss'" @click="dismiss" class="m-0 mt-[10rem]" />
     </div>
 </template>
 
@@ -18,12 +18,11 @@ export default {
 
 <style>
 .toast {
-    @apply bg-white/80 text-black flex flex-col justify-center fixed top-12 right-12 p-4 min-w-max shadow rounded duration-200 z-9999;
-}
-.dark .toast {
-    @apply bg-dark-900/80 text-white;
-}
-.toast button {
-    @apply underline;
+    @apply flex flex-col justify-center fixed top-[15rem] right-[15rem] min-w-max z-9999;
+    background: var(--efy_text2);
+    color: var(--efy_text);
+    padding: 15rem;
+    border-radius: var(--efy_radius);
+    border: var(--efy_border);
 }
 </style>

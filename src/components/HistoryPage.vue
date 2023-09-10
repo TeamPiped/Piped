@@ -1,30 +1,34 @@
 <template>
-    <div class="flex place-items-center">
-        <div class="flex flex-col gap-2 md:flex-row md:items-center">
-            <button v-t="'actions.clear_history'" class="btn" @click="clearHistory" />
-
-            <button v-t="'actions.export_to_json'" class="btn" @click="exportHistory" />
-
-            <div class="ml-auto flex items-center gap-1">
-                <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" />
-            </div>
+    <hr />
+    <div class="flex flex-wrap items-center place-content-between" style="gap: var(--efy_gap0)">
+        <div class="flex" style="gap: var(--efy_gap0)">
+            <button v-t="'actions.clear_history'" class="m-0" @click="clearHistory" />
+            <button v-t="'actions.export_to_json'" class="m-0" @click="exportHistory" />
         </div>
 
-        <div class="ml-4 flex items-center">
-            <input id="autoDelete" v-model="autoDeleteHistory" type="checkbox" @change="onChange" />
-            <label v-t="'actions.delete_automatically'" class="ml-2" for="autoDelete" />
-            <select v-model="autoDeleteDelayHours" class="select ml-3 pl-3" @change="onChange">
-                <option v-t="{ path: 'info.hours', args: { amount: '1' } }" value="1" />
-                <option v-t="{ path: 'info.hours', args: { amount: '3' } }" value="3" />
-                <option v-t="{ path: 'info.hours', args: { amount: '6' } }" value="6" />
-                <option v-t="{ path: 'info.hours', args: { amount: '12' } }" value="12" />
-                <option v-t="{ path: 'info.days', args: { amount: '1' } }" value="24" />
-                <option v-t="{ path: 'info.days', args: { amount: '3' } }" value="72" />
-                <option v-t="{ path: 'info.weeks', args: { amount: '1' } }" value="168" />
-                <option v-t="{ path: 'info.weeks', args: { amount: '3' } }" value="336" />
-                <option v-t="{ path: 'info.months', args: { amount: '1' } }" value="672" />
-                <option v-t="{ path: 'info.months', args: { amount: '2' } }" value="1344" />
-            </select>
+        <div class="flex flex-wrap items-center" style="gap: var(--efy_gap0)">
+            <div efy_select class="flex flex-wrap" style="gap: var(--efy_gap0)">
+                <input id="autoDelete" v-model="autoDeleteHistory" type="checkbox" @change="onChange" />
+                <label v-t="'actions.delete_automatically'" style="margin: 0" for="autoDelete" />
+                <select
+                    v-model="autoDeleteDelayHours"
+                    class="w-auto"
+                    style="margin: 0 var(--efy_gap0) 0 0"
+                    @change="onChange"
+                >
+                    <option v-t="{ path: 'info.hours', args: { amount: '1' } }" value="1" />
+                    <option v-t="{ path: 'info.hours', args: { amount: '3' } }" value="3" />
+                    <option v-t="{ path: 'info.hours', args: { amount: '6' } }" value="6" />
+                    <option v-t="{ path: 'info.hours', args: { amount: '12' } }" value="12" />
+                    <option v-t="{ path: 'info.days', args: { amount: '1' } }" value="24" />
+                    <option v-t="{ path: 'info.days', args: { amount: '3' } }" value="72" />
+                    <option v-t="{ path: 'info.weeks', args: { amount: '1' } }" value="168" />
+                    <option v-t="{ path: 'info.weeks', args: { amount: '3' } }" value="336" />
+                    <option v-t="{ path: 'info.months', args: { amount: '1' } }" value="672" />
+                    <option v-t="{ path: 'info.months', args: { amount: '2' } }" value="1344" />
+                </select>
+            </div>
+            <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" style="gap: 0" />
         </div>
     </div>
 
@@ -33,8 +37,6 @@
     <div class="video-grid">
         <VideoItem v-for="video in videos" :key="video.url" :item="video" />
     </div>
-
-    <br />
 </template>
 
 <script>

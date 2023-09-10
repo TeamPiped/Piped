@@ -90,6 +90,6 @@ export default {
     background: var(--efy_text2);
     box-shadow: 0 0 20rem var(--efy_text_trans);
     padding: var(--efy_gap);
-    margin: calc(-12rem + var(--efy_gap)) 0 var(--efy_gap) 0;
+    margin: calc(40rem + var(--efy_gap)) 0 var(--efy_gap) 0;
 }
 </style>
