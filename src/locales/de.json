@@ -124,7 +124,8 @@
         "enable_dearrow": "DeArrow verwenden",
         "generate_qrcode": "QR-Code generieren",
         "import_from_json_csv": "Aus JSON/CSV importieren",
-        "download_frame": "Einzelbild (Frame) downloaden"
+        "download_frame": "Einzelbild (Frame) downloaden",
+        "instance_privacy_policy": "Datenschutzerklärung"
     },
     "player": {
         "watch_on": "Auf {0} ansehen",

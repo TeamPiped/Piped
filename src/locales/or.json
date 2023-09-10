@@ -18,7 +18,8 @@
         "dearrow": "ଡି ତୀର"
     },
     "player": {
-        "watch_on": "{0} ରେ ଦେଖନ୍ତୁ"
+        "watch_on": "{0} ରେ ଦେଖନ୍ତୁ",
+        "failed": "ତ୍ରୁଟି ସଂକେତ {0} ସହିତ ବିଫଳ, ଅଧିକ ସୂଚନା ପାଇଁ ଲଗଗୁଡ଼ିକୁ ଦେଖନ୍ତୁ"
     },
     "actions": {
         "subscribe": "ସଦସ୍ୟତା - {count}",
@@ -67,7 +68,7 @@
         "instances_list": "ଉଦାହରଣ ତାଲିକା",
         "instance_selection": "ଇନଷ୍ଟାନ୍ସ",
         "yes": "ହଁ",
-        "import_from_json": "JSON / CSV ରୁ ଆମଦାନୀ କରନ୍ତୁ",
+        "import_from_json": "JSON ରୁ ଆମଦାନୀ କରନ୍ତୁ",
         "no": "ନାହିଁ",
         "export_to_json": "JSON କୁ ରପ୍ତାନି କରନ୍ତୁ",
         "loop_this_video": "ଏହି ଭିଡିଓକୁ ଲୁପ୍ କରନ୍ତୁ",
@@ -143,7 +144,10 @@
         "chapters_layout_mobile": "ମୋବାଇଲରେ ଅଧ୍ୟାୟ ବିନ୍ୟାସ",
         "auto_display_captions": "ଶୀର୍ଷକଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଦର୍ଶାନ୍ତୁ",
         "playlist_description": "ପ୍ଲେଲିଷ୍ଟ ବର୍ଣ୍ଣନା",
-        "cancel": "ବାତିଲ କରନ୍ତୁ"
+        "cancel": "ବାତିଲ କରନ୍ତୁ",
+        "import_from_json_csv": "JSON/CSV ରୁ ଆମଦାନୀ କରନ୍ତୁ",
+        "download_frame": "ଫ୍ରେମକୁ ଆହରଣ କରନ୍ତୁ",
+        "instance_privacy_policy": "ଗୋପନୀୟତା ନୀତି"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",
