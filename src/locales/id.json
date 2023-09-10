@@ -146,7 +146,8 @@
         "enable_dearrow": "Aktifkan DeArrow",
         "generate_qrcode": "Buat Kode QR",
         "import_from_json_csv": "Impor dari JSON/CSV",
-        "download_frame": "Unduh bingkai"
+        "download_frame": "Unduh bingkai",
+        "instance_privacy_policy": "Kebijakan Privasi"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
