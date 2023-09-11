@@ -108,9 +108,9 @@
                         :playlist-index="index"
                         @close="showShareModal = !showShareModal"
                     />
-                    <button class="btn flex items-center" @click="showShareModal = !showShareModal">
+                    <button class="btn flex items-center share-btn" @click="showShareModal = !showShareModal">
                         <font-awesome-icon class="mx-1.5 mr-1" icon="fa-share" />
-                        <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
+                        <i18n-t keypath="actions.share" tag="strong"></i18n-t>
                     </button>
                     <!-- YouTube -->
                     <WatchOnButton :link="`https://youtu.be/${getVideoId()}`" />
@@ -707,9 +707,19 @@ export default {
     opacity: 0;
     transform: translateX(100%) scale(0.5);
 }
-
 .description a {
     text-decoration: underline;
     filter: brightness(0.75);
+}
+@media (width <= 768px) {
+    .share-btn {
+        aspect-ratio: 1;
+    }
+    .share-btn strong {
+        display: none;
+    }
+    .share-btn svg {
+        margin: 0;
+    }
 }
 </style>

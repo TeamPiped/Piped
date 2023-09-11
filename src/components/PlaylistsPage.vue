@@ -1,6 +1,6 @@
 <template>
     <hr />
-    <div class="flex justify-between items-center">
+    <div class="flex flex-wrap justify-between items-center" style="gap: var(--efy_gap0)">
         <button
             v-t="'actions.create_playlist'"
             style="height: var(--efy_ratio_width); margin: 0"
@@ -27,7 +27,7 @@
     <hr />
 
     <div class="video-grid">
-        <div v-for="playlist in playlists" :key="playlist.id" class="video-card efy_trans_filter">
+        <div v-for="playlist in playlists" :key="playlist.id" class="video-card efy_trans_filter efy_shadow_trans">
             <router-link :to="`/playlist?list=${playlist.id}`">
                 <img class="thumbnail" :src="playlist.thumbnail" alt="thumbnail" />
                 <p
@@ -38,7 +38,10 @@
                 />
             </router-link>
             <div class="pp-video-card-buttons flex gap-15rem children:m-0" style="flex-wrap: wrap">
-                <button v-text="`${playlist.videos} ${$t('video.videos')}`" class="thumbnail-overlay thumbnail-right" />
+                <button
+                    v-text="`${playlist.videos} ${$t('video.videos')}`"
+                    class="efy_shadow_trans efy_shadow_button_off efy_button_text_off"
+                />
                 <button
                     v-t="'actions.edit_playlist'"
                     class="pp-color h-auto"
@@ -76,14 +79,14 @@
             />
         </div>
     </div>
-    <hr />
 
+    <hr />
     <h5 v-if="bookmarks" v-t="'titles.bookmarks'" class="mb-[15rem]" />
     <div v-if="bookmarks" class="video-grid">
         <div
             v-for="(playlist, index) in bookmarks"
             :key="playlist.playlistId"
-            class="pp-bookmark video-card efy_trans_filter"
+            class="pp-bookmark video-card efy_trans_filter efy_shadow_trans"
         >
             <router-link :to="`/playlist?list=${playlist.playlistId}`">
                 <img class="thumbnail" :src="playlist.thumbnail" alt="thumbnail" />
@@ -92,14 +95,17 @@
                 </div>
             </router-link>
             <div class="pp-video-card-buttons flex gap-15rem">
-                <button @click.prevent="removeBookmark(index)">
-                    <font-awesome-icon class="ml-3" icon="bookmark" />
+                <button @click.prevent="removeBookmark(index)" class="btn pp-color aspect-square">
+                    <font-awesome-icon icon="bookmark" />
                 </button>
-                <button v-text="`${playlist.videos} ${$t('video.videos')}`" class="thumbnail-overlay" />
+                <button
+                    v-text="`${playlist.videos} ${$t('video.videos')}`"
+                    class="efy_shadow_trans efy_shadow_button_off efy_button_text_off"
+                />
             </div>
             <a :href="playlist.uploaderUrl" class="pp-video-card-channel">
                 <img class="w-36rem h-36rem efy_shadow_trans" :src="playlist.uploaderAvatar" width="36" height="36" />
-                <div class="pp-text efy_shadow_trans efy_shadow_button_off">
+                <div class="pp-text efy_shadow_trans">
                     <span v-text="playlist.uploader" />
                 </div>
             </a>

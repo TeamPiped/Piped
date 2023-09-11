@@ -1,5 +1,5 @@
 <template v-if="text">
-    <div class="mx-1 whitespace-pre-wrap py-2">
+    <div class="whitespace-pre-wrap">
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-if="showFullText" v-html="fullText()" />
         <!-- eslint-disable-next-line vue/no-v-html -->
@@ -7,10 +7,16 @@
         <span v-if="text.length > 100 && !showFullText">...</span>
         <button
             v-if="text.length > 100"
-            class="block whitespace-normal font-semibold text-neutral-500 hover:underline"
+            style="
+                margin: 0 0 0 10rem;
+                background: var(--efy_bg1);
+                -webkit-text-fill-color: var(--efy_text);
+                padding: 5rem 8reml;
+            "
+            class="efy_shadow_trans efy_shadow_button_off efy_button_text_off"
             @click="showFullText = !showFullText"
         >
-            [{{ showFullText ? $t("actions.show_less") : $t("actions.show_more") }}]
+            {{ showFullText ? $t("actions.show_less") : $t("actions.show_more") }}
         </button>
     </div>
 </template>

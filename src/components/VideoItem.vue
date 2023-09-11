@@ -20,11 +20,27 @@
                 loading="lazy"
             />
             <!-- progress bar -->
-            <div class="relative h-1 w-full">
+            <div
+                v-if="item.watched && item.duration > 0"
+                class="relative h-1 w-full"
+                style="
+                    height: 4rem;
+                    background: rgba(255, 255, 255, 0.067);
+                    bottom: 8px;
+                    border-radius: 0px;
+                    box-shadow: 0 -5rem 10rem #0005;
+                    backdrop-filter: blur(24px);
+                "
+            >
                 <div
-                    v-if="item.watched && item.duration > 0"
-                    class="absolute bottom-0 left-0 h-1 bg-red-600"
+                    class="absolute bottom-0 left-0"
                     :style="{ width: `clamp(0%, ${(item.currentTime / item.duration) * 100}%, 100%` }"
+                    style="
+                        height: 4rem;
+                        background: var(--efy_color);
+                        border-radius: 0 var(--efy_radius0) var(--efy_radius0) 0;
+                        box-shadow: 3rem 0 5rem #0005;
+                    "
                 />
             </div>
             <div class="flex items-center h-[44rem] overflow-hidden">
@@ -49,6 +65,7 @@
             </button>
             <router-link
                 class="btn efy_shadow_trans efy_shadow_button_off efy_button_text_off"
+                role="button"
                 :to="{
                     path: '/watch',
                     query: {
@@ -66,7 +83,7 @@
             <button
                 :title="$t('actions.add_to_playlist')"
                 @click="showModal = !showModal"
-                class="efy_shadow_trans efy_shadow_button_off efy_button_text_off"
+                class="btn efy_shadow_trans efy_shadow_button_off efy_button_text_off"
             >
                 <font-awesome-icon icon="circle-plus" />
             </button>
@@ -74,6 +91,7 @@
                 v-if="admin"
                 ref="removeButton"
                 :title="$t('actions.remove_from_playlist')"
+                class="efy_shadow_trans efy_shadow_button_off efy_button_text_off"
                 @click="showConfirmRemove = true"
             >
                 <font-awesome-icon icon="circle-minus" />

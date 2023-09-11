@@ -1,6 +1,6 @@
 <template>
     <ModalComponent>
-        <h4 v-t="'actions.share'" />
+        <h5 v-t="'actions.share'" />
         <div class="flex justify-between mt-2 mb-2">
             <label v-t="'actions.piped_link'" />
             <input v-model="pipedLink" type="checkbox" @change="onChange" />
@@ -15,13 +15,13 @@
         </div>
         <div v-if="withTimeCode" class="flex justify-between mt-2" style="align-items: center">
             <label v-t="'actions.time_code'" />
-            <input v-model="timeStamp" class="input w-12" type="text" @change="onChange" />
+            <input v-model="timeStamp" style="max-width: 100rem" type="number" @change="onChange" />
         </div>
         <a :href="generatedLink" target="_blank">
             <h6 class="mb-2 mt-2" v-text="generatedLink" />
         </a>
-        <QrCode v-if="showQrCode" :text="generatedLink" />
-        <div class="mt-4 flex justify-end">
+        <QrCode v-if="showQrCode" :text="generatedLink" class="mb-[10rem]" />
+        <div class="flex flex-wrap justify-end" style="gap: var(--efy_gap0)">
             <button v-t="'actions.generate_qrcode'" class="btn" @click="showQrCode = !showQrCode" />
             <button v-t="'actions.follow_link'" class="btn ml-3" @click="followLink()" />
             <button v-t="'actions.copy_link'" class="btn ml-3" @click="copyLink()" />

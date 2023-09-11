@@ -2,34 +2,52 @@
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
     <LoadingIndicatorPage v-show="!playlist?.error" :show-content="playlist">
-        <h5 class="mb-1 ml-1" v-text="playlist.name" />
+        <hr />
+        <h5 class="mb-[10rem]" v-text="playlist.name" />
 
         <CollapsableText v-if="playlist?.description" :text="playlist.description" />
+        <hr />
 
-        <div class="mt-1 flex items-center justify-between">
-            <div>
-                <router-link class="link" :to="playlist.uploaderUrl || '/'">
-                    <img :src="playlist.uploaderAvatar" loading="lazy" />
-                    <strong v-text="playlist.uploader" />
+        <div class="flex items-center justify-between">
+            <div class="pp-video-card-buttons m-0!">
+                <router-link
+                    :to="playlist.uploaderUrl || '/'"
+                    class="pp-video-card-channel p-0!"
+                    style="background: transparent; border: 0"
+                >
+                    <img
+                        v-if="playlist.uploaderAvatar"
+                        :src="playlist.uploaderAvatar"
+                        loading="lazy"
+                        width="36"
+                        height="36"
+                        class="w-36rem h-36rem efy_shadow_trans"
+                    />
+                    <button class="pp-text efy_shadow_trans efy_shadow_button_off efy_button_text_off">
+                        <span v-text="playlist.uploader" />
+                        <font-awesome-icon class="ml-1.5" v-if="playlist.uploaderVerified" icon="check" />
+                    </button>
                 </router-link>
+                <button
+                    v-text="`${playlist.videos} ${$t('video.videos')}`"
+                    class="efy_button_text_off efy_shadow_trans efy_shadow_button_off"
+                />
             </div>
-            <div>
-                <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
-                <br />
-                <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
-                    {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
-                    }}<font-awesome-icon class="ml-3" icon="bookmark" />
+            <div class="pp-flex-bookmarks">
+                <button v-if="!isPipedPlaylist" class="btn" @click="bookmarkPlaylist">
+                    <font-awesome-icon class="mr-[5rem]" icon="bookmark" />
+                    {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`) }}
                 </button>
                 <button v-if="authenticated && !isPipedPlaylist" class="btn mr-1 ml-2" @click="clonePlaylist">
-                    {{ $t("actions.clone_playlist") }}<font-awesome-icon class="ml-3" icon="clone" />
+                    <font-awesome-icon class="mr-[5rem]" icon="clone" />{{ $t("actions.clone_playlist") }}
                 </button>
                 <button class="btn mr-1" @click="downloadPlaylistAsTxt">
                     {{ $t("actions.download_as_txt") }}
                 </button>
-                <a class="btn" :href="getRssUrl">
+                <a :href="getRssUrl" role="button" class="btn pp-square">
                     <font-awesome-icon icon="rss" />
                 </a>
-                <WatchOnButton :link="`https://www.youtube.com/playlist?list=${$route.query.list}`" />
+                <WatchOnButton :link="`https://www.youtube.com/playlist?list=${$route.query.list}`" class="pp-square" />
             </div>
         </div>
 
@@ -50,6 +68,17 @@
         </div>
     </LoadingIndicatorPage>
 </template>
+
+<style>
+.pp-flex-bookmarks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--efy_gap0);
+}
+.pp-flex-bookmarks > * {
+    margin: 0;
+}
+</style>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";

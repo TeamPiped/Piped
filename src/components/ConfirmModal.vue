@@ -1,8 +1,9 @@
 <template>
     <ModalComponent @close="$emit('close')">
         <div>
-            <h3 class="text-xl" v-text="message" />
-            <div class="ml-auto mt-8 w-min flex gap-2">
+            <h5 v-text="message" />
+            <hr />
+            <div class="w-min flex" style="gap: var(--efy_gap0)">
                 <button v-t="'actions.cancel'" class="btn" @click="$emit('close')" />
                 <button v-t="'actions.okay'" class="btn" @click="$emit('confirm')" />
             </div>

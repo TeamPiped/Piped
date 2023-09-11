@@ -114,7 +114,6 @@
     width: 100%;
 }
 .selected {
-    border: 0.1rem outset red;
 }
 .m0c {
     gap: var(--efy_gap0);

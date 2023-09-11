@@ -4,12 +4,12 @@
         <select v-model="selectedPlaylist" class="select w-full mb-2">
             <option v-for="playlist in playlists" :key="playlist.id" :value="playlist.id" v-text="playlist.name" />
         </select>
-        <div class="flex justify-end">
-            <button ref="addButton" v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
+        <div class="flex justify-end" style="gap: var(--efy_gap0)">
+            <button ref="addButton" v-t="'actions.create_playlist'" class="btn pp-color" @click="onCreatePlaylist" />
             <button
                 ref="addButton"
                 v-t="'actions.add_to_playlist'"
-                class="btn"
+                class="btn pp-color"
                 @click="handleClick(selectedPlaylist)"
             />
         </div>

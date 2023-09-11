@@ -4,10 +4,9 @@
             <div class="relative">
                 <img class="thumbnail" :src="props.item.thumbnail" loading="lazy" />
             </div>
-            <p>
-                <span v-text="props.item.name" class="pp-video-card-title" />
-                <font-awesome-icon v-if="props.item.verified" class="ml-1.5" icon="check" />
-            </p>
+            <div class="flex items-center h-[44rem] overflow-hidden">
+                <p v-text="props.item.name" class="pp-video-card-title" />
+            </div>
         </router-link>
         <p v-if="props.item.description" v-text="props.item.description" />
 
@@ -29,7 +28,11 @@
                     <font-awesome-icon class="ml-1.5" v-if="item.uploaderVerified" icon="check" />
                 </div>
             </router-link>
-            <a v-else-if="props.item.uploaderName" class="pp-video-card-channel" v-text="props.item.uploaderName" />
+            <a
+                v-else-if="props.item.uploaderName"
+                class="pp-video-card-channel efy_shadow_trans"
+                v-text="props.item.uploaderName"
+            />
         </div>
     </div>
 </template>

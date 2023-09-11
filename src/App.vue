@@ -66,7 +66,9 @@ video {
     -webkit-box-orient: vertical;
     padding: 0 10rem 5rem 10rem;
     line-height: 22rem;
+    max-height: 43rem;
     overflow: hidden;
+    word-break: break-word;
 }
 .pp-video-card-buttons {
     display: flex;
@@ -89,6 +91,8 @@ video {
     -webkit-text-fill-color: var(--efy_text2);
     border: 0;
     padding: 6rem 10rem;
+}
+.pp-video-card-buttons :is(.pp-color, .btn, button) {
     height: 35rem;
 }
 .pp-video-card-channel > .pp-text {
@@ -119,6 +123,7 @@ video {
     background: transparent;
     margin: var(--efy_gap0) 0 var(--efy_gap0) var(--efy_gap0);
     width: fit-content;
+    border-radius: var(--efy_radius);
 }
 .pp-video-card-channel > a {
     height: 36rem;

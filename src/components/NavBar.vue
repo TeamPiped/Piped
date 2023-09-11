@@ -96,7 +96,7 @@
     </nav>
 
     <!-- search suggestions for mobile devices -->
-    <div class="w-{full - 4} md:hidden mx-2" style="position: relative">
+    <div class="w-{full - 4} md:hidden" style="position: relative">
         <input
             v-model="searchText"
             type="text"
@@ -107,6 +107,7 @@
             @keypress="onKeyPress"
             @focus="onInputFocus"
             @blur="onInputBlur"
+            style="margin: 15rem 0 0 0"
         />
         <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
     </div>
