@@ -29,7 +29,7 @@
                 <div class="comment-meta mb-1.5 text-sm" v-text="comment.commentedTime" />
             </div>
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <div class="whitespace-pre-wrap" v-html="purifiedText" />
+            <CollapsableText :text="comment.commentText" :visible-limit="500" />
             <div class="comment-footer mt-1 flex items-center">
                 <div class="i-fa6-solid:thumbs-up" />
                 <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
@@ -61,9 +61,10 @@
 </template>
 
 <script>
-import { purifyHTML } from "@/utils/HtmlUtils";
+import CollapsableText from "./CollapsableText.vue";
 
 export default {
+    components: { CollapsableText },
     props: {
         comment: {
             type: Object,
@@ -82,18 +83,12 @@ export default {
             nextpage: null,
         };
     },
-    computed: {
-        purifiedText() {
-            return purifyHTML(this.comment.commentText);
-        },
-    },
     methods: {
         async loadReplies() {
             if (!this.showingReplies && this.loadingReplies) {
                 this.showingReplies = true;
                 return;
             }
-
             this.loadingReplies = true;
             this.showingReplies = true;
             this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.videoId, {
