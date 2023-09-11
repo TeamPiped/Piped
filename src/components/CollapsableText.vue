@@ -4,9 +4,9 @@
         <span v-if="showFullText" v-html="fullText()" />
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-else v-html="colapsedText()" />
-        <span v-if="text.length > 100 && !showFullText">...</span>
+        <span v-if="text.length > visibleLimit && !showFullText">...</span>
         <button
-            v-if="text.length > 100"
+            v-if="text.length > visibleLimit"
             class="block whitespace-normal font-semibold text-neutral-500 hover:underline"
             @click="showFullText = !showFullText"
         >
@@ -24,6 +24,10 @@ export default {
             type: String,
             default: null,
         },
+        visibleLimit: {
+            type: Number,
+            default: 100,
+        },
     },
     data() {
         return {
@@ -35,7 +39,7 @@ export default {
             return purifyHTML(rewriteDescription(this.text));
         },
         colapsedText() {
-            return purifyHTML(rewriteDescription(this.text.slice(0, 100)));
+            return purifyHTML(rewriteDescription(this.text.slice(0, this.visibleLimit)));
         },
     },
 };
