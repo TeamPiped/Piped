@@ -594,6 +594,14 @@ export default {
 
                     const autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
                     this.$player.setTextTrackVisibility(autoDisplayCaptions);
+
+                    const prefSubtitles = this.getPreferenceString("subtitles", null);
+                    const textTracks = this.$player.getTextTracks();
+                    const subtitleIdx = textTracks.findIndex(textTrack => textTrack.language == prefSubtitles);
+                    if (subtitleIdx >= 0) {
+                        this.$player.setTextTrackVisibility(true);
+                        this.$player.selectTextTrack(textTracks[subtitleIdx]);
+                    }
                 })
                 .catch(e => {
                     console.error(e);
