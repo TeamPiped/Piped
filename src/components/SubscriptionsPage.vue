@@ -90,8 +90,11 @@
         </div>
         <div class="mb-2 mt-3 h-70 flex flex-col overflow-y-scroll">
             <div v-for="subscription in subscriptions" :key="subscription.name">
-                <div class="mr-3 flex justify-between">
-                    <span>{{ subscription.name }}</span>
+                <div class="mr-3 flex items-center justify-between">
+                    <a :href="subscription.url" target="_blank" class="flex items-center overflow-hidden">
+                        <img :src="subscription.avatar" class="h-8 w-8 rounded-full" />
+                        <span class="ml-2">{{ subscription.name }}</span>
+                    </a>
                     <input
                         type="checkbox"
                         class="checkbox"
