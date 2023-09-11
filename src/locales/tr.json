@@ -128,7 +128,7 @@
         "instance_privacy_policy": "Gizlilik Politikası"
     },
     "player": {
-        "watch_on": "{0} Üzerinde İzle",
+        "watch_on": "{0} üzerinde görüntüle",
         "failed": "{0} hata kodu ile başarısız oldu, daha fazla bilgi için günlüklere bakın"
     },
     "titles": {
