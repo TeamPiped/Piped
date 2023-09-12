@@ -18,7 +18,7 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "לצפות ב־{0}",
+        "watch_on": "הצגה ב־{0}",
         "failed": "חל כשל עם קוד שגיאה {0}, מידע נוסף ביומנים"
     },
     "actions": {

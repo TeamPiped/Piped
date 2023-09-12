@@ -18,7 +18,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "{0}で視聴"
+        "watch_on": "{0}で視聴",
+        "failed": "失敗しエラーコード {0} が返りました。詳細はログに記録"
     },
     "actions": {
         "subscribe": "チャンネル登録 - {count}",
@@ -144,7 +145,9 @@
         "delete_automatically": "指定時間後に自動削除",
         "enable_dearrow": "DeArrow を使用",
         "generate_qrcode": "QRコードの生成",
-        "import_from_json_csv": "JSON/CSVから読み込む"
+        "import_from_json_csv": "JSON/CSVから読み込む",
+        "download_frame": "この画像を保存",
+        "instance_privacy_policy": "個人情報保護方針"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
