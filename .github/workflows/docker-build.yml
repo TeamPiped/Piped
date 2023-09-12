@@ -23,7 +23,7 @@ jobs:
             - run: pnpm install
             - run: pnpm build && ./localizefonts.sh && mv dist/ dist-ci/
             - name: Set up QEMU
-              uses: docker/setup-qemu-action@v2
+              uses: docker/setup-qemu-action@v3
               with:
                   platforms: all
             - name: Set up Docker Buildx
