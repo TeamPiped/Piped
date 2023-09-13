@@ -146,7 +146,7 @@
         "instance_privacy_policy": "Ochrana údajů"
     },
     "player": {
-        "watch_on": "Sledovat na {0}",
+        "watch_on": "Zobrazit na {0}",
         "failed": "Akce se nezdařila. Chybový kód {0}, pro více informací viz protokol"
     },
     "comment": {
