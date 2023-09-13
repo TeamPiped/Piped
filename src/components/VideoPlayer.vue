@@ -595,17 +595,15 @@ export default {
                     const autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
                     this.$player.setTextTrackVisibility(autoDisplayCaptions);
 
-                    (() => {
-                        const prefSubtitles = this.getPreferenceString("subtitles", "");
-                        if (prefSubtitles === "") return;
-
+                    const prefSubtitles = this.getPreferenceString("subtitles", "");
+                    if (prefSubtitles !== "") {
                         const textTracks = this.$player.getTextTracks();
                         const subtitleIdx = textTracks.findIndex(textTrack => textTrack.language == prefSubtitles);
-                        if (subtitleIdx == -1) return;
-
-                        this.$player.setTextTrackVisibility(true);
-                        this.$player.selectTextTrack(textTracks[subtitleIdx]);
-                    })();
+                        if (subtitleIdx != -1) {
+                            this.$player.setTextTrackVisibility(true);
+                            this.$player.selectTextTrack(textTracks[subtitleIdx]);
+                        }
+                    }
                 })
                 .catch(e => {
                     console.error(e);
