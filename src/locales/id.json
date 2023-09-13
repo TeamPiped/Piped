@@ -18,7 +18,7 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Tonton di {0}",
+        "watch_on": "Lihat di {0}",
         "failed": "Gagal dengan kode kesalahan {0}, lihat catatan untuk info lebih lanjut"
     },
     "actions": {

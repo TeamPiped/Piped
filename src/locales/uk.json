@@ -1,6 +1,6 @@
 {
     "player": {
-        "watch_on": "Дивитися на {0}",
+        "watch_on": "Переглянути на {0}",
         "failed": "Помилка з кодом {0}, дивіться журнали для отримання додаткової інформації"
     },
     "login": {
@@ -134,7 +134,8 @@
         "delete_automatically": "Видаляти автоматично після",
         "generate_qrcode": "Згенерувати QR-код",
         "import_from_json_csv": "Імпортувати з JSON/CSV",
-        "download_frame": "Завантажити кадр"
+        "download_frame": "Завантажити кадр",
+        "instance_privacy_policy": "Політика конфіденційності"
     },
     "titles": {
         "register": "Реєстрація",
