@@ -537,10 +537,8 @@ export default {
                         player.selectAudioLanguage(lang);
                     }
 
-                    (() => {
-                        const audioLanguages = player.getAudioLanguages();
-                        if (audioLanguages.length == 1 && audioLanguages[0] == "und") return;
-
+                    const audioLanguages = player.getAudioLanguages();
+                    if (audioLanguages.length > 1) {
                         const overflowMenuButtons = this.$ui.getConfiguration().overflowMenuButtons;
                         // append language menu on index 1
                         const newOverflowMenuButtons = [
@@ -549,7 +547,7 @@ export default {
                             ...overflowMenuButtons.slice(1),
                         ];
                         this.$ui.configure("overflowMenuButtons", newOverflowMenuButtons);
-                    })();
+                    }
 
                     if (qualityConds) {
                         var leastDiff = Number.MAX_VALUE;
