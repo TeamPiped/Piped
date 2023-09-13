@@ -1,7 +1,7 @@
 <template>
-    <label for="ddlSortBy" v-t="'actions.sort_by'" class="mr-2" />
-    <select id="ddlSortBy" v-model="selectedSort" class="select w-auto m-0">
-        <option v-for="(value, key) in options" v-t="`actions.${key}`" :key="key" :value="value" />
+    <label v-t="'actions.sort_by'" for="ddlSortBy" class="m-0" />
+    <select id="ddlSortBy" v-model="selectedSort" class="w-auto m-0">
+        <option v-for="(value, key) in options" :key="key" v-t="`actions.${key}`" :value="value" />
     </select>
 </template>
 
@@ -18,7 +18,10 @@ const options = {
 const selectedSort = ref("descending");
 
 const props = defineProps({
-    byKey: String,
+    byKey: {
+        type: String,
+        required: true,
+    },
 });
 
 const emit = defineEmits(["apply"]);

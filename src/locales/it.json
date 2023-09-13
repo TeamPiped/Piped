@@ -1,12 +1,12 @@
 {
     "actions": {
         "instances_list": "Elenco delle istanze",
-        "language_selection": "Selezione della lingua",
+        "language_selection": "Lingua",
         "store_watch_history": "Conserva la cronologia di visualizzazione",
         "minimize_description_default": "Minimizza la descrizione per impostazione predefinita",
         "show_comments": "Mostra i commenti",
         "default_homepage": "Pagina iniziale predefinita",
-        "country_selection": "Selezione del paese",
+        "country_selection": "Paese",
         "buffering_goal": "Obiettivo di buffering (in secondi)",
         "default_quality": "Qualità predefinita",
         "audio_only": "Solo audio",
@@ -37,7 +37,7 @@
         "enable_lbry_proxy": "Abilita il proxy per LBRY",
         "disable_lbry": "Disabilita LBRY per lo streaming",
         "show_description": "Mostra la descrizione",
-        "minimize_description": "Minimizza la descrizione per impostazione predefinita",
+        "minimize_description": "Minimizza descrizione",
         "minimize_recommendations": "Minimizza consigli",
         "show_recommendations": "Mostra consigli",
         "donations": "Donazioni per lo sviluppo",
@@ -48,10 +48,10 @@
         "no": "No",
         "yes": "Sì",
         "show_more": "Mostra di più",
-        "instance_selection": "Selezione dell'istanza",
+        "instance_selection": "Istanza",
         "loading": "Caricamento…",
         "filter": "Filtra",
-        "search": "Cerca",
+        "search": "Cerca (Ctrl+K)",
         "view_ssl_score": "Visualizza il punteggio SSL",
         "clear_history": "Cancella la cronologia",
         "load_more_replies": "Carica più risposte",
@@ -72,7 +72,7 @@
         "minimize_recommendations_default": "Riduci al minimo le raccomandazioni per impostazione predefinita",
         "different_auth_instance": "Usa un'istanza diversa per l'autenticazione",
         "invalidate_session": "Disconnetti su tutti i dispositivi",
-        "instance_auth_selection": "Selezione dell'istanza di autenticazione",
+        "instance_auth_selection": "Istanza di autenticazione",
         "clone_playlist_success": "Clonato con successo!",
         "clone_playlist": "Clona la playlist",
         "download_as_txt": "Scarica come .txt",
@@ -87,8 +87,6 @@
         "time_code": "Tempo (in secondi)",
         "follow_link": "Apri il collegamento",
         "with_timecode": "Condividi con marca temporale",
-        "new_playlist_name": "Nuovo nome dalla playlist",
-        "rename_playlist": "Rinomina la playlist",
         "show_chapters": "Capitoli",
         "store_search_history": "Memorizza la cronologia delle ricerche",
         "status_page": "Stato",
@@ -101,7 +99,25 @@
         "minimize_comments_default": "Minimizza i commenti per impostazione predefinita",
         "minimize_comments": "Minimizza i commenti",
         "minimize_chapters_default": "Minimizza i capitoli per impostazione predefinita",
-        "no_valid_playlists": "Il file non contiene playlist valide!"
+        "no_valid_playlists": "Il file non contiene playlist valide!",
+        "bookmark_playlist": "Segnalibro",
+        "with_playlist": "Condividi con la playlist",
+        "playlist_bookmarked": "Nei segnalibri",
+        "min_segment_length": "Lunghezza minima del segmento (in secondi)",
+        "skip_automatically": "Automaticamente",
+        "skip_button_only": "Mostra pulsante di salto",
+        "skip_segment": "Salta segmento",
+        "show_less": "Mostra meno",
+        "autoplay_next_countdown": "Conto alla rovescia predefinito prima del video successivo (in secondi)",
+        "cancel": "Annulla",
+        "okay": "Va bene",
+        "edit_playlist": "Modifica playlist",
+        "playlist_name": "Nome playilist",
+        "playlist_description": "Descrizione playlist",
+        "group_name": "Nome gruppo",
+        "create_group": "Crea gruppo",
+        "show_search_suggestions": "Mostra suggerimenti di ricerca",
+        "dismiss": "Chiudi"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -119,7 +135,9 @@
         "instance": "Istanza",
         "player": "Riproduttore",
         "livestreams": "Streaming live",
-        "channels": "Canali"
+        "channels": "Canali",
+        "bookmarks": "Segnalibri",
+        "dearrow": "DeArrow"
     },
     "video": {
         "sponsor_segments": "Segmenti sponsor",
@@ -129,7 +147,12 @@
         "ratings_disabled": "Valutazioni disabilitate",
         "live": "{0} Diretta",
         "chapters": "Capitoli",
-        "shorts": "Short"
+        "shorts": "Short",
+        "all": "Tutti",
+        "category": "Categoria",
+        "chapters_horizontal": "Orizzontale",
+        "chapters_vertical": "Verticale",
+        "license": "Licenza"
     },
     "preferences": {
         "ssl_score": "Valutazione SSL",
@@ -159,7 +182,8 @@
         "channels": "YouTube: Canali",
         "music_songs": "YT Music: Canzoni",
         "all": "YouTube: Tutto",
-        "videos": "YouTube: Video"
+        "videos": "YouTube: Video",
+        "music_artists": "YT Music: Artisti"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abbonato a: {0}"
@@ -172,6 +196,8 @@
         "preferences_note": "Nota: le preferenze sono salvate nella memoria locale del tuo browser. L'eliminazione dei dati del tuo browser le ripristinerà.",
         "copied": "Copiato!",
         "cannot_copy": "Impossibile copiare!",
-        "local_storage": "Questa azione richiede localStorage, i cookie sono abilitati?"
+        "local_storage": "Questa azione richiede localStorage, i cookie sono abilitati?",
+        "register_no_email_note": "L'utilizzo di un indirizzo e-mail come nome utente è sconsigliato. Continuare comunque?",
+        "next_video_countdown": "Riproduzione prossimo video tra {0}s"
     }
 }

@@ -4,18 +4,22 @@
         "login": "تسجيل الدخول",
         "register": "إنشاء حساب",
         "preferences": "الإعدادات",
-        "history": "تاريخ التصفح",
+        "history": "سجل المشاهدة",
         "subscriptions": "الاشتراكات",
         "playlists": "قوائم التشغيل",
-        "feed": "التغذية",
+        "feed": "محتوى الاشتراكات",
         "account": "الحساب",
         "instance": "الخادم",
         "player": "المشغل",
         "livestreams": "البث المباشر",
-        "channels": "القنوات"
+        "channels": "القنوات",
+        "bookmarks": "الاشارات المرجعيه",
+        "channel_groups": "مجموعات القنوات",
+        "dearrow": "دي ارو"
     },
     "player": {
-        "watch_on": "شاهد عبر"
+        "watch_on": "شاهد عبر",
+        "failed": "فشل مع رمز الخطأ {0}، راجع السجلات لمزيد من المعلومات"
     },
     "actions": {
         "subscribe": "اشتراك - {count}",
@@ -41,7 +45,7 @@
         "enable_sponsorblock": "تفعيل مانع الإعلانات",
         "auto": "تلقائي",
         "dark": "داكن",
-        "search": "بحث",
+        "search": "‏بحث (Ctrl+K)",
         "autoplay_video": "تشغيل تلقائي",
         "audio_only": "صوت فقط",
         "default_quality": "الجودة الأساسية",
@@ -50,7 +54,7 @@
         "skip_interaction": "تخطي تذكير التفاعل (اشتراك)",
         "skip_non_music": "تخطي الموسيقى: قسم غير الموسيقى",
         "theme": "السمة",
-        "instance_selection": "تحديد المثيل",
+        "instance_selection": "قائمة الخوادم",
         "export_to_json": "تصدير إلى JSON",
         "show_more": "اظهار المزيد",
         "skip_outro": "تخطي بطاقات النهاية / الاعتمادات",
@@ -60,15 +64,15 @@
         "skip_filler_tangent": "تخطي المحتوى الغير مهم",
         "show_markers": "إظهار العلامات على المشغل",
         "buffering_goal": "هدف التخزين المؤقت (بالثواني)",
-        "country_selection": "اختيار البلد",
+        "country_selection": "البلد",
         "default_homepage": "الصفحة الرئيسية الافتراضية",
         "show_comments": "إظهار التعليقات",
         "minimize_description_default": "تصغير الوصف بشكل افتراضي",
         "store_watch_history": "تخزين سجل المشاهدة",
-        "language_selection": "اختيار اللغة",
+        "language_selection": "اللغة",
         "instances_list": "قائمة المثيلات",
         "enabled_codecs": "برامج الترميز الممكنة (متعددة)",
-        "import_from_json": "استيراد من JSON/CSV",
+        "import_from_json": "استيراد من JSON",
         "loop_this_video": "تكرار هذا الفيديو",
         "auto_play_next_video": "التشغيل التلقائي للفيديو التالي",
         "donations": "التبرعات للتطوير",
@@ -90,7 +94,7 @@
         "minimize_recommendations_default": "تقليل التوصيات بشكل افتراضي",
         "invalidate_session": "تسجيل الخروج من جميع الأجهزة",
         "different_auth_instance": "استخدام مثيل مختلف للمصادقة",
-        "instance_auth_selection": "تحديد مثيل Autentication",
+        "instance_auth_selection": "خادم المصادقة",
         "clone_playlist": "استنساخ قائمة التشغيل",
         "clone_playlist_success": "تم استنساخها بنجاح!",
         "download_as_txt": "تنزيل بتنسيق .txt",
@@ -105,10 +109,8 @@
         "follow_link": "اتبع الرابط",
         "copy_link": "نسخ الرابط",
         "time_code": "رمز الوقت (بالثواني)",
-        "rename_playlist": "إعادة تسمية قائمة التشغيل",
-        "new_playlist_name": "اسم قائمة تشغيل جديد",
         "show_chapters": "الفصول",
-        "store_search_history": "حفظ سجل البحث",
+        "store_search_history": "تخزين سجل البحث",
         "documentation": "التوثيق",
         "status_page": "الحالة",
         "source_code": "شفرة المصدر",
@@ -120,7 +122,31 @@
         "show_watch_on_youtube": "عرض زر مشاهدة على يوتيوب",
         "minimize_chapters_default": "تصغير الفصول بشكل افتراضي",
         "no_valid_playlists": "لا يحتوي الملف على قوائم تشغيل صالحة!",
-        "with_playlist": "المشاركة مع قائمة التشغيل"
+        "with_playlist": "المشاركة مع قائمة التشغيل",
+        "bookmark_playlist": "الاشاره المرجعيه",
+        "playlist_bookmarked": "تم وضعها في الاشارات المرجعية",
+        "skip_button_only": "إظهار زر التخطي",
+        "skip_automatically": "تلقائيا",
+        "min_segment_length": "الحد الأدنى لطول الفصل (بالثواني)",
+        "skip_segment": "تخطي الجزء",
+        "show_less": "عرض أقل",
+        "autoplay_next_countdown": "العد التنازلي الافتراضي حتى الفيديو التالي ( ثانية )",
+        "dismiss": "تجاهل",
+        "group_name": "أسم المجموعة",
+        "create_group": "إنشاء مجموعة",
+        "auto_display_captions": "عرض التسميات التوضيحية تلقائيا",
+        "cancel": "إلغاء",
+        "okay": "حسنًا",
+        "playlist_description": "وصف قائمة التشغيل",
+        "playlist_name": "اسم قائمة التشغيل",
+        "edit_playlist": "تعديل قائمة التشغيل",
+        "show_search_suggestions": "إظهار اقتراحات البحث",
+        "chapters_layout_mobile": "تخطيط الفصول على الهاتف",
+        "delete_automatically": "الحذف تلقائيا بعد",
+        "enable_dearrow": "تمكين دي ارو",
+        "generate_qrcode": "إنشاء رمز الاستجابة السريعة",
+        "import_from_json_csv": "استيراد من JSON/CSV",
+        "download_frame": "إطار التحميل"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
@@ -130,7 +156,13 @@
         "views": "{views} عدد المشاهدات",
         "shorts": "فديوهات قصيرة",
         "videos": "الفيديوات",
-        "live": "{0} مباشر"
+        "live": "{0} مباشر",
+        "all": "الكل",
+        "category": "الفئة",
+        "chapters_vertical": "رَأسِيّ",
+        "chapters_horizontal": "أفقي",
+        "visibility": "الظهور",
+        "license": "الترخيص"
     },
     "search": {
         "channels": "يوتيوب: القنوات",
@@ -141,7 +173,8 @@
         "music_videos": "YT Music: مقاطع فيديو",
         "did_you_mean": "هل تقصد: {0}؟",
         "music_playlists": "YT Music: قوائم التشغيل",
-        "music_albums": "YT Music: ألبومات"
+        "music_albums": "YT Music: ألبومات",
+        "music_artists": "YT الموسيقى: الفنانين"
     },
     "preferences": {
         "version": "الإصدار",
@@ -160,7 +193,9 @@
     },
     "login": {
         "username": "اسم المستخدم",
-        "password": "كلمة السر"
+        "password": "كلمة السر",
+        "passwords_incorrect": "كلمة المرور لم تتطابق!",
+        "password_confirm": "تأكيد كلمة المرور"
     },
     "subscriptions": {
         "subscribed_channels_count": "مشترك في: {0}"
@@ -173,6 +208,12 @@
         "page_not_found": "لم يتم العثور على الصفحة",
         "copied": "نسخ!",
         "cannot_copy": "لا يمكن نسخه!",
-        "local_storage": "يتطلب هذا الإجراء التخزين المحلي، هل يتم تمكين ملفات تعريف الارتباط؟"
+        "local_storage": "يتطلب هذا الإجراء التخزين المحلي، هل يتم تمكين ملفات تعريف الارتباط؟",
+        "register_no_email_note": "لا ينصح باستخدام البريد الإلكتروني كاسم مستخدم. المضي قدما على أي حال؟",
+        "next_video_countdown": "تشغيل الفيديو التالي بعد { 0 } ق",
+        "weeks": "{amount} أسبوع (أسابيع)",
+        "hours": "{amount} ساعة (ساعات)",
+        "months": "{amount} شهر (أشهر)",
+        "days": "{amount} يوم (أيام)"
     }
 }

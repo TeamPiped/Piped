@@ -1,0 +1,47 @@
+{
+    "titles": {
+        "register": "Crear conta",
+        "feed": "Cronoloxía",
+        "preferences": "Preferencias",
+        "history": "Historial",
+        "trending": "En voga",
+        "account": "Conta",
+        "player": "Reprodutor",
+        "login": "Acceder",
+        "instance": "Instancia",
+        "bookmarks": "Marcadores",
+        "subscriptions": "Subscricións",
+        "playlists": "Listas",
+        "livestreams": "En directo",
+        "channels": "Canles",
+        "channel_groups": "Grupos de canles"
+    },
+    "player": {
+        "watch_on": "Ver en {0}",
+        "failed": "Fallou con código do erro {0}, mira o rexistro para máis info"
+    },
+    "actions": {
+        "subscribe": "Subscribirse - {count}",
+        "sort_by": "Orde por:",
+        "least_recent": "Máis antigo",
+        "most_recent": "Máis recente",
+        "channel_name_asc": "Nome da canle (A-Z)",
+        "unsubscribe": "Retirar subscrición - {count}",
+        "view_subscriptions": "Ver Subscricións",
+        "back": "Volver",
+        "uses_api_from": "Usa a API desde ",
+        "enable_sponsorblock": "Activar Sponsoblock",
+        "skip_button_only": "Mostrar botón omitir",
+        "skip_automatically": "Automáticamente",
+        "channel_name_desc": "Nome da canle (Z-A)",
+        "skip_sponsors": "Omitir Sponsors",
+        "show_markers": "Mostrar Marcadores no Reprodutor",
+        "skip_segment": "Omitir Segmento",
+        "dark": "Escuro",
+        "min_segment_length": "Lonxitude mínima do segmento (en segundos)",
+        "theme": "Decorado",
+        "auto": "Auto",
+        "light": "Claro",
+        "autoplay_video": "Reprodución automática"
+    }
+}

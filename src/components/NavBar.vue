@@ -56,10 +56,10 @@
         </div>
         <div class="lt-md:hidden flex flex-1 justify-start" style="position: relative">
             <input
+                ref="videoSearch"
                 v-model="searchText"
                 type="text"
                 role="search"
-                ref="videoSearch"
                 :title="$t('actions.search')"
                 :placeholder="$t('actions.search')"
                 @keyup="onKeyUp"
@@ -78,8 +78,8 @@
             <router-link v-t="'titles.preferences'" to="/preferences" />
             <p
                 v-if="shouldShowLogin"
-                class="cursor-pointer font-bold"
                 v-t="'titles.account'"
+                class="cursor-pointer font-bold"
                 @click="showLoginModal = !showLoginModal"
             />
             <router-link v-if="shouldShowHistory" v-t="'titles.history'" to="/history" />
@@ -87,15 +87,8 @@
             <router-link v-if="!shouldShowTrending" v-t="'titles.feed'" to="/feed" />
             <button
                 efy_sidebar_btn="relative, pp-desktop"
-                style="
-                    background: transparent;
-                    -webkit-text-fill-color: var(--efy_text);
-                    padding: 0;
-                    margin: -5rem 0 0 0;
-                    border: 0;
-                    backdrop-filter: none !important;
-                    -webkit-backdrop-filter: none !important;
-                "
+                style="background: transparent; padding: 0; margin: -5rem 0 0 0; border: 0"
+                class="efy_trans_filter_off efy_shadow_button_off"
             >
                 <i efy_icon="menu" style="margin: 0" />
             </button>
@@ -103,7 +96,7 @@
     </nav>
 
     <!-- search suggestions for mobile devices -->
-    <div class="w-{full - 4} md:hidden mx-2" style="position: relative">
+    <div class="w-{full - 4} md:hidden" style="position: relative">
         <input
             v-model="searchText"
             type="text"
@@ -114,8 +107,9 @@
             @keypress="onKeyPress"
             @focus="onInputFocus"
             @blur="onInputBlur"
+            style="margin: 15rem 0 0 0"
         />
-        <span v-if="searchText" class="delete-search" @click="searchText = ''">x</span>
+        <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
     </div>
     <SearchSuggestions
         v-show="(searchText || showSearchHistory) && suggestionsVisible"
@@ -128,13 +122,13 @@
 
 <style>
 .pp-nav {
-    margin-bottom: 15rem;
     gap: 15rem;
 }
 .pp-nav > .pp-logo > a {
     font-size: 25rem;
     font-family: "nunito";
     background: transparent;
+    margin-left: 5rem;
 }
 .pp-nav > div input {
     margin: 0 !important;
@@ -204,16 +198,16 @@ export default {
             suggestionsVisible: false,
             showLoginModal: false,
             showTopNav: false,
+            homePagePath: "/",
+            registrationDisabled: false,
         };
-    },
-    mounted() {
-        const query = new URLSearchParams(window.location.search).get("search_query");
-        if (query) this.onSearchTextChange(query);
-        this.focusOnSearchBar();
     },
     computed: {
         shouldShowLogin(_this) {
             return _this.getAuthToken() == null;
+        },
+        shouldShowRegister(_this) {
+            return _this.registrationDisabled == false ? _this.shouldShowLogin : false;
         },
         shouldShowHistory(_this) {
             return _this.getPreferenceBoolean("watchHistory", false);
@@ -224,6 +218,13 @@ export default {
         showSearchHistory(_this) {
             return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
         },
+    },
+    mounted() {
+        this.fetchAuthConfig();
+        const query = new URLSearchParams(window.location.search).get("search_query");
+        if (query) this.onSearchTextChange(query);
+        this.focusOnSearchBar();
+        this.homePagePath = this.getHomePage(this);
     },
     methods: {
         // focus on search bar when Ctrl+k is pressed
@@ -241,12 +242,7 @@ export default {
         },
         onKeyPress(e) {
             if (e.key === "Enter") {
-                e.target.blur();
-                this.$router.push({
-                    name: "SearchResults",
-                    query: { search_query: this.searchText },
-                });
-                return;
+                this.submitSearch(e);
             }
         },
         onInputFocus() {
@@ -258,6 +254,22 @@ export default {
         },
         onSearchTextChange(searchText) {
             this.searchText = searchText;
+        },
+        async fetchAuthConfig() {
+            this.fetchJson(this.authApiUrl() + "/config").then(config => {
+                this.registrationDisabled = config?.registrationDisabled === true;
+            });
+        },
+        onSearchClick(e) {
+            this.submitSearch(e);
+        },
+        submitSearch(e) {
+            e.target.blur();
+            this.$router.push({
+                name: "SearchResults",
+                query: { search_query: this.searchText },
+            });
+            return;
         },
     },
 };

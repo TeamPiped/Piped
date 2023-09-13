@@ -2,6 +2,7 @@
 
 [![AGPL v3](https://shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 [![Matrix](https://img.shields.io/matrix/piped:matrix.org)](https://matrix.to/#/#piped:matrix.org)
+[![Lemmy](https://img.shields.io/lemmy/piped%40feddit.rocks)](https://feddit.rocks/c/piped)
 [![Registered Users](https://pipedapi.kavin.rocks/registered/badge)](https://piped.video/register)
 [![IPFS Build](https://github.com/TeamPiped/Piped/actions/workflows/ipfs-build.yml/badge.svg)](https://piped-ipfs.kavin.rocks/)
 [![GitHub Repo stars](https://img.shields.io/github/stars/TeamPiped/Piped-Frontend?style=social)](https://github.com/TeamPiped/Piped/stargazers)
@@ -61,6 +62,10 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   You can join us via Matrix at [#piped](https://matrix.to/#/#piped:matrix.org).
 -   You can also join us at the libera.chat IRC network which is bridged to the Matrix room at [#piped](https://web.libera.chat/#piped).
 
+## Public Communities
+
+-   You can join us on Lemmy on the [!piped@feddit.rocks](https://feddit.rocks/c/piped) community.
+
 ## Self-Hosting
 
 See https://docs.piped.video/docs/self-hosting/ for more details.
@@ -103,13 +108,13 @@ You can help by translating the project to a language you speak at https://hoste
 ### Development Setup
 
 ```
-yarn install
+pnpm install
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn serve
+pnpm serve
 ```
 
 You can now make changes and view then in realtime!
@@ -140,7 +145,15 @@ Contributions in any other form are also welcomed.
 
 -   [Yattee](https://github.com/yattee/yattee) - an alternative frontend for YouTube, for IOS.
 -   [LibreTube](https://github.com/Libre-tube/LibreTube) - an alternative frontend for YouTube, for Android.
+-   [Racoon](https://github.com/shailendramaurya/racoon) - A web based minimal YouTube downloader.
 -   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - an alternative privacy respecting frontend for YouTube Music.
+-   [Musicale](https://github.com/Bellisario/musicale) - an alternative to YouTube Music, with style.
+-   [ytify](https://github.com/n-ce/ytify) - a complementary minimal audio streaming frontend for YouTube.
+-   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads on Android, Linux, Windows, iOS, and Mac OSX.
+-   [Piped-Material](https://github.com/mmjee/Piped-Material) - A fork of Piped, focusing on better performance and a more usable design.
+-   [ReacTube](https://github.com/NeeRaj-2401/ReacTube) - Privacy friendly & distraction free Youtube front-end using Piped API.
+-   [YTDLnis](https://github.com/deniscerri/ytdlnis) - Video and audio downloader for Android that uses Piped to update formats.
+-   [DeskVideo](https://github.com/malisipi/DeskVideo) - A desktop styled, customizable alternative front-end for YouTube.
 
 ## YourKit
 

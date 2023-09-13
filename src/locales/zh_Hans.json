@@ -9,20 +9,20 @@
         "donations": "开发捐赠",
         "auto_play_next_video": "自动播放下一个视频",
         "loop_this_video": "循环播放此视频",
-        "import_from_json": "从 JSON/CSV 导入",
+        "import_from_json": "从 JSON 导入",
         "export_to_json": "导出为 JSON",
         "no": "否",
         "yes": "是",
         "show_more": "显示更多",
-        "instance_selection": "实例选择",
+        "instance_selection": "实例",
         "enabled_codecs": "启用的编解码器 (多个)",
         "instances_list": "实例列表",
-        "language_selection": "语言选择",
+        "language_selection": "语言",
         "store_watch_history": "保存观看历史",
         "minimize_description_default": "默认情况下折叠描述",
         "show_comments": "显示评论",
         "default_homepage": "默认主页",
-        "country_selection": "国家/地区选择",
+        "country_selection": "国家/地区",
         "buffering_goal": "缓冲目标 (以秒为单位)",
         "default_quality": "默认质量",
         "audio_only": "仅音频",
@@ -44,12 +44,12 @@
         "least_recent": "最早的",
         "most_recent": "最新的",
         "sort_by": "排序：",
-        "view_subscriptions": "查看订阅",
+        "view_subscriptions": "查看订阅列表",
         "unsubscribe": "取消订阅 - {count}",
-        "subscribe": "订购 - {count}",
+        "subscribe": "订阅 - {count}",
         "loading": "正在加载...",
         "filter": "筛选",
-        "search": "搜索",
+        "search": "搜索 (Ctrl+K)",
         "view_ssl_score": "查看 SSL 得分",
         "minimize_recommendations": "最小化建议",
         "show_recommendations": "显示推荐",
@@ -72,7 +72,7 @@
         "minimize_recommendations_default": "默认最小化推荐",
         "invalidate_session": "注销所有设备",
         "different_auth_instance": "使用不同的实例进行身份验证",
-        "instance_auth_selection": "身份验证实例选择",
+        "instance_auth_selection": "身份验证实例",
         "clone_playlist": "克隆播放列表",
         "clone_playlist_success": "克隆成功！",
         "download_as_txt": "下载为 .txt",
@@ -87,8 +87,6 @@
         "share": "分享",
         "with_timecode": "用时间码分享",
         "time_code": "时间码（单位：秒）",
-        "rename_playlist": "重命名播放列表",
-        "new_playlist_name": "新播放列表名",
         "show_chapters": "章节",
         "store_search_history": "保存搜索历史",
         "hide_watched": "在源中隐藏看过的视频",
@@ -101,7 +99,32 @@
         "minimize_comments_default": "默认最小化评论",
         "show_watch_on_youtube": "显示“在 YouTube 上观看”按钮",
         "minimize_chapters_default": "默认最小化章节",
-        "no_valid_playlists": "此文件不含无效的播放列表！"
+        "no_valid_playlists": "此文件不包含有效的播放列表!",
+        "with_playlist": "分享播放列表",
+        "playlist_bookmarked": "已加入书签",
+        "bookmark_playlist": "书签",
+        "skip_automatically": "自动",
+        "min_segment_length": "最小分段长度（以秒为单位）",
+        "skip_segment": "跳过分段",
+        "skip_button_only": "显示跳过按钮",
+        "show_less": "显示更少",
+        "autoplay_next_countdown": "下一个视频开始前的默认倒计时长（以秒计）",
+        "dismiss": "解除",
+        "group_name": "组名称",
+        "create_group": "创建组",
+        "auto_display_captions": "自动显示字幕",
+        "playlist_name": "播放列表名称",
+        "playlist_description": "播放列表描述",
+        "cancel": "取消",
+        "okay": "好的",
+        "edit_playlist": "编辑播放列表",
+        "show_search_suggestions": "显示搜索建议",
+        "chapters_layout_mobile": "移动设备上的章节布局",
+        "delete_automatically": "多久后自动删除",
+        "enable_dearrow": "启用 DeArrow",
+        "generate_qrcode": "生成二维码",
+        "import_from_json_csv": "从 JSON/CSV 文件导入",
+        "download_frame": "下载视频帧"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -111,7 +134,13 @@
         "live": "{0} 直播",
         "chapters": "章节",
         "ratings_disabled": "已禁用评价",
-        "shorts": "短视频"
+        "shorts": "短视频",
+        "all": "全部",
+        "category": "类别",
+        "chapters_horizontal": "水平",
+        "chapters_vertical": "垂直",
+        "license": "许可证",
+        "visibility": "可见性"
     },
     "preferences": {
         "ssl_score": "SSL 分数",
@@ -129,11 +158,12 @@
         "user_disabled": "评论在设置中被禁用。"
     },
     "player": {
-        "watch_on": "在 {0} 观看"
+        "watch_on": "在 {0} 观看",
+        "failed": "播放器出错，错误代码 {0}，查看日志了解更多信息"
     },
     "titles": {
-        "feed": "RSS 订阅源",
-        "subscriptions": "订阅",
+        "feed": "订阅流",
+        "subscriptions": "订阅列表",
         "history": "历史",
         "preferences": "设置",
         "register": "注册",
@@ -144,11 +174,16 @@
         "instance": "实例",
         "player": "播放器",
         "livestreams": "直播",
-        "channels": "频道"
+        "channels": "频道",
+        "bookmarks": "书签",
+        "channel_groups": "频道组",
+        "dearrow": "DeArrow"
     },
     "login": {
         "password": "密码",
-        "username": "帐号"
+        "username": "帐号",
+        "password_confirm": "确认密码",
+        "passwords_incorrect": "密码不匹配！"
     },
     "search": {
         "did_you_mean": "你是指 {0} 吗？",
@@ -159,7 +194,8 @@
         "music_songs": "YT Music：歌曲",
         "music_videos": "YT Music：视频",
         "music_albums": "YT Music：专辑",
-        "music_playlists": "YT Music：播放列表"
+        "music_playlists": "YT Music：播放列表",
+        "music_artists": "YT Music：艺人"
     },
     "subscriptions": {
         "subscribed_channels_count": "已订阅：{0}"
@@ -172,6 +208,12 @@
         "page_not_found": "未找到页面",
         "copied": "已复制！",
         "cannot_copy": "无法复制！",
-        "local_storage": "此操作需要 localStorage，启用 cookie 了吗？"
+        "local_storage": "此操作需要本地存储，是否启用了Cookie？",
+        "register_no_email_note": "不建议使用电子邮件作为用户名。仍要继续吗？",
+        "next_video_countdown": "在{0}秒后播放下一个视频",
+        "days": "{amount} 天",
+        "weeks": "{amount} 周",
+        "months": "{amount} 个月",
+        "hours": "{amount} 小时"
     }
 }

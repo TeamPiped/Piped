@@ -12,10 +12,14 @@
         "playlists": "רשימות נגינה",
         "instance": "עותק",
         "livestreams": "שידורים חיים",
-        "channels": "ערוצים"
+        "channels": "ערוצים",
+        "bookmarks": "סימניות",
+        "channel_groups": "קבוצות ערוץ",
+        "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "לצפות ב־{0}"
+        "watch_on": "לצפות ב־{0}",
+        "failed": "חל כשל עם קוד שגיאה {0}, מידע נוסף ביומנים"
     },
     "actions": {
         "subscribe": "מינוי - {count}",
@@ -43,20 +47,20 @@
         "audio_only": "שמע בלבד",
         "default_quality": "איכות ברירת מחדל",
         "buffering_goal": "יעד שמירה למטמון (בשניות)",
-        "country_selection": "בחירת מדינה",
+        "country_selection": "מדינה",
         "default_homepage": "עמוד הבית כברירת מחדל",
         "show_comments": "הצגת תגובות",
         "minimize_description_default": "מזעור התגובות כברירת מחדל",
         "store_watch_history": "שחזור היסטוריית הצפייה",
-        "language_selection": "בחירת שפה",
+        "language_selection": "שפה",
         "instances_list": "רשימת עותקים",
         "enabled_codecs": "מפענחים פעילים (מגוון)",
-        "instance_selection": "בחירת עותק",
-        "show_more": "להציג עוד",
+        "instance_selection": "עותק",
+        "show_more": "להציג יותר",
         "yes": "כן",
         "no": "לא",
         "export_to_json": "ייצוא ל־JSON",
-        "import_from_json": "ייבוא מ־JSON/CSV",
+        "import_from_json": "ייבוא מ־JSON",
         "show_markers": "הצגת סמנים בנגן",
         "auto_play_next_video": "לנגן את הסרטון הבא אוטומטית",
         "donations": "תרומות בפיתוח",
@@ -77,7 +81,7 @@
         "logout": "יציאה מהחשבון במכשיר הזה",
         "minimize_recommendations_default": "מזעור המלצות כברירת מחדל",
         "invalidate_session": "להוציא את כל המכשירים מהחשבון",
-        "instance_auth_selection": "בחירת עותק אימות",
+        "instance_auth_selection": "עותק אימות",
         "clone_playlist": "שכפול רשימת נגינה",
         "clone_playlist_success": "שוכפל בהצלחה!",
         "download_as_txt": "הורדה כ־‎.txt",
@@ -99,11 +103,9 @@
         "disable_lbry": "השבתת הזרמה עם LBRY",
         "enable_lbry_proxy": "הפעלת מתווך ל־LBRY",
         "view_ssl_score": "הצגת דירוג SSL",
-        "search": "חיפוש",
+        "search": "חיפוש (Ctrl+K)",
         "loop_this_video": "ניגון הסרטון בלולאה",
         "minimize_recommendations": "מזעור המלצות",
-        "rename_playlist": "שינוי שם רשימת נגינה",
-        "new_playlist_name": "שם לרשימת נגינה חדשה",
         "show_chapters": "פרקים",
         "skip_intro": "דילוג על הפוגה/הנפשת הקדמה",
         "skip_outro": "דילוג על כרטיסי סיום/קרדיטים",
@@ -120,7 +122,31 @@
         "minimize_chapters_default": "מזעור הפרקים כברירת מחדל",
         "show_watch_on_youtube": "הצגת כפתור לצפייה ב־YouTube",
         "no_valid_playlists": "הקובץ לא מכיל רשימות נגינה תקפות!",
-        "with_playlist": "שיתוף עם רשימת נגינה"
+        "with_playlist": "שיתוף עם רשימת נגינה",
+        "playlist_bookmarked": "נוסף לסימניות",
+        "bookmark_playlist": "סימנייה",
+        "skip_button_only": "הצגת כפתור דילוג",
+        "min_segment_length": "אורך מקטע מזערי (בשניות)",
+        "skip_segment": "דילוג על מקטע",
+        "skip_automatically": "אוטומטית",
+        "show_less": "להציג פחות",
+        "autoplay_next_countdown": "ספירה לאחור כברירת מחדל עד לסרטון הבא (בשניות)",
+        "dismiss": "התעלמות",
+        "create_group": "יצירת קבוצה",
+        "group_name": "שם הקבוצה",
+        "auto_display_captions": "הצגת כתוביות אוטומטית",
+        "cancel": "ביטול",
+        "edit_playlist": "עריכת רשימת נגינה",
+        "playlist_name": "שם רשימת הנגינה",
+        "playlist_description": "תיאור רשימת הנגינה",
+        "okay": "אישור",
+        "show_search_suggestions": "הצגת הצעות חיפוש",
+        "chapters_layout_mobile": "פריסת פרקים בנייד",
+        "delete_automatically": "למחוק אוטומטית לאחר",
+        "enable_dearrow": "הפעלת DeArrow",
+        "generate_qrcode": "יצירת קוד QR",
+        "import_from_json_csv": "ייבוא מ־JSON/CSV",
+        "download_frame": "הורדת תמונית"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
@@ -139,7 +165,9 @@
     },
     "login": {
         "username": "שם משתמש",
-        "password": "סיסמה"
+        "password": "סיסמה",
+        "password_confirm": "אישור סיסמה",
+        "passwords_incorrect": "הסיסמאות שונות זו מזו!"
     },
     "video": {
         "videos": "סרטונים",
@@ -149,7 +177,13 @@
         "ratings_disabled": "הדירוגים מושבתים",
         "chapters": "פרקים",
         "live": "{0} בשידור חי",
-        "shorts": "קצרצרים"
+        "shorts": "קצרצרים",
+        "all": "הכול",
+        "category": "קטגוריה",
+        "chapters_horizontal": "אופקית",
+        "chapters_vertical": "אנכית",
+        "visibility": "חשיפה",
+        "license": "רישיון"
     },
     "search": {
         "did_you_mean": "האם התכוונת לביטוי {0}?",
@@ -160,14 +194,21 @@
         "music_songs": "YT Music: שירים",
         "music_videos": "YT Music: סרטונים",
         "music_albums": "YT Music: אלבומים",
-        "music_playlists": "YT Music: רשימות נגינה"
+        "music_playlists": "YT Music: רשימות נגינה",
+        "music_artists": "YT Music: אומנים"
     },
     "info": {
         "preferences_note": "לתשומת לבך: ההעדפות נשמרות באחסון המקומי של הדפדפן שלך. מחיקת נתוני הדפדפן שלך תאפס אותם.",
         "page_not_found": "העמוד לא נמצא",
         "copied": "הועתק!",
         "cannot_copy": "לא ניתן להעתיק!",
-        "local_storage": "פעולה זו דורשת אחסון מקומי (localStorage), האם עוגיות פעילות?"
+        "local_storage": "פעולה זו דורשת אחסון מקומי (localStorage), האם עוגיות פעילות?",
+        "register_no_email_note": "לא מומלץ להשתמש בכתובת דוא״ל כשם משתמש. להמשיך בכל זאת?",
+        "next_video_countdown": "הסרטון הבא יתנגן בעוד {0} שניות",
+        "days": "{amount} ימים",
+        "weeks": "{amount} שבועות",
+        "months": "{amount} חודשים",
+        "hours": "{amount} שעות"
     },
     "subscriptions": {
         "subscribed_channels_count": "נרשמת אל: {0}"

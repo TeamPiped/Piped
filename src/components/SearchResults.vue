@@ -1,13 +1,20 @@
 <template>
-    <h1 class="text-center my-2" v-text="$route.query.search_query" />
-
-    <label for="ddlSearchFilters" class="mr-2">
-        <strong v-text="`${$t('actions.filter')}:`" />
-    </label>
-    <select id="ddlSearchFilters" v-model="selectedFilter" default="all" class="select w-auto" @change="updateFilter()">
-        <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`search.${filter}`" />
-    </select>
-
+    <hr />
+    <div class="flex flex-wrap place-content-between items-center">
+        <h5 class="ml-[5rem]" v-text="$route.query.search_query" />
+        <div class="flex items-center" style="gap: var(--efy_gap0)">
+            <label v-text="`${$t('actions.filter')}:`" for="ddlSearchFilters" />
+            <select
+                id="ddlSearchFilters"
+                v-model="selectedFilter"
+                default="all"
+                class="w-auto; m-0"
+                @change="updateFilter()"
+            >
+                <option v-for="filter in availableFilters" :key="filter" v-t="`search.${filter}`" :value="filter" />
+            </select>
+        </div>
+    </div>
     <hr />
 
     <div v-if="results && results.corrected">
@@ -18,19 +25,21 @@
         </i18n-t>
     </div>
 
-    <div v-if="results" class="video-grid">
+    <LoadingIndicatorPage :show-content="results != null && results.items?.length" class="video-grid">
         <template v-for="result in results.items" :key="result.url">
             <ContentItem :item="result" height="94" width="168" />
         </template>
-    </div>
+    </LoadingIndicatorPage>
 </template>
 
 <script>
 import ContentItem from "./ContentItem.vue";
+import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 
 export default {
     components: {
         ContentItem,
+        LoadingIndicatorPage,
     },
     data() {
         return {
@@ -44,6 +53,7 @@ export default {
                 "music_videos",
                 "music_albums",
                 "music_playlists",
+                "music_artists",
             ],
             selectedFilter: this.$route.query.filter ?? "all",
         };
@@ -72,7 +82,10 @@ export default {
         },
         async updateResults() {
             document.title = this.$route.query.search_query + " - Piped";
-            this.results = this.fetchResults().then(json => (this.results = json));
+            this.results = this.fetchResults().then(json => {
+                this.results = json;
+                this.updateWatched(this.results.items);
+            });
         },
         updateFilter() {
             this.$router.replace({

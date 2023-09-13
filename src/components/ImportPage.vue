@@ -1,4 +1,5 @@
 <template>
+    <hr />
     <div>
         <form style="display: grid; gap: 15rem">
             <div>
@@ -11,9 +12,7 @@
                 <input v-model="override" id="import-override" type="checkbox" />
                 <label for="import-override">Override</label>
             </div>
-            <div>
-                <a class="btn w-auto" @click="handleImport">Import</a>
-            </div>
+            <a class="btn w-auto" @click="handleImport" role="button" style="margin: 0">Import</a>
         </form>
         <br />
         <strong>Importing Subscriptions from YouTube</strong>
@@ -106,10 +105,14 @@ export default {
                 }
                 // FreeTube DB
                 else if (text.indexOf("allChannels") != -1) {
-                    const json = JSON.parse(text);
-                    json.subscriptions.forEach(item => {
-                        this.subscriptions.push(item.id);
-                    });
+                    const lines = text.split("\n");
+                    for (let line of lines) {
+                        if (line === "") continue;
+                        const json = JSON.parse(line);
+                        json.subscriptions.forEach(item => {
+                            this.subscriptions.push(item.id);
+                        });
+                    }
                 }
                 // Google Takeout JSON
                 else if (text.indexOf("contentDetails") != -1) {

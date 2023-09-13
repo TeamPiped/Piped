@@ -1,13 +1,13 @@
 <template>
     <ModalComponent>
-        <h3 v-t="'titles.account'" class="font-bold my-4" />
+        <h5 v-t="'titles.account'" class="font-bold my-4" />
         <hr />
         <div class="text-center">
             <form class="children:pb-3">
                 <div>
                     <input
                         v-model="username"
-                        class="input w-full"
+                        class="m-0"
                         type="text"
                         autocomplete="username"
                         :placeholder="$t('login.username')"
@@ -18,7 +18,7 @@
                 <div>
                     <input
                         v-model="password"
-                        class="input w-full"
+                        class="m-0"
                         type="password"
                         autocomplete="password"
                         :placeholder="$t('login.password')"
@@ -26,9 +26,9 @@
                         v-on:keyup.enter="login"
                     />
                 </div>
-                <div class="flex justify-end">
-                    <a class="btn mr-2 cursor-pointer" @click="register" v-t="'titles.register'" />
-                    <a class="btn cursor-pointer" @click="login" v-t="'titles.login'" />
+                <div class="flex justify-end p-0!" style="gap: var(--efy_gap0)">
+                    <a role="button" class="m-0!" @click="register" v-t="'titles.register'" />
+                    <a role="button" class="m-0!" @click="login" v-t="'titles.login'" />
                 </div>
             </form>
         </div>

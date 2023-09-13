@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute suggestions-container">
+    <div class="suggestions-container absolute">
         <ul>
             <li
                 v-for="(suggestion, i) in searchSuggestions"
@@ -50,12 +50,16 @@ export default {
             if (!this.searchText) {
                 if (this.getPreferenceBoolean("searchHistory", false))
                     this.searchSuggestions = JSON.parse(localStorage.getItem("search_history")) ?? [];
+            } else if (this.getPreferenceBoolean("searchSuggestions", true)) {
+                this.searchSuggestions =
+                    (
+                        await this.fetchJson(this.apiUrl() + "/opensearch/suggestions", {
+                            query: this.searchText,
+                        })
+                    )?.[1] ?? [];
             } else {
-                this.searchSuggestions = (
-                    await this.fetchJson(this.apiUrl() + "/opensearch/suggestions", {
-                        query: this.searchText,
-                    })
-                )?.[1];
+                this.searchSuggestions = [];
+                return;
             }
             this.searchSuggestions.unshift(this.searchText);
             this.setSelected(0);
@@ -86,6 +90,6 @@ export default {
     background: var(--efy_text2);
     box-shadow: 0 0 20rem var(--efy_text_trans);
     padding: var(--efy_gap);
-    margin: calc(-12rem + var(--efy_gap)) 0 var(--efy_gap) 0;
+    margin: calc(40rem + var(--efy_gap)) 0 var(--efy_gap) 0;
 }
 </style>

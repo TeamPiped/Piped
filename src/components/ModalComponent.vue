@@ -2,7 +2,9 @@
     <div class="modal">
         <div @click="handleClick">
             <div class="modal-container">
-                <button @click="$emit('close')"><font-awesome-icon icon="xmark" /></button>
+                <button @click="$emit('close')" class="pp-color btn m-0">
+                    <font-awesome-icon icon="xmark" />
+                </button>
                 <slot></slot>
             </div>
         </div>
@@ -11,6 +13,7 @@
 
 <script>
 export default {
+    emits: ["close"],
     mounted() {
         window.addEventListener("keydown", this.handleKeyDown);
     },
@@ -36,16 +39,13 @@ export default {
 .modal {
     @apply fixed z-50 top-0 left-0 w-full h-full bg-dark-900 bg-opacity-80 transition-opacity table;
 }
-
 .modal > div {
     @apply table-cell align-middle;
 }
-
 .modal-container {
-    @apply w-300rem m-auto max-w-[100vw] relative;
+    @apply w-100% m-auto max-w-[421rem] relative;
 }
-
 .modal-container > button {
-    @apply absolute right-50 top-30;
+    @apply absolute right-[12rem] top-[15rem];
 }
 </style>

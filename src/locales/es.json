@@ -7,7 +7,13 @@
         "ratings_disabled": "Valoraciones Desactivadas",
         "chapters": "Capítulos",
         "live": "{0} Directo",
-        "shorts": "Cortos"
+        "shorts": "Cortos",
+        "all": "Todos",
+        "category": "Categoría",
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertical",
+        "license": "Licencia",
+        "visibility": "Visibilidad"
     },
     "preferences": {
         "ssl_score": "Puntuación SSL",
@@ -32,20 +38,20 @@
         "donations": "Donaciones para desarrollo",
         "auto_play_next_video": "Reproducción automática del siguiente vídeo",
         "loop_this_video": "Poner en bucle este vídeo",
-        "import_from_json": "Importar desde JSON/CSV",
+        "import_from_json": "Importar desde JSON",
         "export_to_json": "Exportar a JSON",
         "no": "No",
         "yes": "Sí",
         "show_more": "Mostrar más",
-        "instance_selection": "Selección de instancias",
+        "instance_selection": "Instancia",
         "enabled_codecs": "Códecs habilitados (múltiples)",
         "instances_list": "Lista de instancias",
-        "language_selection": "Selección de lenguajes",
+        "language_selection": "Idioma",
         "store_watch_history": "Recordar historial de visualización",
         "minimize_description_default": "Minimizar la descripción por defecto",
         "show_comments": "Mostrar comentarios",
         "default_homepage": "Página de inicio predeterminada",
-        "country_selection": "Selección de países",
+        "country_selection": "País",
         "buffering_goal": "Objetivo de amortiguación (en segundos)",
         "default_quality": "Calidad predeterminada",
         "audio_only": "Sólo audio",
@@ -74,7 +80,7 @@
         "subscribe": "Suscribirme - {count}",
         "loading": "Cargando…",
         "filter": "Filtrar",
-        "search": "Buscar",
+        "search": "Buscar (Ctrl+K)",
         "view_ssl_score": "Ver la puntuación SSL",
         "minimize_recommendations": "Minimizar recomendaciones",
         "show_recommendations": "Mostrar recomendaciones",
@@ -89,8 +95,8 @@
         "create_playlist": "Crear una lista de reproducción",
         "add_to_playlist": "Añadir a la lista de reproducción",
         "delete_playlist_video_confirm": "¿Eliminar vídeo de lista de reproducción?",
-        "please_select_playlist": "Seleccione una lista de reproducción",
-        "select_playlist": "Seleccione una lista de reproducción",
+        "please_select_playlist": "Por favor, selecciona una lista de reproducción",
+        "select_playlist": "Selecciona una lista de reproducción",
         "show_markers": "Mostrar Marcadores en Reproductor",
         "delete_account": "Eliminar Cuenta",
         "different_auth_instance": "Usar una instancia diferente para autenticación",
@@ -99,10 +105,8 @@
         "logout": "Cerrar sesión en este dispositivo",
         "minimize_recommendations_default": "Minimizar Recomendaciones por defecto",
         "invalidate_session": "Cerrar sesión en todos los dispositivos",
-        "instance_auth_selection": "Selección de la Instancia de Autentificación",
+        "instance_auth_selection": "Instancia de autenticación",
         "download_as_txt": "Descargar como .txt",
-        "rename_playlist": "Cambiar el nombre de la lista de reproducción",
-        "new_playlist_name": "Nuevo nombre de la lista de reproducción",
         "share": "Compartir",
         "with_timecode": "Compartir con código de tiempo",
         "piped_link": "Enlace de Piped",
@@ -115,7 +119,7 @@
         "restore_preferences": "Restablecer las preferencias",
         "back_to_home": "Volver a la página de inicio",
         "show_chapters": "Capítulos",
-        "store_search_history": "Guardar historial de búsqueda",
+        "store_search_history": "Guardar el historial de las búsquedas",
         "source_code": "Código fuente",
         "documentation": "Documentación",
         "instance_donations": "Donaciones para instancia",
@@ -127,10 +131,34 @@
         "show_watch_on_youtube": "Mostrar botón Ver en YouTube",
         "minimize_chapters_default": "Minimiza capítulos por defecto",
         "no_valid_playlists": "¡El archivo no contiene listas de reproducción válidas!",
-        "with_playlist": "Compartir con lista de reproducción"
+        "with_playlist": "Compartir con lista de reproducción",
+        "playlist_bookmarked": "Marcado",
+        "bookmark_playlist": "Marcador",
+        "skip_button_only": "Muestra botón de saltar",
+        "skip_automatically": "Automáticamente",
+        "min_segment_length": "Mínima Duración de Segmento (en segundos)",
+        "skip_segment": "Saltar Segmento",
+        "show_less": "Mostrar menos",
+        "autoplay_next_countdown": "Cuenta atrás predeterminada antes del siguiente vídeo (en segundos)",
+        "dismiss": "Descartar",
+        "group_name": "Nombre del grupo",
+        "create_group": "Crear grupo",
+        "auto_display_captions": "Mostrar automáticamente subtítulos",
+        "edit_playlist": "Editar lista de reproducción",
+        "okay": "Vale",
+        "playlist_name": "Nombre de la lista de reproducción",
+        "playlist_description": "Descripción de la lista de reproducción",
+        "cancel": "Cancelar",
+        "show_search_suggestions": "Mostrar sugerencias de búsqueda",
+        "chapters_layout_mobile": "Disposición de capítulos en móvil",
+        "delete_automatically": "Borrar automáticamente después de",
+        "enable_dearrow": "Activar DeArrow",
+        "generate_qrcode": "Generar código QR",
+        "import_from_json_csv": "Importar desde JSON/CSV",
+        "download_frame": "Descargar fotograma"
     },
     "titles": {
-        "feed": "Fuente web",
+        "feed": "Contenido",
         "subscriptions": "Suscripciones",
         "history": "Historial",
         "trending": "En tendencias",
@@ -142,14 +170,20 @@
         "instance": "Instancia",
         "player": "Reproductor",
         "livestreams": "Directos",
-        "channels": "Canales"
+        "channels": "Canales",
+        "bookmarks": "Marcadores",
+        "channel_groups": "Grupos de canales",
+        "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Ver en {0}"
+        "watch_on": "Ver en {0}",
+        "failed": "Falló con el código de error {0}, consulta los registros para más información"
     },
     "login": {
         "password": "Contraseña",
-        "username": "Nombre de usuario"
+        "username": "Nombre de usuario",
+        "passwords_incorrect": "¡Las contraseñas no coinciden!",
+        "password_confirm": "Confirma la contraseña"
     },
     "search": {
         "did_you_mean": "¿Quisiste decir {0}?",
@@ -160,7 +194,8 @@
         "videos": "YouTube: Vídeos",
         "channels": "YouTube: Canales",
         "playlists": "YouTube: Listas de reproducción",
-        "music_albums": "YT Music: Álbumes"
+        "music_albums": "YT Music: Álbumes",
+        "music_artists": "YT Music: Artistas"
     },
     "subscriptions": {
         "subscribed_channels_count": "Suscrito a: {0}"
@@ -170,6 +205,12 @@
         "page_not_found": "Página no encontrada",
         "copied": "¡Copiado!",
         "cannot_copy": "¡No se puede copiar!",
-        "local_storage": "Esta acción requiere «localStorage», ¿están activadas las «cookies»?"
+        "local_storage": "Esta acción requiere «localStorage», ¿están activadas las «cookies»?",
+        "register_no_email_note": "No se recomienda usar un correo electrónico como nombre de usuario. ¿Continuar de todos modos?",
+        "next_video_countdown": "El próximo vídeo se reproducirá en {0}s",
+        "hours": "{amount} hora(s)",
+        "days": "{amount} día(s)",
+        "weeks": "{amount} semana(s)",
+        "months": "{amount} mes(es)"
     }
 }

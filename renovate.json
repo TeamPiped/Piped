@@ -1,21 +1,17 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "group:recommended"
-  ],
-  "ignorePresets": [
-    ":prHourlyLimit2"
-  ],
-  "packageRules": [
-    {
-      "matchPackagePrefixes": [
-        "@unocss/"
-      ],
-      "matchPackageNames": [
-        "unocss"
-      ],
-      "groupName": "unocss"
-    }
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:base", "group:recommended"],
+    "ignorePresets": [":prHourlyLimit2"],
+    "packageRules": [
+        {
+            "matchPackagePrefixes": ["@unocss/"],
+            "matchPackageNames": ["unocss"],
+            "groupName": "unocss"
+        }
+    ],
+    "lockFileMaintenance": {
+        "enabled": true,
+        "automerge": true
+    },
+    "platformAutomerge": true
 }

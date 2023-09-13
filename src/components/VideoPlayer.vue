@@ -2,15 +2,49 @@
     <div
         ref="container"
         data-shaka-player-container
-        class="w-full max-h-screen flex justify-center efy_trans_filter_off"
+        class="relative max-h-screen w-full flex justify-center efy_trans_filter_off"
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
+        <span
+            id="preview-container"
+            ref="previewContainer"
+            class="absolute bottom-0 z-[2000] mb-[3.5%] hidden flex-col items-center"
+        >
+            <canvas id="preview" ref="preview" style="border-radius: var(--efy_radius0)" />
+            <span
+                class="w-min"
+                style="
+                    border-radius: var(--efy_radius0);
+                    background: var(--efy_text2);
+                    color: var(--efy_text);
+                    padding: 3rem 6rem;
+                "
+                v-text="timeFormat(currentTime)"
+            />
+        </span>
+        <button
+            v-if="inSegment"
+            class="skip-segment-button"
+            type="button"
+            :aria-label="$t('actions.skip_segment')"
+            aria-pressed="false"
+            @click="onClickSkipSegment"
+        >
+            <span v-t="'actions.skip_segment'" />
+            <i class="material-icons-round">skip_next</i>
+        </button>
+        <span
+            v-if="error > 0"
+            v-t="{ path: 'player.failed', args: [error] }"
+            class="absolute top-8 rounded bg-black/80 p-2 text-lg backdrop-blur-sm"
+        />
     </div>
 </template>
 
 <script>
-import("shaka-player/dist/controls.css");
+import "shaka-player/dist/controls.css";
+import { parseTimeParam } from "@/utils/Misc";
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
 if (!window.muxjs) {
     import("mux.js").then(muxjs => {
@@ -27,14 +61,6 @@ export default {
                 return {};
             },
         },
-        playlist: {
-            type: Object,
-            default: null,
-        },
-        index: {
-            type: Number,
-            default: -1,
-        },
         sponsors: {
             type: Object,
             default: () => {
@@ -45,12 +71,17 @@ export default {
         selectedAutoLoop: Boolean,
         isEmbed: Boolean,
     },
-    emits: ["timeupdate"],
+    emits: ["timeupdate", "ended", "navigateNext"],
     data() {
         return {
             lastUpdate: new Date().getTime(),
             initialSeekComplete: false,
             destroying: false,
+            inSegment: false,
+            isHoveringTimebar: false,
+            currentTime: 0,
+            seekbarPadding: 2,
+            error: 0,
         };
     },
     computed: {
@@ -88,7 +119,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.",
+                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,alt+p,return,.,,",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -175,7 +206,7 @@ export default {
                             e.preventDefault();
                             break;
                         case "shift+n":
-                            self.navigateNext();
+                            self.$emit("navigateNext");
                             e.preventDefault();
                             break;
                         case "shift+,":
@@ -183,6 +214,22 @@ export default {
                             break;
                         case "shift+.":
                             self.$player.trickPlay(Math.min(videoEl.playbackRate + 0.25, 2));
+                            break;
+                        case "alt+p":
+                            document.pictureInPictureElement
+                                ? document.exitPictureInPicture()
+                                : videoEl.requestPictureInPicture();
+                            break;
+                        case "return":
+                            self.skipSegment(videoEl);
+                            break;
+                        case ".":
+                            videoEl.currentTime += 0.04;
+                            e.preventDefault();
+                            break;
+                        case ",":
+                            videoEl.currentTime -= 0.04;
+                            e.preventDefault();
                             break;
                     }
                 },
@@ -199,6 +246,8 @@ export default {
     },
     methods: {
         async loadVideo() {
+            this.updateSponsors();
+
             const component = this;
             const videoEl = this.$refs.videoEl;
 
@@ -207,26 +256,9 @@ export default {
             const time = this.$route.query.t ?? this.$route.query.start;
 
             if (time) {
-                let start = 0;
-                if (/^[\d]*$/g.test(time)) {
-                    start = time;
-                } else {
-                    const hours = /([\d]*)h/gi.exec(time)?.[1];
-                    const minutes = /([\d]*)m/gi.exec(time)?.[1];
-                    const seconds = /([\d]*)s/gi.exec(time)?.[1];
-                    if (hours) {
-                        start += parseInt(hours) * 60 * 60;
-                    }
-                    if (minutes) {
-                        start += parseInt(minutes) * 60;
-                    }
-                    if (seconds) {
-                        start += parseInt(seconds);
-                    }
-                }
-                videoEl.currentTime = start;
+                videoEl.currentTime = parseTimeParam(time);
                 this.initialSeekComplete = true;
-            } else if (window.db) {
+            } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
                 var tx = window.db.transaction("watch_history", "readonly");
                 var store = tx.objectStore("watch_history");
                 var request = store.get(this.video.id);
@@ -256,9 +288,7 @@ export default {
 
             const MseSupport = window.MediaSource !== undefined;
 
-            const lbry = this.getPreferenceBoolean("disableLBRY", false)
-                ? null
-                : this.video.videoStreams.filter(stream => stream.quality === "LBRY")[0];
+            const lbry = null;
 
             var uri;
             var mime;
@@ -268,9 +298,10 @@ export default {
                 mime = "application/x-mpegURL";
             } else if (this.video.audioStreams.length > 0 && !lbry && MseSupport) {
                 if (!this.video.dash) {
-                    const dash = (
-                        await import("@/utils/DashUtils.js").then(mod => mod.default)
-                    ).generate_dash_file_from_formats(streams, this.video.duration);
+                    const dash = (await import("../utils/DashUtils.js")).generate_dash_file_from_formats(
+                        streams,
+                        this.video.duration,
+                    );
 
                     uri = "data:application/dash+xml;charset=utf-8;base64," + btoa(dash);
                 } else {
@@ -306,7 +337,7 @@ export default {
                 uri = this.video.hls;
                 mime = "application/x-mpegURL";
             } else {
-                uri = this.video.videoStreams.filter(stream => stream.codec == null).slice(-1)[0].url;
+                uri = this.video.videoStreams.findLast(stream => stream.codec == null).url;
                 mime = "video/mp4";
             }
 
@@ -356,22 +387,19 @@ export default {
             else this.setPlayerAttrs(this.$player, videoEl, uri, mime, this.$shaka);
 
             if (noPrevPlayer) {
+                videoEl.addEventListener("loadeddata", () => {
+                    if (document.pictureInPictureElement) videoEl.requestPictureInPicture();
+                });
                 videoEl.addEventListener("timeupdate", () => {
                     const time = videoEl.currentTime;
                     this.$emit("timeupdate", time);
                     this.updateProgressDatabase(time);
                     if (this.sponsors && this.sponsors.segments) {
-                        this.sponsors.segments.map(segment => {
-                            if (!segment.skipped || this.selectedAutoLoop) {
-                                const end = segment.segment[1];
-                                if (time >= segment.segment[0] && time < end) {
-                                    console.log("Skipped segment at " + time);
-                                    videoEl.currentTime = end;
-                                    segment.skipped = true;
-                                    return;
-                                }
-                            }
-                        });
+                        const segment = this.findCurrentSegment(time);
+                        this.inSegment = !!segment;
+                        if (segment?.autoskip && (!segment.skipped || this.selectedAutoLoop)) {
+                            this.skipSegment(videoEl, segment);
+                        }
                     }
                 });
 
@@ -386,17 +414,26 @@ export default {
                 });
 
                 videoEl.addEventListener("ended", () => {
-                    if (
-                        !this.selectedAutoLoop &&
-                        this.selectedAutoPlay &&
-                        (this.playlist?.relatedStreams?.length > 0 || this.video.relatedStreams.length > 0)
-                    ) {
-                        this.navigateNext();
-                    }
+                    this.$emit("ended");
                 });
             }
 
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
+        },
+        findCurrentSegment(time) {
+            return this.sponsors?.segments?.find(s => time >= s.segment[0] && time < s.segment[1]);
+        },
+        onClickSkipSegment() {
+            const videoEl = this.$refs.videoEl;
+            this.skipSegment(videoEl);
+        },
+        skipSegment(videoEl, segment) {
+            const time = videoEl.currentTime;
+            if (!segment) segment = this.findCurrentSegment(time);
+            if (!segment) return;
+            console.log("Skipped segment at " + time);
+            videoEl.currentTime = segment.segment[1];
+            segment.skipped = true;
         },
         setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
             const url = "/watch?v=" + this.video.id;
@@ -471,7 +508,12 @@ export default {
 
             this.updateMarkers();
 
+            const event = new Event("playerInit");
+            window.dispatchEvent(event);
+
             const player = this.$ui.getControls().getPlayer();
+
+            this.setupSeekbarPreview();
 
             this.$player = player;
 
@@ -483,6 +525,9 @@ export default {
                 manifest: {
                     disableVideo: disableVideo,
                 },
+                streaming: {
+                    segmentPrefetchLimit: 10,
+                },
             });
 
             const quality = this.getPreferenceNumber("quality", 0);
@@ -490,70 +535,83 @@ export default {
                 quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream) && !disableVideo;
             if (qualityConds) this.$player.configure("abr.enabled", false);
 
-            player.load(uri, 0, mime).then(() => {
-                const isSafari = window.navigator?.vendor?.includes("Apple");
+            player
+                .load(uri, 0, mime)
+                .then(() => {
+                    const isSafari = window.navigator?.vendor?.includes("Apple");
 
-                if (!isSafari) {
-                    // Set the audio language
-                    const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
-                    var lang = "en";
-                    for (var l in player.getAudioLanguages()) {
-                        if (l == prefLang) {
-                            lang = l;
-                            return;
-                        }
-                    }
-                    player.selectAudioLanguage(lang);
-                }
-
-                if (qualityConds) {
-                    var leastDiff = Number.MAX_VALUE;
-                    var bestStream = null;
-
-                    var bestAudio = 0;
-
-                    const tracks = player
-                        .getVariantTracks()
-                        .filter(track => track.language == lang || track.language == "und");
-
-                    // Choose the best audio stream
-                    if (quality >= 480)
-                        tracks.forEach(track => {
-                            const audioBandwidth = track.audioBandwidth;
-                            if (audioBandwidth > bestAudio) bestAudio = audioBandwidth;
-                        });
-
-                    // Find best matching stream based on resolution and bitrate
-                    tracks
-                        .sort((a, b) => a.bandwidth - b.bandwidth)
-                        .forEach(stream => {
-                            if (stream.audioBandwidth < bestAudio) return;
-
-                            const diff = Math.abs(quality - stream.height);
-                            if (diff < leastDiff) {
-                                leastDiff = diff;
-                                bestStream = stream;
+                    if (!isSafari) {
+                        // Set the audio language
+                        const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
+                        var lang = "en";
+                        for (var l in player.getAudioLanguages()) {
+                            if (l == prefLang) {
+                                lang = l;
+                                return;
                             }
-                        });
+                        }
+                        player.selectAudioLanguage(lang);
+                    }
 
-                    player.selectVariantTrack(bestStream);
-                }
+                    if (qualityConds) {
+                        var leastDiff = Number.MAX_VALUE;
+                        var bestStream = null;
 
-                this.video.subtitles.map(subtitle => {
-                    player.addTextTrackAsync(
-                        subtitle.url,
-                        subtitle.code,
-                        "SUBTITLE",
-                        subtitle.mimeType,
-                        null,
-                        subtitle.name,
-                    );
+                        var bestAudio = 0;
+
+                        const tracks = player
+                            .getVariantTracks()
+                            .filter(track => track.language == lang || track.language == "und");
+
+                        // Choose the best audio stream
+                        if (quality >= 480)
+                            tracks.forEach(track => {
+                                const audioBandwidth = track.audioBandwidth;
+                                if (audioBandwidth > bestAudio) bestAudio = audioBandwidth;
+                            });
+
+                        // Find best matching stream based on resolution and bitrate
+                        tracks
+                            .sort((a, b) => a.bandwidth - b.bandwidth)
+                            .forEach(stream => {
+                                if (stream.audioBandwidth < bestAudio) return;
+
+                                const diff = Math.abs(quality - stream.height);
+                                if (diff < leastDiff) {
+                                    leastDiff = diff;
+                                    bestStream = stream;
+                                }
+                            });
+
+                        player.selectVariantTrack(bestStream);
+                    }
+
+                    this.video.subtitles.map(subtitle => {
+                        player.addTextTrackAsync(
+                            subtitle.url,
+                            subtitle.code,
+                            "subtitles",
+                            subtitle.mimeType,
+                            null,
+                            subtitle.name,
+                        );
+                    });
+                    videoEl.volume = this.getPreferenceNumber("volume", 1);
+                    const rate = this.getPreferenceNumber("rate", 1);
+                    videoEl.playbackRate = rate;
+                    videoEl.defaultPlaybackRate = rate;
+
+                    const autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
+                    this.$player.setTextTrackVisibility(autoDisplayCaptions);
+                })
+                .catch(e => {
+                    console.error(e);
+                    this.error = e.code;
                 });
-                videoEl.volume = this.getPreferenceNumber("volume", 1);
-                const rate = this.getPreferenceNumber("rate", 1);
-                videoEl.playbackRate = rate;
-                videoEl.defaultPlaybackRate = rate;
-            });
+
+            // expand the player to fullscreen when the fullscreen query equals true
+            if (this.$route.query.fullscreen === "true" && !this.$ui.getControls().isFullScreenEnabled())
+                this.$ui.getControls().toggleFullScreen();
         },
         async updateProgressDatabase(time) {
             // debounce
@@ -578,29 +636,7 @@ export default {
                 this.$refs.videoEl.currentTime = time;
             }
         },
-        navigateNext() {
-            const params = this.$route.query;
-            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
-            const searchParams = new URLSearchParams();
-            for (var param in params)
-                switch (param) {
-                    case "v":
-                    case "t":
-                        break;
-                    case "index":
-                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("index", this.index + 1);
-                        break;
-                    case "list":
-                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("list", params.list);
-                        break;
-                    default:
-                        searchParams.set(param, params[param]);
-                        break;
-                }
-            const paramStr = searchParams.toString();
-            if (paramStr.length > 0) url += "&" + paramStr;
-            this.$router.push(url);
-        },
+
         updateMarkers() {
             const markers = this.$refs.container.querySelector(".shaka-ad-markers");
             const array = ["to right"];
@@ -608,38 +644,19 @@ export default {
                 const start = (segment.segment[0] / this.video.duration) * 100;
                 const end = (segment.segment[1] / this.video.duration) * 100;
 
-                var color;
-                switch (segment.category) {
-                    case "sponsor":
-                        color = "#00d400";
-                        break;
-                    case "selfpromo":
-                        color = "#ffff00";
-                        break;
-                    case "interaction":
-                        color = "#cc00ff";
-                        break;
-                    case "poi_highlight":
-                        color = "#ff1684";
-                        break;
-                    case "intro":
-                        color = "#00ffff";
-                        break;
-                    case "outro":
-                        color = "#0202ed";
-                        break;
-                    case "preview":
-                        color = "#008fd6";
-                        break;
-                    case "filler":
-                        color = "#7300FF";
-                        break;
-                    case "music_offtopic":
-                        color = "#ff9900";
-                        break;
-                    default:
-                        color = "white";
-                }
+                var color = [
+                    "sponsor",
+                    "selfpromo",
+                    "interaction",
+                    "poi_highlight",
+                    "intro",
+                    "outro",
+                    "preview",
+                    "filler",
+                    "music_offtopic",
+                ].includes(segment.category)
+                    ? `var(--spon-seg-${segment.category})`
+                    : "var(--spon-seg-default)";
 
                 array.push(`transparent ${start}%`);
                 array.push(`${color} ${start}%`);
@@ -653,33 +670,133 @@ export default {
 
             if (markers) markers.style.background = `linear-gradient(${array.join(",")})`;
         },
-        destroy(hotkeys) {
-            if (this.$ui) {
-                this.$ui.destroy();
-                this.$ui = undefined;
-                this.$player = undefined;
-            }
-            if (this.$player) {
-                this.$player.destroy();
-                this.$player = undefined;
-            }
-            if (hotkeys) this.$hotkeys?.unbind();
-            this.$refs.container?.querySelectorAll("div").forEach(node => node.remove());
-        },
-    },
-    watch: {
-        sponsors() {
+        updateSponsors() {
             if (this.getPreferenceBoolean("showMarkers", true)) {
                 this.shakaPromise.then(() => {
                     this.updateMarkers();
                 });
             }
         },
+        setupSeekbarPreview() {
+            if (!this.video.previewFrames) return;
+            let seekBar = document.querySelector(".shaka-seek-bar");
+            // load the thumbnail preview when the user moves over the seekbar
+            seekBar.addEventListener("mousemove", e => {
+                this.isHoveringTimebar = true;
+                const position = (e.offsetX / e.target.offsetWidth) * this.video.duration;
+                this.showSeekbarPreview(position * 1000);
+            });
+            // hide the preview when the user stops hovering the seekbar
+            seekBar.addEventListener("mouseout", () => {
+                this.isHoveringTimebar = false;
+                this.$refs.previewContainer.style.display = "none";
+            });
+        },
+        async showSeekbarPreview(position) {
+            const frame = this.getFrame(position);
+            const originalImage = await this.loadImage(frame.url);
+            if (!this.isHoveringTimebar) return;
+
+            const seekBar = document.querySelector(".shaka-seek-bar");
+            const container = this.$refs.previewContainer;
+            const canvas = this.$refs.preview;
+            const ctx = canvas.getContext("2d");
+
+            const offsetX = frame.positionX * frame.frameWidth;
+            const offsetY = frame.positionY * frame.frameHeight;
+
+            canvas.width = frame.frameWidth > 100 ? frame.frameWidth : frame.frameWidth * 2;
+            canvas.height = frame.frameWidth > 100 ? frame.frameHeight : frame.frameHeight * 2;
+            // draw the thumbnail preview into the canvas by cropping only the relevant part
+            ctx.drawImage(
+                originalImage,
+                offsetX,
+                offsetY,
+                frame.frameWidth,
+                frame.frameHeight,
+                0,
+                0,
+                canvas.width,
+                canvas.height,
+            );
+
+            // calculate the thumbnail preview offset and display it
+            const centerOffset = position / this.video.duration / 10;
+            const left = centerOffset - ((0.5 * canvas.width) / seekBar.clientWidth) * 100;
+            const maxLeft =
+                ((seekBar.clientWidth - canvas.clientWidth) / seekBar.clientWidth) * 100 - this.seekbarPadding;
+
+            this.currentTime = position / 1000;
+
+            container.style.left = `max(${this.seekbarPadding}%, min(${left}%, ${maxLeft}%))`;
+            container.style.display = "flex";
+        },
+        // ineffective algorithm to find the thumbnail corresponding to the currently hovered position in the video
+        getFrame(position) {
+            let startPosition = 0;
+            const framePage = this.video.previewFrames.at(-1);
+            for (let i = 0; i < framePage.urls.length; i++) {
+                for (let positionY = 0; positionY < framePage.framesPerPageY; positionY++) {
+                    for (let positionX = 0; positionX < framePage.framesPerPageX; positionX++) {
+                        const endPosition = startPosition + framePage.durationPerFrame;
+                        if (position >= startPosition && position <= endPosition) {
+                            return {
+                                url: framePage.urls[i],
+                                positionX: positionX,
+                                positionY: positionY,
+                                frameWidth: framePage.frameWidth,
+                                frameHeight: framePage.frameHeight,
+                            };
+                        }
+                        startPosition = endPosition;
+                    }
+                }
+            }
+            return null;
+        },
+        // creates a new image from an URL
+        loadImage(url) {
+            return new Promise(r => {
+                const i = new Image();
+                i.onload = () => r(i);
+                i.src = url;
+            });
+        },
+        destroy(hotkeys) {
+            if (this.$ui && !document.pictureInPictureElement) {
+                this.$ui.destroy();
+                this.$ui = undefined;
+                this.$player = undefined;
+            }
+            if (this.$player) {
+                this.$player.destroy();
+                if (!document.pictureInPictureElement) this.$player = undefined;
+            }
+            if (hotkeys) this.$hotkeys?.unbind();
+            this.$refs.container?.querySelectorAll("div").forEach(node => node.remove());
+        },
     },
 };
 </script>
 
 <style>
+:root {
+    --player-base: rgba(255, 255, 255, 0.3);
+    --player-buffered: rgba(255, 255, 255, 0.54);
+    --player-played: rgba(255, 0, 0);
+
+    --spon-seg-sponsor: #00d400;
+    --spon-seg-selfpromo: #ffff00;
+    --spon-seg-interaction: #cc00ff;
+    --spon-seg-poi_highlight: #ff1684;
+    --spon-seg-intro: #00ffff;
+    --spon-seg-outro: #0202ed;
+    --spon-seg-preview: #008fd6;
+    --spon-seg-filler: #7300ff;
+    --spon-seg-music_offtopic: #ff9900;
+    --spon-seg-default: white;
+}
+
 .player-container {
     @apply max-h-75vh min-h-64;
     background: #000;
@@ -732,11 +849,15 @@ html .shaka-range-element:focus {
 .material-icons-round {
     font-family: "Material Icons Round" !important;
 }
-.material-icons-round,
+.shaka-bottom-controls .material-icons-round,
 .shaka-current-time {
     -webkit-text-fill-color: #fff !important;
     filter: none !important;
     opacity: 1 !important;
+    box-shadow: none !important;
+}
+.shaka-bottom-controls .material-icons-round {
+    box-shadow: none !important;
 }
 .shaka-overflow-menu,
 .shaka-settings-menu {
@@ -766,5 +887,18 @@ html .shaka-range-element:focus {
 }
 .shaka-controls-container {
     border-radius: var(--efy_radius) !important;
+}
+
+.skip-segment-button {
+    z-index: 1000;
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+    right: 0;
+    border-right: 0;
+    border-radius: var(--efy_radius) 0 0 var(--efy_radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

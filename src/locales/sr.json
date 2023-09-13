@@ -7,7 +7,9 @@
         "ratings_disabled": "Оцене су онемогућене",
         "chapters": "Поглавља",
         "live": "{0} Уживо",
-        "shorts": "Кратки видео снимци"
+        "shorts": "Кратки видео снимци",
+        "all": "Све",
+        "category": "Категорија"
     },
     "actions": {
         "view_ssl_score": "Погледај SSL скор/оцену",
@@ -23,7 +25,7 @@
         "load_more_replies": "Учитај још одговора",
         "unsubscribe": "Прекини са праћењем - {count}",
         "auto": "Аутоматски",
-        "search": "Претрага",
+        "search": "Претрага (Ctrl+K)",
         "skip_non_music": "Прескочи делове где нема музике у музичким видео клиповима",
         "theme": "Теме",
         "audio_only": "Само звук",
@@ -98,21 +100,28 @@
         "status_page": "Статус",
         "instance_donations": "Донације инстанци",
         "show_chapters": "Поглавља",
-        "rename_playlist": "Преименуј плејлисту",
         "with_timecode": "Подели са временским кодом",
         "piped_link": "Piped веза",
         "back_to_home": "Врати се на почетну",
         "follow_link": "Прати везу",
         "copy_link": "Копирај везу",
         "time_code": "Временски код (у секундама)",
-        "new_playlist_name": "Ново име плејлисте",
         "minimize_comments_default": "Подразумевано умањи коментаре",
         "minimize_comments": "Умањи коментаре",
         "reply_count": "{count} одговора",
         "minimize_chapters_default": "Умањи поглавља подразумевано",
         "show_watch_on_youtube": "Прикажите \"Гредај на YouTube-у\" дугме",
         "no_valid_playlists": "Датотека не садржи важеће пописе снимака!",
-        "with_playlist": "Делите са пописом снимака"
+        "with_playlist": "Делите са пописом снимака",
+        "playlist_bookmarked": "Обиљежено",
+        "bookmark_playlist": "Биљежак",
+        "show_less": "Прикажи мање",
+        "skip_button_only": "Прикажи дугме за прескакање",
+        "skip_automatically": "Аутоматски",
+        "min_segment_length": "Најмања дужина сегмента (у секундама)",
+        "skip_segment": "Прескочи сегмент",
+        "dismiss": "Одбаци",
+        "autoplay_next_countdown": "Подразумевано одбројавање до следећег видеа (у секундама)"
     },
     "preferences": {
         "instance_locations": "Локација инстанце",
@@ -151,7 +160,8 @@
         "instance": "Инстанца",
         "player": "Покретник",
         "livestreams": "Уживо преноси",
-        "channels": "Канали"
+        "channels": "Канали",
+        "bookmarks": "Биљешци"
     },
     "comment": {
         "pinned_by": "Закачено од {author}",
@@ -170,6 +180,8 @@
         "copied": "Копирано!",
         "cannot_copy": "Није могуће копирати!",
         "preferences_note": "Напомена: подешавања се чувају у локалној меморији вашег претраживача. Брисање података прегледача ће их ресетовати.",
-        "local_storage": "Ова радња захтева локално складиште, да ли су колачићи омогућени ?"
+        "local_storage": "Ова радња захтева локално складиште, да ли су колачићи омогућени ?",
+        "register_no_email_note": "Коришћење е-поруке као корисничког имена се не препоручује. Желите ли ипак наставити?",
+        "next_video_countdown": "Репродукује се следећи видео за {0}с"
     }
 }

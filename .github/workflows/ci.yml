@@ -8,13 +8,21 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
               with:
-                  submodules: true
+                  submodules: 'true'
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: latest
             - name: Setup Node.js
               uses: actions/setup-node@v3
               with:
-                  cache: "yarn"
-            - run: yarn install --prefer-offline
-            - run: yarn build
-            - run: yarn lint --no-fix
+                  cache: "pnpm"
+            - run: pnpm install
+            - run: pnpm build
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: build
+                  path: dist
+            - run: pnpm lint --no-fix

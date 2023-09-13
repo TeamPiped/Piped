@@ -12,7 +12,9 @@
         "instance": "Instance",
         "player": "Lecteur",
         "livestreams": "Diffusions en direct",
-        "channels": "Chaînes"
+        "channels": "Chaînes",
+        "bookmarks": "Marque-pages",
+        "channel_groups": "Groupes de chaînes"
     },
     "actions": {
         "subscribe": "S'abonner - {count}",
@@ -66,7 +68,7 @@
         "yes": "Oui",
         "loading": "Chargement…",
         "filter": "Filtrer",
-        "search": "Rechercher",
+        "search": "Rechercher (Ctrl+K)",
         "view_ssl_score": "Afficher le score SSL",
         "clear_history": "Effacer l'historique",
         "load_more_replies": "Charger plus de réponses",
@@ -102,8 +104,6 @@
         "piped_link": "Lien vers Piped",
         "follow_link": "Ouvrir le lien",
         "time_code": "Horodatage (en secondes)",
-        "rename_playlist": "Renommer la liste de lecture",
-        "new_playlist_name": "Nouveau nom de la liste de lecture",
         "show_chapters": "Chapitres",
         "store_search_history": "Mémoriser l'historique de recherche",
         "documentation": "Documentation",
@@ -116,7 +116,27 @@
         "minimize_comments": "Minimiser les commentaires",
         "show_watch_on_youtube": "Afficher le bouton Regarder sur YouTube",
         "minimize_chapters_default": "Minimiser les chapitres par défaut",
-        "no_valid_playlists": "Le fichier ne contient pas de listes de lecture valides !"
+        "no_valid_playlists": "Le fichier ne contient pas de listes de lecture valides !",
+        "bookmark_playlist": "Marque-page",
+        "playlist_bookmarked": "Dans les marque-pages",
+        "with_playlist": "Partager avec la liste de lecture",
+        "skip_button_only": "Afficher le bouton de saut",
+        "skip_automatically": "Automatiquement",
+        "min_segment_length": "Longueur minimale du segment (en secondes)",
+        "skip_segment": "Sauter le segment",
+        "show_less": "Afficher moins",
+        "okay": "OK",
+        "edit_playlist": "Éditer la liste de lecture",
+        "playlist_name": "Nom de la liste de lecture",
+        "auto_display_captions": "Afficher sous-titres automatiquement",
+        "dismiss": "Rejeter",
+        "cancel": "Annuler",
+        "playlist_description": "Description de la liste de lecture",
+        "create_group": "Créer un groupe",
+        "group_name": "Nom du groupe",
+        "autoplay_next_countdown": "Temps par défaut avant la prochaine vidéo (en secondes)",
+        "chapters_layout_mobile": "Format des chapitres sur mobile",
+        "show_search_suggestions": "Afficher les suggestions de recherche"
     },
     "player": {
         "watch_on": "Regarder sur {0}"
@@ -129,7 +149,11 @@
         "ratings_disabled": "Évaluations désactivées",
         "chapters": "Chapitres",
         "live": "{0} en direct",
-        "shorts": "Courtes"
+        "shorts": "Courtes",
+        "all": "Tout",
+        "category": "Catégorie",
+        "chapters_horizontal": "Horizontal",
+        "chapters_vertical": "Vertical"
     },
     "preferences": {
         "ssl_score": "Score SSL",
@@ -172,6 +196,8 @@
         "page_not_found": "Page non trouvée",
         "copied": "Copié !",
         "cannot_copy": "Impossible de copier !",
-        "local_storage": "Cette action nécessite localStorage, les cookies sont-ils activés ?"
+        "local_storage": "Cette action nécessite localStorage, les cookies sont-ils activés ?",
+        "register_no_email_note": "Il n'est pas recommandé d'utiliser une adresse courriel omme nom d'utilisateur. Continuer quand même ?",
+        "next_video_countdown": "Lecture de la prochaine vidéo dans {0}s"
     }
 }

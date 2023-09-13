@@ -7,7 +7,7 @@
     --efy_gap: 15rem;
     --efy_sidebar_button: right_middle, off;
     --efy_body_width: 100%;
-     --efy_body_padding: 15rem calc(15rem + var(--efy_gap));
+     --efy_body_padding: 15rem;
     --efy_font_family: 'nunito', sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     --efy_audio_folder: ./efy/audio;
     --efy_folder: ./efy;
@@ -30,24 +30,14 @@
 
 /*Display: Flex*/ .pp-watch-buttons, .pp-watch-bellow-options .flex.items-center, .pp-channel-page-author, .grid .comment, .pp-chapters {display: flex}
 /*Gap: 15rem*/ .pp-show-playlist, .pp-rec-vids, .pp-mobile-nav, .pp-delete-account .flex, .pp-playlist-add-modal-top, .pp-pref-cards, .pp-watch-bellow-options {gap: var(--efy_gap)}
-/*Color: Text*/ .video-grid div a, .pp-show-recs div a, .video-grid div button:not(.modal button, .btn), .pp-show-recs div button:not(.modal button, .btn), .svg-inline--fa:not(.video-grid svg, .btn svg, button svg) {color: var(--efy_text)}
+/*Color: Text*/ .video-grid div a, .pp-show-recs div a, .video-grid div button:not(.modal button, .btn), .pp-show-recs div button:not(.modal button, .btn), .svg-inline--fa:not(.video-grid svg, [role=button] svg, button svg) {color: var(--efy_text)}
 
 /*Border*/ .modal-container, .video-grid>div {border: 1.5px solid var(--efy_bg1);}
 
-/*Text-Fill-Color: Text*/  p:not([efy_logo] p), .pp-mobile-nav :is(a, p), .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-logo a, .pp-nav .pp-menu > * {
+/*Text-Fill-Color: Text*/  p:not([efy_logo] p, .efy_sidebar p), .pp-mobile-nav :is(a, p), .video-grid div a, .pp-show-recs div a, .thumbnail-left, .thumbnail-right, .comment a, .pp-watch-bellow-options a, .pp-logo a, .pp-nav .pp-menu > * {
     -webkit-text-fill-color: var(--efy_text)!important;
     text-decoration: none;
 }
-
-/*Text-Fill-Color: Text2*/ .btn, .btn a, a.btn, .modal button {
-    -webkit-text-fill-color: var(--efy_text2);
-    text-decoration: none;
-    background-clip: unset!important;
-    -webkit-background-clip: unset!important;
-    -webkit-text-fill-color: var(--efy_text2)!important;
-}
-
-/*BG: efy*/ .btn, .pp-chapter-active, .pp-chapters .chapter:hover {background: var(--efy_color); background-clip: padding-box; color: var(--efy_text2)}
 
 /*Padding 1*/ .btn {padding: var(--efy_padding); height: auto}
 
@@ -55,11 +45,9 @@
 
 /*Video Grid */ .video-grid {display: grid; gap: var(--efy_gap); grid-template-columns: repeat(auto-fill, minmax(240rem, 1fr))}
 
-tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 0 0 1.5px var(--efy_bg1)}
-
 /*Bellow*/ .pp-watch-bellow-options {margin-top: 15rem}
 .pp-watch-buttons {flex-wrap: wrap; gap: var(--efy_gap0)}
-.pp-watch-buttons .btn {padding: 6rem 15rem; border: 0; color: var(--efy_text2); min-height: 36rem; max-height: 36rem; place-self: center; place-content: center}
+.pp-watch-buttons .btn {padding: 6rem 15rem; border: 0; color: var(--efy_text2); min-height: var(--efy_ratio_width); max-height: var(--efy_ratio_width); place-self: center; place-content: center}
 .pp-bellow-video, .pp-bellow-video .flex {gap:10rem}
 .pp-likes .flex {gap: 0rem}
 
@@ -95,8 +83,6 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 .comment-meta {margin: 0 5rem}
 .comment .comment {margin: var(--efy_gap) 0}
 
-/*SVG*/ .svg-inline--fa:not(.video-grid svg, .btn svg, button svg) {margin-right: 5rem}
-
 .suggestions-container ul {padding: 0; list-style: none; display: grid; gap: 5rem}
 .suggestions-container li {padding: 3rem 10rem}
 .suggestion-selected {box-shadow: 0 0 0 1.5rem var(--efy_color_border), 0 0 0 1.5rem var(--efy_color_border)}
@@ -106,13 +92,6 @@ tbody:nth-child(odd) {background: var(--efy_bg1)!important; box-shadow: inset 0 
 
 /*Preferences*/ .pp-pref-cards {display: grid; grid-template-columns: repeat(auto-fit, minmax(300rem, 1fr))}
 table {margin-top: 0}
-
-/*Chapters*/ .pp-chapters {margin-left: var(--efy_gap); max-width: 400rem; gap: var(--efy_gap0); border-radius: var(--efy_radius)}
-.pp-chapters .chapter {padding: 10rem; border-radius: var(--efy_radius); border: var(--efy_border)}
-.pp-chapters [title=chapters] {padding: 5rem 10rem; border-radius: var(--efy_radius); border: var(--efy_border)}
-.pp-chapters .chapter .flex {gap: 0 15rem}
-
- .pp-chapters.pp-mobile {margin: 15rem 0 0 0; max-width: 100%}
 
 /*Modal*/ .modal {backdrop-filter: blur(5px)}
 .modal-container {background: var(--efy_text2)!important; padding: 15rem!important; box-shadow: 0 0 1px var(--efy_text_trans)}
@@ -127,8 +106,12 @@ table {margin-top: 0}
 
 /*Other*/ .pp-show-recs, .pp-show-playlist, .pp-show-playlist {display: grid; gap: var(--efy_gap)}
 .pp-show-playlist {margin-bottom: 15rem}
-:is(.video-grid, .pp-show-recs, .pp-show-playlist) div {padding: 15rem; background: var(--efy_bg1); border: var(--efy_border)}
+:is(.video-grid, .pp-show-recs, .pp-show-playlist) div {background: var(--efy_bg1); border: var(--efy_border)}
 :is(.video-grid, .pp-show-recs, .pp-show-playlist) div div {padding: 0; border: none; background: transparent}
+
+.video-grid > div {
+    padding: 0;
+}
 
 .svg-inline--fa{vertical-align: -2.5rem}
 .children\:px-1>*, .px-1 {padding-left: 4rem; padding-right: 4rem}
@@ -149,20 +132,47 @@ table {margin-top: 0}
 .btn, [role=button] {
     border: 0;
 }
+.pp-square {
+    width: var(--efy_ratio_width)!important;
+    height: var(--efy_ratio_width);
+}
+.video-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--efy_gap0);
+}
+.video-tags a {
+    background: var(--efy_bg1)!important;
+    border-radius: var(--efy_radius);
+    border: var(--efy_border);
+    background-clip: none!important;
+    -webkit-background-clip: none!important;
+    -webkit-text-fill-color: var(--efy_text)!important;
+    padding: 4rem 10rem;
+    font-weight: normal;
+}
+.thumbnail[src*="/?host=i.ytimg.com"] {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
 
 /*Convergence*/
+/*Desktop*/
+.efy_sidebar #custom_sidebar_menu {
+    display: none !important
+}
 @media (max-width: 990px) {
     .pp-watch-bellow-options {flex-direction: column; margin-top: 15rem}
 }
 @media (max-width: 767.9px) {
     .pp-rec-vids {grid-template-columns: 1fr 1fr}
     .\<md\:hidden {display: none}
-    .md\:hidden {margin-bottom: 16rem}
 }
 @media (max-width: 639px) {
     .pp-rec-vids {grid-template-columns: 1fr}
     .pp-nav .pp-menu {display: none!important}
     .pp-mobile-btn {display: block}
+    .efy_sidebar #custom_sidebar_menu {display: flex!important}
 }
 @media (min-width: 640px){
     .sm\:order-last {-webkit-box-ordinal-group: 10000; -webkit-order: 9999; order: 9999}

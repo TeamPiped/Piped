@@ -1,15 +1,16 @@
 <template>
-    <ModalComponent>
+    <ModalComponent @close="$emit('close')">
         <h4 v-t="'actions.select_playlist'" class="mb-2" />
-        <select class="select w-full mb-2" v-model="selectedPlaylist">
-            <option v-for="playlist in playlists" :value="playlist.id" :key="playlist.id" v-text="playlist.name" />
+        <select v-model="selectedPlaylist" class="select w-full mb-2">
+            <option v-for="playlist in playlists" :key="playlist.id" :value="playlist.id" v-text="playlist.name" />
         </select>
-        <div class="flex justify-end">
+        <div class="flex justify-end" style="gap: var(--efy_gap0)">
+            <button ref="addButton" v-t="'actions.create_playlist'" class="btn pp-color" @click="onCreatePlaylist" />
             <button
-                class="btn"
-                @click="handleClick(selectedPlaylist)"
                 ref="addButton"
                 v-t="'actions.add_to_playlist'"
+                class="btn pp-color"
+                @click="handleClick(selectedPlaylist)"
             />
         </div>
     </ModalComponent>
@@ -23,11 +24,16 @@ export default {
         ModalComponent,
     },
     props: {
+        videoInfo: {
+            type: Object,
+            required: true,
+        },
         videoId: {
             type: String,
             required: true,
         },
     },
+    emits: ["close"],
     data() {
         return {
             playlists: [],
@@ -62,29 +68,23 @@ export default {
             this.$refs.addButton.disabled = true;
             this.processing = true;
 
-            this.fetchJson(this.authApiUrl() + "/user/playlists/add", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    playlistId: playlistId,
-                    videoId: this.videoId,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            }).then(json => {
+            this.addVideosToPlaylist(playlistId, [this.videoId], [this.videoInfo]).then(json => {
                 this.setPreference("selectedPlaylist" + this.hashCode(this.authApiUrl()), playlistId);
                 this.$emit("close");
                 if (json.error) alert(json.error);
             });
         },
         async fetchPlaylists() {
-            this.fetchJson(this.authApiUrl() + "/user/playlists", null, {
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-            }).then(json => {
+            this.getPlaylists().then(json => {
                 this.playlists = json;
+            });
+        },
+        onCreatePlaylist() {
+            const name = prompt(this.$t("actions.create_playlist"));
+            if (!name) return;
+            this.createPlaylist(name).then(json => {
+                if (json.error) alert(json.error);
+                else this.fetchPlaylists();
             });
         },
     },

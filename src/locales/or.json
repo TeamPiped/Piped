@@ -12,7 +12,10 @@
         "account": "ଆକାଉଣ୍ଟ",
         "player": "ପ୍ଲେୟାର",
         "livestreams": "ସିଧାପ୍ରସାରଣ ଗୁଡ଼ିକ",
-        "channels": "ସ୍ରୋତ ଗୁଡ଼ିକ"
+        "channels": "ସ୍ରୋତ ଗୁଡ଼ିକ",
+        "bookmarks": "ବୁକମାର୍କଗୁଡିକ",
+        "channel_groups": "ଚ୍ୟାନେଲ୍ ଗୋଷ୍ଠୀଗୁଡିକ",
+        "dearrow": "ଡି ତୀର"
     },
     "player": {
         "watch_on": "{0} ରେ ଦେଖନ୍ତୁ"
@@ -32,9 +35,7 @@
         "minimize_recommendations": "ସୁପାରିଶକୁ କମ୍ କରନ୍ତୁ",
         "show_recommendations": "ସୁପାରିଶଗୁଡିକ ଦେଖାନ୍ତୁ",
         "disable_lbry": "ଷ୍ଟ୍ରିମିଂ ପାଇଁ LBRY ଅକ୍ଷମ କରନ୍ତୁ",
-        "search": "ସନ୍ଧାନ କରନ୍ତୁ",
-        "rename_playlist": "ପ୍ଲେ ଲିଷ୍ଟର ନାମ ପରିବର୍ତ୍ତନ କରନ୍ତୁ",
-        "new_playlist_name": "ନୂତନ ପ୍ଲେଲିଷ୍ଟ ନାମ",
+        "search": "ସନ୍ଧାନ କରନ୍ତୁ (Ctrl+K)",
         "channel_name_asc": "ସ୍ରୋତ ର ନାମ (A-Z)",
         "least_recent": "ସର୍ବନିମ୍ନ ସାମ୍ପ୍ରତିକ",
         "channel_name_desc": "ସ୍ରୋତ ର ନାମ (Z-A)",
@@ -57,14 +58,14 @@
         "autoplay_video": "ଅଟୋପ୍ଲେ ଭିଡିଓ",
         "enabled_codecs": "ସକ୍ଷମ କୋଡେକସ୍ (ଏକାଧିକ)",
         "audio_only": "କେବଳ ସ୍ୱର",
-        "language_selection": "ଭାଷା ଚୟନ",
+        "language_selection": "ଭାଷା",
         "show_more": "ଅଧିକ ଦେଖାନ୍ତୁ",
         "buffering_goal": "ବଫରିଂ ଲକ୍ଷ୍ୟ (ସେକେଣ୍ଡରେ)",
-        "country_selection": "ଦେଶ ଚୟନ",
+        "country_selection": "ଦେଶ",
         "minimize_description_default": "ଡିଫଲ୍ଟ ଭାବରେ ବର୍ଣ୍ଣନାକୁ କମ୍ କରନ୍ତୁ",
         "store_watch_history": "ଦେଖିଥିବା ଭିଡିଓ ଗୁଡ଼ିକର ଇତିହାସ ରଖନ୍ତୁ",
         "instances_list": "ଉଦାହରଣ ତାଲିକା",
-        "instance_selection": "ଇନଷ୍ଟାନ୍ସ ଚୟନ",
+        "instance_selection": "ଇନଷ୍ଟାନ୍ସ",
         "yes": "ହଁ",
         "import_from_json": "JSON / CSV ରୁ ଆମଦାନୀ କରନ୍ତୁ",
         "no": "ନାହିଁ",
@@ -98,7 +99,7 @@
         "minimize_recommendations_default": "ଡିଫଲ୍ଟ ଭାବରେ ସୁପାରିଶକୁ କମ୍ କରନ୍ତୁ",
         "invalidate_session": "ସମସ୍ତ ଡିଭାଇସ୍ ରୁ ଲଗଆଉଟ୍ କରନ୍ତୁ",
         "download_as_txt": ".Txt ଭାବରେ ଡାଉନଲୋଡ୍ କରନ୍ତୁ",
-        "instance_auth_selection": "ପ୍ରାମାଣିକିକରଣ ଇନଷ୍ଟାନ୍ସ ଚୟନ",
+        "instance_auth_selection": "ପ୍ରାମାଣିକିକରଣ ଇନଷ୍ଟାନ୍ସ",
         "confirm_reset_preferences": "ଆପଣ ନିଶ୍ଚିତ କି ଆପଣ ଆପଣଙ୍କର ପସନ୍ଦଗୁଡିକ ପୁନଃ ସେଟ୍ କରିବାକୁ ଚାହୁଁଛନ୍ତି?",
         "status_page": "ସ୍ଥିତି",
         "different_auth_instance": "ପ୍ରାମାଣିକିକରଣ ପାଇଁ ଏକ ଭିନ୍ନ ଉଦାହରଣ ବ୍ୟବହାର କରନ୍ତୁ",
@@ -119,7 +120,30 @@
         "documentation": "ଡକ୍ୟୁମେଣ୍ଟେସନ୍",
         "instance_donations": "ଇନଷ୍ଟାଣ୍ଟ ଦାନ ଗୁଡ଼ିକ",
         "minimize_chapters_default": "ଡିଫଲ୍ଟ ଭାବରେ ଅଧ୍ୟାୟଗୁଡ଼ିକୁ କମ୍ କରନ୍ତୁ",
-        "no_valid_playlists": "ଫାଇଲ୍ ଟି ବୈଧ ପ୍ଲେଲିଷ୍ଟ ଧାରଣ କରେ ନାହିଁ!"
+        "no_valid_playlists": "ଫାଇଲ୍ ଟି ବୈଧ ପ୍ଲେଲିଷ୍ଟ ଧାରଣ କରେ ନାହିଁ!",
+        "with_playlist": "ପ୍ଲେଲିଷ୍ଟ ସହିତ ଅଂଶୀଦାର କରନ୍ତୁ",
+        "bookmark_playlist": "ବୁକମାର୍କ",
+        "playlist_bookmarked": "ବୁକମାର୍କ ହୋଇଛି",
+        "min_segment_length": "ସର୍ବନିମ୍ନ ସେଗମେଣ୍ଟ ଲମ୍ବ (ସେକେଣ୍ଡରେ)",
+        "skip_button_only": "ସ୍କିପ୍ ବଟନ୍ ଦେଖାନ୍ତୁ",
+        "skip_automatically": "ସ୍ୱୟଂଚାଳିତ ଭାବରେ",
+        "skip_segment": "ସେଗମେଣ୍ଟକୁ ଏଡ଼ାଇଦିଅ",
+        "show_less": "କମ୍ ଦେଖାନ୍ତୁ",
+        "autoplay_next_countdown": "ପରବର୍ତ୍ତୀ ଭିଡିଓ ପର୍ଯ୍ୟନ୍ତ ଡିଫଲ୍ଟ କାଉଣ୍ଟଡାଉନ୍ (ସେକେଣ୍ଡରେ)",
+        "dismiss": "ବରଖାସ୍ତ",
+        "create_group": "ଗୋଷ୍ଠୀ ସୃଷ୍ଟି କରନ୍ତୁ",
+        "group_name": "ଗୋଷ୍ଠୀ ନାମ",
+        "enable_dearrow": "DeArrow କୁ ସକ୍ରିୟ କରନ୍ତୁ",
+        "show_search_suggestions": "ସନ୍ଧାନ ପ୍ରସ୍ତାବଗୁଡ଼ିକୁ ଦର୍ଶାନ୍ତୁ",
+        "delete_automatically": "ଏହା ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅପସାରଣ କରନ୍ତୁ",
+        "okay": "ଠିକ୍ ଅଛି",
+        "edit_playlist": "ପ୍ଲେଲିଷ୍ଟକୁ ସମ୍ପାଦନ କରନ୍ତୁ",
+        "playlist_name": "ପ୍ଲେ-ଲିଷ୍ଟ ନାମ",
+        "generate_qrcode": "QR କୋଡ ସୃଷ୍ଟି କରନ୍ତୁ",
+        "chapters_layout_mobile": "ମୋବାଇଲରେ ଅଧ୍ୟାୟ ବିନ୍ୟାସ",
+        "auto_display_captions": "ଶୀର୍ଷକଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଦର୍ଶାନ୍ତୁ",
+        "playlist_description": "ପ୍ଲେଲିଷ୍ଟ ବର୍ଣ୍ଣନା",
+        "cancel": "ବାତିଲ କରନ୍ତୁ"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",
@@ -135,7 +159,13 @@
         "videos": "ଭିଡିଓ ଗୁଡିକ",
         "ratings_disabled": "ମୂଲ୍ୟାୟନ ଅକ୍ଷମ ହୋଇଛି",
         "chapters": "ଅଧ୍ୟାୟ ଗୁଡ଼ିକ",
-        "live": "{0} ସିଧାପ୍ରସାରଣ"
+        "live": "{0} ସିଧାପ୍ରସାରଣ",
+        "all": "ସମସ୍ତ",
+        "category": "ବର୍ଗ",
+        "visibility": "ଦୃଶ୍ୟମାନତା",
+        "license": "ଲାଇସେନ୍ସ",
+        "chapters_horizontal": "ଭୂସମାନ୍ତର",
+        "chapters_vertical": "ଭୂଲମ୍ବ"
     },
     "search": {
         "did_you_mean": "ଆପଣ କହିବାକୁ ଚାହୁଁଛନ୍ତି କି: {0}?",
@@ -146,7 +176,8 @@
         "videos": "ୟୁଟ୍ୟୁବ୍: ଭିଡିଓଗୁଡିକ",
         "channels": "ୟୁଟ୍ୟୁବ୍: ଚ୍ୟାନେଲଗୁଡିକ",
         "music_songs": "ୟୁଟିଉବ୍ ସଙ୍ଗୀତ: ଗୀତ ଗୁଡ଼ିକ",
-        "playlists": "ୟୁଟ୍ୟୁବ୍: ପ୍ଲେଲିଷ୍ଟଗୁଡିକ"
+        "playlists": "ୟୁଟ୍ୟୁବ୍: ପ୍ଲେଲିଷ୍ଟଗୁଡିକ",
+        "music_artists": "ୱାଇଟି ମ୍ୟୁଜିକ: ଆର୍ଟିଷ୍ଟ"
     },
     "subscriptions": {
         "subscribed_channels_count": "ସଦସ୍ୟତା: {0}"
@@ -156,7 +187,13 @@
         "copied": "କପି ହୋଇଛି!",
         "cannot_copy": "କପି କରିପାରିବ ନାହିଁ!",
         "page_not_found": "ପୃଷ୍ଠାଟି ମିଳିଲା ନାହିଁ",
-        "local_storage": "ଏହି କ୍ରିୟା ଲୋକାଲ୍ ଷ୍ଟୋରେଜ୍ ଆବଶ୍ୟକ କରେ, କୁକିଜ୍ ସକ୍ଷମ ଅଛି କି?"
+        "local_storage": "ଏହି କ୍ରିୟା ଲୋକାଲ୍ ଷ୍ଟୋରେଜ୍ ଆବଶ୍ୟକ କରେ, କୁକିଜ୍ ସକ୍ଷମ ଅଛି କି?",
+        "register_no_email_note": "ଉପଯୋଗକର୍ତ୍ତା ନାମ ଭାବରେ ଏକ ଇ-ମେଲ୍ ବ୍ୟବହାର କରିବା ସୁପାରିଶ କରାଯାଏ ନାହିଁ । ଯେକୌଣସି ପ୍ରକାରେ ଅଗ୍ରଗତି କରନ୍ତୁ?",
+        "next_video_countdown": "{0} ସେକେଣ୍ଡ ରେ ପରବର୍ତ୍ତୀ ଭିଡିଓ ଖେଳିବାକୁ ଆରମ୍ଭ ହେବ",
+        "hours": "{amount} ଘଣ୍ଟା",
+        "days": "{amount} ଦିନ",
+        "weeks": "{amount} ସପ୍ତାହ",
+        "months": "{amount} ମାସ"
     },
     "preferences": {
         "instance_name": "ଇନଷ୍ଟାନ୍ସ ନାମ",
@@ -169,6 +206,8 @@
     },
     "login": {
         "password": "ପାସୱାର୍ଡ",
-        "username": "ଉପଯୋଗକର୍ତ୍ତା ନାମ"
+        "username": "ଉପଯୋଗକର୍ତ୍ତା ନାମ",
+        "passwords_incorrect": "ପ୍ରବେଶ ସଂକେତ ମେଳ ଖାଉନାହିଁ!",
+        "password_confirm": "ପ୍ରବେଶ ସଂକେତ ନିଶ୍ଚିତ କରନ୍ତୁ"
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <footer class="efy_trans_filter">
+    <footer class="efy_trans_filter efy_shadow_trans efy_shadow_button_off">
         <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped" target="_blank">
             <font-awesome-icon :icon="['fab', 'github']" />
             <span v-t="'actions.source_code'" />
@@ -58,12 +58,13 @@ footer {
     padding: 15rem 5rem;
     border: var(--efy_border);
 }
-footer > a {
-    margin: 0;
-}
 footer a {
     color: var(--efy_text) !important;
     -webkit-text-fill-color: var(--efy_text) !important;
     background: transparent !important;
+    margin: 0;
+    display: flex;
+    gap: 8rem;
+    align-items: center;
 }
 </style>

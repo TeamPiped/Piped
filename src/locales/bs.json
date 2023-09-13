@@ -25,7 +25,7 @@
         "audio_only": "Samo zvuk",
         "default_homepage": "Zadana početna stranica",
         "loop_this_video": "Stavite ovaj video na ponavljanje",
-        "search": "Pretraga",
+        "search": "Pretraga (Ctrl+K)",
         "skip_preview": "Preskočite pregled",
         "skip_non_music": "Preskočite muziku: sekcija bez muzike",
         "skip_self_promo": "Preskočite neplaćenu/samo-promociju",
@@ -77,8 +77,6 @@
         "minimize_chapters_default": "Smanjite poglavlja po zadanom",
         "show_watch_on_youtube": "Prikaži „Gledaj na YouTube-u” dugme",
         "different_auth_instance": "Koristite drugu instancu za autentifikaciju",
-        "rename_playlist": "Preimenuj listu izvođenja",
-        "new_playlist_name": "Novi naziv liste izvođenja",
         "with_timecode": "Podijelite s vremenskim kodom",
         "piped_link": "Piped poveznica",
         "follow_link": "Prati poveznicu",
@@ -102,7 +100,16 @@
         "minimize_comments": "Minimizirajte komentare",
         "delete_account": "Izbriši račun",
         "minimize_recommendations_default": "Smanjite preporuke po zadanom",
-        "reset_preferences": "Vrati postavke na zadano"
+        "reset_preferences": "Vrati postavke na zadano",
+        "bookmark_playlist": "Bilježak",
+        "playlist_bookmarked": "Obilježeno",
+        "show_less": "Prikaži manje",
+        "skip_button_only": "Prikaži dugme za preskakanje",
+        "skip_automatically": "Automatski",
+        "min_segment_length": "Najmanja dužina segmenta (u sekundama)",
+        "skip_segment": "Preskoči segment",
+        "autoplay_next_countdown": "Zadano odbrojavanje do sljedećeg videa (u sekundama)",
+        "dismiss": "Odbaci"
     },
     "titles": {
         "register": "Registrirajte se",
@@ -117,7 +124,8 @@
         "account": "Račun",
         "player": "Pokretnik",
         "channels": "Kanali",
-        "livestreams": "Prijenosi uživo"
+        "livestreams": "Prijenosi uživo",
+        "bookmarks": "Bilješci"
     },
     "search": {
         "music_songs": "YT Music: Pjesme",
@@ -154,7 +162,9 @@
         "watched": "Pogledano",
         "videos": "Video zapisi",
         "live": "{0} Uživo",
-        "shorts": "Kratki videi"
+        "shorts": "Kratki videi",
+        "category": "Kategorija",
+        "all": "Sve"
     },
     "comment": {
         "pinned_by": "Prikačeno od {author}",
@@ -170,6 +180,8 @@
         "cannot_copy": "Nije moguće kopirati!",
         "page_not_found": "Stranica nije pronađena",
         "copied": "Kopirano!",
-        "local_storage": "Ova radnja zahtijeva lokalno pohranjivanje, jesu li kolačići omogućeni?"
+        "local_storage": "Ova radnja zahtijeva lokalno pohranjivanje, jesu li kolačići omogućeni?",
+        "register_no_email_note": "Korištenje e-maila kao korisničko ime se ne preporučuje. Svejedno nastaviti?",
+        "next_video_countdown": "Reproduciranje sljedećeg videa u {0}"
     }
 }
