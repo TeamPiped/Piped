@@ -27,6 +27,13 @@
                     @click="subscribeHandler"
                 ></button>
 
+                <button
+                    v-if="subscribed"
+                    v-t="'actions.add_to_group'"
+                    class="btn"
+                    @click="showGroupModal = true"
+                ></button>
+
                 <!-- RSS Feed button -->
                 <a
                     v-if="channel.id"
@@ -70,6 +77,8 @@
                 hide-channel
             />
         </div>
+
+        <AddToGroupModal v-if="showGroupModal" :channel-id="channel.id.substr(-11)" @close="showGroupModal = false" />
     </LoadingIndicatorPage>
 </template>
 
@@ -79,6 +88,7 @@ import ContentItem from "./ContentItem.vue";
 import WatchOnButton from "./WatchOnButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import CollapsableText from "./CollapsableText.vue";
+import AddToGroupModal from "./AddToGroupModal.vue";
 
 export default {
     components: {
@@ -87,6 +97,7 @@ export default {
         WatchOnButton,
         LoadingIndicatorPage,
         CollapsableText,
+        AddToGroupModal,
     },
     data() {
         return {
@@ -95,6 +106,7 @@ export default {
             tabs: [],
             selectedTab: 0,
             contentItems: [],
+            showGroupModal: false,
         };
     },
     mounted() {
