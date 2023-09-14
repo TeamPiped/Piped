@@ -829,7 +829,7 @@ export default {
 /* apply to all spans that don't include multiple other spans to avoid the style being applied to the text container too when the subtitles are two lines */
 .shaka-text-wrapper > span > span *:first-child:last-child {
     background: transparent !important;
-    color: var(--efy_text);
+    color: #fff;
     padding: 0;
     font-size: 22rem !important;
 }
