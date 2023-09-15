@@ -215,6 +215,8 @@
         "days": "{amount} gün",
         "months": "{amount} ay",
         "hours": "{amount} saat",
-        "weeks": "{amount} hafta"
+        "weeks": "{amount} hafta",
+        "login_note": "Bu sunucuda oluşturulan bir hesapla oturum açın.",
+        "register_note": "Bu Piped sunucusu için bir hesap açın. Bu, aboneliklerinizi ve oynatma listelerinizi hesabınızla eşzamanlamanızı sağlar, böylece sunucu tarafında kaydedilirler. Tüm özellikleri bir hesap olmadan da kullanabilirsiniz, ancak bu şekilde tüm veriler yalnızca tarayıcının yerel depolama alanında saklanacaktır. Lütfen kullanıcı adı olarak bir e-posta adresi KULLANMADIĞINIZDAN ve güvenli bir parola seçtiğinizden emin olun."
     }
 }

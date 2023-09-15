@@ -213,7 +213,7 @@
         "days": "{amount} day(s)",
         "weeks": "{amount} week(s)",
         "months": "{amount} month(s)",
-        "register_note": "Register an account for this Piped instance. That allows you to sync your subscriptions and playlists with your account, hence they're saved on server side. You can use all features without an account too, however all data will only be stored in the local storage of the browser then. Please make sure to NOT use an email address as username, and to choose a safe password.",
+        "register_note": "Register an account for this Piped instance. This will allow you to sync your subscriptions and playlists with your account, so they're stored on the server side. You can use all features without an account, but all data will be stored in your browser's local cache. Please make sure you do NOT use an email address as your username and choose a secure password that you do not use elsewhere.",
         "login_note": "Log in with an account that was created at this instance."
     }
 }
