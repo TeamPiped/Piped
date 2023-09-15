@@ -209,7 +209,8 @@
         "days": "{amount} ימים",
         "weeks": "{amount} שבועות",
         "months": "{amount} חודשים",
-        "hours": "{amount} שעות"
+        "hours": "{amount} שעות",
+        "login_note": "כניסה לחשבון שנוצר בעותק הזה."
     },
     "subscriptions": {
         "subscribed_channels_count": "נרשמת אל: {0}"
