@@ -211,7 +211,7 @@
         "hours": "{amount} godziny",
         "months": "{amount} miesiące",
         "login_note": "Zaloguj się na konto utworzone w tej instancji.",
-        "register_note": "Zarejestruj konto dla tej instancji Piped. Dzięki temu możesz synchronizować swoje subskrypcje i playlisty ze swoim kontem, dzięki czemu są one zapisywane po stronie serwera. Ze wszystkich funkcji możesz korzystać także bez konta, jednak wtedy wszystkie dane będą przechowywane wyłącznie w pamięci lokalnej przeglądarki. Pamiętaj, aby NIE używać adresu e-mail jako nazwy użytkownika i wybrać bezpieczne hasło."
+        "register_note": "Zarejestruj konto dla tej instancji Piped. Umożliwi to synchronizację subskrypcji i list odtwarzania ze swoim kontem, dzięki czemu będą one przechowywane po stronie serwera. Możesz korzystać ze wszystkich funkcji bez konta, ale wszystkie dane będą przechowywane w lokalnej pamięci podręcznej Twojej przeglądarki. Upewnij się, że NIE używasz adresu e-mail jako nazwy użytkownika i wybierz bezpieczne hasło, którego nie używasz gdzie indziej."
     },
     "subscriptions": {
         "subscribed_channels_count": "Licznik subskrybcji: {0}"
