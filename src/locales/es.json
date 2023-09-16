@@ -213,7 +213,7 @@
         "days": "{amount} día(s)",
         "weeks": "{amount} semana(s)",
         "months": "{amount} mes(es)",
-        "login_note": "Iniciar sesión con una cuenta que haya sido creada en esta instancia.",
-        "register_note": "Crear una cuenta en esta instancia de Piped. Esto te permite sincronizar tus subscripciones y listas de reproducción con tu cuenta, por lo que se guardan en el servidor. También puedes usar todas las funcionalidades sin una cuenta; sin embargo, tus datos solo se guardarán en el almacenamiento local del navegador en ese caso. Por favor, asegúrate de NO usar una dirección de correo electrónico como nombre de usuario y de elegir una contraseña segura."
+        "login_note": "Inicia sesión con una cuenta creada en esta instancia.",
+        "register_note": "Registra una cuenta para esta instancia de Piped. Esto te permitirá sincronizar tus suscripciones y las listas de reproducción con tu cuenta, para que se almacenen en el servidor. Puedes utilizar todas las funciones sin una cuenta, pero todos los datos se almacenarán en la caché local de tu navegador. Asegúrate de NO utilizar una dirección de correo electrónico como nombre de usuario y elige una contraseña segura que no utilices en ningún otro sitio."
     }
 }
