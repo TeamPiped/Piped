@@ -146,7 +146,7 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Assistir no {0}",
+        "watch_on": "Ver em {0}",
         "failed": "Falhou com código de erro {0}, veja os logs para mais informações"
     },
     "comment": {
@@ -209,7 +209,9 @@
         "hours": "{amount} hora(s)",
         "days": "{amount} dia(s)",
         "weeks": "{amount} semana(s)",
-        "months": "{amount} mês/meses"
+        "months": "{amount} mês/meses",
+        "login_note": "Entre com uma conta criada nesta instância.",
+        "register_note": "Registre uma conta para esta instância Piped. Isto irá permitir que você sincronize suas inscrições e playlists com sua conta, para que sejam armazenadas no lado do servidor. Você pode usar todas as funções sem uma conta, mas todos os dados serão armazenados no cache local do seu navegador. Por favor certifique-se de NÃO usar seu endereço de e-mail como nome de usuário e de escolher uma senha segura que não use em nenhum outro lugar."
     },
     "subscriptions": {
         "subscribed_channels_count": "Inscrito em: {0}"
