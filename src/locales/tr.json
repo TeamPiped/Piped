@@ -125,7 +125,8 @@
         "generate_qrcode": "QR Kodu Oluştur",
         "import_from_json_csv": "JSON/CSV Dosyasından İçe Aktar",
         "download_frame": "Kareyi indir",
-        "instance_privacy_policy": "Gizlilik Politikası"
+        "instance_privacy_policy": "Gizlilik Politikası",
+        "add_to_group": "Gruba ekle"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
@@ -217,6 +218,6 @@
         "hours": "{amount} saat",
         "weeks": "{amount} hafta",
         "login_note": "Bu sunucuda oluşturulan bir hesapla oturum açın.",
-        "register_note": "Bu Piped sunucusu için bir hesap açın. Bu, aboneliklerinizi ve oynatma listelerinizi hesabınızla eşzamanlamanızı sağlar, böylece sunucu tarafında kaydedilirler. Tüm özellikleri bir hesap olmadan da kullanabilirsiniz, ancak bu şekilde tüm veriler yalnızca tarayıcının yerel depolama alanında saklanacaktır. Lütfen kullanıcı adı olarak bir e-posta adresi KULLANMADIĞINIZDAN ve güvenli bir parola seçtiğinizden emin olun."
+        "register_note": "Bu Piped sunucusu için bir hesap açın. Bu, aboneliklerinizi ve oynatma listelerinizi hesabınızla eşzamanlamanızı sağlar, böylece sunucu tarafında kaydedilirler. Tüm özellikleri bir hesap olmadan da kullanabilirsiniz, ancak bu şekilde tüm veriler yalnızca tarayıcınızınn yerel önbelleğinde saklanacaktır. Lütfen kullanıcı adı olarak bir e-posta adresi KULLANMADIĞINIZDAN ve başka bir yerde kullanmadığınız güvenli bir parola seçtiğinizden emin olun."
     }
 }
