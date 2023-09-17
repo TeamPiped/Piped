@@ -156,7 +156,8 @@
         "generate_qrcode": "Generiraj QR kod",
         "import_from_json_csv": "Uvezi iz JSON/CSV formata",
         "download_frame": "Preuzmi kadar",
-        "instance_privacy_policy": "Politika privatnosti"
+        "instance_privacy_policy": "Politika privatnosti",
+        "add_to_group": "Dodaj grupi"
     },
     "player": {
         "watch_on": "Gledaj na {0}",
@@ -215,6 +216,8 @@
         "hours": "{amount} h",
         "days": "{amount} dan(a)",
         "weeks": "{amount} tj",
-        "months": "{amount} mj"
+        "months": "{amount} mj",
+        "login_note": "Prijavi se s računom stvorenim na ovoj instanci.",
+        "register_note": "Registriraj račun za ovu Piped instancu. To će ti omogućiti sinkronizaciju tvojih pretplata i playlista s tvojim računom kako bi se spremile na poslužitelju. Možeš koristiti sve značajke bez računa, ali će se svi podaci spremiti u lokalnu predmemoriju tvog preglednika. NEMOJ koristiti e-mail adresu kao korisničko ime i odaberi sigurnu lozinku koju ne koristiš negdje drugdje."
     }
 }
