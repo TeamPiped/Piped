@@ -125,7 +125,8 @@
         "generate_qrcode": "Gerar código QR",
         "enable_dearrow": "Ativar DeArrow",
         "import_from_json_csv": "Importar de JSON/CSV",
-        "download_frame": "Baixar quadro"
+        "download_frame": "Baixar quadro",
+        "add_to_group": "Adicionar ao grupo"
     },
     "titles": {
         "history": "Histórico",
