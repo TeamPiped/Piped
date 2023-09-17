@@ -125,7 +125,8 @@
         "generate_qrcode": "QR-Code generieren",
         "import_from_json_csv": "Aus JSON/CSV importieren",
         "download_frame": "Einzelbild (Frame) downloaden",
-        "instance_privacy_policy": "Datenschutzerklärung"
+        "instance_privacy_policy": "Datenschutzerklärung",
+        "add_to_group": "Zu Gruppe hinzufügen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen",
