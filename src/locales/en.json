@@ -147,7 +147,8 @@
         "show_search_suggestions": "Show search suggestions",
         "delete_automatically": "Delete automatically after",
         "generate_qrcode": "Generate QR Code",
-        "download_frame": "Download frame"
+        "download_frame": "Download frame",
+        "add_to_group": "Add to group"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

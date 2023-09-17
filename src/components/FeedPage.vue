@@ -99,18 +99,7 @@ export default {
 
         if (!window.db) return;
 
-        const cursor = this.getChannelGroupsCursor();
-        cursor.onsuccess = e => {
-            const cursor = e.target.result;
-            if (cursor) {
-                const group = cursor.value;
-                this.channelGroups.push({
-                    groupName: group.groupName,
-                    channels: JSON.parse(group.channels),
-                });
-                cursor.continue();
-            }
-        };
+        this.loadChannelGroups();
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
@@ -134,6 +123,10 @@ export default {
                     channels: this.getUnauthenticatedChannels(),
                 });
             }
+        },
+        async loadChannelGroups() {
+            const groups = await this.getChannelGroups();
+            this.channelGroups.push(...groups);
         },
         loadMoreVideos() {
             if (!this.videosStore) return;
