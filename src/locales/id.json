@@ -147,7 +147,8 @@
         "generate_qrcode": "Buat Kode QR",
         "import_from_json_csv": "Impor dari JSON/CSV",
         "download_frame": "Unduh bingkai",
-        "instance_privacy_policy": "Kebijakan Privasi"
+        "instance_privacy_policy": "Kebijakan Privasi",
+        "add_to_group": "Tambahkan ke grup"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
