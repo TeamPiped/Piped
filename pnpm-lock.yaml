@@ -42,8 +42,8 @@ dependencies:
     specifier: ^1.5.3
     version: 1.5.3
   shaka-player:
-    specifier: 4.4.1
-    version: 4.4.1
+    specifier: 4.4.2
+    version: 4.4.2
   stream-browserify:
     specifier: 3.0.0
     version: 3.0.0
@@ -4535,8 +4535,8 @@ packages:
       has-property-descriptors: 1.0.0
     dev: true
 
-  /shaka-player@4.4.1:
-    resolution: {integrity: sha512-zOUsKDlHDQIk5l2bVfX4vSBraB47C8Yha8qDp6xTYebq8TDXxDTQ6j4vmoIOJl522bvUGVCZ+3PU4Xh6NCDVnQ==}
+  /shaka-player@4.4.2:
+    resolution: {integrity: sha512-sDw4wmRIw920f/JzA4XHGzEBq/ywYqgeEeSbUJIgJS8xNPcwWbaUuXJXFbPAVMLJoj9co2PrX20qTWTUSpDADg==}
     engines: {node: '>=14'}
     dependencies:
       eme-encryption-scheme-polyfill: 2.1.1
