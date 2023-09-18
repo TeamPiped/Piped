@@ -147,7 +147,8 @@
         "generate_qrcode": "Wygeneruj kod QR",
         "import_from_json_csv": "Import z pliku JSON/CSV",
         "download_frame": "Pobierz klatkę",
-        "instance_privacy_policy": "Polityki prywatności"
+        "instance_privacy_policy": "Polityki prywatności",
+        "add_to_group": "Dodaj do grupy"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",

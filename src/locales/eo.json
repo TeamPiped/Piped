@@ -147,7 +147,8 @@
         "generate_qrcode": "Generi QR-kodon",
         "import_from_json_csv": "Importi el JSON/CSV",
         "download_frame": "Elŝuti bildon",
-        "instance_privacy_policy": "Privateca politiko"
+        "instance_privacy_policy": "Privateca politiko",
+        "add_to_group": "Aldoni al grupo"
     },
     "video": {
         "chapters": "Sekcioj",
@@ -189,8 +190,8 @@
         "days": "{amount} tago(j)",
         "weeks": "{amount} semajno(j)",
         "months": "{amount} monato(j)",
-        "login_note": "Ensaluti per konto, kiu estis kreita en ĉi tiu retejo.",
-        "register_note": "Registri konton por ĉi tiu Piped-retejo. Tio ebligas al vi sinkronigi viajn abonojn kaj ludlistojn kun via kondo, do ili estos konservitaj en la servilo. Vi ankaŭ povas uzi ĉiujn funkciojn sen konto, tamen ĉiuj datenoj nur estos konservitaj en la loka konservejo de via retumilo. Bonvolu elekti sekuran pasvorton kaj NE uzi retadreson kiel uzantnomon."
+        "login_note": "Ensaluti per konto kreita en ĉi tiu retejo.",
+        "register_note": "Registri konton por ĉi tiu Piped-retejo. Tio ebligos al vi sinkronigi viajn abonojn kaj ludlistojn kun via konto, do ili estos konservitaj en la servilo. Vi ankaŭ povas uzi ĉiujn funkciojn sen konto, sed ĉiuj datenoj estos konservitaj en la loka kaŝmemoro de via retumilo. Bonvolu elekti sekuran pasvorton, kiun vi ne uzas aliloke, kaj NE uzi retadreson kiel uzantnomon."
     },
     "login": {
         "username": "Uzantnomo",

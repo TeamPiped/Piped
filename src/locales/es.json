@@ -156,7 +156,8 @@
         "generate_qrcode": "Generar código QR",
         "import_from_json_csv": "Importar desde JSON/CSV",
         "download_frame": "Descargar fotograma",
-        "instance_privacy_policy": "Política de privacidad"
+        "instance_privacy_policy": "Política de privacidad",
+        "add_to_group": "Añadir a grupo"
     },
     "titles": {
         "feed": "Contenido",
