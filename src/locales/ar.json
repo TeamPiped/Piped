@@ -147,7 +147,8 @@
         "generate_qrcode": "إنشاء رمز الاستجابة السريعة",
         "import_from_json_csv": "استيراد من JSON/CSV",
         "download_frame": "إطار التحميل",
-        "instance_privacy_policy": "سياسة الخصوصية"
+        "instance_privacy_policy": "سياسة الخصوصية",
+        "add_to_group": "إضافة إلى المجموعة"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
