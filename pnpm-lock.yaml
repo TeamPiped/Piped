@@ -54,8 +54,8 @@ dependencies:
     specifier: 9.4.1
     version: 9.4.1(vue@3.3.4)
   vue-router:
-    specifier: 4.2.4
-    version: 4.2.4(vue@3.3.4)
+    specifier: 4.2.5
+    version: 4.2.5(vue@3.3.4)
   xml-js:
     specifier: 1.6.11
     version: 1.6.11
@@ -5098,8 +5098,8 @@ packages:
       '@vue/devtools-api': 6.5.0
       vue: 3.3.4
 
-  /vue-router@4.2.4(vue@3.3.4):
-    resolution: {integrity: sha512-9PISkmaCO02OzPVOMq2w82ilty6+xJmQrarYZDkjZBfl4RvYAlt4PKnEX21oW4KTtWfa9OuO/b3qk1Od3AEdCQ==}
+  /vue-router@4.2.5(vue@3.3.4):
+    resolution: {integrity: sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
