@@ -143,7 +143,8 @@
         "generate_qrcode": "Gerar código QR",
         "import_from_json_csv": "Importar de JSON/CSV",
         "download_frame": "Quadro de transferência",
-        "instance_privacy_policy": "Política de privacidade"
+        "instance_privacy_policy": "Política de privacidade",
+        "add_to_group": "Adicionar ao grupo"
     },
     "preferences": {
         "instance_name": "Nome da instância",
@@ -212,6 +213,8 @@
         "hours": "{quantidade} hora(s)",
         "days": "{quantidade} dia(s)",
         "weeks": "{quantidade} semana(s)",
-        "months": "{quantidade} mês(es)"
+        "months": "{quantidade} mês(es)",
+        "login_note": "Inicie sessão com uma conta criada nesta instância.",
+        "register_note": "Registar uma conta para esta instância do Piped. Isso permitirá que você sincronize suas assinaturas e listas de reprodução com sua conta, para que elas sejam armazenadas no lado do servidor. Você pode usar todos os recursos sem uma conta, mas todos os dados serão armazenados no cache local do seu navegador. Certifique-se de que NÃO utiliza um endereço de e-mail como nome de utilizador e escolha uma palavra-passe segura que não utilize noutros locais."
     }
 }
