@@ -1,6 +1,6 @@
 {
     "titles": {
-        "trending": "ट्रेंडिंग",
+        "trending": "फिलहाल चर्चा में",
         "history": "इतिहास",
         "register": "रजिस्टर करें",
         "login": "लॉग इन करें",
@@ -12,7 +12,10 @@
         "channels": "चैनल",
         "player": "चालक",
         "account": "खाता",
-        "instance": "इंस्टैंस"
+        "instance": "इंस्टैंस",
+        "channel_groups": "चैनल ग्रुप",
+        "bookmarks": "बुकमार्क",
+        "dearrow": "DeArrow"
     },
     "actions": {
         "subscribe": "सदस्यता लें - {count}",
@@ -49,9 +52,9 @@
         "instance_selection": "इंस्टेंस",
         "show_more": "और दिखाओ",
         "export_to_json": "JSON में निर्यात करें",
-        "import_from_json": "JSON/CSV से आयात करें",
+        "import_from_json": "JSON से आयात करें",
         "auto_play_next_video": "अगला वीडियो ऑटोप्ले करें",
-        "donations": "विकास दान",
+        "donations": "डिवेलपमेंट के लिए दान",
         "minimize_recommendations": "सिफारिशों को कम करें",
         "show_recommendations": "सिफारिशें दिखाएं",
         "disable_lbry": "स्ट्रीमिंग के लिए LBRY अक्षम करें",
@@ -62,7 +65,7 @@
         "load_more_replies": "और जवाब लोड करें",
         "enabled_codecs": "सक्षम कोडेक्स (एकाधिक)",
         "buffering_goal": "बफरिंग गोल (सेकंड में)",
-        "delete_playlist_confirm": "प्लेलिस्ट को मिटाना है?",
+        "delete_playlist_confirm": "इस प्लेलिस्ट को मिटायें?",
         "add_to_playlist": "प्लेलिस्ट में जोड़ें",
         "remove_from_playlist": "प्लेलिस्ट से निकाले",
         "delete_playlist_video_confirm": "वीडियो को प्लेलिस्ट से निकालना है?",
@@ -74,7 +77,15 @@
         "default_homepage": "स्वतः निर्धारित मुख्यपृष्ठ",
         "sort_by": "वर्गीकरण:",
         "skip_automatically": "स्वतः",
-        "delete_account": "खाता मिटाएँ"
+        "delete_account": "खाता डिलीट करें",
+        "skip_button_only": "स्किप बटन दिखाएँ",
+        "skip_intro": "मध्यांतर/परिचय एनिमेशन छोड़ें",
+        "skip_self_promo": "अनपेड/स्वयं प्रचार को छोड़ें",
+        "skip_filler_tangent": "फिलर स्पर्शरेखा को छोड़ें",
+        "skip_non_music": "संगीत छोड़ें: गैर-संगीत अनुभाग",
+        "show_markers": "प्लेयर पर मार्कर दिखाएँ",
+        "skip_preview": "प्रीव्यू / रीकैप छोड़ें",
+        "skip_highlight": "हाइलाइट छोड़ें"
     },
     "video": {
         "views": "{views} बार देखा गया",
@@ -100,6 +111,10 @@
         "did_you_mean": "क्या आपका मतलब यह था: {0}?"
     },
     "player": {
-        "watch_on": "{0} में देखें"
+        "watch_on": "{0} पर देखें",
+        "failed": "त्रुटि कोड {0} के साथ विफल, अधिक जानकारी के लिए लॉग देखें"
+    },
+    "info": {
+        "login_note": "इस इंस्टेंस पर बनाए गए खाते से लॉग इन करें।"
     }
 }
