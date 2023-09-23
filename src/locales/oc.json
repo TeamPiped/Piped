@@ -147,7 +147,8 @@
         "delete_automatically": "Suprimir automaticament aprèp",
         "download_frame": "Telecargar fotograma",
         "generate_qrcode": "Generar un còdi QR",
-        "instance_privacy_policy": "Politica de confidencialitat"
+        "instance_privacy_policy": "Politica de confidencialitat",
+        "add_to_group": "Apondre al grop"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
