@@ -125,7 +125,8 @@
         "auto_display_captions": "Ondertiteling automatisch tonen",
         "import_from_json_csv": "Importeren uit JSON/CSV",
         "download_frame": "Beeld downloaden",
-        "instance_privacy_policy": "Privacybeleid"
+        "instance_privacy_policy": "Privacybeleid",
+        "add_to_group": "Toevoegen aan groep"
     },
     "titles": {
         "register": "Registreren",
@@ -209,7 +210,8 @@
         "days": "{amount} dag(en)",
         "weeks": "{amount} week/weken",
         "months": "{amount} maand(en)",
-        "hours": "{amount} uur"
+        "hours": "{amount} uur",
+        "login_note": "Log in met een account dat op deze instantie is aangemaakt."
     },
     "subscriptions": {
         "subscribed_channels_count": "Geabonneerd op: {0}"
