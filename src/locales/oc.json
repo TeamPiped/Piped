@@ -192,7 +192,8 @@
         "hours": "{amount} ora(s)",
         "months": "{amount} mes(es)",
         "days": "{amount} jorn(s)",
-        "weeks": "{amount} setmana(s)"
+        "weeks": "{amount} setmana(s)",
+        "login_note": "Se connectar amb un compte creat sus aquesta instància."
     },
     "comment": {
         "disabled": "L’autor a desactivat los comentaris.",
