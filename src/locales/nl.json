@@ -211,7 +211,8 @@
         "weeks": "{amount} week/weken",
         "months": "{amount} maand(en)",
         "hours": "{amount} uur",
-        "login_note": "Log in met een account dat op deze instantie is aangemaakt."
+        "login_note": "Log in met een account dat op deze instantie is aangemaakt.",
+        "register_note": "Registreer een account voor deze Piped-instantie. Hierdoor kunt u uw abonnementen en afspeellijsten synchroniseren met uw account, zodat ze aan de serverkant worden opgeslagen. U kunt alle functies gebruiken zonder account, maar alle gegevens worden opgeslagen in de lokale cache van uw browser. Zorg ervoor dat u GEEN e-mailadres als gebruikersnaam gebruikt en kies een veilig wachtwoord dat u niet elders gebruikt."
     },
     "subscriptions": {
         "subscribed_channels_count": "Geabonneerd op: {0}"
