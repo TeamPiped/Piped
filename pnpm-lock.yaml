@@ -68,8 +68,8 @@ devDependencies:
     specifier: 1.1.15
     version: 1.1.15
   '@intlify/unplugin-vue-i18n':
-    specifier: 1.2.0
-    version: 1.2.0(rollup@2.79.1)(vue-i18n@9.4.1)
+    specifier: 1.3.0
+    version: 1.3.0(rollup@2.79.1)(vue-i18n@9.4.1)
   '@unocss/eslint-config':
     specifier: 0.56.4
     version: 0.56.4(eslint@8.50.0)(typescript@5.2.2)
@@ -1645,8 +1645,8 @@ packages:
       - supports-color
     dev: true
 
-  /@intlify/bundle-utils@7.3.0(vue-i18n@9.4.1):
-    resolution: {integrity: sha512-lcnfsLA5Dyd3TbvfoLS0ejLr1vAJYyT6VRYtE4LGNexy1ZD/GEcbXrC33fI9oQp7t2hDlHbCn2o4BBVgXaJFqg==}
+  /@intlify/bundle-utils@7.4.0(vue-i18n@9.4.1):
+    resolution: {integrity: sha512-AQfjBe2HUxzyN8ignIk3WhhSuVcSuirgzOzkd17nb337rCbI4Gv/t1R60UUyIqFoFdviLb/wLcDUzTD/xXjv9w==}
     engines: {node: '>= 14.16'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -1688,8 +1688,8 @@ packages:
     resolution: {integrity: sha512-A51elBmZWf1FS80inf/32diO9DeXoqg9GR9aUDHFcfHoNDuT46Q+fpPOdj8jiJnSHSBh8E1E+6qWRhAZXdK3Ng==}
     engines: {node: '>= 16'}
 
-  /@intlify/unplugin-vue-i18n@1.2.0(rollup@2.79.1)(vue-i18n@9.4.1):
-    resolution: {integrity: sha512-AzjlMZKj9DG10ICDR2VWjfJudHJ1XK2GNSHxw+VmOUYpUm4S0L/a7OAdvgnuY7S4plk1VnPdT4YilpZk+uQcqg==}
+  /@intlify/unplugin-vue-i18n@1.3.0(rollup@2.79.1)(vue-i18n@9.4.1):
+    resolution: {integrity: sha512-w/Uct1yAAXCJZSM1DvyGuBgksCE8jzPYQAPTGrAJv2Wf2NwwtKFJT8W85/wVBJz6GUH2dAy5hA41Evs5oDlLDw==}
     engines: {node: '>= 14.16'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -1703,7 +1703,7 @@ packages:
       vue-i18n-bridge:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': 7.3.0(vue-i18n@9.4.1)
+      '@intlify/bundle-utils': 7.4.0(vue-i18n@9.4.1)
       '@intlify/shared': 9.4.1
       '@rollup/pluginutils': 5.0.4(rollup@2.79.1)
       '@vue/compiler-sfc': 3.3.4
