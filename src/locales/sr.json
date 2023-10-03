@@ -148,20 +148,22 @@
         "music_playlists": "YT Music: Пописи снимака"
     },
     "titles": {
-        "history": "Повест гледања",
-        "feed": "Новости",
+        "history": "Историја",
+        "feed": "Фид",
         "preferences": "Подешавања",
         "register": "Регистрација",
         "trending": "У тренду",
         "login": "Пријава",
         "subscriptions": "Праћења",
-        "playlists": "Пописи Снимака",
-        "account": "Рачун",
+        "playlists": "Плејлисте",
+        "account": "Налог",
         "instance": "Инстанца",
-        "player": "Покретник",
-        "livestreams": "Уживо преноси",
+        "player": "Плејер",
+        "livestreams": "Стримови уживо",
         "channels": "Канали",
-        "bookmarks": "Биљешци"
+        "bookmarks": "Обележивачи",
+        "channel_groups": "Групе канала",
+        "dearrow": "DeArrow"
     },
     "comment": {
         "pinned_by": "Закачено од {author}",
@@ -170,7 +172,8 @@
         "loading": "Учитавање коментара..."
     },
     "player": {
-        "watch_on": "Гледај на {0}"
+        "watch_on": "Гледај на {0}",
+        "failed": "Неуспешно, са кодом грешке {0}, погледајте евиденцију за више информација"
     },
     "subscriptions": {
         "subscribed_channels_count": "Претплаћени сте на: {0}"
