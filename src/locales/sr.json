@@ -91,7 +91,7 @@
         "confirm_reset_preferences": "Желите ли заиста да ресетујете подешавања?",
         "backup_preferences": "Направи резервну копију подешавања",
         "invalidate_session": "Одјава са свих уређаја",
-        "different_auth_instance": "Користите другу инстанцу за аутентификацију",
+        "different_auth_instance": "Користи другу инстанцу за аутентификацију",
         "instance_auth_selection": "Инстанца аутентификације",
         "clone_playlist": "Клонирај плејлисту",
         "clone_playlist_success": "Успешно клонирано!",
@@ -148,7 +148,7 @@
         "instance_locations": "Локације инстанце",
         "instance_name": "Назив инстанце",
         "ssl_score": "SSL оцена",
-        "has_cdn": "Да ли поседује CDN?",
+        "has_cdn": "Поседује ли CDN?",
         "registered_users": "Регистровани корисници",
         "version": "Верзија",
         "up_to_date": "Ажурирано?"
@@ -160,7 +160,7 @@
         "passwords_incorrect": "Лозинке се не подударају!"
     },
     "search": {
-        "did_you_mean": "Да ли сте мислили: {0}?",
+        "did_you_mean": "Мислили сте: {0}?",
         "all": "YouTube: Све",
         "videos": "YouTube: Видео снимци",
         "channels": "YouTube: Канали",
