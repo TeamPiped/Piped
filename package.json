@@ -22,7 +22,7 @@
         "linkifyjs": "4.1.1",
         "mux.js": "6.3.0",
         "qrcode": "^1.5.3",
-        "shaka-player": "4.4.2",
+        "shaka-player": "4.5.0",
         "stream-browserify": "3.0.0",
         "vue": "3.3.4",
         "vue-i18n": "9.5.0",
