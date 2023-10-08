@@ -143,7 +143,8 @@
         "skip_automatically": "Automatiskt",
         "download_frame": "Ladda ner bildruta",
         "import_from_json_csv": "Importera från JSON/CSV",
-        "instance_privacy_policy": "Sekretesspolicy"
+        "instance_privacy_policy": "Sekretesspolicy",
+        "add_to_group": "Lägg till i grupp"
     },
     "player": {
         "watch_on": "Se på {0}",
