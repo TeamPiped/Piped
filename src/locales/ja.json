@@ -147,7 +147,8 @@
         "generate_qrcode": "QRコードの生成",
         "import_from_json_csv": "JSON/CSVから読み込む",
         "download_frame": "この画像を保存",
-        "instance_privacy_policy": "個人情報保護方針"
+        "instance_privacy_policy": "個人情報保護方針",
+        "add_to_group": "グループに追加"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -209,7 +210,9 @@
         "days": "{amount}日",
         "weeks": "{amount}週",
         "hours": "{amount}時間",
-        "months": "{amount}月"
+        "months": "{amount}月",
+        "login_note": "このインスタンス用に作成したアカウントにログインできます。",
+        "register_note": "この Piped インスタンス用にアカウントを作成します。登録チャンネルと再生リストを同期するために、それらの情報をサーバー内に保存します。アカウントなしでもすべての機能を使用できますが、その場合、すべてのデータは端末内のブラウザーのキャッシュとして保存されます。ユーザー名にメールアドレスを使用しないでください。他のサービスで使っていない安全なパスワードを登録してください。"
     },
     "subscriptions": {
         "subscribed_channels_count": "チャンネル登録: {0}"
