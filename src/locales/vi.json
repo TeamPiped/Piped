@@ -82,7 +82,8 @@
         "show_chapters": "Chương",
         "show_less": "Hiển thị ít hơn",
         "cancel": "Hủy",
-        "okay": "OK"
+        "okay": "OK",
+        "skip_button_only": "Hiện thị nút bỏ qua"
     },
     "titles": {
         "register": "Đăng ký",
@@ -97,7 +98,8 @@
         "channels": "Kênh",
         "instance": "Instance",
         "player": "Trình phát video",
-        "livestreams": "Phát sóng trực tiếp"
+        "livestreams": "Phát sóng trực tiếp",
+        "bookmarks": "Dấu trang"
     },
     "player": {
         "watch_on": "Xem trên {0}"
@@ -130,7 +132,9 @@
         "chapters": "Chương",
         "videos": "Video",
         "shorts": "Shorts",
-        "all": "Tất cả"
+        "all": "Tất cả",
+        "license": "Giấy phép",
+        "category": "Thể loại"
     },
     "search": {
         "did_you_mean": "Ý của bạn là: {0}?",
@@ -147,7 +151,12 @@
         "copied": "Đã sao chép!",
         "cannot_copy": "Không thể sao chép!",
         "page_not_found": "Không tìm thấy trang",
-        "next_video_countdown": "Tự động phát video tiếp theo trong {0} giây"
+        "next_video_countdown": "Tự động phát video tiếp theo trong {0} giây",
+        "hours": "{amount} tiếng",
+        "months": "{amount} tháng",
+        "weeks": "{amount} tuần",
+        "register_no_email_note": "Không nên dùng địa chỉ email làm tên tài khoản. Bạn có chắc bạn muốn tiếp tục không?",
+        "days": "{amount} ngày"
     },
     "subscriptions": {
         "subscribed_channels_count": "Đã đăng ký cho: {0}"
