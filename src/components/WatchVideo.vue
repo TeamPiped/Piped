@@ -241,6 +241,7 @@
                     :key="comment.commentId"
                     :comment="comment"
                     :uploader="video.uploader"
+                    :uploader-avatar-url="video.uploaderAvatar"
                     :video-id="getVideoId()"
                 />
             </div>
