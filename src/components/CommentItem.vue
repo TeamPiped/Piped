@@ -30,10 +30,11 @@
             </div>
             <!-- eslint-disable-next-line vue/no-v-html -->
             <CollapsableText :text="comment.commentText" :visible-limit="500" />
-            <div class="comment-footer mt-1 flex items-center">
+            <div class="comment-footer my-1 flex items-center gap-3">
                 <div class="i-fa6-solid:thumbs-up" />
-                <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
-                <font-awesome-icon v-if="comment.hearted" class="ml-1" icon="heart" />
+                <span v-text="numberFormat(comment.likeCount)" />
+                <font-awesome-icon v-if="comment.hearted" icon="heart" />
+                <img v-if="comment.creatorReplied" :src="uploaderAvatarUrl" class="w-5 h-5 rounded-full" />
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div class="cursor-pointer" @click="loadReplies">
@@ -73,6 +74,7 @@ export default {
             },
         },
         uploader: { type: String, default: null },
+        uploaderAvatarUrl: { type: String, default: null },
         videoId: { type: String, default: null },
     },
     data() {
@@ -85,6 +87,7 @@ export default {
     },
     methods: {
         async loadReplies() {
+            console.log(this.uploaderAvatarUrl);
             if (!this.showingReplies && this.loadingReplies) {
                 this.showingReplies = true;
                 return;
