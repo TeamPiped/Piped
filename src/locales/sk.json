@@ -87,7 +87,10 @@
         "instance_auth_selection": "Výber inštancie autentifikácie",
         "invalidate_session": "Odhláste sa zo všetkých zariadení",
         "clone_playlist": "Klonovať zoznam skladieb",
-        "clone_playlist_success": "Úspešne klonované!"
+        "clone_playlist_success": "Úspešne klonované!",
+        "skip_button_only": "Ukázať tlačidlo na preskočenie",
+        "skip_automatically": "Automaticky",
+        "min_segment_length": "Minimálna dĺžka segmentu (v sekundách)"
     },
     "player": {
         "watch_on": "Pozerať na {0}"
@@ -103,7 +106,10 @@
         "playlists": "Playlisty",
         "account": "Účet",
         "instance": "Inštancia",
-        "player": "Prehrávač"
+        "player": "Prehrávač",
+        "livestreams": "Živé vysielania",
+        "bookmarks": "Záložky",
+        "channels": "Kanály"
     },
     "preferences": {
         "up_to_date": "Aktuálny?",
