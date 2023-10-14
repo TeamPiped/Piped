@@ -83,9 +83,14 @@ export default {
         },
         filteredVideos(_this) {
             const selectedGroup = _this.channelGroups.filter(group => group.groupName == _this.selectedGroupName);
+
+            const videos = this.getPreferenceBoolean("hideWatched", false)
+                ? this.videos.filter(video => !video.watched)
+                : this.videos;
+
             return _this.selectedGroupName == ""
-                ? _this.videos
-                : _this.videos.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-11)));
+                ? videos
+                : videos.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-11)));
         },
     },
     mounted() {
