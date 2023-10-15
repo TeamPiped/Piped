@@ -145,7 +145,6 @@ Contributions in any other form are also welcomed.
 
 -   [Yattee](https://github.com/yattee/yattee) - an alternative frontend for YouTube, for IOS.
 -   [LibreTube](https://github.com/Libre-tube/LibreTube) - an alternative frontend for YouTube, for Android.
--   [Racoon](https://github.com/shailendramaurya/racoon) - A web based minimal YouTube downloader.
 -   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - an alternative privacy respecting frontend for YouTube Music.
 -   [Musicale](https://github.com/Bellisario/musicale) - an alternative to YouTube Music, with style.
 -   [ytify](https://github.com/n-ce/ytify) - a complementary minimal audio streaming frontend for YouTube.
@@ -154,6 +153,7 @@ Contributions in any other form are also welcomed.
 -   [ReacTube](https://github.com/NeeRaj-2401/ReacTube) - Privacy friendly & distraction free Youtube front-end using Piped API.
 -   [YTDLnis](https://github.com/deniscerri/ytdlnis) - Video and audio downloader for Android that uses Piped to update formats.
 -   [DeskVideo](https://github.com/malisipi/DeskVideo) - A desktop styled, customizable alternative front-end for YouTube.
+-   [Harmony Music](https://github.com/anandnet/Harmony-Music) - YouTube Music alternative for Android, built with Flutter that supports piped linking for playlists.
 
 ## YourKit
 
