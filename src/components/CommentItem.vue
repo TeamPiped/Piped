@@ -34,7 +34,7 @@
                 <div class="i-fa6-solid:thumbs-up" />
                 <span v-text="numberFormat(comment.likeCount)" />
                 <font-awesome-icon v-if="comment.hearted" icon="heart" />
-                <img v-if="comment.creatorReplied" :src="uploaderAvatarUrl" class="w-5 h-5 rounded-full" />
+                <img v-if="comment.creatorReplied" :src="uploaderAvatarUrl" class="h-5 w-5 rounded-full" />
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div class="cursor-pointer" @click="loadReplies">

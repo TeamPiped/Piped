@@ -648,6 +648,12 @@ export default {
             }
         },
         getVideoId() {
+            if (this.$route.query.video_ids) {
+                const videos_list = this.$route.query.video_ids.split(",");
+                this.index = Number(this.$route.query.index ?? 0);
+                return videos_list[this.index];
+            }
+
             return this.$route.query.v || this.$route.params.v;
         },
         navigate(time) {
@@ -687,7 +693,15 @@ export default {
         },
         navigateNext() {
             const params = this.$route.query;
-            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            const video_ids = this.$route.query.video_ids?.split(",") ?? [];
+            let url;
+            if (this.playlist) {
+                url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            } else if (video_ids.length > this.index + 1) {
+                url = `${this.$route.path}?index=${this.index + 1}`;
+            } else {
+                url = this.video.relatedStreams[0].url;
+            }
             const searchParams = new URLSearchParams();
             for (var param in params)
                 switch (param) {
@@ -695,7 +709,8 @@ export default {
                     case "t":
                         break;
                     case "index":
-                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("index", this.index + 1);
+                        if (this.playlist && this.index < this.playlist.relatedStreams.length)
+                            searchParams.set("index", this.index + 1);
                         break;
                     case "list":
                         if (this.index < this.playlist.relatedStreams.length) searchParams.set("list", params.list);
