@@ -95,21 +95,25 @@ export default {
     },
     methods: {
         setTheme() {
-            let themePref = this.getPreferenceString("theme", "dark");
-            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
-            else this.theme = themePref;
+            let themePref = this.getPreferenceString("theme", "dark"); // dark, light or auto
+            const themes = {
+                dark: "dark",
+                light: "light",
+                auto: darkModePreference.matches ? "dark" : "light",
+            };
 
-            // Change title bar color based on user's theme
-            const themeColor = document.querySelector("meta[name='theme-color']");
-            if (this.theme === "light") {
-                themeColor.setAttribute("content", "#FFF");
-            } else {
-                themeColor.setAttribute("content", "#0F0F0F");
-            }
+            this.theme = themes[themePref];
+
+            this.changeTitleBarColor();
 
             // Used for the scrollbar
             const root = document.querySelector(":root");
-            this.theme == "dark" ? root.classList.add("dark") : root.classList.remove("dark");
+            this.theme === "dark" ? root.classList.add("dark") : root.classList.remove("dark");
+        },
+        changeTitleBarColor() {
+            const currentColor = { dark: "#0F0F0F", light: "#FFF" };
+            const themeColor = document.querySelector("meta[name='theme-color']");
+            themeColor.setAttribute("content", currentColor[this.theme]);
         },
     },
 };
