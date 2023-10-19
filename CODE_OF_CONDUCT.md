@@ -20,7 +20,7 @@ Examples of unacceptable behavior include but are not limited to:
 -   Trolling, insulting/derogatory comments, threats, and personal or political attacks
 -   Harassment of any form
 -   Publishing others' private information, such as a physical or electronic address, without explicit permission from the individual
--   Derailling conversations unnecessarily in a way that is not constructive, such as repeatedly posting off-topic comments whilest not in an off-topic channel
+-   Derailling conversations unnecessarily in a way that is not constructive, such as repeatedly posting off-topic comments whilst not in an off-topic channel
 -   Other conduct which could reasonably be considered inappropriate in a professional setting
 -   Tagging maintainers or project members without being one yourself
 
