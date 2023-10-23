@@ -1,1 +1,39 @@
-{}
+{
+    "actions": {
+        "okay": "Добра",
+        "reply_count": "{count} адказаў",
+        "skip_button_only": "Паказаць кнопку прапусціць",
+        "channel_name_asc": "Імя канала (А-Я)",
+        "download_as_txt": "Спампаваць як .txt",
+        "subscribe": "Падпісацца - {count}",
+        "loading": "Загрузка...",
+        "filter": "Фільтар",
+        "unsubscribe": "Адпісацца - {count}",
+        "channel_name_desc": "Імя канала (Я-А)",
+        "language_selection": "Мова",
+        "show_less": "Паказаць менш",
+        "theme": "Тэма",
+        "hide_replies": "Схаваць адказы",
+        "least_recent": "Найменш актуальныя",
+        "most_recent": "Самыя актуальныя",
+        "no": "Не",
+        "documentation": "Дакументацыя",
+        "sort_by": "Сартаваць па:",
+        "back": "Назад",
+        "view_subscriptions": "Паказаць падпіскі",
+        "status_page": "Статус",
+        "import_from_json": "Імпартаваць з JSON",
+        "instance_privacy_policy": "Палітыка прыватнасці",
+        "bookmark_playlist": "Закладка"
+    },
+    "titles": {
+        "subscriptions": "Падпіскі",
+        "trending": "Папулярнае",
+        "login": "Уваход",
+        "preferences": "Налады",
+        "history": "Гісторыя",
+        "bookmarks": "Закладкі",
+        "channels": "Каналы",
+        "register": "Рэгістрацыя"
+    }
+}
