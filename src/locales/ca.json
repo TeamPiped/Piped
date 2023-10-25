@@ -142,7 +142,9 @@
         "auto_display_captions": "Mostra els subtítols automàticament",
         "autoplay_next_countdown": "Compte enrere predefinit fins al pròxim vídeo (en segons)",
         "generate_qrcode": "Genera un codi QR",
-        "playlist_name": "Nom de la llista de reproducció"
+        "playlist_name": "Nom de la llista de reproducció",
+        "add_to_group": "Afegeix al grup",
+        "instance_privacy_policy": "Política de privadesa"
     },
     "comment": {
         "pinned_by": "Fixat per {author}",
@@ -214,6 +216,8 @@
         "next_video_countdown": "Pròxim vídeo en {0}s",
         "months": "{amount} mesos",
         "weeks": "{amount} setmanes",
-        "days": "{amount} dies"
+        "days": "{amount} dies",
+        "login_note": "Inicieu la sessió amb un compte creat en aquesta instància.",
+        "register_note": "Registreu un compte en aquesta instància de Piped. Això us permetrà sincronitzar les vostres subscripcions i llistes de reproducció amb el vostre compte, perquè s'emmagatzemin al servidor. Podeu emprar totes les funcions sense un compte, però totes les dades es desaran a la memòria cau local del vostre navegador. Comproveu que no utilitzeu una adreça electrònica com a nom d'usuari, i trieu una contrasenya segura que no feu servir en cap altre lloc."
     }
 }
