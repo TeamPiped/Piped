@@ -28,9 +28,9 @@
             <div>
                 <a v-t="'titles.login'" class="btn w-auto" @click="login" />
             </div>
-            <ul class="md:flex-1 md:justify-center md:flex">
+            <ul class="children:pb-3">
                 <li v-for="provider in oidcProviders" :key="provider.name">
-                    <a class="btn w-auto" :href="provider.authUri">Log in with {{ provider.name }}</a>
+                    <a class="btn" :href="provider.authUri">Log in with {{ provider.name }}</a>
                 </li>
             </ul>
             <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.login_note')" />
