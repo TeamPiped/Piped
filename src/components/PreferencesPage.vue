@@ -473,6 +473,7 @@ export default {
         document.title = this.$t("titles.preferences") + " - Piped";
     },
     async mounted() {
+        if (this.$route.query.deleted == this.getAuthToken()) this.logout();
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
 
         this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
@@ -611,7 +612,8 @@ export default {
                 }),
             }).then(resp => {
                 if (!resp.error) {
-                    this.logout();
+                    const redirect = resp.redirect;
+                    redirect ? (location.href = redirect) : this.logout();
                 } else alert(resp.error);
             });
         },

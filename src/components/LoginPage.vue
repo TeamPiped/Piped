@@ -47,9 +47,7 @@ export default {
         };
     },
     mounted() {
-        //TODO: Maybe there is a better way to do this?
-        const urlParams = new URLSearchParams(window.location.search);
-        const session = urlParams.get("session");
+        const session = this.$route.query.session;
         if (session) {
             this.setPreference("authToken" + this.hashCode(this.authApiUrl()), session);
             this.$router.push("/");
