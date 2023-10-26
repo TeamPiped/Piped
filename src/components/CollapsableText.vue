@@ -1,12 +1,13 @@
-<template>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-if="text" class="whitespace-pre-wrap py-2 mx-1">
-        <span v-if="showFullText" v-html="purifyHTML(rewriteDescription(text))" />
-        <span v-else v-html="purifyHTML(rewriteDescription(text.slice(0, 100)))" />
-        <span v-if="text.length > 100 && !showFullText">...</span>
+<template v-if="text">
+    <div class="mx-1 whitespace-pre-wrap py-2">
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <span v-if="showFullText" v-html="fullText()" />
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <span v-else v-html="colapsedText()" />
+        <span v-if="text.length > visibleLimit && !showFullText">...</span>
         <button
-            v-if="text.length > 100"
-            class="hover:underline font-semibold text-neutral-500 block whitespace-normal"
+            v-if="text.length > visibleLimit"
+            class="block whitespace-normal font-semibold text-neutral-500 hover:underline"
             @click="showFullText = !showFullText"
         >
             [{{ showFullText ? $t("actions.show_less") : $t("actions.show_more") }}]
@@ -15,14 +16,31 @@
 </template>
 
 <script>
+import { purifyHTML, rewriteDescription } from "@/utils/HtmlUtils";
+
 export default {
     props: {
-        text: String,
+        text: {
+            type: String,
+            default: null,
+        },
+        visibleLimit: {
+            type: Number,
+            default: 100,
+        },
     },
     data() {
         return {
             showFullText: false,
         };
+    },
+    methods: {
+        fullText() {
+            return purifyHTML(rewriteDescription(this.text));
+        },
+        colapsedText() {
+            return purifyHTML(rewriteDescription(this.text.slice(0, this.visibleLimit)));
+        },
     },
 };
 </script>

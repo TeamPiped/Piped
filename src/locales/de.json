@@ -6,12 +6,12 @@
         "skip_interaction": "Interaktionserinnerungen überspringen (Daumen hoch, abonnieren, ...)",
         "skip_preview": "Vorschau und Rückblick überspringen",
         "instances_list": "Liste der Instanzen",
-        "language_selection": "Sprachauswahl",
+        "language_selection": "Sprache",
         "store_watch_history": "Wiedergabeverlauf speichern",
         "minimize_description_default": "Beschreibung standardmäßig minimieren",
         "show_comments": "Kommentare anzeigen",
         "default_homepage": "Startseite",
-        "country_selection": "Länderauswahl",
+        "country_selection": "Land",
         "buffering_goal": "Pufferungsziel (in Sekunden)",
         "default_quality": "Standardqualität",
         "audio_only": "Nur Audio",
@@ -36,7 +36,7 @@
         "enabled_codecs": "Aktivierte Codecs (Auswahl mehrerer Codecs möglich)",
         "enable_lbry_proxy": "Proxy für LBRY einschalten",
         "disable_lbry": "LBRY für Streaming deaktivieren",
-        "instance_selection": "Instanz auswählen",
+        "instance_selection": "Instanz",
         "show_description": "Beschreibung anzeigen",
         "minimize_description": "Beschreibung minimieren",
         "show_recommendations": "Empfehlungen anzeigen",
@@ -44,7 +44,7 @@
         "donations": "Spenden",
         "auto_play_next_video": "Nächstes Video automatisch abspielen",
         "loop_this_video": "Dieses Video wiederholen",
-        "import_from_json": "Aus JSON/CSV importieren",
+        "import_from_json": "Aus JSON importieren",
         "export_to_json": "Als JSON exportieren",
         "show_more": "Mehr anzeigen",
         "no": "Nein",
@@ -72,7 +72,7 @@
         "minimize_recommendations_default": "Empfehlungen standardmäßig minimieren",
         "invalidate_session": "Von allen Geräten abmelden",
         "different_auth_instance": "Eine andere Instanz für die Authentifizierung verwenden",
-        "instance_auth_selection": "Auswahl der Autentifizierungsinstanz",
+        "instance_auth_selection": "Authentifizierungsinstanz",
         "clone_playlist": "Playlist duplizieren",
         "clone_playlist_success": "Erfolgreich dupliziert!",
         "piped_link": "Piped-Link",
@@ -119,10 +119,18 @@
         "playlist_name": "Name der Playlist",
         "playlist_description": "Beschreibung der Playlist",
         "show_search_suggestions": "Suchvorschläge anzeigen",
-        "chapters_layout_mobile": "Kapitel-Layout auf Mobilgeräten"
+        "chapters_layout_mobile": "Kapitel-Layout auf Mobilgeräten",
+        "delete_automatically": "Automatisch löschen nach",
+        "enable_dearrow": "DeArrow verwenden",
+        "generate_qrcode": "QR-Code generieren",
+        "import_from_json_csv": "Aus JSON/CSV importieren",
+        "download_frame": "Einzelbild (Frame) downloaden",
+        "instance_privacy_policy": "Datenschutzerklärung",
+        "add_to_group": "Zu Gruppe hinzufügen"
     },
     "player": {
-        "watch_on": "Auf {0} ansehen"
+        "watch_on": "Auf {0} ansehen",
+        "failed": "Fehlgeschlagen mit Fehlercode {0}, siehe Protokolle für weitere Informationen"
     },
     "titles": {
         "history": "Verlauf",
@@ -139,7 +147,8 @@
         "livestreams": "Livestreams",
         "channels": "Kanäle",
         "bookmarks": "Lesezeichen",
-        "channel_groups": "Kanalgruppen"
+        "channel_groups": "Kanalgruppen",
+        "dearrow": "DeArrow"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Abschnitte",
@@ -153,7 +162,9 @@
         "all": "Alle",
         "category": "Kategorie",
         "chapters_horizontal": "Horizontal",
-        "chapters_vertical": "Vertikal"
+        "chapters_vertical": "Vertikal",
+        "license": "Lizenz",
+        "visibility": "Sichtbarkeit"
     },
     "preferences": {
         "ssl_score": "SSL-Bewertung",
@@ -172,7 +183,9 @@
     },
     "login": {
         "password": "Passwort",
-        "username": "Benutzername"
+        "username": "Benutzername",
+        "password_confirm": "Passwort bestätigen",
+        "passwords_incorrect": "Passwörter stimmen nicht überein!"
     },
     "search": {
         "did_you_mean": "Hast du gemeint: {0}?",
@@ -183,18 +196,25 @@
         "music_songs": "YT Music: Lieder",
         "music_videos": "YT Music: Videos",
         "music_albums": "YT Music: Alben",
-        "music_playlists": "YT Music: Playlists"
+        "music_playlists": "YT Music: Playlists",
+        "music_artists": "YT Music: Künstler:innen"
     },
     "subscriptions": {
         "subscribed_channels_count": "Anzahl Abos: {0}"
     },
     "info": {
-        "preferences_note": "Achtung: Die Einstellung werden lokal in deinem Browser gespeichert. Wenn du deine Browserdaten löschst, werden auch deine Einstellungen zurückgesetzt.",
+        "preferences_note": "Achtung: Die Einstellungen werden lokal in deinem Browser gespeichert. Wenn du deine Browserdaten löschst, werden auch deine Einstellungen zurückgesetzt.",
         "page_not_found": "Seite nicht gefunden",
         "copied": "Kopiert!",
         "cannot_copy": "Kopieren nicht möglich!",
         "local_storage": "Diese Aktion erfordert „localStorage“, sind Cookies aktiviert?",
         "register_no_email_note": "Es wird nicht empfohlen, eine E-Mail als Benutzernamen zu verwenden. Trotzdem fortfahren?",
-        "next_video_countdown": "Nächstes Video startet in {0}s"
+        "next_video_countdown": "Nächstes Video startet in {0}s",
+        "weeks": "{amount} Woche(n)",
+        "months": "{amount} Monat(en)",
+        "hours": "{amount} Stunde(n)",
+        "days": "{amount} Tag(e)",
+        "login_note": "Melde dich mit einem Konto an, das du auf dieser Instanz erstellt hast.",
+        "register_note": "Erstelle ein Konto für diese Piped-Instanz. Dadurch kannst du deine Abos und Playlists mit deinem Konto synchronisieren, sie werden also serverseitig gespeichert. Du kannst all diese Funktionen auch ohne Konto nutzen, allerdings werden dann alle Daten nur im lokalen Speicher deines Browsers gespeichert. Bitte stelle sicher, dass du KEINE E-Mail-Adresse als Benutzernamen verwendest und ein sicheres Passwort wählst, welches du nicht bereits woanders nutzt."
     }
 }

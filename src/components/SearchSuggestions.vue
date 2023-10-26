@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute suggestions-container">
+    <div class="suggestions-container absolute">
         <ul>
             <li
                 v-for="(suggestion, i) in searchSuggestions"

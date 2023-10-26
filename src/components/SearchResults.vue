@@ -1,11 +1,11 @@
 <template>
-    <h1 class="text-center my-2" v-text="$route.query.search_query" />
+    <h1 class="my-2 text-center" v-text="$route.query.search_query" />
 
     <label for="ddlSearchFilters">
         <strong v-text="`${$t('actions.filter')}:`" />
     </label>
     <select id="ddlSearchFilters" v-model="selectedFilter" default="all" class="select w-auto" @change="updateFilter()">
-        <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`search.${filter}`" />
+        <option v-for="filter in availableFilters" :key="filter" v-t="`search.${filter}`" :value="filter" />
     </select>
 
     <hr />
@@ -46,6 +46,7 @@ export default {
                 "music_videos",
                 "music_albums",
                 "music_playlists",
+                "music_artists",
             ],
             selectedFilter: this.$route.query.filter ?? "all",
         };

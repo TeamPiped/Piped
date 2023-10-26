@@ -32,11 +32,11 @@
         "auto": "Auto",
         "audio_only": "Doar audio",
         "default_quality": "Calitate implicită",
-        "country_selection": "Selecție țară",
+        "country_selection": "Țară",
         "default_homepage": "Pagina principală implicită",
         "minimize_comments_default": "Minimizați comentariile în mod implicit",
         "minimize_description_default": "Minimizați descrierea în mod implicit",
-        "language_selection": "Selecție limbă",
+        "language_selection": "Limbă",
         "instances_list": "Listă de Instanțe",
         "enabled_codecs": "Codecuri activate (multiple)",
         "loop_this_video": "Repetare video",
@@ -55,7 +55,7 @@
         "delete_account": "Ștergeți-vă contul",
         "show_watch_on_youtube": "Afișați butonul „Vizionați pe YouTube”",
         "invalidate_session": "Deconectați toate dispozitivele",
-        "instance_auth_selection": "Selecție instanță de autentificare",
+        "instance_auth_selection": "Instanța de autentificare",
         "clone_playlist_success": "Clonată cu succes!",
         "reset_preferences": "Resetați preferințele",
         "confirm_reset_preferences": "Sunteți sigur că doriți să vă resetați preferințele?",
@@ -86,7 +86,7 @@
         "theme": "Temă",
         "autoplay_video": "Redare automată video",
         "buffering_goal": "Obiectiv de tamponare (în secunde)",
-        "instance_selection": "Selecție instanță",
+        "instance_selection": "Instanță",
         "store_watch_history": "Rețineți istoricul de vizionări",
         "minimize_comments": "Minimizați comentariile",
         "minimize_description": "Minimizați descrierea",
@@ -112,11 +112,16 @@
         "dismiss": "Concediază",
         "group_name": "Numele grupului",
         "create_group": "Creați un grup",
-        "auto_display_captions": "Afișează automat subtitrările",
+        "auto_display_captions": "Afișare automată subtitrări",
         "playlist_name": "Numele playlist-ului",
-        "okay": "Bine",
+        "okay": "OK",
         "playlist_description": "Descrierea playlist-ului",
-        "edit_playlist": "Editează playlist-ul"
+        "edit_playlist": "Editează playlist-ul",
+        "cancel": "Anulare",
+        "chapters_layout_mobile": "Mod afișare capitole pe mobil",
+        "show_search_suggestions": "Afișare sugestii căutare",
+        "enable_dearrow": "Activați DeArrow",
+        "delete_automatically": "Șterge automat după"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -143,7 +148,9 @@
         "live": "{0} în direct",
         "videos": "Videoclipuri",
         "category": "Categorie",
-        "all": "Tot"
+        "all": "Tot",
+        "chapters_horizontal": "Orizontal",
+        "chapters_vertical": "Vertical"
     },
     "login": {
         "username": "Nume de utilizator",
@@ -158,7 +165,8 @@
         "playlists": "YouTube: Liste de redare",
         "music_songs": "YT Music: Muzică",
         "music_videos": "YT Music: Videoclipuri",
-        "music_albums": "YT Music: Albume"
+        "music_albums": "YT Music: Albume",
+        "music_artists": "YT Music: Artiști"
     },
     "info": {
         "cannot_copy": "Nu s-a putut copia!",
@@ -167,7 +175,8 @@
         "copied": "Copiat!",
         "register_no_email_note": "Utilizarea unui e-mail ca nume de utilizator nu este recomandată. Continuați oricum?",
         "local_storage": "Această acțiune necesită localStorage, sunt activate cookie-urile?",
-        "next_video_countdown": "Redarea următorului videoclip în {0}s"
+        "next_video_countdown": "Redarea următorului videoclip în {0}s",
+        "days": "{amount} zi(le)"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonat la: {0}"
@@ -187,7 +196,8 @@
         "preferences": "Preferințe",
         "player": "Player-ul",
         "bookmarks": "Marcaje",
-        "channel_groups": "Grupuri de canale"
+        "channel_groups": "Grupuri de canale",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Vizionați pe {0}"

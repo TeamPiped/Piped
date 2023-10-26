@@ -1,12 +1,12 @@
-name: Build and Lint
-
-on:
-    pull_request:
-    push:
-
+name: reviewdog
+on: [pull_request]
 jobs:
-    build:
+    eslint:
+        name: runner / eslint
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            pull-requests: write
         steps:
             - uses: actions/checkout@v4
             - name: Setup pnpm
@@ -18,9 +18,8 @@ jobs:
               with:
                   cache: "pnpm"
             - run: pnpm install
-            - run: pnpm build
-            - uses: actions/upload-artifact@v3
+            - uses: reviewdog/action-eslint@v1
               with:
-                  name: build
-                  path: dist
-            - run: pnpm lint --no-fix
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  reporter: github-pr-review
+                  eslint_flags: "--ignore-path .gitignore --ext .js,.vue ."

@@ -1,11 +1,22 @@
 <template>
-    <div v-if="!showContent" class="flex min-h-[75vh] w-full justify-center items-center">
+    <div v-if="!showContent" class="min-h-[75vh] w-full flex items-center justify-center">
         <span id="spinner" />
     </div>
     <div v-else>
         <slot />
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        showContent: {
+            type: Boolean,
+            required: true,
+        },
+    },
+};
+</script>
 
 <style>
 #spinner:after {
@@ -42,14 +53,3 @@
     }
 }
 </style>
-
-<script>
-export default {
-    props: {
-        showContent: {
-            type: Boolean,
-            required: true,
-        },
-    },
-};
-</script>

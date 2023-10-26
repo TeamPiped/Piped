@@ -14,10 +14,12 @@
         "channels": "チャンネル",
         "livestreams": "ライブ配信",
         "bookmarks": "ブックマーク",
-        "channel_groups": "グループ"
+        "channel_groups": "グループ",
+        "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "{0}で視聴"
+        "watch_on": "{0}で視聴",
+        "failed": "失敗しエラーコード {0} が返りました。詳細はログに記録"
     },
     "actions": {
         "subscribe": "チャンネル登録 - {count}",
@@ -30,7 +32,7 @@
         "channel_name_desc": "チャンネル名 (ZからA)",
         "back": "戻る",
         "uses_api_from": "API 提供元 ",
-        "enable_sponsorblock": "SponsorBlock を有効化",
+        "enable_sponsorblock": "SponsorBlock を使用",
         "skip_sponsors": "広告をスキップ",
         "skip_intro": "合間/導入アニメをスキップ",
         "skip_outro": "終了シーン/クレジットをスキップ",
@@ -46,20 +48,20 @@
         "audio_only": "音声のみのモード",
         "default_quality": "標準の画質",
         "buffering_goal": "バッファリング目標値 (秒)",
-        "country_selection": "国の選択",
+        "country_selection": "国",
         "default_homepage": "ホームに表示するページ",
         "show_comments": "コメントを表示",
         "minimize_description_default": "最初から説明を最小化",
         "store_watch_history": "再生履歴を保存",
-        "language_selection": "言語の選択",
+        "language_selection": "言語",
         "instances_list": "インスタンス一覧",
         "enabled_codecs": "コーデックの有効化 (複数選択)",
-        "instance_selection": "インスタンスを選択",
+        "instance_selection": "インスタンス",
         "show_more": "もっと見る",
         "yes": "はい",
         "no": "いいえ",
         "export_to_json": "JSONに出力",
-        "import_from_json": "JSON/CSVを読み込む",
+        "import_from_json": "JSONから読み込む",
         "loop_this_video": "この動画をループ再生",
         "auto_play_next_video": "次の動画を自動再生",
         "donations": "開発者に寄付",
@@ -95,8 +97,8 @@
         "instance_donations": "インスタンスに寄付",
         "minimize_comments": "コメントを最小化",
         "share": "共有",
-        "with_timecode": "時間指定で共有",
-        "different_auth_instance": "認証には別のインスタンスを使う",
+        "with_timecode": "時間指定",
+        "different_auth_instance": "認証に別のインスタンスを使用",
         "download_as_txt": ".txtでダウンロード",
         "logout": "この端末からログアウト",
         "minimize_recommendations_default": "最初からおすすめを最小化",
@@ -104,12 +106,12 @@
         "minimize_chapters_default": "最初からチャプターを最小化",
         "show_watch_on_youtube": "「YouTubeで視聴」ボタンを表示",
         "invalidate_session": "すべての端末からログアウト",
-        "instance_auth_selection": "認証用インスタンスの選択",
+        "instance_auth_selection": "認証用インスタンス",
         "clone_playlist_success": "複製に成功しました！",
         "backup_preferences": "設定をバックアップ",
         "restore_preferences": "設定を復元",
         "back_to_home": "ホームに戻る",
-        "copy_link": "リンクをコピー",
+        "copy_link": "リンクコピー",
         "time_code": "タイムコード (秒)",
         "documentation": "ドキュメント",
         "reset_preferences": "設定を初期化",
@@ -129,7 +131,7 @@
         "min_segment_length": "最小の区切りの長さ (秒)",
         "show_less": "少なく見る",
         "autoplay_next_countdown": "次の動画の再生までの時間 (秒)",
-        "dismiss": "無視",
+        "dismiss": "却下",
         "create_group": "グループ作成",
         "group_name": "グループ名",
         "auto_display_captions": "自動で字幕を表示",
@@ -139,7 +141,13 @@
         "playlist_name": "再生リスト名",
         "playlist_description": "再生リストの説明",
         "chapters_layout_mobile": "モバイル端末でのチャプターの配置",
-        "show_search_suggestions": "検索語句の候補を表示"
+        "show_search_suggestions": "検索語句の候補を表示",
+        "delete_automatically": "指定時間後に自動削除",
+        "enable_dearrow": "DeArrow を使用",
+        "generate_qrcode": "QRコードの生成",
+        "import_from_json_csv": "JSON/CSVから読み込む",
+        "download_frame": "この画像を保存",
+        "instance_privacy_policy": "個人情報保護方針"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -158,13 +166,15 @@
     },
     "login": {
         "username": "ユーザー名",
-        "password": "パスワード"
+        "password": "パスワード",
+        "password_confirm": "パスワードの確認",
+        "passwords_incorrect": "パスワードが一致しません！"
     },
     "video": {
         "videos": "動画",
         "views": "{views} 回再生",
         "watched": "再生済み",
-        "sponsor_segments": "スポンサーによる広告",
+        "sponsor_segments": "広告シーン数",
         "ratings_disabled": "評価は無効化されています",
         "chapters": "チャプター",
         "live": "{0} ライブ配信",
@@ -172,7 +182,9 @@
         "all": "すべて",
         "category": "分類",
         "chapters_horizontal": "横方向",
-        "chapters_vertical": "縦方向"
+        "chapters_vertical": "縦方向",
+        "visibility": "公開状態",
+        "license": "ライセンス"
     },
     "search": {
         "did_you_mean": "もしかして: {0}？",
@@ -183,7 +195,8 @@
         "music_songs": "YT Music: 音楽",
         "music_videos": "YT Music: 動画",
         "music_albums": "YT Music: アルバム",
-        "music_playlists": "YT Music: 再生リスト"
+        "music_playlists": "YT Music: 再生リスト",
+        "music_artists": "YT Music: アーティスト"
     },
     "info": {
         "page_not_found": "ページが見つかりません",
@@ -192,7 +205,11 @@
         "preferences_note": "注意: 設定は、お使いのブラウザの保存領域に保存されます。ブラウザのデータを削除すると初期化されます。",
         "local_storage": "この操作にはlocalStorageが必要です。Cookieは有効ですか？",
         "register_no_email_note": "ユーザー名としてのメールアドレスの使用は推奨しません。それでも続けますか？",
-        "next_video_countdown": "{0} 秒後に次の動画"
+        "next_video_countdown": "{0} 秒後に次の動画",
+        "days": "{amount}日",
+        "weeks": "{amount}週",
+        "hours": "{amount}時間",
+        "months": "{amount}月"
     },
     "subscriptions": {
         "subscribed_channels_count": "チャンネル登録: {0}"

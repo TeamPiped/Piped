@@ -14,10 +14,12 @@
         "livestreams": "Na żywo",
         "channels": "Kanały",
         "bookmarks": "Zakładki",
-        "channel_groups": "Grupy kanałów"
+        "channel_groups": "Grupy kanałów",
+        "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Obejrzyj na {0}"
+        "watch_on": "Zobacz na {0}",
+        "failed": "Niepowodzenie z powodu kodu błędu {0}, przejrzyj logi, aby uzyskać więcej informacji"
     },
     "actions": {
         "subscribe": "Subskrybuj - {count}",
@@ -48,20 +50,20 @@
         "audio_only": "Tylko audio",
         "default_quality": "Domyślna jakość",
         "buffering_goal": "Cel buforowania (w sekundach)",
-        "country_selection": "Wybór kraju",
+        "country_selection": "Kraj",
         "default_homepage": "Domyślna strona główna",
         "show_comments": "Pokaż komentarze",
         "minimize_description_default": "Ukryj opis",
         "store_watch_history": "Zapamiętaj historię oglądania",
-        "language_selection": "Wybór języka",
+        "language_selection": "Język",
         "instances_list": "Lista instancji",
         "enabled_codecs": "Włączone kodeki (lista wielokrotnego wyboru)",
-        "instance_selection": "Wybór instancji",
+        "instance_selection": "Instancja",
         "show_more": "Pokaż więcej",
         "yes": "Tak",
         "no": "Nie",
         "export_to_json": "Eksport do pliku JSON",
-        "import_from_json": "Import z pliku JSON/CSV",
+        "import_from_json": "Import z pliku JSON",
         "loop_this_video": "Zapętlaj ten film",
         "auto_play_next_video": "Autoodtwarzanie następnego filmu",
         "donations": "Wsparcie",
@@ -94,7 +96,7 @@
         "documentation": "Dokumentacja",
         "instance_donations": "Darowizny na rzecz instancji",
         "back_to_home": "Idź do strony głównej",
-        "instance_auth_selection": "Wybrana instancja autoryzacyjna",
+        "instance_auth_selection": "Instancja uwierzytelniania",
         "time_code": "Kod czasowy (w sekundach)",
         "show_markers": "Pokaż segmenty na odtwarzaczu",
         "store_search_history": "Zapamiętaj historię wyszukiwania",
@@ -139,7 +141,14 @@
         "okay": "OK",
         "cancel": "Anuluj",
         "show_search_suggestions": "Pokaż sugestie wyszukiwania",
-        "chapters_layout_mobile": "Układ rozdziałów na urządzeniach mobilnych"
+        "chapters_layout_mobile": "Układ rozdziałów na urządzeniach mobilnych",
+        "delete_automatically": "Usuń automatycznie po",
+        "enable_dearrow": "Włącz DeArrow",
+        "generate_qrcode": "Wygeneruj kod QR",
+        "import_from_json_csv": "Import z pliku JSON/CSV",
+        "download_frame": "Pobierz klatkę",
+        "instance_privacy_policy": "Polityki prywatności",
+        "add_to_group": "Dodaj do grupy"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
@@ -158,7 +167,9 @@
     },
     "login": {
         "username": "Nazwa użytkownika",
-        "password": "Hasło"
+        "password": "Hasło",
+        "password_confirm": "Potwierdź hasło",
+        "passwords_incorrect": "Hasła się nie zgadzają!"
     },
     "video": {
         "videos": "Filmy",
@@ -172,7 +183,9 @@
         "all": "Wszystkie",
         "category": "Kategoria",
         "chapters_horizontal": "Poziomy",
-        "chapters_vertical": "Pionowy"
+        "chapters_vertical": "Pionowy",
+        "license": "Licencja",
+        "visibility": "Widoczność"
     },
     "search": {
         "did_you_mean": "Czy chodziło ci o: {0}?",
@@ -183,7 +196,8 @@
         "music_songs": "YT Music: Utwory",
         "music_videos": "YT Music: Teledyski",
         "music_albums": "YT Music: Albumy",
-        "music_playlists": "YT Music: Playlisty"
+        "music_playlists": "YT Music: Playlisty",
+        "music_artists": "YT Music: Wykonawcy"
     },
     "info": {
         "cannot_copy": "Nie można skopiować!",
@@ -192,7 +206,13 @@
         "preferences_note": "Uwaga: ustawienia są zapisywane w lokalnej pamięci przeglądarki. Usunięcie danych przeglądarki spowoduje ich zresetowanie.",
         "local_storage": "Ta akcja wymaga dostępu do lokalnej pamięci, czy pliki cookie są włączone?",
         "register_no_email_note": "Użycie adresu email jako nazwy użytkownika jest niezalecane. Kontynuować mimo to?",
-        "next_video_countdown": "Odtwarzanie następnego filmu za {0} s"
+        "next_video_countdown": "Odtwarzanie następnego filmu za {0} s",
+        "days": "{amount} dni",
+        "weeks": "{amount} tygodnie",
+        "hours": "{amount} godziny",
+        "months": "{amount} miesiące",
+        "login_note": "Zaloguj się na konto utworzone w tej instancji.",
+        "register_note": "Zarejestruj konto dla tej instancji Piped. Umożliwi to synchronizację subskrypcji i list odtwarzania ze swoim kontem, dzięki czemu będą one przechowywane po stronie serwera. Możesz korzystać ze wszystkich funkcji bez konta, ale wszystkie dane będą przechowywane w lokalnej pamięci podręcznej Twojej przeglądarki. Upewnij się, że NIE używasz adresu e-mail jako nazwy użytkownika i wybierz bezpieczne hasło, którego nie używasz gdzie indziej."
     },
     "subscriptions": {
         "subscribed_channels_count": "Licznik subskrybcji: {0}"

@@ -1,23 +1,23 @@
 <template>
-    <nav class="flex flex-wrap items-center justify-center px-2 sm:px-4 pb-2.5 w-full relative">
-        <div class="flex-1 flex justify-start">
-            <router-link class="flex font-bold text-3xl items-center font-sans" to="/"
+    <nav class="relative w-full flex flex-wrap items-center justify-center px-2 pb-2.5 sm:px-4">
+        <div class="flex flex-1 justify-start">
+            <router-link class="flex items-center text-3xl font-bold font-sans" :to="homePagePath"
                 ><img
                     alt="logo"
                     src="/img/icons/logo.svg"
                     height="32"
                     width="32"
-                    class="w-10 mr-[-0.6rem]"
+                    class="mr-[-0.6rem] w-10"
                 />iped</router-link
             >
         </div>
-        <div class="lt-md:hidden search-container">
+        <div class="search-container lt-md:hidden">
             <input
+                ref="videoSearch"
                 v-model="searchText"
-                class="input w-72 h-10 pr-20"
+                class="input h-10 w-72 pr-20"
                 type="text"
                 role="search"
-                ref="videoSearch"
                 :title="$t('actions.search')"
                 :placeholder="$t('actions.search')"
                 @keyup="onKeyUp"
@@ -27,14 +27,17 @@
             />
             <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
         </div>
+        <button id="search-btn" class="input btn mx-1 h-10" @click="onSearchClick">
+            <div class="i-fa6-solid:magnifying-glass"></div>
+        </button>
         <!-- three vertical lines for toggling the hamburger menu on mobile -->
-        <button class="md:hidden flex flex-col justify-end mr-3" @click="showTopNav = !showTopNav">
+        <button class="mr-3 flex flex-col justify-end md:hidden" @click="showTopNav = !showTopNav">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>
         </button>
         <!-- navigation bar for large screen devices -->
-        <ul class="hidden md:(flex-1 flex justify-end flex text-1xl children:pl-3)">
+        <ul class="md:text-1xl hidden md:(flex flex flex-1 justify-end children:pl-3)">
             <li v-if="shouldShowTrending">
                 <router-link v-t="'titles.trending'" to="/trending" />
             </li>
@@ -44,7 +47,7 @@
             <li v-if="shouldShowLogin">
                 <router-link v-t="'titles.login'" to="/login" />
             </li>
-            <li v-if="shouldShowLogin">
+            <li v-if="shouldShowRegister">
                 <router-link v-t="'titles.register'" to="/register" />
             </li>
             <li v-if="shouldShowHistory">
@@ -61,7 +64,7 @@
     <!-- navigation bar for mobile devices -->
     <div
         v-if="showTopNav"
-        class="mobile-nav flex flex-col mb-4 children:(p-1 w-full border-b border-dark-100 flex items-center gap-1)"
+        class="mobile-nav mb-4 flex flex-col children:(w-full flex items-center gap-1 border-b border-dark-100 p-1)"
     >
         <router-link v-if="shouldShowTrending" to="/trending">
             <div class="i-fa6-solid:fire"></div>
@@ -93,7 +96,7 @@
         </router-link>
     </div>
     <!-- search suggestions for mobile devices -->
-    <div class="w-full mb-2 md:hidden search-container">
+    <div class="search-container mb-2 w-full md:hidden">
         <input
             v-model="searchText"
             class="input h-10 w-full"
@@ -128,16 +131,16 @@ export default {
             searchText: "",
             suggestionsVisible: false,
             showTopNav: false,
+            homePagePath: "/",
+            registrationDisabled: false,
         };
-    },
-    mounted() {
-        const query = new URLSearchParams(window.location.search).get("search_query");
-        if (query) this.onSearchTextChange(query);
-        this.focusOnSearchBar();
     },
     computed: {
         shouldShowLogin(_this) {
             return _this.getAuthToken() == null;
+        },
+        shouldShowRegister(_this) {
+            return _this.registrationDisabled == false ? _this.shouldShowLogin : false;
         },
         shouldShowHistory(_this) {
             return _this.getPreferenceBoolean("watchHistory", false);
@@ -148,6 +151,13 @@ export default {
         showSearchHistory(_this) {
             return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
         },
+    },
+    mounted() {
+        this.fetchAuthConfig();
+        const query = new URLSearchParams(window.location.search).get("search_query");
+        if (query) this.onSearchTextChange(query);
+        this.focusOnSearchBar();
+        this.homePagePath = this.getHomePage(this);
     },
     methods: {
         // focus on search bar when Ctrl+k is pressed
@@ -165,12 +175,7 @@ export default {
         },
         onKeyPress(e) {
             if (e.key === "Enter") {
-                e.target.blur();
-                this.$router.push({
-                    name: "SearchResults",
-                    query: { search_query: this.searchText },
-                });
-                return;
+                this.submitSearch(e);
             }
         },
         onInputFocus() {
@@ -183,6 +188,22 @@ export default {
         onSearchTextChange(searchText) {
             this.searchText = searchText;
         },
+        async fetchAuthConfig() {
+            this.fetchJson(this.authApiUrl() + "/config").then(config => {
+                this.registrationDisabled = config?.registrationDisabled === true;
+            });
+        },
+        onSearchClick(e) {
+            this.submitSearch(e);
+        },
+        submitSearch(e) {
+            e.target.blur();
+            this.$router.push({
+                name: "SearchResults",
+                query: { search_query: this.searchText },
+            });
+            return;
+        },
     },
 };
 </script>
@@ -192,10 +213,15 @@ export default {
     @apply relative inline-flex items-center;
 }
 .delete-search {
-    @apply absolute right-3 cursor-pointer rounded-full bg-[#ccc] w-4 h-4 text-center text-black opacity-50 hover:(opacity-70) text-size-[13px];
-    line-height: 1.05;
+    @apply absolute right-3 cursor-pointer rounded-full bg-[#ccc] w-4 h-4 text-center text-black opacity-50 hover:(opacity-70) text-size-[10px];
 }
 .mobile-nav div {
     @apply mx-1;
+}
+
+@media screen and (max-width: 848px) {
+    #search-btn {
+        display: none;
+    }
 }
 </style>

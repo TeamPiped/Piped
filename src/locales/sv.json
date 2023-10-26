@@ -10,7 +10,12 @@
         "playlists": "Spellistor",
         "account": "Konto",
         "instance": "Instans",
-        "player": "Spelare"
+        "player": "Spelare",
+        "bookmarks": "Bokmärken",
+        "dearrow": "DeArrow",
+        "livestreams": "Livesändningar",
+        "channels": "Kanaler",
+        "channel_groups": "Kanal Grupper"
     },
     "actions": {
         "subscribe": "Prenumerera - {count}",
@@ -46,18 +51,18 @@
         "store_watch_history": "Spara titthistorik",
         "instances_list": "Lista över instanser",
         "enabled_codecs": "Aktivera codecs (flera)",
-        "import_from_json": "Importera från JSON/CSV",
-        "donations": "Donationer",
+        "import_from_json": "Importera från JSON",
+        "donations": "Donationer till utveckling",
         "filter": "Filter",
         "hide_replies": "Dölj svar",
         "load_more_replies": "Ladda fler svar",
         "enable_sponsorblock": "Aktivera sponsorblockering",
         "skip_preview": "Hoppa över förhandsgranskning/sammanfattning",
         "autoplay_video": "Spela upp video automatiskt",
-        "country_selection": "Val av land",
-        "language_selection": "Val av språk",
+        "country_selection": "Land",
+        "language_selection": "Språk",
         "skip_non_music": "Hoppa över musik: Icke-musikaliskt avsnitt",
-        "instance_selection": "Val av instans",
+        "instance_selection": "Instans",
         "show_more": "Visa mer",
         "yes": "Ja",
         "no": "Nej",
@@ -67,7 +72,7 @@
         "show_recommendations": "Visa rekommendationer",
         "disable_lbry": "Inaktivera LBRY för strömning",
         "enable_lbry_proxy": "Aktivera proxy för LBRY",
-        "search": "Sök",
+        "search": "Sök (Ctrl+K)",
         "clear_history": "Rensa historik",
         "skip_filler_tangent": "Hoppa över påfyllningstangent",
         "skip_highlight": "Hoppa över höjdpunkt",
@@ -87,15 +92,62 @@
         "minimize_recommendations_default": "Minimera rekommendationer som standard",
         "invalidate_session": "Logga ut alla enheter",
         "different_auth_instance": "Använd en annan instans för autentisering",
-        "instance_auth_selection": "Val av autentiseringsinstans",
+        "instance_auth_selection": "Autentiseringsinstans",
         "download_as_txt": "Ladda ner som .txt",
         "reset_preferences": "Återställ inställningar",
         "confirm_reset_preferences": "Är du säker på att du vill återställa dina inställningar?",
         "backup_preferences": "Inställningar för säkerhetskopiering",
-        "restore_preferences": "Återställa inställningar"
+        "restore_preferences": "Återställa inställningar",
+        "enable_dearrow": "Aktivera DeArrow",
+        "autoplay_next_countdown": "Antal sekunder tills nästa video startar automatiskt",
+        "minimize_comments_default": "Minimera kommentarer som standard",
+        "show_watch_on_youtube": "Visa knappen \"Titta på YouTube\"",
+        "back_to_home": "Tillbaka till startsidan",
+        "delete_automatically": "Ta bort automatiskt efter",
+        "with_timecode": "Dela med tidsstämpel",
+        "reply_count": "{count} svar",
+        "with_playlist": "Dela med spellista",
+        "dismiss": "Avböj",
+        "min_segment_length": "Minsta segmentlängd (i sekunder)",
+        "skip_segment": "Hoppa över segment",
+        "minimize_comments": "Minimera kommentarer",
+        "show_less": "Visa mindre",
+        "cancel": "Avbryt",
+        "store_search_history": "Spara sökhistorik",
+        "documentation": "Dokumentation",
+        "okay": "Okej",
+        "status_page": "Status",
+        "minimize_chapters_default": "Minimera kapitel som standard",
+        "time_code": "Tidsstämpel (i sekunder)",
+        "hide_watched": "Dölj tittade videor i flödet",
+        "share": "Dela",
+        "show_chapters": "Kapitel",
+        "source_code": "Källkod",
+        "edit_playlist": "Redigera spellista",
+        "playlist_name": "Spellistans namn",
+        "playlist_description": "Beskrivning av spellista",
+        "generate_qrcode": "Generera QR-kod",
+        "chapters_layout_mobile": "Layout för kapitel på mobil",
+        "piped_link": "Piped-länk",
+        "follow_link": "Följ-länk",
+        "copy_link": "Kopiera länk",
+        "group_name": "Gruppnamn",
+        "show_search_suggestions": "Visa sökförslag",
+        "auto_display_captions": "Automatisk visning av textning",
+        "bookmark_playlist": "Bokmärke",
+        "instance_donations": "Instans donationer",
+        "no_valid_playlists": "Filen innehåller inga giltiga spellistor!",
+        "playlist_bookmarked": "Bokmärkt",
+        "create_group": "Skapa grupp",
+        "skip_button_only": "Visa hoppa över-knapp",
+        "skip_automatically": "Automatiskt",
+        "download_frame": "Ladda ner bildruta",
+        "import_from_json_csv": "Importera från JSON/CSV",
+        "instance_privacy_policy": "Sekretesspolicy"
     },
     "player": {
-        "watch_on": "Titta på {0}"
+        "watch_on": "Se på {0}",
+        "failed": "Misslyckades med felkod {0}, se loggar för mer information"
     },
     "preferences": {
         "instance_name": "Instansnamn",
@@ -108,7 +160,9 @@
     },
     "login": {
         "username": "Användarnamn",
-        "password": "Lösenord"
+        "password": "Lösenord",
+        "password_confirm": "Bekräfta lösenord",
+        "passwords_incorrect": "Lösenorden stämmer inte överens!"
     },
     "video": {
         "videos": "Videor",
@@ -118,7 +172,13 @@
         "ratings_disabled": "Betyg inaktiverade",
         "chapters": "Kapitel",
         "live": "{0} Live",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "license": "Licens",
+        "all": "Alla",
+        "category": "Kategori",
+        "chapters_horizontal": "Horisontell",
+        "visibility": "Synlighet",
+        "chapters_vertical": "Vertikal"
     },
     "comment": {
         "pinned_by": "Fäst av {author}",
@@ -135,7 +195,8 @@
         "all": "YouTube: Alla",
         "videos": "YouTube: Videor",
         "playlists": "YouTube: Spellistor",
-        "music_songs": "YT Music: Låtar"
+        "music_songs": "YT Music: Låtar",
+        "music_artists": "YT Music: Artister"
     },
     "subscriptions": {
         "subscribed_channels_count": "Prenumererar på: {0}"
@@ -144,6 +205,18 @@
         "preferences_note": "Observera: inställningar sparas i webbläsarens lokala lagring. Om du raderar dina webbläsardata återställs de."
     },
     "info": {
-        "register_no_email_note": "Det rekommenderas inte att använda e-post som användarnamn. Fortsätt ändå?"
+        "register_no_email_note": "Det rekommenderas inte att använda e-post som användarnamn. Fortsätt ändå?",
+        "hours": "{amount} timma(r)",
+        "preferences_note": "Obs: Inställningarna sparas i det lokala lagringsutrymmet i din webbläsare. Om du raderar dina webbläsardata återställs de.",
+        "days": "{amount} dag(ar)",
+        "weeks": "{amount} vecka/veckor",
+        "months": "{amount} månad(er)",
+        "next_video_countdown": "Spelar nästa video om {0}s",
+        "cannot_copy": "Kan inte kopiera!",
+        "page_not_found": "Sida hittas ej",
+        "copied": "Kopierad!",
+        "local_storage": "Det här kräver localStorage, är cookies aktiverat?",
+        "login_note": "Logga in med ett konto som skapats på denna instans.",
+        "register_note": "Registrera ett konto för den här Piped-instansen. Då kan du synkronisera dina prenumerationer och spellistor med ditt konto, så att de lagras på serversidan. Du kan använda alla funktioner utan konto, men alla data lagras i webbläsarens lokala cache. Se till att du INTE använder en e-postadress som användarnamn och välj ett säkert lösenord som du inte använder någon annanstans."
     }
 }

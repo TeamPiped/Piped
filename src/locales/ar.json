@@ -14,10 +14,12 @@
         "livestreams": "البث المباشر",
         "channels": "القنوات",
         "bookmarks": "الاشارات المرجعيه",
-        "channel_groups": "مجموعات القنوات"
+        "channel_groups": "مجموعات القنوات",
+        "dearrow": "دي ارو"
     },
     "player": {
-        "watch_on": "شاهد عبر"
+        "watch_on": "مشاهدة على {0}",
+        "failed": "فشل مع رمز الخطأ {0}، راجع السجلات لمزيد من المعلومات"
     },
     "actions": {
         "subscribe": "اشتراك - {count}",
@@ -52,7 +54,7 @@
         "skip_interaction": "تخطي تذكير التفاعل (اشتراك)",
         "skip_non_music": "تخطي الموسيقى: قسم غير الموسيقى",
         "theme": "السمة",
-        "instance_selection": "تحديد المثيل",
+        "instance_selection": "قائمة الخوادم",
         "export_to_json": "تصدير إلى JSON",
         "show_more": "اظهار المزيد",
         "skip_outro": "تخطي بطاقات النهاية / الاعتمادات",
@@ -62,15 +64,15 @@
         "skip_filler_tangent": "تخطي المحتوى الغير مهم",
         "show_markers": "إظهار العلامات على المشغل",
         "buffering_goal": "هدف التخزين المؤقت (بالثواني)",
-        "country_selection": "اختيار البلد",
+        "country_selection": "البلد",
         "default_homepage": "الصفحة الرئيسية الافتراضية",
         "show_comments": "إظهار التعليقات",
         "minimize_description_default": "تصغير الوصف بشكل افتراضي",
         "store_watch_history": "تخزين سجل المشاهدة",
-        "language_selection": "اختيار اللغة",
+        "language_selection": "اللغة",
         "instances_list": "قائمة المثيلات",
         "enabled_codecs": "برامج الترميز الممكنة (متعددة)",
-        "import_from_json": "استيراد من JSON/CSV",
+        "import_from_json": "استيراد من JSON",
         "loop_this_video": "تكرار هذا الفيديو",
         "auto_play_next_video": "التشغيل التلقائي للفيديو التالي",
         "donations": "التبرعات للتطوير",
@@ -92,7 +94,7 @@
         "minimize_recommendations_default": "تقليل التوصيات بشكل افتراضي",
         "invalidate_session": "تسجيل الخروج من جميع الأجهزة",
         "different_auth_instance": "استخدام مثيل مختلف للمصادقة",
-        "instance_auth_selection": "تحديد مثيل Autentication",
+        "instance_auth_selection": "خادم المصادقة",
         "clone_playlist": "استنساخ قائمة التشغيل",
         "clone_playlist_success": "تم استنساخها بنجاح!",
         "download_as_txt": "تنزيل بتنسيق .txt",
@@ -108,7 +110,7 @@
         "copy_link": "نسخ الرابط",
         "time_code": "رمز الوقت (بالثواني)",
         "show_chapters": "الفصول",
-        "store_search_history": "حفظ سجل البحث",
+        "store_search_history": "تخزين سجل البحث",
         "documentation": "التوثيق",
         "status_page": "الحالة",
         "source_code": "شفرة المصدر",
@@ -139,7 +141,14 @@
         "playlist_name": "اسم قائمة التشغيل",
         "edit_playlist": "تعديل قائمة التشغيل",
         "show_search_suggestions": "إظهار اقتراحات البحث",
-        "chapters_layout_mobile": "تخطيط الفصول على الهاتف"
+        "chapters_layout_mobile": "تخطيط الفصول على الهاتف",
+        "delete_automatically": "الحذف تلقائيا بعد",
+        "enable_dearrow": "تمكين دي ارو",
+        "generate_qrcode": "إنشاء رمز الاستجابة السريعة",
+        "import_from_json_csv": "استيراد من JSON/CSV",
+        "download_frame": "إطار التحميل",
+        "instance_privacy_policy": "سياسة الخصوصية",
+        "add_to_group": "إضافة إلى المجموعة"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
@@ -153,7 +162,9 @@
         "all": "الكل",
         "category": "الفئة",
         "chapters_vertical": "رَأسِيّ",
-        "chapters_horizontal": "أفقي"
+        "chapters_horizontal": "أفقي",
+        "visibility": "الظهور",
+        "license": "الترخيص"
     },
     "search": {
         "channels": "يوتيوب: القنوات",
@@ -164,7 +175,8 @@
         "music_videos": "YT Music: مقاطع فيديو",
         "did_you_mean": "هل تقصد: {0}؟",
         "music_playlists": "YT Music: قوائم التشغيل",
-        "music_albums": "YT Music: ألبومات"
+        "music_albums": "YT Music: ألبومات",
+        "music_artists": "YT الموسيقى: الفنانين"
     },
     "preferences": {
         "version": "الإصدار",
@@ -183,7 +195,9 @@
     },
     "login": {
         "username": "اسم المستخدم",
-        "password": "كلمة السر"
+        "password": "كلمة السر",
+        "passwords_incorrect": "كلمة المرور لم تتطابق!",
+        "password_confirm": "تأكيد كلمة المرور"
     },
     "subscriptions": {
         "subscribed_channels_count": "مشترك في: {0}"
@@ -198,6 +212,12 @@
         "cannot_copy": "لا يمكن نسخه!",
         "local_storage": "يتطلب هذا الإجراء التخزين المحلي، هل يتم تمكين ملفات تعريف الارتباط؟",
         "register_no_email_note": "لا ينصح باستخدام البريد الإلكتروني كاسم مستخدم. المضي قدما على أي حال؟",
-        "next_video_countdown": "تشغيل الفيديو التالي بعد { 0 } ق"
+        "next_video_countdown": "تشغيل الفيديو التالي بعد { 0 } ق",
+        "weeks": "{amount} أسبوع (أسابيع)",
+        "hours": "{amount} ساعة (ساعات)",
+        "months": "{amount} شهر (أشهر)",
+        "days": "{amount} يوم (أيام)",
+        "login_note": "سجل الدخول باستخدام حساب تم إنشاؤه في هذا الخادم.",
+        "register_note": "سجل حسابًا لخادم Piped هذا. سيسمح لك هذا بمزامنة اشتراكاتك وقوائم التشغيل مع حسابك، بحيث يتم تخزينها على جانب الخادم. يمكنك استخدام جميع الميزات بدون حساب، ولكن سيتم تخزين جميع البيانات في ذاكرة التخزين المؤقت المحلية لمتصفحك. يُرجى التأكد من عدم استخدام عنوان البريد الإلكتروني كاسم المستخدم الخاص بك واختيار كلمة مرور آمنة لا تستخدمها في أي مكان آخر."
     }
 }

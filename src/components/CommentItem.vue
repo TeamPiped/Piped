@@ -1,8 +1,8 @@
 <template>
-    <div class="comment flex mt-1.5">
+    <div class="comment mt-1.5 flex">
         <img
             :src="comment.thumbnail"
-            class="comment-avatar rounded-full w-12 h-12"
+            class="comment-avatar h-12 w-12 rounded-full"
             height="48"
             width="48"
             loading="lazy"
@@ -14,34 +14,35 @@
                 <div v-if="comment.pinned" class="comment-pinned">
                     <font-awesome-icon icon="thumbtack" />
                     <span
-                        class="ml-1.5"
                         v-t="{
                             path: 'comment.pinned_by',
                             args: { author: uploader },
                         }"
+                        class="ml-1.5"
                     />
                 </div>
 
                 <div class="comment-author">
-                    <router-link class="font-bold link" :to="comment.commentorUrl">{{ comment.author }}</router-link>
-                    <font-awesome-icon class="ml-1.5" v-if="comment.verified" icon="check" />
+                    <router-link class="link font-bold" :to="comment.commentorUrl">{{ comment.author }}</router-link>
+                    <font-awesome-icon v-if="comment.verified" class="ml-1.5" icon="check" />
                 </div>
-                <div class="comment-meta text-sm mb-1.5" v-text="comment.commentedTime" />
+                <div class="comment-meta mb-1.5 text-sm" v-text="comment.commentedTime" />
             </div>
-            <div class="whitespace-pre-wrap" v-html="purifyHTML(comment.commentText)" />
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <CollapsableText :text="comment.commentText" :visible-limit="500" />
             <div class="comment-footer mt-1 flex items-center">
                 <div class="i-fa6-solid:thumbs-up" />
                 <span class="ml-1" v-text="numberFormat(comment.likeCount)" />
-                <font-awesome-icon class="ml-1" v-if="comment.hearted" icon="heart" />
+                <font-awesome-icon v-if="comment.hearted" class="ml-1" icon="heart" />
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
-                <div @click="loadReplies" class="cursor-pointer">
+                <div class="cursor-pointer" @click="loadReplies">
                     <a v-text="`${$t('actions.reply_count', comment.replyCount)}`" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
             </template>
             <template v-if="showingReplies">
-                <div @click="hideReplies" class="cursor-pointer">
+                <div class="cursor-pointer" @click="hideReplies">
                     <a v-t="'actions.hide_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-up-alt" />
                 </div>
@@ -50,7 +51,7 @@
                 <div v-for="reply in replies" :key="reply.commentId" class="w-full">
                     <CommentItem :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>
-                <div v-if="nextpage" @click="loadReplies" class="cursor-pointer">
+                <div v-if="nextpage" class="cursor-pointer" @click="loadReplies">
                     <a v-t="'actions.load_more_replies'" />
                     <font-awesome-icon class="ml-1.5" icon="level-down-alt" />
                 </div>
@@ -60,7 +61,10 @@
 </template>
 
 <script>
+import CollapsableText from "./CollapsableText.vue";
+
 export default {
+    components: { CollapsableText },
     props: {
         comment: {
             type: Object,
@@ -85,7 +89,6 @@ export default {
                 this.showingReplies = true;
                 return;
             }
-
             this.loadingReplies = true;
             this.showingReplies = true;
             this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.videoId, {

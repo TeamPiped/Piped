@@ -14,7 +14,8 @@
         "livestreams": "Canlı Yayımlar",
         "channels": "Kanallar",
         "bookmarks": "Əlfəcinlər",
-        "channel_groups": "Kanal qrupları"
+        "channel_groups": "Kanal qrupları",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "{0} saytında bax"
@@ -49,7 +50,7 @@
         "default_quality": "Standart Keyfiyyət",
         "buffering_goal": "Tamponlama hədəfi (saniyələrlə)",
         "export_to_json": "JSON-a İxrac Et",
-        "import_from_json": "JSON/CSV-dan İdxal Et",
+        "import_from_json": "JSON -dan İdxal Et",
         "loop_this_video": "Bu Videonu Təkrarla",
         "auto_play_next_video": "Növbəti Videonu Avto-Oynat",
         "donations": "İnkişaf ianələri",
@@ -74,14 +75,14 @@
         "select_playlist": "Oynatma Siyahısı Seç",
         "delete_playlist_confirm": "Bu oynatma siyahısı silinsin?",
         "please_select_playlist": "Xahiş edilir, oynatma siyahısı seç",
-        "country_selection": "Ölkə Seçimi",
+        "country_selection": "Ölkə",
         "default_homepage": "Standart Əsas Səhifə",
         "show_comments": "Şərhləri Göstər",
-        "instance_selection": "Nümunə Seçimi",
+        "instance_selection": "İnstansiya",
         "minimize_description_default": "Açıqlamanı Standart Olaraq Kiçilt",
-        "language_selection": "Dil Seçimi",
+        "language_selection": "Dil",
         "instances_list": "Nümunələr Siyahısı",
-        "show_more": "Daha çox göstər",
+        "show_more": "Daha Çox Göstər",
         "no": "Xeyr",
         "store_watch_history": "Baxış Tarixçəsin Saxla",
         "enabled_codecs": "Aktiv Kodlayıcılar (Çoxlu)",
@@ -97,11 +98,11 @@
         "restore_preferences": "Seçimləri bərpa et",
         "invalidate_session": "Bütün cihazlardan çıxın",
         "different_auth_instance": "Təsdiqləmə üçün fərqli nümunə istifadə et",
-        "instance_auth_selection": "Təsdiqləmə Nümunəsi Seçimi",
+        "instance_auth_selection": "Təsdiqləmə İnstansiyası",
         "clone_playlist": "Oynatma Siyahısın Klonla",
         "clone_playlist_success": "Uğurla klonlandı!",
         "time_code": "Vaxt kodu (saniyələrlə)",
-        "store_search_history": "Axtarış tarixçəsini saxla",
+        "store_search_history": "Axtarış Tarixçəsin Saxla",
         "documentation": "Sənədləşdirmə",
         "status_page": "Vəziyyət",
         "source_code": "Mənbə kodu",
@@ -131,7 +132,20 @@
         "autoplay_next_countdown": "Növbəti videoya qədər standart geri sayım (saniyə)",
         "dismiss": "Rədd et",
         "create_group": "Qrup yarat",
-        "group_name": "Qrup adı"
+        "group_name": "Qrup adı",
+        "cancel": "Ləğv et",
+        "edit_playlist": "Oynatma siyahısın redaktə et",
+        "playlist_description": "Oynatma siyahısı təsviri",
+        "okay": "Oldu",
+        "chapters_layout_mobile": "Mobildə Bölmələrin Tərtibatı",
+        "playlist_name": "Oynatma siyahısı adı",
+        "show_search_suggestions": "Axtarış təkliflərin göstər",
+        "auto_display_captions": "Titrləri Avtomatik Göstər",
+        "import_from_json_csv": "JSON/CSV-dən idxal et",
+        "delete_automatically": "Sonranı avtomatik silin",
+        "download_frame": "Yükləmə çərçivəsi",
+        "enable_dearrow": "DeArrow'u Aktivləşdir",
+        "generate_qrcode": "QR Kodu Yarat"
     },
     "comment": {
         "pinned_by": "{author} tərəfindən sabitlənib",
@@ -150,7 +164,9 @@
     },
     "login": {
         "username": "İstifadəçi Adı",
-        "password": "Şifrə"
+        "password": "Şifrə",
+        "password_confirm": "Parolu təsdiqlə",
+        "passwords_incorrect": "Parollar uyğunlaşmır!"
     },
     "video": {
         "videos": "Videolar",
@@ -162,7 +178,11 @@
         "live": "{0} Canlı",
         "shorts": "Qısa",
         "all": "Hamısı",
-        "category": "Kateqoriya"
+        "category": "Kateqoriya",
+        "chapters_horizontal": "Üfüqi",
+        "chapters_vertical": "Şaquli",
+        "license": "Lisenziya",
+        "visibility": "Görünüş"
     },
     "search": {
         "did_you_mean": "Bunu nəzərdə tutursunuz: {0}?",
@@ -173,7 +193,8 @@
         "music_songs": "YT Music: Mahnılar",
         "music_videos": "YT Music: Videolar",
         "music_albums": "YT Music: Albomlar",
-        "music_playlists": "YT Music: Oynatma Siyahıları"
+        "music_playlists": "YT Music: Oynatma Siyahıları",
+        "music_artists": "YT Music: Sənətkarlar"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abunə oldu: {0}"
@@ -188,6 +209,10 @@
         "cannot_copy": "Nüsxələnmir!",
         "local_storage": "Bu fəaliyyət yerli yaddaş tələb edir, məlumat bazası aktivdir?",
         "register_no_email_note": "E-poçt-u istifadəçi adı kimi istifadə etmək tövsiyə edilmir. Baxmayaraq ki, davam edilsin?",
-        "next_video_countdown": "Növbəti video {0} saniyəyə oynadılır"
+        "next_video_countdown": "Növbəti video {0} saniyəyə oynadılır",
+        "hours": "{amount} saat",
+        "days": "{amount} gün",
+        "months": "{amount} ay",
+        "weeks": "{amount} həftə"
     }
 }

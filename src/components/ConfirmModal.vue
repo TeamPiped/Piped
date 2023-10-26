@@ -2,9 +2,9 @@
     <ModalComponent @close="$emit('close')">
         <div>
             <h3 class="text-xl" v-text="message" />
-            <div class="ml-auto mt-8 flex gap-2 w-min">
-                <button class="btn" v-t="'actions.cancel'" @click="$emit('close')" />
-                <button class="btn" v-t="'actions.okay'" @click="$emit('confirm')" />
+            <div class="ml-auto mt-8 w-min flex gap-2">
+                <button v-t="'actions.cancel'" class="btn" @click="$emit('close')" />
+                <button v-t="'actions.okay'" class="btn" @click="$emit('confirm')" />
             </div>
         </div>
     </ModalComponent>
@@ -18,7 +18,10 @@ export default {
         ModalComponent,
     },
     props: {
-        message: String,
+        message: {
+            type: String,
+            required: true,
+        },
     },
     emits: ["close", "confirm"],
 };

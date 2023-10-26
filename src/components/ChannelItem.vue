@@ -1,19 +1,19 @@
 <template>
-    <div>
+    <div class="flex flex-col flex-justify-between">
         <router-link :to="props.item.url">
-            <div class="relative">
-                <img class="w-full" :src="props.item.thumbnail" loading="lazy" />
+            <div class="my-4 flex justify-center">
+                <img class="aspect-square w-[50%] rounded-full" :src="props.item.thumbnail" loading="lazy" />
             </div>
             <p>
                 <span v-text="props.item.name" />
-                <font-awesome-icon class="ml-1.5" v-if="props.item.verified" icon="check" />
+                <font-awesome-icon v-if="props.item.verified" class="ml-1.5" icon="check" />
             </p>
         </router-link>
         <p v-if="props.item.description" v-text="props.item.description" />
         <router-link v-if="props.item.uploaderUrl" class="link" :to="props.item.uploaderUrl">
             <p>
                 <span v-text="props.item.uploader" />
-                <font-awesome-icon class="ml-1.5" v-if="props.item.uploaderVerified" icon="check" />
+                <font-awesome-icon v-if="props.item.uploaderVerified" class="ml-1.5" icon="check" />
             </p>
         </router-link>
 
@@ -29,6 +29,9 @@
 
 <script setup>
 const props = defineProps({
-    item: Object,
+    item: {
+        type: Object,
+        required: true,
+    },
 });
 </script>

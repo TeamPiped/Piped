@@ -1,7 +1,7 @@
 <template>
-    <h1 v-t="'titles.feed'" class="font-bold text-center my-4" />
+    <h1 v-t="'titles.feed'" class="my-4 text-center font-bold" />
 
-    <div class="flex flex-wrap md:items-center flex-col md:flex-row gap-2 children:(flex gap-1 items-center)">
+    <div class="flex flex-col flex-wrap gap-2 children:(flex items-center gap-1) md:flex-row md:items-center">
         <span>
             <label for="filters">
                 <strong v-text="`${$t('actions.filter')}:`" />
@@ -13,7 +13,7 @@
                 class="select flex-grow"
                 @change="onFilterChange()"
             >
-                <option v-for="filter in availableFilters" :key="filter" :value="filter" v-t="`video.${filter}`" />
+                <option v-for="filter in availableFilters" :key="filter" v-t="`video.${filter}`" :value="filter" />
             </select>
         </span>
 
@@ -22,7 +22,7 @@
                 <strong v-text="`${$t('titles.channel_groups')}:`" />
             </label>
             <select id="group-selector" v-model="selectedGroupName" default="" class="select flex-grow">
-                <option value="" v-t="`video.all`" />
+                <option v-t="`video.all`" value="" />
                 <option
                     v-for="group in channelGroups"
                     :key="group.groupName"
@@ -99,18 +99,7 @@ export default {
 
         if (!window.db) return;
 
-        const cursor = this.getChannelGroupsCursor();
-        cursor.onsuccess = e => {
-            const cursor = e.target.result;
-            if (cursor) {
-                const group = cursor.value;
-                this.channelGroups.push({
-                    groupName: group.groupName,
-                    channels: JSON.parse(group.channels),
-                });
-                cursor.continue();
-            }
-        };
+        this.loadChannelGroups();
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
@@ -135,10 +124,17 @@ export default {
                 });
             }
         },
+        async loadChannelGroups() {
+            const groups = await this.getChannelGroups();
+            this.channelGroups.push(...groups);
+        },
         loadMoreVideos() {
+            if (!this.videosStore) return;
             this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
-            if (this.videos.length != this.videosStore.length)
+            if (this.videos.length != this.videosStore.length) {
                 this.videos = this.videosStore.slice(0, this.currentVideoCount);
+                this.fetchDeArrowContent(this.videos);
+            }
         },
         handleScroll() {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {

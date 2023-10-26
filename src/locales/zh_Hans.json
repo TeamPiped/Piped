@@ -9,20 +9,20 @@
         "donations": "开发捐赠",
         "auto_play_next_video": "自动播放下一个视频",
         "loop_this_video": "循环播放此视频",
-        "import_from_json": "从 JSON/CSV 导入",
+        "import_from_json": "从 JSON 导入",
         "export_to_json": "导出为 JSON",
         "no": "否",
         "yes": "是",
         "show_more": "显示更多",
-        "instance_selection": "实例选择",
+        "instance_selection": "实例",
         "enabled_codecs": "启用的编解码器 (多个)",
         "instances_list": "实例列表",
-        "language_selection": "语言选择",
+        "language_selection": "语言",
         "store_watch_history": "保存观看历史",
         "minimize_description_default": "默认情况下折叠描述",
         "show_comments": "显示评论",
         "default_homepage": "默认主页",
-        "country_selection": "国家/地区选择",
+        "country_selection": "国家/地区",
         "buffering_goal": "缓冲目标 (以秒为单位)",
         "default_quality": "默认质量",
         "audio_only": "仅音频",
@@ -72,7 +72,7 @@
         "minimize_recommendations_default": "默认最小化推荐",
         "invalidate_session": "注销所有设备",
         "different_auth_instance": "使用不同的实例进行身份验证",
-        "instance_auth_selection": "身份验证实例选择",
+        "instance_auth_selection": "身份验证实例",
         "clone_playlist": "克隆播放列表",
         "clone_playlist_success": "克隆成功！",
         "download_as_txt": "下载为 .txt",
@@ -119,7 +119,14 @@
         "okay": "好的",
         "edit_playlist": "编辑播放列表",
         "show_search_suggestions": "显示搜索建议",
-        "chapters_layout_mobile": "移动设备上的章节布局"
+        "chapters_layout_mobile": "移动设备上的章节布局",
+        "delete_automatically": "多久后自动删除",
+        "enable_dearrow": "启用 DeArrow",
+        "generate_qrcode": "生成二维码",
+        "import_from_json_csv": "从 JSON/CSV 文件导入",
+        "download_frame": "下载视频帧",
+        "instance_privacy_policy": "隐私政策",
+        "add_to_group": "添加到组"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -133,7 +140,9 @@
         "all": "全部",
         "category": "类别",
         "chapters_horizontal": "水平",
-        "chapters_vertical": "垂直"
+        "chapters_vertical": "垂直",
+        "license": "许可证",
+        "visibility": "可见性"
     },
     "preferences": {
         "ssl_score": "SSL 分数",
@@ -151,7 +160,8 @@
         "user_disabled": "评论在设置中被禁用。"
     },
     "player": {
-        "watch_on": "在 {0} 观看"
+        "watch_on": "在 {0} 观看",
+        "failed": "播放器出错，错误代码 {0}，查看日志了解更多信息"
     },
     "titles": {
         "feed": "订阅流",
@@ -168,11 +178,14 @@
         "livestreams": "直播",
         "channels": "频道",
         "bookmarks": "书签",
-        "channel_groups": "频道组"
+        "channel_groups": "频道组",
+        "dearrow": "DeArrow"
     },
     "login": {
         "password": "密码",
-        "username": "帐号"
+        "username": "帐号",
+        "password_confirm": "确认密码",
+        "passwords_incorrect": "密码不匹配！"
     },
     "search": {
         "did_you_mean": "你是指 {0} 吗？",
@@ -183,7 +196,8 @@
         "music_songs": "YT Music：歌曲",
         "music_videos": "YT Music：视频",
         "music_albums": "YT Music：专辑",
-        "music_playlists": "YT Music：播放列表"
+        "music_playlists": "YT Music：播放列表",
+        "music_artists": "YT Music：艺人"
     },
     "subscriptions": {
         "subscribed_channels_count": "已订阅：{0}"
@@ -198,6 +212,12 @@
         "cannot_copy": "无法复制！",
         "local_storage": "此操作需要本地存储，是否启用了Cookie？",
         "register_no_email_note": "不建议使用电子邮件作为用户名。仍要继续吗？",
-        "next_video_countdown": "在{0}秒后播放下一个视频"
+        "next_video_countdown": "在{0}秒后播放下一个视频",
+        "days": "{amount} 天",
+        "weeks": "{amount} 周",
+        "months": "{amount} 个月",
+        "hours": "{amount} 小时",
+        "login_note": "使用在此实例上创建的账户登录。",
+        "register_note": "在这个 Piped 实例上注册一个账户。你可以通过账户同步订阅和播放列表，所有数据存储在实例的服务器上。没有账户你也可以使用所有功能，但数据均储存在你所用浏览器的本地缓存中。请确保你没有将电子邮箱地址用作账户的用户名，并选择一个你不在其他地方使用的安全密码。"
     }
 }

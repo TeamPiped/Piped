@@ -14,10 +14,12 @@
         "livestreams": "Siaran Langsung",
         "channels": "Saluran",
         "bookmarks": "Markah",
-        "channel_groups": "Grup saluran"
+        "channel_groups": "Grup saluran",
+        "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Tonton di {0}"
+        "watch_on": "Lihat di {0}",
+        "failed": "Gagal dengan kode kesalahan {0}, lihat catatan untuk info lebih lanjut"
     },
     "actions": {
         "subscribe": "Berlangganan - {count}",
@@ -43,18 +45,18 @@
         "audio_only": "Audio Saja",
         "default_quality": "Kualitas Bawaan",
         "buffering_goal": "Tujuan Buffering (dalam detik)",
-        "country_selection": "Pemilihan Negara",
+        "country_selection": "Negara",
         "default_homepage": "Halaman Beranda Bawaan",
         "show_comments": "Tampilkan Komentar",
         "minimize_description_default": "Kecilkan Deskripsi secara default",
-        "language_selection": "Pemilihan Bahasa",
+        "language_selection": "Bahasa",
         "instances_list": "Daftar Instansi",
         "enabled_codecs": "Kodek yang Diaktifkan (Beberapa)",
-        "instance_selection": "Pemilihan Instansi",
+        "instance_selection": "Instansi",
         "show_more": "Tampilkan Lebih Banyak",
         "yes": "Iya",
         "no": "Tidak",
-        "import_from_json": "Impor dari JSON/CSV",
+        "import_from_json": "Impor dari JSON",
         "loop_this_video": "Ulangi Video ini",
         "auto_play_next_video": "Mainkan video berikutnya secara otomatis",
         "donations": "Donasi pengembangan",
@@ -91,7 +93,7 @@
         "logout": "Keluar dari perangkat ini",
         "minimize_recommendations_default": "Kecilkan Rekomendasi secara bawaan",
         "invalidate_session": "Keluarkan semua perangkat",
-        "instance_auth_selection": "Pemilihan Instansi Otentikasi",
+        "instance_auth_selection": "Instance Otentikasi",
         "different_auth_instance": "Gunakan instansi lain untuk otentikasi",
         "clone_playlist_success": "Berhasil disalin!",
         "clone_playlist": "Salin Daftar Putar",
@@ -138,7 +140,15 @@
         "edit_playlist": "Sunting daftar putar",
         "playlist_name": "Nama daftar putar",
         "okay": "Oke",
-        "show_search_suggestions": "Tampilkan saran pencarian"
+        "show_search_suggestions": "Tampilkan saran pencarian",
+        "chapters_layout_mobile": "Tata Letak Bab di Ponsel",
+        "delete_automatically": "Hapus secara otomatis setelah",
+        "enable_dearrow": "Aktifkan DeArrow",
+        "generate_qrcode": "Buat Kode QR",
+        "import_from_json_csv": "Impor dari JSON/CSV",
+        "download_frame": "Unduh bingkai",
+        "instance_privacy_policy": "Kebijakan Privasi",
+        "add_to_group": "Tambahkan ke grup"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -157,7 +167,9 @@
     },
     "login": {
         "username": "Nama Pengguna",
-        "password": "Kata Sandi"
+        "password": "Kata Sandi",
+        "password_confirm": "Konfirmasi kata sandi",
+        "passwords_incorrect": "Kata sandi tidak cocok!"
     },
     "video": {
         "videos": "Video",
@@ -169,7 +181,11 @@
         "live": "{0} Langsung",
         "shorts": "Shorts",
         "all": "Semua",
-        "category": "Kategori"
+        "category": "Kategori",
+        "chapters_horizontal": "Horisontal",
+        "chapters_vertical": "Vertikal",
+        "license": "Lisensi",
+        "visibility": "Visibilitas"
     },
     "search": {
         "did_you_mean": "Apakah Anda bermaksud: {0}?",
@@ -180,7 +196,8 @@
         "music_videos": "YT Music: Video",
         "music_albums": "YT Music: Album",
         "music_playlists": "YT Music: Daftar Putar",
-        "all": "YouTube: Semua"
+        "all": "YouTube: Semua",
+        "music_artists": "YT Music: Artis"
     },
     "subscriptions": {
         "subscribed_channels_count": "Berlangganan ke: {0}"
@@ -195,6 +212,12 @@
         "cannot_copy": "Tidak dapat menyalin!",
         "local_storage": "Tindakan ini membutuhkan localStorage, apakah kuki diaktifkan?",
         "register_no_email_note": "Menggunakan surel sebagai nama pengguna tidak disarankan. Lanjut?",
-        "next_video_countdown": "Memutar video berikutnya dalam {0} detik"
+        "next_video_countdown": "Memutar video berikutnya dalam {0} detik",
+        "weeks": "{amount} minggu",
+        "hours": "{amount} jam",
+        "days": "{amount} hari",
+        "months": "{amount} bulan",
+        "login_note": "Masuk dengan akun yang dibuat di server ini.",
+        "register_note": "Daftarkan akun untuk server Piped ini. Ini akan memungkinkan Anda untuk menyinkronkan langganan dan daftar putar Anda dengan akun Anda, sehingga mereka disimpan di sisi server. Anda dapat menggunakan semua fitur tanpa akun, tetapi semua data akan disimpan di tembolok lokal browser Anda. Pastikan Anda TIDAK menggunakan alamat surel sebagai nama pengguna Anda dan pilih kata sandi yang aman yang tidak Anda gunakan di tempat lain."
     }
 }

@@ -1,12 +1,12 @@
 {
     "actions": {
-        "instances_list": "Örnek Listesi",
-        "language_selection": "Dil Seçimi",
+        "instances_list": "Sunucu Listesi",
+        "language_selection": "Dil",
         "store_watch_history": "İzleme Geçmişini Sakla",
         "minimize_description_default": "Açıklamayı Öntanımlı Olarak Küçült",
         "show_comments": "Yorumları Göster",
         "default_homepage": "Öntanımlı Ana Sayfa",
-        "country_selection": "Ülke Seçimi",
+        "country_selection": "Ülke",
         "buffering_goal": "Arabelleğe Alma Hedefi (Saniye Cinsinden)",
         "default_quality": "Öntanımlı Kalite",
         "audio_only": "Yalnızca Ses",
@@ -41,12 +41,12 @@
         "donations": "Geliştirme Bağışları",
         "auto_play_next_video": "Sonraki Videoyu Otomatik Oynat",
         "loop_this_video": "Bu Videoyu Döngüye Al",
-        "import_from_json": "JSON/CSV Dosyasından İçe Aktar",
+        "import_from_json": "JSON Dosyasından İçe Aktar",
         "export_to_json": "JSON Olarak Dışa Aktar",
         "no": "Hayır",
         "yes": "Evet",
         "show_more": "Daha Fazla Göster",
-        "instance_selection": "Örnek Seçimi",
+        "instance_selection": "Sunucu",
         "loading": "Yükleniyor...",
         "filter": "Filtrele",
         "search": "Ara (Ctrl+K)",
@@ -70,9 +70,9 @@
         "delete_account": "Hesabı Sil",
         "logout": "Bu Aygıttan Oturumu Kapat",
         "minimize_recommendations_default": "Önerileri Öntanımlı Olarak Küçült",
-        "different_auth_instance": "Kimlik Doğrulama İçin Farklı Bir Örnek Kullan",
+        "different_auth_instance": "Kimlik Doğrulama İçin Farklı Bir Sunucu Kullan",
         "invalidate_session": "Tüm Aygıtlardan Oturumu Kapat",
-        "instance_auth_selection": "Kimlik Doğrulama Örneği Seçimi",
+        "instance_auth_selection": "Kimlik Doğrulama Sunucusu",
         "clone_playlist": "Oynatma Listesini Kopyala",
         "clone_playlist_success": "Başarıyla kopyalandı!",
         "download_as_txt": ".txt Olarak İndir",
@@ -92,7 +92,7 @@
         "hide_watched": "Akışta İzlenen Videoları Gizle",
         "source_code": "Kaynak Kodu",
         "documentation": "Belgelendirme",
-        "instance_donations": "Örnek Bağışları",
+        "instance_donations": "Sunucu Bağışları",
         "status_page": "Durum",
         "reply_count": "{count} Yanıt",
         "minimize_comments": "Yorumları Küçült",
@@ -118,10 +118,19 @@
         "edit_playlist": "Oynatma listesini düzenle",
         "playlist_name": "Oynatma listesi adı",
         "playlist_description": "Oynatma listesi açıklaması",
-        "show_search_suggestions": "Arama önerilerini göster"
+        "show_search_suggestions": "Arama önerilerini göster",
+        "chapters_layout_mobile": "Mobilde Bölüm Düzeni",
+        "delete_automatically": "Şundan sonra otomatik olarak sil",
+        "enable_dearrow": "DeArrow'u Etkinleştir",
+        "generate_qrcode": "QR Kodu Oluştur",
+        "import_from_json_csv": "JSON/CSV Dosyasından İçe Aktar",
+        "download_frame": "Kareyi indir",
+        "instance_privacy_policy": "Gizlilik Politikası",
+        "add_to_group": "Gruba ekle"
     },
     "player": {
-        "watch_on": "{0} Üzerinde İzle"
+        "watch_on": "{0} üzerinde görüntüle",
+        "failed": "{0} hata kodu ile başarısız oldu, daha fazla bilgi için günlüklere bakın"
     },
     "titles": {
         "history": "Geçmiş",
@@ -133,12 +142,13 @@
         "subscriptions": "Abonelikler",
         "playlists": "Oynatma Listeleri",
         "account": "Hesap",
-        "instance": "Örnek",
+        "instance": "Sunucu",
         "player": "Oynatıcı",
         "livestreams": "Canlı Yayınlar",
         "channels": "Kanallar",
         "bookmarks": "Yer İmleri",
-        "channel_groups": "Kanal grupları"
+        "channel_groups": "Kanal grupları",
+        "dearrow": "DeArrow"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
@@ -150,13 +160,17 @@
         "live": "{0} Canlı",
         "shorts": "Kısa çekimler",
         "all": "Tümü",
-        "category": "Kategori"
+        "category": "Kategori",
+        "chapters_horizontal": "Yatay",
+        "chapters_vertical": "Dikey",
+        "license": "Lisans",
+        "visibility": "Görünürlük"
     },
     "preferences": {
         "ssl_score": "SSL Puanı",
         "has_cdn": "CDN Var Mı?",
-        "instance_locations": "Örnek Konumları",
-        "instance_name": "Örnek Adı",
+        "instance_locations": "Sunucu Konumları",
+        "instance_name": "Sunucu Adı",
         "registered_users": "Kayıtlı Kullanıcılar",
         "version": "Sürüm",
         "up_to_date": "Güncel Mi?"
@@ -169,7 +183,9 @@
     },
     "login": {
         "password": "Parola",
-        "username": "Kullanıcı Adı"
+        "username": "Kullanıcı Adı",
+        "password_confirm": "Parolayı doğrula",
+        "passwords_incorrect": "Parolalar eşleşmiyor!"
     },
     "search": {
         "did_you_mean": "Bunu mu demek istediniz: {0}?",
@@ -180,7 +196,8 @@
         "videos": "YouTube: Videolar",
         "music_songs": "YT Müzik: Şarkılar",
         "music_videos": "YT Müzik: Videolar",
-        "music_albums": "YT Müzik: Albümler"
+        "music_albums": "YT Müzik: Albümler",
+        "music_artists": "YT Müzik: Sanatçılar"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abone Olunan: {0}"
@@ -195,6 +212,12 @@
         "cannot_copy": "Kopyalanamıyor!",
         "local_storage": "Bu eylem yerel depolama gerektirir, çerezler etkin mi?",
         "register_no_email_note": "Kullanıcı adı olarak e-posta kullanılması tavsiye edilmez. Yine de devam edilsin mi?",
-        "next_video_countdown": "Sonraki video {0}s içinde oynatılıyor"
+        "next_video_countdown": "Sonraki video {0}s içinde oynatılıyor",
+        "days": "{amount} gün",
+        "months": "{amount} ay",
+        "hours": "{amount} saat",
+        "weeks": "{amount} hafta",
+        "login_note": "Bu sunucuda oluşturulan bir hesapla oturum açın.",
+        "register_note": "Bu Piped sunucusu için bir hesap açın. Bu, aboneliklerinizi ve oynatma listelerinizi hesabınızla eşzamanlamanızı sağlar, böylece sunucu tarafında kaydedilirler. Tüm özellikleri bir hesap olmadan da kullanabilirsiniz, ancak bu şekilde tüm veriler yalnızca tarayıcınızınn yerel önbelleğinde saklanacaktır. Lütfen kullanıcı adı olarak bir e-posta adresi KULLANMADIĞINIZDAN ve başka bir yerde kullanmadığınız güvenli bir parola seçtiğinizden emin olun."
     }
 }

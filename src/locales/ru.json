@@ -14,10 +14,12 @@
         "livestreams": "Прямые трансляции",
         "channels": "Каналы",
         "bookmarks": "Закладки",
-        "channel_groups": "Группы каналов"
+        "channel_groups": "Группы каналов",
+        "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Смотреть на {0}"
+        "watch_on": "Посмотреть на {0}",
+        "failed": "Ошибка с кодом {0}, откройте логи, чтобы узнать больше"
     },
     "actions": {
         "subscribe": "Подписаться - {count}",
@@ -59,7 +61,7 @@
         "yes": "Да",
         "no": "Нет",
         "export_to_json": "Экспорт в JSON",
-        "import_from_json": "Импорт из JSON/CSV",
+        "import_from_json": "Импорт из JSON",
         "loop_this_video": "Повтор текущего видео",
         "auto_play_next_video": "Сразу проигрывать следующее рекомендованное видео",
         "donations": "Пожертвования на разработку",
@@ -138,7 +140,15 @@
         "okay": "Хорошо",
         "auto_display_captions": "Авто-отображение субтитров",
         "playlist_name": "Название плейлиста",
-        "show_search_suggestions": "Показать поисковые предложения"
+        "show_search_suggestions": "Показать поисковые предложения",
+        "chapters_layout_mobile": "Расположение глав в мобильном виде",
+        "delete_automatically": "Автоматическое удаление после",
+        "enable_dearrow": "Включить DeArrow",
+        "generate_qrcode": "Сгенерировать QR Код",
+        "import_from_json_csv": "Импорт из JSON/CSV",
+        "download_frame": "Сделать скриншот видео",
+        "instance_privacy_policy": "Политика конфиденциальности",
+        "add_to_group": "Добавить в группу"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
@@ -157,7 +167,9 @@
     },
     "login": {
         "username": "Имя пользователя",
-        "password": "Пароль"
+        "password": "Пароль",
+        "password_confirm": "Повторите пароль",
+        "passwords_incorrect": "Пароль не совпадает!"
     },
     "video": {
         "videos": "Видео",
@@ -169,7 +181,11 @@
         "chapters": "Содержание",
         "shorts": "Shorts",
         "all": "Все",
-        "category": "Категория"
+        "category": "Категория",
+        "chapters_horizontal": "Горизонтально",
+        "chapters_vertical": "Вертикально",
+        "visibility": "Видимость",
+        "license": "Лицензия"
     },
     "search": {
         "did_you_mean": "Может быть вы имели в виду: {0}?",
@@ -180,7 +196,8 @@
         "music_songs": "YT Music: Композиции",
         "music_videos": "YT Music: Видео",
         "music_albums": "YT Music: Альбомы",
-        "music_playlists": "YT Music: Плейлисты"
+        "music_playlists": "YT Music: Плейлисты",
+        "music_artists": "YT Music: Исполнители"
     },
     "subscriptions": {
         "subscribed_channels_count": "Подписан на: {0}"
@@ -192,6 +209,12 @@
         "page_not_found": "Страница не найдена",
         "local_storage": "Это действие требует разрешения localStorage, включены ли cookie-файлы?",
         "register_no_email_note": "Использование электронной почты в качестве имени пользователя не рекомендуется. Продолжить?",
-        "next_video_countdown": "Воспроизведение следующего видео через {0} с."
+        "next_video_countdown": "Следующие видео через {0} с",
+        "days": "{amount} дней",
+        "hours": "{amount} час(ов)",
+        "weeks": "{amount} недель",
+        "months": "{amount} месяцев",
+        "login_note": "Войти в аккаунт созданном на этом экземпляре.",
+        "register_note": "Зарегистрируйте учетную запись для данного экземпляра Piped. Это позволит синхронизировать подписки и списки воспроизведения с учетной записью, так что они будут храниться на стороне сервера. Вы можете использовать все функции без учетной записи, но все данные будут храниться в локальном кэше вашего браузера. Пожалуйста, убедитесь, что вы НЕ используете адрес электронной почты в качестве имени пользователя, и выберите надежный пароль, который вы не используете в других местах."
     }
 }

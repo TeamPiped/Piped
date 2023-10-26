@@ -3,7 +3,7 @@
         "subscribe": "Đăng ký - {count}",
         "autoplay_video": "Video tự động phát",
         "unsubscribe": "Hủy đăng ký - {count}",
-        "view_subscriptions": "Lượt đăng ký",
+        "view_subscriptions": "Xem những kênh đã đăng ký",
         "sort_by": "Sắp xếp theo:",
         "most_recent": "Gần đây nhất",
         "channel_name_asc": "Tên kênh (A-Z)",
@@ -14,7 +14,7 @@
         "theme": "Giao diện",
         "auto": "Tự động",
         "buffering_goal": "Bộ nhớ đệm (tính bằng giây)",
-        "least_recent": "Ít nhất gần đây",
+        "least_recent": "Cũ nhất",
         "skip_intro": "Bỏ qua gián đoạn/hoạt hình intro",
         "skip_outro": "Bỏ qua màn hình kết thúc/danh đề",
         "skip_interaction": "Bỏ qua lời nhắc tương tác (Đăng ký)",
@@ -43,7 +43,7 @@
         "disable_lbry": "Tắt LBRY để phát trực tuyến",
         "enable_lbry_proxy": "Bật proxy cho LBRY",
         "view_ssl_score": "Hiện thị điểm số SSL",
-        "search": "Tìm kiếm",
+        "search": "Tìm kiếm (Ctrl+K)",
         "filter": "Bộ lọc",
         "loading": "Đang tải...",
         "clear_history": "Xóa lịch sử",
@@ -78,7 +78,11 @@
         "minimize_comments": "Thu nhỏ bình luận",
         "reply_count": "{count} phản hồi",
         "status_page": "Trạng thái",
-        "skip_automatically": "Tự động"
+        "skip_automatically": "Tự động",
+        "show_chapters": "Chương",
+        "show_less": "Hiển thị ít hơn",
+        "cancel": "Hủy",
+        "okay": "OK"
     },
     "titles": {
         "register": "Đăng ký",
@@ -142,7 +146,8 @@
     "info": {
         "copied": "Đã sao chép!",
         "cannot_copy": "Không thể sao chép!",
-        "page_not_found": "Không tìm thấy trang"
+        "page_not_found": "Không tìm thấy trang",
+        "next_video_countdown": "Tự động phát video tiếp theo trong {0} giây"
     },
     "subscriptions": {
         "subscribed_channels_count": "Đã đăng ký cho: {0}"

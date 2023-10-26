@@ -14,7 +14,8 @@
         "livestreams": "Emissões em direto",
         "channels": "Canais",
         "bookmarks": "Marcadores",
-        "channel_groups": "Grupos de canais"
+        "channel_groups": "Grupos de canais",
+        "dearrow": "DeArrow"
     },
     "actions": {
         "view_subscriptions": "Ver subscrições",
@@ -39,14 +40,14 @@
         "dark": "Escuro",
         "light": "Claro",
         "buffering_goal": "Objetivo de 'buffer' (em segundos)",
-        "country_selection": "Seleção de país",
+        "country_selection": "País",
         "default_homepage": "Página inicial padrão",
         "show_comments": "Mostrar comentários",
         "minimize_description_default": "Minimizar descrição por omissão",
         "store_watch_history": "Guardar histórico de visualizações",
-        "language_selection": "Seleção de idioma",
+        "language_selection": "Idioma",
         "enabled_codecs": "Codificadores ativados (vários)",
-        "instance_selection": "Seleção de instância",
+        "instance_selection": "Instância",
         "show_more": "Mostrar mais",
         "import_from_json": "Importar de JSON/CSV",
         "loop_this_video": "Repetir este vídeo",
@@ -89,7 +90,7 @@
         "logout": "Terminar sessão neste dispositivo",
         "minimize_recommendations_default": "Minimizar recomendações por omissão",
         "different_auth_instance": "Usar uma instância diferente para autenticação",
-        "instance_auth_selection": "Seleção da instância para autenticação",
+        "instance_auth_selection": "Instância de autenticação",
         "invalidate_session": "Terminar sessão em todos os dispositivos",
         "clone_playlist": "Clonar lista de reprodução",
         "clone_playlist_success": "Clonada com sucesso!",
@@ -105,7 +106,7 @@
         "backup_preferences": "Exportar preferências",
         "back_to_home": "Voltar ao início",
         "minimize_comments_default": "Minimizar comentários por omissão",
-        "store_search_history": "Guardar histórico de pesquisas",
+        "store_search_history": "Histórico de pesquisa da loja",
         "minimize_chapters_default": "Minimizar capítulos por omissão",
         "show_watch_on_youtube": "Mostrar botão Ver no YouTube",
         "show_chapters": "Capítulos",
@@ -136,7 +137,9 @@
         "cancel": "Cancelar",
         "okay": "Ok",
         "show_search_suggestions": "Mostrar sugestões de pesquisa",
-        "chapters_layout_mobile": "Aplicações recentemente adicionadas"
+        "chapters_layout_mobile": "Aplicações recentemente adicionadas",
+        "enable_dearrow": "Ativar o DeArrow",
+        "delete_automatically": "Eliminar automaticamente após"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
@@ -169,7 +172,9 @@
         "all": "Todos",
         "category": "Categoria",
         "chapters_horizontal": "Horizontal",
-        "chapters_vertical": "Vertical"
+        "chapters_vertical": "Vertical",
+        "license": "Licença",
+        "visibility": "Visibilidade"
     },
     "search": {
         "did_you_mean": "Será que queria dizer: {0}?",
@@ -180,7 +185,8 @@
         "music_songs": "YT Music: Músicas",
         "music_videos": "YT Music: Vídeos",
         "music_albums": "YT Music: Álbuns",
-        "music_playlists": "YT Music: Listas de reprodução"
+        "music_playlists": "YT Music: Listas de reprodução",
+        "music_artists": "YT Music: Artistas"
     },
     "player": {
         "watch_on": "Ver em {0}"
@@ -195,6 +201,10 @@
         "cannot_copy": "Não foi possível copiar!",
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
         "register_no_email_note": "Não recomendamos utilizar um endereço de e-mail como nome de utilizador. Continuar?",
-        "next_video_countdown": "A reproduzir o vídeo seguinte em {0}s"
+        "next_video_countdown": "A reproduzir o vídeo seguinte em {0}s",
+        "hours": "{quantidade} hora(s)",
+        "days": "{quantidade} dia(s)",
+        "weeks": "{quantidade} semana(s)",
+        "months": "{quantidade} mês(es)"
     }
 }

@@ -1,7 +1,7 @@
 <template>
-    <div v-if="showVideo">
+    <div v-if="showVideo" class="flex flex-col flex-justify-between">
         <router-link
-            class="focus:underline hover:underline inline-block w-full"
+            class="inline-block w-full focus:underline hover:underline"
             :to="{
                 path: '/watch',
                 query: {
@@ -13,17 +13,17 @@
         >
             <div class="w-full">
                 <img
-                    class="w-full aspect-video object-contain"
-                    :src="item.thumbnail"
-                    :alt="item.title"
+                    class="aspect-video w-full object-contain"
+                    :src="thumbnail"
+                    :alt="title"
                     :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
                     loading="lazy"
                 />
                 <!-- progress bar -->
-                <div class="relative w-full h-1">
+                <div class="relative h-1 w-full">
                     <div
-                        class="absolute bottom-0 left-0 h-1 bg-red-600"
                         v-if="item.watched && item.duration > 0"
+                        class="absolute bottom-0 left-0 h-1 bg-red-600"
                         :style="{ width: `clamp(0%, ${(item.currentTime / item.duration) * 100}%, 100%` }"
                     />
                 </div>
@@ -31,29 +31,29 @@
 
             <div class="relative text-sm">
                 <span
-                    class="thumbnail-overlay thumbnail-right"
                     v-if="item.duration > 0"
+                    class="thumbnail-overlay thumbnail-right"
                     v-text="timeFormat(item.duration)"
                 />
                 <!-- shorts thumbnail -->
-                <span class="thumbnail-overlay thumbnail-left" v-if="item.isShort" v-t="'video.shorts'" />
+                <span v-if="item.isShort" v-t="'video.shorts'" class="thumbnail-overlay thumbnail-left" />
                 <span
-                    class="thumbnail-overlay thumbnail-right"
                     v-else-if="item.duration >= 0"
+                    class="thumbnail-overlay thumbnail-right"
                     v-text="timeFormat(item.duration)"
                 />
                 <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right !bg-red-600" tag="div">
                     <font-awesome-icon class="w-3" :icon="['fas', 'broadcast-tower']" />
                 </i18n-t>
-                <span v-if="item.watched" class="thumbnail-overlay bottom-5px left-5px" v-t="'video.watched'" />
+                <span v-if="item.watched" v-t="'video.watched'" class="thumbnail-overlay bottom-5px left-5px" />
             </div>
 
             <div>
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="pt-2 overflow-hidden flex link font-bold"
-                    :title="item.title"
-                    v-text="item.title"
+                    class="link flex overflow-hidden pt-2 font-bold"
+                    :title="title"
+                    v-text="title"
                 />
             </div>
         </router-link>
@@ -64,24 +64,24 @@
                     v-if="item.uploaderAvatar"
                     :src="item.uploaderAvatar"
                     loading="lazy"
-                    class="rounded-full mr-0.5 mt-0.5 w-32px h-32px"
+                    class="mr-0.5 mt-0.5 h-32px w-32px rounded-full"
                     width="68"
                     height="68"
                 />
             </router-link>
 
-            <div class="px-2 flex-1">
+            <div class="flex-1 px-2">
                 <router-link
                     v-if="item.uploaderUrl && item.uploaderName && !hideChannel"
-                    class="link-secondary overflow-hidden block text-sm"
+                    class="link-secondary block overflow-hidden text-sm"
                     :to="item.uploaderUrl"
                     :title="item.uploaderName"
                 >
                     <span v-text="item.uploaderName" />
-                    <font-awesome-icon class="ml-1.5" v-if="item.uploaderVerified" icon="check" />
+                    <font-awesome-icon v-if="item.uploaderVerified" class="ml-1.5" icon="check" />
                 </router-link>
 
-                <div v-if="item.views >= 0 || item.uploadedDate" class="text-xs font-normal text-gray-300 mt-1">
+                <div v-if="item.views >= 0 || item.uploadedDate" class="mt-1 text-xs font-normal text-gray-300">
                     <span v-if="item.views >= 0">
                         <font-awesome-icon icon="eye" />
                         <span class="pl-1" v-text="`${numberFormat(item.views)} •`" />
@@ -102,45 +102,45 @@
                             listen: '1',
                         },
                     }"
-                    :aria-label="'Listen to ' + item.title"
-                    :title="'Listen to ' + item.title"
+                    :aria-label="'Listen to ' + title"
+                    :title="'Listen to ' + title"
                 >
                     <font-awesome-icon icon="headphones" />
                 </router-link>
-                <button v-if="authenticated" :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
+                <button :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
                     <font-awesome-icon icon="circle-plus" />
                 </button>
                 <button
                     v-if="admin"
-                    :title="$t('actions.remove_from_playlist')"
                     ref="removeButton"
+                    :title="$t('actions.remove_from_playlist')"
                     @click="showConfirmRemove = true"
                 >
                     <font-awesome-icon icon="circle-minus" />
                 </button>
                 <ConfirmModal
                     v-if="showConfirmRemove"
+                    :message="$t('actions.delete_playlist_video_confirm')"
                     @close="showConfirmRemove = false"
                     @confirm="removeVideo(item.url.substr(-11))"
-                    :message="$t('actions.delete_playlist_video_confirm')"
                 />
-                <PlaylistAddModal v-if="showModal" :video-id="item.url.substr(-11)" @close="showModal = !showModal" />
+                <PlaylistAddModal
+                    v-if="showModal"
+                    :video-id="item.url.substr(-11)"
+                    :video-info="item"
+                    @close="showModal = !showModal"
+                />
             </div>
         </div>
     </div>
 </template>
-
-<style>
-.shorts-img {
-    @apply w-full object-contain;
-}
-</style>
 
 <script>
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ConfirmModal from "./ConfirmModal.vue";
 
 export default {
+    components: { PlaylistAddModal, ConfirmModal },
     props: {
         item: {
             type: Object,
@@ -159,6 +159,7 @@ export default {
         playlistId: { type: String, default: null },
         admin: { type: Boolean, default: false },
     },
+    emits: ["remove"],
     data() {
         return {
             showModal: false,
@@ -166,23 +167,21 @@ export default {
             showConfirmRemove: false,
         };
     },
+    computed: {
+        title() {
+            return this.item.dearrow?.titles[0]?.title ?? this.item.title;
+        },
+        thumbnail() {
+            return this.item.dearrow?.thumbnails[0]?.thumbnail ?? this.item.thumbnail;
+        },
+    },
     mounted() {
         this.shouldShowVideo();
     },
     methods: {
         removeVideo() {
             this.$refs.removeButton.disabled = true;
-            this.fetchJson(this.authApiUrl() + "/user/playlists/remove", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    playlistId: this.playlistId,
-                    index: this.index,
-                }),
-                headers: {
-                    Authorization: this.getAuthToken(),
-                    "Content-Type": "application/json",
-                },
-            }).then(json => {
+            this.removeVideoFromPlaylist(this.playlistId, this.index).then(json => {
                 if (json.error) alert(json.error);
                 else this.$emit("remove");
             });
@@ -201,6 +200,11 @@ export default {
             };
         },
     },
-    components: { PlaylistAddModal, ConfirmModal },
 };
 </script>
+
+<style>
+.shorts-img {
+    @apply w-full object-contain;
+}
+</style>

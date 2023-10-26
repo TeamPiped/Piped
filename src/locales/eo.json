@@ -10,14 +10,16 @@
         "playlists": "Ludlistoj",
         "account": "Konto",
         "player": "Ludilo",
-        "instance": "Nodo",
+        "instance": "Retejo",
         "channels": "Kanaloj",
         "livestreams": "Tujelsendoj",
         "bookmarks": "Legosignoj",
-        "channel_groups": "Kanalaroj"
+        "channel_groups": "Kanalaroj",
+        "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Vidi en {0}"
+        "watch_on": "Vidi en {0}",
+        "failed": "Fiaskis kun erarkodo {0}, vidu protokolojn por pli da informo"
     },
     "actions": {
         "subscribe": "Aboni - {count}",
@@ -41,10 +43,10 @@
         "autoplay_video": "Aŭtomate Ludi Videon",
         "audio_only": "Nur Sono",
         "default_quality": "Implicita Kvalito",
-        "country_selection": "Landa Elekto",
+        "country_selection": "Lando",
         "default_homepage": "Implicita Ĉefpaĝo",
         "show_comments": "Montri Komentojn",
-        "language_selection": "Lingva Elekto",
+        "language_selection": "Lingvo",
         "donations": "Donacoj por programado",
         "show_more": "Montri pli",
         "yes": "Jes",
@@ -77,13 +79,13 @@
         "export_to_json": "Elporti JSON-n",
         "loop_this_video": "Ripetadi ĉi tiun Videon",
         "enable_lbry_proxy": "Ebligi Prokurilon por LBRY",
-        "import_from_json": "Importi el JSON/CSV",
+        "import_from_json": "Importi el JSON",
         "show_description": "Montri Priskribon",
-        "instances_list": "Listo de Nodoj",
+        "instances_list": "Listo de Piped-retejoj",
         "auto_play_next_video": "Aŭtomate Ludi sekvan Videon",
         "show_recommendations": "Montri Rekomendojn",
         "reset_preferences": "Restarigi agordojn",
-        "instance_selection": "Noda Elekto",
+        "instance_selection": "Retejo",
         "view_ssl_score": "Vidu SSL-Poentaron",
         "backup_preferences": "Savkopii agordojn",
         "disable_lbry": "Malebligi LBRY-n por Elsendfluo",
@@ -91,11 +93,11 @@
         "store_search_history": "Konservi Ŝerĉhistorion",
         "hide_watched": "Kaŝi viditajn videojn en la fluo",
         "minimize_recommendations": "Plejetigi Rekomendojn",
-        "instance_auth_selection": "Elekto de Aŭtentokontrola Nodo",
+        "instance_auth_selection": "Aŭtentokontrola Piped-retejo",
         "restore_preferences": "Restarigi agordojn",
         "status_page": "Stato",
         "please_select_playlist": "Bonvolu elekti ludliston",
-        "different_auth_instance": "Uzi alian nodon por aŭtentokontrolo",
+        "different_auth_instance": "Uzi alian Piped-retejon por aŭtentokontrolo",
         "back_to_home": "Ree hejmen",
         "time_code": "Tempkodo (en sekundoj)",
         "skip_non_music": "Preterpasi Muzikon: Nemuzika Sekcio",
@@ -139,7 +141,14 @@
         "playlist_description": "Priskribo de la ludlisto",
         "cancel": "Nuligi",
         "show_search_suggestions": "Montri serĉ-sugestojn",
-        "chapters_layout_mobile": "Aranĝo de ĉapitroj en poŝtelefono"
+        "chapters_layout_mobile": "Aranĝo de ĉapitroj en poŝtelefono",
+        "delete_automatically": "Aŭtomate forigi post",
+        "enable_dearrow": "Ebligi DeArrow",
+        "generate_qrcode": "Generi QR-kodon",
+        "import_from_json_csv": "Importi el JSON/CSV",
+        "download_frame": "Elŝuti bildon",
+        "instance_privacy_policy": "Privateca politiko",
+        "add_to_group": "Aldoni al grupo"
     },
     "video": {
         "chapters": "Sekcioj",
@@ -147,13 +156,15 @@
         "live": "{0} Realtempe",
         "views": "{views} spektoj",
         "sponsor_segments": "Sponsoraj Segmentoj",
-        "watched": "Viditaj",
+        "watched": "Spektita",
         "ratings_disabled": "Taksadoj Malebligitaj",
         "shorts": "Mallongaj",
         "all": "Ĉiuj",
         "category": "Kategorio",
         "chapters_horizontal": "Horizontala",
-        "chapters_vertical": "Vertikala"
+        "chapters_vertical": "Vertikala",
+        "license": "Permesilo",
+        "visibility": "Videbleco"
     },
     "search": {
         "music_albums": "YT Music: Albumoj",
@@ -164,7 +175,8 @@
         "music_videos": "YT Music: Videoj",
         "music_songs": "YT Music: Muzikaĵoj",
         "all": "YouTube: Ĉio",
-        "did_you_mean": "Ĉu vi volis diri «{0}»?"
+        "did_you_mean": "Ĉu vi volis diri «{0}»?",
+        "music_artists": "YT Music: Artistoj"
     },
     "info": {
         "copied": "Kopiita!",
@@ -173,11 +185,19 @@
         "page_not_found": "Paĝo ne trovita",
         "local_storage": "Ĉi tiu ago postulas localStorage, ĉu kuketoj estas ebligitaj?",
         "register_no_email_note": "Uzi retadreson kiel uzantnomon ne estas rekomendita. Ĉu daŭrigi ĉiuokaze?",
-        "next_video_countdown": "Oni ludos la sekvan videon post {0}s"
+        "next_video_countdown": "Oni ludos la sekvan videon post {0}s",
+        "hours": "{amount} horo(j)",
+        "days": "{amount} tago(j)",
+        "weeks": "{amount} semajno(j)",
+        "months": "{amount} monato(j)",
+        "login_note": "Ensaluti per konto kreita en ĉi tiu retejo.",
+        "register_note": "Registri konton por ĉi tiu Piped-retejo. Tio ebligos al vi sinkronigi viajn abonojn kaj ludlistojn kun via konto, do ili estos konservitaj en la servilo. Vi ankaŭ povas uzi ĉiujn funkciojn sen konto, sed ĉiuj datenoj estos konservitaj en la loka kaŝmemoro de via retumilo. Bonvolu elekti sekuran pasvorton, kiun vi ne uzas aliloke, kaj NE uzi retadreson kiel uzantnomon."
     },
     "login": {
         "username": "Uzantnomo",
-        "password": "Pasvorto"
+        "password": "Pasvorto",
+        "password_confirm": "Konfirmu la pasvorton",
+        "passwords_incorrect": "Pasvortoj ne kongruas!"
     },
     "preferences": {
         "version": "Versio",

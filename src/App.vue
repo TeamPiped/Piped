@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full min-h-screen px-1vw py-5 antialiased reset" :class="[theme]">
+    <div class="reset min-h-screen w-full flex flex-col px-1vw py-5 antialiased" :class="[theme]">
         <div class="flex-1">
             <NavBar />
             <router-view v-slot="{ Component }">
@@ -29,25 +29,6 @@ export default {
             theme: "dark",
         };
     },
-    methods: {
-        setTheme() {
-            let themePref = this.getPreferenceString("theme", "dark");
-            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
-            else this.theme = themePref;
-
-            // Change title bar color based on user's theme
-            const themeColor = document.querySelector("meta[name='theme-color']");
-            if (this.theme === "light") {
-                themeColor.setAttribute("content", "#FFF");
-            } else {
-                themeColor.setAttribute("content", "#0F0F0F");
-            }
-
-            // Used for the scrollbar
-            const root = document.querySelector(":root");
-            this.theme == "dark" ? root.classList.add("dark") : root.classList.remove("dark");
-        },
-    },
     mounted() {
         this.setTheme();
         darkModePreference.addEventListener("change", () => {
@@ -55,7 +36,7 @@ export default {
         });
 
         if ("indexedDB" in window) {
-            const request = indexedDB.open("piped-db", 4);
+            const request = indexedDB.open("piped-db", 5);
             request.onupgradeneeded = ev => {
                 const db = request.result;
                 console.log("Upgrading object store.");
@@ -76,6 +57,12 @@ export default {
                 if (!db.objectStoreNames.contains("channel_groups")) {
                     const store = db.createObjectStore("channel_groups", { keyPath: "groupName" });
                     store.createIndex("groupName", "groupName", { unique: true });
+                }
+                if (!db.objectStoreNames.contains("playlists")) {
+                    const playlistStore = db.createObjectStore("playlists", { keyPath: "playlistId" });
+                    playlistStore.createIndex("playlistId", "playlistId", { unique: true });
+                    const playlistVideosStore = db.createObjectStore("playlist_videos", { keyPath: "videoId" });
+                    playlistVideosStore.createIndex("videoId", "videoId", { unique: true });
                 }
             };
             request.onsuccess = e => {
@@ -105,6 +92,25 @@ export default {
                 window.i18n.global.locale.value = locale;
             }
         })();
+    },
+    methods: {
+        setTheme() {
+            let themePref = this.getPreferenceString("theme", "dark");
+            if (themePref == "auto") this.theme = darkModePreference.matches ? "dark" : "light";
+            else this.theme = themePref;
+
+            // Change title bar color based on user's theme
+            const themeColor = document.querySelector("meta[name='theme-color']");
+            if (this.theme === "light") {
+                themeColor.setAttribute("content", "#FFF");
+            } else {
+                themeColor.setAttribute("content", "#0F0F0F");
+            }
+
+            // Used for the scrollbar
+            const root = document.querySelector(":root");
+            this.theme == "dark" ? root.classList.add("dark") : root.classList.remove("dark");
+        },
     },
 };
 </script>
@@ -212,7 +218,7 @@ b {
 }
 
 .input {
-    @apply pl-2.5;
+    @apply px-2.5;
 }
 
 .input:focus {

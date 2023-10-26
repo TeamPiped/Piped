@@ -10,7 +10,7 @@
         "dark": "Escuro",
         "light": "Claro",
         "show_comments": "Exibir Comentários",
-        "country_selection": "Seleção de País",
+        "country_selection": "País",
         "default_homepage": "Página Inicial Padrão",
         "default_quality": "Qualidade Padrão",
         "autoplay_video": "Reprodução Automática",
@@ -34,7 +34,7 @@
         "skip_non_music": "Pular Música: Seção não Musical",
         "skip_filler_tangent": "Pular Enchimento Tangencial",
         "enabled_codecs": "Codecs Ativados (Múltiplos)",
-        "language_selection": "Seleção de Idioma",
+        "language_selection": "Idioma",
         "yes": "Sim",
         "show_more": "Mostrar Mais",
         "export_to_json": "Exportar para JSON",
@@ -55,14 +55,14 @@
         "view_ssl_score": "Ver Pontuação SSL",
         "disable_lbry": "Desativar LBRY para Streaming",
         "enable_lbry_proxy": "Ativar Proxy para LBRY",
-        "import_from_json": "Importar de JSON/CSV",
+        "import_from_json": "Importar de JSON",
         "loop_this_video": "Repetir este Vídeo",
         "instances_list": "Lista de Instâncias",
         "clear_history": "Limpar Histórico",
         "search": "Pesquisar (Ctrl+K)",
         "no": "Não",
         "show_description": "Exibir Descrição",
-        "instance_selection": "Seleção de Instância",
+        "instance_selection": "Instância",
         "auto_play_next_video": "Autorreproduzir Próximo Vídeo",
         "filter": "Filtro",
         "store_watch_history": "Salvar Histórico de Exibição",
@@ -81,7 +81,8 @@
         "status_page": "Estado",
         "source_code": "Código fonte",
         "instance_donations": "Doações de instâncias",
-        "instance_auth_selection": "Seleção de Instância de Autenticação",
+        "instance_privacy_policy": "Política de Privacidade",
+        "instance_auth_selection": "Instância de Autenticação",
         "clone_playlist_success": "Clonada com sucesso!",
         "download_as_txt": "Baixar como .txt",
         "restore_preferences": "Restaurar preferências",
@@ -119,7 +120,13 @@
         "create_group": "Criar grupo",
         "group_name": "Nome do grupo",
         "show_search_suggestions": "Mostrar sugestões de pesquisa",
-        "chapters_layout_mobile": "Layout dos Capítulos no Celular"
+        "chapters_layout_mobile": "Layout dos Capítulos no Celular",
+        "delete_automatically": "Deletar automaticamente após",
+        "generate_qrcode": "Gerar código QR",
+        "enable_dearrow": "Ativar DeArrow",
+        "import_from_json_csv": "Importar de JSON/CSV",
+        "download_frame": "Baixar quadro",
+        "add_to_group": "Adicionar ao grupo"
     },
     "titles": {
         "history": "Histórico",
@@ -136,10 +143,12 @@
         "channels": "Canais",
         "livestreams": "Transmissões ao vivo",
         "bookmarks": "Favoritos",
-        "channel_groups": "Grupos de Canais"
+        "channel_groups": "Grupos de Canais",
+        "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Assistir no {0}"
+        "watch_on": "Ver em {0}",
+        "failed": "Falhou com código de erro {0}, veja os logs para mais informações"
     },
     "comment": {
         "pinned_by": "Fixado por {author}",
@@ -158,7 +167,9 @@
     },
     "login": {
         "username": "Nome de usuário",
-        "password": "Senha"
+        "password": "Senha",
+        "password_confirm": "Confirme senha",
+        "passwords_incorrect": "As senhas não correspondem!"
     },
     "video": {
         "videos": "Vídeos",
@@ -172,7 +183,9 @@
         "all": "Todos",
         "category": "Categoria",
         "chapters_horizontal": "Horizontal",
-        "chapters_vertical": "Vertical"
+        "chapters_vertical": "Vertical",
+        "license": "Licença",
+        "visibility": "Visibilidade"
     },
     "search": {
         "did_you_mean": "Você quis dizer: {0}?",
@@ -183,7 +196,8 @@
         "music_videos": "YT Music: Vídeos",
         "music_albums": "YT Music: Álbuns",
         "music_playlists": "YT Music: Playlists",
-        "all": "YouTube: Tudo"
+        "all": "YouTube: Tudo",
+        "music_artists": "YT Music: Artistas"
     },
     "info": {
         "copied": "Copiado!",
@@ -192,7 +206,13 @@
         "page_not_found": "página não encontrada",
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
         "register_no_email_note": "Usar um e-mail como nome de usuário não é recomendado. Continuar mesmo assim?",
-        "next_video_countdown": "Reproduzindo o próximo vídeo em {0}s"
+        "next_video_countdown": "Reproduzindo o próximo vídeo em {0}s",
+        "hours": "{amount} hora(s)",
+        "days": "{amount} dia(s)",
+        "weeks": "{amount} semana(s)",
+        "months": "{amount} mês/meses",
+        "login_note": "Entre com uma conta criada nesta instância.",
+        "register_note": "Registre uma conta para esta instância Piped. Isto irá permitir que você sincronize suas inscrições e playlists com sua conta, para que sejam armazenadas no lado do servidor. Você pode usar todas as funções sem uma conta, mas todos os dados serão armazenados no cache local do seu navegador. Por favor certifique-se de NÃO usar seu endereço de e-mail como nome de usuário e de escolher uma senha segura que não use em nenhum outro lugar."
     },
     "subscriptions": {
         "subscribed_channels_count": "Inscrito em: {0}"

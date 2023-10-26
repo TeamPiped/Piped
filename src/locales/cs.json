@@ -14,7 +14,8 @@
         "livestreams": "Živé přenosy",
         "channels": "Kanály",
         "bookmarks": "Záložky",
-        "channel_groups": "Skupiny kanálů"
+        "channel_groups": "Skupiny kanálů",
+        "dearrow": "DeArrow"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
@@ -37,20 +38,20 @@
         "audio_only": "Pouze zvuk",
         "default_quality": "Výchozí kvalita",
         "buffering_goal": "Ukládání do vyrovnávací paměti (v sekundách)",
-        "country_selection": "Výběr země",
+        "country_selection": "Země",
         "default_homepage": "Výchozí domovská stránka",
         "show_comments": "Zobrazit komentáře",
         "minimize_description_default": "Automaticky minimalizovat popis",
         "store_watch_history": "Ukládat historii sledování",
-        "language_selection": "Výběr jazyka",
+        "language_selection": "Jazyk",
         "instances_list": "Seznam instancí",
         "enabled_codecs": "Povolené kodeky (několik)",
-        "instance_selection": "Výběr instance",
+        "instance_selection": "Instance",
         "show_more": "Zobrazit více",
         "yes": "Ano",
         "no": "Ne",
         "export_to_json": "Exportovat do JSON",
-        "import_from_json": "Importovat z JSON/CSV",
+        "import_from_json": "Importovat z JSON",
         "auto_play_next_video": "Automaticky přehrát další video",
         "donations": "Dary na vývoj",
         "show_description": "Zobrazit popis",
@@ -89,7 +90,7 @@
         "minimize_recommendations_default": "Ve výchozím nastavení minimalizovat doporučení",
         "invalidate_session": "Odhlásit se ze všech zařízení",
         "different_auth_instance": "Použít jinou instanci pro autentizaci",
-        "instance_auth_selection": "Výběr autentizační instance",
+        "instance_auth_selection": "Autentizační instance",
         "clone_playlist": "Duplikovat playlist",
         "clone_playlist_success": "Úspěšně duplikováno!",
         "download_as_txt": "Stáhnout jako .txt",
@@ -136,10 +137,17 @@
         "playlist_description": "Popis playlistu",
         "okay": "Okay",
         "show_search_suggestions": "Zobrazit našeptávání ve vyhledávání",
-        "chapters_layout_mobile": "Rozložení kapitol na mobilu"
+        "chapters_layout_mobile": "Rozložení kapitol na mobilu",
+        "enable_dearrow": "Povolit DeArrow",
+        "delete_automatically": "Automaticky odstranit po",
+        "generate_qrcode": "Vygenerovat QR kód",
+        "import_from_json_csv": "Importovat z JSON/CSV",
+        "download_frame": "Stáhnout snímek",
+        "instance_privacy_policy": "Ochrana údajů"
     },
     "player": {
-        "watch_on": "Sledovat na {0}"
+        "watch_on": "Zobrazit na {0}",
+        "failed": "Akce se nezdařila. Chybový kód {0}, pro více informací viz protokol"
     },
     "comment": {
         "pinned_by": "Připnuto uživatelem {author}",
@@ -158,7 +166,9 @@
     },
     "login": {
         "username": "Uživatelské jméno",
-        "password": "Heslo"
+        "password": "Heslo",
+        "password_confirm": "Potvrzení hesla",
+        "passwords_incorrect": "Hesla se neshodují!"
     },
     "video": {
         "videos": "Videa",
@@ -172,7 +182,9 @@
         "all": "Vše",
         "category": "Kategorie",
         "chapters_horizontal": "Horizontální",
-        "chapters_vertical": "Vertikální"
+        "chapters_vertical": "Vertikální",
+        "license": "Licence",
+        "visibility": "Viditelnost"
     },
     "search": {
         "did_you_mean": "Mysleli jste: {0}?",
@@ -183,7 +195,8 @@
         "playlists": "YouTube: Playlisty",
         "music_videos": "YT Music: Videa",
         "music_albums": "YT Music: Alba",
-        "music_playlists": "YT Music: Playlisty"
+        "music_playlists": "YT Music: Playlisty",
+        "music_artists": "YT Music: Umělci"
     },
     "subscriptions": {
         "subscribed_channels_count": "Přihlášeno k odběru: {0}"
@@ -198,6 +211,10 @@
         "cannot_copy": "Nelze zkopírovat!",
         "local_storage": "Tato akce vyžaduje localStorage, jsou povoleny cookies?",
         "register_no_email_note": "Použití e-mailu jako uživatelského jména se nedoporučuje. Chcete přesto pokračovat?",
-        "next_video_countdown": "Přehrávání dalšího videa za {0}s"
+        "next_video_countdown": "Přehrávání dalšího videa za {0}s",
+        "hours": "{amount} hodin",
+        "days": "{amount} dnů",
+        "weeks": "{amount} týdnů",
+        "months": "{amount} měsíců"
     }
 }

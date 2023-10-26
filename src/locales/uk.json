@@ -1,10 +1,13 @@
 {
     "player": {
-        "watch_on": "Дивитися на {0}"
+        "watch_on": "Переглянути на {0}",
+        "failed": "Помилка з кодом {0}, дивіться журнали для отримання додаткової інформації"
     },
     "login": {
         "username": "Ім'я користувача",
-        "password": "Пароль"
+        "password": "Пароль",
+        "password_confirm": "Підтвердіть пароль",
+        "passwords_incorrect": "Паролі не збігаються!"
     },
     "actions": {
         "unsubscribe": "Відписатися - {count}",
@@ -23,12 +26,12 @@
         "default_homepage": "Домашня сторінка за замовчуванням",
         "show_comments": "Показати коментарі",
         "store_watch_history": "Зберігати історію перегляду",
-        "language_selection": "Вибір мови",
-        "instance_selection": "Вибір екземпляра",
+        "language_selection": "Мова",
+        "instance_selection": "Екземпляр",
         "show_more": "Показати більше",
         "no": "Ні",
         "export_to_json": "Експортувати в JSON",
-        "minimize_description": "Згорнути опис",
+        "minimize_description": "Приховати опис",
         "show_recommendations": "Показати рекомендації",
         "enable_lbry_proxy": "Увімкнути проксі для LBRY",
         "search": "Пошук (Ctrl+K)",
@@ -39,7 +42,7 @@
         "most_recent": "Найновішими",
         "channel_name_desc": "Назвою каналу (Я-А)",
         "least_recent": "Найстарішими",
-        "minimize_recommendations": "Згорнути рекомендації",
+        "minimize_recommendations": "Приховати рекомендації",
         "skip_sponsors": "Пропускати спонсорську рекламу",
         "skip_interaction": "Пропускати нагадування про взаємодію (підписка)",
         "skip_non_music": "Пропускати сегменти без музики в музикальних відео",
@@ -50,10 +53,10 @@
         "instances_list": "Список екземплярів",
         "enabled_codecs": "Увімкнені кодеки (можна вибрати декілька)",
         "default_quality": "Якість за замовчуванням",
-        "country_selection": "Вибір країни (для трендів)",
+        "country_selection": "Країна",
         "minimize_description_default": "Не розгортати опис за замовчуванням",
         "yes": "Так",
-        "import_from_json": "Імпортувати з JSON/CSV",
+        "import_from_json": "Імпортувати з JSON",
         "loop_this_video": "Зациклити це відео",
         "auto_play_next_video": "Автоматичне відтворення наступного відео",
         "donations": "Пожертвування на розробку",
@@ -74,7 +77,7 @@
         "select_playlist": "Вибрати список відтворення",
         "please_select_playlist": "Будь ласка, виберіть список відтворення",
         "confirm_reset_preferences": "Ви впевнені, що бажаєте скинути свої налаштування?",
-        "show_markers": "Показувати маркери на Програвачі",
+        "show_markers": "Показувати маркери на програвачі",
         "minimize_recommendations_default": "Згортати рекомендації за замовчуванням",
         "logout": "Вийти з цього пристрою",
         "backup_preferences": "Налаштування резервного копіювання",
@@ -92,9 +95,9 @@
         "copy_link": "Копіювати посилання",
         "store_search_history": "Зберігати історію пошуку",
         "documentation": "Документація",
-        "instance_auth_selection": "Вибір екземпляра для автентифікації",
+        "instance_auth_selection": "Екземпляр для автентифікації",
         "minimize_chapters_default": "Згортати розділи за замовчуванням",
-        "show_watch_on_youtube": "Показати кнопку Дивитися на YouTube",
+        "show_watch_on_youtube": "Показувати кнопку Дивитися на YouTube",
         "restore_preferences": "Відновити налаштування",
         "different_auth_instance": "Використовувати інший екземпляр для автентифікації",
         "clone_playlist_success": "Успішно клоновано!",
@@ -104,7 +107,7 @@
         "time_code": "Відмітка часу (у секундах)",
         "reply_count": "{count} відповідей",
         "minimize_comments_default": "Згортати коментарі за замовчуванням",
-        "minimize_comments": "Згорнути коментарі",
+        "minimize_comments": "Приховати коментарі",
         "delete_account": "Видалити обліковий запис",
         "no_valid_playlists": "Файл не містить дійсних списків відтворення!",
         "bookmark_playlist": "Закладка",
@@ -124,16 +127,25 @@
         "playlist_description": "Опис списку відтворення",
         "auto_display_captions": "Автоматичне відображення субтитрів",
         "cancel": "Скасувати",
-        "show_search_suggestions": "Показати пошукові пропозицій"
+        "show_search_suggestions": "Показувати пошукові пропозицій",
+        "okay": "Добре",
+        "chapters_layout_mobile": "Макет розділів на телефоні",
+        "enable_dearrow": "Увімкнути DeArrow",
+        "delete_automatically": "Видаляти автоматично після",
+        "generate_qrcode": "Згенерувати QR-код",
+        "import_from_json_csv": "Імпортувати з JSON/CSV",
+        "download_frame": "Завантажити кадр",
+        "instance_privacy_policy": "Політика конфіденційності",
+        "add_to_group": "Додати до групи"
     },
     "titles": {
-        "register": "Реєстрація",
+        "register": "Зареєструватися",
         "feed": "Підписки",
         "preferences": "Налаштування",
         "history": "Історія перегляду",
         "subscriptions": "Канали, на які ви підписані",
         "trending": "Тренди",
-        "login": "Логін",
+        "login": "Увійти",
         "playlists": "Списки відтворення",
         "instance": "Екземпляр",
         "player": "Програвач",
@@ -141,7 +153,8 @@
         "livestreams": "Наживо",
         "channels": "Канали",
         "bookmarks": "Закладки",
-        "channel_groups": "Групи каналів"
+        "channel_groups": "Групи каналів",
+        "dearrow": "DeArrow"
     },
     "comment": {
         "pinned_by": "Прикріплено користувачем {author}",
@@ -168,7 +181,11 @@
         "live": "{0} Наживо",
         "shorts": "Shorts",
         "all": "Усі",
-        "category": "Категорія"
+        "category": "Категорія",
+        "chapters_horizontal": "Горизонтальний",
+        "chapters_vertical": "Вертикальний",
+        "visibility": "Видимість",
+        "license": "Ліцензія"
     },
     "search": {
         "did_you_mean": "Можливо, ви мали на увазі: {0}?",
@@ -179,7 +196,8 @@
         "music_songs": "YT Music: Пісні",
         "music_videos": "TY Music: Відео",
         "playlists": "YouTube: Списки відтворення",
-        "music_albums": "YT Music: Альбоми"
+        "music_albums": "YT Music: Альбоми",
+        "music_artists": "YT Music: Артисти"
     },
     "subscriptions": {
         "subscribed_channels_count": "Підписано на: {0}"
@@ -191,6 +209,12 @@
         "preferences_note": "Примітка: налаштування зберігаються в локальній пам'яті вашого браузера. Видалення даних браузера призведе до їх скидання.",
         "local_storage": "Ця дія потребує localStorage, чи ввімкнуті файли cookie?",
         "register_no_email_note": "Використання електронної пошти як імені користувача не рекомендується. Все одно продовжити?",
-        "next_video_countdown": "Наступне відео через {0} секунд"
+        "next_video_countdown": "Наступне відео через {0} секунд",
+        "weeks": "{amount} тиждень(-і)",
+        "hours": "{amount} годин(-и)",
+        "months": "{amount} місяць(-і)",
+        "days": "{amount} день(-і)",
+        "login_note": "Увійдіть за допомогою облікового запису, створеного на цьому екземплярі.",
+        "register_note": "Зареєструйте обліковий запис для цього екземпляра Piped. Це дозволить вам синхронізувати підписки та списки відтворення з вашим обліковим записом, щоб вони зберігалися на сервері. Ви також можете використовувати всі доступні функції без облікового запису, але всі дані будуть зберігатися в локальному кеші вашого браузера. Будь ласка, переконайтеся, що ви НЕ використовуєте свою адресу електронної пошти як ім'я користувача й обрали надійний пароль, який ви не використовуєте в інших місцях."
     }
 }

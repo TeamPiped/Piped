@@ -1,24 +1,28 @@
 <template>
-    <footer class="text-center py-4 rounded-xl children:(mx-3) w-full mt-10">
+    <footer class="mt-10 w-full rounded-xl py-4 text-center children:(mx-3)">
         <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped" target="_blank">
             <font-awesome-icon :icon="['fab', 'github']" />
-            <span class="ml-2" v-t="'actions.source_code'" />
+            <span v-t="'actions.source_code'" class="ml-2" />
         </a>
         <a href="https://docs.piped.video/" target="_blank">
             <font-awesome-icon :icon="['fa', 'book']" />
-            <span class="ml-2" v-t="'actions.documentation'" />
+            <span v-t="'actions.documentation'" class="ml-2" />
         </a>
         <a href="https://github.com/TeamPiped/Piped#donations" target="_blank">
             <font-awesome-icon :icon="['fab', 'bitcoin']" />
-            <span class="ml-2" v-t="'actions.donations'" />
+            <span v-t="'actions.donations'" class="ml-2" />
         </a>
         <a v-if="statusPageHref" :href="statusPageHref">
             <font-awesome-icon :icon="['fa', 'server']" />
-            <span class="ml-2" v-t="'actions.status_page'" />
+            <span v-t="'actions.status_page'" class="ml-2" />
         </a>
         <a v-if="donationHref" :href="donationHref">
             <font-awesome-icon :icon="['fa', 'donate']" />
-            <span class="ml-2" v-t="'actions.instance_donations'" />
+            <span v-t="'actions.instance_donations'" class="ml-2" />
+        </a>
+        <a v-if="privacyPolicyHref" :href="privacyPolicyHref" target="_blank">
+            <font-awesome-icon :icon="['fa', 'eye']" />
+            <span v-t="'actions.instance_privacy_policy'" class="ml-2" />
         </a>
     </footer>
 </template>
@@ -29,6 +33,7 @@ export default {
         return {
             donationHref: null,
             statusPageHref: null,
+            privacyPolicyHref: null,
         };
     },
     mounted() {
@@ -39,6 +44,7 @@ export default {
             this.fetchJson(this.apiUrl() + "/config").then(config => {
                 this.donationHref = config?.donationUrl;
                 this.statusPageHref = config?.statusPageUrl;
+                this.privacyPolicyHref = config?.privacyPolicyUrl;
             });
         },
     },

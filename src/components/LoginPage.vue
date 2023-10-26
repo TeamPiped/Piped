@@ -1,8 +1,8 @@
 <template>
-    <h1 v-t="'titles.login'" class="font-bold text-center my-4" />
+    <h1 v-t="'titles.login'" class="my-4 text-center font-bold" />
     <hr />
-    <div class="text-center">
-        <form class="children:pb-3">
+    <div class="w-full flex items-center justify-center text-center">
+        <form class="w-min children:pb-3">
             <div>
                 <input
                     v-model="username"
@@ -11,7 +11,7 @@
                     autocomplete="username"
                     :placeholder="$t('login.username')"
                     :aria-label="$t('login.username')"
-                    v-on:keyup.enter="login"
+                    @keyup.enter="login"
                 />
             </div>
             <div>
@@ -22,23 +22,29 @@
                     autocomplete="password"
                     :placeholder="$t('login.password')"
                     :aria-label="$t('login.password')"
-                    v-on:keyup.enter="login"
+                    @keyup.enter="login"
                 />
             </div>
             <div>
-                <a class="btn w-auto" @click="login" v-t="'titles.login'" />
+                <a v-t="'titles.login'" class="btn w-auto" @click="login" />
             </div>
             <ul class="md:flex-1 md:justify-center md:flex">
                 <li v-for="provider in oidcProviders" :key="provider.name">
                     <a class="btn w-auto" :href="provider.authUri">Log in with {{ provider.name }}</a>
                 </li>
             </ul>
+            <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.login_note')" />
         </form>
     </div>
 </template>
 
 <script>
+import TooltipIcon from "./TooltipIcon.vue";
+
 export default {
+    components: {
+        TooltipIcon,
+    },
     data() {
         return {
             username: null,

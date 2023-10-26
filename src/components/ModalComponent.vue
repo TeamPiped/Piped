@@ -11,6 +11,7 @@
 
 <script>
 export default {
+    emits: ["close"],
     mounted() {
         window.addEventListener("keydown", this.handleKeyDown);
     },
