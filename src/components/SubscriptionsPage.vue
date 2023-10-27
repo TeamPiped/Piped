@@ -88,7 +88,7 @@
             <input v-model="editedGroupName" type="text" class="input" />
             <button v-t="'actions.okay'" class="btn" :placeholder="$t('actions.group_name')" @click="editGroupName()" />
         </div>
-        <div class="mb-2 mt-3 h-70 flex flex-col overflow-y-scroll">
+        <div class="mb-2 mt-3 h-[80vh] flex flex-col overflow-y-scroll pr-2">
             <div v-for="subscription in subscriptions" :key="subscription.name">
                 <div class="mr-3 flex items-center justify-between">
                     <a :href="subscription.url" target="_blank" class="flex items-center overflow-hidden">
