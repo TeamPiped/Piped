@@ -1,16 +1,18 @@
 <template>
     <ModalComponent @close="$emit('close')">
-        <span v-t="'actions.add_to_group'" class="mb-3 inline-block w-max text-2xl" />
-        <div v-for="(group, index) in channelGroups" :key="group.groupName" class="px-1">
-            <div class="flex items-center justify-between">
-                <span>{{ group.groupName }}</span>
-                <input
-                    type="checkbox"
-                    :checked="group.channels.includes(channelId)"
-                    @change="onCheckedChange(index, group)"
-                />
+        <div class="h-[80vh] overflow-y-scroll pr-4">
+            <span v-t="'actions.add_to_group'" class="mb-3 inline-block w-max text-2xl" />
+            <div v-for="(group, index) in channelGroups" :key="group.groupName" class="px-1">
+                <div class="flex items-center justify-between">
+                    <span>{{ group.groupName }}</span>
+                    <input
+                        type="checkbox"
+                        :checked="group.channels.includes(channelId)"
+                        @change="onCheckedChange(index, group)"
+                    />
+                </div>
+                <hr class="h-1 w-full" />
             </div>
-            <hr class="h-1 w-full" />
         </div>
     </ModalComponent>
 </template>
