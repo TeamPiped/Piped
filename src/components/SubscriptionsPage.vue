@@ -47,8 +47,8 @@
                 <font-awesome-icon class="mx-2" icon="circle-minus" @click="deleteGroup(group)" />
             </div>
         </button>
-        <button class="btn mx-1">
-            <font-awesome-icon icon="circle-plus" @click="showCreateGroupModal = true" />
+        <button class="btn mx-1" @click="showCreateGroupModal = true">
+            <font-awesome-icon icon="circle-plus" />
         </button>
     </div>
     <br />
