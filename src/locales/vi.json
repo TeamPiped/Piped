@@ -83,7 +83,19 @@
         "show_less": "Hiển thị ít hơn",
         "cancel": "Hủy",
         "okay": "OK",
-        "skip_button_only": "Hiện thị nút bỏ qua"
+        "skip_button_only": "Hiện thị nút bỏ qua",
+        "edit_playlist": "Chỉnh sửa danh sách phát",
+        "invalidate_session": "Đăng xuất trên tất cả mọi thiết bị",
+        "playlist_description": "Mô tả danh sách phát",
+        "dismiss": "Bỏ qua",
+        "instance_donations": "Quyên góp cho instance này",
+        "store_search_history": "Lưu trữ lịch sử tìm kiếm",
+        "back_to_home": "Quay về trang chủ",
+        "show_search_suggestions": "Hiển thị gợi ý tìm kiếm",
+        "documentation": "Tài liệu hướng dẫn",
+        "generate_qrcode": "Tạo mã QR",
+        "playlist_name": "Tên danh sách phát",
+        "instance_privacy_policy": "Chính sách quyền riêng tư"
     },
     "titles": {
         "register": "Đăng ký",
@@ -121,7 +133,9 @@
     },
     "login": {
         "password": "Mật khẩu",
-        "username": "Tài khoản"
+        "username": "Tài khoản",
+        "password_confirm": "Nhập lại mật khẩu",
+        "passwords_incorrect": "Mật khẩu nhập lại không giống mật khẩu đầu tiên!"
     },
     "video": {
         "views": "{views} lượt xem",
@@ -134,7 +148,8 @@
         "shorts": "Shorts",
         "all": "Tất cả",
         "license": "Giấy phép",
-        "category": "Thể loại"
+        "category": "Thể loại",
+        "visibility": "Chế độ hiển thị"
     },
     "search": {
         "did_you_mean": "Ý của bạn là: {0}?",
@@ -145,7 +160,8 @@
         "music_playlists": "YT Music: Danh sách phát",
         "videos": "YouTube: Video",
         "music_videos": "YT Music: Video",
-        "music_albums": "YT Music: Album"
+        "music_albums": "YT Music: Album",
+        "music_artists": "YT Music: Nhạc sỹ"
     },
     "info": {
         "copied": "Đã sao chép!",
