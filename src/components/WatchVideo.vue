@@ -155,6 +155,14 @@
                 </div>
             </div>
 
+            <div>
+                <label for="chkAutoLoop"><strong v-text="`${$t('actions.loop_this_video')}:`" /></label>
+                <input id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" type="checkbox" @change="onChange($event)" />
+                <br />
+                <label for="chkAutoPlay"><strong v-text="`${$t('actions.auto_play_next_video')}:`" /></label>
+                <input id="chkAutoPlay" v-model="selectedAutoPlay" class="ml-1.5" type="checkbox" @change="onChange($event)" />
+            </div>
+
             <hr class="mb-2" />
 
             <div
@@ -204,16 +212,6 @@
                 </div>
             </template>
         </div>
-
-        <hr />
-
-        <label for="chkAutoLoop"><strong v-text="`${$t('actions.loop_this_video')}:`" /></label>
-        <input id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" type="checkbox" @change="onChange($event)" />
-        <br />
-        <label for="chkAutoPlay"><strong v-text="`${$t('actions.auto_play_next_video')}:`" /></label>
-        <input id="chkAutoPlay" v-model="selectedAutoPlay" class="ml-1.5" type="checkbox" @change="onChange($event)" />
-
-        <hr />
 
         <div class="grid grid-cols-1 sm:grid-cols-4 xl:grid-cols-5">
             <div class="sm:col-span-3 xl:col-span-4">
