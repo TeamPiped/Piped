@@ -57,22 +57,21 @@ By using Piped, you can freely watch and listen to content without the fear of p
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | ![Screenshot 1](https://cloudflare-ipfs.com/ipfs/bafybeiaxhsog7jzydr7xb3xhlemxilqksceqg5fraaiuojzclhocsqrcvq) | ![Screenshot 2](https://cloudflare-ipfs.com/ipfs/bafybeigafumvrgbfyufxjptvufobstrywrfv2kteyuuictfko6kvghjszu) | ![Screenshot 3](https://cloudflare-ipfs.com/ipfs/bafybeiehs5xjqmmq34gmewxoqm3j3b2ze3pve4sdmanz7ukrxwgrcmxnry) |
 
-## Public Chat Rooms
+## Having trouble?
+If you have any general questions regarding how Piped works or trouble setting up your own instance, please consult the following public chat rooms and documentation for help. Please use these platforms exclusively for such cases and do NOT open an issue.
+
+### Public Chat Rooms/Communities
 
 -   You can join us via Matrix at [#piped](https://matrix.to/#/#piped:matrix.org).
--   You can also join us at the libera.chat IRC network which is bridged to the Matrix room at [#piped](https://web.libera.chat/#piped).
-
-## Public Communities
-
 -   You can join us on Lemmy on the [!piped@feddit.rocks](https://feddit.rocks/c/piped) community.
 
-## Self-Hosting
+### Self-Hosting
 
 See https://docs.piped.video/docs/self-hosting/ for more details.
 
 The source code of the documentation website is available at https://github.com/TeamPiped/Documentation.
 
-## Documentation
+### Documentation
 
 The documentation can be found at https://docs.piped.video (accessible via IPNS as well).
 
