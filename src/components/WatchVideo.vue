@@ -159,9 +159,9 @@
                 <label for="chkAutoLoop"><strong v-text="`${$t('actions.loop_this_video')}:`" /></label>
                 <input
                     id="chkAutoLoop"
-                    v-model="selectedAutoLoop" 
-                    class="ml-1.5" 
-                    type="checkbox" 
+                    v-model="selectedAutoLoop"
+                    class="ml-1.5"
+                    type="checkbox"
                     @change="onChange($event)"
                 />
                 <br />
