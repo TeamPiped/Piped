@@ -157,10 +157,21 @@
 
             <div>
                 <label for="chkAutoLoop"><strong v-text="`${$t('actions.loop_this_video')}:`" /></label>
-                <input id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" type="checkbox" @change="onChange($event)" />
+                <input 
+                    id="chkAutoLoop"
+                    v-model="selectedAutoLoop" 
+                    class="ml-1.5" 
+                    type="checkbox" 
+                    @change="onChange($event)"
+                />
                 <br />
                 <label for="chkAutoPlay"><strong v-text="`${$t('actions.auto_play_next_video')}:`" /></label>
-                <input id="chkAutoPlay" v-model="selectedAutoPlay" class="ml-1.5" type="checkbox" @change="onChange($event)" />
+                <input 
+                    id="chkAutoPlay"
+                    v-model="selectedAutoPlay"
+                    class="ml-1.5" type="checkbox"
+                    @change="onChange($event)"
+                />
             </div>
 
             <hr class="mb-2" />
