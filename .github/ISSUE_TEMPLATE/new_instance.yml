@@ -1,0 +1,54 @@
+name: New Instance
+title: "New instance: "
+description: Request to add a new instance to the official list
+labels: ["new-instance"]
+body:
+  - type: input
+    id: api-url
+    attributes:
+      label: Api Url
+      description: The backend url of the instance.
+      placeholder: https://pipedapi.kavin.rocks
+    validations:
+      required: true
+      
+  - type: input
+    id: location
+    attributes:
+      label: Instance location
+      description: The country the instance is located in.
+      placeholder: Germany, 🇩🇪
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: cdn
+    attributes:
+      label: CDN (not required)
+      description: Whether the instances uses a [CDN](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/).
+      options:
+        - label: My instance does use a CDN.
+
+  - type: checkboxes
+    id: approval
+    attributes:
+      label: Instance owner
+      description: If you're not the owner of the instance, you must leave a proof that the instance owner agreed with adding the instance to the list of public instances.
+      options:
+        - label: I am the owner of the instance.
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Other details
+
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for hosting a public Piped instance!
+    
+  - type: markdown
+    attributes:
+      value: |
+        If you have any further questions, please join one of the communities that are linked in the README.
+      
