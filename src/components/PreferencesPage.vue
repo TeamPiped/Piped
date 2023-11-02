@@ -263,6 +263,9 @@
     </label>
 
     <h2 v-t="'titles.instance'" class="text-center" />
+    <p class="text-center">
+        <span v-t="'actions.instances_not_shown'" />
+    </p>
     <label class="pref" for="ddlInstanceSelection">
         <strong v-text="`${$t('actions.instance_selection')}:`" />
         <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
