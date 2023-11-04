@@ -466,6 +466,7 @@ export default {
                 { code: "ro", name: "Română" },
                 { code: "ru", name: "Русский" },
                 { code: "si", name: "සිංහල" },
+                { code: "sl", name: "Slovenian" },
                 { code: "sr", name: "Српски" },
                 { code: "sv", name: "Svenska" },
                 { code: "ta", name: "தமிழ்" },
