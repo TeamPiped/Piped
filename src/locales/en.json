@@ -32,7 +32,7 @@
         "channel_name_desc": "Channel Name (Z-A)",
         "back": "Back",
         "uses_api_from": "Uses the API from ",
-        "instances_not_shown": "Instances that are not shown are unavailable",
+        "instances_not_shown": "Instances that are not shown here are currently unavailable.",
         "enable_sponsorblock": "Enable Sponsorblock",
         "skip_button_only": "Show skip button",
         "skip_automatically": "Automatically",
