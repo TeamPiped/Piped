@@ -417,7 +417,7 @@ export default {
             countrySelected: "US",
             defaultHomepage: "trending",
             minimizeComments: false,
-            minimizeDescription: false,
+            minimizeDescription: true,
             minimizeRecommendations: false,
             minimizeChapters: false,
             showWatchOnYouTube: false,
@@ -536,7 +536,7 @@ export default {
             this.countrySelected = this.getPreferenceString("region", "US");
             this.defaultHomepage = this.getPreferenceString("homepage", "trending");
             this.minimizeComments = this.getPreferenceBoolean("minimizeComments", false);
-            this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
+            this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", true);
             this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
             this.minimizeChapters = this.getPreferenceBoolean("minimizeChapters", false);
             this.showWatchOnYouTube = this.getPreferenceBoolean("showWatchOnYouTube", false);

@@ -315,7 +315,7 @@ export default {
             selectedAutoLoop: false,
             selectedAutoPlay: null,
             showComments: true,
-            showDesc: true,
+            showDesc: false,
             showRecs: true,
             showChapters: true,
             comments: null,
