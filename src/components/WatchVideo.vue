@@ -416,7 +416,7 @@ export default {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
         this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
-        this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
+        this.showDesc = !this.getPreferenceBoolean("minimizeDescription", true);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         this.showChapters = !this.getPreferenceBoolean("minimizeChapters", false);
         if (this.video?.duration) {
