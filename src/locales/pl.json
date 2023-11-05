@@ -148,7 +148,8 @@
         "import_from_json_csv": "Import z pliku JSON/CSV",
         "download_frame": "Pobierz klatkę",
         "instance_privacy_policy": "Polityki prywatności",
-        "add_to_group": "Dodaj do grupy"
+        "add_to_group": "Dodaj do grupy",
+        "instances_not_shown": "Instancje publiczne, które nie są tutaj pokazane, są obecnie niedostępne."
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
