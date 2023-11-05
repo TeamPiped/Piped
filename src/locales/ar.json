@@ -148,7 +148,8 @@
         "import_from_json_csv": "استيراد من JSON/CSV",
         "download_frame": "إطار التحميل",
         "instance_privacy_policy": "سياسة الخصوصية",
-        "add_to_group": "إضافة إلى المجموعة"
+        "add_to_group": "إضافة إلى المجموعة",
+        "instances_not_shown": "المثيلات العامة غير المعروضة هنا غير متاحة حاليًا."
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
