@@ -13,7 +13,7 @@
         "@fortawesome/fontawesome-svg-core": "6.4.2",
         "@fortawesome/free-brands-svg-icons": "6.4.2",
         "@fortawesome/free-solid-svg-icons": "6.4.2",
-        "@fortawesome/vue-fontawesome": "3.0.3",
+        "@fortawesome/vue-fontawesome": "3.0.5",
         "buffer": "6.0.3",
         "dompurify": "3.0.6",
         "hotkeys-js": "3.12.0",
