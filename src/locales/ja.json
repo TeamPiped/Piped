@@ -148,7 +148,8 @@
         "import_from_json_csv": "JSON/CSVから読み込む",
         "download_frame": "この画像を保存",
         "instance_privacy_policy": "個人情報保護方針",
-        "add_to_group": "グループに追加"
+        "add_to_group": "グループに追加",
+        "instances_not_shown": "現在利用できない公開インスタンスはここに表示されません。"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
