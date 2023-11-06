@@ -126,7 +126,8 @@
         "enable_dearrow": "Ativar DeArrow",
         "import_from_json_csv": "Importar de JSON/CSV",
         "download_frame": "Baixar quadro",
-        "add_to_group": "Adicionar ao grupo"
+        "add_to_group": "Adicionar ao grupo",
+        "instances_not_shown": "Instâncias públicas que não são mostradas aqui estão atualmente indisponíveis."
     },
     "titles": {
         "history": "Histórico",
