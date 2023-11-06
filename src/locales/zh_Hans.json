@@ -126,7 +126,8 @@
         "import_from_json_csv": "从 JSON/CSV 文件导入",
         "download_frame": "下载视频帧",
         "instance_privacy_policy": "隐私政策",
-        "add_to_group": "添加到组"
+        "add_to_group": "添加到组",
+        "instances_not_shown": "未显示在此处的公共实例当前不可用。"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
