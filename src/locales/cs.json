@@ -144,7 +144,8 @@
         "import_from_json_csv": "Importovat z JSON/CSV",
         "download_frame": "Stáhnout snímek",
         "instance_privacy_policy": "Ochrana údajů",
-        "add_to_group": "Přidat do skupiny"
+        "add_to_group": "Přidat do skupiny",
+        "instances_not_shown": "Veřejné instance, které zde nejsou zobrazeny, momentálně nejsou dostupné."
     },
     "player": {
         "watch_on": "Zobrazit na {0}",
