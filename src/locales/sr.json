@@ -142,7 +142,8 @@
         "auto_display_captions": "Аутоматски прикажи титлове",
         "generate_qrcode": "Генериши QR кôд",
         "playlist_name": "Назив плејлисте",
-        "instance_privacy_policy": "Политика приватности"
+        "instance_privacy_policy": "Политика приватности",
+        "instances_not_shown": "Јавне инстанце које нису приказане овде тренутно нису доступне."
     },
     "preferences": {
         "instance_locations": "Локације инстанце",
