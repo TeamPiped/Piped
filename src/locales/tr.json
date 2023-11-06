@@ -126,7 +126,8 @@
         "import_from_json_csv": "JSON/CSV Dosyasından İçe Aktar",
         "download_frame": "Kareyi indir",
         "instance_privacy_policy": "Gizlilik Politikası",
-        "add_to_group": "Gruba ekle"
+        "add_to_group": "Gruba ekle",
+        "instances_not_shown": "Burada gösterilmeyen herkese açık sunucular şu anda kullanılamıyor."
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
