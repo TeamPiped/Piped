@@ -157,7 +157,8 @@
         "import_from_json_csv": "Importar desde JSON/CSV",
         "download_frame": "Descargar fotograma",
         "instance_privacy_policy": "Política de privacidad",
-        "add_to_group": "Añadir a grupo"
+        "add_to_group": "Añadir a grupo",
+        "instances_not_shown": "Las instancias públicas que no se muestran aquí no están disponibles actualmente."
     },
     "titles": {
         "feed": "Contenido",
