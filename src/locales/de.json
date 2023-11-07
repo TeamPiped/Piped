@@ -126,7 +126,8 @@
         "import_from_json_csv": "Aus JSON/CSV importieren",
         "download_frame": "Einzelbild (Frame) downloaden",
         "instance_privacy_policy": "Datenschutzerklärung",
-        "add_to_group": "Zu Gruppe hinzufügen"
+        "add_to_group": "Zu Gruppe hinzufügen",
+        "instances_not_shown": "Öffentliche Instanzen, die hier nicht angezeigt werden, sind derzeit nicht verfügbar."
     },
     "player": {
         "watch_on": "Auf {0} ansehen",
