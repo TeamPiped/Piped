@@ -39,7 +39,7 @@
     <hr />
 
     <span class="flex gap-2">
-        <router-link class="btn" to="/subscriptions">Subscriptions</router-link>
+        <router-link v-t="'titles.subscriptions'" class="btn" to="/subscriptions" />
         <a :href="getRssUrl" class="btn">
             <font-awesome-icon icon="rss" />
         </a>
