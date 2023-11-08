@@ -41,7 +41,7 @@
         "@unocss/transformer-directives": "0.57.1",
         "@unocss/transformer-variant-group": "0.57.1",
         "@vitejs/plugin-legacy": "4.1.1",
-        "@vitejs/plugin-vue": "4.4.0",
+        "@vitejs/plugin-vue": "4.4.1",
         "@vue/compiler-sfc": "3.3.7",
         "eslint": "8.52.0",
         "eslint-config-prettier": "9.0.0",
