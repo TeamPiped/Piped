@@ -157,7 +157,8 @@
         "import_from_json_csv": "Uvezi iz JSON/CSV formata",
         "download_frame": "Preuzmi kadar",
         "instance_privacy_policy": "Politika privatnosti",
-        "add_to_group": "Dodaj grupi"
+        "add_to_group": "Dodaj grupi",
+        "instances_not_shown": "Javne instance koje ovdje nisu prikazane trenutačno nisu dostupne."
     },
     "player": {
         "watch_on": "Gledaj na {0}",
