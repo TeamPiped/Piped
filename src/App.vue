@@ -9,7 +9,7 @@
             </router-view>
         </div>
 
-        <FooterComponent />
+        <FooterComponent :config="config" />
     </div>
 </template>
 
@@ -19,6 +19,10 @@ import FooterComponent from "./components/FooterComponent.vue";
 
 const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
+import { generateKey, encodeArrayToBase64, decodeBase64ToArray, decryptAESGCM } from "./utils/encryptionUtils";
+import { decompressGzip } from "./utils/compressionUtils";
+import { state } from "./utils/store";
+
 export default {
     components: {
         NavBar,
@@ -27,6 +31,7 @@ export default {
     data() {
         return {
             theme: "dark",
+            config: null,
         };
     },
     mounted() {
@@ -34,6 +39,15 @@ export default {
         darkModePreference.addEventListener("change", () => {
             this.setTheme();
         });
+
+        this.fetchJson(this.authApiUrl() + "/config")
+            .then(config => {
+                this.config = config;
+                state.config = config;
+            })
+            .then(() => {
+                this.onConfigLoaded();
+            });
 
         if ("indexedDB" in window) {
             const request = indexedDB.open("piped-db", 5);
@@ -114,6 +128,55 @@ export default {
             const currentColor = { dark: "#0F0F0F", light: "#FFF" };
             const themeColor = document.querySelector("meta[name='theme-color']");
             themeColor.setAttribute("content", currentColor[this.theme]);
+        },
+        async onConfigLoaded() {
+            if (this.config.s3Enabled && this.authenticated) {
+                if (this.getPreferenceBoolean("syncPreferences", false, false)) {
+                    var e2e2_b64_key = this.getPreferenceString("e2ee_key", null, false);
+                    if (!e2e2_b64_key) {
+                        const key = new Uint8Array(await generateKey());
+                        const encoded = encodeArrayToBase64(key);
+                        this.setPreference("e2ee_key", encoded);
+                        e2e2_b64_key = encoded;
+                    }
+
+                    const statResult = await this.fetchJson(
+                        this.authApiUrl() + "/storage/stat",
+                        {
+                            file: "pipedpref",
+                        },
+                        {
+                            headers: {
+                                Authorization: this.getAuthToken(),
+                            },
+                        },
+                    );
+
+                    if (statResult.status === "exists") {
+                        const data = await fetch(this.authApiUrl() + "/storage/get?file=pipedpref", {
+                            method: "GET",
+                            headers: {
+                                Authorization: this.getAuthToken(),
+                            },
+                        }).then(resp => resp.arrayBuffer());
+
+                        const cryptoKey = decodeBase64ToArray(e2e2_b64_key).buffer;
+
+                        const decrypted = await decryptAESGCM(data, cryptoKey);
+
+                        const decompressed = await decompressGzip(new Uint8Array(decrypted));
+
+                        const localStorageJson = JSON.parse(decompressed);
+
+                        // import into localStorage
+                        for (var key in localStorageJson) {
+                            if (Object.prototype.hasOwnProperty.call(localStorageJson, key)) {
+                                localStorage[key] = localStorageJson[key];
+                            }
+                        }
+                    }
+                }
+            }
         },
     },
 };

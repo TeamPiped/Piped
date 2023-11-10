@@ -38,6 +38,9 @@ dependencies:
   mux.js:
     specifier: 6.3.0
     version: 6.3.0
+  pako:
+    specifier: 2.1.0
+    version: 2.1.0
   qrcode:
     specifier: ^1.5.3
     version: 1.5.3
@@ -4192,6 +4195,10 @@ packages:
   /p-try@2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
+    dev: false
+
+  /pako@2.1.0:
+    resolution: {integrity: sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug==}
     dev: false
 
   /parent-module@1.0.1:

@@ -21,6 +21,7 @@
         "linkify-html": "4.1.1",
         "linkifyjs": "4.1.1",
         "mux.js": "6.3.0",
+        "pako": "2.1.0",
         "qrcode": "^1.5.3",
         "shaka-player": "4.5.0",
         "stream-browserify": "3.0.0",
