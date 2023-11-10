@@ -148,7 +148,8 @@
         "import_from_json_csv": "JSON/CSV ରୁ ଆମଦାନୀ କରନ୍ତୁ",
         "download_frame": "ଫ୍ରେମକୁ ଆହରଣ କରନ୍ତୁ",
         "instance_privacy_policy": "ଗୋପନୀୟତା ନୀତି",
-        "add_to_group": "ସମୂହରେ ଯୋଗ କରନ୍ତୁ"
+        "add_to_group": "ସମୂହରେ ଯୋଗ କରନ୍ତୁ",
+        "instances_not_shown": "ଏଠାରେ ଦର୍ଶାଯାଇନଥିବା ସାର୍ବଜନୀନ ଉଦାହରଣଗୁଡ଼ିକ ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନାହିଁ ।"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",
