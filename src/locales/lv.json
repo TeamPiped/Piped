@@ -126,7 +126,8 @@
         "bookmark_playlist": "Izveidot Grāmatzīmi",
         "clone_playlist": "Klonēt Atskaņošanas Saturu",
         "uses_api_from": "Izmanto API no ",
-        "add_to_playlist": "Pievienot Atskaņošanas Sarakstam"
+        "add_to_playlist": "Pievienot Atskaņošanas Sarakstam",
+        "instances_not_shown": "Publiskās instances, kas šeit nav redzamas, pašlaik nav pieejamas."
     },
     "search": {
         "all": "YouTube: Visi",
