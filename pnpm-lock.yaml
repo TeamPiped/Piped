@@ -30,11 +30,11 @@ dependencies:
     specifier: 2.5.9
     version: 2.5.9
   linkify-html:
-    specifier: 4.1.1
-    version: 4.1.1(linkifyjs@4.1.1)
+    specifier: 4.1.2
+    version: 4.1.2(linkifyjs@4.1.2)
   linkifyjs:
-    specifier: 4.1.1
-    version: 4.1.1
+    specifier: 4.1.2
+    version: 4.1.2
   mux.js:
     specifier: 6.3.0
     version: 6.3.0
@@ -3901,16 +3901,16 @@ packages:
       lightningcss-win32-x64-msvc: 1.22.1
     dev: true
 
-  /linkify-html@4.1.1(linkifyjs@4.1.1):
-    resolution: {integrity: sha512-7RcF7gIhEOGBBvs7orCJ2tevaz7iF0ZLZSRPWNNBOnW/uGjOOQYB+ztSeHF6dchMC2dM9H8zZlt6Z959bjteaw==}
+  /linkify-html@4.1.2(linkifyjs@4.1.2):
+    resolution: {integrity: sha512-VXR7IZngXQjfmsez83wwKM2WtEqRuqtkfqeoDXRCkImsSoRTyL4cHAtiPJrDRWLOUkLucFi7/h6cU0alnHekHg==}
     peerDependencies:
       linkifyjs: ^4.0.0
     dependencies:
-      linkifyjs: 4.1.1
+      linkifyjs: 4.1.2
     dev: false
 
-  /linkifyjs@4.1.1:
-    resolution: {integrity: sha512-zFN/CTVmbcVef+WaDXT63dNzzkfRBKT1j464NJQkV7iSgJU0sLBus9W0HBwnXK13/hf168pbrx/V/bjEHOXNHA==}
+  /linkifyjs@4.1.2:
+    resolution: {integrity: sha512-1elJrH8MwUgr77Rgmx4JgB/nBgISYVoGossH6pAfCeHG+07TblTn6RWKx0MKozEMJU6NCFYHRih9M8ZtV3YZ+Q==}
     dev: false
 
   /local-pkg@0.4.3:
