@@ -7,6 +7,12 @@
             "matchPackagePrefixes": ["@unocss/"],
             "matchPackageNames": ["unocss"],
             "groupName": "unocss"
+        },
+        {
+            "matchPackagePrefixes": [
+                "linkify"
+            ],
+            "groupName": "linkify"
         }
     ],
     "lockFileMaintenance": {
