@@ -153,6 +153,7 @@ Contributions in any other form are also welcomed.
 -   [YTDLnis](https://github.com/deniscerri/ytdlnis) - Video and audio downloader for Android that uses Piped to update formats.
 -   [DeskVideo](https://github.com/malisipi/DeskVideo) - A desktop styled, customizable alternative front-end for YouTube.
 -   [Harmony Music](https://github.com/anandnet/Harmony-Music) - YouTube Music alternative for Android, built with Flutter that supports piped linking for playlists.
+-   [vidyodl](https://github.com/MrKovar/vidyodl) - A simple API to download videos from YouTube, using Piped.
 
 ## YourKit
 
