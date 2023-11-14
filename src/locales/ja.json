@@ -19,7 +19,7 @@
     },
     "player": {
         "watch_on": "{0}で視聴",
-        "failed": "失敗しエラーコード {0} が返りました。詳細はログに記録"
+        "failed": "失敗。エラーコード {0} 。詳細はログに記録"
     },
     "actions": {
         "subscribe": "チャンネル登録 - {count}",
@@ -112,7 +112,7 @@
         "restore_preferences": "設定を復元",
         "back_to_home": "ホームに戻る",
         "copy_link": "リンクコピー",
-        "time_code": "タイムコード (秒)",
+        "time_code": "開始時間 (秒)",
         "documentation": "説明書",
         "reset_preferences": "設定を初期化",
         "confirm_reset_preferences": "設定をリセットしますか？",
