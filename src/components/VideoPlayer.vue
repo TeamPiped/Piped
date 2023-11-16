@@ -333,11 +333,12 @@ export default {
             }
 
             if (noPrevPlayer)
-                this.shakaPromise.then(() => {
+                this.shakaPromise.then(async () => {
                     if (this.destroying) return;
                     this.$shaka.polyfill.installAll();
 
-                    const localPlayer = new this.$shaka.Player(videoEl);
+                    const localPlayer = new this.$shaka.Player();
+                    await localPlayer.attach(videoEl);
                     const proxyURL = new URL(component.video.proxyUrl);
                     let proxyPath = proxyURL.pathname;
                     if (proxyPath.lastIndexOf("/") === proxyPath.length - 1) {
