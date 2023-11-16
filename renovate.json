@@ -13,6 +13,15 @@
                 "linkify"
             ],
             "groupName": "linkify"
+        },
+        {
+            "matchPackagePrefixes": [
+                "@vitejs/"
+            ],
+            "matchPackageNames": [
+                "vite"
+            ],
+            "groupName": "vite"
         }
     ],
     "lockFileMaintenance": {
