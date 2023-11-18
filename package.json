@@ -43,7 +43,7 @@
         "@vitejs/plugin-legacy": "5.0.0",
         "@vitejs/plugin-vue": "4.5.0",
         "@vue/compiler-sfc": "3.3.8",
-        "eslint": "8.53.0",
+        "eslint": "8.54.0",
         "eslint-config-prettier": "9.0.0",
         "eslint-plugin-prettier": "5.0.1",
         "eslint-plugin-vue": "9.18.1",
