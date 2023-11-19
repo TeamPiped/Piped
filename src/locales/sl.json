@@ -105,7 +105,7 @@
         "different_auth_instance": "Za preverjanje pristnosti uporabi drugo instanco",
         "instance_auth_selection": "Instanca preverjanja pristnosti",
         "clone_playlist": "Podvoji seznam predvajanja",
-        "clone_playlist_success": "Podvojitev je uspela.",
+        "clone_playlist_success": "Podvojitev je uspela!",
         "download_as_txt": "Prenesi kot .txt",
         "reset_preferences": "Ponastavi nastavitve",
         "piped_link": "Cevna povezava",
@@ -157,7 +157,8 @@
         "import_from_json_csv": "Uvozi iz formata JSON/CSV",
         "download_frame": "Prenesi okvir",
         "instance_privacy_policy": "Politika zasebnosti",
-        "add_to_group": "Dodaj skupini"
+        "add_to_group": "Dodaj skupini",
+        "instances_not_shown": "Javne instance, ki tukaj niso prikazane, trenutno niso na voljo."
     },
     "player": {
         "watch_on": "Glej na {0}",
@@ -208,7 +209,7 @@
     "info": {
         "preferences_note": "Opomba: nastavitve so shranjene v lokalni shrambi brskalnika. Pri izbrisu podatkov bo brskalnik ponastavljen.",
         "page_not_found": "Stran ni najdena",
-        "copied": "Kopirano",
+        "copied": "Kopirano!",
         "cannot_copy": "Ni mogoče kopirati!",
         "local_storage": "Za to dejanje je potreben lokalni repozitorij. So piškotki vključeni?",
         "register_no_email_note": "Uporaba e-poštnega naslova kot uporabniškega imena ni priporočljiva. Vseeno nadaljujem?",
