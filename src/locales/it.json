@@ -43,7 +43,7 @@
         "donations": "Donazioni per lo sviluppo",
         "auto_play_next_video": "Riproduci automaticamente il prossimo video",
         "loop_this_video": "Ripeti questo video",
-        "import_from_json": "Importa da JSON/CSV",
+        "import_from_json": "Importa da JSON",
         "export_to_json": "Esporta in JSON",
         "no": "No",
         "yes": "Sì",
@@ -88,7 +88,7 @@
         "follow_link": "Apri il collegamento",
         "with_timecode": "Condividi con marca temporale",
         "show_chapters": "Capitoli",
-        "store_search_history": "Memorizza la cronologia delle ricerche",
+        "store_search_history": "Archivia la cronologia delle ricerche",
         "status_page": "Stato",
         "documentation": "Documentazione",
         "source_code": "Codice sorgente",
@@ -117,7 +117,15 @@
         "group_name": "Nome gruppo",
         "create_group": "Crea gruppo",
         "show_search_suggestions": "Mostra suggerimenti di ricerca",
-        "dismiss": "Chiudi"
+        "dismiss": "Chiudi",
+        "add_to_group": "Aggiungi al gruppo",
+        "import_from_json_csv": "Importa da JSON/CSV",
+        "enable_dearrow": "Abilita DeArrow",
+        "chapters_layout_mobile": "Disposizione dei capitoli sul cellulare",
+        "delete_automatically": "Cancella automaticamente dopo",
+        "auto_display_captions": "Visualizza automaticamente i sottotitoli",
+        "generate_qrcode": "Genera un codice QR",
+        "instance_privacy_policy": "Normativa sulla privacy"
     },
     "player": {
         "watch_on": "Guarda su {0}"
@@ -137,7 +145,8 @@
         "livestreams": "Streaming live",
         "channels": "Canali",
         "bookmarks": "Segnalibri",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "channel_groups": "Gruppi di canali"
     },
     "video": {
         "sponsor_segments": "Segmenti sponsor",
@@ -152,7 +161,8 @@
         "category": "Categoria",
         "chapters_horizontal": "Orizzontale",
         "chapters_vertical": "Verticale",
-        "license": "Licenza"
+        "license": "Licenza",
+        "visibility": "Visibilità"
     },
     "preferences": {
         "ssl_score": "Valutazione SSL",
@@ -171,7 +181,8 @@
     },
     "login": {
         "password": "Password",
-        "username": "Nome utente"
+        "username": "Nome utente",
+        "password_confirm": "Conferma password"
     },
     "search": {
         "did_you_mean": "Forse intendevi: {0}?",
@@ -198,6 +209,8 @@
         "cannot_copy": "Impossibile copiare!",
         "local_storage": "Questa azione richiede localStorage, i cookie sono abilitati?",
         "register_no_email_note": "L'utilizzo di un indirizzo e-mail come nome utente è sconsigliato. Continuare comunque?",
-        "next_video_countdown": "Riproduzione prossimo video tra {0}s"
+        "next_video_countdown": "Riproduzione prossimo video tra {0}s",
+        "login_note": "Accedi con un account creato su questa istanza.",
+        "register_note": "Registra un account per questa istanza di Piped. Ciò ti consentirà di sincronizzare le tue iscrizioni e le tue playlist con il tuo account, in modo che siano archiviate sul server. È possibile utilizzare tutte le funzionalità anche senza un account, ma tutti i dati verranno archiviati nella memoria locale del tuo browser. Assicurati di NON utilizzare un indirizzo email come nome utente e di scegliere una password sicura che non usi altrove."
     }
 }
