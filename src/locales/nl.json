@@ -126,7 +126,8 @@
         "import_from_json_csv": "Importeren uit JSON/CSV",
         "download_frame": "Beeld downloaden",
         "instance_privacy_policy": "Privacybeleid",
-        "add_to_group": "Toevoegen aan groep"
+        "add_to_group": "Toevoegen aan groep",
+        "instances_not_shown": "Openbare gevallen die hier niet worden weergegeven, zijn momenteel niet beschikbaar."
     },
     "titles": {
         "register": "Registreren",
