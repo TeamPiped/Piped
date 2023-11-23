@@ -244,32 +244,6 @@ export default {
 
             videoEl.setAttribute("poster", this.video.thumbnailUrl);
 
-            const time = this.$route.query.t ?? this.$route.query.start;
-
-            if (time) {
-                videoEl.currentTime = parseTimeParam(time);
-                this.initialSeekComplete = true;
-            } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
-                var tx = window.db.transaction("watch_history", "readonly");
-                var store = tx.objectStore("watch_history");
-                var request = store.get(this.video.id);
-                request.onsuccess = function (event) {
-                    var video = event.target.result;
-                    const currentTime = video?.currentTime;
-                    if (currentTime) {
-                        if (currentTime < component.video.duration * 0.9) {
-                            videoEl.currentTime = currentTime;
-                        }
-                    }
-                };
-
-                tx.oncomplete = () => {
-                    this.initialSeekComplete = true;
-                };
-            } else {
-                this.initialSeekComplete = true;
-            }
-
             const noPrevPlayer = !this.$player;
 
             var streams = [];
@@ -520,8 +494,36 @@ export default {
                 quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream) && !disableVideo;
             if (qualityConds) this.$player.configure("abr.enabled", false);
 
+            const time = this.$route.query.t ?? this.$route.query.start;
+
+            var startTime = 0;
+
+            if (time) {
+                startTime = parseTimeParam(time);
+                this.initialSeekComplete = true;
+            } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
+                var tx = window.db.transaction("watch_history", "readonly");
+                var store = tx.objectStore("watch_history");
+                var request = store.get(this.video.id);
+                request.onsuccess = function (event) {
+                    var video = event.target.result;
+                    const currentTime = video?.currentTime;
+                    if (currentTime) {
+                        if (currentTime < video.duration * 0.9) {
+                            startTime = currentTime;
+                        }
+                    }
+                };
+
+                tx.oncomplete = () => {
+                    this.initialSeekComplete = true;
+                };
+            } else {
+                this.initialSeekComplete = true;
+            }
+
             player
-                .load(uri, 0, mime)
+                .load(uri, startTime, mime)
                 .then(() => {
                     const isSafari = window.navigator?.vendor?.includes("Apple");
 
