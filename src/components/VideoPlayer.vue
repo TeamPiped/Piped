@@ -486,6 +486,11 @@ export default {
                 },
                 streaming: {
                     segmentPrefetchLimit: 10,
+                    retryParameters: {
+                        maxAttempts: Infinity,
+                        baseDelay: 100,
+                        backoffFactor: 1.5,
+                    },
                 },
             });
 
