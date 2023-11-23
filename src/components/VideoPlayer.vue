@@ -401,7 +401,7 @@ export default {
             videoEl.currentTime = segment.segment[1];
             segment.skipped = true;
         },
-        setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
+        async setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
             const url = "/watch?v=" + this.video.id;
 
             if (!this.$ui) {
@@ -502,22 +502,25 @@ export default {
                 startTime = parseTimeParam(time);
                 this.initialSeekComplete = true;
             } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
-                var tx = window.db.transaction("watch_history", "readonly");
-                var store = tx.objectStore("watch_history");
-                var request = store.get(this.video.id);
-                request.onsuccess = function (event) {
-                    var video = event.target.result;
-                    const currentTime = video?.currentTime;
-                    if (currentTime) {
-                        if (currentTime < video.duration * 0.9) {
-                            startTime = currentTime;
+                await new Promise(resolve => {
+                    var tx = window.db.transaction("watch_history", "readonly");
+                    var store = tx.objectStore("watch_history");
+                    var request = store.get(this.video.id);
+                    request.onsuccess = function (event) {
+                        var video = event.target.result;
+                        const currentTime = video?.currentTime;
+                        if (currentTime) {
+                            if (currentTime < video.duration * 0.9) {
+                                startTime = currentTime;
+                            }
                         }
-                    }
-                };
+                        resolve();
+                    };
 
-                tx.oncomplete = () => {
-                    this.initialSeekComplete = true;
-                };
+                    tx.oncomplete = () => {
+                        this.initialSeekComplete = true;
+                    };
+                });
             } else {
                 this.initialSeekComplete = true;
             }
