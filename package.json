@@ -21,7 +21,6 @@
         "javascript-time-ago": "2.5.9",
         "linkify-html": "4.1.3",
         "linkifyjs": "4.1.3",
-        "mux.js": "6.3.0",
         "qrcode": "^1.5.3",
         "shaka-player": "4.6.1",
         "stream-browserify": "3.0.0",
