@@ -36,12 +36,8 @@
 <script>
 import "shaka-player/dist/controls.css";
 import { parseTimeParam } from "@/utils/Misc";
+
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
-if (!window.muxjs) {
-    import("mux.js").then(muxjs => {
-        window.muxjs = muxjs;
-    });
-}
 const hotkeys = import("hotkeys-js");
 
 export default {
