@@ -142,11 +142,11 @@ Contributions in any other form are also welcomed.
 
 # Made with Piped
 
--   [Yattee](https://github.com/yattee/yattee) - an alternative frontend for YouTube, for IOS.
--   [LibreTube](https://github.com/Libre-tube/LibreTube) - an alternative frontend for YouTube, for Android.
--   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - an alternative privacy respecting frontend for YouTube Music.
--   [Musicale](https://github.com/Bellisario/musicale) - an alternative to YouTube Music, with style.
--   [ytify](https://github.com/n-ce/ytify) - a complementary minimal audio streaming frontend for YouTube.
+-   [Yattee](https://github.com/yattee/yattee) - An alternative frontend for YouTube, for IOS.
+-   [LibreTube](https://github.com/Libre-tube/LibreTube) - An alternative frontend for YouTube, for Android.
+-   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - An alternative privacy respecting frontend for YouTube Music.
+-   [Musicale](https://github.com/Bellisario/musicale) - An alternative to YouTube Music, with style.
+-   [ytify](https://github.com/n-ce/ytify) - A complementary minimal audio streaming frontend for YouTube.
 -   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads on Android, Linux, Windows, iOS, and Mac OSX.
 -   [Piped-Material](https://github.com/mmjee/Piped-Material) - A fork of Piped, focusing on better performance and a more usable design.
 -   [ReacTube](https://github.com/NeeRaj-2401/ReacTube) - Privacy friendly & distraction free Youtube front-end using Piped API.
@@ -154,6 +154,7 @@ Contributions in any other form are also welcomed.
 -   [DeskVideo](https://github.com/malisipi/DeskVideo) - A desktop styled, customizable alternative front-end for YouTube.
 -   [Harmony Music](https://github.com/anandnet/Harmony-Music) - YouTube Music alternative for Android, built with Flutter that supports piped linking for playlists.
 -   [vidyodl](https://github.com/MrKovar/vidyodl) - A simple API to download videos from YouTube, using Piped.
+-   [conduit](https://github.com/ai25/conduit) - An alternative frontend for YouTube, with a modern player and watch together capablities.
 
 ## YourKit
 
