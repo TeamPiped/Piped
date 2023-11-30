@@ -62,8 +62,8 @@ devDependencies:
     specifier: 1.1.16
     version: 1.1.16
   '@iconify-json/fa6-solid':
-    specifier: 1.1.17
-    version: 1.1.17
+    specifier: 1.1.18
+    version: 1.1.18
   '@intlify/unplugin-vue-i18n':
     specifier: 1.5.0
     version: 1.5.0(rollup@2.79.1)(vue-i18n@9.8.0)
@@ -1678,8 +1678,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify-json/fa6-solid@1.1.17:
-    resolution: {integrity: sha512-kSU410s1aYF69CnDBDf33j4KyywSWPvaOM7QKtnihgAl+TkOpVw/uVqa+uI2u0LOKwjYa1PFlYKB/5E+ZBq8Cw==}
+  /@iconify-json/fa6-solid@1.1.18:
+    resolution: {integrity: sha512-MohM8ALYa2+BeDwFt3ovYFGU+lzSvvHI05IxKwsXKn9L5z5gRsd1MJLshagd+MSySSTEq9OhfsHKIc9XN8KhaQ==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
