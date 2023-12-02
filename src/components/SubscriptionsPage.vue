@@ -1,35 +1,46 @@
 <template>
     <h1 v-t="'titles.subscriptions'" class="my-4 text-center font-bold" />
     <!-- import / export section -->
-    <div class="w-full flex justify-between">
-        <div class="flex gap-2">
+    <div class="flex flex-wrap justify-between">
+        <div class="flex gap-1">
+            <!-- import json/csv -->
             <button class="btn">
                 <router-link v-t="'actions.import_from_json_csv'" to="/import" />
             </button>
+            <!-- export to json -->
             <button v-t="'actions.export_to_json'" class="btn" @click="exportHandler" />
-            <input
-                id="fileSelector"
-                ref="fileSelector"
-                type="file"
-                class="display-none"
-                multiple="multiple"
-                @change="importGroupsHandler"
-            />
-            <label
-                for="fileSelector"
-                class="btn"
-                v-text="`${$t('actions.import_from_json')} (${$t('titles.channel_groups')})`"
-            />
+        </div>
+        <div class="flex gap-1 flex-wrap m-1">
+            <!-- import channel groups to json-->
+            <div>
+                <label
+                    for="fileSelector"
+                    class="btn"
+                    v-text="`${$t('actions.import_from_json')} (${$t('titles.channel_groups')})`"
+                />
+                <input
+                    id="fileSelector"
+                    ref="fileSelector"
+                    type="file"
+                    class="hidden"
+                    multiple="multiple"
+                    @change="importGroupsHandler"
+                />
+            </div>
+
+            <!-- export channel groups to json  -->
             <button
                 class="btn"
                 @click="exportGroupsHandler"
                 v-text="`${$t('actions.export_to_json')} (${$t('titles.channel_groups')})`"
             />
         </div>
-        <!-- subscriptions count, only shown if there are any  -->
-        <i18n-t v-if="subscriptions.length > 0" keypath="subscriptions.subscribed_channels_count">{{
-            subscriptions.length
-        }}</i18n-t>
+        <div class="flex gap-1 self-center">
+            <!-- subscriptions count, only shown if there are any  -->
+            <i18n-t v-if="subscriptions.length > 0" keypath="subscriptions.subscribed_channels_count">{{
+                subscriptions.length
+            }}</i18n-t>
+        </div>
     </div>
     <br />
     <hr />
