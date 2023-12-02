@@ -44,7 +44,7 @@
         "@vitejs/plugin-vue": "4.5.1",
         "@vue/compiler-sfc": "3.3.9",
         "eslint": "8.55.0",
-        "eslint-config-prettier": "9.0.0",
+        "eslint-config-prettier": "9.1.0",
         "eslint-plugin-prettier": "5.0.1",
         "eslint-plugin-vue": "9.19.2",
         "lightningcss": "1.22.1",
