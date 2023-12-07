@@ -86,8 +86,8 @@ devDependencies:
     specifier: 5.2.0
     version: 5.2.0(terser@5.24.0)(vite@5.0.6)
   '@vitejs/plugin-vue':
-    specifier: 4.5.1
-    version: 4.5.1(vite@5.0.6)(vue@3.3.10)
+    specifier: 4.5.2
+    version: 4.5.2(vite@5.0.6)(vue@3.3.10)
   '@vue/compiler-sfc':
     specifier: 3.3.10
     version: 3.3.10
@@ -2390,8 +2390,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vitejs/plugin-vue@4.5.1(vite@5.0.6)(vue@3.3.10):
-    resolution: {integrity: sha512-DaUzYFr+2UGDG7VSSdShKa9sIWYBa1LL8KC0MNOf2H5LjcTPjob0x8LbkqXWmAtbANJCkpiQTj66UVcQkN2s3g==}
+  /@vitejs/plugin-vue@4.5.2(vite@5.0.6)(vue@3.3.10):
+    resolution: {integrity: sha512-UGR3DlzLi/SaVBPX0cnSyE37vqxU3O6chn8l0HJNzQzDia6/Au2A4xKv+iIJW8w2daf80G7TYHhi1pAUjdZ0bQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.0.0 || ^5.0.0
