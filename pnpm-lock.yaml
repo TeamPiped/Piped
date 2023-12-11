@@ -53,11 +53,11 @@ dependencies:
 
 devDependencies:
   '@iconify-json/fa6-brands':
-    specifier: 1.1.17
-    version: 1.1.17
+    specifier: 1.1.18
+    version: 1.1.18
   '@iconify-json/fa6-solid':
-    specifier: 1.1.19
-    version: 1.1.19
+    specifier: 1.1.20
+    version: 1.1.20
   '@intlify/unplugin-vue-i18n':
     specifier: 1.5.0
     version: 1.5.0(rollup@2.79.1)(vue-i18n@9.8.0)
@@ -1666,14 +1666,14 @@ packages:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
     dev: true
 
-  /@iconify-json/fa6-brands@1.1.17:
-    resolution: {integrity: sha512-/PBk+buuefEydpqmbQZGNPJ2dg6PA8960KkVvcZjJeLlEoyRsLihqlkdn/nS+BFimbzahpVKI8skYHm+pXxeMw==}
+  /@iconify-json/fa6-brands@1.1.18:
+    resolution: {integrity: sha512-vmeJP06Xbj0XbVGiBHg0q8H3M894d4bGXKCmiHt6JqUdpiGcIV7r96N+BOU4ZS1+hvpV57fTfXlFPiUfxAIfkg==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify-json/fa6-solid@1.1.19:
-    resolution: {integrity: sha512-/R9viOcP2NIHcjjRIVnNAj40mci21ZD5uGpkKNQ+8lG/0x+mzR35a+yf7aCE6D7ovt/SJ6pMY6oO9tBZbHlcSw==}
+  /@iconify-json/fa6-solid@1.1.20:
+    resolution: {integrity: sha512-99P9zOacNS56MNNT7Mzih2Loe3jzwNFKFBOiVh+kF+4D+AHW5zyksyvMizIgGu2cizFz6npaATlCtl3E5Zfjbw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
