@@ -24,8 +24,8 @@ dependencies:
     specifier: 4.3.2
     version: 4.3.2
   hotkeys-js:
-    specifier: 3.13.1
-    version: 3.13.1
+    specifier: 3.13.2
+    version: 3.13.2
   javascript-time-ago:
     specifier: 2.5.9
     version: 2.5.9
@@ -3574,8 +3574,8 @@ packages:
       function-bind: 1.1.2
     dev: true
 
-  /hotkeys-js@3.13.1:
-    resolution: {integrity: sha512-GWOwjdd7B0BD+UGPFvXK5CxpeAXu/DzgsrAgvrNYQiNDllXpPUH4ZEWDIMH6CAuMhWtn9U3QizmuZdctTWtr7g==}
+  /hotkeys-js@3.13.2:
+    resolution: {integrity: sha512-SXd+x90nhOdo5s+DZNPtrvXs0ZahQLXT0tWQ68bzjxCNUZ7eV4ZlNqjHLi3Kt2URpR8EBJOB2dBLdNfwIeql1A==}
     dev: false
 
   /human-signals@2.1.0:
