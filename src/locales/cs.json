@@ -164,7 +164,8 @@
         "ssl_score": "Stav SSL",
         "registered_users": "Registrovaní uživatelé",
         "up_to_date": "Aktuální?",
-        "version": "Verze"
+        "version": "Verze",
+        "uptime_30d": "Doba online (30d)"
     },
     "login": {
         "username": "Uživatelské jméno",
