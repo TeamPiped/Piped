@@ -148,7 +148,8 @@
         "download_frame": "Telecargar fotograma",
         "generate_qrcode": "Generar un còdi QR",
         "instance_privacy_policy": "Politica de confidencialitat",
-        "add_to_group": "Apondre al grop"
+        "add_to_group": "Apondre al grop",
+        "instances_not_shown": "Las instàncias publicas que se veson pas aicí son pas disponiblas actualament."
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
