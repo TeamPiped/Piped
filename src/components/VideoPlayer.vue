@@ -484,7 +484,7 @@ export default {
                     segmentPrefetchLimit: 10,
                     retryParameters: {
                         maxAttempts: Infinity,
-                        baseDelay: 100,
+                        baseDelay: 250,
                         backoffFactor: 1.5,
                     },
                 },
