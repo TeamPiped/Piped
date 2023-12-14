@@ -345,6 +345,7 @@
                 <th v-t="'preferences.registered_users'" />
                 <th v-t="'preferences.version'" class="lt-md:hidden" />
                 <th v-t="'preferences.up_to_date'" />
+                <th v-t="'preferences.uptime_30d'" />
                 <th v-t="'preferences.ssl_score'" />
             </tr>
         </thead>
@@ -356,6 +357,7 @@
                 <td v-text="instance.registered" />
                 <td class="lt-md:hidden" v-text="instance.version" />
                 <td v-text="`${instance.up_to_date ? '&#9989;' : '&#10060;'}`" />
+                <td v-text="`${Number.parseFloat(instance.uptime_30d.toFixed(2))}%`" />
                 <td>
                     <a v-t="'actions.view_ssl_score'" :href="sslScore(instance.api_url)" target="_blank" />
                 </td>
