@@ -158,7 +158,8 @@
         "has_cdn": "Har CDN?",
         "registered_users": "Registrerade användare",
         "version": "Version",
-        "up_to_date": "Är du uppdaterad?"
+        "up_to_date": "Är du uppdaterad?",
+        "uptime_30d": "Upptid (30d)"
     },
     "login": {
         "username": "Användarnamn",
