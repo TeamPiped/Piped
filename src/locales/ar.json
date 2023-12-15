@@ -149,7 +149,8 @@
         "download_frame": "إطار التحميل",
         "instance_privacy_policy": "سياسة الخصوصية",
         "add_to_group": "إضافة إلى المجموعة",
-        "instances_not_shown": "الخوادم العامة غير المعروضة هنا ليست متاحة حاليًا."
+        "instances_not_shown": "الخوادم العامة غير المعروضة هنا ليست متاحة حاليًا.",
+        "concurrent_prefetch_limit": "حد الجلب المسبق للدفق المتزامن"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
