@@ -207,6 +207,16 @@
             @change="onChange($event)"
         />
     </label>
+    <label class="pref" for="txtPrefetchLimit">
+        <strong v-t="'actions.concurrent_prefetch_limit'" />
+        <input
+            id="txtPrefetchLimit"
+            v-model="prefetchLimit"
+            class="input w-24"
+            type="text"
+            @change="onChange($event)"
+        />
+    </label>
 
     <h2 class="text-center">SponsorBlock</h2>
     <p class="text-center">
@@ -483,6 +493,7 @@ export default {
             enabledCodecs: ["vp9", "avc"],
             disableLBRY: false,
             proxyLBRY: false,
+            prefetchLimit: 2,
             password: null,
             showConfirmResetPrefsDialog: false,
         };
@@ -551,6 +562,7 @@ export default {
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
+            this.prefetchLimit = this.getPreferenceNumber("prefetchLimit", 2);
             this.hideWatched = this.getPreferenceBoolean("hideWatched", false);
             this.mobileChapterLayout = this.getPreferenceString("mobileChapterLayout", "Vertical");
             if (this.selectedLanguage != "en") {
@@ -613,6 +625,7 @@ export default {
                 localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
                 localStorage.setItem("disableLBRY", this.disableLBRY);
                 localStorage.setItem("proxyLBRY", this.proxyLBRY);
+                localStorage.setItem("prefetchLimit", this.prefetchLimit);
                 localStorage.setItem("hideWatched", this.hideWatched);
                 localStorage.setItem("mobileChapterLayout", this.mobileChapterLayout);
 
