@@ -474,6 +474,8 @@ export default {
 
             const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
 
+            const prefetchLimit = Math.min(Math.max(this.getPreferenceNumber("prefetchLimit", 2), 0), 10);
+
             this.$player.configure({
                 preferredVideoCodecs: this.preferredVideoCodecs,
                 preferredAudioCodecs: ["opus", "mp4a"],
@@ -481,7 +483,7 @@ export default {
                     disableVideo: disableVideo,
                 },
                 streaming: {
-                    segmentPrefetchLimit: 10,
+                    segmentPrefetchLimit: prefetchLimit,
                     retryParameters: {
                         maxAttempts: Infinity,
                         baseDelay: 250,
