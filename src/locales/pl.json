@@ -164,7 +164,8 @@
         "registered_users": "Zarejestrowani użytkownicy",
         "version": "Wersja",
         "up_to_date": "Aktualna?",
-        "ssl_score": "Ocena SSL"
+        "ssl_score": "Ocena SSL",
+        "uptime_30d": "Czas pracy (30d)"
     },
     "login": {
         "username": "Nazwa użytkownika",
