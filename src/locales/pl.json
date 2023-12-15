@@ -149,7 +149,8 @@
         "download_frame": "Pobierz klatkę",
         "instance_privacy_policy": "Polityki prywatności",
         "add_to_group": "Dodaj do grupy",
-        "instances_not_shown": "Instancje publiczne, które nie są tutaj pokazane, są obecnie niedostępne."
+        "instances_not_shown": "Instancje publiczne, które nie są tutaj pokazane, są obecnie niedostępne.",
+        "concurrent_prefetch_limit": "Limit równoczesnego pobierania wstępnego strumienia"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
