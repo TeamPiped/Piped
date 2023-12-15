@@ -186,7 +186,8 @@
         "instance_locations": "مواقع المثيل",
         "has_cdn": "لديه CDN؟",
         "ssl_score": "نقاط طبقة المقابس الآمنة",
-        "up_to_date": "حديث؟"
+        "up_to_date": "حديث؟",
+        "uptime_30d": "وقت التشغيل (30 يومًا)"
     },
     "comment": {
         "pinned_by": "مثبت بواسطة {author}",
