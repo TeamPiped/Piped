@@ -164,7 +164,8 @@
         "instance_locations": "Localizações da Instância",
         "has_cdn": "Tem CDN?",
         "up_to_date": "Atualizado?",
-        "ssl_score": "Pontuação SSL"
+        "ssl_score": "Pontuação SSL",
+        "uptime_30d": "Tempo de atividade (30d)"
     },
     "login": {
         "username": "Nome de usuário",

@@ -152,7 +152,8 @@
         "instance_name": "实例名称",
         "version": "版本",
         "up_to_date": "最新？",
-        "registered_users": "已注册用户"
+        "registered_users": "已注册用户",
+        "uptime_30d": "在线时间（30天）"
     },
     "comment": {
         "pinned_by": "固定自 {author}",
