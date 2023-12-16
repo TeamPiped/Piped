@@ -145,7 +145,8 @@
         "import_from_json_csv": "Importera från JSON/CSV",
         "instance_privacy_policy": "Sekretesspolicy",
         "add_to_group": "Lägg till i grupp",
-        "instances_not_shown": "Publika instanser som inte visas här är inte tillgängliga för närvarande."
+        "instances_not_shown": "Publika instanser som inte visas här är inte tillgängliga för närvarande.",
+        "concurrent_prefetch_limit": "Gräns för förhämtning av samtidig ström"
     },
     "player": {
         "watch_on": "Se på {0}",
