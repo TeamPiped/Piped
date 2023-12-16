@@ -127,7 +127,8 @@
         "download_frame": "Kareyi indir",
         "instance_privacy_policy": "Gizlilik Politikası",
         "add_to_group": "Gruba ekle",
-        "instances_not_shown": "Burada gösterilmeyen herkese açık sunucular şu anda kullanılamıyor."
+        "instances_not_shown": "Burada gösterilmeyen herkese açık sunucular şu anda kullanılamıyor.",
+        "concurrent_prefetch_limit": "Eşzamanlı Akış Ön Getirme Sınırı"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
@@ -174,7 +175,8 @@
         "instance_name": "Sunucu Adı",
         "registered_users": "Kayıtlı Kullanıcılar",
         "version": "Sürüm",
-        "up_to_date": "Güncel Mi?"
+        "up_to_date": "Güncel Mi?",
+        "uptime_30d": "Çalışma Süresi (30g)"
     },
     "comment": {
         "pinned_by": "Şunun Tarafından Sabitlendi {author}",

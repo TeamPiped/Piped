@@ -124,7 +124,10 @@
         "minimize_chapters_default": "کوچک کردن فصل‌های ویدیو به صورت پیش فرض",
         "instance_privacy_policy": "سیاست حفظ حریم خصوصی",
         "no_valid_playlists": "داخل فایل فهرست‌پخش معتبری وجود ندارد!",
-        "clone_playlist": "تکثیر فهرست‌پخش"
+        "clone_playlist": "تکثیر فهرست‌پخش",
+        "playlist_bookmarked": "نشان‌دار شد",
+        "instances_not_shown": "سرویس‌دهنده‌های عمومی که این جا نشان داده نشده‌اند در حال حاضر در دسترس نیستند.",
+        "bookmark_playlist": "نشان‌دار"
     },
     "titles": {
         "history": "تاریخچه",
@@ -141,10 +144,12 @@
         "bookmarks": "نشان‌دارها",
         "livestreams": "پخش زنده",
         "channels": "کانال‌ها",
-        "channel_groups": "گروه های کانال"
+        "channel_groups": "گروه های کانال",
+        "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "تماشا روی {0}"
+        "watch_on": "تماشا روی {0}",
+        "failed": "عدم موفقیت با خطای {0}، برای اطلاعات بیشتر logها رو بررسی کنید"
     },
     "search": {
         "did_you_mean": "منظورتان {0} بود؟",
@@ -171,7 +176,8 @@
         "license": "مجوز",
         "category": "دسته‌بندی",
         "chapters_vertical": "عمودی",
-        "chapters_horizontal": "افقی"
+        "chapters_horizontal": "افقی",
+        "visibility": "قابل مشاهده"
     },
     "preferences": {
         "instance_locations": "محل های سرویس",

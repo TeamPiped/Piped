@@ -145,7 +145,8 @@
         "download_frame": "Stáhnout snímek",
         "instance_privacy_policy": "Ochrana údajů",
         "add_to_group": "Přidat do skupiny",
-        "instances_not_shown": "Veřejné instance, které zde nejsou zobrazeny, momentálně nejsou dostupné."
+        "instances_not_shown": "Veřejné instance, které zde nejsou zobrazeny, momentálně nejsou dostupné.",
+        "concurrent_prefetch_limit": "Limit souběžných přednačtení streamů"
     },
     "player": {
         "watch_on": "Zobrazit na {0}",
