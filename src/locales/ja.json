@@ -149,7 +149,8 @@
         "download_frame": "この画像を保存",
         "instance_privacy_policy": "個人情報保護方針",
         "add_to_group": "グループに追加",
-        "instances_not_shown": "現在利用できない公開インスタンスはここに表示されません。"
+        "instances_not_shown": "現在利用できない公開インスタンスはここに表示されません。",
+        "concurrent_prefetch_limit": "同時に先読みするストリーム数上限"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -164,7 +165,8 @@
         "ssl_score": "SSLの評価",
         "registered_users": "登録利用者数",
         "version": "バージョン",
-        "up_to_date": "最新？"
+        "up_to_date": "最新？",
+        "uptime_30d": "稼働率(30日)"
     },
     "login": {
         "username": "ユーザー名",
