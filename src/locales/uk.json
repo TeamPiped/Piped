@@ -14,7 +14,7 @@
         "back": "Назад",
         "skip_intro": "Пропускати паузу/заставку",
         "dark": "Темна",
-        "view_subscriptions": "Переглянути Підписки",
+        "view_subscriptions": "Оглянути Підписки",
         "channel_name_asc": "Назвою каналу (А-Я)",
         "uses_api_from": "Використовує API від ",
         "enable_sponsorblock": "Увімкнути Sponsorblock",
@@ -137,10 +137,11 @@
         "download_frame": "Завантажити кадр",
         "instance_privacy_policy": "Політика конфіденційності",
         "add_to_group": "Додати до групи",
-        "instances_not_shown": "Публічні екземпляри, які не показані тут, наразі недоступні."
+        "instances_not_shown": "Публічні екземпляри, які не показані тут, наразі недоступні.",
+        "concurrent_prefetch_limit": "Обмеження одночасної передвибірки потоків"
     },
     "titles": {
-        "register": "Зареєструватися",
+        "register": "Реєстрація",
         "feed": "Підписки",
         "preferences": "Налаштування",
         "history": "Історія перегляду",
@@ -170,7 +171,8 @@
         "has_cdn": "Використовує CDN?",
         "version": "Версія",
         "up_to_date": "Версія актуальна?",
-        "registered_users": "Зареєстровано користувачей"
+        "registered_users": "Зареєстровано користувачів",
+        "uptime_30d": "Час роботи (30d)"
     },
     "video": {
         "videos": "Відео",
