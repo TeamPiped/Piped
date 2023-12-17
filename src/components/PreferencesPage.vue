@@ -512,6 +512,7 @@ export default {
                     api_url: this.apiUrl(),
                     locations: "Unknown",
                     cdn: false,
+                    uptime_30d: 100,
                 });
         });
 
