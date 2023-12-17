@@ -127,7 +127,8 @@
         "clone_playlist": "تکثیر فهرست‌پخش",
         "playlist_bookmarked": "نشان‌دار شد",
         "instances_not_shown": "سرویس‌دهنده‌های عمومی که این جا نشان داده نشده‌اند در حال حاضر در دسترس نیستند.",
-        "bookmark_playlist": "نشان‌دار"
+        "bookmark_playlist": "نشان‌دار",
+        "concurrent_prefetch_limit": "محدودیت پیش‌دریافت همزمان استریم"
     },
     "titles": {
         "history": "تاریخچه",
@@ -186,7 +187,8 @@
         "instance_name": "نام سرویس",
         "version": "نسخه",
         "registered_users": "کاربران تایید شده",
-        "up_to_date": "به روز؟"
+        "up_to_date": "به روز؟",
+        "uptime_30d": "Uptime (30d)"
     },
     "comment": {
         "pinned_by": "سنجاق شده توسط {author}",
