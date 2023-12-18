@@ -61,9 +61,9 @@
         <div class="flex">
             <router-link :to="item.uploaderUrl">
                 <img
+                    loading="lazy"
                     v-if="item.uploaderAvatar"
                     :src="item.uploaderAvatar"
-                    loading="lazy"
                     class="mr-0.5 mt-0.5 h-32px w-32px rounded-full"
                     width="68"
                     height="68"
