@@ -13,11 +13,11 @@
         >
             <div class="w-full">
                 <img
+                    loading="lazy"
                     class="aspect-video w-full object-contain"
                     :src="thumbnail"
                     :alt="title"
                     :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
-                    loading="lazy"
                 />
                 <!-- progress bar -->
                 <div class="relative h-1 w-full">
@@ -61,9 +61,9 @@
         <div class="flex">
             <router-link :to="item.uploaderUrl">
                 <img
+                    loading="lazy"
                     v-if="item.uploaderAvatar"
                     :src="item.uploaderAvatar"
-                    loading="lazy"
                     class="mr-0.5 mt-0.5 h-32px w-32px rounded-full"
                     width="68"
                     height="68"

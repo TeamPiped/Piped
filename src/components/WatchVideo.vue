@@ -73,11 +73,11 @@
                 <!-- Channel Image & Info -->
                 <div class="flex items-center">
                     <img
+                        loading="lazy"
                         height="48"
                         width="48"
                         :src="video.uploaderAvatar"
                         alt=""
-                        loading="lazy"
                         class="rounded-full"
                     />
                     <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">{{

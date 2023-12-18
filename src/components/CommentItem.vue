@@ -1,11 +1,11 @@
 <template>
     <div class="comment mt-1.5 flex">
         <img
+            loading="lazy"
             :src="comment.thumbnail"
             class="comment-avatar h-12 w-12 rounded-full"
             height="48"
             width="48"
-            loading="lazy"
             alt="Avatar"
         />
 
