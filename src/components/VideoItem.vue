@@ -13,11 +13,11 @@
         >
             <div class="w-full">
                 <img
+                    loading="lazy"
                     class="aspect-video w-full object-contain"
                     :src="thumbnail"
                     :alt="title"
                     :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
-                    loading="lazy"
                 />
                 <!-- progress bar -->
                 <div class="relative h-1 w-full">
