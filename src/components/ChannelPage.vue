@@ -3,10 +3,10 @@
 
     <LoadingIndicatorPage :show-content="channel != null && !channel.error">
         <img
+            loading="lazy"
             v-if="channel.bannerUrl"
             :src="channel.bannerUrl"
             class="h-30 w-full object-cover py-1.5 md:h-50"
-            loading="lazy"
         />
         <div class="flex flex-col items-center justify-between md:flex-row">
             <div class="flex place-items-center">
