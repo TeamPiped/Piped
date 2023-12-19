@@ -142,19 +142,22 @@ Contributions in any other form are also welcomed.
 
 # Made with Piped
 
--   [Yattee](https://github.com/yattee/yattee) - An alternative frontend for YouTube, for IOS.
--   [LibreTube](https://github.com/Libre-tube/LibreTube) - An alternative frontend for YouTube, for Android.
--   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - An alternative privacy respecting frontend for YouTube Music.
--   [Musicale](https://github.com/Bellisario/musicale) - An alternative to YouTube Music, with style.
--   [ytify](https://github.com/n-ce/ytify) - A complementary minimal audio streaming frontend for YouTube.
--   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads on Android, Linux, Windows, iOS, and Mac OSX.
--   [Piped-Material](https://github.com/mmjee/Piped-Material) - A fork of Piped, focusing on better performance and a more usable design.
--   [ReacTube](https://github.com/NeeRaj-2401/ReacTube) - Privacy friendly & distraction free Youtube front-end using Piped API.
+**Mobile/desktop apps**
+-   [LibreTube](https://github.com/Libre-tube/LibreTube) - an alternative frontend for YouTube, for Android.
 -   [YTDLnis](https://github.com/deniscerri/ytdlnis) - Video and audio downloader for Android that uses Piped to update formats.
--   [DeskVideo](https://github.com/malisipi/DeskVideo) - A desktop styled, customizable alternative front-end for YouTube.
+-   [Yattee](https://github.com/yattee/yattee) - an alternative frontend for YouTube, for MacOS IOS.
+-   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads on Android, Linux, Windows, iOS, and Mac OSX.
 -   [Harmony Music](https://github.com/anandnet/Harmony-Music) - YouTube Music alternative for Android, built with Flutter that supports piped linking for playlists.
 -   [vidyodl](https://github.com/MrKovar/vidyodl) - A simple API to download videos from YouTube, using Piped.
 -   [conduit](https://github.com/ai25/conduit) - An alternative frontend for YouTube, with a modern player and watch together capablities.
+
+**Web apps**
+-   [Piped-Material](https://github.com/mmjee/Piped-Material) - A fork of Piped, focusing on better performance and a more usable design.
+-   [ReacTube](https://github.com/NeeRaj-2401/ReacTube) - Privacy friendly & distraction free Youtube front-end using Piped API.
+-   [DeskVideo](https://github.com/malisipi/DeskVideo) - A desktop styled, customizable alternative front-end for YouTube.
+-   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - an alternative privacy respecting front-end for YouTube Music.
+-   [Musicale](https://github.com/Bellisario/musicale) - an alternative frontend for YouTube Music with style.
+-   [ytify](https://github.com/n-ce/ytify) - a complementary minimal audio streaming online frontend for YouTube.
 
 ## YourKit
 
