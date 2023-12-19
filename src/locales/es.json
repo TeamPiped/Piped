@@ -22,7 +22,8 @@
         "instance_name": "Nombre de la instancia",
         "version": "Versión",
         "up_to_date": "¿Actualizado?",
-        "registered_users": "Usuarios Registrados"
+        "registered_users": "Usuarios Registrados",
+        "uptime_30d": "Tiempo de actividad (30d)"
     },
     "comment": {
         "pinned_by": "Fijado por {author}",
@@ -158,7 +159,8 @@
         "download_frame": "Descargar fotograma",
         "instance_privacy_policy": "Política de privacidad",
         "add_to_group": "Añadir a grupo",
-        "instances_not_shown": "Las instancias públicas que no se muestran aquí no están disponibles actualmente."
+        "instances_not_shown": "Las instancias públicas que no se muestran aquí no están disponibles actualmente.",
+        "concurrent_prefetch_limit": "Límite de captación previa de transmisiones simultáneas"
     },
     "titles": {
         "feed": "Contenido",
