@@ -9,24 +9,16 @@
             "groupName": "unocss"
         },
         {
-            "matchPackagePrefixes": [
-                "linkify"
-            ],
+            "matchPackagePrefixes": ["linkify"],
             "groupName": "linkify"
         },
         {
-            "matchPackagePrefixes": [
-                "@vitejs/"
-            ],
-            "matchPackageNames": [
-                "vite"
-            ],
+            "matchPackagePrefixes": ["@vitejs/"],
+            "matchPackageNames": ["vite"],
             "groupName": "vite"
         },
         {
-            "matchPackagePrefixes": [
-                "@iconify-json/"
-            ],
+            "matchPackagePrefixes": ["@iconify-json/"],
             "groupName": "iconify",
             "automerge": true
         }
