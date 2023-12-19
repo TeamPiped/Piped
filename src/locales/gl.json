@@ -21,12 +21,12 @@
         "failed": "Fallou con código do erro {0}, mira o rexistro para máis info"
     },
     "actions": {
-        "subscribe": "Subscribirse - {count}",
+        "subscribe": "Subscribirse",
         "sort_by": "Orde por:",
         "least_recent": "Máis antigo",
         "most_recent": "Máis recente",
         "channel_name_asc": "Nome da canle (A-Z)",
-        "unsubscribe": "Retirar subscrición - {count}",
+        "unsubscribe": "Retirar subscrición",
         "view_subscriptions": "Ver Subscricións",
         "back": "Volver",
         "uses_api_from": "Usa a API desde ",

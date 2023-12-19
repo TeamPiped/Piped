@@ -1,8 +1,8 @@
 {
     "actions": {
-        "subscribe": "Đăng ký - {count}",
+        "subscribe": "Đăng ký",
         "autoplay_video": "Video tự động phát",
-        "unsubscribe": "Hủy đăng ký - {count}",
+        "unsubscribe": "Hủy đăng ký",
         "view_subscriptions": "Xem những kênh đã đăng ký",
         "sort_by": "Sắp xếp theo:",
         "most_recent": "Gần đây nhất",

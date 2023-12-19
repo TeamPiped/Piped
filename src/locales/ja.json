@@ -22,8 +22,8 @@
         "failed": "失敗。エラーコード {0} 。詳細はログに記録"
     },
     "actions": {
-        "subscribe": "チャンネル登録 - {count}",
-        "unsubscribe": "登録解除 - {count}",
+        "subscribe": "チャンネル登録",
+        "unsubscribe": "登録解除",
         "view_subscriptions": "登録チャンネルを見る",
         "sort_by": "表示順:",
         "most_recent": "新しい順",

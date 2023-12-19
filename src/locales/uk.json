@@ -10,7 +10,7 @@
         "passwords_incorrect": "Паролі не збігаються!"
     },
     "actions": {
-        "unsubscribe": "Відписатися - {count}",
+        "unsubscribe": "Відписатися",
         "back": "Назад",
         "skip_intro": "Пропускати паузу/заставку",
         "dark": "Темна",
@@ -37,7 +37,7 @@
         "search": "Пошук (Ctrl+K)",
         "clear_history": "Очистити історію перегляду",
         "load_more_replies": "Завантажити більше відповідей",
-        "subscribe": "Підписатися - {count}",
+        "subscribe": "Підписатися",
         "sort_by": "Сортувати за:",
         "most_recent": "Найновішими",
         "channel_name_desc": "Назвою каналу (Я-А)",

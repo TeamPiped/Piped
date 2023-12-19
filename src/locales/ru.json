@@ -22,8 +22,8 @@
         "failed": "Ошибка с кодом {0}, откройте логи, чтобы узнать больше"
     },
     "actions": {
-        "subscribe": "Подписаться - {count}",
-        "unsubscribe": "Отписаться - {count}",
+        "subscribe": "Подписаться",
+        "unsubscribe": "Отписаться",
         "view_subscriptions": "Просмотреть подписки",
         "sort_by": "Сортировка по:",
         "most_recent": "Самые новые",

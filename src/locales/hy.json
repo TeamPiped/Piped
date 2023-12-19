@@ -1,7 +1,7 @@
 {
     "actions": {
         "skip_automatically": "Ավտոմատվաց",
-        "subscribe": "Բաժանորդ - {count}",
+        "subscribe": "Բաժանորդ",
         "uses_api_from": "Օգտագործում է API  -ից ",
         "enable_sponsorblock": "Միացնել հովանավորների արգելափակումը",
         "skip_intro": "Բաց թողնել ընդմիջում/ներածական անիմացիա",

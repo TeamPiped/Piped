@@ -15,11 +15,11 @@
         "channels": "Csatornák"
     },
     "actions": {
-        "subscribe": "Feliratkozás - {count}",
+        "subscribe": "Feliratkozás",
         "skip_highlight": "Kiemelés",
         "light": "Világos",
         "most_recent": "Legutóbbi",
-        "unsubscribe": "Leiratkozás - {count}",
+        "unsubscribe": "Leiratkozás",
         "view_subscriptions": "Feliratkozások megtekintése",
         "least_recent": "Legrégebbi",
         "channel_name_asc": "Csatorna név (A-Z)",

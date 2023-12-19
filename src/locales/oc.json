@@ -22,8 +22,8 @@
         "failed": "Fracàs amb lo còdi d’error {0}, consultat los jornals d’audit per mai d’informacions"
     },
     "actions": {
-        "subscribe": "S’abonar - {count}",
-        "unsubscribe": "Se desabonar - {count}",
+        "subscribe": "S’abonar",
+        "unsubscribe": "Se desabonar",
         "view_subscriptions": "Veire los abonaments",
         "sort_by": "Triar per :",
         "most_recent": "Mai recents",

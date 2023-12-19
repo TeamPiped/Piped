@@ -19,7 +19,7 @@
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
-        "subscribe": "Odebírat - {count}",
+        "subscribe": "Odebírat",
         "view_subscriptions": "Zobrazit odběry",
         "sort_by": "Seřadit podle:",
         "most_recent": "Nejnovější",
@@ -68,7 +68,7 @@
         "clear_history": "Smazat historii",
         "hide_replies": "Skrýt odpovědi",
         "load_more_replies": "Načíst další odpovědi",
-        "unsubscribe": "Zrušit odběr - {count}",
+        "unsubscribe": "Zrušit odběr",
         "skip_sponsors": "Přeskočit sponzory",
         "minimize_description": "Skrýt popis",
         "skip_non_music": "Přeskočit hudbu: nehudební sekce",
