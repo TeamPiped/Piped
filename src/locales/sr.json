@@ -143,7 +143,8 @@
         "generate_qrcode": "Генериши QR кôд",
         "playlist_name": "Назив плејлисте",
         "instance_privacy_policy": "Политика приватности",
-        "instances_not_shown": "Јавне инстанце које нису приказане овде тренутно нису доступне."
+        "instances_not_shown": "Јавне инстанце које нису приказане овде тренутно нису доступне.",
+        "concurrent_prefetch_limit": "Ограничење претходног преузимања истовремених стримова"
     },
     "preferences": {
         "instance_locations": "Локације инстанце",
@@ -152,7 +153,8 @@
         "has_cdn": "Поседује ли CDN?",
         "registered_users": "Регистровани корисници",
         "version": "Верзија",
-        "up_to_date": "Ажурирано?"
+        "up_to_date": "Ажурирано?",
+        "uptime_30d": "Време рада (30д)"
     },
     "login": {
         "password": "Лозинка",
