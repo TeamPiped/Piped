@@ -61,8 +61,8 @@
         <div class="flex">
             <router-link :to="item.uploaderUrl">
                 <img
-                    loading="lazy"
                     v-if="item.uploaderAvatar"
+                    loading="lazy"
                     :src="item.uploaderAvatar"
                     class="mr-0.5 mt-0.5 h-32px w-32px rounded-full"
                     width="68"
@@ -81,7 +81,7 @@
                     <font-awesome-icon v-if="item.uploaderVerified" class="ml-1.5" icon="check" />
                 </router-link>
 
-                <div v-if="item.views >= 0 || item.uploadedDate" class="mt-1 text-xs font-normal text-gray-300">
+                <div v-if="item.views >= 0 || item.uploadedDate" class="mt-1 text-xs text-gray-300 font-normal">
                     <span v-if="item.views >= 0">
                         <font-awesome-icon icon="eye" />
                         <span class="pl-1" v-text="`${numberFormat(item.views)} •`" />

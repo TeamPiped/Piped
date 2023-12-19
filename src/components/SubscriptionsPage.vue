@@ -10,7 +10,7 @@
             <!-- export to json -->
             <button v-t="'actions.export_to_json'" class="btn" @click="exportHandler" />
         </div>
-        <div class="flex gap-1 flex-wrap m-1">
+        <div class="m-1 flex flex-wrap gap-1">
             <!-- import channel groups to json-->
             <div>
                 <label
@@ -35,7 +35,7 @@
                 v-text="`${$t('actions.export_to_json')} (${$t('titles.channel_groups')})`"
             />
         </div>
-        <div class="flex gap-1 self-center">
+        <div class="flex self-center gap-1">
             <!-- subscriptions count, only shown if there are any  -->
             <i18n-t v-if="subscriptions.length > 0" keypath="subscriptions.subscribed_channels_count">{{
                 subscriptions.length
@@ -86,13 +86,11 @@
     </div>
     <br />
 
-    <ModalComponent v-if="showCreateGroupModal" @close="showCreateGroupModal = !showCreateGroupModal">
-        <h2 v-t="'actions.create_group'" />
-        <div class="flex flex-col">
-            <input v-model="newGroupName" class="input my-4" type="text" :placeholder="$t('actions.group_name')" />
-            <button v-t="'actions.create_group'" class="btn ml-auto w-max" @click="createGroup()" />
-        </div>
-    </ModalComponent>
+    <CreateGroupModal
+        v-if="showCreateGroupModal"
+        :on-create-group="createGroup"
+        @close="showCreateGroupModal = false"
+    />
 
     <ModalComponent v-if="showEditGroupModal" @close="showEditGroupModal = false">
         <div class="mb-5 mt-3 flex justify-between">
@@ -121,9 +119,10 @@
 
 <script>
 import ModalComponent from "./ModalComponent.vue";
+import CreateGroupModal from "./CreateGroupModal.vue";
 
 export default {
-    components: { ModalComponent },
+    components: { ModalComponent, CreateGroupModal },
     data() {
         return {
             subscriptions: [],
@@ -134,7 +133,6 @@ export default {
             channelGroups: [],
             showCreateGroupModal: false,
             showEditGroupModal: false,
-            newGroupName: "",
             editedGroupName: "",
         };
     },
@@ -216,17 +214,15 @@ export default {
             this.selectedGroup = group;
             this.editedGroupName = group.groupName;
         },
-        createGroup() {
-            if (!this.newGroupName || this.channelGroups.some(group => group.groupName == this.newGroupName)) return;
+        createGroup(newGroupName) {
+            if (!newGroupName || this.channelGroups.some(group => group.groupName == newGroupName)) return;
 
             const newGroup = {
-                groupName: this.newGroupName,
+                groupName: newGroupName,
                 channels: [],
             };
             this.channelGroups.push(newGroup);
             this.createOrUpdateChannelGroup(newGroup);
-
-            this.newGroupName = "";
 
             this.showCreateGroupModal = false;
         },

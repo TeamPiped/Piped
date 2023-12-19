@@ -3,8 +3,8 @@
 
     <LoadingIndicatorPage :show-content="channel != null && !channel.error">
         <img
-            loading="lazy"
             v-if="channel.bannerUrl"
+            loading="lazy"
             :src="channel.bannerUrl"
             class="h-30 w-full object-cover py-1.5 md:h-50"
         />
