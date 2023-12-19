@@ -22,11 +22,11 @@
         "failed": "فشل مع رمز الخطأ {0}، راجع السجلات لمزيد من المعلومات"
     },
     "actions": {
-        "subscribe": "اشتراك - {count}",
+        "subscribe": "اشتراك",
         "view_subscriptions": "عرض الاشتراكات",
         "most_recent": "الأحدث",
         "least_recent": "الأقدم",
-        "unsubscribe": "إلغاء الاشتراك - {count}",
+        "unsubscribe": "إلغاء الاشتراك",
         "channel_name_asc": "إسم القناة (أبجدي تصاعدي)",
         "sort_by": "ترتيب النتائج:",
         "back": "رجوع",

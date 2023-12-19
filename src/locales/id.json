@@ -22,11 +22,11 @@
         "failed": "Gagal dengan kode kesalahan {0}, lihat catatan untuk info lebih lanjut"
     },
     "actions": {
-        "subscribe": "Berlangganan - {count}",
+        "subscribe": "Berlangganan",
         "view_subscriptions": "Lihat Langganan",
         "sort_by": "Sortir bedasarkan oleh:",
         "least_recent": "Baru",
-        "unsubscribe": "Berhenti Berlangganan - {count}",
+        "unsubscribe": "Berhenti Berlangganan",
         "channel_name_asc": "Nama Saluran (A-Z)",
         "channel_name_desc": "Nama Saluran (Z-A)",
         "back": "Kembali",

@@ -18,9 +18,9 @@
         "dearrow": "DeArrow"
     },
     "actions": {
-        "subscribe": "सदस्यता लें - {count}",
+        "subscribe": "सदस्यता लें",
         "back": "वापस जाओ",
-        "unsubscribe": "सदस्यता ले ली है - {count}",
+        "unsubscribe": "सदस्यता ले ली है",
         "no": "नहीं",
         "hide_replies": "जवाब छिपाएं",
         "search": "खोजें (Ctrl+K)",

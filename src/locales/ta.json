@@ -8,8 +8,8 @@
         "history": "வரலாறு"
     },
     "actions": {
-        "unsubscribe": "குழுவில் - {count}",
-        "subscribe": "குழுசேர் - {count}",
+        "unsubscribe": "குழுவில்",
+        "subscribe": "குழுசேர்",
         "search": "தேடுக",
         "yes": "ஆம்",
         "no": "இல்லை",

@@ -19,12 +19,13 @@
 
             <div class="flex gap-2">
                 <button
-                    v-t="{
-                        path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                        args: { count: numberFormat(channel.subscriberCount) },
-                    }"
                     class="btn"
                     @click="subscribeHandler"
+                    v-text="
+                        $t('actions.' + (subscribed ? 'unsubscribe' : 'subscribe')) +
+                        ' - ' +
+                        numberFormat(channel.subscriberCount)
+                    "
                 ></button>
 
                 <button

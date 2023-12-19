@@ -19,7 +19,7 @@
     },
     "actions": {
         "most_recent": "Най-скорошен",
-        "unsubscribe": "Отписване - {count}",
+        "unsubscribe": "Отписване",
         "uses_api_from": "Използва API от ",
         "skip_sponsors": "Пропускане на спонсори",
         "skip_preview": "Пропускане на преглед/обобщение",
@@ -27,7 +27,7 @@
         "min_segment_length": "Минимална дължина на сегмента (в секунди)",
         "default_quality": "Качество по подразбиране",
         "minimize_comments_default": "Минимизиране на коментарите по подразбиране",
-        "subscribe": "Абониране - {count}",
+        "subscribe": "Абониране",
         "view_subscriptions": "Преглед на абонаменти",
         "sort_by": "Сортиране по:",
         "least_recent": "Най-малко скорошен",

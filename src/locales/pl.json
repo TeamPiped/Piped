@@ -22,8 +22,8 @@
         "failed": "Niepowodzenie z powodu kodu błędu {0}, przejrzyj logi, aby uzyskać więcej informacji"
     },
     "actions": {
-        "subscribe": "Subskrybuj - {count}",
-        "unsubscribe": "Odsubskrybuj - {count}",
+        "subscribe": "Subskrybuj",
+        "unsubscribe": "Odsubskrybuj",
         "view_subscriptions": "Zarządzaj subskrybcjami",
         "sort_by": "Sortuj:",
         "most_recent": "Najnowsze",

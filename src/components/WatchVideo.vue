@@ -109,12 +109,13 @@
                         {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
                     </button>
                     <button
-                        v-t="{
-                            path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                            args: { count: numberFormat(video.uploaderSubscriberCount) },
-                        }"
                         class="btn"
                         @click="subscribeHandler"
+                        v-text="
+                            $t('actions.' + (subscribed ? 'unsubscribe' : 'subscribe')) +
+                            ' - ' +
+                            numberFormat(video.uploaderSubscriberCount)
+                        "
                     />
                     <div class="flex flex-wrap gap-1">
                         <!-- RSS Feed button -->

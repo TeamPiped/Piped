@@ -22,8 +22,8 @@
         "failed": "Failed with error code {0}, see logs for more info"
     },
     "actions": {
-        "subscribe": "Subscribe - {count}",
-        "unsubscribe": "Unsubscribe - {count}",
+        "subscribe": "Subscribe",
+        "unsubscribe": "Unsubscribe",
         "view_subscriptions": "View Subscriptions",
         "sort_by": "Sort by:",
         "most_recent": "Most Recent",

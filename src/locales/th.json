@@ -11,7 +11,7 @@
         "watch_on": "ดูบน {0}"
     },
     "actions": {
-        "unsubscribe": "เลิกติดตาม - {count}",
+        "unsubscribe": "เลิกติดตาม",
         "view_subscriptions": "ดูการสมัครสมาชิก",
         "channel_name_asc": "ชื่อช่อง (A-Z)",
         "channel_name_desc": "ชื่อช่อง (Z-A)",
@@ -20,7 +20,7 @@
         "skip_sponsors": "ข้ามผู้สนับสนุน",
         "skip_intro": "ข้ามช่วงพัก/แนะนำแอนิเมชั่น",
         "skip_outro": "ข้ามภาพตอนจบ/เครดิต",
-        "subscribe": "ติดตาม - {count}",
+        "subscribe": "ติดตาม",
         "sort_by": "เรียงตาม:",
         "most_recent": "ล่าสุด",
         "enable_sponsorblock": "เปิดใช้งานการบล็อกสปอนเซอร์"
