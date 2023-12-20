@@ -154,7 +154,8 @@
         "has_cdn": "Tem CDN?",
         "version": "Versão",
         "registered_users": "Utilizadores registados",
-        "up_to_date": "Atualizada?"
+        "up_to_date": "Atualizada?",
+        "uptime_30d": "Tempo de atividade (30d)"
     },
     "login": {
         "password": "Palavra-passe",
