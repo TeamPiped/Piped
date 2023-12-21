@@ -174,7 +174,8 @@
         "instance_name": "Instanzname",
         "registered_users": "Registrierte Benutzer",
         "version": "Version",
-        "up_to_date": "Auf dem neuesten Stand?"
+        "up_to_date": "Auf dem neuesten Stand?",
+        "uptime_30d": "Uptime (30 Tage)"
     },
     "comment": {
         "pinned_by": "Angeheftet von {author}",
