@@ -171,7 +171,7 @@ const mixin = {
             } else return defaultVal;
         },
         apiUrl() {
-            return this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
+            return this.getPreferenceString("instance", import.meta.env.VITE_PIPED_API);
         },
         authApiUrl() {
             if (this.getPreferenceBoolean("authInstance", false)) {
@@ -379,7 +379,7 @@ const mixin = {
                     id: playlistId,
                     name: name,
                     description: "",
-                    thumbnail: "https://pipedproxy.kavin.rocks/?host=i.ytimg.com",
+                    thumbnail: import.meta.env.VITE_PIPED_PROXY + "/?host=i.ytimg.com",
                     videoIds: "[]", // empty list
                 });
                 return { playlistId: playlistId };
@@ -503,7 +503,7 @@ const mixin = {
                 const videoIds = JSON.parse(playlist.videoIds);
                 videoIds.splice(index, 1);
                 playlist.videoIds = JSON.stringify(videoIds);
-                if (videoIds.length == 0) playlist.thumbnail = "https://pipedproxy.kavin.rocks/?host=i.ytimg.com";
+                if (videoIds.length == 0) playlist.thumbnail = import.meta.env.VITE_PIPED_PROXY + "/?host=i.ytimg.com";
                 this.createOrUpdateLocalPlaylist(playlist);
                 return { message: "ok" };
             }

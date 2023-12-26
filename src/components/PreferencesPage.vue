@@ -504,7 +504,7 @@ export default {
     async mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
 
-        this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
+        this.fetchJson(import.meta.env.VITE_PIPED_INSTANCES).then(resp => {
             this.instances = resp;
             if (!this.instances.some(instance => instance.api_url == this.apiUrl()))
                 this.instances.push({
@@ -517,7 +517,7 @@ export default {
         });
 
         if (this.testLocalStorage) {
-            this.selectedInstance = this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
+            this.selectedInstance = this.getPreferenceString("instance", import.meta.env.VITE_PIPED_API);
             this.authInstance = this.getPreferenceBoolean("authInstance", false);
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
 
