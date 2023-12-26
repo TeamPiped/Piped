@@ -220,7 +220,7 @@
         "days": "{amount} dnů",
         "weeks": "{amount} týdnů",
         "months": "{amount} měsíců",
-        "login_note": "Přihlásit se s účtem vytvořeným na této instanci.",
+        "login_note": "Přihlaste se s účtem vytvořeným na této instanci.",
         "register_note": "Zaregistrujte si účet na této instanci služby Piped. To vám umožní synchronizovat vaše odběry a seznamy skladeb s vaším účtem, takže budou uloženy na straně serveru. Všechny funkce můžete používat i bez účtu, ale všechna data budou uložena v místní mezipaměti prohlížeče. Ujistěte se, že jako uživatelské jméno NEPOUŽÍVÁTE e-mailovou adresu, a zvolte si bezpečné heslo, které nepoužíváte jinde."
     }
 }
