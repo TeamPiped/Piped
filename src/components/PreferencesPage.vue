@@ -655,14 +655,14 @@ export default {
             // reset the auth token
             localStorage.removeItem("authToken" + this.hashCode(this.authApiUrl()));
             // redirect to trending page
-            window.location = "/";
+            window.location = import.meta.env.BASE_URL;
         },
         resetPreferences() {
             this.showConfirmResetPrefsDialog = false;
             // clear the local storage
             localStorage.clear();
             // redirect to the home page
-            window.location = "/";
+            window.location = import.meta.env.BASE_URL;
         },
         async invalidateSession() {
             this.fetchJson(this.authApiUrl() + "/logout", null, {
