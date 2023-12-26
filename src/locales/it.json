@@ -125,10 +125,13 @@
         "delete_automatically": "Cancella automaticamente dopo",
         "auto_display_captions": "Visualizza automaticamente i sottotitoli",
         "generate_qrcode": "Genera un codice QR",
-        "instance_privacy_policy": "Normativa sulla privacy"
+        "instance_privacy_policy": "Normativa sulla privacy",
+        "download_frame": "Scarica fotogramma",
+        "instances_not_shown": "Le istanze pubbliche che non compaiono in questa schermata non sono al momento disponibili."
     },
     "player": {
-        "watch_on": "Guarda su {0}"
+        "watch_on": "Guarda su {0}",
+        "failed": "Operazione non riuscita (codice errore {0}). Vedi il registro per ulteriori dettagli"
     },
     "titles": {
         "history": "Cronologia",
@@ -182,7 +185,8 @@
     "login": {
         "password": "Password",
         "username": "Nome utente",
-        "password_confirm": "Conferma password"
+        "password_confirm": "Conferma password",
+        "passwords_incorrect": "Le password non combaciano!"
     },
     "search": {
         "did_you_mean": "Forse intendevi: {0}?",
@@ -211,6 +215,10 @@
         "register_no_email_note": "L'utilizzo di un indirizzo e-mail come nome utente è sconsigliato. Continuare comunque?",
         "next_video_countdown": "Riproduzione prossimo video tra {0}s",
         "login_note": "Accedi con un account creato su questa istanza.",
-        "register_note": "Registra un account per questa istanza di Piped. Ciò ti consentirà di sincronizzare le tue iscrizioni e le tue playlist con il tuo account, in modo che siano archiviate sul server. È possibile utilizzare tutte le funzionalità anche senza un account, ma tutti i dati verranno archiviati nella memoria locale del tuo browser. Assicurati di NON utilizzare un indirizzo email come nome utente e di scegliere una password sicura che non usi altrove."
+        "register_note": "Registra un account per questa istanza di Piped. Ciò ti consentirà di sincronizzare le tue iscrizioni e le tue playlist con il tuo account, in modo che siano archiviate sul server. È possibile utilizzare tutte le funzionalità anche senza un account, ma tutti i dati verranno archiviati nella memoria locale del tuo browser. Assicurati di NON utilizzare un indirizzo email come nome utente e di scegliere una password sicura che non usi altrove.",
+        "hours": "{amount} ora/e",
+        "months": "{amount} mese/i",
+        "weeks": "{amount} settimana/e",
+        "days": "{amount} giorno/i"
     }
 }
