@@ -9,6 +9,7 @@ import eslintPlugin from "vite-plugin-eslint";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: process.env.VITE_BASE_URL,
     plugins: [
         vue(),
         Unocss(),
