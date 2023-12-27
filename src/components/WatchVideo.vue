@@ -457,7 +457,7 @@ export default {
             });
 
             sponsors?.segments?.forEach(segment => {
-                const option = skipOptions[segment.category];
+                const option = skipOptions?.[segment.category];
                 segment.autoskip = option === undefined || option === "auto";
             });
 
