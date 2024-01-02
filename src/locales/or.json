@@ -149,7 +149,8 @@
         "download_frame": "ଫ୍ରେମକୁ ଆହରଣ କରନ୍ତୁ",
         "instance_privacy_policy": "ଗୋପନୀୟତା ନୀତି",
         "add_to_group": "ସମୂହରେ ଯୋଗ କରନ୍ତୁ",
-        "instances_not_shown": "ଏଠାରେ ଦର୍ଶାଯାଇନଥିବା ସାର୍ବଜନୀନ ଉଦାହରଣଗୁଡ଼ିକ ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନାହିଁ ।"
+        "instances_not_shown": "ଏଠାରେ ଦର୍ଶାଯାଇନଥିବା ସାର୍ବଜନୀନ ଉଦାହରଣଗୁଡ଼ିକ ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନାହିଁ ।",
+        "concurrent_prefetch_limit": "ସମସାମୟିକ ପ୍ରବାହ ପ୍ରାକ ଫେଚ୍ ସୀମା"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",
@@ -210,7 +211,8 @@
         "instance_locations": "ଇନଷ୍ଟାନ୍ସ ଅବସ୍ଥାନ",
         "has_cdn": "CDN ଅଛି କି?",
         "up_to_date": "ଅଦ୍ୟାବଧି?",
-        "ssl_score": "SSL ସ୍କୋର"
+        "ssl_score": "SSL ସ୍କୋର",
+        "uptime_30d": "ସମୟ ଅପରିବର୍ତ୍ତନୀୟ (30d)"
     },
     "login": {
         "password": "ପାସୱାର୍ଡ",
