@@ -222,7 +222,7 @@ b {
 }
 
 .input {
-    @apply px-2.5;
+    @apply px-2.5 rounded-md;
 }
 
 .input:focus {
@@ -258,7 +258,7 @@ h2 {
 }
 
 .link {
-    @apply hover:(text-dark-300 underline underline-dark-300);
+    @apply hover:(focus:text-red-500 hover:text-red-500);
 }
 
 .link-secondary {
@@ -266,7 +266,7 @@ h2 {
 }
 
 .dark .link {
-    @apply hover:(text-gray-300 underline underline-gray-300);
+    @apply hover:(focus:text-red-400 hover:text-red-400);
 }
 
 .dark .link-secondary {

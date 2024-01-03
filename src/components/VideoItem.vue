@@ -1,7 +1,7 @@
 <template>
     <div v-if="showVideo" class="flex flex-col flex-justify-between">
         <router-link
-            class="inline-block w-full focus:underline hover:underline"
+            class="inline-block w-full focus:text-red-400 hover:text-red-400"
             :to="{
                 path: '/watch',
                 query: {
@@ -14,7 +14,7 @@
             <div class="w-full">
                 <img
                     loading="lazy"
-                    class="aspect-video w-full object-contain"
+                    class="aspect-video w-full rounded-md object-contain"
                     :src="thumbnail"
                     :alt="title"
                     :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
@@ -81,7 +81,7 @@
                     <font-awesome-icon v-if="item.uploaderVerified" class="ml-1.5" icon="check" />
                 </router-link>
 
-                <div v-if="item.views >= 0 || item.uploadedDate" class="mt-1 text-xs text-gray-300 font-normal">
+                <div v-if="item.views >= 0 || item.uploadedDate" class="video-info">
                     <span v-if="item.views >= 0">
                         <font-awesome-icon icon="eye" />
                         <span class="pl-1" v-text="`${numberFormat(item.views)} •`" />
@@ -206,5 +206,13 @@ export default {
 <style>
 .shorts-img {
     @apply w-full object-contain;
+}
+
+.video-info {
+    @apply mt-1 text-xs text-gray-600 font-normal;
+}
+
+.video-info .dark {
+    @apply mt-1 text-xs text-gray-300 font-normal;
 }
 </style>
