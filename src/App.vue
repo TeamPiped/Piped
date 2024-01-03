@@ -189,7 +189,7 @@ b {
 }
 
 .btn {
-    @apply py-2 lt-md:px-2 md:px-4 rounded cursor-pointer inline-block;
+    @apply py-2 lt-md:px-2 md:px-4 rounded cursor-pointer inline-block hover:bg-gray-500 hover:text-white;
 }
 
 .reset {
@@ -219,6 +219,10 @@ b {
 .dark .select,
 .dark .btn {
     @apply text-gray-400 bg-dark-400;
+}
+
+.dark .btn {
+    @apply hover:bg-dark-300;
 }
 
 .input {

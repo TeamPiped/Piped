@@ -4,7 +4,7 @@
     "semi": true,
     "tabWidth": 4,
     "embeddedLanguageFormatting": "auto",
-    "endOfLine": "crlf",
+    "endOfLine": "lf",
     "printWidth": 120,
     "vueIndentScriptAndStyle": false,
     "quoteProps": "as-needed",
