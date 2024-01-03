@@ -39,25 +39,25 @@
         <!-- navigation bar for large screen devices -->
         <ul class="md:text-1xl hidden md:(flex flex flex-1 justify-end children:pl-3)">
             <li v-if="shouldShowTrending">
-                <router-link v-t="'titles.trending'" to="/trending" />
+                <router-link v-t="'titles.trending'" to="/trending" class="nav-link" />
             </li>
             <li>
-                <router-link v-t="'titles.preferences'" to="/preferences" />
+                <router-link v-t="'titles.preferences'" to="/preferences" class="nav-link" />
             </li>
             <li v-if="shouldShowLogin">
-                <router-link v-t="'titles.login'" to="/login" />
+                <router-link v-t="'titles.login'" to="/login" class="nav-link" />
             </li>
             <li v-if="shouldShowRegister">
-                <router-link v-t="'titles.register'" to="/register" />
+                <router-link v-t="'titles.register'" to="/register" class="nav-link" />
             </li>
             <li v-if="shouldShowHistory">
-                <router-link v-t="'titles.history'" to="/history" />
+                <router-link v-t="'titles.history'" to="/history" class="nav-link" />
             </li>
             <li>
-                <router-link v-t="'titles.playlists'" to="/playlists" />
+                <router-link v-t="'titles.playlists'" to="/playlists" class="nav-link" />
             </li>
             <li v-if="!shouldShowTrending">
-                <router-link v-t="'titles.feed'" to="/feed" />
+                <router-link v-t="'titles.feed'" to="/feed" class="nav-link" />
             </li>
         </ul>
     </nav>
@@ -231,6 +231,22 @@ export default {
 }
 .mobile-nav div {
     @apply mx-1;
+}
+
+#search-btn:hover {
+    @apply bg-red-400;
+}
+
+.dark #search-btn:hover {
+    @apply bg-dark-100;
+}
+
+.nav-link {
+    @apply hover:text-red-500;
+}
+
+.dark .nav-link {
+    @apply hover:text-red-400;
 }
 
 @media screen and (max-width: 848px) {

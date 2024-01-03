@@ -206,7 +206,7 @@ b {
 }
 
 .btn {
-    @apply py-2 lt-md:px-2 md:px-4 rounded cursor-pointer inline-block;
+    @apply py-2 lt-md:px-2 md:px-4 rounded cursor-pointer inline-block hover:bg-gray-500 hover:text-white;
 }
 
 .reset {
@@ -238,8 +238,12 @@ b {
     @apply text-gray-400 bg-dark-400;
 }
 
+.dark .btn {
+    @apply hover:bg-dark-300;
+}
+
 .input {
-    @apply px-2.5;
+    @apply px-2.5 rounded-md;
 }
 
 .input:focus {
@@ -275,15 +279,15 @@ h2 {
 }
 
 .link {
-    @apply hover:(text-dark-300 underline underline-dark-300);
+    @apply focus:text-red-500 hover:text-red-500;
 }
 
 .link-secondary {
-    @apply hover:(text-dark-400 underline underline-dark-400);
+    @apply hover:text-dark-400 focus:text-dark-400 underline underline-dark-400;
 }
 
 .dark .link {
-    @apply hover:(text-gray-300 underline underline-gray-300);
+    @apply focus:text-red-400 hover:text-red-400;
 }
 
 .dark .link-secondary {
