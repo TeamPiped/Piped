@@ -167,9 +167,18 @@ export default {
                     },
                 });
             } else {
-                return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", {
-                    channels: this.getUnauthenticatedChannels(),
-                });
+                const channels = this.getUnauthenticatedChannels();
+                const split = channels.split(",");
+                if (split.length > 100) {
+                    return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", null, {
+                        method: "POST",
+                        body: JSON.stringify(split),
+                    });
+                } else {
+                    return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", {
+                        channels: this.getUnauthenticatedChannels(),
+                    });
+                }
             }
         },
         async loadChannelGroups() {
