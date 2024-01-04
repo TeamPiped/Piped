@@ -145,7 +145,8 @@
         "download_frame": "Descarregar moldura",
         "instance_privacy_policy": "Política de privacidade",
         "add_to_group": "Adicionar ao grupo",
-        "instances_not_shown": "As instâncias públicas que, atualmente, estejam indisponíveis, não serão mostradas aqui."
+        "instances_not_shown": "As instâncias públicas que, atualmente, estejam indisponíveis, não serão mostradas aqui.",
+        "concurrent_prefetch_limit": "Limite de pré-busca de fluxo simultâneo"
     },
     "preferences": {
         "instance_name": "Nome da instância",
