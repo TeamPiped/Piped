@@ -93,7 +93,7 @@
         "show_more": "Mai mult",
         "no": "Nu",
         "export_to_json": "Exportați ca JSON",
-        "import_from_json": "Importați din JSON/CSV",
+        "import_from_json": "Importați din JSON",
         "auto_play_next_video": "Redați automat următorul video",
         "minimize_recommendations": "Minimizați recomandările",
         "yes": "Da",
@@ -121,7 +121,14 @@
         "chapters_layout_mobile": "Mod afișare capitole pe mobil",
         "show_search_suggestions": "Afișare sugestii căutare",
         "enable_dearrow": "Activați DeArrow",
-        "delete_automatically": "Șterge automat după"
+        "delete_automatically": "Șterge automat după",
+        "add_to_group": "Adăugați la grup",
+        "import_from_json_csv": "Importați din JSON/CSV",
+        "concurrent_prefetch_limit": "Limită de preluare anticipată a fluxului simultan",
+        "download_frame": "Descarcă cadrul",
+        "generate_qrcode": "Generează un cod QR",
+        "instance_privacy_policy": "Politica de confidențialitate",
+        "instances_not_shown": "Instanțele publice care nu sunt afișate aici nu sunt disponibile în prezent."
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -130,7 +137,8 @@
         "instance_name": "Nume instanță",
         "instance_locations": "Locațiile instanței",
         "has_cdn": "Are CDN?",
-        "registered_users": "Utilizatori înregistrați"
+        "registered_users": "Utilizatori înregistrați",
+        "uptime_30d": "Timp de funcționare (30 zile)"
     },
     "comment": {
         "user_disabled": "Comentariile sunt dezactivate în setări.",
@@ -150,11 +158,15 @@
         "category": "Categorie",
         "all": "Tot",
         "chapters_horizontal": "Orizontal",
-        "chapters_vertical": "Vertical"
+        "chapters_vertical": "Vertical",
+        "visibility": "Vizibilitate",
+        "license": "Licență"
     },
     "login": {
         "username": "Nume de utilizator",
-        "password": "Parolă"
+        "password": "Parolă",
+        "password_confirm": "Confirmați parola",
+        "passwords_incorrect": "Parolele nu se potrivesc!"
     },
     "search": {
         "videos": "YouTube: Videoclipuri",
@@ -176,7 +188,12 @@
         "register_no_email_note": "Utilizarea unui e-mail ca nume de utilizator nu este recomandată. Continuați oricum?",
         "local_storage": "Această acțiune necesită localStorage, sunt activate cookie-urile?",
         "next_video_countdown": "Redarea următorului videoclip în {0}s",
-        "days": "{amount} zi(le)"
+        "days": "{amount} zi(le)",
+        "hours": "{amount} oră(e)",
+        "login_note": "Conectați-vă cu un cont creat în această instanță.",
+        "months": "{amount} lună(luni)",
+        "weeks": "{amount} săptămână(e)",
+        "register_note": "Înregistrați un cont pentru această instanță Piped. Acest lucru vă va permite să vă sincronizați abonamentele și listele de redare cu contul dvs., astfel încât acestea să fie stocate pe partea serverului. Puteți utiliza toate funcțiile fără un cont, dar toate datele vor fi stocate în memoria cache locală a browserului dvs. Vă rugăm să vă asigurați că NU folosiți o adresă de e-mail ca nume de utilizator și alegeți o parolă sigură pe care nu o folosiți în altă parte."
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonat la: {0}"
@@ -200,6 +217,7 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Vizionați pe {0}"
+        "watch_on": "Vizionați pe {0}",
+        "failed": "A eșuat cu codul de eroare {0}, consultați jurnalele pentru mai multe informații"
     }
 }
