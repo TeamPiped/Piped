@@ -213,6 +213,6 @@ export default {
 }
 
 .video-info .dark {
-    @apply mt-1 text-xs text-gray-300 font-normal;
+    @apply text-gray-300;
 }
 </style>

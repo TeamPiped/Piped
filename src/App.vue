@@ -262,11 +262,11 @@ h2 {
 }
 
 .link {
-    @apply hover:(focus:text-red-500 hover:text-red-500);
+    @apply focus:text-red-500 hover:text-red-500;
 }
 
 .link-secondary {
-    @apply hover:(text-dark-400 underline underline-dark-400);
+    @apply hover:text-dark-400 focus:text-dark-400 underline underline-dark-400;
 }
 
 .dark .link {
