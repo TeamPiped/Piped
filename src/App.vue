@@ -270,7 +270,7 @@ h2 {
 }
 
 .dark .link {
-    @apply hover:(focus:text-red-400 hover:text-red-400);
+    @apply focus:text-red-400 hover:text-red-400;
 }
 
 .dark .link-secondary {

@@ -212,7 +212,7 @@ export default {
     @apply mt-1 text-xs text-gray-600 font-normal;
 }
 
-.video-info .dark {
-    @apply text-gray-300;
+.dark .video-info {
+    @apply text-gray-400;
 }
 </style>

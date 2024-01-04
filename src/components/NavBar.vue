@@ -230,11 +230,11 @@ export default {
 }
 
 .nav-link {
-    @apply hover:font-bold hover:text-red-500;
+    @apply hover:text-red-500;
 }
 
 .dark .nav-link {
-    @apply hover:font-bold hover:text-red-400;
+    @apply hover:text-red-400;
 }
 
 @media screen and (max-width: 848px) {
