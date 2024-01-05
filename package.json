@@ -15,7 +15,7 @@
         "@fortawesome/free-brands-svg-icons": "6.5.1",
         "@fortawesome/free-solid-svg-icons": "6.5.1",
         "@fortawesome/vue-fontawesome": "3.0.5",
-        "dompurify": "3.0.6",
+        "dompurify": "3.0.8",
         "fast-xml-parser": "4.3.2",
         "hotkeys-js": "3.13.3",
         "javascript-time-ago": "2.5.9",
