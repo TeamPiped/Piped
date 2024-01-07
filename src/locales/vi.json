@@ -102,7 +102,8 @@
         "show_markers": "Hiển thị đánh dấu trên trình phát video",
         "minimize_chapters_default": "Thu nhỏ các chương theo mặc định",
         "bookmark_playlist": "Dấu trang (Bookmark)",
-        "clone_playlist": "Nhân đôi danh sách phát"
+        "clone_playlist": "Nhân đôi danh sách phát",
+        "enable_dearrow": "Bật DeArrow"
     },
     "titles": {
         "register": "Đăng ký",
