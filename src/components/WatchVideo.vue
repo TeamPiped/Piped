@@ -265,6 +265,7 @@
                         v-for="related in video.relatedStreams"
                         :key="related.url"
                         :item="related"
+                        class="mb-4"
                         height="94"
                         width="168"
                     />
