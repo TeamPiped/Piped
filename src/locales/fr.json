@@ -144,10 +144,12 @@
         "delete_automatically": "Supprimer automatiquement après",
         "download_frame": "Télécharger la miniature",
         "generate_qrcode": "Générer un QR code",
-        "instance_privacy_policy": "Politique de confidentialité"
+        "instance_privacy_policy": "Politique de confidentialité",
+        "concurrent_prefetch_limit": "Limite de préchargements simultanés de flux",
+        "instances_not_shown": "Les instances publiques qui ne sont pas affichées ici sont actuellement indisponibles."
     },
     "player": {
-        "watch_on": "Regarder sur {0}",
+        "watch_on": "Voir sur {0}",
         "failed": "Échec avec le code erreur {0}, voir les logs pour plus d'informations"
     },
     "video": {
@@ -173,7 +175,8 @@
         "instance_name": "Nom de l'instance",
         "up_to_date": "À jour ?",
         "registered_users": "Utilisateurs enregistrés",
-        "version": "Version"
+        "version": "Version",
+        "uptime_30d": "Uptime (30 j)"
     },
     "comment": {
         "pinned_by": "Épinglé par {author}",
