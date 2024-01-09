@@ -1,10 +1,11 @@
 <template>
     <ModalComponent>
-        <h2 v-t="'actions.share'" />
+        <h2 v-t="'actions.share'" class="mb-5" />
         <div class="flex justify-between">
             <label v-t="'actions.piped_link'" />
             <input v-model="pipedLink" type="checkbox" @change="onChange" />
         </div>
+        <hr />
         <div v-if="hasPlaylist" class="flex justify-between">
             <label v-t="'actions.with_playlist'" />
             <input v-model="withPlaylist" type="checkbox" @change="onChange" />
@@ -17,6 +18,7 @@
             <label v-t="'actions.time_code'" />
             <input v-model="timeStamp" class="input w-12" type="text" @change="onChange" />
         </div>
+        <hr />
         <a :href="generatedLink" target="_blank">
             <h3 class="mt-4" v-text="generatedLink" />
         </a>
