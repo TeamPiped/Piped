@@ -107,8 +107,11 @@
                 >
                     <font-awesome-icon icon="headphones" />
                 </router-link>
-                <button :title="$t('actions.add_to_playlist')" @click="showModal = !showModal">
+                <button :title="$t('actions.add_to_playlist')" @click="showPlaylistModal = !showPlaylistModal">
                     <font-awesome-icon icon="circle-plus" />
+                </button>
+                <button :title="$t('actions.share')" @click="showShareModal = !showShareModal">
+                    <font-awesome-icon icon="share" />
                 </button>
                 <button
                     v-if="admin"
@@ -125,10 +128,16 @@
                     @confirm="removeVideo(item.url.substr(-11))"
                 />
                 <PlaylistAddModal
-                    v-if="showModal"
+                    v-if="showPlaylistModal"
                     :video-id="item.url.substr(-11)"
                     :video-info="item"
-                    @close="showModal = !showModal"
+                    @close="showPlaylistModal = false"
+                />
+                <ShareModal
+                    v-if="showShareModal"
+                    :video-id="item.url.substr(-11)"
+                    :current-time="0"
+                    @close="showShareModal = false"
                 />
             </div>
         </div>
@@ -137,10 +146,11 @@
 
 <script>
 import PlaylistAddModal from "./PlaylistAddModal.vue";
+import ShareModal from "./ShareModal.vue";
 import ConfirmModal from "./ConfirmModal.vue";
 
 export default {
-    components: { PlaylistAddModal, ConfirmModal },
+    components: { PlaylistAddModal, ConfirmModal, ShareModal },
     props: {
         item: {
             type: Object,
@@ -162,7 +172,8 @@ export default {
     emits: ["remove"],
     data() {
         return {
-            showModal: false,
+            showPlaylistModal: false,
+            showShareModal: false,
             showVideo: true,
             showConfirmRemove: false,
         };
