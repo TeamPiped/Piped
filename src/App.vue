@@ -36,7 +36,7 @@ export default {
         });
 
         if ("indexedDB" in window) {
-            const request = indexedDB.open("piped-db", 5);
+            const request = indexedDB.open("piped-db", 6);
             request.onupgradeneeded = ev => {
                 const db = request.result;
                 console.log("Upgrading object store.");
@@ -64,6 +64,23 @@ export default {
                     const playlistVideosStore = db.createObjectStore("playlist_videos", { keyPath: "videoId" });
                     playlistVideosStore.createIndex("videoId", "videoId", { unique: true });
                 }
+                // migration to fix an invalid previous length of channel ids: 11 -> 24
+                (async () => {
+                    if (ev.oldVersion < 6) {
+                        const subscriptions = await this.fetchSubscriptions();
+                        const channelGroups = await this.getChannelGroups();
+                        for (let group of channelGroups) {
+                            for (let i = 0; i < group.channels.length; i++) {
+                                const tooShortChannelId = group.channels[i];
+                                const foundChannel = subscriptions.find(
+                                    channel => channel.url.substr(-11) == tooShortChannelId,
+                                );
+                                if (foundChannel) group.channels[i] = foundChannel.url.substr(-24);
+                            }
+                            this.createOrUpdateChannelGroup(group);
+                        }
+                    }
+                })();
             };
             request.onsuccess = e => {
                 window.db = e.target.result;

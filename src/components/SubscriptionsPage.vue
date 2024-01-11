@@ -107,7 +107,7 @@
                     <input
                         type="checkbox"
                         class="checkbox"
-                        :checked="selectedGroup.channels.includes(subscription.url.substr(-11))"
+                        :checked="selectedGroup.channels.includes(subscription.url.substr(-24))"
                         @change="checkedChange(subscription)"
                     />
                 </div>
@@ -140,7 +140,7 @@ export default {
         filteredSubscriptions(_this) {
             return _this.selectedGroup.groupName == ""
                 ? _this.subscriptions
-                : _this.subscriptions.filter(channel => _this.selectedGroup.channels.includes(channel.url.substr(-11)));
+                : _this.subscriptions.filter(channel => _this.selectedGroup.channels.includes(channel.url.substr(-24)));
         },
     },
     mounted() {
@@ -159,28 +159,6 @@ export default {
         document.title = "Subscriptions - Piped";
     },
     methods: {
-        async fetchSubscriptions() {
-            if (this.authenticated) {
-                return await this.fetchJson(this.authApiUrl() + "/subscriptions", null, {
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                    },
-                });
-            } else {
-                const channels = this.getUnauthenticatedChannels();
-                const split = channels.split(",");
-                if (split.length > 100) {
-                    return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", null, {
-                        method: "POST",
-                        body: JSON.stringify(split),
-                    });
-                } else {
-                    return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", {
-                        channels: this.getUnauthenticatedChannels(),
-                    });
-                }
-            }
-        },
         async loadChannelGroups() {
             const groups = await this.getChannelGroups();
             this.channelGroups.push(...groups);
@@ -256,7 +234,7 @@ export default {
             this.selectedGroup = this.channelGroups[0];
         },
         checkedChange(subscription) {
-            const channelId = subscription.url.substr(-11);
+            const channelId = subscription.url.substr(-24);
             this.selectedGroup.channels = this.selectedGroup.channels.includes(channelId)
                 ? this.selectedGroup.channels.filter(channel => channel != channelId)
                 : this.selectedGroup.channels.concat(channelId);

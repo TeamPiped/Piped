@@ -79,7 +79,7 @@
             />
         </div>
 
-        <AddToGroupModal v-if="showGroupModal" :channel-id="channel.id.substr(-11)" @close="showGroupModal = false" />
+        <AddToGroupModal v-if="showGroupModal" :channel-id="channel.id.substr(-24)" @close="showGroupModal = false" />
     </LoadingIndicatorPage>
 </template>
 
