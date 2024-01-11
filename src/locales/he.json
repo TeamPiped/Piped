@@ -148,7 +148,9 @@
         "import_from_json_csv": "ייבוא מ־JSON/CSV",
         "download_frame": "הורדת תמונית",
         "instance_privacy_policy": "מדיניות פרטיות",
-        "add_to_group": "הוספה לקבוצה"
+        "add_to_group": "הוספה לקבוצה",
+        "concurrent_prefetch_limit": "מגבלת משיכה טרומית של תזרימים במקביל",
+        "instances_not_shown": "מופעים ציבוריים שאינם מופיעים כאן אינם זמינים כרגע."
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
@@ -163,7 +165,8 @@
         "registered_users": "משתמשים רשומים",
         "version": "גרסה",
         "up_to_date": "עדכני?",
-        "ssl_score": "דירוג SSL"
+        "ssl_score": "דירוג SSL",
+        "uptime_30d": "זמן פעילות (30 ימים)"
     },
     "login": {
         "username": "שם משתמש",
