@@ -22,7 +22,8 @@
         "instance_name": "Ime instance",
         "registered_users": "Registrirani korisnici",
         "version": "Verzija",
-        "up_to_date": "Najnovija verzija?"
+        "up_to_date": "Najnovija verzija?",
+        "uptime_30d": "Vrijeme rada (30 dana)"
     },
     "comment": {
         "pinned_by": "Prikvačio korisnik {author}",
@@ -158,7 +159,8 @@
         "download_frame": "Preuzmi kadar",
         "instance_privacy_policy": "Politika privatnosti",
         "add_to_group": "Dodaj grupi",
-        "instances_not_shown": "Javne instance koje ovdje nisu prikazane trenutačno nisu dostupne."
+        "instances_not_shown": "Javne instance koje ovdje nisu prikazane trenutačno nisu dostupne.",
+        "concurrent_prefetch_limit": "Ograničenje istodobnog preuzimanja videa"
     },
     "player": {
         "watch_on": "Gledaj na {0}",
