@@ -95,7 +95,7 @@
         "clone_playlist_success": "S'ha clonat correctament!",
         "download_as_txt": "Baixa com a .txt",
         "reset_preferences": "Restableix les preferències",
-        "restore_preferences": "Restaura les preferències",
+        "restore_preferences": "Importa les preferències",
         "backup_preferences": "Exporta les preferències",
         "confirm_reset_preferences": "Segur que voleu restablir les vostres preferències?",
         "back_to_home": "Torna a l'inici",
@@ -144,7 +144,9 @@
         "generate_qrcode": "Genera un codi QR",
         "playlist_name": "Nom de la llista de reproducció",
         "add_to_group": "Afegeix al grup",
-        "instance_privacy_policy": "Política de privadesa"
+        "instance_privacy_policy": "Política de privadesa",
+        "concurrent_prefetch_limit": "Límit de precàrrega de flux concurrent",
+        "instances_not_shown": "Les instàncies públiques que no es mostren aquí no es troben disponibles."
     },
     "comment": {
         "pinned_by": "Fixat per {author}",
@@ -159,7 +161,8 @@
         "ssl_score": "Puntuació SSL",
         "version": "Versió",
         "up_to_date": "Actualitzada?",
-        "registered_users": "Usuaris registrats"
+        "registered_users": "Usuaris registrats",
+        "uptime_30d": "Temps d'activitat (30 d)"
     },
     "video": {
         "watched": "Vist",
