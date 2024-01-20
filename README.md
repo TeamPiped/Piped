@@ -37,7 +37,7 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] Playing just audio
 -   [x] PWA support
 -   [x] Locally saved Preferences
--   [x] [Available in many languages](src/locales), thanks to [our translators](https://hosted.weblate.org/projects/piped/frontend/)
+-   [x] [Available eamPiped/Pipedin many languages](src/locales), thanks to [our translators](https://hosted.weblate.org/projects/piped/frontend/)
 -   [x] Embedded video support
 -   [x] No age restriction
 -   [x] Bypasses Geo restrictions if possible through a federated network
@@ -125,6 +125,8 @@ If you would like to contact me personally, you may do so with the following mea
 -   Matrix: @kavin1337:matrix.org
 -   Mastodon: https://mastodon.online/@kavin
 -   Email: kavin@kavin.rocks
+
+Please note that isn't meant for support, see [Public Chat Rooms/Communities](#public-chat-roomscommunities) for that.
 
 ## Donations
 
