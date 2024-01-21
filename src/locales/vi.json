@@ -103,7 +103,13 @@
         "minimize_chapters_default": "Thu nhỏ các chương theo mặc định",
         "bookmark_playlist": "Dấu trang (Bookmark)",
         "clone_playlist": "Nhân đôi danh sách phát",
-        "enable_dearrow": "Bật DeArrow"
+        "enable_dearrow": "Bật DeArrow",
+        "different_auth_instance": "Sử dụng instance khác để xác thực",
+        "show_watch_on_youtube": "Hiển thị nút \"Xem trên YouTube\"",
+        "instances_not_shown": "Các instance công cộng nào mà không được hiển thị ở đây thì là vì nó hiện không thể dùng được.",
+        "auto_display_captions": "Tự động hiển thị phụ đề",
+        "autoplay_next_countdown": "Đếm ngược mặc định đến video tiếp theo (tính bằng giây)",
+        "instance_auth_selection": "Instance xác thực"
     },
     "titles": {
         "register": "Đăng ký",
