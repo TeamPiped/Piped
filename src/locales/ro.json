@@ -217,7 +217,7 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Vizionați pe {0}",
+        "watch_on": "Vezi pe {0}",
         "failed": "A eșuat cu codul de eroare {0}, consultați jurnalele pentru mai multe informații"
     }
 }
