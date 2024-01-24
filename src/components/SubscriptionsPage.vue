@@ -35,11 +35,9 @@
                 v-text="`${$t('actions.export_to_json')} (${$t('titles.channel_groups')})`"
             />
         </div>
-        <div class="flex self-center gap-1">
-            <!-- subscriptions count, only shown if there are any  -->
-            <i18n-t v-if="subscriptions.length > 0" keypath="subscriptions.subscribed_channels_count">{{
-                subscriptions.length
-            }}</i18n-t>
+        <!-- subscriptions count, only shown if there are any  -->
+        <div v-if="subscriptions.length > 0" class="flex self-center gap-1">
+            <i18n-t keypath="subscriptions.subscribed_channels_count">{{ subscriptions.length }}</i18n-t>
         </div>
     </div>
     <br />
