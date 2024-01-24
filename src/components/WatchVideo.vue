@@ -510,9 +510,7 @@ export default {
         },
         async getPlaylistData() {
             if (this.playlistId) {
-                await this.fetchJson(this.apiUrl() + "/playlists/" + this.playlistId).then(data => {
-                    this.playlist = data;
-                });
+                this.playlist = await this.getPlaylist(this.playlistId);
                 await this.fetchPlaylistPages().then(() => {
                     if (!(this.index >= 0)) {
                         for (let i = 0; i < this.playlist.relatedStreams.length; i++)
