@@ -9,7 +9,7 @@
                 id="fileSelector"
                 ref="fileSelector"
                 type="file"
-                class="display-none"
+                class="hidden"
                 multiple="multiple"
                 @change="importPlaylists"
             />
