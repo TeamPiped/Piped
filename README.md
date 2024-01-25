@@ -118,13 +118,13 @@ pnpm serve
 
 You can now make changes and view then in realtime!
 
-## Contact
+## Contact (Access Request)
 
 If you would like to contact me personally, you may do so with the following means:
 
 -   Matrix: @kavin1337:matrix.org
 -   Mastodon: https://mastodon.online/@kavin
--   Email: kavin@kavin.rocks
+-   Email: kavin@kavin.rocks (Contacted)
 
 Please note that isn't meant for support, see [Public Chat Rooms/Communities](#public-chat-roomscommunities) for that.
 
