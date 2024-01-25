@@ -359,7 +359,7 @@ const mixin = {
             });
         },
         async getPlaylist(playlistId) {
-            if (!this.authenticated) {
+            if (playlistId.startsWith("local")) {
                 const playlist = await this.getLocalPlaylist(playlistId);
                 const videoIds = JSON.parse(playlist.videoIds);
                 const videosFuture = videoIds.map(videoId => this.getLocalPlaylistVideo(videoId));
