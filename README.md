@@ -48,7 +48,7 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] Performant by design, designed to handle 1000s of users concurrently
 -   [x] Does not use official YouTube APIs
 -   [x] Uses [NewPipeExtractor](https://github.com/TeamNewPipe/NewPipeExtractor) to extract information
--   [x] Public [JSON API](https://docs.piped.video/docs/api-documentation/)
+-   [ ] Public [JSON API](https://docs.piped.video/docs/api-documentation/)
 -   [x] Federated protocol on Matrix to let instances collaborate with each other
 
 ## Screenshots
@@ -87,7 +87,7 @@ You can help by translating the project to a language you speak at https://hoste
 
 ### Mirrors
 
--   Cloudflare Pages - [cf.piped.video](https://cf.piped.video/)
+-   Cloudflare Pages - [my.piped.video](https://cf.piped.video/)
 -   Vercel - [vc.piped.video](https://vc.piped.video/)
 -   Render - [re.piped.video](https://re.piped.video/)
 -   Fleek - [fl.piped.video](https://fl.piped.video/)
