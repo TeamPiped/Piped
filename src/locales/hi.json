@@ -128,7 +128,21 @@
         "minimize_comments": "टिप्पणियाँ को संक्षेपित करें",
         "confirm_reset_preferences": "क्या आप वाकई अपनी प्राथमिकताएँ रीसेट करना चाहते हैं?",
         "no_valid_playlists": "फ़ाइल में मान्य प्लेलिस्ट नहीं हैं!",
-        "instance_privacy_policy": "गोपनीयता नीति"
+        "instance_privacy_policy": "गोपनीयता नीति",
+        "bookmark_playlist": "बुकमार्क",
+        "concurrent_prefetch_limit": "समवर्ती स्ट्रीम पूर्वाभ्यास सीमा",
+        "cancel": "रद्द करें",
+        "okay": "ठीक है",
+        "playlist_bookmarked": "बुकमार्क किया गया",
+        "dismiss": "खारिज करें",
+        "show_less": "कम दिखाएं",
+        "create_group": "समूह बनाएं",
+        "group_name": "समूह नाम",
+        "show_search_suggestions": "खोज सुझाव दिखाएं",
+        "delete_automatically": "आपूर्ति के बाद स्वच्छता करें",
+        "generate_qrcode": "क्यूआर कोड बनाएं",
+        "add_to_group": "समूह में जोड़ें",
+        "download_frame": "डाउनलोड फ्रेम"
     },
     "video": {
         "views": "{views} बार देखा गया",
@@ -136,28 +150,62 @@
         "watched": "पहले ही देखा हुआ",
         "ratings_disabled": "रेटिंग अक्षम",
         "chapters": "चैप्टर",
-        "live": "{0} लाइव"
+        "live": "{0} लाइव",
+        "sponsor_segments": "सपोर्टर्स सेगमेंट्स",
+        "shorts": "शॉर्ट्स",
+        "all": "सभी",
+        "category": "श्रेणी",
+        "license": "लाइसेंस",
+        "visibility": "दृश्यता",
+        "chapters_horizontal": "क्षैतिज",
+        "chapters_vertical": "ऊर्ध्वाधर"
     },
     "login": {
         "password": "पासवर्ड",
-        "username": "उपयोगकर्ता नाम"
+        "username": "उपयोगकर्ता नाम",
+        "passwords_incorrect": "पासवर्ड मेल नहीं खाते हैं!",
+        "password_confirm": "पासवर्ड की पुष्टि करें"
     },
     "comment": {
-        "pinned_by": "{author} ने पिन किया"
+        "pinned_by": "{author} ने पिन किया",
+        "loading": "टिप्पणियाँ लोड हो रही हैं..।",
+        "disabled": "टिप्पणियाँ अपलोडर द्वारा अक्षम की गई हैं।",
+        "user_disabled": "सेटिंग्स में टिप्पणियाँ अक्षम हैं।"
     },
     "preferences": {
         "instance_locations": "इंस्टेंस स्थान",
         "has_cdn": "सीडीएन है?",
-        "ssl_score": "एसएसएल स्कोर"
+        "ssl_score": "एसएसएल स्कोर",
+        "uptime_30d": "अपटाइम (30 दिन)",
+        "instance_name": "इंस्टेंस का नाम",
+        "registered_users": "रजिस्टर्ड उपयोगकर्ता",
+        "version": "संस्करण"
     },
     "search": {
-        "did_you_mean": "क्या आपका मतलब यह था: {0}?"
+        "did_you_mean": "क्या आपका मतलब यह था: {0}?",
+        "playlists": "यूट्यूब: प्लेलिस्ट्स",
+        "music_videos": "वाईटी म्यूज़िक: वीडियो",
+        "music_albums": "वाईटी म्यूज़िक: एल्बम्स",
+        "music_playlists": "वाईटी म्यूज़िक: प्लेलिस्ट्स",
+        "all": "यूट्यूब: सभी",
+        "videos": "यूट्यूब: वीडियो",
+        "channels": "यूट्यूब: चैनल्स",
+        "music_artists": "वाईटी म्यूज़िक: कलाकार",
+        "music_songs": "वाईटी म्यूज़िक: संगीत"
     },
     "player": {
         "watch_on": "{0} पर देखें",
         "failed": "त्रुटि कोड {0} के साथ विफल, अधिक जानकारी के लिए लॉग देखें"
     },
     "info": {
-        "login_note": "इस इंस्टेंस पर बनाए गए खाते से लॉग इन करें।"
+        "login_note": "इस इंस्टेंस पर बनाए गए खाते से लॉग इन करें।",
+        "page_not_found": "पृष्ठ नहीं मिला",
+        "copied": "कॉपी हुआ!",
+        "cannot_copy": "कॉपी नहीं कर सकते!",
+        "local_storage": "यह क्रिया को लोकलस्टोरेज की आवश्यकता है, क्या कुकीज़ सक्षम हैं?",
+        "preferences_note": "नोट: प्राथमिकताएँ आपके ब्राउज़र के स्थानीय संग्रहण में सहेजी जाती हैं। अपने ब्राउज़र डेटा को हटाने से वे रीसेट हो जाएंगी।"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "सब्सक्राइब किया: {0}"
     }
 }
