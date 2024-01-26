@@ -120,7 +120,7 @@
         "playlist_description": "प्लेलिस्ट विवरण",
         "share": "साझा करें",
         "time_code": "समय कोड (सेकंड में)",
-        "reply_count": "{गिनती} उत्त",
+        "reply_count": "{count} उत्त",
         "min_segment_length": "न्यूनतम सेगमेंट लंबाई (सेकंड में)",
         "skip_segment": "सेगमेंट छोड़ें",
         "autoplay_next_countdown": "अगले वीडियो तक डिफ़ॉल्ट काउंटडाउन (सेकंड में)",
