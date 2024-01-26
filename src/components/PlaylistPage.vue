@@ -102,16 +102,8 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
-        async fetchPlaylist() {
-            const playlistId = this.$route.query.list;
-            if (playlistId.startsWith("local")) {
-                return this.getPlaylist(playlistId);
-            }
-
-            return await await this.fetchJson(this.authApiUrl() + "/playlists/" + this.$route.query.list);
-        },
         async getPlaylistData() {
-            this.fetchPlaylist()
+            this.getPlaylist(this.$route.query.list)
                 .then(data => (this.playlist = data))
                 .then(() => {
                     this.updateTitle();
