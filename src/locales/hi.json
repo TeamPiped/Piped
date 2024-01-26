@@ -85,7 +85,65 @@
         "skip_non_music": "संगीत छोड़ें: गैर-संगीत अनुभाग",
         "show_markers": "प्लेयर पर मार्कर दिखाएँ",
         "skip_preview": "प्रीव्यू / रीकैप छोड़ें",
-        "skip_highlight": "हाइलाइट छोड़ें"
+        "skip_highlight": "हाइलाइट छोड़ें",
+        "instance_auth_selection": "प्रमाणीकरण इंस्टेंस",
+        "different_auth_instance": "प्रमाणीकरण के लिए एक विभिन्न इंस्टेंस का उपयोग करें",
+        "reset_preferences": "प्राथमिकताएँ रीसेट करें",
+        "back_to_home": "होम पर वापस",
+        "piped_link": "पाइप्ड लिंक",
+        "hide_watched": "देखी गई वीडियो फ़ीड में छिपाएँ",
+        "documentation": "प्रलेखन",
+        "status_page": "स्थिति",
+        "source_code": "स्रोत कोड",
+        "show_chapters": "अध्याय",
+        "follow_link": "लिंक का अनुसरण करें",
+        "store_search_history": "खोज इतिहास संग्रहित करें",
+        "copy_link": "लिंक की प्रतिलिपि",
+        "with_timecode": "समय कोड के साथ साझा करें",
+        "edit_playlist": "प्लेलिस्ट संपादित",
+        "auto_display_captions": "स्वत: प्रदर्शित कैप्शन",
+        "instances_not_shown": "जो सार्वजनिक इंस्टेंसेस यहाँ नहीं दिखाए जा रहे हैं, वे वर्तमान में अनुपलब्ध हैं।",
+        "enable_dearrow": "डीएरो सक्षम करें",
+        "auto": "स्वत:",
+        "minimize_description_default": "डिफ़ॉल्ट रूप से विवरण को संक्षेपित करें",
+        "import_from_json_csv": "JSON/CSV से आयात करें",
+        "logout": "इस डिवाइस से लॉगआउट करें",
+        "chapters_layout_mobile": "मोबाइल पर अध्याय लेआउट",
+        "show_watch_on_youtube": "यूट्यूब पर देखें बटन दिखाएं",
+        "invalidate_session": "सभी उपकरणों से लॉगआउट",
+        "clone_playlist": "प्लेलिस्ट की प्रतिलिपि बनाएं",
+        "clone_playlist_success": "सफलतापूर्वक क्लोन हो गयी!",
+        "download_as_txt": ".txt के रूप में डाउनलोड करें",
+        "backup_preferences": "प्राथमिकताएँ बैकअप करें",
+        "restore_preferences": "प्राथमिकताएँ पुनर्स्थापित करें",
+        "playlist_name": "प्लेलिस्ट नाम",
+        "playlist_description": "प्लेलिस्ट विवरण",
+        "share": "साझा करें",
+        "time_code": "समय कोड (सेकंड में)",
+        "reply_count": "{count} उत्त",
+        "min_segment_length": "न्यूनतम सेगमेंट लंबाई (सेकंड में)",
+        "skip_segment": "सेगमेंट छोड़ें",
+        "autoplay_next_countdown": "अगले वीडियो तक डिफ़ॉल्ट काउंटडाउन (सेकंड में)",
+        "minimize_comments_default": "डिफ़ॉल्ट रूप से टिप्पणियाँ छोटी करें",
+        "minimize_comments": "टिप्पणियाँ को संक्षेपित करें",
+        "confirm_reset_preferences": "क्या आप वाकई अपनी प्राथमिकताएँ रीसेट करना चाहते हैं?",
+        "no_valid_playlists": "फ़ाइल में मान्य प्लेलिस्ट नहीं हैं!",
+        "instance_privacy_policy": "गोपनीयता नीति",
+        "bookmark_playlist": "बुकमार्क",
+        "concurrent_prefetch_limit": "समवर्ती स्ट्रीम पूर्वाभ्यास सीमा",
+        "cancel": "रद्द करें",
+        "okay": "ठीक है",
+        "playlist_bookmarked": "बुकमार्क किया गया",
+        "dismiss": "खारिज करें",
+        "show_less": "कम दिखाएं",
+        "create_group": "समूह बनाएं",
+        "group_name": "समूह नाम",
+        "show_search_suggestions": "खोज सुझाव दिखाएं",
+        "delete_automatically": "आपूर्ति के बाद स्वच्छता करें",
+        "generate_qrcode": "क्यूआर कोड बनाएं",
+        "add_to_group": "समूह में जोड़ें",
+        "download_frame": "डाउनलोड फ्रेम",
+        "with_playlist": "प्लेलिस्ट के साथ साझा करें"
     },
     "video": {
         "views": "{views} बार देखा गया",
@@ -93,28 +151,69 @@
         "watched": "पहले ही देखा हुआ",
         "ratings_disabled": "रेटिंग अक्षम",
         "chapters": "चैप्टर",
-        "live": "{0} लाइव"
+        "live": "{0} लाइव",
+        "sponsor_segments": "सपोर्टर्स सेगमेंट्स",
+        "shorts": "शॉर्ट्स",
+        "all": "सभी",
+        "category": "श्रेणी",
+        "license": "लाइसेंस",
+        "visibility": "दृश्यता",
+        "chapters_horizontal": "क्षैतिज",
+        "chapters_vertical": "ऊर्ध्वाधर"
     },
     "login": {
         "password": "पासवर्ड",
-        "username": "उपयोगकर्ता नाम"
+        "username": "उपयोगकर्ता नाम",
+        "passwords_incorrect": "पासवर्ड मेल नहीं खाते हैं!",
+        "password_confirm": "पासवर्ड की पुष्टि करें"
     },
     "comment": {
-        "pinned_by": "{author} ने पिन किया"
+        "pinned_by": "{author} ने पिन किया",
+        "loading": "टिप्पणियाँ लोड हो रही हैं..।",
+        "disabled": "टिप्पणियाँ अपलोडर द्वारा अक्षम की गई हैं।",
+        "user_disabled": "सेटिंग्स में टिप्पणियाँ अक्षम हैं।"
     },
     "preferences": {
         "instance_locations": "इंस्टेंस स्थान",
         "has_cdn": "सीडीएन है?",
-        "ssl_score": "एसएसएल स्कोर"
+        "ssl_score": "एसएसएल स्कोर",
+        "uptime_30d": "अपटाइम (30 दिन)",
+        "instance_name": "इंस्टेंस का नाम",
+        "registered_users": "रजिस्टर्ड उपयोगकर्ता",
+        "version": "संस्करण"
     },
     "search": {
-        "did_you_mean": "क्या आपका मतलब यह था: {0}?"
+        "did_you_mean": "क्या आपका मतलब यह था: {0}?",
+        "playlists": "यूट्यूब: प्लेलिस्ट्स",
+        "music_videos": "वाईटी म्यूज़िक: वीडियो",
+        "music_albums": "वाईटी म्यूज़िक: एल्बम्स",
+        "music_playlists": "वाईटी म्यूज़िक: प्लेलिस्ट्स",
+        "all": "यूट्यूब: सभी",
+        "videos": "यूट्यूब: वीडियो",
+        "channels": "यूट्यूब: चैनल्स",
+        "music_artists": "वाईटी म्यूज़िक: कलाकार",
+        "music_songs": "वाईटी म्यूज़िक: संगीत"
     },
     "player": {
         "watch_on": "{0} पर देखें",
         "failed": "त्रुटि कोड {0} के साथ विफल, अधिक जानकारी के लिए लॉग देखें"
     },
     "info": {
-        "login_note": "इस इंस्टेंस पर बनाए गए खाते से लॉग इन करें।"
+        "login_note": "इस इंस्टेंस पर बनाए गए खाते से लॉग इन करें।",
+        "page_not_found": "पृष्ठ नहीं मिला",
+        "copied": "कॉपी हुआ!",
+        "cannot_copy": "कॉपी नहीं कर सकते!",
+        "local_storage": "यह क्रिया को लोकलस्टोरेज की आवश्यकता है, क्या कुकीज़ सक्षम हैं?",
+        "preferences_note": "नोट: प्राथमिकताएँ आपके ब्राउज़र के स्थानीय संग्रहण में सहेजी जाती हैं। अपने ब्राउज़र डेटा को हटाने से वे रीसेट हो जाएंगी।",
+        "register_no_email_note": "ईमेल को उपयोगकर्ता नाम के रूप में लेना अनुशंसित नहीं है। फिर भी आगे बढ़ें?",
+        "next_video_countdown": "अगला वीडियो चलेगा {0} सेकंड में",
+        "hours": "{amount} घंटा(एं)",
+        "days": "{amount} दिन(एं)",
+        "weeks": "{amount} सप्ताह(एं)",
+        "months": "{amount} महीना(एं)",
+        "register_note": "पाइप्ड इंस्टेंस के लिए एक खाता पंजीकृत करें। इससे आप अपनी सदस्यता और प्लेलिस्ट को अपने खाते के साथ सिंक कर सकते हैं, ताकि वे सर्वर साइड पर संग्रहित हों। आप खाते के बिना भी सभी विशेषताएँ इस्तेमाल कर सकते हैं, लेकिन सभी डेटा आपके ब्राउज़र के स्थानीय कैश में संग्रहित होगा। कृपया सुनिश्चित करें कि आप अपना ईमेल पता उपयोगकर्ता नाम के रूप में इस्तेमाल नहीं कर रहे हैं और एक सुरक्षित पासवर्ड चुनें जिसे आप कहीं और नहीं इस्तेमाल करते हैं।"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "सब्सक्राइब किया: {0}"
     }
 }
