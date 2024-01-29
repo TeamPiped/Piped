@@ -28,6 +28,11 @@
             <div>
                 <a v-t="'titles.login'" class="btn w-auto" @click="login" />
             </div>
+            <ul class="children:pb-3">
+                <li v-for="provider in oidcProviders" :key="provider.name">
+                    <a class="btn" :href="provider.authUri">Log in with {{ provider.name }}</a>
+                </li>
+            </ul>
             <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.login_note')" />
         </form>
     </div>
@@ -44,9 +49,16 @@ export default {
         return {
             username: null,
             password: null,
+            oidcProviders: null,
         };
     },
     mounted() {
+        const session = this.$route.query.session;
+        if (session) {
+            this.setPreference("authToken" + this.hashCode(this.authApiUrl()), session);
+            this.$router.push("/");
+        }
+        this.fetchConfig();
         //TODO: Add Server Side check
         if (this.getAuthToken()) {
             this.$router.push("/");
@@ -56,6 +68,16 @@ export default {
         document.title = this.$t("titles.login") + " - Piped";
     },
     methods: {
+        async fetchConfig() {
+            this.fetchJson(this.apiUrl() + "/config").then(config => {
+                this.oidcProviders = config?.oidcProviders.map(name => {
+                    return {
+                        name,
+                        authUri: `${this.authApiUrl()}/oidc/${name}/login?redirect=${window.location.origin}/login`,
+                    };
+                });
+            });
+        },
         login() {
             if (!this.username || !this.password) return;
             this.fetchJson(this.authApiUrl() + "/login", null, {
