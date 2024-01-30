@@ -42,10 +42,10 @@
                     <div class="i-fa6-solid:eye" />
                 </button>
             </div>
-            <div>
+            <div class="flex justify-center">
                 <a v-t="'titles.register'" class="btn w-auto" @click="register" />
+                <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.register_note')" />
             </div>
-            <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.register_note')" />
         </form>
     </div>
     <ConfirmModal

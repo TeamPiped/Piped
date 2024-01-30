@@ -25,10 +25,10 @@
                     @keyup.enter="login"
                 />
             </div>
-            <div>
+            <div class="flex justify-center">
                 <a v-t="'titles.login'" class="btn w-auto" @click="login" />
+                <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.login_note')" />
             </div>
-            <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.login_note')" />
         </form>
     </div>
 </template>
