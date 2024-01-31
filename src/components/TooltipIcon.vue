@@ -1,5 +1,5 @@
 <template>
-    <div id="container" class="w-full">
+    <div id="container" class="m-2 self-center">
         <div :class="icon" class="cursor-pointer"></div>
         <p id="tooltip" class="absolute mr-[20vw] mt-2 hidden rounded-l bg-gray-800 px-2 py-1 text-gray-200">
             {{ tooltip }}
