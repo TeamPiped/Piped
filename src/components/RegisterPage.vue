@@ -1,5 +1,8 @@
 <template>
-    <h1 v-t="'titles.register'" class="my-4 text-center font-bold" />
+    <div class="flex justify-center">
+        <h1 v-t="'titles.register'" class="my-4 text-center font-bold" />
+        <TooltipIcon class="mb-6" icon="i-fa6-solid:circle-info" :tooltip="$t('info.register_note')" />
+    </div>
     <hr />
     <div class="flex flex-col items-center justify-center text-center">
         <form class="w-max items-center px-3 children:pb-3">
@@ -42,9 +45,8 @@
                     <div class="i-fa6-solid:eye" />
                 </button>
             </div>
-            <div class="flex justify-center">
+            <div>
                 <a v-t="'titles.register'" class="btn w-auto" @click="register" />
-                <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.register_note')" />
             </div>
         </form>
     </div>
