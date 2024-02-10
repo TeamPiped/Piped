@@ -127,24 +127,8 @@ export default {
     methods: {
         async fetchSubscribedStatus() {
             if (!this.channel.id) return;
-            if (!this.authenticated) {
-                this.subscribed = this.isSubscribedLocally(this.channel.id);
-                return;
-            }
 
-            this.fetchJson(
-                this.authApiUrl() + "/subscribed",
-                {
-                    channelId: this.channel.id,
-                },
-                {
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                    },
-                },
-            ).then(json => {
-                this.subscribed = json.subscribed;
-            });
+            this.subscribed = await this.fetchSubscriptionStatus(this.channel.id);
         },
         async fetchChannel() {
             const url = this.$route.path.includes("@")
@@ -216,21 +200,9 @@ export default {
             });
         },
         subscribeHandler() {
-            if (this.authenticated) {
-                this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        channelId: this.channel.id,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                });
-            } else {
-                if (!this.handleLocalSubscriptions(this.channel.id)) return;
-            }
-            this.subscribed = !this.subscribed;
+            this.toggleSubscriptionState(this.channel.id, this.subscribed).then(success => {
+                if (success) this.subscribed = !this.subscribed;
+            });
         },
         getTranslatedTabName(tabName) {
             let translatedTabName = tabName;

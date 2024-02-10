@@ -550,6 +550,41 @@ const mixin = {
                 });
             });
         },
+        async fetchSubscriptionStatus(channelId) {
+            if (!this.authenticated) {
+                return this.isSubscribedLocally(channelId);
+            }
+
+            const response = await this.fetchJson(
+                this.authApiUrl() + "/subscribed",
+                {
+                    channelId: channelId,
+                },
+                {
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                },
+            );
+
+            return response?.subscribed;
+        },
+        async toggleSubscriptionState(channelId, subscribed) {
+            if (!this.authenticated) return this.handleLocalSubscriptions(channelId);
+
+            const resp = await this.fetchJson(this.authApiUrl() + (subscribed ? "/unsubscribe" : "/subscribe"), null, {
+                method: "POST",
+                body: JSON.stringify({
+                    channelId: channelId,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+
+            return !resp.error;
+        },
     },
     computed: {
         authenticated(_this) {

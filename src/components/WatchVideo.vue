@@ -551,24 +551,8 @@ export default {
         },
         async fetchSubscribedStatus() {
             if (!this.channelId) return;
-            if (!this.authenticated) {
-                this.subscribed = this.isSubscribedLocally(this.channelId);
-                return;
-            }
 
-            this.fetchJson(
-                this.authApiUrl() + "/subscribed",
-                {
-                    channelId: this.channelId,
-                },
-                {
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                    },
-                },
-            ).then(json => {
-                this.subscribed = json.subscribed;
-            });
+            this.subscribed = await this.fetchSubscriptionStatus(this.channelId);
         },
         rewriteComments(data) {
             data.forEach(comment => {
@@ -588,21 +572,9 @@ export default {
             });
         },
         subscribeHandler() {
-            if (this.authenticated) {
-                this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        channelId: this.channelId,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                });
-            } else {
-                if (!this.handleLocalSubscriptions(this.channelId)) return;
-            }
-            this.subscribed = !this.subscribed;
+            this.toggleSubscriptionState(this.channelId, this.subscribed).then(success => {
+                if (success) this.subscribed = !this.subscribed;
+            });
         },
         handleClick(event) {
             if (!event || !event.target) return;
