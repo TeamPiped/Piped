@@ -104,7 +104,7 @@
         "auto_display_captions": "स्वत: प्रदर्शित कैप्शन",
         "instances_not_shown": "जो सार्वजनिक इंस्टेंसेस यहाँ नहीं दिखाए जा रहे हैं, वे वर्तमान में अनुपलब्ध हैं।",
         "enable_dearrow": "डीएरो सक्षम करें",
-        "auto": "स्वत:",
+        "auto": "आटो",
         "minimize_description_default": "डिफ़ॉल्ट रूप से विवरण को संक्षेपित करें",
         "import_from_json_csv": "JSON/CSV से आयात करें",
         "logout": "इस डिवाइस से लॉगआउट करें",
@@ -129,7 +129,7 @@
         "confirm_reset_preferences": "क्या आप वाकई अपनी प्राथमिकताएँ रीसेट करना चाहते हैं?",
         "no_valid_playlists": "फ़ाइल में मान्य प्लेलिस्ट नहीं हैं!",
         "instance_privacy_policy": "गोपनीयता नीति",
-        "bookmark_playlist": "बुकमार्क",
+        "bookmark_playlist": "बुकमार्क करें",
         "concurrent_prefetch_limit": "समवर्ती स्ट्रीम पूर्वाभ्यास सीमा",
         "cancel": "रद्द करें",
         "okay": "ठीक है",
@@ -139,11 +139,14 @@
         "create_group": "समूह बनाएं",
         "group_name": "समूह नाम",
         "show_search_suggestions": "खोज सुझाव दिखाएं",
-        "delete_automatically": "आपूर्ति के बाद स्वच्छता करें",
+        "delete_automatically": "बाद में स्वचालित रूप से हटा दें",
         "generate_qrcode": "क्यूआर कोड बनाएं",
         "add_to_group": "समूह में जोड़ें",
         "download_frame": "डाउनलोड फ्रेम",
-        "with_playlist": "प्लेलिस्ट के साथ साझा करें"
+        "with_playlist": "प्लेलिस्ट के साथ साझा करें",
+        "instance_donations": "इंसटैंस के लिए दान",
+        "minimize_chapters_default": "अध्यायों को डिफ़ॉल्ट रूप से छोटा करें",
+        "minimize_recommendations_default": "डिफ़ॉल्ट रूप से सिफ़ारिशें मिनीमाईज़ करें"
     },
     "video": {
         "views": "{views} बार देखा गया",
@@ -156,7 +159,7 @@
         "shorts": "शॉर्ट्स",
         "all": "सभी",
         "category": "श्रेणी",
-        "license": "लाइसेंस",
+        "license": "लाईसेंस",
         "visibility": "दृश्यता",
         "chapters_horizontal": "क्षैतिज",
         "chapters_vertical": "ऊर्ध्वाधर"
@@ -180,7 +183,8 @@
         "uptime_30d": "अपटाइम (30 दिन)",
         "instance_name": "इंस्टेंस का नाम",
         "registered_users": "रजिस्टर्ड उपयोगकर्ता",
-        "version": "संस्करण"
+        "version": "संस्करण",
+        "up_to_date": "अप टू डेट?"
     },
     "search": {
         "did_you_mean": "क्या आपका मतलब यह था: {0}?",
@@ -205,8 +209,8 @@
         "cannot_copy": "कॉपी नहीं कर सकते!",
         "local_storage": "यह क्रिया को लोकलस्टोरेज की आवश्यकता है, क्या कुकीज़ सक्षम हैं?",
         "preferences_note": "नोट: प्राथमिकताएँ आपके ब्राउज़र के स्थानीय संग्रहण में सहेजी जाती हैं। अपने ब्राउज़र डेटा को हटाने से वे रीसेट हो जाएंगी।",
-        "register_no_email_note": "ईमेल को उपयोगकर्ता नाम के रूप में लेना अनुशंसित नहीं है। फिर भी आगे बढ़ें?",
-        "next_video_countdown": "अगला वीडियो चलेगा {0} सेकंड में",
+        "register_no_email_note": "उपयोगकर्ता नाम के रूप में ईमेल का उपयोग करने की अनुशंसा नहीं की जाती है। फिर भी आगे बढ़ें?",
+        "next_video_countdown": "अगला वीडियो {0} सेकंड में चलाया जा रहा है",
         "hours": "{amount} घंटा(एं)",
         "days": "{amount} दिन(एं)",
         "weeks": "{amount} सप्ताह(एं)",
