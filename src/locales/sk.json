@@ -73,7 +73,7 @@
         "filter": "Filtrovať",
         "delete_playlist_video_confirm": "Odstrániť video z playlistu?",
         "share": "Zdieľať",
-        "follow_link": "Nasledujte odkaz",
+        "follow_link": "Otvoriť odkaz",
         "loading": "Načítavanie...",
         "download_as_txt": "Stiahnuť ako .txt",
         "reset_preferences": "Resetovať nastavenia",
@@ -103,7 +103,32 @@
         "minimize_comments": "Skryť komentáre",
         "minimize_chapters_default": "Skryť kapitoly predvolene",
         "chapters_layout_mobile": "Rozloženie kapitol v mobile",
-        "playlist_name": "Názov playlistu"
+        "playlist_name": "Názov playlistu",
+        "dismiss": "Odmietnuť",
+        "playlist_bookmarked": "Záložka pridaná",
+        "show_less": "Zobraziť menej",
+        "documentation": "Dokumentácia",
+        "reply_count": "{count} odpovedí",
+        "concurrent_prefetch_limit": "Limit súbežného prednačítania streamu",
+        "status_page": "Stav",
+        "with_playlist": "Zdieľať s playlistom",
+        "create_group": "Vytvoriť skupinu",
+        "cancel": "Zrušiť",
+        "bookmark_playlist": "Pridať záložku",
+        "group_name": "Názov skupiny",
+        "playlist_description": "Popis playlistu",
+        "store_search_history": "Ukladať históriu hľadania",
+        "hide_watched": "Skryť pozerané videá v kanáli",
+        "source_code": "Zdrojový kód",
+        "instance_donations": "Príspevky na inštanciu",
+        "no_valid_playlists": "Súbor neobsahuje platné playlisty!",
+        "okay": "Dobre",
+        "show_search_suggestions": "Zobraziť návrhy vyhľadávania",
+        "delete_automatically": "Vymazať automaticky po",
+        "download_frame": "Stiahnuť snímok",
+        "add_to_group": "Pridať do skupiny",
+        "instance_privacy_policy": "Zásady ochrany osobných údajov",
+        "generate_qrcode": "Vygenerovať QR kód"
     },
     "player": {
         "watch_on": "Zobraziť na {0}",
@@ -128,52 +153,71 @@
         "channel_groups": "Skupiny kanálov"
     },
     "preferences": {
-        "up_to_date": "Aktuálny?",
-        "ssl_score": "SSL skóre",
+        "up_to_date": "Aktuálna?",
+        "ssl_score": "Skóre SSL",
         "instance_name": "Názov inštancie",
-        "instance_locations": "Miesto inštancií",
-        "registered_users": "Registrovaní užívatelia",
-        "has_cdn": "Má CDN?",
-        "version": "Verzia"
+        "instance_locations": "Umiestnenia inštancií",
+        "registered_users": "Registrovaní používatelia",
+        "has_cdn": "Používa sieť CDN?",
+        "version": "Verzia",
+        "uptime_30d": "Doba prevádzky (30 dní)"
     },
     "video": {
         "sponsor_segments": "Sponzorské segmenty",
-        "ratings_disabled": "Hodnotenia sú vypnuté",
+        "ratings_disabled": "Hodnotenia sú zakázané",
         "chapters": "Kapitoly",
         "videos": "Videá",
-        "views": "{views} zhliadnutí",
-        "live": "{0} Live",
+        "views": "{views} zobrazení",
+        "live": "{0} Naživo",
         "shorts": "Shorts",
-        "watched": "Zhliadnuté"
+        "watched": "Pozerané",
+        "license": "Licencia",
+        "visibility": "Viditeľnosť",
+        "chapters_horizontal": "Horizontálne",
+        "category": "Kategória",
+        "all": "Všetko",
+        "chapters_vertical": "Vertikálne"
     },
     "search": {
         "did_you_mean": "Mali ste na mysli: {0}?",
         "channels": "YouTube: Kanály",
-        "playlists": "YouTube: Zoznamy skladieb",
-        "music_playlists": "YT Music: Zoznamy skladieb",
+        "playlists": "YouTube: Playlisty",
+        "music_playlists": "YT Music: Playlisty",
         "music_songs": "YT Music: Piesne",
         "music_videos": "YT Music: Videá",
         "music_albums": "YT Music: Albumy",
         "all": "YouTube: Všetko",
-        "videos": "YouTube: Videá"
+        "videos": "YouTube: Videá",
+        "music_artists": "YT Music: Umelci"
     },
     "info": {
-        "preferences_note": "Poznámka: preferencie sú uložené v miestnom úložisku vášho prehliadača. Odstránením údajov prehliadača ich resetujete.",
-        "page_not_found": "Stránka nenájdená",
+        "preferences_note": "Poznámka: predvoľby sa ukladajú do miestnej pamäte prehliadača. Vymazaním údajov prehliadača sa resetujú.",
+        "page_not_found": "Stránka nebola nájdená",
         "copied": "Skopírované!",
-        "cannot_copy": "Nedá sa kopírovať!"
+        "cannot_copy": "Nedá sa kopírovať!",
+        "next_video_countdown": "Ďalšie video sa prehrá o {0} sekúnd",
+        "days": "{amount} d.",
+        "weeks": "{amount} týžd.",
+        "months": "{amount} mes.",
+        "login_note": "Prihláste sa pomocou účtu vytvoreného na tejto inštancii.",
+        "local_storage": "Táto akcia vyžaduje lokálne úložisko, sú povolené súbory cookie?",
+        "register_no_email_note": "Použitie e-mailu ako používateľského mena sa neodporúča. Napriek tomu pokračovať?",
+        "hours": "{amount} hod.",
+        "register_note": "Zaregistrujte si účet pre túto inštanciu Piped. Umožní vám to synchronizovať odbery a playlisty s vaším účtom, takže budú uložené na strane servera. Všetky funkcie môžete používať bez účtu, ale všetky údaje budú uložené v lokálnej vyrovnávacej pamäti prehliadača. Uistite sa, že NEPOUŽÍVATE e-mailovú adresu ako svoje používateľské meno a zvoľte si bezpečné heslo, ktoré inde nepoužívate."
     },
     "subscriptions": {
-        "subscribed_channels_count": "Odoberať: {0}"
+        "subscribed_channels_count": "Odoberané: {0}"
     },
     "login": {
-        "username": "Užívatelksé meno",
-        "password": "Heslo"
+        "username": "Používateľské meno",
+        "password": "Heslo",
+        "password_confirm": "Potvrdiť heslo",
+        "passwords_incorrect": "Heslo je nesprávne!"
     },
     "comment": {
-        "loading": "Načítavajú sa komentáre...",
-        "disabled": "Komentáre sú vypnuté používateľom, ktorý nahral video.",
+        "loading": "Načítavanie komentárov...",
+        "disabled": "Komentáre sú zakázané používateľom, ktorý nahral video.",
         "user_disabled": "Komentáre sú v nastaveniach zakázané.",
-        "pinned_by": "Pripnuté {author}"
+        "pinned_by": "Pripnuté používateľom {author}"
     }
 }
