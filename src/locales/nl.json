@@ -127,7 +127,8 @@
         "download_frame": "Beeld downloaden",
         "instance_privacy_policy": "Privacybeleid",
         "add_to_group": "Toevoegen aan groep",
-        "instances_not_shown": "Openbare gevallen die hier niet worden weergegeven, zijn momenteel niet beschikbaar."
+        "instances_not_shown": "Openbare gevallen die hier niet worden weergegeven, zijn momenteel niet beschikbaar.",
+        "concurrent_prefetch_limit": "Limiet voor gelijk­tijdige stream-prefetching"
     },
     "titles": {
         "register": "Registreren",
@@ -192,7 +193,8 @@
         "instance_locations": "Instantielocaties",
         "version": "Versie",
         "up_to_date": "Bijgewerkt?",
-        "ssl_score": "SSL-score"
+        "ssl_score": "SSL-score",
+        "uptime_30d": "Uptime (30d)"
     },
     "comment": {
         "pinned_by": "Vastgemaakt door {author}",
