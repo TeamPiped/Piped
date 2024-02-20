@@ -2,7 +2,7 @@
     <h2 v-t="'titles.playlists'" class="my-4 font-bold" />
 
     <div class="mb-3 flex justify-between">
-        <button v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
+        <button v-t="'actions.create_playlist'" class="btn" @click="showCreatePlaylistModal = true" />
         <div class="flex">
             <button v-if="playlists.length > 0" v-t="'actions.export_to_json'" class="btn" @click="exportPlaylists" />
             <input
@@ -92,14 +92,20 @@
         </router-link>
     </div>
     <br />
+    <CreatePlaylistModal
+        v-if="showCreatePlaylistModal"
+        @close="showCreatePlaylistModal = false"
+        @created="fetchPlaylists"
+    />
 </template>
 
 <script>
 import ConfirmModal from "./ConfirmModal.vue";
 import ModalComponent from "./ModalComponent.vue";
+import CreatePlaylistModal from "./CreatePlaylistModal.vue";
 
 export default {
-    components: { ConfirmModal, ModalComponent },
+    components: { ConfirmModal, ModalComponent, CreatePlaylistModal },
     data() {
         return {
             playlists: [],
@@ -108,6 +114,7 @@ export default {
             playlistToEdit: null,
             newPlaylistName: "",
             newPlaylistDescription: "",
+            showCreatePlaylistModal: false,
         };
     },
     mounted() {
@@ -152,14 +159,6 @@ export default {
                 else this.playlists = this.playlists.filter(playlist => playlist.id !== id);
             });
             this.playlistToDelete = null;
-        },
-        onCreatePlaylist() {
-            const name = prompt(this.$t("actions.create_playlist"));
-            if (!name) return;
-            this.createPlaylist(name).then(json => {
-                if (json.error) alert(json.error);
-                else this.fetchPlaylists();
-            });
         },
         async exportPlaylists() {
             if (!this.playlists) return;

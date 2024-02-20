@@ -5,7 +5,12 @@
             <option v-for="playlist in playlists" :key="playlist.id" :value="playlist.id" v-text="playlist.name" />
         </select>
         <div class="mt-3 w-full flex justify-between">
-            <button ref="addButton" v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
+            <button
+                ref="addButton"
+                v-t="'actions.create_playlist'"
+                class="btn"
+                @click="showCreatePlaylistModal = true"
+            />
             <button
                 ref="addButton"
                 v-t="'actions.add_to_playlist'"
@@ -14,14 +19,21 @@
             />
         </div>
     </ModalComponent>
+    <CreatePlaylistModal
+        v-if="showCreatePlaylistModal"
+        @close="showCreatePlaylistModal = false"
+        @created="fetchPlaylists"
+    />
 </template>
 
 <script>
 import ModalComponent from "./ModalComponent.vue";
+import CreatePlaylistModal from "./CreatePlaylistModal.vue";
 
 export default {
     components: {
         ModalComponent,
+        CreatePlaylistModal,
     },
     props: {
         videoInfo: {
@@ -39,6 +51,7 @@ export default {
             playlists: [],
             selectedPlaylist: null,
             processing: false,
+            showCreatePlaylistModal: false,
         };
     },
     mounted() {
@@ -77,14 +90,6 @@ export default {
         async fetchPlaylists() {
             this.getPlaylists().then(json => {
                 this.playlists = json;
-            });
-        },
-        onCreatePlaylist() {
-            const name = prompt(this.$t("actions.create_playlist"));
-            if (!name) return;
-            this.createPlaylist(name).then(json => {
-                if (json.error) alert(json.error);
-                else this.fetchPlaylists();
             });
         },
     },
