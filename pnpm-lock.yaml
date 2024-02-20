@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.0.6
     version: 3.0.6(@fortawesome/fontawesome-svg-core@6.5.1)(vue@3.4.19)
   dompurify:
-    specifier: 3.0.8
-    version: 3.0.8
+    specifier: 3.0.9
+    version: 3.0.9
   fast-xml-parser:
     specifier: 4.3.4
     version: 4.3.4
@@ -2906,8 +2906,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /dompurify@3.0.8:
-    resolution: {integrity: sha512-b7uwreMYL2eZhrSCRC4ahLTeZcPZxSmYfmcQGXGkXiZSNW1X85v+SDM5KsWcpivIiUBH47Ji7NtyUdpLeF5JZQ==}
+  /dompurify@3.0.9:
+    resolution: {integrity: sha512-uyb4NDIvQ3hRn6NiC+SIFaP4mJ/MdXlvtunaqK9Bn6dD3RuB/1S/gasEjDHD8eiaqdSael2vBv+hOs7Y+jhYOQ==}
     dev: false
 
   /duplexer@0.1.2:
