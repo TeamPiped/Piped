@@ -158,7 +158,7 @@ export default {
         downloadPlaylistAsTxt() {
             var data = "";
             this.playlist.relatedStreams.forEach(element => {
-                data += import.meta.env.VITE_PIPED_FRONTEND + element.url + "\n";
+                data += "https://piped.video" + element.url + "\n";
             });
             this.download(data, this.playlist.name + ".txt", "text/plain");
         },
