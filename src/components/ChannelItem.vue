@@ -25,7 +25,7 @@
 
         <button
             v-if="subscribed != null"
-            class="btn w-max mt-2"
+            class="btn mt-2 w-max"
             @click="subscribeHandler"
             v-text="
                 $t('actions.' + (subscribed ? 'unsubscribe' : 'subscribe')) + ' - ' + numberFormat(item.subscribers)

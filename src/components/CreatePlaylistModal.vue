@@ -2,10 +2,10 @@
     <ModalComponent @close="$emit('close')">
         <div class="flex flex-col">
             <h2 v-t="'actions.create_playlist'" />
-            <input type="text" class="input mt-2" v-model="playlistName" />
-            <div class="flex mt-3 ml-auto w-min">
-                <button class="btn" v-t="'actions.cancel'" @click="$emit('close')" />
-                <button class="btn ml-2" v-t="'actions.okay'" @click="onCreatePlaylist" />
+            <input v-model="playlistName" type="text" class="input mt-2" />
+            <div class="ml-auto mt-3 w-min flex">
+                <button v-t="'actions.cancel'" class="btn" @click="$emit('close')" />
+                <button v-t="'actions.okay'" class="btn ml-2" @click="onCreatePlaylist" />
             </div>
         </div>
     </ModalComponent>
