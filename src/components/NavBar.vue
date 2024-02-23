@@ -200,10 +200,14 @@ export default {
         },
         submitSearch(e) {
             e.target.blur();
-            this.$router.push({
-                name: "SearchResults",
-                query: { search_query: this.searchText },
-            });
+            if (this.searchText) {
+                this.$router.push({
+                    name: "SearchResults",
+                    query: { search_query: this.searchText },
+                });
+            } else {
+                this.$router.push("/");
+            }
             return;
         },
     },
