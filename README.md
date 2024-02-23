@@ -113,7 +113,7 @@ pnpm install
 ### Compiles and hot-reloads for development
 
 ```
-pnpm serve
+pnpm dev
 ```
 
 You can now make changes and view then in realtime!
