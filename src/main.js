@@ -236,6 +236,28 @@ const mixin = {
             const localSubscriptions = this.getLocalSubscriptions() ?? [];
             return localSubscriptions.join(",");
         },
+        async fetchSubscriptions() {
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/subscriptions", null, {
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                });
+            } else {
+                const channels = this.getUnauthenticatedChannels();
+                const split = channels.split(",");
+                if (split.length > 100) {
+                    return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", null, {
+                        method: "POST",
+                        body: JSON.stringify(split),
+                    });
+                } else {
+                    return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", {
+                        channels: this.getUnauthenticatedChannels(),
+                    });
+                }
+            }
+        },
         /* generate a temporary file and ask the user to download it */
         download(text, filename, mimeType) {
             var file = new Blob([text], { type: mimeType });
