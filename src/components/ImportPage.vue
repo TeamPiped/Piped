@@ -100,7 +100,7 @@ export default {
                         });
                 }
                 // Libretube
-                else if (text.indexOf("localSubscriptions") != -1) {
+                else if (text.includes("localSubscriptions")) {
                     const json = JSON.parse(text);
                     json.localSubscriptions
                         .forEach(item => {
