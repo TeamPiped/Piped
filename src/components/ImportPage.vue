@@ -99,14 +99,6 @@ export default {
                             this.subscriptions.push(id);
                         });
                 }
-                // Libretube
-                else if (text.includes("localSubscriptions")) {
-                    const json = JSON.parse(text);
-                    json.localSubscriptions
-                        .forEach(item => {
-                            this.subscriptions.push(item.channelId);
-                        });
-                }
                 // Invidious JSON
                 else if (text.indexOf("thin_mode") != -1) {
                     const json = JSON.parse(text);
