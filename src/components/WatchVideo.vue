@@ -253,6 +253,7 @@
                     :playlist-id="playlistId"
                     :playlist="playlist"
                     :selected-index="index"
+                    :prefer-listen="isListening"
                 />
                 <a
                     v-t="`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`"
