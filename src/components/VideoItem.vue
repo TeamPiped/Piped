@@ -8,6 +8,7 @@
                     v: item.url.substr(-11),
                     ...(playlistId && { list: playlistId }),
                     ...(index >= 0 && { index: index + 1 }),
+                    ...(preferListen && { listen: 1 }),
                 },
             }"
         >
@@ -99,13 +100,13 @@
                             v: item.url.substr(-11),
                             ...(playlistId && { list: playlistId }),
                             ...(index >= 0 && { index: index + 1 }),
-                            listen: '1',
+                            ...(!preferListen && { listen: 1 }),
                         },
                     }"
-                    :aria-label="'Listen to ' + title"
-                    :title="'Listen to ' + title"
+                    :aria-label="preferListen ? title : 'Listen to ' + title"
+                    :title="preferListen ? title : 'Listen to ' + title"
                 >
-                    <font-awesome-icon icon="headphones" />
+                    <font-awesome-icon :icon="preferListen ? 'tv' : 'headphones'" />
                 </router-link>
                 <button :title="$t('actions.add_to_playlist')" @click="showPlaylistModal = !showPlaylistModal">
                     <font-awesome-icon icon="circle-plus" />
@@ -167,6 +168,7 @@ export default {
         hideChannel: { type: Boolean, default: false },
         index: { type: Number, default: -1 },
         playlistId: { type: String, default: null },
+        preferListen: { type: Boolean, default: false },
         admin: { type: Boolean, default: false },
     },
     emits: ["remove"],
