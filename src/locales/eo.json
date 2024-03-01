@@ -146,7 +146,8 @@
         "enable_dearrow": "Ebligi DeArrow",
         "generate_qrcode": "Generi QR-kodon",
         "import_from_json_csv": "Importi el JSON/CSV",
-        "download_frame": "Elŝuti bildon"
+        "download_frame": "Elŝuti bildon",
+        "instance_privacy_policy": "Privateca politiko"
     },
     "video": {
         "chapters": "Sekcioj",

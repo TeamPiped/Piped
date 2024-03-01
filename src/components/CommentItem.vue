@@ -29,7 +29,7 @@
                 </div>
             </div>
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <div class="whitespace-pre-wrap" v-html="purifiedText" />
+            <CollapsableText :text="comment.commentText" :visible-limit="500" />
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div class="cursor-pointer" @click="loadReplies">
                     <a v-text="`${$t('actions.reply_count', comment.replyCount)}`" />
@@ -56,9 +56,10 @@
 </template>
 
 <script>
-import { purifyHTML } from "@/utils/HtmlUtils";
+import CollapsableText from "./CollapsableText.vue";
 
 export default {
+    components: { CollapsableText },
     props: {
         comment: {
             type: Object,
@@ -77,18 +78,12 @@ export default {
             nextpage: null,
         };
     },
-    computed: {
-        purifiedText() {
-            return purifyHTML(this.comment.commentText);
-        },
-    },
     methods: {
         async loadReplies() {
             if (!this.showingReplies && this.loadingReplies) {
                 this.showingReplies = true;
                 return;
             }
-
             this.loadingReplies = true;
             this.showingReplies = true;
             this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.videoId, {

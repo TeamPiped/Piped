@@ -49,6 +49,12 @@ video {
 .pp-full-width :is(.comment, .comment-content) {
     width: 100%;
 }
+.pp-no-bg :is(.comment, .comment-content) {
+    background: none;
+    backdrop-filter: none !important;
+    padding: 0;
+    border: 0;
+}
 :is(.pp-trans, .pp-solid).shaka-text-container,
 :is(.pp-trans, .pp-solid).shaka-text-container * {
     background: transparent !important;

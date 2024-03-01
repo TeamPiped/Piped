@@ -18,7 +18,8 @@
         "dearrow": "DeArrow"
     },
     "player": {
-        "watch_on": "Смотреть на {0}"
+        "watch_on": "Смотреть на {0}",
+        "failed": "Ошибка с кодом {0}, откройте логи, чтобы узнать больше"
     },
     "actions": {
         "subscribe": "Подписаться - {count}",
@@ -144,7 +145,9 @@
         "delete_automatically": "Автоматическое удаление после",
         "enable_dearrow": "Включить DeArrow",
         "generate_qrcode": "Сгенерировать QR Код",
-        "import_from_json_csv": "Импорт из JSON/CSV"
+        "import_from_json_csv": "Импорт из JSON/CSV",
+        "download_frame": "Сделать скриншот видео",
+        "instance_privacy_policy": "Политика конфиденциальности"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",

@@ -142,7 +142,8 @@
         "skip_button_only": "Visa hoppa över-knapp",
         "skip_automatically": "Automatiskt",
         "download_frame": "Ladda ner bildruta",
-        "import_from_json_csv": "Importera från JSON/CSV"
+        "import_from_json_csv": "Importera från JSON/CSV",
+        "instance_privacy_policy": "Sekretesspolicy"
     },
     "player": {
         "watch_on": "Titta på {0}",

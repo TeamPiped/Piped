@@ -124,10 +124,11 @@
         "enable_dearrow": "DeArrow'u Etkinleştir",
         "generate_qrcode": "QR Kodu Oluştur",
         "import_from_json_csv": "JSON/CSV Dosyasından İçe Aktar",
-        "download_frame": "Kareyi indir"
+        "download_frame": "Kareyi indir",
+        "instance_privacy_policy": "Gizlilik Politikası"
     },
     "player": {
-        "watch_on": "{0} Üzerinde İzle",
+        "watch_on": "{0} üzerinde görüntüle",
         "failed": "{0} hata kodu ile başarısız oldu, daha fazla bilgi için günlüklere bakın"
     },
     "titles": {
