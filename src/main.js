@@ -58,8 +58,8 @@ import router from "@/router/router.js";
 import "uno.css";
 
 /*EFY UI*/
-// import "../node_modules/efy/efy.css";
 import "efy/efy.css";
+import "efy/lang/en.css"; // temporary translation fix
 import "./piped.css";
 import "efy/efy.js";
 import "./piped.js";
