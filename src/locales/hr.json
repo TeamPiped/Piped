@@ -41,7 +41,7 @@
         "donations": "Donacije za razvoj",
         "auto_play_next_video": "Automatski reproduciraj idući video",
         "loop_this_video": "Ponavljaj ovaj video",
-        "import_from_json": "Uvezi iz JSON/CSV formata",
+        "import_from_json": "Uvezi iz JSON formata",
         "export_to_json": "Izvezi u JSON",
         "no": "Ne",
         "yes": "Da",
@@ -153,10 +153,14 @@
         "show_search_suggestions": "Prikaži prijedloge pretrage",
         "delete_automatically": "Automatski izbriši nakon",
         "enable_dearrow": "Aktiviraj DeArrow",
-        "generate_qrcode": "Generiraj QR kod"
+        "generate_qrcode": "Generiraj QR kod",
+        "import_from_json_csv": "Uvezi iz JSON/CSV formata",
+        "download_frame": "Preuzmi kadar",
+        "instance_privacy_policy": "Politika privatnosti"
     },
     "player": {
-        "watch_on": "Gledaj na {0}"
+        "watch_on": "Gledaj na {0}",
+        "failed": "Neuspjelo s greškom {0}. Pogledaj zapise za više informacija"
     },
     "titles": {
         "subscriptions": "Pretplate",

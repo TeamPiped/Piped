@@ -1,6 +1,8 @@
-/*Global*/ @font-face {font-family: 'nunito'; src: url('../efy/nunito.woff2') format('truetype'); font-display: swap} @font-face {font-family: 'nunito'; src: url('../efy/nunito_bold.woff2') format('truetype'); font-weight: bold; font-display: swap}
+/*Global*/ @font-face {font-family: 'nunito'; src: url('../node_modules/efy/nunito.woff2') format('woff2'); font-weight: normal}
+@font-face {font-family: 'nunito'; src: url('../node_modules/efy/nunito_bold.woff2') format('woff2'); font-weight: bold}
 :root {
-    --efy_color: 0 84% 60%, 0 72% 51%; /*No JS Fallback*/ --efy_color1_var: 0 84% 60%; --efy_color2_var: 0 72% 51%;
+    --efy_color: 0.64 0.2 25, 0.6 0.2 30;
+    /*No JS Fallback*/ --efy_color1_var: 0.64 0.2 25; --efy_color2_var: 0.6 0.2 30;
     --efy_color_angle: 165deg;
     --efy_radius: 12rem;
     --efy_border_size: 1.5rem;
@@ -8,18 +10,20 @@
     --efy_sidebar_button: right_middle, off;
     --efy_body_width: 100%;
      --efy_body_padding: 15rem;
-    --efy_font_family: 'nunito', sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-    --efy_audio_folder: ./efy/audio;
-    --efy_folder: ./efy;
+    --efy_font_family: 'nunito', sans-serif, emoji;
+    --efy_folder: ../node_modules/efy;
+    --efy_audio_folder: ../node_modules/efy/audio;
+    --efy_lang_folder: ../node_modules/efy/lang;
     --efy_lang_code: en;
-    --efy_modules: efy_quick, efy_mode, efy_filters, efy_backup, efy_accessibility, efy_audio, efy_language, efy_extra;
+    --efy_modules: efy_quick, efy_filters, efy_backup, efy_accessibility, efy_audio, efy_language, efy_extra;
     --efy_protocol: http;
 }
 /*Default Mode*/ [efy_mode=default] {
     --efy_scheme: dark;
-    --efy_bg_var: 0 0% 100%;
-    --efy_bg: hsl(0 0% 6%);
-    --efy_text: hsl(0 0% 86%);
+    --efy_bg_var: 1 0 0;
+    --efy_bg_var2: 0 0 0;
+    --efy_bg: oklch(0.15 0 0);
+    --efy_text: oklch(.9 0 0);
 } /*Your code starts bellow*/
 
 /*BG 1*/ .comment, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
@@ -47,7 +51,7 @@
 
 /*Bellow*/ .pp-watch-bellow-options {margin-top: 15rem}
 .pp-watch-buttons {flex-wrap: wrap; gap: var(--efy_gap0)}
-.pp-watch-buttons .btn {padding: 6rem 15rem; border: 0; color: var(--efy_text2); min-height: var(--efy_ratio_width); max-height: var(--efy_ratio_width); place-self: center; place-content: center}
+.pp-watch-buttons .btn {padding: 6rem 15rem; border: 0; color: var(--efy_text2); min-height: var(--efy_size); max-height: var(--efy_size); place-self: center; place-content: center}
 .pp-bellow-video, .pp-bellow-video .flex {gap:10rem}
 .pp-likes .flex {gap: 0rem}
 
@@ -133,8 +137,8 @@ table {margin-top: 0}
     border: 0;
 }
 .pp-square {
-    width: var(--efy_ratio_width)!important;
-    height: var(--efy_ratio_width);
+    width: var(--efy_size)!important;
+    height: var(--efy_size);
 }
 .video-tags {
     display: flex;

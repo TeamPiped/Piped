@@ -158,7 +158,7 @@
                 <br />
             </div>
 
-            <div efy_select>
+            <div efy_select class="pp-watch-toggles">
                 <input id="showDesc" v-model="showDesc" type="checkbox" />
                 <label v-t="'actions.show_description'" for="showDesc" />
                 <input id="showComments" v-model="showComments" type="checkbox" @click="toggleComments" />
@@ -710,6 +710,14 @@ export default {
 .description a {
     text-decoration: underline;
     filter: brightness(0.75);
+}
+.pp-watch-toggles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--efy_gap0);
+    & label {
+        margin: 0;
+    }
 }
 @media (width <= 768px) {
     .share-btn {

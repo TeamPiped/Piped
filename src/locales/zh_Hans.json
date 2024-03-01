@@ -124,7 +124,8 @@
         "enable_dearrow": "启用 DeArrow",
         "generate_qrcode": "生成二维码",
         "import_from_json_csv": "从 JSON/CSV 文件导入",
-        "download_frame": "下载视频帧"
+        "download_frame": "下载视频帧",
+        "instance_privacy_policy": "隐私政策"
     },
     "video": {
         "sponsor_segments": "赞助商部分",

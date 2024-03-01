@@ -142,7 +142,8 @@
         "delete_automatically": "Eliminar automaticamente após",
         "generate_qrcode": "Gerar código QR",
         "import_from_json_csv": "Importar de JSON/CSV",
-        "download_frame": "Quadro de transferência"
+        "download_frame": "Quadro de transferência",
+        "instance_privacy_policy": "Política de privacidade"
     },
     "preferences": {
         "instance_name": "Nome da instância",

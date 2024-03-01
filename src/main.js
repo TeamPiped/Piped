@@ -58,9 +58,10 @@ import router from "@/router/router.js";
 import "uno.css";
 
 /*EFY UI*/
-import "../public/efy/efy.css";
+// import "../node_modules/efy/efy.css";
+import "efy/efy.css";
 import "./piped.css";
-import "../public/efy/efy.js";
+import "efy/efy.js";
 import "./piped.js";
 
 import App from "./App.vue";

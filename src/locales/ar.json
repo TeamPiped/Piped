@@ -18,7 +18,7 @@
         "dearrow": "دي ارو"
     },
     "player": {
-        "watch_on": "شاهد عبر",
+        "watch_on": "مشاهدة على {0}",
         "failed": "فشل مع رمز الخطأ {0}، راجع السجلات لمزيد من المعلومات"
     },
     "actions": {
@@ -146,7 +146,8 @@
         "enable_dearrow": "تمكين دي ارو",
         "generate_qrcode": "إنشاء رمز الاستجابة السريعة",
         "import_from_json_csv": "استيراد من JSON/CSV",
-        "download_frame": "إطار التحميل"
+        "download_frame": "إطار التحميل",
+        "instance_privacy_policy": "سياسة الخصوصية"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
