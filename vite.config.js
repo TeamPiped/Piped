@@ -6,6 +6,7 @@ import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
 import eslintPlugin from "vite-plugin-eslint";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -64,6 +65,14 @@ export default defineConfig({
             },
         }),
         eslintPlugin(),
+        viteStaticCopy({
+            targets: [
+                {
+                    src: "node_modules/efy/*",
+                    dest: "efy",
+                },
+            ],
+        }),
     ],
     resolve: {
         alias: {

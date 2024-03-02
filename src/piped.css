@@ -11,9 +11,9 @@
     --efy_body_width: 100%;
      --efy_body_padding: 15rem;
     --efy_font_family: 'nunito', sans-serif, emoji;
-    --efy_folder: ../node_modules/efy;
-    --efy_audio_folder: ../node_modules/efy/audio;
-    --efy_lang_folder: ../node_modules/efy/lang;
+    --efy_folder: efy;
+    --efy_audio_folder: efy/audio;
+    --efy_lang_folder: efy/lang;
     --efy_lang_code: en;
     --efy_modules: efy_quick, efy_filters, efy_backup, efy_accessibility, efy_audio, efy_language, efy_extra;
     --efy_protocol: http;
