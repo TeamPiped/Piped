@@ -1,40 +1,19 @@
 <template>
-    <!-- desktop view -->
-    <div v-if="!mobileLayout" class="pp-chapters flex-col max-h-75vh min-h-64 lt-lg:hidden">
-        <h6 aria-label="chapters" title="chapters" class="efy_trans_filter efy_shadow_trans">
-            {{ $t("video.chapters") }} - {{ chapters.length }}
-        </h6>
+    <div class="pp-chapters max-h-75vh">
+        <h6 class="title efy_trans_filter efy_shadow_trans">{{ $t("video.chapters") }} - {{ chapters.length }}</h6>
         <div
             v-for="(chapter, index) in chapters"
             :key="chapter.start"
-            class="chapter efy_anim_pulse"
+            class="chapter flex efy_anim_pulse"
             :class="isCurrentChapter(index) ? 'pp-chapter-active' : 'efy_shadow_trans efy_trans_filter'"
-            :role="isCurrentChapter(index) ? 'button' : ''"
-            @click="$emit('seek', chapter.start)"
-        >
-            <div class="flex">
-                <img :src="chapter.image" :alt="chapter.title" />
-                <div class="flex flex-col m-2">
-                    <span :title="chapter.title" v-text="index + 1 + '. ' + chapter.title" class="font-bold" />
-                    <span class="font-bold" v-text="timeFormat(chapter.start)" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- mobile view -->
-    <div v-else class="pp-chapters pp-mobile flex overflow-x-auto">
-        <div
-            v-for="(chapter, index) in chapters"
-            :key="chapter.start"
-            class="chapter efy_anim_pulse efy_trans_filter"
-            :class="{ 'pp-chapter-active': isCurrentChapter(index) }"
             @click="$emit('seek', chapter.start)"
         >
             <img :src="chapter.image" :alt="chapter.title" />
-            <div class="m-1 flex">
-                <span class="text-truncate font-bold" :title="chapter.title" v-text="chapter.title" />
-                <span class="px-1 font-bold" v-text="timeFormat(chapter.start)" />
-            </div>
+            <span
+                :title="chapter.title"
+                v-text="timeFormat(chapter.start) + ' - ' + chapter.title"
+                class="text font-bold"
+            />
         </div>
     </div>
 </template>
@@ -44,10 +23,6 @@ const props = defineProps({
     chapters: {
         type: Object,
         default: () => null,
-    },
-    mobileLayout: {
-        type: Boolean,
-        default: () => true,
     },
     playerPosition: {
         type: Number,
@@ -66,49 +41,79 @@ defineEmits(["seek"]);
 </script>
 
 <style>
-.chapter {
-    @apply cursor-pointer self-center p-2.5;
-}
-.pp-mobile .chapter img {
-    @apply w-full h-full;
-}
-.chapter img {
-    @apply w-3/10 h-3/10;
-}
-.text-truncate {
-    @apply truncate overflow-hidden inline-block w-10em;
-}
 .pp-chapters {
+    flex-direction: column;
     margin: -15rem 0 0 0;
     padding: var(--efy_gap);
+    min-width: 400rem;
     max-width: 400rem;
-    gap: var(--efy_gap0);
+    gap: var(--efy_gap);
     border-radius: var(--efy_radius);
     overflow: auto;
+    .title {
+        background: var(--efy_bg1);
+        border: var(--efy_border);
+        padding: 10rem;
+        border-radius: var(--efy_radius);
+        line-height: 1;
+    }
+    .chapter {
+        display: flex;
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-radius: var(--efy_radius);
+        border: var(--efy_border);
+        align-items: center;
+        place-content: start;
+        cursor: pointer;
+        & img {
+            border-radius: var(--efy_radius) 0 0 var(--efy_radius);
+            max-width: 132rem;
+            height: 100%;
+        }
+        .text {
+            padding: 15rem;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            place-content: start;
+            border-radius: 0 var(--efy_radius) var(--efy_radius) 0;
+        }
+    }
 }
-.pp-chapters .chapter {
-    padding: 10rem;
-    border-radius: var(--efy_radius);
-    border: var(--efy_border);
-}
-.pp-chapters [title="chapters"] {
-    padding: 5rem 10rem;
-    border-radius: var(--efy_radius);
-    border: var(--efy_border);
-}
-.pp-chapters .chapter .flex {
-    gap: 0 15rem;
-}
-.pp-chapters.pp-mobile {
-    margin: 15rem 0 0 0;
-    max-width: 100%;
-}
-.pp-chapter-active,
-.pp-chapters .chapter:hover {
+:is(.pp-chapter-active, .pp-chapters .chapter:hover) .text {
     background: var(--efy_color);
-    background-clip: padding-box;
     color: var(--efy_text2);
-    border: 0 !important;
     margin: 0;
+}
+@media (max-width: 1023px) {
+    .pp-chapters {
+        flex-direction: row;
+        margin: var(--efy_gap) 0 0 0;
+        max-width: 100%;
+        padding: 0 0 var(--efy_gap) 0;
+        .title {
+            display: none;
+        }
+        .chapter {
+            flex-direction: column;
+            & img {
+                border-radius: var(--efy_radius) var(--efy_radius) 0 0;
+                max-width: 100%;
+            }
+            .text {
+                padding: 7rem 8rem 5rem 8rem;
+                display: inline-block;
+                width: 160rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                border-radius: 0 0 var(--efy_radius) var(--efy_radius);
+            }
+        }
+    }
 }
 </style>

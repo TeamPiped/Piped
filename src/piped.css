@@ -26,7 +26,7 @@
     --efy_text: oklch(.9 0 0);
 } /*Your code starts bellow*/
 
-/*BG 1*/ .comment, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover), .pp-chapters [title=chapters] {background: var(--efy_bg1)}
+/*BG 1*/ .comment, .pp-mobile-nav a, .pp-mobile-nav p, .suggestion-selected, .pp-chapters .chapter:not(.pp-chapter-active, .chapter:hover) {background: var(--efy_bg1)}
 /*Bold*/ .btn {font-weight: bold}
 /*Margin: 0*/ .pp-watch-buttons .btn, .suggestions-container li, .suggestions-container ul, .pp-mobile-btn i, .pp-mobile-nav a, .pp-mobile-nav p, .modal-container button:first-of-type svg {margin: 0}
 /*Text-Align: Center*/ .btn, .pp-import-channel, .pp-sortby-feed, .pp-playlist-add-modal-top, .pp-nav, .pp-nav > div.flex-1.flex.justify-start > a, .pp-watch-bellow-options .flex.items-center, .pp-channel-page-author {align-items: center; text-align: center}
