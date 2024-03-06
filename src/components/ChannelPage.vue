@@ -13,7 +13,7 @@
                 <img height="48" width="48" class="m-1 rounded-full" :src="channel.avatarUrl" />
                 <div class="flex items-center gap-1">
                     <h1 class="!text-xl" v-text="channel.name" />
-                    <font-awesome-icon v-if="channel.verified" class="!text-xl" icon="check" />
+                    <i v-if="channel.verified" class="i-fa6-solid:check !text-xl" />
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                     target="_blank"
                     class="btn flex-col"
                 >
-                    <font-awesome-icon icon="rss" />
+                    <i class="i-fa6-solid:rss" />
                 </a>
             </div>
         </div>

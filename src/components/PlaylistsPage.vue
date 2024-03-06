@@ -76,7 +76,7 @@
             <div class="relative text-sm">
                 <span class="thumbnail-overlay thumbnail-right" v-text="`${playlist.videos} ${$t('video.videos')}`" />
                 <div class="absolute bottom-100px right-5px z-100 px-5px" @click.prevent="removeBookmark(index)">
-                    <font-awesome-icon class="ml-3" icon="bookmark" />
+                    <i class="i-fa6-solid:bookmark ml-3" />
                 </div>
             </div>
             <p
