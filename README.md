@@ -138,7 +138,10 @@ Donations can be made at:
 -   nano_1ngejzydncche4rdua3iebhj7sa95pw5geq4pb8phugtjf3tku933ktjb4pq (Nano)
 -   XpzgouDTKCUuE8a92XqjX9b43gKL8oLihw (Dash)
 
-FIAT donations can be made at: https://liberapay.com/kavin
+FIAT donations can be made at:
+
+- https://liberapay.com/kavin (Author of project, used for Project infrastructure maintainance, and official instance)
+- https://liberapay.com/Bnyro (Maintainer of repo)
 
 Contributions in any other form are also welcomed.
 
