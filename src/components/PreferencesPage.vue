@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
         <button @click="$router.go(-1) || $router.push('/')">
-            <font-awesome-icon icon="chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
+            <i class="i-fa6-solid:chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
         </button>
     </div>
     <h1 v-t="'titles.preferences'" class="text-center font-bold" />

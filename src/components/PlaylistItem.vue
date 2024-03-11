@@ -6,7 +6,7 @@
             </div>
             <p>
                 <span v-text="props.item.name" />
-                <font-awesome-icon v-if="props.item.verified" class="ml-1.5" icon="check" />
+                <i v-if="props.item.verified" class="i-fa6-solid:check ml-1.5" />
             </p>
         </router-link>
         <p v-if="props.item.description" v-text="props.item.description" />
@@ -14,7 +14,7 @@
         <router-link v-if="props.item.uploaderUrl" class="link" :to="props.item.uploaderUrl">
             <p>
                 <span v-text="props.item.uploaderName" />
-                <font-awesome-icon v-if="props.item.uploaderVerified" class="ml-1.5" icon="check" />
+                <i v-if="props.item.uploaderVerified" class="i-fa6-solid:check ml-1.5" />
             </p>
         </router-link>
         <a v-else-if="props.item.uploaderName" class="link" v-text="props.item.uploaderName" />
