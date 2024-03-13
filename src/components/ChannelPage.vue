@@ -213,8 +213,8 @@ export default {
                 case "playlists":
                     translatedTabName = this.$t("titles.playlists");
                     break;
-                case "channels":
-                    translatedTabName = this.$t("titles.channels");
+                case "albums":
+                    translatedTabName = this.$t("titles.albums");
                     break;
                 case "shorts":
                     translatedTabName = this.$t("video.shorts");
