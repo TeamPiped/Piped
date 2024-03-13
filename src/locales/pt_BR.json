@@ -146,7 +146,8 @@
         "livestreams": "Transmissões ao vivo",
         "bookmarks": "Favoritos",
         "channel_groups": "Grupos de Canais",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Álbuns"
     },
     "player": {
         "watch_on": "Ver em {0}",
