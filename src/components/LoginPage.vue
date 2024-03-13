@@ -51,7 +51,7 @@ export default {
     mounted() {
         //TODO: Add Server Side check
         if (this.getAuthToken()) {
-            this.$router.push("/");
+            this.$router.push(import.meta.env.BASE_URL);
         }
     },
     activated() {
@@ -69,7 +69,7 @@ export default {
             }).then(resp => {
                 if (resp.token) {
                     this.setPreference("authToken" + this.hashCode(this.authApiUrl()), resp.token);
-                    window.location = "/"; // done to bypass cache
+                    window.location = import.meta.env.BASE_URL; // done to bypass cache
                 } else alert(resp.error);
             });
         },
