@@ -148,7 +148,9 @@
         "import_from_json_csv": "Impor dari JSON/CSV",
         "download_frame": "Unduh bingkai",
         "instance_privacy_policy": "Kebijakan Privasi",
-        "add_to_group": "Tambahkan ke grup"
+        "add_to_group": "Tambahkan ke grup",
+        "concurrent_prefetch_limit": "Batasan Concurrent Stream Prefetch",
+        "instances_not_shown": "Instance publik yang tidak ditampilkan disini saat ini tidak tersedia."
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -163,7 +165,8 @@
         "has_cdn": "Memakai CDN?",
         "up_to_date": "Sudah terkini?",
         "version": "Versi",
-        "registered_users": "Pengguna Terdaftar"
+        "registered_users": "Pengguna Terdaftar",
+        "uptime_30d": "Waktu aktif (30hari)"
     },
     "login": {
         "username": "Nama Pengguna",
