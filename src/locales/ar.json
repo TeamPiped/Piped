@@ -15,7 +15,8 @@
         "channels": "القنوات",
         "bookmarks": "الإشارات المرجعية",
         "channel_groups": "مجموعات القنوات",
-        "dearrow": "دي ارو"
+        "dearrow": "دي ارو",
+        "albums": "الألبومات"
     },
     "player": {
         "watch_on": "مشاهدة على {0}",
