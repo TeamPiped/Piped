@@ -15,7 +15,8 @@
         "channels": "Kanały",
         "bookmarks": "Zakładki",
         "channel_groups": "Grupy kanałów",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albumy"
     },
     "player": {
         "watch_on": "Zobacz na {0}",
