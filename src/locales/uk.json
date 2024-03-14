@@ -156,7 +156,8 @@
         "channels": "Канали",
         "bookmarks": "Закладки",
         "channel_groups": "Групи каналів",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Альбоми"
     },
     "comment": {
         "pinned_by": "Прикріплено користувачем {author}",

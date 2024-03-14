@@ -15,7 +15,8 @@
         "dearrow": "DeArrow",
         "livestreams": "Otseetrid",
         "channels": "Kanalid",
-        "channel_groups": "Kanalite grupid"
+        "channel_groups": "Kanalite grupid",
+        "albums": "Albumid"
     },
     "player": {
         "watch_on": "Vaata {0} saidis",

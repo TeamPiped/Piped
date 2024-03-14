@@ -15,7 +15,8 @@
         "dearrow": "DeArrow",
         "livestreams": "Livesändningar",
         "channels": "Kanaler",
-        "channel_groups": "Kanal Grupper"
+        "channel_groups": "Kanal Grupper",
+        "albums": "Album"
     },
     "actions": {
         "subscribe": "Prenumerera",
