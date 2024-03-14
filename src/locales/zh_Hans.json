@@ -182,7 +182,8 @@
         "channels": "频道",
         "bookmarks": "书签",
         "channel_groups": "频道组",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "专辑"
     },
     "login": {
         "password": "密码",
