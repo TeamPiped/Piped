@@ -84,7 +84,7 @@
         "logout": "Odhlásiť sa z tohto zariadenia",
         "minimize_recommendations_default": "Skryť odporúčania predvolene",
         "different_auth_instance": "Na overenie použite inú inštanciu",
-        "instance_auth_selection": "Inštancia autentifikácie",
+        "instance_auth_selection": "Autentifikačná inštancia",
         "invalidate_session": "Odhlásiť sa zo všetkých zariadení",
         "clone_playlist": "Klonovať playlist",
         "clone_playlist_success": "Úspešne klonované!",
@@ -150,7 +150,8 @@
         "bookmarks": "Záložky",
         "channels": "Kanály",
         "dearrow": "DeArrow",
-        "channel_groups": "Skupiny kanálov"
+        "channel_groups": "Skupiny kanálov",
+        "albums": "Albumy"
     },
     "preferences": {
         "up_to_date": "Aktuálna?",
