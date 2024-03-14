@@ -90,7 +90,7 @@ export default {
 
             return _this.selectedGroupName == ""
                 ? videos
-                : videos.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-11)));
+                : videos.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-24)));
         },
     },
     mounted() {
