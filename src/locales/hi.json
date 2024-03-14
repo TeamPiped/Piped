@@ -15,7 +15,8 @@
         "instance": "इंस्टैंस",
         "channel_groups": "चैनल ग्रुप",
         "bookmarks": "बुकमार्क",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "एलबम"
     },
     "actions": {
         "subscribe": "सदस्यता लें",
