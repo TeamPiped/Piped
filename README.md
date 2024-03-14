@@ -140,7 +140,7 @@ Donations can be made at:
 
 FIAT donations can be made at:
 
-- https://liberapay.com/kavin (Author of project, used for Project infrastructure maintainance, and official instance)
+- https://liberapay.com/kavin (Author of project, used for Project infrastructure maintenance, and official instance)
 - https://liberapay.com/Bnyro (Maintainer of repo)
 
 Contributions in any other form are also welcomed.
