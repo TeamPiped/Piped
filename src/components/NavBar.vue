@@ -131,7 +131,7 @@ export default {
             searchText: "",
             suggestionsVisible: false,
             showTopNav: false,
-            homePagePath: "/",
+            homePagePath: import.meta.env.BASE_URL,
             registrationDisabled: false,
         };
     },

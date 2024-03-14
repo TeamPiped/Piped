@@ -178,7 +178,8 @@
         "channels": "Canales",
         "bookmarks": "Marcadores",
         "channel_groups": "Grupos de canales",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Álbumes"
     },
     "player": {
         "watch_on": "Ver en {0}",

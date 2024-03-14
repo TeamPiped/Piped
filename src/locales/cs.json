@@ -15,7 +15,8 @@
         "channels": "Kanály",
         "bookmarks": "Záložky",
         "channel_groups": "Skupiny kanálů",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Alba"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",

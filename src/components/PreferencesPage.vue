@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
         <button @click="$router.go(-1) || $router.push('/')">
-            <font-awesome-icon icon="chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
+            <i class="i-fa6-solid:chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
         </button>
     </div>
     <h1 v-t="'titles.preferences'" class="text-center font-bold" />
@@ -504,7 +504,7 @@ export default {
     async mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
 
-        this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
+        this.fetchJson(import.meta.env.VITE_PIPED_INSTANCES).then(resp => {
             this.instances = resp;
             if (!this.instances.some(instance => instance.api_url == this.apiUrl()))
                 this.instances.push({
@@ -517,7 +517,7 @@ export default {
         });
 
         if (this.testLocalStorage) {
-            this.selectedInstance = this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
+            this.selectedInstance = this.getPreferenceString("instance", import.meta.env.VITE_PIPED_API);
             this.authInstance = this.getPreferenceBoolean("authInstance", false);
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
 
@@ -655,14 +655,14 @@ export default {
             // reset the auth token
             localStorage.removeItem("authToken" + this.hashCode(this.authApiUrl()));
             // redirect to trending page
-            window.location = "/";
+            window.location = import.meta.env.BASE_URL;
         },
         resetPreferences() {
             this.showConfirmResetPrefsDialog = false;
             // clear the local storage
             localStorage.clear();
             // redirect to the home page
-            window.location = "/";
+            window.location = import.meta.env.BASE_URL;
         },
         async invalidateSession() {
             this.fetchJson(this.authApiUrl() + "/logout", null, {

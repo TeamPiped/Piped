@@ -150,7 +150,8 @@
         "channels": "Kanallar",
         "bookmarks": "Yer İmleri",
         "channel_groups": "Kanal grupları",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albümler"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",

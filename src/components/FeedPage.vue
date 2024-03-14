@@ -41,7 +41,7 @@
     <span class="flex gap-2">
         <router-link v-t="'titles.subscriptions'" class="btn" to="/subscriptions" />
         <a :href="getRssUrl" class="btn">
-            <font-awesome-icon icon="rss" />
+            <i class="i-fa6-solid:rss" />
         </a>
     </span>
     <hr />
