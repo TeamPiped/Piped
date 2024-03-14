@@ -12,7 +12,11 @@
         "player": "Lejátszó",
         "instance": "Szerver",
         "livestreams": "Élő adások",
-        "channels": "Csatornák"
+        "channels": "Csatornák",
+        "dearrow": "DeArrow",
+        "albums": "Albumok",
+        "bookmarks": "Könyvjelzők",
+        "channel_groups": "Csatorna csoportok"
     },
     "actions": {
         "subscribe": "Feliratkozás",
@@ -39,12 +43,12 @@
         "autoplay_video": "Automatikus lejátszás",
         "audio_only": "Csak hang",
         "default_quality": "Alapértelmezett minőség",
-        "country_selection": "Ország választás",
+        "country_selection": "Ország",
         "default_homepage": "Alapértelmezett kezdőlap",
         "show_comments": "Megjegyzések megjelenítése",
         "minimize_description_default": "Leírás minimalizásása alapból",
         "store_watch_history": "Megtekintési előzmények tárolása",
-        "language_selection": "Nyelv választás",
+        "language_selection": "Nyelv",
         "enabled_codecs": "Engedélyezett kodekek (több)",
         "show_more": "További megjelenítése",
         "yes": "Igen",
@@ -52,14 +56,14 @@
         "export_to_json": "Exportálás JSON-ba",
         "skip_preview": "Előzetes/Ismétlés",
         "buffering_goal": "Pufferelési cél (másodpercben)",
-        "instance_selection": "Példány kiválasztása",
+        "instance_selection": "Példány",
         "skip_filler_tangent": "Témától eltérő töltelék/viccek",
         "loop_this_video": "Videó ismétlése",
         "donations": "Fejlesztési támogatások",
         "minimize_description": "Leírás minimalizálása",
         "show_recommendations": "Javaslatok megjelenítése",
         "enable_lbry_proxy": "Proxy engedélyezése a LBRY számára",
-        "search": "Keresés",
+        "search": "Keresés (Ctrl+K)",
         "filter": "Szűrés",
         "loading": "Betöltés...",
         "clear_history": "Megtekintési előzmények törlése",
@@ -75,7 +79,7 @@
         "view_ssl_score": "SSL pontszám megtekintése",
         "sort_by": "Rendezés:",
         "show_description": "Leírás megjelenítése",
-        "import_from_json": "Importálás JSON/CSV-ból",
+        "import_from_json": "Importálás JSON-ból",
         "delete_playlist_video_confirm": "Eltávolítja a videót a lejátszási listából?",
         "remove_from_playlist": "Törlés a lejátszási listából",
         "auto_play_next_video": "Következő videó automatikus lejátszása",
@@ -87,7 +91,7 @@
         "minimize_recommendations_default": "Ajánlások alapértelmezett minimalizálása",
         "invalidate_session": "Kijelentkezés minden eszközről",
         "different_auth_instance": "Másik példány használata a hitelesítéshez",
-        "instance_auth_selection": "Autentikációs példány kiválasztása",
+        "instance_auth_selection": "Hitelesítési példány",
         "clone_playlist": "Lejátszási lista klónozása",
         "clone_playlist_success": "Sikeresen klónozva!",
         "reset_preferences": "Alaphelyzetbe állítás",
@@ -107,7 +111,7 @@
         "backup_preferences": "Beállítások mentése",
         "share": "Megosztás",
         "with_timecode": "Megosztás & videó kezdés ettől a ponttól",
-        "store_search_history": "Mentse a keresési előzményeket",
+        "store_search_history": "Keresési előzmények tárolása",
         "follow_link": "Követések link",
         "copy_link": "Link másolása",
         "status_page": "Státusz",
@@ -115,7 +119,35 @@
         "with_playlist": "Megosztás lejátszási listával",
         "minimize_comments_default": "Mindig tüntesd el a kommenteket",
         "minimize_comments": "Kommentek eltüntetése",
-        "back_to_home": "Vissza a főoldalra"
+        "back_to_home": "Vissza a főoldalra",
+        "delete_automatically": "Automatikus törlés ezt követően",
+        "enable_dearrow": "DeArrow engedélyezése",
+        "playlist_name": "Lejátszási lista neve",
+        "instance_privacy_policy": "Adatvédelmi szabályzat",
+        "cancel": "Visszavonás",
+        "okay": "Rendben",
+        "concurrent_prefetch_limit": "Egyidejű adatfolyam előzetes letöltési korlátja",
+        "bookmark_playlist": "Könyvjelző",
+        "dismiss": "Elvetés",
+        "show_less": "Mutass kevesebbet",
+        "create_group": "Csoport létrehozása",
+        "playlist_bookmarked": "Könyvjelzőzött",
+        "edit_playlist": "Lejátszási lista szerkesztése",
+        "group_name": "Csoport neve",
+        "min_segment_length": "Minimális szegmens hossz (másodpercben)",
+        "skip_automatically": "Automatikusan",
+        "instances_not_shown": "Az itt nem látható nyilvános példányok jelenleg nem érhetők el.",
+        "skip_button_only": "Kihagyás gomb megjelenítése",
+        "autoplay_next_countdown": "Alapértelmezett visszaszámlálás a következő videóig (másodpercben)",
+        "import_from_json_csv": "Importálás JSON/CSV formátumból",
+        "auto_display_captions": "Feliratok automatikus megjelenítése",
+        "chapters_layout_mobile": "Fejezetek elrendezése telefonon",
+        "skip_segment": "Szegmens kihagyása",
+        "playlist_description": "Lejátszási lista leírása",
+        "show_search_suggestions": "Mutass keresési javaslatokat",
+        "generate_qrcode": "QR-kód generálása",
+        "add_to_group": "Hozzáadás a csoporthoz",
+        "download_frame": "Keret letöltése"
     },
     "video": {
         "ratings_disabled": "Értékelések Letiltva",
@@ -125,10 +157,17 @@
         "live": "{0} Élő",
         "videos": "Videók",
         "views": "{views} megtekintés",
-        "shorts": "Rövid videók"
+        "shorts": "Rövid videók",
+        "category": "Kategória",
+        "chapters_horizontal": "Vízszintes",
+        "chapters_vertical": "Függőleges",
+        "all": "Mind",
+        "license": "Licenc",
+        "visibility": "Láthatóság"
     },
     "player": {
-        "watch_on": "Lejátszásban {0}"
+        "watch_on": "Megtekintés itt: {0}",
+        "failed": "Sikertelen hibakód: {0}, további információért tekintse meg a naplókat"
     },
     "preferences": {
         "instance_name": "Példány neve",
@@ -137,7 +176,8 @@
         "version": "Verzió",
         "ssl_score": "SSL pontszám",
         "registered_users": "Regisztrált felhasználók",
-        "up_to_date": "Naprakész?"
+        "up_to_date": "Naprakész?",
+        "uptime_30d": "Üzemidő (30 nap)"
     },
     "search": {
         "did_you_mean": "Erre gondoltál: {0}?",
@@ -148,11 +188,14 @@
         "music_songs": "YT Music: Dalok",
         "music_videos": "YT Music: Videók",
         "music_albums": "YT Music: Albumok",
-        "music_playlists": "YT Music: Lejátszási listák"
+        "music_playlists": "YT Music: Lejátszási listák",
+        "music_artists": "YT Zene: Előadók"
     },
     "login": {
         "username": "Felhasználónév",
-        "password": "Jelszó"
+        "password": "Jelszó",
+        "password_confirm": "Jelszó megerősítése",
+        "passwords_incorrect": "A jelszavak nem egyeznek!"
     },
     "comment": {
         "pinned_by": "Rögzítette {author}",
@@ -168,6 +211,14 @@
         "copied": "Másolva!",
         "local_storage": "Ennek a beállításnak szüksége van a \"lokális tárhely\" funkcióra, be vannak a sütik kapcsolva?",
         "cannot_copy": "Nem lehet másolni!",
-        "page_not_found": "Oldnal nem található"
+        "page_not_found": "Oldnal nem található",
+        "register_no_email_note": "Nem ajánlott e-mailt használni felhasználónévként. Tovább folytatja?",
+        "next_video_countdown": "Következő videó lejátszása {0}másodperc múlva",
+        "weeks": "{amount} hét",
+        "login_note": "Jelentkezzen be az ezen a példányon létrehozott fiókkal.",
+        "months": "{amount} hónap",
+        "hours": "{amount} óra",
+        "days": "{amount} nap",
+        "register_note": "Regisztráljon egy fiókot ehhez a Piped példányhoz. Ez lehetővé teszi az előfizetések és lejátszási listák szinkronizálását a fiókjával, így azok a kiszolgáló oldalon kerülnek tárolásra. Az összes funkciót fiók nélkül is használhatja, de minden adat a böngésző helyi gyorsítótárában tárolódik. Kérjük, győződjön meg róla, hogy NE használjon e-mail címet felhasználónévként, és válasszon biztonságos jelszót, amelyet máshol nem használ."
     }
 }
