@@ -313,6 +313,10 @@
             </select>
         </label>
     </template>
+    <div class="pref">
+        <span v-t="'titles.custom_instances'" class="w-max" />
+        <button v-t="'actions.customize'" class="btn" @click="showCustomInstancesModal = true" />
+    </div>
     <br />
 
     <!-- options that are visible only when logged in -->
@@ -359,7 +363,7 @@
                 <th v-t="'preferences.ssl_score'" />
             </tr>
         </thead>
-        <tbody v-for="instance in instances" :key="instance.name">
+        <tbody v-for="instance in publicInstances" :key="instance.name">
             <tr>
                 <td v-text="instance.name" />
                 <td v-text="instance.locations" />
@@ -387,14 +391,23 @@
         @close="showConfirmResetPrefsDialog = false"
         @confirm="resetPreferences()"
     />
+    <CustomInstanceModal
+        v-if="showCustomInstancesModal"
+        @close="
+            showCustomInstancesModal = false;
+            fetchInstances();
+        "
+    />
 </template>
 
 <script>
 import CountryMap from "@/utils/CountryMaps/en.json";
 import ConfirmModal from "./ConfirmModal.vue";
+import CustomInstanceModal from "./CustomInstanceModal.vue";
 export default {
     components: {
         ConfirmModal,
+        CustomInstanceModal,
     },
     data() {
         return {
@@ -402,7 +415,8 @@ export default {
             selectedInstance: null,
             authInstance: false,
             selectedAuthInstance: null,
-            instances: [],
+            customInstances: [],
+            publicInstances: [],
             sponsorBlock: true,
             skipOptions: new Map([
                 ["sponsor", { value: "auto", label: "actions.skip_sponsors" }],
@@ -496,7 +510,13 @@ export default {
             prefetchLimit: 2,
             password: null,
             showConfirmResetPrefsDialog: false,
+            showCustomInstancesModal: false,
         };
+    },
+    computed: {
+        instances() {
+            return [...this.publicInstances, ...this.customInstances];
+        },
     },
     activated() {
         document.title = this.$t("titles.preferences") + " - Piped";
@@ -504,17 +524,7 @@ export default {
     async mounted() {
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
 
-        this.fetchJson(import.meta.env.VITE_PIPED_INSTANCES).then(resp => {
-            this.instances = resp;
-            if (!this.instances.some(instance => instance.api_url == this.apiUrl()))
-                this.instances.push({
-                    name: "Custom Instance",
-                    api_url: this.apiUrl(),
-                    locations: "Unknown",
-                    cdn: false,
-                    uptime_30d: 100,
-                });
-        });
+        this.fetchInstances();
 
         if (this.testLocalStorage) {
             this.selectedInstance = this.getPreferenceString("instance", import.meta.env.VITE_PIPED_API);
@@ -632,6 +642,21 @@ export default {
 
                 if (shouldReload) window.location.reload();
             }
+        },
+        async fetchInstances() {
+            this.customInstances = this.getCustomInstances();
+
+            this.fetchJson(import.meta.env.VITE_PIPED_INSTANCES).then(resp => {
+                this.publicInstances = resp;
+                if (!this.publicInstances.some(instance => instance.api_url == this.apiUrl()))
+                    this.publicInstances.push({
+                        name: "Selected Instance",
+                        api_url: this.apiUrl(),
+                        locations: "Unknown",
+                        cdn: false,
+                        uptime_30d: 100,
+                    });
+            });
         },
         sslScore(url) {
             return "https://www.ssllabs.com/ssltest/analyze.html?d=" + new URL(url).host + "&latest";

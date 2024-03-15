@@ -553,6 +553,20 @@ const mixin = {
 
             return !resp.error;
         },
+        getCustomInstances() {
+            return JSON.parse(window.localStorage.getItem("customInstances")) ?? [];
+        },
+        addCustomInstance(instance) {
+            let customInstances = this.getCustomInstances();
+            customInstances.push(instance);
+            window.localStorage.setItem("customInstances", JSON.stringify(customInstances));
+        },
+        removeCustomInstance(instanceToDelete) {
+            let customInstances = this.getCustomInstances().filter(
+                instance => instance.api_url != instanceToDelete.api_url,
+            );
+            window.localStorage.setItem("customInstances", JSON.stringify(customInstances));
+        },
     },
     computed: {
         authenticated(_this) {
