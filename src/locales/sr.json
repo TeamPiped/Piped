@@ -190,7 +190,8 @@
         "channels": "Канали",
         "bookmarks": "Обележивачи",
         "channel_groups": "Групе канала",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Албуми"
     },
     "comment": {
         "pinned_by": "Закачио {author}",
