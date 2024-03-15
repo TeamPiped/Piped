@@ -182,7 +182,8 @@
         "livestreams": "Prijenosi uživo",
         "bookmarks": "Zabilješke",
         "channel_groups": "Grupe kanala",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albumi"
     },
     "login": {
         "password": "Lozinka",
