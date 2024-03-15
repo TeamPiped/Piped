@@ -16,7 +16,8 @@
         "albums": "Albums",
         "bookmarks": "Bookmarks",
         "channel_groups": "Channel groups",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "custom_instances": "Custom instances"
     },
     "player": {
         "watch_on": "View on {0}",
@@ -151,7 +152,10 @@
         "generate_qrcode": "Generate QR Code",
         "download_frame": "Download frame",
         "add_to_group": "Add to group",
-        "concurrent_prefetch_limit": "Concurrent Stream Prefetch Limit"
+        "concurrent_prefetch_limit": "Concurrent Stream Prefetch Limit",
+        "customize": "Customize",
+        "invalid_url": "Invalid URL!",
+        "add": "Add"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
@@ -167,7 +171,8 @@
         "version": "Version",
         "up_to_date": "Up to date?",
         "ssl_score": "SSL Score",
-        "uptime_30d": "Uptime (30d)"
+        "uptime_30d": "Uptime (30d)",
+        "api_url": "Api URL"
     },
     "login": {
         "username": "Username",
