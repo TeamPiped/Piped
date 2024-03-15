@@ -146,7 +146,8 @@
         "channels": "Kanalen",
         "bookmarks": "Bladwijzers",
         "dearrow": "DeArrow",
-        "channel_groups": "Kanaal­groepen"
+        "channel_groups": "Kanaal­groepen",
+        "albums": "Albums"
     },
     "player": {
         "watch_on": "Bekijken op {0}",
