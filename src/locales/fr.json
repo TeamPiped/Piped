@@ -15,7 +15,8 @@
         "channels": "Chaînes",
         "bookmarks": "Marque-pages",
         "channel_groups": "Groupes de chaînes",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albums"
     },
     "actions": {
         "subscribe": "S'abonner",
