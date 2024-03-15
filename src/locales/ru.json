@@ -15,7 +15,8 @@
         "channels": "Каналы",
         "bookmarks": "Закладки",
         "channel_groups": "Группы каналов",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Альбомы"
     },
     "player": {
         "watch_on": "Посмотреть на {0}",
