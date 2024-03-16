@@ -128,7 +128,10 @@
         "instance_privacy_policy": "Privacybeleid",
         "add_to_group": "Toevoegen aan groep",
         "instances_not_shown": "Openbare gevallen die hier niet worden weergegeven, zijn momenteel niet beschikbaar.",
-        "concurrent_prefetch_limit": "Limiet voor gelijk­tijdige stream-prefetching"
+        "concurrent_prefetch_limit": "Limiet voor gelijk­tijdige stream-prefetching",
+        "customize": "Aanpassen",
+        "add": "Toevoegen",
+        "invalid_url": "Ongeldige URL!"
     },
     "titles": {
         "register": "Registreren",
@@ -147,7 +150,8 @@
         "bookmarks": "Bladwijzers",
         "dearrow": "DeArrow",
         "channel_groups": "Kanaal­groepen",
-        "albums": "Albums"
+        "albums": "Albums",
+        "custom_instances": "Aangepaste instanties"
     },
     "player": {
         "watch_on": "Bekijken op {0}",
@@ -195,7 +199,8 @@
         "version": "Versie",
         "up_to_date": "Bijgewerkt?",
         "ssl_score": "SSL-score",
-        "uptime_30d": "Uptime (30d)"
+        "uptime_30d": "Uptime (30d)",
+        "api_url": "Api-URL"
     },
     "comment": {
         "pinned_by": "Vastgemaakt door {author}",
