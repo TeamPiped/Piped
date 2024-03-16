@@ -16,7 +16,8 @@
         "bookmarks": "Záložky",
         "channel_groups": "Skupiny kanálů",
         "dearrow": "DeArrow",
-        "albums": "Alba"
+        "albums": "Alba",
+        "custom_instances": "Vlastní instance"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
@@ -147,7 +148,10 @@
         "instance_privacy_policy": "Ochrana údajů",
         "add_to_group": "Přidat do skupiny",
         "instances_not_shown": "Veřejné instance, které zde nejsou zobrazeny, momentálně nejsou dostupné.",
-        "concurrent_prefetch_limit": "Limit souběžných přednačtení streamů"
+        "concurrent_prefetch_limit": "Limit souběžných přednačtení streamů",
+        "customize": "Přizpůsobit",
+        "invalid_url": "Neplatná adresa URL!",
+        "add": "Přidat"
     },
     "player": {
         "watch_on": "Zobrazit na {0}",
@@ -167,7 +171,8 @@
         "registered_users": "Registrovaní uživatelé",
         "up_to_date": "Aktuální?",
         "version": "Verze",
-        "uptime_30d": "Doba online (30d)"
+        "uptime_30d": "Doba online (30d)",
+        "api_url": "Api URL"
     },
     "login": {
         "username": "Uživatelské jméno",
