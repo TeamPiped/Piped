@@ -128,7 +128,10 @@
         "download_frame": "Stiahnuť snímok",
         "add_to_group": "Pridať do skupiny",
         "instance_privacy_policy": "Zásady ochrany osobných údajov",
-        "generate_qrcode": "Vygenerovať QR kód"
+        "generate_qrcode": "Vygenerovať QR kód",
+        "customize": "Prispôsobiť",
+        "invalid_url": "Neplatná adresa URL!",
+        "add": "Pridať"
     },
     "player": {
         "watch_on": "Zobraziť na {0}",
@@ -151,7 +154,8 @@
         "channels": "Kanály",
         "dearrow": "DeArrow",
         "channel_groups": "Skupiny kanálov",
-        "albums": "Albumy"
+        "albums": "Albumy",
+        "custom_instances": "Vlastné inštancie"
     },
     "preferences": {
         "up_to_date": "Aktuálna?",
@@ -161,7 +165,8 @@
         "registered_users": "Registrovaní používatelia",
         "has_cdn": "Používa sieť CDN?",
         "version": "Verzia",
-        "uptime_30d": "Doba prevádzky (30 dní)"
+        "uptime_30d": "Doba prevádzky (30 dní)",
+        "api_url": "Api URL"
     },
     "video": {
         "sponsor_segments": "Sponzorské segmenty",
