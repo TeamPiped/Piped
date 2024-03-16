@@ -16,7 +16,8 @@
         "bookmarks": "Zakładki",
         "channel_groups": "Grupy kanałów",
         "dearrow": "DeArrow",
-        "albums": "Albumy"
+        "albums": "Albumy",
+        "custom_instances": "Niestandardowe instancje"
     },
     "player": {
         "watch_on": "Zobacz na {0}",
@@ -151,7 +152,10 @@
         "instance_privacy_policy": "Polityki prywatności",
         "add_to_group": "Dodaj do grupy",
         "instances_not_shown": "Instancje publiczne, które nie są tutaj pokazane, są obecnie niedostępne.",
-        "concurrent_prefetch_limit": "Limit równoczesnego pobierania wstępnego strumienia"
+        "concurrent_prefetch_limit": "Limit równoczesnego pobierania wstępnego strumienia",
+        "customize": "Dostosuj",
+        "invalid_url": "Nieprawidłowy adres URL!",
+        "add": "Dodaj"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
@@ -167,7 +171,8 @@
         "version": "Wersja",
         "up_to_date": "Aktualna?",
         "ssl_score": "Ocena SSL",
-        "uptime_30d": "Czas pracy (30d)"
+        "uptime_30d": "Czas pracy (30d)",
+        "api_url": "Adres URL interfejsu API"
     },
     "login": {
         "username": "Nazwa użytkownika",

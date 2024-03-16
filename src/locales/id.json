@@ -15,7 +15,9 @@
         "channels": "Saluran",
         "bookmarks": "Markah",
         "channel_groups": "Grup saluran",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Album",
+        "custom_instances": "Server khusus"
     },
     "player": {
         "watch_on": "Lihat di {0}",
@@ -150,7 +152,10 @@
         "instance_privacy_policy": "Kebijakan Privasi",
         "add_to_group": "Tambahkan ke grup",
         "concurrent_prefetch_limit": "Batasan Concurrent Stream Prefetch",
-        "instances_not_shown": "Instance publik yang tidak ditampilkan disini saat ini tidak tersedia."
+        "instances_not_shown": "Instance publik yang tidak ditampilkan disini saat ini tidak tersedia.",
+        "customize": "Ubah",
+        "add": "Tambahkan",
+        "invalid_url": "URL tidak valid!"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -166,7 +171,8 @@
         "up_to_date": "Sudah terkini?",
         "version": "Versi",
         "registered_users": "Pengguna Terdaftar",
-        "uptime_30d": "Waktu aktif (30hari)"
+        "uptime_30d": "Waktu aktif (30hari)",
+        "api_url": "URL API"
     },
     "login": {
         "username": "Nama Pengguna",

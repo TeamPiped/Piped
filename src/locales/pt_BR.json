@@ -128,7 +128,10 @@
         "download_frame": "Baixar quadro",
         "add_to_group": "Adicionar ao grupo",
         "instances_not_shown": "Instâncias públicas que não são mostradas aqui estão atualmente indisponíveis.",
-        "concurrent_prefetch_limit": "Limite de Prefetch de Stream Concomitante"
+        "concurrent_prefetch_limit": "Limite de Prefetch de Stream Concomitante",
+        "customize": "Personalizar",
+        "invalid_url": "URL inválida!",
+        "add": "Adicionar"
     },
     "titles": {
         "history": "Histórico",
@@ -147,7 +150,8 @@
         "bookmarks": "Favoritos",
         "channel_groups": "Grupos de Canais",
         "dearrow": "DeArrow",
-        "albums": "Álbuns"
+        "albums": "Álbuns",
+        "custom_instances": "Instâncias personalizadas"
     },
     "player": {
         "watch_on": "Ver em {0}",
@@ -167,7 +171,8 @@
         "has_cdn": "Tem CDN?",
         "up_to_date": "Atualizado?",
         "ssl_score": "Pontuação SSL",
-        "uptime_30d": "Tempo de atividade (30d)"
+        "uptime_30d": "Tempo de atividade (30d)",
+        "api_url": "URL da Api"
     },
     "login": {
         "username": "Nome de usuário",
