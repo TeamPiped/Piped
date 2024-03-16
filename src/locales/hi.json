@@ -16,7 +16,8 @@
         "channel_groups": "चैनल ग्रुप",
         "bookmarks": "बुकमार्क",
         "dearrow": "DeArrow",
-        "albums": "एलबम"
+        "albums": "एलबम",
+        "custom_instances": "कस्टम इंस्टेंस"
     },
     "actions": {
         "subscribe": "सदस्यता लें",
@@ -147,7 +148,10 @@
         "with_playlist": "प्लेलिस्ट के साथ साझा करें",
         "instance_donations": "इंसटैंस के लिए दान",
         "minimize_chapters_default": "अध्यायों को डिफ़ॉल्ट रूप से छोटा करें",
-        "minimize_recommendations_default": "डिफ़ॉल्ट रूप से सिफ़ारिशें मिनीमाईज़ करें"
+        "minimize_recommendations_default": "डिफ़ॉल्ट रूप से सिफ़ारिशें मिनीमाईज़ करें",
+        "customize": "अनुकूलित करें",
+        "invalid_url": "अमान्य URL!",
+        "add": "जोड़ें"
     },
     "video": {
         "views": "{views} बार देखा गया",
@@ -185,7 +189,8 @@
         "instance_name": "इंस्टेंस का नाम",
         "registered_users": "रजिस्टर्ड उपयोगकर्ता",
         "version": "संस्करण",
-        "up_to_date": "अप टू डेट?"
+        "up_to_date": "अप टू डेट?",
+        "api_url": "Api URL"
     },
     "search": {
         "did_you_mean": "क्या आपका मतलब यह था: {0}?",
