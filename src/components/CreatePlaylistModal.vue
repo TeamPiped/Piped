@@ -43,7 +43,7 @@ export default {
             this.createPlaylist(this.playlistName).then(response => {
                 if (response.error) alert(response.error);
                 else {
-                    this.$emit("created");
+                    this.$emit("created", response.playlistId, this.playlistName);
                     this.$emit("close");
                 }
             });
