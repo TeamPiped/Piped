@@ -128,7 +128,10 @@
         "instance_privacy_policy": "隐私政策",
         "add_to_group": "添加到组",
         "instances_not_shown": "未显示在此处的公共实例当前不可用。",
-        "concurrent_prefetch_limit": "并行流预获取限制"
+        "concurrent_prefetch_limit": "并行流预获取限制",
+        "customize": "自定义",
+        "invalid_url": "无效的 URL！",
+        "add": "添加"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -154,7 +157,8 @@
         "version": "版本",
         "up_to_date": "最新？",
         "registered_users": "已注册用户",
-        "uptime_30d": "在线时间（30天）"
+        "uptime_30d": "在线时间（30天）",
+        "api_url": "Api URL"
     },
     "comment": {
         "pinned_by": "固定自 {author}",
@@ -183,7 +187,8 @@
         "bookmarks": "书签",
         "channel_groups": "频道组",
         "dearrow": "DeArrow",
-        "albums": "专辑"
+        "albums": "专辑",
+        "custom_instances": "自定义实例"
     },
     "login": {
         "password": "密码",
