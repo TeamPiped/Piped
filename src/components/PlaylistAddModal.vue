@@ -65,7 +65,7 @@ export default {
     },
     methods: {
         handleKeyDown(event) {
-            if (event.code === "Enter") {
+            if (event.code === "Enter" && !this.showCreatePlaylistModal) {
                 this.handleClick(this.selectedPlaylist);
                 event.preventDefault();
             }

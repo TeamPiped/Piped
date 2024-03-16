@@ -24,7 +24,19 @@ export default {
             playlistName: "",
         };
     },
+    mounted() {
+        window.addEventListener("keydown", this.handleKeyDown);
+    },
+    unmounted() {
+        window.removeEventListener("keydown", this.handleKeyDown);
+    },
     methods: {
+        handleKeyDown(event) {
+            if (event.code === "Enter") {
+                this.onCreatePlaylist();
+                event.preventDefault();
+            }
+        },
         onCreatePlaylist() {
             if (!this.playlistName) return;
 
