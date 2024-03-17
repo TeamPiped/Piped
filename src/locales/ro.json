@@ -128,7 +128,10 @@
         "download_frame": "Descarcă cadrul",
         "generate_qrcode": "Generează un cod QR",
         "instance_privacy_policy": "Politica de confidențialitate",
-        "instances_not_shown": "Instanțele publice care nu sunt afișate aici nu sunt disponibile în prezent."
+        "instances_not_shown": "Instanțele publice care nu sunt afișate aici nu sunt disponibile în prezent.",
+        "customize": "Customizează",
+        "invalid_url": "URL nevalid!",
+        "add": "Adăugați"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -138,7 +141,8 @@
         "instance_locations": "Locațiile instanței",
         "has_cdn": "Are CDN?",
         "registered_users": "Utilizatori înregistrați",
-        "uptime_30d": "Timp de funcționare (30 zile)"
+        "uptime_30d": "Timp de funcționare (30 zile)",
+        "api_url": "URL-ul API"
     },
     "comment": {
         "user_disabled": "Comentariile sunt dezactivate în setări.",
@@ -214,7 +218,9 @@
         "player": "Player-ul",
         "bookmarks": "Marcaje",
         "channel_groups": "Grupuri de canale",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "custom_instances": "Instanțe customizate",
+        "albums": "Albume"
     },
     "player": {
         "watch_on": "Vezi pe {0}",
