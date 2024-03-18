@@ -1,7 +1,12 @@
 <template>
     <div class="suggestions-container absolute">
         <ul>
-            <li v-for="(suggestion, i) in searchSuggestions" :key="i" @mouseover="onMouseOver(i)">
+            <li
+                v-for="(suggestion, i) in searchSuggestions"
+                :key="i"
+                @mouseover="onMouseOver(i)"
+                @click="setSelected(i)"
+            >
                 <router-link
                     class="suggestion"
                     :class="{ 'suggestion-selected': selected === i }"
