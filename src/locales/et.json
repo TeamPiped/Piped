@@ -16,7 +16,8 @@
         "livestreams": "Otseetrid",
         "channels": "Kanalid",
         "channel_groups": "Kanalite grupid",
-        "albums": "Albumid"
+        "albums": "Albumid",
+        "custom_instances": "Kohandatud vaheserverid"
     },
     "player": {
         "watch_on": "Vaata {0} saidis",
@@ -151,7 +152,10 @@
         "bookmark_playlist": "Järjehoidja",
         "download_frame": "Laadi alla kaader",
         "add_to_group": "Lisa rühma",
-        "instance_privacy_policy": "Privaatsuspoliitika"
+        "instance_privacy_policy": "Privaatsuspoliitika",
+        "customize": "Kohanda",
+        "invalid_url": "Vigane URL!",
+        "add": "Lisa"
     },
     "preferences": {
         "has_cdn": "CDN'i olek?",
@@ -161,7 +165,8 @@
         "instance_name": "Vaheserveri nimi",
         "instance_locations": "Vaheserveri asukohad",
         "version": "Versioon",
-        "uptime_30d": "Tõrgeteta tööaeg (30p)"
+        "uptime_30d": "Tõrgeteta tööaeg (30p)",
+        "api_url": "API URL"
     },
     "video": {
         "videos": "Videod",
