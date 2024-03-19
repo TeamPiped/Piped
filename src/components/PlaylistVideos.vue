@@ -6,6 +6,7 @@
             :item="related"
             :index="index"
             :playlist-id="playlistId"
+            :prefer-listen="preferListen"
             height="94"
             width="168"
         />
@@ -15,6 +16,7 @@
 <script>
 import { nextTick } from "vue";
 import VideoItem from "./VideoItem.vue";
+
 export default {
     components: { VideoItem },
     props: {
@@ -29,6 +31,10 @@ export default {
         selectedIndex: {
             type: Number,
             required: true,
+        },
+        preferListen: {
+            type: Boolean,
+            default: false,
         },
     },
     watch: {
