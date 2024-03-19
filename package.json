@@ -46,7 +46,7 @@
         "unocss": "0.58.6",
         "vite": "5.1.6",
         "vite-plugin-eslint": "1.8.1",
-        "vite-plugin-pwa": "0.19.4",
+        "vite-plugin-pwa": "0.19.5",
         "workbox-window": "7.0.0"
     },
     "browserslist": [
