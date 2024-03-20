@@ -106,7 +106,7 @@
                     :aria-label="preferListen ? title : 'Listen to ' + title"
                     :title="preferListen ? title : 'Listen to ' + title"
                 >
-                    <font-awesome-icon :icon="preferListen ? 'i-fa6-solid:tv' : 'i-fa6-solid:headphones'" />
+                    <i :class="preferListen ? 'i-fa6-solid:tv' : 'i-fa6-solid:headphones'" />
                 </router-link>
                 <button :title="$t('actions.add_to_playlist')" @click="showPlaylistModal = !showPlaylistModal">
                     <i class="i-fa6-solid:circle-plus" />
