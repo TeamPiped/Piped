@@ -73,9 +73,6 @@ export default {
                 this.selected = i;
             }
         },
-        onClick(i) {
-            this.setSelected(i);
-        },
         setSelected(val) {
             this.selected = val;
             this.$emit("searchchange", this.searchSuggestions[this.selected]);
