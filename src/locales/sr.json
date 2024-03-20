@@ -144,7 +144,10 @@
         "playlist_name": "Назив плејлисте",
         "instance_privacy_policy": "Политика приватности",
         "instances_not_shown": "Јавне инстанце које нису приказане овде тренутно нису доступне.",
-        "concurrent_prefetch_limit": "Ограничење претходног преузимања истовремених стримова"
+        "concurrent_prefetch_limit": "Ограничење претходног преузимања истовремених стримова",
+        "invalid_url": "Неважећа URL адреса!",
+        "add": "Додај",
+        "customize": "Прилагоди"
     },
     "preferences": {
         "instance_locations": "Локације инстанце",
@@ -154,7 +157,8 @@
         "registered_users": "Регистровани корисници",
         "version": "Верзија",
         "up_to_date": "Ажурирано?",
-        "uptime_30d": "Време рада (30д)"
+        "uptime_30d": "Време рада (30д)",
+        "api_url": "URL API-ја"
     },
     "login": {
         "password": "Лозинка",
@@ -191,7 +195,8 @@
         "bookmarks": "Обележивачи",
         "channel_groups": "Групе канала",
         "dearrow": "DeArrow",
-        "albums": "Албуми"
+        "albums": "Албуми",
+        "custom_instances": "Прилагођене инстанце"
     },
     "comment": {
         "pinned_by": "Закачио {author}",
