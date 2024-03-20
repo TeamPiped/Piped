@@ -50,6 +50,7 @@
             </template>
             <div v-show="showingReplies" v-if="replies" class="replies">
                 <div v-for="reply in replies" :key="reply.commentId" class="w-full">
+                    <!-- eslint-disable-next-line vue/no-undef-components -->
                     <CommentItem :comment="reply" :uploader="uploader" :video-id="videoId" />
                 </div>
                 <div v-if="nextpage" class="cursor-pointer" @click="loadReplies">
