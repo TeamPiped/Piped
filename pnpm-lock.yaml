@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   dompurify:
-    specifier: 3.0.10
-    version: 3.0.10
+    specifier: 3.0.11
+    version: 3.0.11
   fast-xml-parser:
     specifier: 4.3.6
     version: 4.3.6
@@ -2908,8 +2908,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /dompurify@3.0.10:
-    resolution: {integrity: sha512-WZDL8ZHTliEVP3Lk4phtvjg8SNQ3YMc5WVstxE8cszKZrFjzI4PF4ZTIk9VGAc9vZADO7uGO2V/ZiStcRSAT4Q==}
+  /dompurify@3.0.11:
+    resolution: {integrity: sha512-Fan4uMuyB26gFV3ovPoEoQbxRRPfTu3CvImyZnhGq5fsIEO+gEFLp45ISFt+kQBWsK5ulDdT0oV28jS1UrwQLg==}
     dev: false
 
   /duplexer@0.1.2:
