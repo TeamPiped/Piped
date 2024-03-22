@@ -16,7 +16,8 @@
         "dearrow": "DeArrow",
         "albums": "Albumok",
         "bookmarks": "Könyvjelzők",
-        "channel_groups": "Csatorna csoportok"
+        "channel_groups": "Csatorna csoportok",
+        "custom_instances": "Egyéni példányok"
     },
     "actions": {
         "subscribe": "Feliratkozás",
@@ -147,7 +148,10 @@
         "show_search_suggestions": "Mutass keresési javaslatokat",
         "generate_qrcode": "QR-kód generálása",
         "add_to_group": "Hozzáadás a csoporthoz",
-        "download_frame": "Keret letöltése"
+        "download_frame": "Keret letöltése",
+        "customize": "Testreszab",
+        "invalid_url": "Érvénytelen URL!",
+        "add": "Hozzáadás"
     },
     "video": {
         "ratings_disabled": "Értékelések Letiltva",
@@ -177,7 +181,8 @@
         "ssl_score": "SSL pontszám",
         "registered_users": "Regisztrált felhasználók",
         "up_to_date": "Naprakész?",
-        "uptime_30d": "Üzemidő (30 nap)"
+        "uptime_30d": "Üzemidő (30 nap)",
+        "api_url": "Api URL"
     },
     "search": {
         "did_you_mean": "Erre gondoltál: {0}?",
