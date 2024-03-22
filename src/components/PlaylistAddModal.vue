@@ -22,7 +22,7 @@
     <CreatePlaylistModal
         v-if="showCreatePlaylistModal"
         @close="showCreatePlaylistModal = false"
-        @created="fetchPlaylists"
+        @created="addCreatedPlaylist"
     />
 </template>
 
@@ -55,7 +55,9 @@ export default {
         };
     },
     mounted() {
-        this.fetchPlaylists();
+        this.getPlaylists().then(json => {
+            this.playlists = json;
+        });
         this.selectedPlaylist = this.getPreferenceString("selectedPlaylist" + this.hashCode(this.authApiUrl()));
         window.addEventListener("keydown", this.handleKeyDown);
         window.blur();
@@ -65,7 +67,7 @@ export default {
     },
     methods: {
         handleKeyDown(event) {
-            if (event.code === "Enter") {
+            if (event.code === "Enter" && !this.showCreatePlaylistModal) {
                 this.handleClick(this.selectedPlaylist);
                 event.preventDefault();
             }
@@ -87,10 +89,9 @@ export default {
                 if (json.error) alert(json.error);
             });
         },
-        async fetchPlaylists() {
-            this.getPlaylists().then(json => {
-                this.playlists = json;
-            });
+        addCreatedPlaylist(playlistId, playlistName) {
+            this.playlists.push({ id: playlistId, name: playlistName });
+            this.selectedPlaylist = playlistId;
         },
     },
 };
