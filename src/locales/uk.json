@@ -138,7 +138,10 @@
         "instance_privacy_policy": "Політика конфіденційності",
         "add_to_group": "Додати до групи",
         "instances_not_shown": "Публічні екземпляри, які не показані тут, наразі недоступні.",
-        "concurrent_prefetch_limit": "Обмеження одночасної передвибірки потоків"
+        "concurrent_prefetch_limit": "Обмеження одночасної передвибірки потоків",
+        "customize": "Налаштувати",
+        "invalid_url": "Неправильна URL-адреса!",
+        "add": "Додати"
     },
     "titles": {
         "register": "Реєстрація",
@@ -157,7 +160,8 @@
         "bookmarks": "Закладки",
         "channel_groups": "Групи каналів",
         "dearrow": "DeArrow",
-        "albums": "Альбоми"
+        "albums": "Альбоми",
+        "custom_instances": "Власні екземпляри"
     },
     "comment": {
         "pinned_by": "Прикріплено користувачем {author}",
@@ -173,7 +177,8 @@
         "version": "Версія",
         "up_to_date": "Версія актуальна?",
         "registered_users": "Зареєстровано користувачів",
-        "uptime_30d": "Час роботи (30d)"
+        "uptime_30d": "Час роботи (30d)",
+        "api_url": "API URL-адреса"
     },
     "video": {
         "videos": "Відео",
