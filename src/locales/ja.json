@@ -15,7 +15,9 @@
         "livestreams": "ライブ配信",
         "bookmarks": "ブックマーク",
         "channel_groups": "グループ",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "アルバム",
+        "custom_instances": "独自インスタンス"
     },
     "player": {
         "watch_on": "{0}で視聴",
@@ -150,7 +152,10 @@
         "instance_privacy_policy": "個人情報保護方針",
         "add_to_group": "グループに追加",
         "instances_not_shown": "現在利用できない公開インスタンスはここに表示されません。",
-        "concurrent_prefetch_limit": "同時に先読みするストリーム数上限"
+        "concurrent_prefetch_limit": "同時に先読みするストリーム数上限",
+        "add": "追加",
+        "invalid_url": "無効な URL！",
+        "customize": "追加"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -166,7 +171,8 @@
         "registered_users": "登録利用者数",
         "version": "バージョン",
         "up_to_date": "最新？",
-        "uptime_30d": "稼働率(30日)"
+        "uptime_30d": "稼働率(30日)",
+        "api_url": "API の URL"
     },
     "login": {
         "username": "ユーザー名",
