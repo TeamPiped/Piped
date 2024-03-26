@@ -47,8 +47,8 @@ devDependencies:
     specifier: 1.1.20
     version: 1.1.20
   '@intlify/unplugin-vue-i18n':
-    specifier: 3.0.1
-    version: 3.0.1(rollup@2.79.1)(vue-i18n@9.10.2)
+    specifier: 4.0.0
+    version: 4.0.0(rollup@2.79.1)(vue-i18n@9.10.2)
   '@unocss/eslint-config':
     specifier: 0.58.6
     version: 0.58.6(eslint@8.57.0)(typescript@5.4.3)
@@ -1653,8 +1653,8 @@ packages:
       - supports-color
     dev: true
 
-  /@intlify/bundle-utils@7.5.1(vue-i18n@9.10.2):
-    resolution: {integrity: sha512-UovJl10oBIlmYEcWw+VIHdKY5Uv5sdPG0b/b6bOYxGLln3UwB75+2dlc0F3Fsa0RhoznQ5Rp589/BZpABpE4Xw==}
+  /@intlify/bundle-utils@8.0.0(vue-i18n@9.10.2):
+    resolution: {integrity: sha512-1B++zykRnMwQ+20SpsZI1JCnV/YJt9Oq7AGlEurzkWJOFtFAVqaGc/oV36PBRYeiKnTbY9VYfjBimr2Vt42wLQ==}
     engines: {node: '>= 14.16'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -1671,7 +1671,6 @@ packages:
       escodegen: 2.1.0
       estree-walker: 2.0.2
       jsonc-eslint-parser: 2.4.0
-      magic-string: 0.30.8
       mlly: 1.6.1
       source-map-js: 1.2.0
       vue-i18n: 9.10.2(vue@3.4.21)
@@ -1696,8 +1695,8 @@ packages:
     resolution: {integrity: sha512-ttHCAJkRy7R5W2S9RVnN9KYQYPIpV2+GiS79T4EE37nrPyH6/1SrOh3bmdCRC1T3ocL8qCDx7x2lBJ0xaITU7Q==}
     engines: {node: '>= 16'}
 
-  /@intlify/unplugin-vue-i18n@3.0.1(rollup@2.79.1)(vue-i18n@9.10.2):
-    resolution: {integrity: sha512-q1zJhA/WpoLBzAAuKA5/AEp0e+bMOM10ll/HxT4g1VAw/9JhC4TTobP9KobKH90JMZ4U2daLFlYQfKNd29lpqw==}
+  /@intlify/unplugin-vue-i18n@4.0.0(rollup@2.79.1)(vue-i18n@9.10.2):
+    resolution: {integrity: sha512-q2Mhqa/mLi0tulfLFO4fMXXvEbkSZpI5yGhNNsLTNJJ41icEGUuyDe+j5zRZIKSkOJRgX6YbCyibTDJdRsukmw==}
     engines: {node: '>= 14.16'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -1711,7 +1710,7 @@ packages:
       vue-i18n-bridge:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': 7.5.1(vue-i18n@9.10.2)
+      '@intlify/bundle-utils': 8.0.0(vue-i18n@9.10.2)
       '@intlify/shared': 9.10.2
       '@rollup/pluginutils': 5.1.0(rollup@2.79.1)
       '@vue/compiler-sfc': 3.4.21
