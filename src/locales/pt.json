@@ -15,7 +15,9 @@
         "channels": "Canais",
         "bookmarks": "Marcadores",
         "channel_groups": "Grupos de canais",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Álbuns",
+        "custom_instances": "Instâncias personalizadas"
     },
     "actions": {
         "sort_by": "Ordenar por:",
@@ -146,7 +148,10 @@
         "instance_privacy_policy": "Política de privacidade",
         "add_to_group": "Adicionar ao grupo",
         "instances_not_shown": "As instâncias públicas que, atualmente, estejam indisponíveis, não serão mostradas aqui.",
-        "concurrent_prefetch_limit": "Limite de pré-busca de fluxo simultâneo"
+        "concurrent_prefetch_limit": "Limite de pré-busca de fluxo simultâneo",
+        "customize": "Personalizar",
+        "invalid_url": "URL inválido!",
+        "add": "Adicionar"
     },
     "preferences": {
         "instance_name": "Nome da instância",
@@ -156,7 +161,8 @@
         "version": "Versão",
         "registered_users": "Utilizadores registados",
         "up_to_date": "Atualizada?",
-        "uptime_30d": "Tempo de atividade (30d)"
+        "uptime_30d": "Tempo de atividade (30d)",
+        "api_url": "URL da API"
     },
     "login": {
         "password": "Palavra-passe",
