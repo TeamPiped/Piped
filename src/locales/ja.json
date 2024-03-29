@@ -154,7 +154,7 @@
         "instances_not_shown": "現在利用できない公開インスタンスはここに表示されません。",
         "concurrent_prefetch_limit": "同時に先読みするストリーム数上限",
         "add": "追加",
-        "invalid_url": "無効な URL！",
+        "invalid_url": "無効なURLです！",
         "customize": "追加"
     },
     "comment": {
