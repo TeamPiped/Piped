@@ -143,6 +143,11 @@ export default {
     },
     mounted() {
         this.fetchSubscriptions().then(json => {
+            if (json.error) {
+                alert(json.error);
+                return;
+            }
+
             this.subscriptions = json;
             this.subscriptions.forEach(subscription => (subscription.subscribed = true));
         });
