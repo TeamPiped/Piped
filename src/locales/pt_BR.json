@@ -215,7 +215,7 @@
         "page_not_found": "Página não encontrada",
         "local_storage": "Esta ação requer localStorage, os cookies estão ativados?",
         "register_no_email_note": "Usar um e-mail como nome de usuário não é recomendado. Continuar mesmo assim?",
-        "next_video_countdown": "A reproduzir o próximo vídeo em {0}s",
+        "next_video_countdown": "Próximo vídeo em {0}s",
         "hours": "{amount} hora(s)",
         "days": "{amount} dia(s)",
         "weeks": "{amount} semana(s)",
