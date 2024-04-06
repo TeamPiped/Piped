@@ -204,6 +204,26 @@ const mixin = {
                 }
             }
         },
+        async fetchFeed() {
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/feed", {
+                    authToken: this.getAuthToken(),
+                });
+            } else {
+                const channels = this.getUnauthenticatedChannels();
+                const split = channels.split(",");
+                if (split.length > 100) {
+                    return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", null, {
+                        method: "POST",
+                        body: JSON.stringify(split),
+                    });
+                } else {
+                    return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
+                        channels: channels,
+                    });
+                }
+            }
+        },
         /* generate a temporary file and ask the user to download it */
         download(text, filename, mimeType) {
             var file = new Blob([text], { type: mimeType });

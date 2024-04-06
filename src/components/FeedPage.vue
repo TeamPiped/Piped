@@ -94,8 +94,13 @@ export default {
         },
     },
     mounted() {
-        this.fetchFeed().then(videos => {
-            this.videosStore = videos;
+        this.fetchFeed().then(resp => {
+            if (resp.error) {
+                alert(resp.error);
+                return;
+            }
+
+            this.videosStore = resp;
             this.loadMoreVideos();
             this.updateWatched(this.videos);
         });
@@ -118,26 +123,6 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
-        async fetchFeed() {
-            if (this.authenticated) {
-                return await this.fetchJson(this.authApiUrl() + "/feed", {
-                    authToken: this.getAuthToken(),
-                });
-            } else {
-                const channels = this.getUnauthenticatedChannels();
-                const split = channels.split(",");
-                if (split.length > 100) {
-                    return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", null, {
-                        method: "POST",
-                        body: JSON.stringify(split),
-                    });
-                } else {
-                    return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
-                        channels: channels,
-                    });
-                }
-            }
-        },
         async loadChannelGroups() {
             const groups = await this.getChannelGroups();
             this.channelGroups.push(...groups);
