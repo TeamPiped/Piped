@@ -27,8 +27,8 @@ dependencies:
     specifier: ^1.5.3
     version: 1.5.3
   shaka-player:
-    specifier: 4.7.11
-    version: 4.7.11
+    specifier: 4.7.13
+    version: 4.7.13
   vue:
     specifier: 3.4.21
     version: 3.4.21(typescript@5.4.5)
@@ -4640,8 +4640,8 @@ packages:
       has-property-descriptors: 1.0.2
     dev: true
 
-  /shaka-player@4.7.11:
-    resolution: {integrity: sha512-zHyuL/cph3xKbci/Ovba/Swyni6g3cj79cN+84BCCrD3tWR9WEBwc8svcqPIXNQX/7VYb3uwaOa+85eBQKPkMg==}
+  /shaka-player@4.7.13:
+    resolution: {integrity: sha512-PTU0lTEx1C8LdyNdZSSTea3Wf1/WT4KJzp6o07CofZqq8fzrGDiWElbir+LQIH1CTZpicO1otJQ24xjPgXz9kg==}
     engines: {node: '>=14'}
     dependencies:
       eme-encryption-scheme-polyfill: 2.1.1
