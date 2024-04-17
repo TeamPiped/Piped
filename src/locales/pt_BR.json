@@ -125,7 +125,7 @@
         "generate_qrcode": "Código QR",
         "enable_dearrow": "Ativar DeArrow",
         "import_from_json_csv": "Importar arquivo JSON/CSV",
-        "download_frame": "Capturar vídeo",
+        "download_frame": "Capturar imagem",
         "add_to_group": "Adicionar ao grupo",
         "instances_not_shown": "As instâncias públicas que não são mostradas aqui estão indisponíveis no momento.",
         "concurrent_prefetch_limit": "Limite de pré-busca de fluxo simultâneo",
