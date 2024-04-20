@@ -6,15 +6,15 @@
 
         <CollapsableText v-if="playlist?.description" :text="playlist.description" />
 
-        <div class="mt-1 flex items-center justify-between">
+        <div class="mt-1 flex <md:flex-col md:items-center justify-between">
             <div>
                 <router-link class="link flex items-center gap-3" :to="playlist.uploaderUrl || '/'">
-                    <img loading="lazy" :src="playlist.uploaderAvatar" class="rounded-full" />
+                    <img loading="lazy" :src="playlist.uploaderAvatar" class="rounded-full h-12" />
                     <strong v-text="playlist.uploader" />
                 </router-link>
             </div>
-            <div>
-                <strong class="mr-2" v-text="`${playlist.videos} ${$t('video.videos')}`" />
+            <div class="flex flex-wrap items-center gap-1">
+                <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
                 <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
                     {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
                     }}<i class="i-fa6-solid:bookmark ml-3" />
