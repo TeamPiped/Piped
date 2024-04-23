@@ -47,7 +47,7 @@
         "vite": "5.2.8",
         "vite-plugin-eslint": "1.8.1",
         "vite-plugin-pwa": "0.19.8",
-        "workbox-window": "7.0.0"
+        "workbox-window": "7.1.0"
     },
     "browserslist": [
         "last 1 chrome version",
