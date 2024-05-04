@@ -52,7 +52,7 @@
         >
             <span v-text="group.groupName !== '' ? group.groupName : $t('video.all')" />
             <div v-if="group.groupName != '' && selectedGroup == group">
-                <i class="i-fa6-solid:edit mx-2" @click="showEditGroupModal = true" />
+                <i class="i-fa6-solid:pen mx-2" @click="showEditGroupModal = true" />
                 <i class="i-fa6-solid:circle-minus mx-2" @click="deleteGroup(group)" />
             </div>
         </button>
