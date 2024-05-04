@@ -1,7 +1,7 @@
 <template v-if="text">
     <div class="mx-1 whitespace-pre-wrap py-2">
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <span v-if="showFullText" v-html="fullText()" />
+        <span v-if="showFullText" class="contentText" v-html="fullText()" />
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-else v-html="colapsedText()" />
         <span v-if="text.length > visibleLimit && !showFullText">...</span>
@@ -44,3 +44,9 @@ export default {
     },
 };
 </script>
+
+<style>
+.contentText {
+    word-wrap: anywhere;
+}
+</style>
