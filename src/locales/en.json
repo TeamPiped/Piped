@@ -101,6 +101,7 @@
         "delete_playlist": "Delete Playlist",
         "select_playlist": "Select a Playlist",
         "delete_playlist_confirm": "Delete this playlist?",
+        "delete_group_confirm": "Delete this group?",
         "please_select_playlist": "Please select a playlist",
         "delete_account": "Delete Account",
         "logout": "Logout from this device",
