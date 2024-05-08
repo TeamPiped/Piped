@@ -55,14 +55,13 @@
                 <i class="i-fa6-solid:pen mx-2" @click="showEditGroupModal = true" />
                 <i class="i-fa6-solid:circle-minus mx-2" @click="groupToDelete = group.groupName" />
             </div>
-            <ConfirmModal
-                v-if="groupToDelete == group.groupName"
-                :message="$t('actions.delete_group_confirm')"
-                @close="groupToDelete = null"
-                @confirm="deleteGroup(group)"
-            />
         </button>
-
+        <ConfirmModal
+            v-if="groupToDelete != null"
+            :message="$t('actions.delete_group_confirm')"
+            @close="groupToDelete = null"
+            @confirm="deleteGroup(groupToDelete)"
+        />
         <button class="btn mx-1" @click="showCreateGroupModal = true">
             <i class="i-fa6-solid:circle-plus" />
         </button>
@@ -240,9 +239,9 @@ export default {
             this.showEditGroupModal = false;
         },
         deleteGroup(group) {
-            this.deleteChannelGroup(group.groupName);
-            this.channelGroups = this.channelGroups.filter(g => g != group);
-            this.selectedGroup = this.channelGroups[0];
+            this.deleteChannelGroup(group);
+            this.channelGroups = this.channelGroups.filter(g => g.groupName != group);
+            this.selectedGroup = this.channelGroups[0] || {};
             this.groupToDelete = null;
         },
         checkedChange(subscription) {
