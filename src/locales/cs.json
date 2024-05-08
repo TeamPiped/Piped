@@ -151,7 +151,8 @@
         "concurrent_prefetch_limit": "Limit souběžných přednačtení streamů",
         "customize": "Přizpůsobit",
         "invalid_url": "Neplatná adresa URL!",
-        "add": "Přidat"
+        "add": "Přidat",
+        "delete_group_confirm": "Odstranit tuto skupinu?"
     },
     "player": {
         "watch_on": "Zobrazit na {0}",
