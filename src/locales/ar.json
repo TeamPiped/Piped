@@ -155,7 +155,8 @@
         "concurrent_prefetch_limit": "حد الجلب المسبق للدفق المتزامن",
         "customize": "تخصيص",
         "invalid_url": "عنوان URL غير صالح!",
-        "add": "إضافة"
+        "add": "إضافة",
+        "delete_group_confirm": "حذف هذه المجموعة؟"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
