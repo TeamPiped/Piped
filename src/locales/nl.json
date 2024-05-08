@@ -131,7 +131,8 @@
         "concurrent_prefetch_limit": "Limiet voor gelijk­tijdige stream-prefetching",
         "customize": "Aanpassen",
         "add": "Toevoegen",
-        "invalid_url": "Ongeldige URL!"
+        "invalid_url": "Ongeldige URL!",
+        "delete_group_confirm": "Deze groep verwĳderen?"
     },
     "titles": {
         "register": "Registreren",
@@ -141,20 +142,20 @@
         "history": "Geschiedenis",
         "subscriptions": "Abonnementen",
         "trending": "Populair",
-        "playlists": "Afspeellijsten",
+        "playlists": "Afspeel­lĳsten",
         "account": "Account",
         "instance": "Instantie",
         "player": "Speler",
         "livestreams": "Livestreams",
         "channels": "Kanalen",
-        "bookmarks": "Bladwijzers",
+        "bookmarks": "Blad­wĳzers",
         "dearrow": "DeArrow",
         "channel_groups": "Kanaal­groepen",
         "albums": "Albums",
         "custom_instances": "Aangepaste instanties"
     },
     "player": {
-        "watch_on": "Bekijken op {0}",
+        "watch_on": "Bekĳken op {0}",
         "failed": "Mislukt met foutcode {0}, zie logboeken voor meer informatie"
     },
     "search": {
