@@ -34,7 +34,7 @@
         "@unocss/reset": "0.58.9",
         "@unocss/transformer-directives": "0.58.9",
         "@unocss/transformer-variant-group": "0.58.9",
-        "@vitejs/plugin-legacy": "5.3.2",
+        "@vitejs/plugin-legacy": "5.4.0",
         "@vitejs/plugin-vue": "5.0.4",
         "@vue/compiler-sfc": "3.4.25",
         "eslint": "8.57.0",
