@@ -131,7 +131,8 @@
         "concurrent_prefetch_limit": "Limite de pré-busca de fluxo simultâneo",
         "customize": "Personalizar",
         "invalid_url": "URL inválida!",
-        "add": "Adicionar"
+        "add": "Adicionar",
+        "delete_group_confirm": "Excluir este grupo?"
     },
     "titles": {
         "history": "Histórico",

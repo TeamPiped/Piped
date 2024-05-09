@@ -164,7 +164,8 @@
         "concurrent_prefetch_limit": "Límite de captación previa de transmisiones simultáneas",
         "customize": "Personalizar",
         "invalid_url": "¡URL no válida!",
-        "add": "Añadir"
+        "add": "Añadir",
+        "delete_group_confirm": "¿Eliminar este grupo?"
     },
     "titles": {
         "feed": "Contenido",

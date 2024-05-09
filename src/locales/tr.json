@@ -131,7 +131,8 @@
         "concurrent_prefetch_limit": "Eşzamanlı Akış Ön Getirme Sınırı",
         "invalid_url": "Geçersiz URL!",
         "customize": "Özelleştir",
-        "add": "Ekle"
+        "add": "Ekle",
+        "delete_group_confirm": "Bu grup silinsin mi?"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",

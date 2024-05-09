@@ -141,7 +141,8 @@
         "concurrent_prefetch_limit": "Обмеження одночасної передвибірки потоків",
         "customize": "Налаштувати",
         "invalid_url": "Неправильна URL-адреса!",
-        "add": "Додати"
+        "add": "Додати",
+        "delete_group_confirm": "Видалити цю групу?"
     },
     "titles": {
         "register": "Реєстрація",
