@@ -131,7 +131,8 @@
         "concurrent_prefetch_limit": "并行流预获取限制",
         "customize": "自定义",
         "invalid_url": "无效的 URL！",
-        "add": "添加"
+        "add": "添加",
+        "delete_group_confirm": "删除该组吗？"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
