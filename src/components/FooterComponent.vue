@@ -1,6 +1,6 @@
 <template>
     <footer class="mt-10 w-full rounded-xl py-4 text-center children:(mx-3)">
-        <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped" target="_blank">
+        <a aria-label="GitHub" href="https://github.com/ramackersjp/Piped" target="_blank">
             <i class="i-fa6-brands:github" />
             <span v-t="'actions.source_code'" class="ml-2" />
         </a>
@@ -8,7 +8,7 @@
             <i class="i-fa6-solid:book" />
             <span v-t="'actions.documentation'" class="ml-2" />
         </a>
-        <a href="https://github.com/TeamPiped/Piped#donations" target="_blank">
+        <a href="https://github.com/ramackersjp/Piped#donations" target="_blank">
             <i class="i-fa6-brands:bitcoin" />
             <span v-t="'actions.donations'" class="ml-2" />
         </a>
