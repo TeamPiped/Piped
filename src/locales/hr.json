@@ -164,7 +164,8 @@
         "concurrent_prefetch_limit": "Ograničenje istodobnog preuzimanja videa",
         "customize": "Prilagodi",
         "invalid_url": "Neispravni URL!",
-        "add": "Dodaj"
+        "add": "Dodaj",
+        "delete_group_confirm": "Izbrisati ovu grupu?"
     },
     "player": {
         "watch_on": "Gledaj na {0}",

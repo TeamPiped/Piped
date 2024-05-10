@@ -131,7 +131,8 @@
         "generate_qrcode": "Vygenerovať QR kód",
         "customize": "Prispôsobiť",
         "invalid_url": "Neplatná adresa URL!",
-        "add": "Pridať"
+        "add": "Pridať",
+        "delete_group_confirm": "Vymazať túto skupinu?"
     },
     "player": {
         "watch_on": "Zobraziť na {0}",
