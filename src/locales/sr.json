@@ -147,7 +147,8 @@
         "concurrent_prefetch_limit": "Ограничење претходног преузимања истовремених стримова",
         "invalid_url": "Неважећа URL адреса!",
         "add": "Додај",
-        "customize": "Прилагоди"
+        "customize": "Прилагоди",
+        "delete_group_confirm": "Избрисати ову групу?"
     },
     "preferences": {
         "instance_locations": "Локације инстанце",
