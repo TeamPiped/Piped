@@ -27,7 +27,7 @@
         "back": "Recuar",
         "uses_api_from": "Utiliza a \"API\" de ",
         "enable_sponsorblock": "Ativar \"SponsorBlock\"",
-        "skip_intro": "Ignorar intermissão/animação de introdução",
+        "skip_intro": "Ignorar intromissão/animação de introdução",
         "skip_outro": "Ignorar cartões finais/créditos",
         "skip_preview": "Ignorar pré-visualização/recapitulação",
         "auto": "Automático",
@@ -148,10 +148,11 @@
         "instance_privacy_policy": "Política de privacidade",
         "add_to_group": "Adicionar ao grupo",
         "instances_not_shown": "As instâncias públicas que, atualmente, estejam indisponíveis, não serão mostradas aqui.",
-        "concurrent_prefetch_limit": "Limite de pré-busca de fluxo simultâneo",
+        "concurrent_prefetch_limit": "Limite de obtenção para fluxos simultâneos",
         "customize": "Personalizar",
         "invalid_url": "URL inválido!",
-        "add": "Adicionar"
+        "add": "Adicionar",
+        "delete_group_confirm": "Eliminar este grupo?"
     },
     "preferences": {
         "instance_name": "Nome da instância",
