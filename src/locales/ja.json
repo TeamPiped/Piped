@@ -155,7 +155,8 @@
         "concurrent_prefetch_limit": "同時に先読みするストリーム数上限",
         "add": "追加",
         "invalid_url": "無効なURLです！",
-        "customize": "追加"
+        "customize": "追加",
+        "delete_group_confirm": "このグループを削除しますか？"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
