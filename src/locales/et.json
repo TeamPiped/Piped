@@ -98,7 +98,7 @@
         "with_playlist": "Jaga koos esitusloendiga",
         "playlist_bookmarked": "Lisatud järjehoidjaks",
         "dismiss": "Katkesta",
-        "create_group": "Loo rühm",
+        "create_group": "Loo grupp",
         "okay": "Sobib",
         "show_search_suggestions": "Näita otsingusoovitusi",
         "instance_auth_selection": "Vaheserver autentimiseks",
@@ -120,7 +120,7 @@
         "share": "Jaga",
         "source_code": "Lähtekood",
         "no_valid_playlists": "Selles failis ei leidu korrektseid esitusloendeid!",
-        "group_name": "Rühma nimi",
+        "group_name": "Grupi nimi",
         "minimize_comments": "Minimeeri kommentaarid",
         "auto_display_captions": "Kuva tiitrid automaatselt",
         "delete_account": "Kustuta konto",
@@ -151,11 +151,12 @@
         "reply_count": "{count} vastust",
         "bookmark_playlist": "Järjehoidja",
         "download_frame": "Laadi alla kaader",
-        "add_to_group": "Lisa rühma",
+        "add_to_group": "Lisa gruppi",
         "instance_privacy_policy": "Privaatsuspoliitika",
         "customize": "Kohanda",
         "invalid_url": "Vigane URL!",
-        "add": "Lisa"
+        "add": "Lisa",
+        "delete_group_confirm": "Kas kustutame selle grupi?"
     },
     "preferences": {
         "has_cdn": "CDN'i olek?",
