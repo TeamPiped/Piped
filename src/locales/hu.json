@@ -151,7 +151,8 @@
         "download_frame": "Keret letöltése",
         "customize": "Testreszab",
         "invalid_url": "Érvénytelen URL!",
-        "add": "Hozzáadás"
+        "add": "Hozzáadás",
+        "delete_group_confirm": "Törli ezt a csoportot?"
     },
     "video": {
         "ratings_disabled": "Értékelések Letiltva",
