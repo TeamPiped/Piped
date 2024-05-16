@@ -3,7 +3,7 @@
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-if="showFullText" class="contentText" v-html="fullText()" />
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <span v-else v-html="colapsedText()" />
+        <span v-else v-html="collapsedText()" />
         <span v-if="text.length > visibleLimit && !showFullText">...</span>
         <button
             v-if="text.length > visibleLimit"
@@ -38,7 +38,7 @@ export default {
         fullText() {
             return purifyHTML(rewriteDescription(this.text));
         },
-        colapsedText() {
+        collapsedText() {
             return purifyHTML(rewriteDescription(this.text.slice(0, this.visibleLimit)));
         },
     },
