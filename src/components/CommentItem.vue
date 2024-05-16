@@ -33,8 +33,13 @@
             <div class="comment-footer my-1 flex items-center gap-3">
                 <div class="i-fa6-solid:thumbs-up" />
                 <span v-text="numberFormat(comment.likeCount)" />
-                <i v-if="comment.hearted" class="i-fa6-solid:heart" />
-                <img v-if="comment.creatorReplied" :src="uploaderAvatarUrl" class="h-5 w-5 rounded-full" />
+                <i v-if="comment.hearted" class="i-fa6-solid:heart" :title="$t('actions.creator_liked')" />
+                <img
+                    v-if="comment.creatorReplied"
+                    :src="uploaderAvatarUrl"
+                    class="h-5 w-5 rounded-full"
+                    :title="$t('actions.creator_replied')"
+                />
             </div>
             <template v-if="comment.repliesPage && (!loadingReplies || !showingReplies)">
                 <div class="cursor-pointer" @click="loadReplies">

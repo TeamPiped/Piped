@@ -156,7 +156,9 @@
         "concurrent_prefetch_limit": "Concurrent Stream Prefetch Limit",
         "customize": "Customize",
         "invalid_url": "Invalid URL!",
-        "add": "Add"
+        "add": "Add",
+        "creator_replied": "Creator replied",
+        "creator_liked": "Creator liked"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
