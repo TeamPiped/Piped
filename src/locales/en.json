@@ -158,7 +158,9 @@
         "invalid_url": "Invalid URL!",
         "add": "Add",
         "creator_replied": "Creator replied",
-        "creator_liked": "Creator liked"
+        "creator_liked": "Creator liked",
+        "playback_speed": "Playback speed",
+        "invalid_input": "Invalid input"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
