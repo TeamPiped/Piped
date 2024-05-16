@@ -155,7 +155,12 @@
         "concurrent_prefetch_limit": "Предел одновременной предзагрузки трансляций",
         "customize": "Персонализация",
         "invalid_url": "Неправильная ссылка!",
-        "add": "Добавить"
+        "add": "Добавить",
+        "creator_replied": "Ответ автора",
+        "creator_liked": "Автор оценил",
+        "playback_speed": "Скорость воспроизведения",
+        "invalid_input": "Некорректный ввод",
+        "delete_group_confirm": "Удалить группу?"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
