@@ -546,32 +546,12 @@ export default {
                 this.fetchSponsors().then(data => (this.sponsors = data));
         },
         async getComments() {
-            this.fetchComments().then(data => {
-                this.rewriteComments(data.comments);
-                this.comments = data;
-            });
+            this.comments = await this.fetchComments();
         },
         async fetchSubscribedStatus() {
             if (!this.channelId) return;
 
             this.subscribed = await this.fetchSubscriptionStatus(this.channelId);
-        },
-        rewriteComments(data) {
-            data.forEach(comment => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(comment.commentText, "text/html");
-                xmlDoc.querySelectorAll("a").forEach(elem => {
-                    if (!elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/))
-                        elem.outerHTML = elem.getAttribute("href");
-                });
-                comment.commentText = xmlDoc
-                    .querySelector("body")
-                    .innerHTML.replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm, "$1")
-                    .replaceAll(
-                        /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm,
-                        "/watch?v=$1",
-                    );
-            });
         },
         subscribeHandler() {
             this.toggleSubscriptionState(this.channelId, this.subscribed).then(success => {
@@ -616,7 +596,6 @@ export default {
                 }).then(json => {
                     this.comments.nextpage = json.nextpage;
                     this.loading = false;
-                    this.rewriteComments(json.comments);
                     this.comments.comments = this.comments.comments.concat(json.comments);
                 });
             }
