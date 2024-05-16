@@ -156,7 +156,11 @@
         "customize": "Dostosuj",
         "invalid_url": "Nieprawidłowy adres URL!",
         "add": "Dodaj",
-        "delete_group_confirm": "Usunąć tę grupę?"
+        "delete_group_confirm": "Usunąć tę grupę?",
+        "creator_replied": "Twórca odpowiedział",
+        "creator_liked": "Twórca polubił",
+        "invalid_input": "Nieprawidłowe dane wejściowe",
+        "playback_speed": "Szybkość odtwarzania"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",

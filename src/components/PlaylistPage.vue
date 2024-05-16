@@ -6,10 +6,10 @@
 
         <CollapsableText v-if="playlist?.description" :text="playlist.description" />
 
-        <div class="mt-1 flex <md:flex-col md:items-center justify-between">
+        <div class="mt-1 flex justify-between <md:flex-col md:items-center">
             <div>
                 <router-link class="link flex items-center gap-3" :to="playlist.uploaderUrl || '/'">
-                    <img loading="lazy" :src="playlist.uploaderAvatar" class="rounded-full h-12" />
+                    <img loading="lazy" :src="playlist.uploaderAvatar" class="h-12 rounded-full" />
                     <strong v-text="playlist.uploader" />
                 </router-link>
             </div>

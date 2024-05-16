@@ -127,7 +127,12 @@
         "clone_playlist": "Klonēt Atskaņošanas Saturu",
         "uses_api_from": "Izmanto API no ",
         "add_to_playlist": "Pievienot Atskaņošanas Sarakstam",
-        "instances_not_shown": "Publiskās instances, kas šeit nav redzamas, pašlaik nav pieejamas."
+        "instances_not_shown": "Publiskās instances, kas šeit nav redzamas, pašlaik nav pieejamas.",
+        "delete_group_confirm": "Vai vēlaties dzēst šo grupu?",
+        "concurrent_prefetch_limit": "Vienlaicīgu Straumju Ielādes Limits",
+        "customize": "Pielāgot",
+        "invalid_url": "Nederīgs URL!",
+        "add": "Pievienot"
     },
     "search": {
         "all": "YouTube: Visi",
@@ -161,7 +166,9 @@
         "playlists": "Atskaņošanas saraksts",
         "register": "Reģistrēties",
         "player": "Atskaņotājs",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albumi",
+        "custom_instances": "Pielāgotas instances"
     },
     "video": {
         "all": "Visi",
@@ -207,7 +214,9 @@
         "has_cdn": "Vai ir satura piegādes tīkls?",
         "instance_name": "Instances Nosaukums",
         "registered_users": "Reģistrētie Lietotāji",
-        "instance_locations": "Instances Atrašanās Vietas"
+        "instance_locations": "Instances Atrašanās Vietas",
+        "uptime_30d": "Darbspējas laiks (30d)",
+        "api_url": "Api URL"
     },
     "login": {
         "username": "Lietotājvārds",
