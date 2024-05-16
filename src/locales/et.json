@@ -156,7 +156,9 @@
         "customize": "Kohanda",
         "invalid_url": "Vigane URL!",
         "add": "Lisa",
-        "delete_group_confirm": "Kas kustutame selle grupi?"
+        "delete_group_confirm": "Kas kustutame selle grupi?",
+        "creator_replied": "Autor vastas",
+        "creator_liked": "Autorile meeldis see"
     },
     "preferences": {
         "has_cdn": "CDN'i olek?",
