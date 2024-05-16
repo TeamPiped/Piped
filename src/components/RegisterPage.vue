@@ -20,7 +20,7 @@
             <div class="flex justify-center">
                 <input
                     v-model="password"
-                    class="input w-full"
+                    class="input h-auto w-full"
                     :type="showPassword ? 'text' : 'password'"
                     autocomplete="password"
                     :placeholder="$t('login.password')"
@@ -34,7 +34,7 @@
             <div class="flex justify-center">
                 <input
                     v-model="passwordConfirm"
-                    class="input w-full"
+                    class="input h-auto w-full"
                     :type="showConfirmPassword ? 'text' : 'password'"
                     autocomplete="password"
                     :placeholder="$t('login.password_confirm')"
