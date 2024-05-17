@@ -129,14 +129,7 @@ If you would like to contact me personally, you may do so with the following mea
 Please note that isn't meant for support, see [Public Chat Rooms/Communities](#public-chat-roomscommunities) for that.
 
 ## Donations
-
-Donations can be made at:
-
--   bc1qhq8zjxmu405nvp37njj6zv3s980zg400pu9jfe (BTC)
--   0x1D77D4cfB1a947514241bcf19B1F04738495e2fD (ETH)
--   84wyyeGTrg4U1daJufi78bAFrBQgdRhmxJZvgYv8dAFeFVwkJaBEmw5C7fNniUM9n4jfrz3NeG32Agxtp7JNAcCUFPACfwA (XMR, aka Monero)
--   nano_1ngejzydncche4rdua3iebhj7sa95pw5geq4pb8phugtjf3tku933ktjb4pq (Nano)
--   XpzgouDTKCUuE8a92XqjX9b43gKL8oLihw (Dash)
+- (BTC): bc1qct0g398n48dus92h7x6yr56uap4437x3cxzksv
 
 FIAT donations can be made at:
 
