@@ -1,5 +1,5 @@
 <template>
-    <h1 v-t="'titles.history'" class="mb-3 text-center font-bold" />
+    <h1 v-t="'titles.history'" class="mb-3 text-center font-bold p-15" />
 
     <div class="flex">
         <div class="flex flex-col gap-2 md:flex-row md:items-center">
