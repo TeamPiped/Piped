@@ -1,5 +1,5 @@
 <template>
-    <div class="flex">
+    <div class="flex p-15">
         <button @click="$router.go(-1) || $router.push('/')">
             <i class="i-fa6-solid:chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
         </button>

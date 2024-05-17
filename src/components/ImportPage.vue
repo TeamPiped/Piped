@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div class="text-center p-15">
         <form>
             <div>
                 <input ref="fileSelector" type="file" @change="fileChange" />
