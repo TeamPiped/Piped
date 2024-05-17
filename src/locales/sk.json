@@ -132,7 +132,11 @@
         "customize": "Prispôsobiť",
         "invalid_url": "Neplatná adresa URL!",
         "add": "Pridať",
-        "delete_group_confirm": "Vymazať túto skupinu?"
+        "delete_group_confirm": "Vymazať túto skupinu?",
+        "creator_replied": "Odpoveď autora",
+        "creator_liked": "Autorovi sa páčilo",
+        "invalid_input": "Nesprávne údaje",
+        "playback_speed": "Rýchlosť prehrávania"
     },
     "player": {
         "watch_on": "Zobraziť na {0}",
