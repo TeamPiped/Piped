@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center">
         <h1 v-t="'titles.register'" class="my-4 text-center font-bold" />
-        <TooltipIcon class="mb-6" icon="i-fa6-solid:circle-info" :tooltip="$t('info.register_note')" />
+        <i class="i-fa6-solid:circle-info ml-2 mt-6 cursor-pointer" :title="$t('info.register_note')" />
     </div>
     <hr />
     <div class="flex flex-col items-center justify-center text-center">
@@ -20,7 +20,7 @@
             <div class="flex justify-center">
                 <input
                     v-model="password"
-                    class="input w-full"
+                    class="input h-auto w-full"
                     :type="showPassword ? 'text' : 'password'"
                     autocomplete="password"
                     :placeholder="$t('login.password')"
@@ -34,7 +34,7 @@
             <div class="flex justify-center">
                 <input
                     v-model="passwordConfirm"
-                    class="input w-full"
+                    class="input h-auto w-full"
                     :type="showConfirmPassword ? 'text' : 'password'"
                     autocomplete="password"
                     :placeholder="$t('login.password_confirm')"
@@ -65,10 +65,9 @@
 <script>
 import { isEmail } from "../utils/Misc.js";
 import ConfirmModal from "./ConfirmModal.vue";
-import TooltipIcon from "./TooltipIcon.vue";
 
 export default {
-    components: { ConfirmModal, TooltipIcon },
+    components: { ConfirmModal },
     data() {
         return {
             username: null,

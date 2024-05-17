@@ -132,7 +132,11 @@
         "invalid_url": "Geçersiz URL!",
         "customize": "Özelleştir",
         "add": "Ekle",
-        "delete_group_confirm": "Bu grup silinsin mi?"
+        "delete_group_confirm": "Bu grup silinsin mi?",
+        "creator_replied": "Oluşturan yanıtladı",
+        "creator_liked": "Oluşturan beğendi",
+        "playback_speed": "Oynatma hızı",
+        "invalid_input": "Geçersiz giriş"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",

@@ -31,16 +31,32 @@
             class="absolute top-8 rounded bg-black/80 p-2 text-lg backdrop-blur-sm"
         />
     </div>
+
+    <ModalComponent v-if="showSpeedModal" @close="showSpeedModal = false">
+        <h2 v-t="'actions.playback_speed'" />
+        <div class="flex flex-col">
+            <input
+                v-model="playbackSpeedInput"
+                class="input my-3"
+                type="text"
+                :placeholder="$t('actions.playback_speed')"
+                @keyup.enter="setSpeedFromInput()"
+            />
+            <button v-t="'actions.okay'" class="btn ml-auto w-min" @click="setSpeedFromInput()" />
+        </div>
+    </ModalComponent>
 </template>
 
 <script>
 import "shaka-player/dist/controls.css";
 import { parseTimeParam } from "@/utils/Misc";
+import ModalComponent from "./ModalComponent.vue";
 
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
 const hotkeys = import("hotkeys-js");
 
 export default {
+    components: { ModalComponent },
     props: {
         video: {
             type: Object,
@@ -66,6 +82,8 @@ export default {
             destroying: false,
             inSegment: false,
             isHoveringTimebar: false,
+            showSpeedModal: false,
+            playbackSpeedInput: null,
             currentTime: 0,
             seekbarPadding: 2,
             error: 0,
@@ -106,7 +124,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,alt+p,return,.,,",
+                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+s,shift+,,shift+.,alt+p,return,.,,",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -196,11 +214,14 @@ export default {
                             self.$emit("navigateNext");
                             e.preventDefault();
                             break;
+                        case "shift+s":
+                            self.showSpeedModal = true;
+                            break;
                         case "shift+,":
-                            self.$player.trickPlay(Math.max(videoEl.playbackRate - 0.25, 0.25));
+                            self.adjustPlaybackSpeed(videoEl.playbackRate - 0.25);
                             break;
                         case "shift+.":
-                            self.$player.trickPlay(Math.min(videoEl.playbackRate + 0.25, 2));
+                            self.adjustPlaybackSpeed(videoEl.playbackRate + 0.25);
                             break;
                         case "alt+p":
                             document.pictureInPictureElement
@@ -651,7 +672,19 @@ export default {
                 this.$refs.videoEl.currentTime = time;
             }
         },
-
+        adjustPlaybackSpeed(newSpeed) {
+            const normalizedSpeed = Math.min(4, Math.max(0.25, newSpeed));
+            this.$player.trickPlay(normalizedSpeed);
+        },
+        setSpeedFromInput() {
+            try {
+                const newSpeed = Number(this.playbackSpeedInput);
+                this.adjustPlaybackSpeed(newSpeed);
+            } catch (err) {
+                alert(this.$t("actions.invalid_input"));
+            }
+            this.showSpeedModal = false;
+        },
         updateMarkers() {
             const markers = this.$refs.container.querySelector(".shaka-ad-markers");
             const array = ["to right"];

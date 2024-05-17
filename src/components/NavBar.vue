@@ -1,5 +1,5 @@
 <template>
-    <nav class="relative w-full flex flex-wrap items-center justify-center px-2 pb-2.5 sm:px-4">
+    <nav class="relative w-full flex flex-wrap items-center justify-center px-2 pb-2.5 sm:px-4 sticky top-0">
         <div class="flex flex-1 justify-start">
             <router-link class="flex items-center text-3xl font-bold font-sans" :to="homePagePath"
                 ><img
@@ -216,7 +216,7 @@ export default {
 
 <style>
 .search-container {
-    @apply relative inline-flex items-center;
+    @apply relative inline-flex items-center sticky top-12;
 }
 .delete-search {
     @apply absolute right-3 cursor-pointer rounded-full bg-[#ccc] w-4 h-4 text-center text-black opacity-50 hover:(opacity-70) text-size-[10px];
