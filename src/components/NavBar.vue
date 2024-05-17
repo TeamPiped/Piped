@@ -1,6 +1,6 @@
 <template>
     <nav class="fixed top-0 left-0 w-full flex flex-wrap items-center justify-center px-2 pb-2.5 sm:px-4 bg-dark-4">
-        <div class="flex flex-1 justify-start">
+        <div class="flex flex-1 justify-start p-2">
             <router-link class="flex items-center text-3xl font-bold font-sans" :to="homePagePath"
                 ><img
                     alt="logo"

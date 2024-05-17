@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center">
+    <div class="flex justify-center p-15">
         <h1 v-t="'titles.login'" class="my-4 text-center font-bold" />
         <i class="i-fa6-solid:circle-info ml-2 mt-6 cursor-pointer" :title="$t('info.login_note')" />
     </div>
