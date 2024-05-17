@@ -132,7 +132,11 @@
         "customize": "Personalizar",
         "invalid_url": "URL inválida!",
         "add": "Adicionar",
-        "delete_group_confirm": "Excluir este grupo?"
+        "delete_group_confirm": "Excluir este grupo?",
+        "creator_replied": "O autor respondeu",
+        "creator_liked": "O autor gostou",
+        "playback_speed": "Velocidade de reprodução",
+        "invalid_input": "Entrada inválida"
     },
     "titles": {
         "history": "Histórico",
