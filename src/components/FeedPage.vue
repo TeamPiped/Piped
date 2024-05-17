@@ -1,5 +1,5 @@
 <template>
-    <h1 v-t="'titles.feed'" class="my-4 text-center font-bold" />
+    <h1 v-t="'titles.feed'" class="my-4 text-center font-bold p-15" />
 
     <div class="flex flex-col flex-wrap gap-2 children:(flex items-center gap-1) md:flex-row md:items-center">
         <span>

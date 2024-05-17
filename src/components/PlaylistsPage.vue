@@ -1,7 +1,7 @@
 <template>
     <h2 v-t="'titles.playlists'" class="my-4 font-bold" />
 
-    <div class="mb-3 flex justify-between">
+    <div class="mb-3 flex justify-between p-15">
         <button v-t="'actions.create_playlist'" class="btn" @click="showCreatePlaylistModal = true" />
         <div class="flex">
             <button v-if="playlists.length > 0" v-t="'actions.export_to_json'" class="btn" @click="exportPlaylists" />
