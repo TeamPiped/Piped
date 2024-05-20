@@ -2651,8 +2651,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001618
-      electron-to-chromium: 1.4.768
+      caniuse-lite: 1.0.30001620
+      electron-to-chromium: 1.4.774
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.0)
     dev: true
@@ -2692,8 +2692,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /caniuse-lite@1.0.30001618:
-    resolution: {integrity: sha512-p407+D1tIkDvsEAPS22lJxLQQaG8OTBEqo0KhzfABGk0TU4juBNDSfH0hyAp/HRyx+M8L17z/ltyhxh27FTfQg==}
+  /caniuse-lite@1.0.30001620:
+    resolution: {integrity: sha512-WJvYsOjd1/BYUY6SNGUosK9DUidBPDTnOARHp3fSmFO1ekdxaY6nKRttEVrfMmYi80ctS0kz1wiWmm14fVc3ew==}
     dev: true
 
   /chalk@2.4.2:
@@ -2946,12 +2946,12 @@ packages:
       jake: 10.9.1
     dev: true
 
-  /electron-to-chromium@1.4.768:
-    resolution: {integrity: sha512-z2U3QcvNuxdkk33YV7R1bVMNq7fL23vq3WfO5BHcqrm4TnDGReouBfYKLEFh5umoK1XACjEwp8mmnhXk2EJigw==}
+  /electron-to-chromium@1.4.774:
+    resolution: {integrity: sha512-132O1XCd7zcTkzS3FgkAzKmnBuNJjK8WjcTtNuoylj7MYbqw5eXehjQ5OK91g0zm7OTKIPeaAG4CPoRfD9M1Mg==}
     dev: true
 
-  /eme-encryption-scheme-polyfill@2.1.3:
-    resolution: {integrity: sha512-MLF/qy30Byiay963acUmnCRVYlUnep5C3XjY+XKQR6kmYEEEM/KMf1ZnvmFXwALsxLIYBibziiHneDQObTH7Tw==}
+  /eme-encryption-scheme-polyfill@2.1.4:
+    resolution: {integrity: sha512-RyYYPjz64N8YSYSrhJQTr7WcIVQpJUqqOBLq8TzXt8IYNtD4xSDOd1KeaUyFB7TdtLVu01McLHqQt8ZiDgQiLQ==}
     dev: false
 
   /emoji-regex@8.0.0:
@@ -4614,7 +4614,7 @@ packages:
     resolution: {integrity: sha512-fdBa9LHlHfHJ6Ja4/c0pUmeAUc0LAfDWE7fO1TvuFWMoSVQ8LAxGeTAI1NJCPI3lGlOKa3kc3xU90n/00nW80Q==}
     engines: {node: '>=14'}
     dependencies:
-      eme-encryption-scheme-polyfill: 2.1.3
+      eme-encryption-scheme-polyfill: 2.1.4
     dev: false
 
   /shebang-command@2.0.0:
