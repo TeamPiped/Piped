@@ -148,7 +148,11 @@
         "invalid_url": "Неважећа URL адреса!",
         "add": "Додај",
         "customize": "Прилагоди",
-        "delete_group_confirm": "Избрисати ову групу?"
+        "delete_group_confirm": "Избрисати ову групу?",
+        "creator_replied": "Креатор је одговорио",
+        "creator_liked": "Креатор је лајковао",
+        "invalid_input": "Неважећи унос",
+        "playback_speed": "Брзина репродукције"
     },
     "preferences": {
         "instance_locations": "Локације инстанце",

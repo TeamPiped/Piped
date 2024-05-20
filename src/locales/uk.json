@@ -142,7 +142,11 @@
         "customize": "Налаштувати",
         "invalid_url": "Неправильна URL-адреса!",
         "add": "Додати",
-        "delete_group_confirm": "Видалити цю групу?"
+        "delete_group_confirm": "Видалити цю групу?",
+        "creator_replied": "Відповідь творця",
+        "creator_liked": "Творець уподобав(-ла)",
+        "invalid_input": "Неналежний ввід",
+        "playback_speed": "Швидкість відтворення"
     },
     "titles": {
         "register": "Реєстрація",

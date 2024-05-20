@@ -152,7 +152,11 @@
         "customize": "Personalizar",
         "invalid_url": "URL inválido!",
         "add": "Adicionar",
-        "delete_group_confirm": "Eliminar este grupo?"
+        "delete_group_confirm": "Eliminar este grupo?",
+        "creator_replied": "O criador respondeu",
+        "creator_liked": "O criador gostou",
+        "invalid_input": "Entrada inválida",
+        "playback_speed": "Velocidade de reprodução"
     },
     "preferences": {
         "instance_name": "Nome da instância",

@@ -156,7 +156,11 @@
         "customize": "تخصيص",
         "invalid_url": "عنوان URL غير صالح!",
         "add": "إضافة",
-        "delete_group_confirm": "حذف هذه المجموعة؟"
+        "delete_group_confirm": "حذف هذه المجموعة؟",
+        "creator_replied": "أجاب المنشء",
+        "creator_liked": "المنشء اعجب",
+        "playback_speed": "سرعة التشغيل",
+        "invalid_input": "مدخل غير صالح"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",

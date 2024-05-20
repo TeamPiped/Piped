@@ -165,7 +165,11 @@
         "customize": "Personalizar",
         "invalid_url": "¡URL no válida!",
         "add": "Añadir",
-        "delete_group_confirm": "¿Eliminar este grupo?"
+        "delete_group_confirm": "¿Eliminar este grupo?",
+        "creator_liked": "Al autor le gustó",
+        "creator_replied": "El autor respondió",
+        "playback_speed": "Velocidad de reproducción",
+        "invalid_input": "Entrada no válida"
     },
     "titles": {
         "feed": "Contenido",
