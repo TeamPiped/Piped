@@ -16,12 +16,12 @@ jobs:
               with:
                   version: latest
             - name: Setup Node.js
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   cache: "pnpm"
             - run: pnpm install
             - run: pnpm build
-            - uses: actions/upload-artifact@v3
+            - uses: actions/upload-artifact@v4
               with:
                   name: build
                   path: dist

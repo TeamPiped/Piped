@@ -10,7 +10,7 @@
         />
     </div>
 
-    <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full mt-[15rem]">
+    <LoadingIndicatorPage :show-content="video && !isEmbed" class="mt-[15rem] w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
         <Transition>
             <ToastComponent v-if="shouldShowToast" @dismissed="dismiss">
@@ -46,7 +46,7 @@
                 <!-- views / date -->
                 <div class="flex flex-auto">
                     <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
-                    <span> • </span>
+                    <span> · </span>
                     <span v-text="uploadDate" />
                 </div>
                 <!-- Likes/dilikes -->
@@ -77,21 +77,22 @@
                         video.uploader
                     }}</router-link>
                     <!-- Verified Badge -->
-                    <font-awesome-icon v-if="video.uploaderVerified" class="ml-1" icon="check" />
+                    <i v-if="video.uploaderVerified" class="i-fa6-solid:check ml-1" />
                 </div>
                 <div class="pp-watch-buttons">
                     <!-- Subscribe button -->
                     <button
-                        v-t="{
-                            path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                            args: { count: numberFormat(video.uploaderSubscriberCount) },
-                        }"
                         class="btn"
                         @click="subscribeHandler"
+                        v-text="
+                            $t('actions.' + (subscribed ? 'unsubscribe' : 'subscribe')) +
+                            ' - ' +
+                            numberFormat(video.uploaderSubscriberCount)
+                        "
                     />
                     <!-- Playlist Add button -->
-                    <button class="btn flex items-center" @click="showModal = !showModal">
-                        {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
+                    <button class="pp-square btn flex items-center" style="padding: 0" @click="showModal = !showModal">
+                        <i class="i-fa6-solid:circle-plus m-0" />
                     </button>
                     <PlaylistAddModal
                         v-if="showModal"
@@ -108,9 +109,12 @@
                         :playlist-index="index"
                         @close="showShareModal = !showShareModal"
                     />
-                    <button class="btn flex items-center share-btn" @click="showShareModal = !showShareModal">
-                        <font-awesome-icon class="mx-1.5 mr-1" icon="fa-share" />
-                        <i18n-t keypath="actions.share" tag="strong"></i18n-t>
+                    <button
+                        class="pp-square btn share-btn flex items-center"
+                        style="padding: 0"
+                        @click="showShareModal = !showShareModal"
+                    >
+                        <i class="i-fa6-solid:share m-0" />
                     </button>
                     <!-- YouTube -->
                     <WatchOnButton :link="`https://youtu.be/${getVideoId()}`" />
@@ -123,8 +127,9 @@
                         :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
                         :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
                         class="pp-square btn flex items-center"
+                        style="padding: 0"
                     >
-                        <font-awesome-icon class="mx-1.5" :icon="isListening ? 'tv' : 'headphones'" />
+                        <i :class="isListening ? 'i-fa6-solid:tv' : 'i-fa6-solid:headphones'" class="m-0" />
                     </router-link>
                     <!-- RSS Feed button -->
                     <a
@@ -135,11 +140,12 @@
                         :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${video.uploaderUrl.split('/')[2]}`"
                         target="_blank"
                         class="pp-square btn flex items-center"
+                        style="padding: 0"
                     >
-                        <font-awesome-icon class="mx-1.5" icon="rss" />
+                        <i class="i-fa6-solid:rss m-0" />
                     </a>
-                    <button class="btn flex items-center gap-1 <md:hidden" @click="downloadCurrentFrame">
-                        <i class="i-fa6-solid:download" />{{ $t("actions.download_frame") }}
+                    <button class="pp-square btn flex items-center" style="padding: 0" @click="downloadCurrentFrame">
+                        <i class="i-fa6-solid:download m-0" />
                     </button>
                 </div>
             </div>
@@ -163,8 +169,8 @@
                 <label v-t="'actions.show_description'" for="showDesc" />
                 <input id="showComments" v-model="showComments" type="checkbox" @click="toggleComments" />
                 <label
-                    v-text="`${$t('actions.show_comments')} - ${numberFormat(comments?.commentCount)}`"
                     for="showComments"
+                    v-text="`${$t('actions.show_comments')} - ${numberFormat(comments?.commentCount)}`"
                 />
                 <input id="showRecs" v-model="showRecs" type="checkbox" />
                 <label v-t="'actions.show_recommendations'" for="showRecs" />
@@ -195,7 +201,7 @@
                     <router-link
                         v-for="tag in video.tags"
                         :key="tag"
-                        class="line-clamp-1 efy_trans_filter efy_shadow_trans"
+                        class="efy_trans_filter efy_shadow_trans line-clamp-1"
                         :to="`/results?search_query=${encodeURIComponent(tag)}`"
                         >{{ tag }}</router-link
                     >
@@ -219,6 +225,7 @@
                     :key="comment.commentId"
                     :comment="comment"
                     :uploader="video.uploader"
+                    :uploader-avatar-url="video.uploaderAvatar"
                     :video-id="getVideoId()"
                     class="efy_trans_filter efy_shadow_trans"
                 />
@@ -230,6 +237,7 @@
                     :playlist-id="playlistId"
                     :playlist="playlist"
                     :selected-index="index"
+                    :prefer-listen="isListening"
                 />
                 <div v-show="showRecs" class="pp-show-recs">
                     <h6 efy_card style="padding: 5rem 10rem 3rem; margin: 0">Recommended</h6>
@@ -237,6 +245,8 @@
                         v-for="related in video.relatedStreams"
                         :key="related.url"
                         :item="related"
+                        :prefer-listen="isListening"
+                        class="mb-4"
                         height="94"
                         width="168"
                     />
@@ -287,7 +297,7 @@ export default {
             selectedAutoLoop: false,
             selectedAutoPlay: null,
             showComments: true,
-            showDesc: true,
+            showDesc: false,
             showRecs: true,
             showChapters: true,
             comments: null,
@@ -388,7 +398,7 @@ export default {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
         this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
-        this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
+        this.showDesc = !this.getPreferenceBoolean("minimizeDescription", true);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         this.showChapters = !this.getPreferenceBoolean("minimizeChapters", false);
         if (this.video?.duration) {
@@ -428,7 +438,7 @@ export default {
             });
 
             sponsors?.segments?.forEach(segment => {
-                const option = skipOptions[segment.category];
+                const option = skipOptions?.[segment.category];
                 segment.autoskip = option === undefined || option === "auto";
             });
 
@@ -480,9 +490,7 @@ export default {
         },
         async getPlaylistData() {
             if (this.playlistId) {
-                await this.fetchJson(this.apiUrl() + "/playlists/" + this.playlistId).then(data => {
-                    this.playlist = data;
-                });
+                this.playlist = await this.getPlaylist(this.playlistId);
                 await this.fetchPlaylistPages().then(() => {
                     if (!(this.index >= 0)) {
                         for (let i = 0; i < this.playlist.relatedStreams.length; i++)
@@ -516,65 +524,17 @@ export default {
                 this.fetchSponsors().then(data => (this.sponsors = data));
         },
         async getComments() {
-            this.fetchComments().then(data => {
-                this.rewriteComments(data.comments);
-                this.comments = data;
-            });
+            this.comments = await this.fetchComments();
         },
         async fetchSubscribedStatus() {
             if (!this.channelId) return;
-            if (!this.authenticated) {
-                this.subscribed = this.isSubscribedLocally(this.channelId);
-                return;
-            }
 
-            this.fetchJson(
-                this.authApiUrl() + "/subscribed",
-                {
-                    channelId: this.channelId,
-                },
-                {
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                    },
-                },
-            ).then(json => {
-                this.subscribed = json.subscribed;
-            });
-        },
-        rewriteComments(data) {
-            data.forEach(comment => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(comment.commentText, "text/html");
-                xmlDoc.querySelectorAll("a").forEach(elem => {
-                    if (!elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/))
-                        elem.outerHTML = elem.getAttribute("href");
-                });
-                comment.commentText = xmlDoc
-                    .querySelector("body")
-                    .innerHTML.replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm, "$1")
-                    .replaceAll(
-                        /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm,
-                        "/watch?v=$1",
-                    );
-            });
+            this.subscribed = await this.fetchSubscriptionStatus(this.channelId);
         },
         subscribeHandler() {
-            if (this.authenticated) {
-                this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        channelId: this.channelId,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                });
-            } else {
-                if (!this.handleLocalSubscriptions(this.channelId)) return;
-            }
-            this.subscribed = !this.subscribed;
+            this.toggleSubscriptionState(this.channelId, this.subscribed).then(success => {
+                if (success) this.subscribed = !this.subscribed;
+            });
         },
         handleClick(event) {
             if (!event || !event.target) return;
@@ -614,12 +574,17 @@ export default {
                 }).then(json => {
                     this.comments.nextpage = json.nextpage;
                     this.loading = false;
-                    this.rewriteComments(json.comments);
                     this.comments.comments = this.comments.comments.concat(json.comments);
                 });
             }
         },
         getVideoId() {
+            if (this.$route.query.video_ids) {
+                const videos_list = this.$route.query.video_ids.split(",");
+                this.index = Number(this.$route.query.index ?? 0);
+                return videos_list[this.index];
+            }
+
             return this.$route.query.v || this.$route.params.v;
         },
         navigate(time) {
@@ -659,7 +624,15 @@ export default {
         },
         navigateNext() {
             const params = this.$route.query;
-            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            const video_ids = this.$route.query.video_ids?.split(",") ?? [];
+            let url;
+            if (this.playlist) {
+                url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            } else if (video_ids.length > this.index + 1) {
+                url = `${this.$route.path}?index=${this.index + 1}`;
+            } else {
+                url = this.video.relatedStreams[0].url;
+            }
             const searchParams = new URLSearchParams();
             for (var param in params)
                 switch (param) {
@@ -667,7 +640,8 @@ export default {
                     case "t":
                         break;
                     case "index":
-                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("index", this.index + 1);
+                        if (this.playlist && this.index < this.playlist.relatedStreams.length)
+                            searchParams.set("index", this.index + 1);
                         break;
                     case "list":
                         if (this.index < this.playlist.relatedStreams.length) searchParams.set("list", params.list);
@@ -719,6 +693,39 @@ export default {
         margin: 0;
     }
 }
+video::-webkit-media-text-track-display {
+    display: flex;
+    width: fit-content !important;
+    position: relative !important;
+    top: calc(100% - 150rem) !important;
+    height: fit-content !important;
+    padding: 2rem 8rem;
+    margin: auto;
+    margin-bottom: 8rem;
+    background: #0008 !important;
+    backdrop-filter: blur(20rem);
+    color: #fff;
+    border-radius: var(--efy_radius);
+    font-family: var(--efy_font_family);
+    font-size: 22rem !important;
+}
+video::cue {
+    background: transparent;
+}
+.player-container.pp-trans video::-webkit-media-text-track-display {
+    background: transparent !important;
+    backdrop-filter: none;
+    margin-bottom: unset;
+    line-height: 1.2;
+    text-shadow: 0 0 5rem #000;
+}
+
+.player-container.pp-solid video::-webkit-media-text-track-display {
+    background: var(--efy_bg) !important;
+    color: var(--efy_text);
+    backdrop-filter: none;
+}
+
 @media (width <= 768px) {
     .share-btn {
         aspect-ratio: 1;
@@ -728,6 +735,12 @@ export default {
     }
     .share-btn svg {
         margin: 0;
+    }
+}
+@media (max-width: 639px) {
+    video::-webkit-media-text-track-display {
+        font-size: 16rem !important;
+        top: calc(100% - 120rem) !important;
     }
 }
 </style>

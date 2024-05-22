@@ -15,10 +15,11 @@
         "dearrow": "DeArrow",
         "livestreams": "Livesändningar",
         "channels": "Kanaler",
-        "channel_groups": "Kanal Grupper"
+        "channel_groups": "Kanal Grupper",
+        "albums": "Album"
     },
     "actions": {
-        "subscribe": "Prenumerera - {count}",
+        "subscribe": "Prenumerera",
         "channel_name_asc": "Kanalnamn (A-Z)",
         "channel_name_desc": "Kanalnamn (Z-A)",
         "back": "Tillbaka",
@@ -28,7 +29,7 @@
         "export_to_json": "Exportera till JSON",
         "show_description": "Visa beskrivning",
         "loading": "Laddar...",
-        "unsubscribe": "Avsluta prenumeration - {count}",
+        "unsubscribe": "Avsluta prenumeration",
         "sort_by": "Sortera efter:",
         "most_recent": "Senaste",
         "skip_intro": "Hoppa över paus/introanimering",
@@ -143,10 +144,13 @@
         "skip_automatically": "Automatiskt",
         "download_frame": "Ladda ner bildruta",
         "import_from_json_csv": "Importera från JSON/CSV",
-        "instance_privacy_policy": "Sekretesspolicy"
+        "instance_privacy_policy": "Sekretesspolicy",
+        "add_to_group": "Lägg till i grupp",
+        "instances_not_shown": "Publika instanser som inte visas här är inte tillgängliga för närvarande.",
+        "concurrent_prefetch_limit": "Gräns för förhämtning av samtidig ström"
     },
     "player": {
-        "watch_on": "Titta på {0}",
+        "watch_on": "Se på {0}",
         "failed": "Misslyckades med felkod {0}, se loggar för mer information"
     },
     "preferences": {
@@ -156,7 +160,8 @@
         "has_cdn": "Har CDN?",
         "registered_users": "Registrerade användare",
         "version": "Version",
-        "up_to_date": "Är du uppdaterad?"
+        "up_to_date": "Är du uppdaterad?",
+        "uptime_30d": "Upptid (30d)"
     },
     "login": {
         "username": "Användarnamn",
@@ -215,6 +220,8 @@
         "cannot_copy": "Kan inte kopiera!",
         "page_not_found": "Sida hittas ej",
         "copied": "Kopierad!",
-        "local_storage": "Det här kräver localStorage, är cookies aktiverat?"
+        "local_storage": "Det här kräver localStorage, är cookies aktiverat?",
+        "login_note": "Logga in med ett konto som skapats på denna instans.",
+        "register_note": "Registrera ett konto för den här Piped-instansen. Då kan du synkronisera dina prenumerationer och spellistor med ditt konto, så att de lagras på serversidan. Du kan använda alla funktioner utan konto, men alla data lagras i webbläsarens lokala cache. Se till att du INTE använder en e-postadress som användarnamn och välj ett säkert lösenord som du inte använder någon annanstans."
     }
 }

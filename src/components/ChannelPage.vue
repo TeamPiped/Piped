@@ -1,23 +1,38 @@
 <template>
     <ErrorHandler v-if="channel && channel.error" :message="channel.message" :error="channel.error" />
-    <div v-if="channel" v-show="!channel.error" class="mt-[15rem]">
-        <LoadingIndicatorPage :show-content="channel != null && !channel.error">
-            <img v-if="channel.bannerUrl" :src="channel.bannerUrl" class="w-full efy_shadow_trans" loading="lazy" />
+    <LoadingIndicatorPage :show-content="channel != null && !channel.error">
+        <img
+            v-if="channel.bannerUrl"
+            loading="lazy"
+            :src="channel.bannerUrl"
+            class="efy_shadow_trans mt-[15rem] w-full"
+        />
+        <div class="flex flex-col">
             <div class="pp-channel-page-author flex">
                 <img height="48" width="48" class="efy_shadow_trans" :src="channel.avatarUrl" />
-                <h5 v-text="channel.name" />
-                <font-awesome-icon v-if="channel.verified" class="ml-1.5" icon="check" />
+                <div class="flex items-center gap-1">
+                    <h5 v-text="channel.name" />
+                    <i v-if="channel.verified" class="i-fa6-solid:check ml-2" />
+                </div>
             </div>
-            <p v-text="channel.description" style="margin: 10rem 0 0 0" />
+            <p style="margin: 10rem 0 0 0" v-text="channel.description" />
 
             <div class="pp-channel-tabs">
                 <button
-                    v-t="{
-                        path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                        args: { count: numberFormat(channel.subscriberCount) },
-                    }"
                     class="pp-subscribe"
                     @click="subscribeHandler"
+                    v-text="
+                        $t('actions.' + (subscribed ? 'unsubscribe' : 'subscribe')) +
+                        ' - ' +
+                        numberFormat(channel.subscriberCount)
+                    "
+                ></button>
+
+                <button
+                    v-if="subscribed"
+                    v-t="'actions.add_to_group'"
+                    class="btn"
+                    @click="showGroupModal = true"
                 ></button>
 
                 <!-- RSS Feed button -->
@@ -31,7 +46,7 @@
                     class="pp-square"
                     style="display: inline; float: unset"
                 >
-                    <font-awesome-icon icon="rss" />
+                    <i class="i-fa6-solid:rss" />
                 </a>
                 <WatchOnButton :link="`https://youtube.com/channel/${channel.id}`" />
                 <p style="place-self: center">|</p>
@@ -44,36 +59,25 @@
                     <span v-text="tab.translatedName"></span>
                 </button>
             </div>
+        </div>
 
-            <hr />
+        <hr />
 
-            <div class="video-grid">
-                <ContentItem
-                    v-for="item in contentItems"
-                    :key="item.url"
-                    :item="item"
-                    height="94"
-                    width="168"
-                    hide-channel
-                    class="efy_trans_filter"
-                />
-            </div>
-        </LoadingIndicatorPage>
-    </div>
+        <div class="video-grid">
+            <ContentItem
+                v-for="item in contentItems"
+                :key="item.url"
+                :item="item"
+                height="94"
+                width="168"
+                hide-channel
+                class="efy_trans_filter"
+            />
+        </div>
+
+        <AddToGroupModal v-if="showGroupModal" :channel-id="channel.id.substr(-24)" @close="showGroupModal = false" />
+    </LoadingIndicatorPage>
 </template>
-
-<style>
-.pp-channel-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 15rem 0;
-    gap: var(--efy_gap0);
-}
-.pp-channel-tabs :is(button, [role="button"]) {
-    margin: 0;
-    border: 0;
-}
-</style>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
@@ -81,6 +85,7 @@ import ContentItem from "./ContentItem.vue";
 import WatchOnButton from "./WatchOnButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 // import CollapsableText from "./CollapsableText.vue";
+import AddToGroupModal from "./AddToGroupModal.vue";
 
 export default {
     components: {
@@ -89,6 +94,7 @@ export default {
         WatchOnButton,
         LoadingIndicatorPage,
         // CollapsableText,
+        AddToGroupModal,
     },
     data() {
         return {
@@ -97,6 +103,7 @@ export default {
             tabs: [],
             selectedTab: 0,
             contentItems: [],
+            showGroupModal: false,
         };
     },
     mounted() {
@@ -116,24 +123,8 @@ export default {
     methods: {
         async fetchSubscribedStatus() {
             if (!this.channel.id) return;
-            if (!this.authenticated) {
-                this.subscribed = this.isSubscribedLocally(this.channel.id);
-                return;
-            }
 
-            this.fetchJson(
-                this.authApiUrl() + "/subscribed",
-                {
-                    channelId: this.channel.id,
-                },
-                {
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                    },
-                },
-            ).then(json => {
-                this.subscribed = json.subscribed;
-            });
+            this.subscribed = await this.fetchSubscriptionStatus(this.channel.id);
         },
         async fetchChannel() {
             const url = this.$route.path.includes("@")
@@ -205,21 +196,9 @@ export default {
             });
         },
         subscribeHandler() {
-            if (this.authenticated) {
-                this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        channelId: this.channel.id,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                });
-            } else {
-                if (!this.handleLocalSubscriptions(this.channel.id)) return;
-            }
-            this.subscribed = !this.subscribed;
+            this.toggleSubscriptionState(this.channel.id, this.subscribed).then(success => {
+                if (success) this.subscribed = !this.subscribed;
+            });
         },
         getTranslatedTabName(tabName) {
             let translatedTabName = tabName;
@@ -230,8 +209,8 @@ export default {
                 case "playlists":
                     translatedTabName = this.$t("titles.playlists");
                     break;
-                case "channels":
-                    translatedTabName = this.$t("titles.channels");
+                case "albums":
+                    translatedTabName = this.$t("titles.albums");
                     break;
                 case "shorts":
                     translatedTabName = this.$t("video.shorts");
@@ -270,3 +249,16 @@ export default {
     },
 };
 </script>
+
+<style>
+.pp-channel-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15rem 0 0 0;
+    gap: var(--efy_gap0);
+}
+.pp-channel-tabs :is(button, [role="button"]) {
+    margin: 0;
+    border: 0;
+}
+</style>

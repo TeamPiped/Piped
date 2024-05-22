@@ -9,10 +9,10 @@
                 <strong v-text="`Selected Subscriptions: ${selectedSubscriptions}`" />
             </div>
             <div efy_select>
-                <input v-model="override" id="import-override" type="checkbox" />
+                <input id="import-override" v-model="override" type="checkbox" />
                 <label for="import-override">Override</label>
             </div>
-            <a class="btn w-auto" @click="handleImport" role="button" style="margin: 0">Import</a>
+            <a class="btn w-auto" role="button" style="margin: 0" @click="handleImport">Import</a>
         </form>
         <br />
         <strong>Importing Subscriptions from YouTube</strong>
@@ -88,10 +88,11 @@ export default {
                     });
                 }
                 // NewPipe
-                else if (text.indexOf("app_version") != -1) {
+                else if (text.indexOf("subscriptions") != -1) {
                     const json = JSON.parse(text);
                     json.subscriptions
-                        .filter(item => item.service_id == 0)
+                        // if service_id is undefined, chances are it's a freetube export
+                        .filter(item => item.service_id == 0 || item.service_id == undefined)
                         .forEach(item => {
                             const url = item.url;
                             const id = url.slice(-24);

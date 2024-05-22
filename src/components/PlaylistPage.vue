@@ -21,31 +21,31 @@
                         loading="lazy"
                         width="36"
                         height="36"
-                        class="w-36rem h-36rem efy_shadow_trans"
+                        class="efy_shadow_trans h-36rem w-36rem"
                     />
                     <button class="pp-text efy_shadow_trans efy_shadow_button_off efy_button_text_off">
                         <span v-text="playlist.uploader" />
-                        <font-awesome-icon class="ml-1.5" v-if="playlist.uploaderVerified" icon="check" />
+                        <i v-if="playlist.uploaderVerified" class="i-fa6-solid:check ml-1.5" />
                     </button>
                 </router-link>
                 <button
-                    v-text="`${playlist.videos} ${$t('video.videos')}`"
                     class="efy_button_text_off efy_shadow_trans efy_shadow_button_off"
+                    v-text="`${playlist.videos} ${$t('video.videos')}`"
                 />
             </div>
             <div class="pp-flex-bookmarks">
                 <button v-if="!isPipedPlaylist" class="btn" @click="bookmarkPlaylist">
-                    <font-awesome-icon class="mr-[5rem]" icon="bookmark" />
+                    <i class="i-fa6-solid:bookmark mr-[5rem]" />
                     {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`) }}
                 </button>
-                <button v-if="authenticated && !isPipedPlaylist" class="btn mr-1 ml-2" @click="clonePlaylist">
-                    <font-awesome-icon class="mr-[5rem]" icon="clone" />{{ $t("actions.clone_playlist") }}
+                <button v-if="authenticated && !isPipedPlaylist" class="btn ml-2 mr-1" @click="clonePlaylist">
+                    <i class="i-fa6-solid:clone mr-[5rem]" />{{ $t("actions.clone_playlist") }}
                 </button>
                 <button class="btn mr-1" @click="downloadPlaylistAsTxt">
                     {{ $t("actions.download_as_txt") }}
                 </button>
-                <a :href="getRssUrl" role="button" class="btn pp-square">
-                    <font-awesome-icon icon="rss" />
+                <a :href="getRssUrl" role="button" class="btn pp-square" style="padding: 0">
+                    <i class="i-fa6-solid:rss m-0" />
                 </a>
                 <WatchOnButton :link="`https://www.youtube.com/playlist?list=${$route.query.list}`" class="pp-square" />
             </div>
@@ -68,17 +68,6 @@
         </div>
     </LoadingIndicatorPage>
 </template>
-
-<style>
-.pp-flex-bookmarks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--efy_gap0);
-}
-.pp-flex-bookmarks > * {
-    margin: 0;
-}
-</style>
 
 <script>
 import ErrorHandler from "./ErrorHandler.vue";
@@ -132,16 +121,8 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
-        async fetchPlaylist() {
-            const playlistId = this.$route.query.list;
-            if (playlistId.startsWith("local")) {
-                return this.getPlaylist(playlistId);
-            }
-
-            return await await this.fetchJson(this.authApiUrl() + "/playlists/" + this.$route.query.list);
-        },
         async getPlaylistData() {
-            this.fetchPlaylist()
+            this.getPlaylist(this.$route.query.list)
                 .then(data => (this.playlist = data))
                 .then(() => {
                     this.updateTitle();
@@ -237,3 +218,14 @@ export default {
     },
 };
 </script>
+
+<style>
+.pp-flex-bookmarks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--efy_gap0);
+}
+.pp-flex-bookmarks > * {
+    margin: 0;
+}
+</style>

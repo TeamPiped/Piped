@@ -21,8 +21,8 @@
         "watch_on": "{0} saytında bax"
     },
     "actions": {
-        "subscribe": "Abunə Ol - {count}",
-        "unsubscribe": "Abunəlikdən Çıx - {count}",
+        "subscribe": "Abunə Ol",
+        "unsubscribe": "Abunəlikdən Çıx",
         "view_subscriptions": "Abunəliklərə Baxın",
         "sort_by": "Çeşidlə:",
         "most_recent": "Ən Yeni",

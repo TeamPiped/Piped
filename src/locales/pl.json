@@ -15,15 +15,17 @@
         "channels": "Kanały",
         "bookmarks": "Zakładki",
         "channel_groups": "Grupy kanałów",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albumy",
+        "custom_instances": "Niestandardowe instancje"
     },
     "player": {
         "watch_on": "Zobacz na {0}",
         "failed": "Niepowodzenie z powodu kodu błędu {0}, przejrzyj logi, aby uzyskać więcej informacji"
     },
     "actions": {
-        "subscribe": "Subskrybuj - {count}",
-        "unsubscribe": "Odsubskrybuj - {count}",
+        "subscribe": "Subskrybuj",
+        "unsubscribe": "Odsubskrybuj",
         "view_subscriptions": "Zarządzaj subskrybcjami",
         "sort_by": "Sortuj:",
         "most_recent": "Najnowsze",
@@ -43,7 +45,7 @@
         "skip_highlight": "Przechodź do meritum filmu",
         "skip_filler_tangent": "Pomijaj wstawki humorystyczne",
         "theme": "Motyw",
-        "auto": "Automatyczna",
+        "auto": "Automatyczny",
         "dark": "Ciemny",
         "light": "Jasny",
         "autoplay_video": "Autoodtwarzanie",
@@ -147,7 +149,18 @@
         "generate_qrcode": "Wygeneruj kod QR",
         "import_from_json_csv": "Import z pliku JSON/CSV",
         "download_frame": "Pobierz klatkę",
-        "instance_privacy_policy": "Polityki prywatności"
+        "instance_privacy_policy": "Polityki prywatności",
+        "add_to_group": "Dodaj do grupy",
+        "instances_not_shown": "Instancje publiczne, które nie są tutaj pokazane, są obecnie niedostępne.",
+        "concurrent_prefetch_limit": "Limit równoczesnego pobierania wstępnego strumienia",
+        "customize": "Dostosuj",
+        "invalid_url": "Nieprawidłowy adres URL!",
+        "add": "Dodaj",
+        "delete_group_confirm": "Usunąć tę grupę?",
+        "creator_replied": "Twórca odpowiedział",
+        "creator_liked": "Twórca polubił",
+        "invalid_input": "Nieprawidłowe dane wejściowe",
+        "playback_speed": "Szybkość odtwarzania"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
@@ -162,7 +175,9 @@
         "registered_users": "Zarejestrowani użytkownicy",
         "version": "Wersja",
         "up_to_date": "Aktualna?",
-        "ssl_score": "Ocena SSL"
+        "ssl_score": "Ocena SSL",
+        "uptime_30d": "Czas pracy (30d)",
+        "api_url": "Adres URL interfejsu API"
     },
     "login": {
         "username": "Nazwa użytkownika",
@@ -209,7 +224,9 @@
         "days": "{amount} dni",
         "weeks": "{amount} tygodnie",
         "hours": "{amount} godziny",
-        "months": "{amount} miesiące"
+        "months": "{amount} miesiące",
+        "login_note": "Zaloguj się na konto utworzone w tej instancji.",
+        "register_note": "Zarejestruj konto dla tej instancji Piped. Umożliwi to synchronizację subskrypcji i list odtwarzania z twoim kontem, dzięki czemu będą one przechowywane po stronie serwera. Możesz korzystać ze wszystkich funkcji bez konta, ale wszystkie dane będą przechowywane w lokalnej pamięci podręcznej Twojej przeglądarki. Upewnij się, że NIE używasz adresu e-mail jako nazwy użytkownika i wybierz bezpieczne hasło, którego nie używasz nigdzie indziej."
     },
     "subscriptions": {
         "subscribed_channels_count": "Licznik subskrybcji: {0}"

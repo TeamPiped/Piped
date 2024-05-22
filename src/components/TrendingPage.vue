@@ -19,7 +19,12 @@ export default {
         };
     },
     mounted() {
-        if (this.$route.path == "/" && this.getPreferenceString("homepage", "trending") == "feed") return;
+        if (
+            this.$route.path == import.meta.env.BASE_URL &&
+            this.getPreferenceString("homepage", "trending") == "feed"
+        ) {
+            return;
+        }
         let region = this.getPreferenceString("region", "US");
 
         this.fetchTrending(region).then(videos => {
@@ -31,7 +36,7 @@ export default {
     activated() {
         document.title = this.$t("titles.trending") + " - Piped";
         if (this.videos.length > 0) this.updateWatched(this.videos);
-        if (this.$route.path == "/") {
+        if (this.$route.path == import.meta.env.BASE_URL) {
             let homepage = this.getHomePage(this);
             if (homepage !== undefined) this.$router.push(homepage);
         }

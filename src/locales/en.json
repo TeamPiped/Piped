@@ -13,17 +13,19 @@
         "player": "Player",
         "livestreams": "Livestreams",
         "channels": "Channels",
+        "albums": "Albums",
         "bookmarks": "Bookmarks",
         "channel_groups": "Channel groups",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "custom_instances": "Custom instances"
     },
     "player": {
         "watch_on": "View on {0}",
         "failed": "Failed with error code {0}, see logs for more info"
     },
     "actions": {
-        "subscribe": "Subscribe - {count}",
-        "unsubscribe": "Unsubscribe - {count}",
+        "subscribe": "Subscribe",
+        "unsubscribe": "Unsubscribe",
         "view_subscriptions": "View Subscriptions",
         "sort_by": "Sort by:",
         "most_recent": "Most Recent",
@@ -32,6 +34,7 @@
         "channel_name_desc": "Channel Name (Z-A)",
         "back": "Back",
         "uses_api_from": "Uses the API from ",
+        "instances_not_shown": "Public instances that are not shown here are currently unavailable.",
         "enable_sponsorblock": "Enable Sponsorblock",
         "skip_button_only": "Show skip button",
         "skip_automatically": "Automatically",
@@ -98,6 +101,7 @@
         "delete_playlist": "Delete",
         "select_playlist": "Select a Playlist",
         "delete_playlist_confirm": "Delete this playlist?",
+        "delete_group_confirm": "Delete this group?",
         "please_select_playlist": "Please select a playlist",
         "delete_account": "Delete Account",
         "logout": "Logout from this device",
@@ -147,7 +151,16 @@
         "show_search_suggestions": "Show search suggestions",
         "delete_automatically": "Delete automatically after",
         "generate_qrcode": "Generate QR Code",
-        "download_frame": "Download frame"
+        "download_frame": "Download frame",
+        "add_to_group": "Add to group",
+        "concurrent_prefetch_limit": "Concurrent Stream Prefetch Limit",
+        "customize": "Customize",
+        "invalid_url": "Invalid URL!",
+        "add": "Add",
+        "creator_replied": "Creator replied",
+        "creator_liked": "Creator liked",
+        "playback_speed": "Playback speed",
+        "invalid_input": "Invalid input"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
@@ -162,7 +175,9 @@
         "registered_users": "Registered Users",
         "version": "Version",
         "up_to_date": "Up to date?",
-        "ssl_score": "SSL Score"
+        "ssl_score": "SSL Score",
+        "uptime_30d": "Uptime (30d)",
+        "api_url": "Api URL"
     },
     "login": {
         "username": "Username",
@@ -212,6 +227,8 @@
         "hours": "{amount} hour(s)",
         "days": "{amount} day(s)",
         "weeks": "{amount} week(s)",
-        "months": "{amount} month(s)"
+        "months": "{amount} month(s)",
+        "register_note": "Register an account for this Piped instance. This will allow you to sync your subscriptions and playlists with your account, so they're stored on the server side. You can use all features without an account, but all data will be stored in your browser's local cache. Please make sure you do NOT use an email address as your username and choose a secure password that you do not use elsewhere.",
+        "login_note": "Log in with an account created on this instance."
     }
 }

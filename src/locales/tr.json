@@ -31,8 +31,8 @@
         "most_recent": "En Yeni",
         "sort_by": "Sıralama ölçütü:",
         "view_subscriptions": "Abonelikleri Görüntüle",
-        "unsubscribe": "Abonelikten Çık - {count}",
-        "subscribe": "Abone Ol - {count}",
+        "unsubscribe": "Abonelikten Çık",
+        "subscribe": "Abone Ol",
         "enabled_codecs": "Etkin Çözücüler (Birden Çok)",
         "enable_lbry_proxy": "LBRY için Vekil Sunucuyu Etkinleştir",
         "disable_lbry": "Akış için LBRY'yi Devre Dışı Bırak",
@@ -125,7 +125,18 @@
         "generate_qrcode": "QR Kodu Oluştur",
         "import_from_json_csv": "JSON/CSV Dosyasından İçe Aktar",
         "download_frame": "Kareyi indir",
-        "instance_privacy_policy": "Gizlilik Politikası"
+        "instance_privacy_policy": "Gizlilik Politikası",
+        "add_to_group": "Gruba ekle",
+        "instances_not_shown": "Burada gösterilmeyen herkese açık sunucular şu anda kullanılamıyor.",
+        "concurrent_prefetch_limit": "Eşzamanlı Akış Ön Getirme Sınırı",
+        "invalid_url": "Geçersiz URL!",
+        "customize": "Özelleştir",
+        "add": "Ekle",
+        "delete_group_confirm": "Bu grup silinsin mi?",
+        "creator_replied": "Oluşturan yanıtladı",
+        "creator_liked": "Oluşturan beğendi",
+        "playback_speed": "Oynatma hızı",
+        "invalid_input": "Geçersiz giriş"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
@@ -147,7 +158,9 @@
         "channels": "Kanallar",
         "bookmarks": "Yer İmleri",
         "channel_groups": "Kanal grupları",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albümler",
+        "custom_instances": "Özel sunucular"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
@@ -172,7 +185,9 @@
         "instance_name": "Sunucu Adı",
         "registered_users": "Kayıtlı Kullanıcılar",
         "version": "Sürüm",
-        "up_to_date": "Güncel Mi?"
+        "up_to_date": "Güncel Mi?",
+        "uptime_30d": "Çalışma Süresi (30g)",
+        "api_url": "API URL'si"
     },
     "comment": {
         "pinned_by": "Şunun Tarafından Sabitlendi {author}",
@@ -215,6 +230,8 @@
         "days": "{amount} gün",
         "months": "{amount} ay",
         "hours": "{amount} saat",
-        "weeks": "{amount} hafta"
+        "weeks": "{amount} hafta",
+        "login_note": "Bu sunucuda oluşturulan bir hesapla oturum açın.",
+        "register_note": "Bu Piped sunucusu için bir hesap açın. Bu, aboneliklerinizi ve oynatma listelerinizi hesabınızla eşzamanlamanızı sağlar, böylece sunucu tarafında kaydedilirler. Tüm özellikleri bir hesap olmadan da kullanabilirsiniz, ancak bu şekilde tüm veriler yalnızca tarayıcınızınn yerel önbelleğinde saklanacaktır. Lütfen kullanıcı adı olarak bir e-posta adresi KULLANMADIĞINIZDAN ve başka bir yerde kullanmadığınız güvenli bir parola seçtiğinizden emin olun."
     }
 }

@@ -45,8 +45,8 @@
         "most_recent": "最新的",
         "sort_by": "排序：",
         "view_subscriptions": "查看订阅列表",
-        "unsubscribe": "取消订阅 - {count}",
-        "subscribe": "订阅 - {count}",
+        "unsubscribe": "取消订阅",
+        "subscribe": "订阅",
         "loading": "正在加载...",
         "filter": "筛选",
         "search": "搜索 (Ctrl+K)",
@@ -125,7 +125,18 @@
         "generate_qrcode": "生成二维码",
         "import_from_json_csv": "从 JSON/CSV 文件导入",
         "download_frame": "下载视频帧",
-        "instance_privacy_policy": "隐私政策"
+        "instance_privacy_policy": "隐私政策",
+        "add_to_group": "添加到组",
+        "instances_not_shown": "未显示在此处的公共实例当前不可用。",
+        "concurrent_prefetch_limit": "并行流预获取限制",
+        "customize": "自定义",
+        "invalid_url": "无效的 URL！",
+        "add": "添加",
+        "delete_group_confirm": "删除该组吗？",
+        "creator_replied": "创作者回复了",
+        "creator_liked": "创作者点赞了",
+        "playback_speed": "播放速度",
+        "invalid_input": "无效输入"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -134,7 +145,7 @@
         "videos": "视频",
         "live": "{0} 直播",
         "chapters": "章节",
-        "ratings_disabled": "已禁用评价",
+        "ratings_disabled": "评分已禁用",
         "shorts": "短视频",
         "all": "全部",
         "category": "类别",
@@ -150,7 +161,9 @@
         "instance_name": "实例名称",
         "version": "版本",
         "up_to_date": "最新？",
-        "registered_users": "已注册用户"
+        "registered_users": "已注册用户",
+        "uptime_30d": "在线时间（30天）",
+        "api_url": "Api URL"
     },
     "comment": {
         "pinned_by": "固定自 {author}",
@@ -178,7 +191,9 @@
         "channels": "频道",
         "bookmarks": "书签",
         "channel_groups": "频道组",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "专辑",
+        "custom_instances": "自定义实例"
     },
     "login": {
         "password": "密码",
@@ -215,6 +230,8 @@
         "days": "{amount} 天",
         "weeks": "{amount} 周",
         "months": "{amount} 个月",
-        "hours": "{amount} 小时"
+        "hours": "{amount} 小时",
+        "login_note": "使用在此实例上创建的账户登录。",
+        "register_note": "在这个 Piped 实例上注册一个账户。你可以通过账户同步订阅和播放列表，所有数据存储在实例的服务器上。没有账户你也可以使用所有功能，但数据均储存在你所用浏览器的本地缓存中。请确保你没有将电子邮箱地址用作账户的用户名，并选择一个你不在其他地方使用的安全密码。"
     }
 }

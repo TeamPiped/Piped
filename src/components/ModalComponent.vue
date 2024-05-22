@@ -2,8 +2,8 @@
     <div class="modal">
         <div @click="handleClick">
             <div class="modal-container">
-                <button @click="$emit('close')" class="pp-color btn m-0">
-                    <font-awesome-icon icon="xmark" />
+                <button class="pp-square btn pp-color m-0" style="padding: 0" @click="$emit('close')">
+                    <i class="i-fa6-solid:xmark m-0" />
                 </button>
                 <slot></slot>
             </div>

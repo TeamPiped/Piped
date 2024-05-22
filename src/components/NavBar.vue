@@ -1,7 +1,7 @@
 <template>
-    <nav class="pp-nav flex flex-wrap items-center justify-center px-2 sm:px-4 py-2.5 w-full relative">
-        <div class="flex-1 flex justify-start pp-logo">
-            <router-link class="flex font-bold text-3xl items-center font-sans" to="/">
+    <nav class="pp-nav relative w-full flex flex-wrap items-center justify-center px-2 py-2.5 sm:px-4">
+        <div class="pp-logo flex flex-1 justify-start">
+            <router-link class="flex items-center text-3xl font-bold font-sans" to="/">
                 <svg
                     id="svg-logo"
                     version="1.2"
@@ -54,7 +54,7 @@
                 >iped</router-link
             >
         </div>
-        <div class="lt-md:hidden flex flex-1 justify-start" style="position: relative">
+        <div class="flex flex-1 justify-start lt-md:hidden" style="position: relative">
             <input
                 ref="videoSearch"
                 v-model="searchText"
@@ -88,7 +88,7 @@
             <button
                 efy_sidebar_btn="relative, pp-desktop"
                 style="background: transparent; padding: 0; margin: -5rem 0 0 0; border: 0"
-                class="efy_trans_filter_off efy_shadow_button_off"
+                class="efy_shadow_button_off efy_trans_filter_off"
             >
                 <i efy_icon="menu" style="margin: 0" />
             </button>
@@ -96,18 +96,18 @@
     </nav>
 
     <!-- search suggestions for mobile devices -->
-    <div class="w-{full - 4} md:hidden" style="position: relative">
+    <div class="- 4} w-{full md:hidden" style="position: relative">
         <input
             v-model="searchText"
             type="text"
             role="search"
             :title="$t('actions.search')"
             :placeholder="$t('actions.search')"
+            style="margin: 15rem 0 0 0"
             @keyup="onKeyUp"
             @keypress="onKeyPress"
             @focus="onInputFocus"
             @blur="onInputBlur"
-            style="margin: 15rem 0 0 0"
         />
         <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
     </div>
@@ -119,6 +119,104 @@
     />
     <LoginModal v-if="showLoginModal" @close="showLoginModal = !showLoginModal" />
 </template>
+
+<script>
+import SearchSuggestions from "./SearchSuggestions.vue";
+import LoginModal from "./LoginModal.vue";
+import hotkeys from "hotkeys-js";
+export default {
+    components: {
+        SearchSuggestions,
+        LoginModal,
+    },
+    data() {
+        return {
+            searchText: "",
+            suggestionsVisible: false,
+            showLoginModal: false,
+            showTopNav: false,
+            homePagePath: import.meta.env.BASE_URL,
+            registrationDisabled: false,
+        };
+    },
+    computed: {
+        shouldShowLogin(_this) {
+            return _this.getAuthToken() == null;
+        },
+        shouldShowRegister(_this) {
+            return _this.registrationDisabled == false ? _this.shouldShowLogin : false;
+        },
+        shouldShowHistory(_this) {
+            return _this.getPreferenceBoolean("watchHistory", false);
+        },
+        shouldShowTrending(_this) {
+            return _this.getPreferenceString("homepage", "trending") != "trending";
+        },
+        showSearchHistory(_this) {
+            return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
+        },
+    },
+    mounted() {
+        this.fetchAuthConfig();
+        const query = new URLSearchParams(window.location.search).get("search_query");
+        if (query) this.onSearchTextChange(query);
+        this.focusOnSearchBar();
+        this.homePagePath = this.getHomePage(this);
+    },
+    methods: {
+        // focus on search bar when Ctrl+k is pressed
+        focusOnSearchBar() {
+            hotkeys("ctrl+k", event => {
+                event.preventDefault();
+                this.$refs.videoSearch.focus();
+            });
+        },
+        onKeyUp(e) {
+            if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+                e.preventDefault();
+            }
+            this.$refs.searchSuggestions.onKeyUp(e);
+        },
+        onKeyPress(e) {
+            if (e.key === "Enter") {
+                this.submitSearch(e);
+            }
+        },
+        onInputFocus() {
+            if (this.showSearchHistory) this.$refs.searchSuggestions.refreshSuggestions();
+            this.suggestionsVisible = true;
+        },
+        onInputBlur() {
+            // the search suggestions will be hidden after some seconds
+            // otherwise anchor links won't work!
+            setTimeout(() => (this.suggestionsVisible = false), 200);
+        },
+        onSearchTextChange(searchText) {
+            this.searchText = searchText;
+        },
+        async fetchAuthConfig() {
+            this.fetchJson(this.authApiUrl() + "/config").then(config => {
+                this.registrationDisabled = config?.registrationDisabled === true;
+            });
+        },
+        onSearchClick(e) {
+            this.submitSearch(e);
+        },
+        submitSearch(e) {
+            e.target.blur();
+            if (this.searchText) {
+                this.$router.push({
+                    name: "SearchResults",
+                    query: { search_query: this.searchText },
+                });
+            } else {
+                this.$router.push("/");
+            }
+            return;
+        },
+    },
+};
+</script>
 
 <style>
 .pp-nav {
@@ -182,95 +280,3 @@
     align-content: center;
 }
 </style>
-
-<script>
-import SearchSuggestions from "./SearchSuggestions.vue";
-import LoginModal from "./LoginModal.vue";
-import hotkeys from "hotkeys-js";
-export default {
-    components: {
-        SearchSuggestions,
-        LoginModal,
-    },
-    data() {
-        return {
-            searchText: "",
-            suggestionsVisible: false,
-            showLoginModal: false,
-            showTopNav: false,
-            homePagePath: "/",
-            registrationDisabled: false,
-        };
-    },
-    computed: {
-        shouldShowLogin(_this) {
-            return _this.getAuthToken() == null;
-        },
-        shouldShowRegister(_this) {
-            return _this.registrationDisabled == false ? _this.shouldShowLogin : false;
-        },
-        shouldShowHistory(_this) {
-            return _this.getPreferenceBoolean("watchHistory", false);
-        },
-        shouldShowTrending(_this) {
-            return _this.getPreferenceString("homepage", "trending") != "trending";
-        },
-        showSearchHistory(_this) {
-            return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
-        },
-    },
-    mounted() {
-        this.fetchAuthConfig();
-        const query = new URLSearchParams(window.location.search).get("search_query");
-        if (query) this.onSearchTextChange(query);
-        this.focusOnSearchBar();
-        this.homePagePath = this.getHomePage(this);
-    },
-    methods: {
-        // focus on search bar when Ctrl+k is pressed
-        focusOnSearchBar() {
-            hotkeys("ctrl+k", event => {
-                event.preventDefault();
-                this.$refs.videoSearch.focus();
-            });
-        },
-        onKeyUp(e) {
-            if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-                e.preventDefault();
-            }
-            this.$refs.searchSuggestions.onKeyUp(e);
-        },
-        onKeyPress(e) {
-            if (e.key === "Enter") {
-                this.submitSearch(e);
-            }
-        },
-        onInputFocus() {
-            if (this.showSearchHistory) this.$refs.searchSuggestions.refreshSuggestions();
-            this.suggestionsVisible = true;
-        },
-        onInputBlur() {
-            this.suggestionsVisible = false;
-        },
-        onSearchTextChange(searchText) {
-            this.searchText = searchText;
-        },
-        async fetchAuthConfig() {
-            this.fetchJson(this.authApiUrl() + "/config").then(config => {
-                this.registrationDisabled = config?.registrationDisabled === true;
-            });
-        },
-        onSearchClick(e) {
-            this.submitSearch(e);
-        },
-        submitSearch(e) {
-            e.target.blur();
-            this.$router.push({
-                name: "SearchResults",
-                query: { search_query: this.searchText },
-            });
-            return;
-        },
-    },
-};
-</script>
