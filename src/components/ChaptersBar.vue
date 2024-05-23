@@ -1,18 +1,18 @@
 <template>
     <div class="pp-chapters max-h-75vh">
-        <h6 class="title efy_trans_filter efy_shadow_trans">{{ $t("video.chapters") }} - {{ chapters.length }}</h6>
+        <h6 class="efy_trans_filter efy_shadow_trans title">{{ $t("video.chapters") }} - {{ chapters.length }}</h6>
         <div
             v-for="(chapter, index) in chapters"
             :key="chapter.start"
-            class="chapter flex efy_anim_pulse"
+            class="chapter efy_anim_pulse flex"
             :class="isCurrentChapter(index) ? 'pp-chapter-active' : 'efy_shadow_trans efy_trans_filter'"
             @click="$emit('seek', chapter.start)"
         >
             <img :src="chapter.image" :alt="chapter.title" />
             <span
                 :title="chapter.title"
-                v-text="timeFormat(chapter.start) + ' - ' + chapter.title"
                 class="text font-bold"
+                v-text="timeFormat(chapter.start) + ' - ' + chapter.title"
             />
         </div>
     </div>

@@ -1,8 +1,8 @@
 {
     "actions": {
-        "subscribe": "Đăng ký - {count}",
+        "subscribe": "Đăng ký",
         "autoplay_video": "Video tự động phát",
-        "unsubscribe": "Hủy đăng ký - {count}",
+        "unsubscribe": "Hủy đăng ký",
         "view_subscriptions": "Xem những kênh đã đăng ký",
         "sort_by": "Sắp xếp theo:",
         "most_recent": "Gần đây nhất",
@@ -20,17 +20,17 @@
         "skip_interaction": "Bỏ qua lời nhắc tương tác (Đăng ký)",
         "skip_preview": "Bỏ qua xem trước/tóm tắt",
         "skip_self_promo": "Bỏ qua thanh toán/quảng cáo cho bản thân",
-        "skip_non_music": "Bỏ qua âm nhạc: Phần không phải âm nhạc",
-        "skip_highlight": "Bỏ qua phần đánh dấu",
+        "skip_non_music": "Âm nhạc: Bỏ qua phần không phải âm nhạc",
+        "skip_highlight": "Bỏ qua phần highlight",
         "skip_filler_tangent": "Bỏ qua những đoạn không liên quan",
-        "country_selection": "Lựa chọn quốc gia",
+        "country_selection": "Quốc gia",
         "default_homepage": "Trang chủ mặc định",
         "show_comments": "Hiển thị bình luận",
         "store_watch_history": "Lịch sử xem trên cửa hàng",
-        "language_selection": "Lựa chọn ngôn ngữ",
+        "language_selection": "Ngôn ngữ",
         "instances_list": "Danh sách instance",
         "show_more": "Hiện thị nhiều hơn",
-        "import_from_json": "Nhập từ JSON/CSV",
+        "import_from_json": "Nhập từ JSON",
         "loop_this_video": "Lặp lại video này",
         "channel_name_desc": "Tên kênh (Z-A)",
         "default_quality": "Chất lượng mặc định",
@@ -53,7 +53,7 @@
         "light": "Sáng",
         "audio_only": "Chỉ có âm thanh",
         "minimize_description_default": "Thu nhỏ mô tả theo mặc định",
-        "instance_selection": "Lựa chọn instance",
+        "instance_selection": "Instance",
         "yes": "Có",
         "enabled_codecs": "Các codec được bật (Nhiều)",
         "export_to_json": "Xuất định dạng JSON",
@@ -82,7 +82,34 @@
         "show_chapters": "Chương",
         "show_less": "Hiển thị ít hơn",
         "cancel": "Hủy",
-        "okay": "OK"
+        "okay": "OK",
+        "skip_button_only": "Hiện thị nút bỏ qua",
+        "edit_playlist": "Chỉnh sửa danh sách phát",
+        "invalidate_session": "Đăng xuất trên tất cả mọi thiết bị",
+        "playlist_description": "Mô tả danh sách phát",
+        "dismiss": "Bỏ qua",
+        "instance_donations": "Quyên góp cho instance này",
+        "store_search_history": "Lưu trữ lịch sử tìm kiếm",
+        "back_to_home": "Quay về trang chủ",
+        "show_search_suggestions": "Hiển thị gợi ý tìm kiếm",
+        "documentation": "Tài liệu hướng dẫn",
+        "generate_qrcode": "Tạo mã QR",
+        "playlist_name": "Tên danh sách phát",
+        "instance_privacy_policy": "Chính sách quyền riêng tư",
+        "delete_automatically": "Tự động xóa sau",
+        "download_frame": "Tải xuống frame",
+        "clone_playlist_success": "Đã nhân đôi thành công!",
+        "show_markers": "Hiển thị đánh dấu trên trình phát video",
+        "minimize_chapters_default": "Thu nhỏ các chương theo mặc định",
+        "bookmark_playlist": "Dấu trang (Bookmark)",
+        "clone_playlist": "Nhân đôi danh sách phát",
+        "enable_dearrow": "Bật DeArrow",
+        "different_auth_instance": "Sử dụng instance khác để xác thực",
+        "show_watch_on_youtube": "Hiển thị nút \"Xem trên YouTube\"",
+        "instances_not_shown": "Các instance công cộng nào mà không được hiển thị ở đây thì là vì nó hiện không thể dùng được.",
+        "auto_display_captions": "Tự động hiển thị phụ đề",
+        "autoplay_next_countdown": "Đếm ngược mặc định đến video tiếp theo (tính bằng giây)",
+        "instance_auth_selection": "Instance xác thực"
     },
     "titles": {
         "register": "Đăng ký",
@@ -97,7 +124,9 @@
         "channels": "Kênh",
         "instance": "Instance",
         "player": "Trình phát video",
-        "livestreams": "Phát sóng trực tiếp"
+        "livestreams": "Phát sóng trực tiếp",
+        "bookmarks": "Dấu trang",
+        "dearrow": "DeArrow"
     },
     "player": {
         "watch_on": "Xem trên {0}"
@@ -115,11 +144,14 @@
         "registered_users": "Người dùng đã đăng ký",
         "version": "Phiên bản",
         "up_to_date": "Đã được cập nhật?",
-        "ssl_score": "Điểm SSL"
+        "ssl_score": "Điểm SSL",
+        "uptime_30d": "Thời gian hoạt động (30 ngày)"
     },
     "login": {
         "password": "Mật khẩu",
-        "username": "Tài khoản"
+        "username": "Tài khoản",
+        "password_confirm": "Nhập lại mật khẩu",
+        "passwords_incorrect": "Mật khẩu nhập lại không giống mật khẩu đầu tiên!"
     },
     "video": {
         "views": "{views} lượt xem",
@@ -130,7 +162,10 @@
         "chapters": "Chương",
         "videos": "Video",
         "shorts": "Shorts",
-        "all": "Tất cả"
+        "all": "Tất cả",
+        "license": "Giấy phép",
+        "category": "Thể loại",
+        "visibility": "Chế độ hiển thị"
     },
     "search": {
         "did_you_mean": "Ý của bạn là: {0}?",
@@ -141,13 +176,21 @@
         "music_playlists": "YT Music: Danh sách phát",
         "videos": "YouTube: Video",
         "music_videos": "YT Music: Video",
-        "music_albums": "YT Music: Album"
+        "music_albums": "YT Music: Album",
+        "music_artists": "YT Music: Nhạc sỹ"
     },
     "info": {
         "copied": "Đã sao chép!",
         "cannot_copy": "Không thể sao chép!",
         "page_not_found": "Không tìm thấy trang",
-        "next_video_countdown": "Tự động phát video tiếp theo trong {0} giây"
+        "next_video_countdown": "Tự động phát video tiếp theo trong {0} giây",
+        "hours": "{amount} tiếng",
+        "months": "{amount} tháng",
+        "weeks": "{amount} tuần",
+        "register_no_email_note": "Không nên dùng địa chỉ email làm tên tài khoản. Bạn có chắc bạn muốn tiếp tục không?",
+        "days": "{amount} ngày",
+        "local_storage": "Hành động này cần localStorage, cookie có được bật không?",
+        "login_note": "Đăng nhập với một tài khoản được tạo trên instance này."
     },
     "subscriptions": {
         "subscribed_channels_count": "Đã đăng ký cho: {0}"

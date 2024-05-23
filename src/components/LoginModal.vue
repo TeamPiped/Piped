@@ -1,6 +1,6 @@
 <template>
     <ModalComponent>
-        <h5 v-t="'titles.account'" class="font-bold my-4" />
+        <h5 v-t="'titles.account'" class="my-4 font-bold" />
         <hr />
         <div class="text-center">
             <form class="children:pb-3">
@@ -12,7 +12,7 @@
                         autocomplete="username"
                         :placeholder="$t('login.username')"
                         :aria-label="$t('login.username')"
-                        v-on:keyup.enter="login"
+                        @keyup.enter="login"
                     />
                 </div>
                 <div>
@@ -23,12 +23,12 @@
                         autocomplete="password"
                         :placeholder="$t('login.password')"
                         :aria-label="$t('login.password')"
-                        v-on:keyup.enter="login"
+                        @keyup.enter="login"
                     />
                 </div>
                 <div class="flex justify-end p-0!" style="gap: var(--efy_gap0)">
-                    <a role="button" class="m-0!" @click="register" v-t="'titles.register'" />
-                    <a role="button" class="m-0!" @click="login" v-t="'titles.login'" />
+                    <a v-t="'titles.register'" role="button" class="m-0!" @click="register" />
+                    <a v-t="'titles.login'" role="button" class="m-0!" @click="login" />
                 </div>
             </form>
         </div>
@@ -38,6 +38,7 @@
 <script>
 import ModalComponent from "./ModalComponent.vue";
 export default {
+    components: { ModalComponent },
     data() {
         return {
             username: null,
@@ -85,6 +86,5 @@ export default {
             });
         },
     },
-    components: { ModalComponent },
 };
 </script>

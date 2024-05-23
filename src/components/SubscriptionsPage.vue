@@ -1,7 +1,7 @@
 <template>
     <hr />
     <!-- import / export section -->
-    <div class="flex justify-between flex-wrap m0c">
+    <div class="m0c flex flex-wrap justify-between">
         <div efy_card class="w-auto!" style="padding: var(--efy_padding)">
             <i18n-t keypath="titles.subscriptions" efy_card />{{ ": " + subscriptions.length }}
         </div>
@@ -12,15 +12,15 @@
                 id="fileSelector"
                 ref="fileSelector"
                 type="file"
-                class="display-none"
+                class="efy_hide_i"
                 multiple="multiple"
                 @change="importGroupsHandler"
             />
             <label
                 for="fileSelector"
                 role="button"
-                v-text="`${$t('actions.import_from_json')} (${$t('titles.channel_groups')})`"
                 class="font-bold"
+                v-text="`${$t('actions.import_from_json')} (${$t('titles.channel_groups')})`"
             />
             <button
                 @click="exportGroupsHandler"
@@ -33,20 +33,26 @@
         <button
             v-for="group in channelGroups"
             :key="group.groupName"
-            class="flex gap-[10rem] items-center"
+            class="flex items-center gap-[10rem]"
             :class="{ selected: selectedGroup === group }"
             @click="selectGroup(group)"
         >
             <span v-text="group.groupName !== '' ? group.groupName : $t('video.all')" />
-            <div v-if="group.groupName != '' && selectedGroup == group" class="flex flex-wrap gap-[10rem] items-center">
+            <div v-if="group.groupName != '' && selectedGroup == group" class="flex flex-wrap items-center gap-[10rem]">
                 <div>|</div>
-                <font-awesome-icon class="mx-2" icon="edit" @click="showEditGroupModal = true" />
+                <i class="i-fa6-solid:pen mx-2" @click="showEditGroupModal = true" />
                 <div>|</div>
-                <font-awesome-icon class="mx-2" icon="circle-minus" @click="deleteGroup(group)" />
+                <i class="i-fa6-solid:circle-minus mx-2" @click="groupToDelete = group.groupName" />
             </div>
         </button>
-        <button class="btn mx-1">
-            <font-awesome-icon icon="circle-plus" @click="showCreateGroupModal = true" />
+        <ConfirmModal
+            v-if="groupToDelete != null"
+            :message="$t('actions.delete_group_confirm')"
+            @close="groupToDelete = null"
+            @confirm="deleteGroup(groupToDelete)"
+        />
+        <button class="btn mx-1" @click="showCreateGroupModal = true">
+            <i class="i-fa6-solid:circle-plus" />
         </button>
     </div>
     <hr />
@@ -67,13 +73,11 @@
         </div>
     </div>
 
-    <ModalComponent v-if="showCreateGroupModal" @close="showCreateGroupModal = !showCreateGroupModal">
-        <h2 v-t="'actions.create_group'" />
-        <div class="flex flex-col">
-            <input v-model="newGroupName" class="input my-4" type="text" :placeholder="$t('actions.group_name')" />
-            <button v-t="'actions.create_group'" class="btn ml-auto w-max" @click="createGroup()" />
-        </div>
-    </ModalComponent>
+    <CreateGroupModal
+        v-if="showCreateGroupModal"
+        :on-create-group="createGroup"
+        @close="showCreateGroupModal = false"
+    />
 
     <ModalComponent v-if="showEditGroupModal" @close="showEditGroupModal = false">
         <div class="mb-5 mt-3 flex justify-between">
@@ -90,7 +94,7 @@
                     <input
                         type="checkbox"
                         class="checkbox"
-                        :checked="selectedGroup.channels.includes(subscription.url.substr(-11))"
+                        :checked="selectedGroup.channels.includes(subscription.url.substr(-24))"
                         @change="checkedChange(subscription)"
                     />
                 </div>
@@ -100,37 +104,13 @@
     </ModalComponent>
 </template>
 
-<style>
-.pp-subs-cards {
-    display: grid;
-    gap: var(--efy_gap);
-    grid-template-columns: repeat(auto-fill, minmax(240rem, 1fr));
-}
-.pp-subs-card :is(a, span) {
-    -webkit-text-fill-color: var(--efy_text) !important;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.pp-subs-card button {
-    margin-bottom: 0;
-    width: 100%;
-}
-.selected {
-}
-.m0c {
-    gap: var(--efy_gap0);
-}
-.m0c :is(button, [role="button"]) {
-    margin: 0;
-}
-</style>
-
 <script>
 import ModalComponent from "./ModalComponent.vue";
+import CreateGroupModal from "./CreateGroupModal.vue";
+import ConfirmModal from "./ConfirmModal.vue";
 
 export default {
-    components: { ModalComponent },
+    components: { ModalComponent, CreateGroupModal, ConfirmModal },
     data() {
         return {
             subscriptions: [],
@@ -141,55 +121,40 @@ export default {
             channelGroups: [],
             showCreateGroupModal: false,
             showEditGroupModal: false,
-            newGroupName: "",
             editedGroupName: "",
+            groupToDelete: null,
         };
     },
     computed: {
         filteredSubscriptions(_this) {
             return _this.selectedGroup.groupName == ""
                 ? _this.subscriptions
-                : _this.subscriptions.filter(channel => _this.selectedGroup.channels.includes(channel.url.substr(-11)));
+                : _this.subscriptions.filter(channel => _this.selectedGroup.channels.includes(channel.url.substr(-24)));
         },
     },
     mounted() {
         this.fetchSubscriptions().then(json => {
+            if (json.error) {
+                alert(json.error);
+                return;
+            }
+
             this.subscriptions = json;
             this.subscriptions.forEach(subscription => (subscription.subscribed = true));
         });
 
         this.channelGroups.push(this.selectedGroup);
-
         if (!window.db) return;
-        const cursor = this.getChannelGroupsCursor();
-        cursor.onsuccess = e => {
-            const cursor = e.target.result;
-            if (cursor) {
-                const group = cursor.value;
-                this.channelGroups.push({
-                    groupName: group.groupName,
-                    channels: JSON.parse(group.channels),
-                });
-                cursor.continue();
-            }
-        };
+
+        this.loadChannelGroups();
     },
     activated() {
         document.title = "Subscriptions - Piped";
     },
     methods: {
-        async fetchSubscriptions() {
-            if (this.authenticated) {
-                return await this.fetchJson(this.authApiUrl() + "/subscriptions", null, {
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                    },
-                });
-            } else {
-                return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", {
-                    channels: this.getUnauthenticatedChannels(),
-                });
-            }
+        async loadChannelGroups() {
+            const groups = await this.getChannelGroups();
+            this.channelGroups.push(...groups);
         },
         handleButton(subscription) {
             const channelId = subscription.url.split("/")[2];
@@ -229,17 +194,15 @@ export default {
             this.selectedGroup = group;
             this.editedGroupName = group.groupName;
         },
-        createGroup() {
-            if (!this.newGroupName || this.channelGroups.some(group => group.groupName == this.newGroupName)) return;
+        createGroup(newGroupName) {
+            if (!newGroupName || this.channelGroups.some(group => group.groupName == newGroupName)) return;
 
             const newGroup = {
-                groupName: this.newGroupName,
+                groupName: newGroupName,
                 channels: [],
             };
             this.channelGroups.push(newGroup);
             this.createOrUpdateChannelGroup(newGroup);
-
-            this.newGroupName = "";
 
             this.showCreateGroupModal = false;
         },
@@ -259,12 +222,13 @@ export default {
             this.showEditGroupModal = false;
         },
         deleteGroup(group) {
-            this.deleteChannelGroup(group.groupName);
-            this.channelGroups = this.channelGroups.filter(g => g != group);
-            this.selectedGroup = this.channelGroups[0];
+            this.deleteChannelGroup(group);
+            this.channelGroups = this.channelGroups.filter(g => g.groupName != group);
+            this.selectedGroup = this.channelGroups[0] || {};
+            this.groupToDelete = null;
         },
         checkedChange(subscription) {
-            const channelId = subscription.url.substr(-11);
+            const channelId = subscription.url.substr(-24);
             this.selectedGroup.channels = this.selectedGroup.channels.includes(channelId)
                 ? this.selectedGroup.channels.filter(channel => channel != channelId)
                 : this.selectedGroup.channels.concat(channelId);
@@ -291,3 +255,29 @@ export default {
     },
 };
 </script>
+
+<style>
+.pp-subs-cards {
+    display: grid;
+    gap: var(--efy_gap);
+    grid-template-columns: repeat(auto-fill, minmax(240rem, 1fr));
+}
+.pp-subs-card :is(a, span) {
+    -webkit-text-fill-color: var(--efy_text) !important;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.pp-subs-card button {
+    margin-bottom: 0;
+    width: 100%;
+}
+.selected {
+}
+.m0c {
+    gap: var(--efy_gap0);
+}
+.m0c :is(button, [role="button"]) {
+    margin: 0;
+}
+</style>

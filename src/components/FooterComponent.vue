@@ -1,28 +1,28 @@
 <template>
     <footer class="efy_trans_filter efy_shadow_trans efy_shadow_button_off">
         <a aria-label="GitHub" href="https://github.com/TeamPiped/Piped" target="_blank">
-            <font-awesome-icon :icon="['fab', 'github']" />
+            <i class="i-fa6-brands:github" />
             <span v-t="'actions.source_code'" />
         </a>
         <a href="https://docs.piped.video/" target="_blank">
-            <font-awesome-icon :icon="['fa', 'book']" />
+            <i class="i-fa6-solid:book" />
             <span v-t="'actions.documentation'" />
         </a>
         <a href="https://github.com/TeamPiped/Piped#donations" target="_blank">
-            <font-awesome-icon :icon="['fab', 'bitcoin']" />
+            <i class="i-fa6-brands:bitcoin" />
             <span v-t="'actions.donations'" />
         </a>
         <a v-if="statusPageHref" :href="statusPageHref">
-            <font-awesome-icon :icon="['fa', 'server']" />
+            <i class="i-fa6-solid:server" />
             <span v-t="'actions.status_page'" />
         </a>
         <a v-if="donationHref" :href="donationHref">
-            <font-awesome-icon :icon="['fa', 'donate']" />
+            <i class="i-fa6-solid:money-check" />
             <span v-t="'actions.instance_donations'" />
         </a>
         <a v-if="privacyPolicyHref" :href="privacyPolicyHref" target="_blank">
-            <font-awesome-icon :icon="['fa', 'eye']" />
-            <span v-t="'actions.instance_privacy_policy'" class="ml-2" />
+            <i class="i-fa6-solid:eye" />
+            <span v-t="'actions.instance_privacy_policy'" />
         </a>
     </footer>
 </template>

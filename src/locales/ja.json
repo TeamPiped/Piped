@@ -3,7 +3,7 @@
         "trending": "急上昇",
         "login": "ログイン",
         "register": "新規登録",
-        "feed": "フィード",
+        "feed": "新着動画",
         "preferences": "設定",
         "history": "履歴",
         "subscriptions": "登録チャンネル",
@@ -15,15 +15,17 @@
         "livestreams": "ライブ配信",
         "bookmarks": "ブックマーク",
         "channel_groups": "グループ",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "アルバム",
+        "custom_instances": "独自インスタンス"
     },
     "player": {
         "watch_on": "{0}で視聴",
-        "failed": "失敗しエラーコード {0} が返りました。詳細はログに記録"
+        "failed": "失敗。エラーコード {0} 。詳細はログに記録"
     },
     "actions": {
-        "subscribe": "チャンネル登録 - {count}",
-        "unsubscribe": "登録解除 - {count}",
+        "subscribe": "チャンネル登録",
+        "unsubscribe": "登録解除",
         "view_subscriptions": "登録チャンネルを見る",
         "sort_by": "表示順:",
         "most_recent": "新しい順",
@@ -35,7 +37,7 @@
         "enable_sponsorblock": "SponsorBlock を使用",
         "skip_sponsors": "広告をスキップ",
         "skip_intro": "合間/導入アニメをスキップ",
-        "skip_outro": "終了シーン/クレジットをスキップ",
+        "skip_outro": "終了画面/クレジットをスキップ",
         "skip_preview": "予告/あらすじをスキップ",
         "skip_interaction": "登録など操作を頼む自己宣伝をスキップ",
         "skip_self_promo": "無償または自己の宣伝をスキップ",
@@ -102,7 +104,7 @@
         "download_as_txt": ".txtでダウンロード",
         "logout": "この端末からログアウト",
         "minimize_recommendations_default": "最初からおすすめを最小化",
-        "hide_watched": "再生済みの動画をフィードに表示しない",
+        "hide_watched": "再生済みの動画を新着動画に表示しない",
         "minimize_chapters_default": "最初からチャプターを最小化",
         "show_watch_on_youtube": "「YouTubeで視聴」ボタンを表示",
         "invalidate_session": "すべての端末からログアウト",
@@ -112,8 +114,8 @@
         "restore_preferences": "設定を復元",
         "back_to_home": "ホームに戻る",
         "copy_link": "リンクコピー",
-        "time_code": "タイムコード (秒)",
-        "documentation": "ドキュメント",
+        "time_code": "開始時間 (秒)",
+        "documentation": "説明書",
         "reset_preferences": "設定を初期化",
         "confirm_reset_preferences": "設定をリセットしますか？",
         "piped_link": "Pipedリンク",
@@ -144,10 +146,17 @@
         "show_search_suggestions": "検索語句の候補を表示",
         "delete_automatically": "指定時間後に自動削除",
         "enable_dearrow": "DeArrow を使用",
-        "generate_qrcode": "QRコードの生成",
+        "generate_qrcode": "QRコード 生成",
         "import_from_json_csv": "JSON/CSVから読み込む",
         "download_frame": "この画像を保存",
-        "instance_privacy_policy": "個人情報保護方針"
+        "instance_privacy_policy": "個人情報保護方針",
+        "add_to_group": "グループに追加",
+        "instances_not_shown": "現在利用できない公開インスタンスはここに表示されません。",
+        "concurrent_prefetch_limit": "同時に先読みするストリーム数上限",
+        "add": "追加",
+        "invalid_url": "無効なURLです！",
+        "customize": "追加",
+        "delete_group_confirm": "このグループを削除しますか？"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -162,7 +171,9 @@
         "ssl_score": "SSLの評価",
         "registered_users": "登録利用者数",
         "version": "バージョン",
-        "up_to_date": "最新？"
+        "up_to_date": "最新？",
+        "uptime_30d": "稼働率(30日)",
+        "api_url": "API の URL"
     },
     "login": {
         "username": "ユーザー名",
@@ -209,7 +220,9 @@
         "days": "{amount}日",
         "weeks": "{amount}週",
         "hours": "{amount}時間",
-        "months": "{amount}月"
+        "months": "{amount}月",
+        "login_note": "このインスタンス用に作成したアカウントにログインできます。",
+        "register_note": "この Piped インスタンス用にアカウントを作成します。登録チャンネルと再生リストを同期するために、それらの情報をサーバー内に保存します。アカウントなしでもすべての機能を使用できますが、その場合、すべてのデータは端末内のブラウザーのキャッシュとして保存されます。ユーザー名にメールアドレスを使用しないでください。他のサービスで使っていない安全なパスワードを登録してください。"
     },
     "subscriptions": {
         "subscribed_channels_count": "チャンネル登録: {0}"

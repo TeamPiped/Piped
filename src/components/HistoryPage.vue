@@ -1,6 +1,6 @@
 <template>
     <hr />
-    <div class="flex flex-wrap items-center place-content-between" style="gap: var(--efy_gap0)">
+    <div class="flex flex-wrap place-content-between items-center" style="gap: var(--efy_gap0)">
         <div class="flex" style="gap: var(--efy_gap0)">
             <button v-t="'actions.clear_history'" class="m-0" @click="clearHistory" />
             <button v-t="'actions.export_to_json'" class="m-0" @click="exportHistory" />
@@ -28,7 +28,7 @@
                     <option v-t="{ path: 'info.months', args: { amount: '2' } }" value="1344" />
                 </select>
             </div>
-            <SortingSelector by-key="watchedAt" @apply="order => videos.sort(order)" style="gap: 0" />
+            <SortingSelector by-key="watchedAt" style="gap: 0" @apply="order => videos.sort(order)" />
         </div>
     </div>
 

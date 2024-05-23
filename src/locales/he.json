@@ -22,8 +22,8 @@
         "failed": "חל כשל עם קוד שגיאה {0}, מידע נוסף ביומנים"
     },
     "actions": {
-        "subscribe": "מינוי - {count}",
-        "unsubscribe": "ביטול מינוי - {count}",
+        "subscribe": "מינוי",
+        "unsubscribe": "ביטול מינוי",
         "view_subscriptions": "הצגת מינויים",
         "sort_by": "מיון לפי:",
         "most_recent": "האחרונים",
@@ -147,7 +147,10 @@
         "generate_qrcode": "יצירת קוד QR",
         "import_from_json_csv": "ייבוא מ־JSON/CSV",
         "download_frame": "הורדת תמונית",
-        "instance_privacy_policy": "מדיניות פרטיות"
+        "instance_privacy_policy": "מדיניות פרטיות",
+        "add_to_group": "הוספה לקבוצה",
+        "concurrent_prefetch_limit": "מגבלת משיכה טרומית של תזרימים במקביל",
+        "instances_not_shown": "מופעים ציבוריים שאינם מופיעים כאן אינם זמינים כרגע."
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
@@ -162,7 +165,8 @@
         "registered_users": "משתמשים רשומים",
         "version": "גרסה",
         "up_to_date": "עדכני?",
-        "ssl_score": "דירוג SSL"
+        "ssl_score": "דירוג SSL",
+        "uptime_30d": "זמן פעילות (30 ימים)"
     },
     "login": {
         "username": "שם משתמש",
@@ -209,7 +213,9 @@
         "days": "{amount} ימים",
         "weeks": "{amount} שבועות",
         "months": "{amount} חודשים",
-        "hours": "{amount} שעות"
+        "hours": "{amount} שעות",
+        "login_note": "כניסה עם חשבון שנוצר בעותק הזה.",
+        "register_note": "הרשמה ל־Piped הזה. תאפשר לך לסנכרן את המינויים ואת רשימות הנגינה שלך עם החשבון שלך כך שיאוחסנו בצד השרת. אפשר להשתמש בכל התכונות בלי חשבון אך כל הנתונים יאוחסנו במטמון המקומי של הדפדפן שלך. נא לוודא שלא בחרת בכתובת דוא״ל כשם המשתמש שלך ורצוי לבחור בסיסמה מאובטחת שלא משמשת אותך בשום מקום אחר."
     },
     "subscriptions": {
         "subscribed_channels_count": "נרשמת אל: {0}"

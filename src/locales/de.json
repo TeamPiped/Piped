@@ -31,8 +31,8 @@
         "most_recent": "Am Neuesten",
         "sort_by": "Sortieren nach:",
         "view_subscriptions": "Abos anzeigen",
-        "unsubscribe": "Deabonnieren - {count}",
-        "subscribe": "Abonnieren - {count}",
+        "unsubscribe": "Deabonnieren",
+        "subscribe": "Abonnieren",
         "enabled_codecs": "Aktivierte Codecs (Auswahl mehrerer Codecs möglich)",
         "enable_lbry_proxy": "Proxy für LBRY einschalten",
         "disable_lbry": "LBRY für Streaming deaktivieren",
@@ -125,7 +125,12 @@
         "generate_qrcode": "QR-Code generieren",
         "import_from_json_csv": "Aus JSON/CSV importieren",
         "download_frame": "Einzelbild (Frame) downloaden",
-        "instance_privacy_policy": "Datenschutzerklärung"
+        "instance_privacy_policy": "Datenschutzerklärung",
+        "add_to_group": "Zu Gruppe hinzufügen",
+        "instances_not_shown": "Öffentliche Instanzen, die hier nicht angezeigt werden, sind derzeit nicht verfügbar.",
+        "customize": "Anpassen",
+        "invalid_url": "Ungültige URL!",
+        "add": "Hinzufügen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen",
@@ -147,7 +152,9 @@
         "channels": "Kanäle",
         "bookmarks": "Lesezeichen",
         "channel_groups": "Kanalgruppen",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Alben",
+        "custom_instances": "Benutzerdefinierte Instanzen"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Abschnitte",
@@ -172,7 +179,9 @@
         "instance_name": "Instanzname",
         "registered_users": "Registrierte Benutzer",
         "version": "Version",
-        "up_to_date": "Auf dem neuesten Stand?"
+        "up_to_date": "Auf dem neuesten Stand?",
+        "uptime_30d": "Uptime (30 Tage)",
+        "api_url": "API-URL"
     },
     "comment": {
         "pinned_by": "Angeheftet von {author}",
@@ -212,6 +221,8 @@
         "weeks": "{amount} Woche(n)",
         "months": "{amount} Monat(en)",
         "hours": "{amount} Stunde(n)",
-        "days": "{amount} Tag(e)"
+        "days": "{amount} Tag(e)",
+        "login_note": "Melde dich mit einem Konto an, das du auf dieser Instanz erstellt hast.",
+        "register_note": "Erstelle ein Konto für diese Piped-Instanz. Dadurch kannst du deine Abos und Playlists mit deinem Konto synchronisieren, sie werden also serverseitig gespeichert. Du kannst all diese Funktionen auch ohne Konto nutzen, allerdings werden dann alle Daten nur im lokalen Speicher deines Browsers gespeichert. Bitte stelle sicher, dass du KEINE E-Mail-Adresse als Benutzernamen verwendest und ein sicheres Passwort wählst, welches du nicht bereits woanders nutzt."
     }
 }

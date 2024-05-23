@@ -1,14 +1,14 @@
 <template>
     <hr />
-    <div class="flex flex-wrap align-center" style="place-content: space-between; gap: var(--efy_gap0)">
+    <div class="align-center flex flex-wrap" style="place-content: space-between; gap: var(--efy_gap0)">
         <span class="buttons flex" style="gap: var(--efy_gap0)">
             <router-link role="button" to="/subscriptions">Subscriptions</router-link>
-            <a :href="getRssUrl" role="button" class="pp-square">
-                <font-awesome-icon icon="rss" />
+            <a :href="getRssUrl" role="button" class="pp-square" style="padding: 0">
+                <i class="i-fa6-solid:rss m-0" />
             </a>
         </span>
 
-        <div class="filters flex align-center">
+        <div class="align-center filters flex">
             <span class="flex">
                 <label for="filters" v-text="`${$t('actions.filter')}:`" />
                 <select
@@ -48,29 +48,6 @@
     </LoadingIndicatorPage>
 </template>
 
-<style>
-.filters {
-    flex-wrap: wrap;
-}
-.filters,
-.filters span {
-    gap: var(--efy_gap0);
-}
-.filters :is(select, label),
-.buttons a[role="button"] {
-    margin: 0 !important;
-    white-space: nowrap;
-    align-items: center;
-    place-content: center;
-}
-.filters span {
-    align-items: center;
-}
-.buttons a[role="button"] {
-    height: var(--efy_ratio_width);
-}
-</style>
-
 <script>
 import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
@@ -101,14 +78,24 @@ export default {
         },
         filteredVideos(_this) {
             const selectedGroup = _this.channelGroups.filter(group => group.groupName == _this.selectedGroupName);
+
+            const videos = this.getPreferenceBoolean("hideWatched", false)
+                ? this.videos.filter(video => !video.watched)
+                : this.videos;
+
             return _this.selectedGroupName == ""
-                ? _this.videos
-                : _this.videos.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-11)));
+                ? videos
+                : videos.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-24)));
         },
     },
     mounted() {
-        this.fetchFeed().then(videos => {
-            this.videosStore = videos;
+        this.fetchFeed().then(resp => {
+            if (resp.error) {
+                alert(resp.error);
+                return;
+            }
+
+            this.videosStore = resp;
             this.loadMoreVideos();
             this.updateWatched(this.videos);
         });
@@ -117,18 +104,7 @@ export default {
 
         if (!window.db) return;
 
-        const cursor = this.getChannelGroupsCursor();
-        cursor.onsuccess = e => {
-            const cursor = e.target.result;
-            if (cursor) {
-                const group = cursor.value;
-                this.channelGroups.push({
-                    groupName: group.groupName,
-                    channels: JSON.parse(group.channels),
-                });
-                cursor.continue();
-            }
-        };
+        this.loadChannelGroups();
     },
     activated() {
         document.title = this.$t("titles.feed") + " - Piped";
@@ -142,16 +118,9 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
-        async fetchFeed() {
-            if (this.authenticated) {
-                return await this.fetchJson(this.authApiUrl() + "/feed", {
-                    authToken: this.getAuthToken(),
-                });
-            } else {
-                return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
-                    channels: this.getUnauthenticatedChannels(),
-                });
-            }
+        async loadChannelGroups() {
+            const groups = await this.getChannelGroups();
+            this.channelGroups.push(...groups);
         },
         loadMoreVideos() {
             if (!this.videosStore) return;
@@ -182,3 +151,26 @@ export default {
     },
 };
 </script>
+
+<style>
+.filters {
+    flex-wrap: wrap;
+}
+.filters,
+.filters span {
+    gap: var(--efy_gap0);
+}
+.filters :is(select, label),
+.buttons a[role="button"] {
+    margin: 0 !important;
+    white-space: nowrap;
+    align-items: center;
+    place-content: center;
+}
+.filters span {
+    align-items: center;
+}
+.buttons a[role="button"] {
+    height: var(--efy_ratio_width);
+}
+</style>

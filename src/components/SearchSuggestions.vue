@@ -4,12 +4,14 @@
             <li
                 v-for="(suggestion, i) in searchSuggestions"
                 :key="i"
-                class="suggestion"
                 :class="{ 'suggestion-selected': selected === i }"
                 @mouseover="onMouseOver(i)"
-                @mousedown.stop="onClick(i)"
-                v-text="suggestion"
-            />
+                @click="setSelected(i)"
+            >
+                <router-link class="suggestion" :to="`/results?search_query=${encodeURIComponent(suggestion)}`">
+                    {{ suggestion }}
+                </router-link>
+            </li>
         </ul>
     </div>
 </template>
@@ -69,13 +71,6 @@ export default {
                 this.selected = i;
             }
         },
-        onClick(i) {
-            this.setSelected(i);
-            this.$router.push({
-                name: "SearchResults",
-                query: { search_query: this.searchSuggestions[i] },
-            });
-        },
         setSelected(val) {
             this.selected = val;
             this.$emit("searchchange", this.searchSuggestions[this.selected]);
@@ -91,5 +86,15 @@ export default {
     box-shadow: 0 0 20rem var(--efy_text_trans);
     padding: var(--efy_gap);
     margin: calc(40rem + var(--efy_gap)) 0 var(--efy_gap) 0;
+    li {
+        border: var(--efy_border_size) solid transparent;
+        border-radius: var(--efy_radius0);
+    }
+    .suggestion-selected {
+        border: var(--efy_border);
+    }
+    a {
+        -webkit-text-fill-color: var(--efy_text) !important;
+    }
 }
 </style>

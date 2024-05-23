@@ -1,11 +1,11 @@
 <template>
-    <div class="video-card flex flex-col flex-justify-between efy_shadow_trans">
+    <div class="efy_shadow_trans video-card flex flex-col flex-justify-between">
         <router-link :to="props.item.url">
             <div class="relative">
                 <img class="thumbnail" :src="props.item.thumbnail" loading="lazy" />
             </div>
-            <div class="flex items-center h-[44rem] overflow-hidden">
-                <p v-text="props.item.name" class="pp-video-card-title" />
+            <div class="h-[44rem] flex items-center overflow-hidden">
+                <p class="pp-video-card-title" v-text="props.item.name" />
             </div>
         </router-link>
         <p v-if="props.item.description" v-text="props.item.description" />
@@ -13,8 +13,8 @@
         <div class="pp-video-card-buttons">
             <button
                 v-if="props.item.videos >= 0"
-                v-text="`${props.item.videos} ${$t('video.videos')}`"
                 class="efy_shadow_trans efy_shadow_button_off efy_button_text_off"
+                v-text="`${props.item.videos} ${$t('video.videos')}`"
             />
             <router-link
                 v-if="props.item.uploaderUrl && item.uploaderName"
@@ -24,8 +24,8 @@
                 style="padding: 0; flex-grow: 1; background: transparent; border: 0"
             >
                 <div class="pp-text efy_shadow_trans efy_shadow_button_off flex-grow-1">
-                    <span v-text="props.item.uploaderName" style="max-width: 106rem" />
-                    <font-awesome-icon class="ml-1.5" v-if="item.uploaderVerified" icon="check" />
+                    <span style="max-width: 106rem" v-text="props.item.uploaderName" />
+                    <i v-if="item.uploaderVerified" class="i-fa6-solid:check ml-2" />
                 </div>
             </router-link>
             <a

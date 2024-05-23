@@ -3,7 +3,7 @@
     <div class="flex flex-wrap place-content-between items-center">
         <h5 class="ml-[5rem]" v-text="$route.query.search_query" />
         <div class="flex items-center" style="gap: var(--efy_gap0)">
-            <label v-text="`${$t('actions.filter')}:`" for="ddlSearchFilters" />
+            <label for="ddlSearchFilters" v-text="`${$t('actions.filter')}:`" />
             <select
                 id="ddlSearchFilters"
                 v-model="selectedFilter"

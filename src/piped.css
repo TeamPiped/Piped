@@ -33,7 +33,7 @@
 /*Justify-Content: Space-Between*/ .pp-playlist-add-modal-top, .pp-watch-bellow-options, .pp-nav {justify-content: space-between}
 
 /*Display: Flex*/ .pp-watch-buttons, .pp-watch-bellow-options .flex.items-center, .pp-channel-page-author, .grid .comment, .pp-chapters {display: flex}
-/*Gap: 15rem*/ .pp-show-playlist, .pp-rec-vids, .pp-mobile-nav, .pp-delete-account .flex, .pp-playlist-add-modal-top, .pp-pref-cards, .pp-watch-bellow-options {gap: var(--efy_gap)}
+/*Gap: 15rem*/ .pp-show-playlist, .pp-rec-vids, .pp-mobile-nav, .pp-delete-account .flex, .pp-playlist-add-modal-top, .pp-watch-bellow-options {gap: var(--efy_gap)}
 /*Color: Text*/ .video-grid div a, .pp-show-recs div a, .video-grid div button:not(.modal button, .btn), .pp-show-recs div button:not(.modal button, .btn), .svg-inline--fa:not(.video-grid svg, [role=button] svg, button svg) {color: var(--efy_text)}
 
 /*Border*/ .modal-container, .video-grid>div {border: 1.5px solid var(--efy_bg1);}
@@ -93,9 +93,6 @@
 
 /*Recommended Videos*/ .pp-rec-vids {display: grid; grid-template-columns: 1fr 300rem}
 .order-first {-webkit-box-ordinal-group: -9998; -webkit-order: -9999; order: -9999}
-
-/*Preferences*/ .pp-pref-cards {display: grid; grid-template-columns: repeat(auto-fit, minmax(300rem, 1fr))}
-table {margin-top: 0}
 
 /*Modal*/ .modal {backdrop-filter: blur(5px)}
 .modal-container {background: var(--efy_text2)!important; padding: 15rem!important; box-shadow: 0 0 1px var(--efy_text_trans)}
@@ -183,4 +180,9 @@ table {margin-top: 0}
 }
  @media (min-width: 768px) {
      .md\:hidden {display: none}
+}
+
+/*Temporary*/
+[for="efy_mode_system"], #efy_mode_system {
+    display: none!important;
 }

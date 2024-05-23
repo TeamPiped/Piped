@@ -22,7 +22,9 @@
         "instance_name": "Nombre de la instancia",
         "version": "Versión",
         "up_to_date": "¿Actualizado?",
-        "registered_users": "Usuarios Registrados"
+        "registered_users": "Usuarios Registrados",
+        "uptime_30d": "Tiempo de actividad (30d)",
+        "api_url": "URL de la API"
     },
     "comment": {
         "pinned_by": "Fijado por {author}",
@@ -76,8 +78,8 @@
         "most_recent": "Lo más reciente",
         "sort_by": "Ordenar por:",
         "view_subscriptions": "Ver suscripciones",
-        "unsubscribe": "Anular suscripción - {count}",
-        "subscribe": "Suscribirme - {count}",
+        "unsubscribe": "Anular suscripción",
+        "subscribe": "Suscribirme",
         "loading": "Cargando…",
         "filter": "Filtrar",
         "search": "Buscar (Ctrl+K)",
@@ -156,7 +158,18 @@
         "generate_qrcode": "Generar código QR",
         "import_from_json_csv": "Importar desde JSON/CSV",
         "download_frame": "Descargar fotograma",
-        "instance_privacy_policy": "Política de privacidad"
+        "instance_privacy_policy": "Política de privacidad",
+        "add_to_group": "Añadir a grupo",
+        "instances_not_shown": "Las instancias públicas que no se muestran aquí no están disponibles actualmente.",
+        "concurrent_prefetch_limit": "Límite de captación previa de transmisiones simultáneas",
+        "customize": "Personalizar",
+        "invalid_url": "¡URL no válida!",
+        "add": "Añadir",
+        "delete_group_confirm": "¿Eliminar este grupo?",
+        "creator_liked": "Al autor le gustó",
+        "creator_replied": "El autor respondió",
+        "playback_speed": "Velocidad de reproducción",
+        "invalid_input": "Entrada no válida"
     },
     "titles": {
         "feed": "Contenido",
@@ -174,7 +187,9 @@
         "channels": "Canales",
         "bookmarks": "Marcadores",
         "channel_groups": "Grupos de canales",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Álbumes",
+        "custom_instances": "Instancias personalizadas"
     },
     "player": {
         "watch_on": "Ver en {0}",
@@ -212,6 +227,8 @@
         "hours": "{amount} hora(s)",
         "days": "{amount} día(s)",
         "weeks": "{amount} semana(s)",
-        "months": "{amount} mes(es)"
+        "months": "{amount} mes(es)",
+        "login_note": "Inicia sesión con una cuenta creada en esta instancia.",
+        "register_note": "Registra una cuenta para esta instancia de Piped. Esto te permitirá sincronizar tus suscripciones y las listas de reproducción con tu cuenta, para que se almacenen en el servidor. Puedes utilizar todas las funciones sin una cuenta, pero todos los datos se almacenarán en la caché local de tu navegador. Asegúrate de NO utilizar una dirección de correo electrónico como nombre de usuario y elige una contraseña segura que no utilices en ningún otro sitio."
     }
 }

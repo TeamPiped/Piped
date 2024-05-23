@@ -2,7 +2,7 @@
     <div
         ref="container"
         data-shaka-player-container
-        class="relative max-h-screen w-full flex justify-center efy_trans_filter_off"
+        class="efy_trans_filter_off relative max-h-screen w-full flex justify-center"
         :class="{ 'player-container': !isEmbed }"
     >
         <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
@@ -40,20 +40,32 @@
             class="absolute top-8 rounded bg-black/80 p-2 text-lg backdrop-blur-sm"
         />
     </div>
+
+    <ModalComponent v-if="showSpeedModal" @close="showSpeedModal = false">
+        <h2 v-t="'actions.playback_speed'" />
+        <div class="flex flex-col">
+            <input
+                v-model="playbackSpeedInput"
+                class="input my-3"
+                type="text"
+                :placeholder="$t('actions.playback_speed')"
+                @keyup.enter="setSpeedFromInput()"
+            />
+            <button v-t="'actions.okay'" class="btn ml-auto w-min" @click="setSpeedFromInput()" />
+        </div>
+    </ModalComponent>
 </template>
 
 <script>
 import "shaka-player/dist/controls.css";
 import { parseTimeParam } from "@/utils/Misc";
+import ModalComponent from "./ModalComponent.vue";
+
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
-if (!window.muxjs) {
-    import("mux.js").then(muxjs => {
-        window.muxjs = muxjs;
-    });
-}
 const hotkeys = import("hotkeys-js");
 
 export default {
+    components: { ModalComponent },
     props: {
         video: {
             type: Object,
@@ -79,6 +91,8 @@ export default {
             destroying: false,
             inSegment: false,
             isHoveringTimebar: false,
+            showSpeedModal: false,
+            playbackSpeedInput: null,
             currentTime: 0,
             seekbarPadding: 2,
             error: 0,
@@ -119,7 +133,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,alt+p,return,.,,",
+                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+s,shift+,,shift+.,alt+p,return,.,,",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -209,11 +223,14 @@ export default {
                             self.$emit("navigateNext");
                             e.preventDefault();
                             break;
+                        case "shift+s":
+                            self.showSpeedModal = true;
+                            break;
                         case "shift+,":
-                            self.$player.trickPlay(Math.max(videoEl.playbackRate - 0.25, 0.25));
+                            self.adjustPlaybackSpeed(videoEl.playbackRate - 0.25);
                             break;
                         case "shift+.":
-                            self.$player.trickPlay(Math.min(videoEl.playbackRate + 0.25, 2));
+                            self.adjustPlaybackSpeed(videoEl.playbackRate + 0.25);
                             break;
                         case "alt+p":
                             document.pictureInPictureElement
@@ -252,32 +269,6 @@ export default {
             const videoEl = this.$refs.videoEl;
 
             videoEl.setAttribute("poster", this.video.thumbnailUrl);
-
-            const time = this.$route.query.t ?? this.$route.query.start;
-
-            if (time) {
-                videoEl.currentTime = parseTimeParam(time);
-                this.initialSeekComplete = true;
-            } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
-                var tx = window.db.transaction("watch_history", "readonly");
-                var store = tx.objectStore("watch_history");
-                var request = store.get(this.video.id);
-                request.onsuccess = function (event) {
-                    var video = event.target.result;
-                    const currentTime = video?.currentTime;
-                    if (currentTime) {
-                        if (currentTime < component.video.duration * 0.9) {
-                            videoEl.currentTime = currentTime;
-                        }
-                    }
-                };
-
-                tx.oncomplete = () => {
-                    this.initialSeekComplete = true;
-                };
-            } else {
-                this.initialSeekComplete = true;
-            }
 
             const noPrevPlayer = !this.$player;
 
@@ -342,11 +333,12 @@ export default {
             }
 
             if (noPrevPlayer)
-                this.shakaPromise.then(() => {
+                this.shakaPromise.then(async () => {
                     if (this.destroying) return;
                     this.$shaka.polyfill.installAll();
 
-                    const localPlayer = new this.$shaka.Player(videoEl);
+                    const localPlayer = new this.$shaka.Player();
+                    await localPlayer.attach(videoEl);
                     const proxyURL = new URL(component.video.proxyUrl);
                     let proxyPath = proxyURL.pathname;
                     if (proxyPath.lastIndexOf("/") === proxyPath.length - 1) {
@@ -435,7 +427,7 @@ export default {
             videoEl.currentTime = segment.segment[1];
             segment.skipped = true;
         },
-        setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
+        async setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
             const url = "/watch?v=" + this.video.id;
 
             if (!this.$ui) {
@@ -481,14 +473,7 @@ export default {
 
                 this.$ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoEl);
 
-                const overflowMenuButtons = [
-                    "quality",
-                    "language",
-                    "captions",
-                    "picture_in_picture",
-                    "playback_rate",
-                    "airplay",
-                ];
+                const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"];
 
                 if (this.isEmbed) {
                     overflowMenuButtons.push("open_new_tab");
@@ -499,7 +484,7 @@ export default {
                     seekBarColors: {
                         base: "rgba(255, 255, 255, 0.3)",
                         buffered: "rgba(255, 255, 255, 0.54)",
-                        played: `oklch(var(--efy_color1_var))`,
+                        played: "var(--efy_piped_color1)",
                     },
                 };
 
@@ -519,6 +504,8 @@ export default {
 
             const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
 
+            const prefetchLimit = Math.min(Math.max(this.getPreferenceNumber("prefetchLimit", 2), 0), 10);
+
             this.$player.configure({
                 preferredVideoCodecs: this.preferredVideoCodecs,
                 preferredAudioCodecs: ["opus", "mp4a"],
@@ -526,7 +513,12 @@ export default {
                     disableVideo: disableVideo,
                 },
                 streaming: {
-                    segmentPrefetchLimit: 10,
+                    segmentPrefetchLimit: prefetchLimit,
+                    retryParameters: {
+                        maxAttempts: Infinity,
+                        baseDelay: 250,
+                        backoffFactor: 1.5,
+                    },
                 },
             });
 
@@ -535,8 +527,39 @@ export default {
                 quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream) && !disableVideo;
             if (qualityConds) this.$player.configure("abr.enabled", false);
 
+            const time = this.$route.query.t ?? this.$route.query.start;
+
+            var startTime = 0;
+
+            if (time) {
+                startTime = parseTimeParam(time);
+                this.initialSeekComplete = true;
+            } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
+                await new Promise(resolve => {
+                    var tx = window.db.transaction("watch_history", "readonly");
+                    var store = tx.objectStore("watch_history");
+                    var request = store.get(this.video.id);
+                    request.onsuccess = function (event) {
+                        var video = event.target.result;
+                        const currentTime = video?.currentTime;
+                        if (currentTime) {
+                            if (currentTime < video.duration * 0.9) {
+                                startTime = currentTime;
+                            }
+                        }
+                        resolve();
+                    };
+
+                    tx.oncomplete = () => {
+                        this.initialSeekComplete = true;
+                    };
+                });
+            } else {
+                this.initialSeekComplete = true;
+            }
+
             player
-                .load(uri, 0, mime)
+                .load(uri, startTime, mime)
                 .then(() => {
                     const isSafari = window.navigator?.vendor?.includes("Apple");
 
@@ -551,6 +574,18 @@ export default {
                             }
                         }
                         player.selectAudioLanguage(lang);
+                    }
+
+                    const audioLanguages = player.getAudioLanguages();
+                    if (audioLanguages.length > 1) {
+                        const overflowMenuButtons = this.$ui.getConfiguration().overflowMenuButtons;
+                        // append language menu on index 1
+                        const newOverflowMenuButtons = [
+                            ...overflowMenuButtons.slice(0, 1),
+                            "language",
+                            ...overflowMenuButtons.slice(1),
+                        ];
+                        this.$ui.configure("overflowMenuButtons", newOverflowMenuButtons);
                     }
 
                     if (qualityConds) {
@@ -603,6 +638,16 @@ export default {
 
                     const autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
                     this.$player.setTextTrackVisibility(autoDisplayCaptions);
+
+                    const prefSubtitles = this.getPreferenceString("subtitles", "");
+                    if (prefSubtitles !== "") {
+                        const textTracks = this.$player.getTextTracks();
+                        const subtitleIdx = textTracks.findIndex(textTrack => textTrack.language == prefSubtitles);
+                        if (subtitleIdx != -1) {
+                            this.$player.setTextTrackVisibility(true);
+                            this.$player.selectTextTrack(textTracks[subtitleIdx]);
+                        }
+                    }
                 })
                 .catch(e => {
                     console.error(e);
@@ -636,7 +681,19 @@ export default {
                 this.$refs.videoEl.currentTime = time;
             }
         },
-
+        adjustPlaybackSpeed(newSpeed) {
+            const normalizedSpeed = Math.min(4, Math.max(0.25, newSpeed));
+            this.$player.trickPlay(normalizedSpeed);
+        },
+        setSpeedFromInput() {
+            try {
+                const newSpeed = Number(this.playbackSpeedInput);
+                this.adjustPlaybackSpeed(newSpeed);
+            } catch (err) {
+                alert(this.$t("actions.invalid_input"));
+            }
+            this.showSpeedModal = false;
+        },
         updateMarkers() {
             const markers = this.$refs.container.querySelector(".shaka-ad-markers");
             const array = ["to right"];
@@ -874,6 +931,11 @@ html .shaka-range-element:focus {
 .shaka-settings-menu button {
     -webkit-text-fill-color: var(--efy_text) !important;
     margin: 1.6rem 0 !important;
+    place-content: start;
+    width: 100%;
+    .shaka-overflow-menu-only {
+        width: fit-content;
+    }
 }
 .shaka-overflow-menu .material-icons-round,
 .shaka-settings-menu .material-icons-round {

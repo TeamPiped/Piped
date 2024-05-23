@@ -22,7 +22,9 @@
         "instance_name": "Ime instance",
         "registered_users": "Registrirani korisnici",
         "version": "Verzija",
-        "up_to_date": "Najnovija verzija?"
+        "up_to_date": "Najnovija verzija?",
+        "uptime_30d": "Vrijeme rada (30 dana)",
+        "api_url": "URL Api-ja"
     },
     "comment": {
         "pinned_by": "Prikvačio korisnik {author}",
@@ -73,8 +75,8 @@
         "most_recent": "Najnovije",
         "sort_by": "Redoslijed:",
         "view_subscriptions": "Pogledaj pretplate",
-        "unsubscribe": "Otkaži pretplatu – {count}",
-        "subscribe": "Pretplati se – {count}",
+        "unsubscribe": "Otkaži pretplatu",
+        "subscribe": "Pretplati se",
         "skip_interaction": "Preskoči podsjetnik za interakciju (pretplata)",
         "skip_outro": "Preskoči odjavnu špicu",
         "skip_intro": "Preskoči pauzu i uvodnu animaciju",
@@ -156,7 +158,14 @@
         "generate_qrcode": "Generiraj QR kod",
         "import_from_json_csv": "Uvezi iz JSON/CSV formata",
         "download_frame": "Preuzmi kadar",
-        "instance_privacy_policy": "Politika privatnosti"
+        "instance_privacy_policy": "Politika privatnosti",
+        "add_to_group": "Dodaj grupi",
+        "instances_not_shown": "Javne instance koje ovdje nisu prikazane trenutačno nisu dostupne.",
+        "concurrent_prefetch_limit": "Ograničenje istodobnog preuzimanja videa",
+        "customize": "Prilagodi",
+        "invalid_url": "Neispravni URL!",
+        "add": "Dodaj",
+        "delete_group_confirm": "Izbrisati ovu grupu?"
     },
     "player": {
         "watch_on": "Gledaj na {0}",
@@ -178,7 +187,9 @@
         "livestreams": "Prijenosi uživo",
         "bookmarks": "Zabilješke",
         "channel_groups": "Grupe kanala",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albumi",
+        "custom_instances": "Prilagođene instance"
     },
     "login": {
         "password": "Lozinka",
@@ -215,6 +226,8 @@
         "hours": "{amount} h",
         "days": "{amount} dan(a)",
         "weeks": "{amount} tj",
-        "months": "{amount} mj"
+        "months": "{amount} mj",
+        "login_note": "Prijavi se s računom stvorenim na ovoj instanci.",
+        "register_note": "Registriraj račun za ovu Piped instancu. To će ti omogućiti sinkronizaciju tvojih pretplata i playlista s tvojim računom kako bi se spremile na poslužitelju. Možeš koristiti sve značajke bez računa, ali će se svi podaci spremiti u lokalnu predmemoriju tvog preglednika. NEMOJ koristiti e-mail adresu kao korisničko ime i odaberi sigurnu lozinku koju ne koristiš negdje drugdje."
     }
 }

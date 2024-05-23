@@ -12,7 +12,12 @@ export default defineConfig({
         presetUno({
             dark: "media",
         }),
-        presetIcons(),
+        presetIcons({
+            extraProperties: {
+                display: "inline-block",
+                "vertical-align": "middle",
+            },
+        }),
         presetWebFonts({
             provider: "none",
             fonts: {

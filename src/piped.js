@@ -1,6 +1,7 @@
-import {$, $all, $$, $add, $event, $ready} from '../node_modules/efy/efy.js';
+import {$, $all, $$, $add, $event, $ready, $css_prop, efy} from '../node_modules/efy/efy.js';
 
 $ready('#efy_sidebar', ()=>{
+
     $add('div', {id: 'piped_efy_module'}, [], $('#efy_sidebar'), 'afterbegin');
 
     /*Custom Menu*/ $add('div', {id: 'custom_sidebar_menu'}, [], $('#efy_modules'));
@@ -16,7 +17,7 @@ $ready('#efy_sidebar', ()=>{
     ], $('#efy_modules'));
 
     $add('mark', {efy_lang: 'alpha'}, [], $('#piped_style > summary'), 'beforeend');
-    /*Tabs*/ for (let a = ['comments', 'captions'], b = ['Comments', 'Captions'],
+    /*Tabs*/ for (let a = ['comments', 'captions', 'cards'], b = ['Comments', 'Captions', 'Cards'],
     c = $('[efy_tabs=piped_style]'), i = 0; i < a.length; i++) {
         const active = (a[i] === 'comments') ? {efy_active: ''} : null;
         $add('button', {efy_tab: a[i], ...active}, [b[i]], $$(c, '.efy_tabs'));
@@ -33,11 +34,25 @@ $ready('#efy_sidebar', ()=>{
         $add('input', {type: 'checkbox', name: 'piped_style_captions', id: `piped_style_${a[i]}`}, [], c);
         $add('label', {for: `piped_style_${a[i]}`}, [b[i]], c);
     }
-    /*Comments & Captions*/ for (let a = ['comments_full', 'comments_nobg', 'captions-trans', 'captions-solid'],
-    b = ['.pp-comments', '.pp-comments', '.shaka-text-container', '.shaka-text-container'],
-    c = ['pp-full-width', 'pp-no-bg', 'pp-trans', 'pp-solid'], i = 0; i < a.length; i++) {
+    /*Cards*/ for (let a = 'cards_horizontal cards_old'.split(' '), b = ['Horizontal', 'Vertical'],
+    c = $('[efy_tabs=piped_style] [efy_content="cards"]'), i = 0; i < a.length; i++) {
+        $add('input', {type: 'checkbox', name: 'piped_style_cards', id: `piped_style_${a[i]}`}, [], c);
+        $add('label', {for: `piped_style_${a[i]}`}, [b[i]], c);
+    }
+    /*Comments & Captions*/ for (let a = ['comments_full', 'comments_nobg', 'captions-trans', 'captions-solid', 'cards_horizontal', 'cards_old'],
+    b = ['.pp-comments', '.pp-comments', '.player-container', '.player-container', 'body', 'body'],
+    c = ['pp-full-width', 'pp-no-bg', 'pp-trans', 'pp-solid', 'cards_horizontal', 'cards_old'], i = 0; i < a.length; i++) {
         $event($(`#piped_style_${a[i]}`), 'click', ()=>{
             $all(b[i]).forEach( (e)=>{ e.classList.toggle(c[i]) })
         })
     }
+
+    // Get EFY Color Gradient in Piped
+    let efy_colors = efy.colors;
+    efy_colors.forEach((a,i)=>{
+        let b = a.split(' '); b.shift(); b[3] = '/ ' + b[3];
+        efy_colors[i] = `oklch(${b.join(' ')})`;
+    });
+    $css_prop('--efy_piped_color1', String(efy_colors));
+
 }, 1);

@@ -1,6 +1,6 @@
 <template>
     <label v-t="'actions.sort_by'" for="ddlSortBy" class="m-0" />
-    <select id="ddlSortBy" v-model="selectedSort" class="w-auto m-0">
+    <select id="ddlSortBy" v-model="selectedSort" class="m-0 w-auto">
         <option v-for="(value, key) in options" :key="key" v-t="`actions.${key}`" :value="value" />
     </select>
 </template>
