@@ -9,8 +9,8 @@ dependencies:
     specifier: 3.1.3
     version: 3.1.3
   efy:
-    specifier: 24.5.19
-    version: 24.5.19
+    specifier: 24.5.23
+    version: 24.5.23
   fast-xml-parser:
     specifier: 4.3.6
     version: 4.3.6
@@ -2944,8 +2944,8 @@ packages:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
     dev: true
 
-  /efy@24.5.19:
-    resolution: {integrity: sha512-/xwwn5fVKjnSTIpKyldCMYvC+RG1V0Bqo0h08Bi8K3HY+rfJlR1nNcIYfB75KMU2FcXf+KvdAdL3ukjTTKRUdw==}
+  /efy@24.5.23:
+    resolution: {integrity: sha512-qw7itJDE8NvUOej8xxOcVvZF6gasoQsgB/IJ3BUhd8YEgJ2SSdRa1DOJdrdfhtdSg9pbEgwuL3j/P1DHOc/Qdw==}
     dev: false
 
   /ejs@3.1.10:
