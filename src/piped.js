@@ -48,11 +48,14 @@ $ready('#efy_sidebar', ()=>{
     }
 
     // Get EFY Color Gradient in Piped
-    let efy_colors = efy.colors;
-    efy_colors.forEach((a,i)=>{
-        let b = a.split(' '); b.shift(); b[3] = '/ ' + b[3];
-        efy_colors[i] = `oklch(${b.join(' ')})`;
-    });
-    $css_prop('--efy_piped_color1', String(efy_colors));
+    const efy_piped_color =()=>{ let efy_colors = [];
+        efy.colors.forEach((a,i)=>{
+            a = a.split(' ').slice(1); a[3] = `/ ${a[3]}`;
+            efy_colors[i] = `oklch(${a.join(' ')})`;
+        });
+        $css_prop('--efy_piped_color', String(efy_colors));
+    }; efy_piped_color();
+
+    $event($('#efy_gradient'), 'change', efy_piped_color);
 
 }, 1);
