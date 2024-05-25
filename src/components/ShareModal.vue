@@ -23,7 +23,7 @@
             <h6 class="mb-2 mt-2" v-text="generatedLink" />
         </a>
         <QrCode v-if="showQrCode" :text="generatedLink" class="mb-[10rem]" />
-        <div class="flex flex-wrap justify-end" style="gap: var(--efy_gap0)">
+        <div class="flex flex-wrap" style="gap: var(--efy_gap0)">
             <button v-t="'actions.generate_qrcode'" class="btn" @click="showQrCode = !showQrCode" />
             <button v-t="'actions.follow_link'" class="btn ml-3" @click="followLink()" />
             <button v-t="'actions.copy_link'" class="btn ml-3" @click="copyLink()" />

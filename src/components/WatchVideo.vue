@@ -712,31 +712,21 @@ video::-webkit-media-text-track-display {
 video::cue {
     background: transparent;
 }
-.player-container.pp-trans video::-webkit-media-text-track-display {
-    background: transparent !important;
-    backdrop-filter: none;
-    margin-bottom: unset;
-    line-height: 1.2;
-    text-shadow: 0 0 5rem #000;
+.player-container {
+    &.pp-trans video::-webkit-media-text-track-display {
+        background: transparent !important;
+        backdrop-filter: none;
+        margin-bottom: unset;
+        line-height: 1.2;
+        text-shadow: 0 0 5rem #000;
+    }
+    &.pp-solid video::-webkit-media-text-track-display {
+        background: var(--efy_bg) !important;
+        color: var(--efy_text);
+        backdrop-filter: none;
+    }
 }
 
-.player-container.pp-solid video::-webkit-media-text-track-display {
-    background: var(--efy_bg) !important;
-    color: var(--efy_text);
-    backdrop-filter: none;
-}
-
-@media (width <= 768px) {
-    .share-btn {
-        aspect-ratio: 1;
-    }
-    .share-btn strong {
-        display: none;
-    }
-    .share-btn svg {
-        margin: 0;
-    }
-}
 @media (max-width: 639px) {
     video::-webkit-media-text-track-display {
         font-size: 16rem !important;
