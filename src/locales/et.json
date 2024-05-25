@@ -158,7 +158,9 @@
         "add": "Lisa",
         "delete_group_confirm": "Kas kustutame selle grupi?",
         "creator_replied": "Autor vastas",
-        "creator_liked": "Autorile meeldis see"
+        "creator_liked": "Autorile meeldis see",
+        "playback_speed": "Taasesituse kiirus",
+        "invalid_input": "Vigane sisend"
     },
     "preferences": {
         "has_cdn": "CDN'i olek?",
