@@ -132,7 +132,11 @@
         "customize": "Aanpassen",
         "add": "Toevoegen",
         "invalid_url": "Ongeldige URL!",
-        "delete_group_confirm": "Deze groep verwĳderen?"
+        "delete_group_confirm": "Deze groep verwĳderen?",
+        "creator_replied": "Reactie van maker",
+        "creator_liked": "Like van maker",
+        "playback_speed": "Afspeel­snelheid",
+        "invalid_input": "Ongeldige invoer"
     },
     "titles": {
         "register": "Registreren",
