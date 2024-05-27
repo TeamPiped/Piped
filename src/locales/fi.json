@@ -120,7 +120,9 @@
         "invalidate_session": "Kirjaudu ulos kaikista laitteista",
         "logout": "Kirjaudu ulos tästä laitteesta",
         "backup_preferences": "Varmuuskopiointiasetukset",
-        "restore_preferences": "Palauta asetukset"
+        "restore_preferences": "Palauta asetukset",
+        "skip_automatically": "Automaattisesti",
+        "enable_dearrow": "Ota käyttöön DeArrow"
     },
     "player": {
         "watch_on": "Katso sivustolla {0}"
@@ -137,7 +139,10 @@
         "player": "Toistin",
         "instance": "Instanssi",
         "account": "Tili",
-        "channels": "Kanavat"
+        "channels": "Kanavat",
+        "bookmarks": "Kirjanmerkit",
+        "albums": "Albumit",
+        "dearrow": "DeArrow"
     },
     "search": {
         "did_you_mean": "Tarkoititko: {0}?",
