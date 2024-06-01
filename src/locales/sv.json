@@ -16,7 +16,8 @@
         "livestreams": "Livesändningar",
         "channels": "Kanaler",
         "channel_groups": "Kanal Grupper",
-        "albums": "Album"
+        "albums": "Album",
+        "custom_instances": "Anpassade instanser"
     },
     "actions": {
         "subscribe": "Prenumerera",
@@ -147,7 +148,15 @@
         "instance_privacy_policy": "Sekretesspolicy",
         "add_to_group": "Lägg till i grupp",
         "instances_not_shown": "Publika instanser som inte visas här är inte tillgängliga för närvarande.",
-        "concurrent_prefetch_limit": "Gräns för förhämtning av samtidig ström"
+        "concurrent_prefetch_limit": "Gräns för förhämtning av samtidig ström",
+        "creator_replied": "Skaparen svarade",
+        "creator_liked": "Skaparen gillade",
+        "playback_speed": "Uppspelningshastighet",
+        "invalid_input": "Ogiltig indata",
+        "delete_group_confirm": "Ta bort denna grupp?",
+        "customize": "Anpassa",
+        "add": "Lägg till",
+        "invalid_url": "Ogiltig URL!"
     },
     "player": {
         "watch_on": "Se på {0}",
@@ -161,7 +170,8 @@
         "registered_users": "Registrerade användare",
         "version": "Version",
         "up_to_date": "Är du uppdaterad?",
-        "uptime_30d": "Upptid (30d)"
+        "uptime_30d": "Upptid (30d)",
+        "api_url": "Api URL"
     },
     "login": {
         "username": "Användarnamn",
