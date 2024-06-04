@@ -1,5 +1,5 @@
 <template>
-    <h1 v-t="'titles.subscriptions'" class="my-4 text-center font-bold p-15" />
+    <h1 v-t="'titles.subscriptions'" class="my-4 p-15 text-center font-bold" />
     <!-- import / export section -->
     <div class="flex flex-wrap justify-between">
         <div class="flex gap-1">

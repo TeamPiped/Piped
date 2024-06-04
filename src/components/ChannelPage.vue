@@ -6,7 +6,7 @@
             v-if="channel.bannerUrl"
             loading="lazy"
             :src="channel.bannerUrl"
-            class="h-30 w-full object-cover py-1.5 md:h-50 p-15"
+            class="h-30 w-full object-cover p-15 py-1.5 md:h-50"
         />
         <div class="flex flex-col items-center justify-between md:flex-row">
             <div class="flex place-items-center">
