@@ -225,6 +225,10 @@ export default {
     @apply mx-1;
 }
 
+.fixed {
+    z-index: 100;
+}
+
 @media screen and (max-width: 848px) {
     #search-btn {
         display: none;
