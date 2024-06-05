@@ -165,7 +165,11 @@
         "customize": "Prilagodi",
         "invalid_url": "Neispravni URL!",
         "add": "Dodaj",
-        "delete_group_confirm": "Izbrisati ovu grupu?"
+        "delete_group_confirm": "Izbrisati ovu grupu?",
+        "creator_replied": "Autor je odgovorio",
+        "creator_liked": "Autoru se sviđa",
+        "invalid_input": "Neispravni unos",
+        "playback_speed": "Brzina reprodukcije"
     },
     "player": {
         "watch_on": "Gledaj na {0}",
