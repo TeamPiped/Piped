@@ -12,6 +12,9 @@
             class="absolute bottom-0 z-[2000] mb-[3.5%] hidden flex-col items-center"
         >
             <canvas id="preview" ref="preview" class="rounded-sm" />
+            <span v-if="video.chapters.length > 1" class="mt-2 text-sm -mb-2">
+                {{ video.chapters.findLast(chapter => chapter.start < currentTime)?.title }}
+            </span>
             <span class="mt-2 w-min rounded-xl bg-dark-700 px-2 pb-1 pt-1.5 text-sm" v-text="timeFormat(currentTime)" />
         </span>
         <button
@@ -172,25 +175,15 @@ export default {
                             e.preventDefault();
                             break;
                         case "ctrl+left": {
-                            let jump = -1;
-                            for (const chapter of chapters) {
-                                if (chapter.start < videoEl.currentTime) {
-                                    jump = chapter.start;
-                                }
-                            }
-                            videoEl.currentTime = jump;
+                            videoEl.currentTime = chapters.findLast(
+                                chapter => chapter.start < videoEl.currentTime,
+                            ).start;
                             e.preventDefault();
                             break;
                         }
                         case "ctrl+right": {
-                            let jump = videoEl.duration;
-                            for (const chapter of chapters) {
-                                if (chapter.start > videoEl.currentTime) {
-                                    jump = chapter.start;
-                                    break;
-                                }
-                            }
-                            videoEl.currentTime = jump;
+                            videoEl.currentTime =
+                                chapters.find(chapter => chapter.start > videoEl.currentTime).start || videoEl.duration;
                             e.preventDefault();
                             break;
                         }
@@ -432,7 +425,6 @@ export default {
                     this.$emit("ended");
                 });
             }
-
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
         findCurrentSegment(time) {
@@ -680,6 +672,21 @@ export default {
             // expand the player to fullscreen when the fullscreen query equals true
             if (this.$route.query.fullscreen === "true" && !this.$ui.getControls().isFullScreenEnabled())
                 this.$ui.getControls().toggleFullScreen();
+
+            const seekbar = this.$refs.container.querySelector(".shaka-seek-bar");
+            const array = ["to right"];
+            for (const chapter of this.video.chapters) {
+                const start = (chapter.start / this.video.duration) * 100;
+                if (start === 0) {
+                    continue;
+                }
+                array.push(`transparent ${start}%`);
+                array.push(`black ${start}%`);
+                array.push(`black ${start + 0.1}%`);
+                array.push(`transparent ${start + 0.1}%`);
+            }
+            console.log(800, array, this.seekbar);
+            if (seekbar) seekbar.style.background = `linear-gradient(${array.join(",")})`;
         },
         async updateProgressDatabase(time) {
             // debounce
