@@ -364,6 +364,7 @@ export default {
                         "streaming.bufferingGoal",
                         Math.max(this.getPreferenceNumber("bufferGoal", 10), 10),
                     );
+                    localPlayer.configure("streaming.bufferBehind", 300);
 
                     this.setPlayerAttrs(localPlayer, videoEl, uri, mime, this.$shaka);
                 });
