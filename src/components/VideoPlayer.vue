@@ -121,10 +121,11 @@ export default {
     activated() {
         this.destroying = false;
         this.sponsors?.segments?.forEach(segment => (segment.skipped = false));
+        const chapters = this.video.chapters;
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+s,shift+,,shift+.,alt+p,return,.,,",
+                "f,m,j,k,l,c,space,up,down,left,right,ctrl+left,ctrl+right,home,end,0,1,2,3,4,5,6,7,8,9,shift+n,shift+s,shift+,,shift+.,alt+p,return,.,,",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -168,6 +169,37 @@ export default {
                             break;
                         case "right":
                             videoEl.currentTime = videoEl.currentTime + 5;
+                            e.preventDefault();
+                            break;
+                        case "ctrl+left": {
+                            let jump = -1;
+                            for (const chapter of chapters) {
+                                if (chapter.start < videoEl.currentTime) {
+                                    jump = chapter.start;
+                                }
+                            }
+                            videoEl.currentTime = jump;
+                            e.preventDefault();
+                            break;
+                        }
+                        case "ctrl+right": {
+                            let jump = videoEl.duration;
+                            for (const chapter of chapters) {
+                                if (chapter.start > videoEl.currentTime) {
+                                    jump = chapter.start;
+                                    break;
+                                }
+                            }
+                            videoEl.currentTime = jump;
+                            e.preventDefault();
+                            break;
+                        }
+                        case "home":
+                            videoEl.currentTime = 0;
+                            e.preventDefault();
+                            break;
+                        case "end":
+                            videoEl.currentTime = videoEl.duration;
                             e.preventDefault();
                             break;
                         case "0":
