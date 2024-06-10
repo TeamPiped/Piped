@@ -685,8 +685,12 @@ export default {
                 array.push(`black ${start + 0.1}%`);
                 array.push(`transparent ${start + 0.1}%`);
             }
-            console.log(800, array, this.seekbar);
-            if (seekbar) seekbar.style.background = `linear-gradient(${array.join(",")})`;
+            seekbar.style.background = `linear-gradient(${array.join(",")})`;
+
+            seekbar.addEventListener("mouseup", () => {
+                console.log(111);
+                this.$refs.videoEl.focus();
+            });
         },
         async updateProgressDatabase(time) {
             // debounce
