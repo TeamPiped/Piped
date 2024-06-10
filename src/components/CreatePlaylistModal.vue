@@ -21,7 +21,7 @@ export default {
     emits: ["created", "close"],
     data() {
         return {
-            playlistName: "",
+            playlistName: "New Playlist",
         };
     },
     mounted() {
