@@ -688,7 +688,6 @@ export default {
             seekbar.style.background = `linear-gradient(${array.join(",")})`;
 
             seekbar.addEventListener("mouseup", () => {
-                console.log(111);
                 this.$refs.videoEl.focus();
             });
         },
