@@ -63,6 +63,7 @@ const routes = [
     },
     {
         path: "/feed",
+        alias: ["/feed/subscriptions"],
         name: "Feed",
         component: () => import("../components/FeedPage.vue"),
     },
