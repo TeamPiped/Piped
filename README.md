@@ -77,7 +77,7 @@ The documentation can be found at https://docs.piped.video (accessible via IPNS 
 
 ## Extensions
 
-To redirect all YouTube links to Piped, you are highly recommended to use either [Piped-Redirects](https://github.com/TeamPiped/Piped-Redirects) or [Libredirect](https://github.com/libredirect/libredirect#readme).
+To redirect all YouTube links to Piped, you are highly recommended to use either [Piped-Redirects](https://github.com/TeamPiped/Piped-Redirects), [Libredirect](https://github.com/libredirect/libredirect) or [Predirect](https://github.com/libreom/predirect).
 
 ## Contributing
 
