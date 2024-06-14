@@ -314,7 +314,7 @@ const mixin = {
                 var store = tx.objectStore("playlist_videos");
                 const req = store.openCursor(videoId);
                 req.onsuccess = e => {
-                    resolve(e.target.result.value);
+                    resolve(e.target.result?.value);
                 };
             });
         },
@@ -351,7 +351,7 @@ const mixin = {
                 const playlist = await this.getLocalPlaylist(playlistId);
                 const videoIds = JSON.parse(playlist.videoIds);
                 const videosFuture = videoIds.map(videoId => this.getLocalPlaylistVideo(videoId));
-                playlist.relatedStreams = await Promise.all(videosFuture);
+                playlist.relatedStreams = (await Promise.all(videosFuture)).filter(video => video !== undefined);
                 return playlist;
             }
 
@@ -468,6 +468,7 @@ const mixin = {
                 playlist.thumbnail = streamInfos[0].thumbnail || streamInfos[0].thumbnailUrl;
                 this.createOrUpdateLocalPlaylist(playlist);
                 for (let i in videoIds) {
+                    if (streamInfos[i].error) continue;
                     this.createLocalPlaylistVideo(videoIds[i], streamInfos[i]);
                 }
                 return { message: "ok" };
