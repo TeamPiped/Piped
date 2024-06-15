@@ -15,7 +15,10 @@
             <span v-if="video.chapters.length > 1" class="mt-2 text-sm -mb-2">
                 {{ video.chapters.findLast(chapter => chapter.start < currentTime)?.title }}
             </span>
-            <span class="mt-2 w-min rounded-xl bg-dark-700 px-2 pb-1 pt-1.5 text-sm" v-text="timeFormat(currentTime)" />
+            <span
+                class="mt-2 w-min rounded-xl bg-white px-2 pb-1 pt-1.5 text-sm .dark:bg-dark-700"
+                v-text="timeFormat(currentTime)"
+            />
         </span>
         <button
             v-if="inSegment"
