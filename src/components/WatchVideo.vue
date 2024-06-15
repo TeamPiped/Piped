@@ -525,9 +525,7 @@ export default {
                             }
                     }
                 });
-                await this.fetchPlaylistPages().then(() => {
-                    this.fetchDeArrowContent(this.playlist.relatedStreams);
-                });
+                await this.fetchPlaylistPages();
             }
         },
         async fetchPlaylistPages() {
@@ -535,8 +533,9 @@ export default {
                 await this.fetchJson(this.apiUrl() + "/nextpage/playlists/" + this.playlistId, {
                     nextpage: this.playlist.nextpage,
                 }).then(json => {
-                    this.playlist.relatedStreams = this.playlist.relatedStreams.concat(json.relatedStreams);
+                    this.playlist.relatedStreams.push(...json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
+                    this.fetchDeArrowContent(json.relatedStreams);
                 });
                 await this.fetchPlaylistPages();
             }

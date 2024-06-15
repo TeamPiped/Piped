@@ -524,7 +524,6 @@ const mixin = {
 
             const videoIds = content
                 .filter(item => item.type === "stream")
-                .filter(item => item.dearrow === undefined)
                 .map(item => item.url.substr(-11))
                 .sort();
 
