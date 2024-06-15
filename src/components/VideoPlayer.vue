@@ -33,6 +33,13 @@
             v-t="{ path: 'player.failed', args: [error] }"
             class="absolute top-8 rounded bg-black/80 p-2 text-lg backdrop-blur-sm"
         />
+        <div
+            v-if="showCurrentSpeed"
+            class="text-l absolute left-1/2 top-1/2 flex flex-col transform items-center gap-6 rounded-8 bg-white/80 px-8 py-4 -translate-x-1/2 -translate-y-1/2 .dark:bg-dark-700/80"
+        >
+            <i class="i-fa6-solid:gauge-high h-25 w-25 p-5" />
+            <span v-text="$refs.videoEl.playbackRate" />
+        </div>
     </div>
 
     <ModalComponent v-if="showSpeedModal" @close="showSpeedModal = false">
@@ -86,6 +93,8 @@ export default {
             inSegment: false,
             isHoveringTimebar: false,
             showSpeedModal: false,
+            showCurrentSpeed: false,
+            hideCurrentSpeed: null,
             playbackSpeedInput: null,
             currentTime: 0,
             seekbarPadding: 2,
@@ -679,6 +688,10 @@ export default {
         adjustPlaybackSpeed(newSpeed) {
             const normalizedSpeed = Math.min(4, Math.max(0.25, newSpeed));
             this.$player.trickPlay(normalizedSpeed);
+            if (this.hideCurrentSpeed) window.clearTimeout(this.hideCurrentSpeed);
+            this.showCurrentSpeed = false;
+            this.showCurrentSpeed = true;
+            this.hideCurrentSpeed = window.setTimeout(() => (this.showCurrentSpeed = false), 1500);
         },
         setSpeedFromInput() {
             try {
