@@ -13,7 +13,7 @@
         >
             <canvas id="preview" ref="preview" class="rounded-sm" />
             <span
-                class="mt-2 w-min rounded-xl bg-white px-2 pb-1 pt-1.5 text-sm dark:bg-dark-700"
+                class="mt-2 w-min rounded-xl bg-white px-2 pb-1 pt-1.5 text-sm .dark:bg-dark-700"
                 v-text="timeFormat(currentTime)"
             />
         </span>
