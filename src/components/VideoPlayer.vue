@@ -175,7 +175,7 @@ export default {
                             e.preventDefault();
                             break;
                         case "ctrl+left": {
-                            videoEl.currentTime = chapters.findLast(
+                            videoEl.currentTime = self.video.chapters.findLast(
                                 chapter => chapter.start < videoEl.currentTime,
                             ).start;
                             e.preventDefault();
@@ -183,7 +183,7 @@ export default {
                         }
                         case "ctrl+right": {
                             videoEl.currentTime =
-                                chapters.find(chapter => chapter.start > videoEl.currentTime).start || videoEl.duration;
+                                self.video.chapters.find(chapter => chapter.start > videoEl.currentTime).start || videoEl.duration;
                             e.preventDefault();
                             break;
                         }
