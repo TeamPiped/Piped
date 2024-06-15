@@ -40,6 +40,14 @@
             <i class="i-fa6-solid:gauge-high h-25 w-25 p-5" />
             <span v-text="$refs.videoEl.playbackRate" />
         </div>
+        <div
+            v-if="showCurrentVolume"
+            class="text-l absolute left-1/2 top-1/2 flex flex-col transform items-center gap-6 rounded-8 bg-white/80 px-8 py-4 -translate-x-1/2 -translate-y-1/2 .dark:bg-dark-700/80"
+        >
+            <i v-if="$refs.videoEl.volume > 0" class="i-fa6-solid:volume-high h-25 w-25 p-5" />
+            <i v-else class="i-fa6-solid:volume-xmark h-25 w-25 p-5" />
+            <span v-text="Math.round($refs.videoEl.volume * 100) / 100" />
+        </div>
     </div>
 
     <ModalComponent v-if="showSpeedModal" @close="showSpeedModal = false">
@@ -95,6 +103,8 @@ export default {
             showSpeedModal: false,
             showCurrentSpeed: false,
             hideCurrentSpeed: null,
+            showCurrentVolume: false,
+            hideCurrentVolume: null,
             playbackSpeedInput: null,
             currentTime: 0,
             seekbarPadding: 2,
@@ -167,11 +177,11 @@ export default {
                             e.preventDefault();
                             break;
                         case "up":
-                            videoEl.volume = Math.min(videoEl.volume + 0.05, 1);
+                            self.adjustPlaybackVolume(videoEl.volume + 0.05);
                             e.preventDefault();
                             break;
                         case "down":
-                            videoEl.volume = Math.max(videoEl.volume - 0.05, 0);
+                            self.adjustPlaybackVolume(videoEl.volume - 0.05);
                             e.preventDefault();
                             break;
                         case "left":
@@ -692,6 +702,14 @@ export default {
             this.showCurrentSpeed = false;
             this.showCurrentSpeed = true;
             this.hideCurrentSpeed = window.setTimeout(() => (this.showCurrentSpeed = false), 1500);
+        },
+        adjustPlaybackVolume(newVolume) {
+            const normalizedVolume = Math.min(1, Math.max(0, newVolume));
+            this.$refs.videoEl.volume = normalizedVolume;
+            if (this.hideCurrentVolume) window.clearTimeout(this.hideCurrentVolume);
+            this.showCurrentVolume = false;
+            this.showCurrentVolume = true;
+            this.hideCurrentVolume = window.setTimeout(() => (this.showCurrentVolume = false), 1500);
         },
         setSpeedFromInput() {
             try {
