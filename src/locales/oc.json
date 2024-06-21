@@ -155,7 +155,12 @@
         "customize": "Personalizar",
         "invalid_url": "URL invalida !",
         "concurrent_prefetch_limit": "Limit de precargament de flux simultanèus",
-        "add": "Ajustar"
+        "add": "Ajustar",
+        "creator_replied": "Lo creator respondèt",
+        "creator_liked": "Lo creator aimèt",
+        "playback_speed": "Velocitat de lectura",
+        "invalid_input": "Entrada non valida",
+        "delete_group_confirm": "Suprimir aqueste grop ?"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
