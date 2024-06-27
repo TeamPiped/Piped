@@ -188,7 +188,7 @@ export default {
                         }
                         case "ctrl+right": {
                             videoEl.currentTime =
-                                self.video.chapters.find(chapter => chapter.start > videoEl.currentTime).start ||
+                                self.video.chapters.find(chapter => chapter.start > videoEl.currentTime)?.start ||
                                 videoEl.duration;
                             e.preventDefault();
                             break;
