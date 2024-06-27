@@ -685,8 +685,8 @@ export default {
                 }
                 array.push(`transparent ${start}%`);
                 array.push(`black ${start}%`);
-                array.push(`black ${start + 0.1}%`);
-                array.push(`transparent ${start + 0.1}%`);
+                array.push(`black calc(${start}% + 1px)`);
+                array.push(`transparent calc(${start}% + 1px)`);
             }
             seekbar.style.background = `linear-gradient(${array.join(",")})`;
 
