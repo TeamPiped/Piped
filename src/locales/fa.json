@@ -23,7 +23,7 @@
         "channel_name_asc": "نام کانال (الف-ی)",
         "most_recent": "تازه‌ترین‌ها",
         "sort_by": "مرتب سازی بر اساس:",
-        "view_subscriptions": "مشاهده سابسکرایب ها",
+        "view_subscriptions": "مشاهده دنبال کننده ها",
         "unsubscribe": "لغو سابسکرایب",
         "subscribe": "سابسکرایب",
         "minimize_recommendations": "بستن توصیه ها",
@@ -133,7 +133,7 @@
     "titles": {
         "history": "تاریخچه",
         "preferences": "تنظیمات",
-        "feed": "خوراک",
+        "feed": "اکسپلور",
         "register": "ثبت نام",
         "login": "ورود",
         "trending": "محبوب",
@@ -145,8 +145,10 @@
         "bookmarks": "نشان‌دارها",
         "livestreams": "پخش زنده",
         "channels": "کانال‌ها",
-        "channel_groups": "گروه های کانال",
-        "dearrow": "DeArrow"
+        "channel_groups": "کانال های گروه بندی شده",
+        "dearrow": "DeArrow",
+        "albums": "آلبوم ها",
+        "custom_instances": "نمونه های درخواستی"
     },
     "player": {
         "watch_on": "تماشا روی {0}",
