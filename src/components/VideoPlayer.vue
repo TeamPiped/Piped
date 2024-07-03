@@ -13,6 +13,12 @@
         >
             <canvas id="preview" ref="preview" class="rounded-sm" />
             <span
+                v-if="video.chapters.length > 1"
+                class="mt-2 text-sm drop-shadow-[0_0_2px_white] -mb-2 .dark:drop-shadow-[0_0_2px_black]"
+            >
+                {{ video.chapters.findLast(chapter => chapter.start < currentTime)?.title }}
+            </span>
+            <span
                 class="mt-2 w-min rounded-xl bg-white px-2 pb-1 pt-1.5 text-sm .dark:bg-dark-700"
                 v-text="timeFormat(currentTime)"
             />
@@ -146,7 +152,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+s,shift+,,shift+.,alt+p,return,.,,",
+                "f,m,j,k,l,c,space,up,down,left,right,ctrl+left,ctrl+right,home,end,0,1,2,3,4,5,6,7,8,9,shift+n,shift+s,shift+,,shift+.,alt+p,return,.,,",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -190,6 +196,28 @@ export default {
                             break;
                         case "right":
                             videoEl.currentTime = videoEl.currentTime + 5;
+                            e.preventDefault();
+                            break;
+                        case "ctrl+left": {
+                            videoEl.currentTime = self.video.chapters.findLast(
+                                chapter => chapter.start < videoEl.currentTime,
+                            ).start;
+                            e.preventDefault();
+                            break;
+                        }
+                        case "ctrl+right": {
+                            videoEl.currentTime =
+                                self.video.chapters.find(chapter => chapter.start > videoEl.currentTime)?.start ||
+                                videoEl.duration;
+                            e.preventDefault();
+                            break;
+                        }
+                        case "home":
+                            videoEl.currentTime = 0;
+                            e.preventDefault();
+                            break;
+                        case "end":
+                            videoEl.currentTime = videoEl.duration;
                             e.preventDefault();
                             break;
                         case "0":
@@ -423,7 +451,6 @@ export default {
                     this.$emit("ended");
                 });
             }
-
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
         findCurrentSegment(time) {
@@ -671,6 +698,24 @@ export default {
             // expand the player to fullscreen when the fullscreen query equals true
             if (this.$route.query.fullscreen === "true" && !this.$ui.getControls().isFullScreenEnabled())
                 this.$ui.getControls().toggleFullScreen();
+
+            const seekbar = this.$refs.container.querySelector(".shaka-seek-bar");
+            const array = ["to right"];
+            for (const chapter of this.video.chapters) {
+                const start = (chapter.start / this.video.duration) * 100;
+                if (start === 0) {
+                    continue;
+                }
+                array.push(`transparent ${start}%`);
+                array.push(`black ${start}%`);
+                array.push(`black calc(${start}% + 1px)`);
+                array.push(`transparent calc(${start}% + 1px)`);
+            }
+            seekbar.style.background = `linear-gradient(${array.join(",")})`;
+
+            seekbar.addEventListener("mouseup", () => {
+                this.$refs.videoEl.focus();
+            });
         },
         async updateProgressDatabase(time) {
             // debounce
