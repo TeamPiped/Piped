@@ -136,7 +136,8 @@
         "creator_replied": "Oluşturan yanıtladı",
         "creator_liked": "Oluşturan beğendi",
         "playback_speed": "Oynatma hızı",
-        "invalid_input": "Geçersiz giriş"
+        "invalid_input": "Geçersiz giriş",
+        "prefer_hls": "DASH yerine HLS tercih et"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
