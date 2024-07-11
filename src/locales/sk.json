@@ -136,7 +136,8 @@
         "creator_replied": "Odpoveď autora",
         "creator_liked": "Autorovi sa páčilo",
         "invalid_input": "Nesprávne údaje",
-        "playback_speed": "Rýchlosť prehrávania"
+        "playback_speed": "Rýchlosť prehrávania",
+        "prefer_hls": "Uprednostniť HLS pred DASH"
     },
     "player": {
         "watch_on": "Zobraziť na {0}",
