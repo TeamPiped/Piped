@@ -36,8 +36,8 @@ dependencies:
     specifier: 9.13.1
     version: 9.13.1(vue@3.4.25)
   vue-router:
-    specifier: 4.3.2
-    version: 4.3.2(vue@3.4.25)
+    specifier: 4.4.0
+    version: 4.4.0(vue@3.4.25)
 
 devDependencies:
   '@iconify-json/fa6-brands':
@@ -5188,8 +5188,8 @@ packages:
       '@vue/devtools-api': 6.6.1
       vue: 3.4.25(typescript@5.4.5)
 
-  /vue-router@4.3.2(vue@3.4.25):
-    resolution: {integrity: sha512-hKQJ1vDAZ5LVkKEnHhmm1f9pMiWIBNGF5AwU67PdH7TyXCj/a4hTccuUuYCAMgJK6rO/NVYtQIEN3yL8CECa7Q==}
+  /vue-router@4.4.0(vue@3.4.25):
+    resolution: {integrity: sha512-HB+t2p611aIZraV2aPSRNXf0Z/oLZFrlygJm+sZbdJaW6lcFqEDQwnzUBXn+DApw+/QzDU/I9TeWx9izEjTmsA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
