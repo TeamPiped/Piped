@@ -160,7 +160,8 @@
         "creator_replied": "Twórca odpowiedział",
         "creator_liked": "Twórca polubił",
         "invalid_input": "Nieprawidłowe dane wejściowe",
-        "playback_speed": "Szybkość odtwarzania"
+        "playback_speed": "Szybkość odtwarzania",
+        "prefer_hls": "Preferuj HLS zamiast DASH"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
