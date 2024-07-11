@@ -69,6 +69,10 @@
         <strong v-t="'actions.audio_only'" />
         <input id="chkAudioOnly" v-model="listen" class="checkbox" type="checkbox" @change="onChange($event)" />
     </label>
+    <label class="pref" for="chkPreferHls">
+        <strong v-t="'actions.prefer_hls'" />
+        <input id="chkPreferHls" v-model="preferHls" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
     <label class="pref" for="ddlDefaultQuality">
         <strong v-t="'actions.default_quality'" />
         <select id="ddlDefaultQuality" v-model="defaultQuality" class="select w-auto" @change="onChange($event)">
@@ -438,6 +442,7 @@ export default {
             autoPlayNextCountdown: 5,
             listen: false,
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
+            preferHls: false,
             defaultQuality: 0,
             bufferingGoal: 10,
             countryMap: CountryMap,
@@ -619,6 +624,7 @@ export default {
                 localStorage.setItem("autoDisplayCaptions", this.autoDisplayCaptions);
                 localStorage.setItem("autoPlayNextCountdown", this.autoPlayNextCountdown);
                 localStorage.setItem("listen", this.listen);
+                localStorage.setItem("preferHls", this.preferHls);
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
                 localStorage.setItem("region", this.countrySelected);
