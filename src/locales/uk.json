@@ -146,7 +146,8 @@
         "creator_replied": "Відповідь творця",
         "creator_liked": "Творець уподобав(-ла)",
         "invalid_input": "Неналежний ввід",
-        "playback_speed": "Швидкість відтворення"
+        "playback_speed": "Швидкість відтворення",
+        "prefer_hls": "Перевага HLS над DASH"
     },
     "titles": {
         "register": "Реєстрація",

@@ -160,7 +160,8 @@
         "creator_replied": "Autor vastas",
         "creator_liked": "Autorile meeldis see",
         "playback_speed": "Taasesituse kiirus",
-        "invalid_input": "Vigane sisend"
+        "invalid_input": "Vigane sisend",
+        "prefer_hls": "Eelista DASH-protokollile HLS-protokolli"
     },
     "preferences": {
         "has_cdn": "CDN'i olek?",

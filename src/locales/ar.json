@@ -160,7 +160,8 @@
         "creator_replied": "أجاب المنشء",
         "creator_liked": "المنشء اعجب",
         "playback_speed": "سرعة التشغيل",
-        "invalid_input": "مدخل غير صالح"
+        "invalid_input": "مدخل غير صالح",
+        "prefer_hls": "تفضل HLS على DASH"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",

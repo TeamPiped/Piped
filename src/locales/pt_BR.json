@@ -136,7 +136,8 @@
         "creator_replied": "O autor respondeu",
         "creator_liked": "O autor gostou",
         "playback_speed": "Velocidade de reprodução",
-        "invalid_input": "Entrada inválida"
+        "invalid_input": "Entrada inválida",
+        "prefer_hls": "Preferir HLS sobre DASH"
     },
     "titles": {
         "history": "Histórico",
