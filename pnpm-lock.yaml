@@ -41,11 +41,11 @@ dependencies:
 
 devDependencies:
   '@iconify-json/fa6-brands':
-    specifier: 1.1.19
-    version: 1.1.19
+    specifier: 1.1.20
+    version: 1.1.20
   '@iconify-json/fa6-solid':
-    specifier: 1.1.21
-    version: 1.1.21
+    specifier: 1.1.22
+    version: 1.1.22
   '@intlify/unplugin-vue-i18n':
     specifier: 4.0.0
     version: 4.0.0(rollup@2.79.1)(vue-i18n@9.13.1)
@@ -99,7 +99,7 @@ devDependencies:
     version: 3.2.5
   unocss:
     specifier: 0.58.9
-    version: 0.58.9(postcss@8.4.38)(rollup@2.79.1)(vite@5.3.3)
+    version: 0.58.9(postcss@8.4.39)(rollup@2.79.1)(vite@5.3.3)
   vite:
     specifier: 5.3.3
     version: 5.3.3(lightningcss@1.24.1)(terser@5.31.0)
@@ -1627,14 +1627,14 @@ packages:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     dev: true
 
-  /@iconify-json/fa6-brands@1.1.19:
-    resolution: {integrity: sha512-3Dl0D1gtFwIj7/GT2xJbkM9D/LjuozsgfLrqRWP6B5xuajtsyEvR1wD0Z06y3iaNtASpgWPWyYbml+AHQ3Hw0g==}
+  /@iconify-json/fa6-brands@1.1.20:
+    resolution: {integrity: sha512-YwEyaLDkOVLcZO/gI8uf3IIqy2s7abHHgljjCMpdWDyfZr98tQ6GbdHxeBk7Pq9OoWJ3KJU0wDHmgrEGYt3Z1Q==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify-json/fa6-solid@1.1.21:
-    resolution: {integrity: sha512-+C6F3dFjNdqj8S83ggIXZFsX2CwecFErJKk9dVEZNd0XpNx2iNCNS+K/fl1HLFhYRhS4lb2Rgfi8yVV4MQU7yA==}
+  /@iconify-json/fa6-solid@1.1.22:
+    resolution: {integrity: sha512-iHc4hE/BVPwQ84/1z31kfuPauhfrOgLTaba5dmpfYuLsvh67gByUK0yfNyQuo/Y6NAPOx/6s6guj0f0qjzoxbg==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
@@ -2211,7 +2211,7 @@ packages:
       sirv: 2.0.4
     dev: true
 
-  /@unocss/postcss@0.58.9(postcss@8.4.38):
+  /@unocss/postcss@0.58.9(postcss@8.4.39):
     resolution: {integrity: sha512-PnKmH6Qhimw35yO6u6yx9SHaX2NmvbRNPDvMDHA/1xr3M8L0o8U88tgKbWfm65NEGF3R1zJ9A8rjtZn/LPkgPA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -2223,7 +2223,7 @@ packages:
       css-tree: 2.3.1
       fast-glob: 3.3.2
       magic-string: 0.30.10
-      postcss: 8.4.38
+      postcss: 8.4.39
     dev: true
 
   /@unocss/preset-attributify@0.58.9:
@@ -5012,7 +5012,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
-  /unocss@0.58.9(postcss@8.4.38)(rollup@2.79.1)(vite@5.3.3):
+  /unocss@0.58.9(postcss@8.4.39)(rollup@2.79.1)(vite@5.3.3):
     resolution: {integrity: sha512-aqANXXP0RrtN4kSaTLn/7I6wh8o45LUdVgPzGu7Fan2DfH2+wpIs6frlnlHlOymnb+52dp6kXluQinddaUKW1A==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -5028,7 +5028,7 @@ packages:
       '@unocss/cli': 0.58.9(rollup@2.79.1)
       '@unocss/core': 0.58.9
       '@unocss/extractor-arbitrary-variants': 0.58.9
-      '@unocss/postcss': 0.58.9(postcss@8.4.38)
+      '@unocss/postcss': 0.58.9(postcss@8.4.39)
       '@unocss/preset-attributify': 0.58.9
       '@unocss/preset-icons': 0.58.9
       '@unocss/preset-mini': 0.58.9
