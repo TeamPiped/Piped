@@ -328,7 +328,12 @@ export default {
             if (this.video.livestream) {
                 uri = this.video.hls;
                 mime = "application/x-mpegURL";
-            } else if (this.video.audioStreams.length > 0 && !lbry && MseSupport) {
+            } else if (
+                this.video.audioStreams.length > 0 &&
+                !lbry &&
+                MseSupport &&
+                !this.getPreferenceBoolean("preferHls", false)
+            ) {
                 if (!this.video.dash) {
                     const dash = (await import("../utils/DashUtils.js")).generate_dash_file_from_formats(
                         streams,
