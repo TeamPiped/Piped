@@ -56,6 +56,11 @@ export default {
         this.updateResults();
         this.saveQueryToHistory();
     },
+    updated() {
+        if (this.$route.query.search_query !== undefined) {
+            document.title = this.$route.query.search_query + " - Piped";
+        }
+    },
     activated() {
         this.handleRedirect();
         window.addEventListener("scroll", this.handleScroll);
