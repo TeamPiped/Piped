@@ -136,7 +136,8 @@
         "creator_replied": "Reactie van maker",
         "creator_liked": "Like van maker",
         "playback_speed": "Afspeel­snelheid",
-        "invalid_input": "Ongeldige invoer"
+        "invalid_input": "Ongeldige invoer",
+        "prefer_hls": "HLS verkiezen boven DASH"
     },
     "titles": {
         "register": "Registreren",

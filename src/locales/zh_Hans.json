@@ -136,7 +136,8 @@
         "creator_replied": "创作者回复了",
         "creator_liked": "创作者点赞了",
         "playback_speed": "播放速度",
-        "invalid_input": "无效输入"
+        "invalid_input": "无效输入",
+        "prefer_hls": "HLS 优先于 DASH"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
