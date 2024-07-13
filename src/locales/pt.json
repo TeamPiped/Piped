@@ -156,7 +156,8 @@
         "creator_replied": "O criador respondeu",
         "creator_liked": "O criador gostou",
         "invalid_input": "Entrada inválida",
-        "playback_speed": "Velocidade de reprodução"
+        "playback_speed": "Velocidade de reprodução",
+        "prefer_hls": "Preferir HLS a DASH"
     },
     "preferences": {
         "instance_name": "Nome da instância",
