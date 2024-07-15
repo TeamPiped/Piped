@@ -169,7 +169,8 @@
         "creator_replied": "Autor je odgovorio",
         "creator_liked": "Autoru se sviđa",
         "invalid_input": "Neispravni unos",
-        "playback_speed": "Brzina reprodukcije"
+        "playback_speed": "Brzina reprodukcije",
+        "prefer_hls": "Preferiraj HLS preko DASH"
     },
     "player": {
         "watch_on": "Gledaj na {0}",
