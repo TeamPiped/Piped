@@ -344,6 +344,7 @@ export default {
         toggleListenUrl(_this) {
             const url = new URL(window.location.href);
             url.searchParams.set("listen", _this.isListening ? "0" : "1");
+            url.searchParams.set("t", Math.floor(this.currentTime));
             return url.pathname + url.search;
         },
         isEmbed(_this) {
