@@ -152,7 +152,8 @@
         "creator_replied": "Креатор је одговорио",
         "creator_liked": "Креатор је лајковао",
         "invalid_input": "Неважећи унос",
-        "playback_speed": "Брзина репродукције"
+        "playback_speed": "Брзина репродукције",
+        "prefer_hls": "Преферирај HLS над DASH-ом"
     },
     "preferences": {
         "instance_locations": "Локације инстанце",
