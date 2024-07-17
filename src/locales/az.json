@@ -15,10 +15,13 @@
         "channels": "Kanallar",
         "bookmarks": "Əlfəcinlər",
         "channel_groups": "Kanal qrupları",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albomlar",
+        "custom_instances": "Fərdi instansiyalar"
     },
     "player": {
-        "watch_on": "{0} saytında bax"
+        "watch_on": "{0} saytında bax",
+        "failed": "{0} xəta kodu ilə uğursuz oldu, əlavə məlumat üçün qeydlərə bax"
     },
     "actions": {
         "subscribe": "Abunə Ol",
@@ -145,7 +148,20 @@
         "delete_automatically": "Sonranı avtomatik silin",
         "download_frame": "Yükləmə çərçivəsi",
         "enable_dearrow": "DeArrow'u Aktivləşdir",
-        "generate_qrcode": "QR Kodu Yarat"
+        "generate_qrcode": "QR Kodu Yarat",
+        "creator_replied": "Müəllif cavab verdi",
+        "creator_liked": "Müəllif bəyəndi",
+        "playback_speed": "Oynatma sürəti",
+        "invalid_input": "Yanlış daxiletmə",
+        "instances_not_shown": "Burada göstərilməyən ictimai serverlər hazırda əlçatan deyil.",
+        "delete_group_confirm": "Bu qrup silinsin?",
+        "instance_privacy_policy": "Məxfilik Siyasəti",
+        "customize": "Fərdiləşdir",
+        "add_to_group": "Qrupa əlavə et",
+        "concurrent_prefetch_limit": "Eynivaxtlı Yayımın ilkin qəbulu limiti",
+        "invalid_url": "Yanlış URL!",
+        "add": "Əlavə et",
+        "prefer_hls": "DASH əvəzinə HLS-ə üstünlük ver"
     },
     "comment": {
         "pinned_by": "{author} tərəfindən sabitlənib",
@@ -160,7 +176,9 @@
         "registered_users": "Qeydiyyatdan Keçmiş İstifadəçilər",
         "version": "Versiya",
         "up_to_date": "Güncəllənib?",
-        "ssl_score": "SSL Nəticəsi"
+        "ssl_score": "SSL Nəticəsi",
+        "api_url": "Api URL",
+        "uptime_30d": "İşləmə vaxtı (30 gün)"
     },
     "login": {
         "username": "İstifadəçi Adı",
@@ -213,6 +231,8 @@
         "hours": "{amount} saat",
         "days": "{amount} gün",
         "months": "{amount} ay",
-        "weeks": "{amount} həftə"
+        "weeks": "{amount} həftə",
+        "login_note": "Bu instansiyada yaradılmış hesabla daxil olun.",
+        "register_note": "Bu Piped serveri üçün hesab qeydiyyatdan keçirin. Bu, abunəliklərinizi və oynatma siyahılarınızı hesabınızla sinxronlaşdırmağa imkan verəcək ki, onlar server tərəfində saxlanılsın. Siz bütün funksiyaları hesabsız istifadə edə bilərsiniz, lakin bütün məlumatlar brauzerinizin yerli deposunda saxlanılacaq. İstifadəçi adınız kimi e-poçt ünvanın istifadə etmədiyinizə və başqa yerdə istifadə etmədiyiniz təhlükəsizlik parolu seçdiyinizə əmin olun."
     }
 }
