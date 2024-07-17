@@ -961,6 +961,10 @@ export default {
     padding: 0.09em 0;
 }
 
+#shaka-player-ui-time-container {
+    display: none !important;
+}
+
 .skip-segment-button {
     /* position button above player overlay */
     z-index: 1000;
