@@ -156,7 +156,8 @@
         "creator_replied": "निर्माता का जवाब",
         "creator_liked": "निर्माता को पसंद",
         "invalid_input": "अमान्य इनपुट",
-        "playback_speed": "प्लेबैक गति"
+        "playback_speed": "प्लेबैक गति",
+        "prefer_hls": "DASH की अपेक्षा HLS को प्राथमिकता दें"
     },
     "video": {
         "views": "{views} बार देखा गया",
