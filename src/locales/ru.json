@@ -160,7 +160,8 @@
         "creator_liked": "Автор оценил",
         "playback_speed": "Скорость воспроизведения",
         "invalid_input": "Некорректный ввод",
-        "delete_group_confirm": "Удалить группу?"
+        "delete_group_confirm": "Удалить группу?",
+        "prefer_hls": "Использовать HLS вместо DASH по возможности"
     },
     "comment": {
         "pinned_by": "Закреплено пользователем {author}",
