@@ -137,7 +137,7 @@
         "creator_liked": "O autor gostou",
         "playback_speed": "Velocidade de reprodução",
         "invalid_input": "Entrada inválida",
-        "prefer_hls": "Preferir HLS sobre DASH"
+        "prefer_hls": "Preferir HLS em vez de DASH"
     },
     "titles": {
         "history": "Histórico",
