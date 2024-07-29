@@ -14,7 +14,11 @@
                 </router-link>
             </div>
             <div class="flex flex-wrap items-center gap-1">
-                <strong v-text="`${playlist.videos} ${$t('video.videos')}`" />
+                <strong
+                    v-text="
+                        `${playlist.videos} ${$t('video.videos')} - ${timeFormat(totalDuration)}${playlist.nextpage ? '+' : ''}`
+                    "
+                />
                 <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
                     {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
                     }}<i class="i-fa6-solid:bookmark ml-3" />
@@ -68,6 +72,7 @@ export default {
     data() {
         return {
             playlist: null,
+            totalDuration: 0,
             admin: false,
             isBookmarked: false,
         };
@@ -107,6 +112,7 @@ export default {
                 .then(data => (this.playlist = data))
                 .then(() => {
                     this.updateTitle();
+                    this.updateTotalDuration();
                     this.updateWatched(this.playlist.relatedStreams);
                     this.fetchDeArrowContent(this.playlist.relatedStreams);
                 });
@@ -121,16 +127,19 @@ export default {
                 this.fetchJson(this.authApiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
                     nextpage: this.playlist.nextpage,
                 }).then(json => {
-                    this.playlist.relatedStreams.concat(json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
                     this.loading = false;
-                    json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
+                    this.playlist.relatedStreams.push(...json.relatedStreams);
+                    this.updateTotalDuration();
                     this.fetchDeArrowContent(this.playlist.relatedStreams);
                 });
             }
         },
         removeVideo(index) {
             this.playlist.relatedStreams.splice(index, 1);
+        },
+        updateTotalDuration() {
+            this.totalDuration = this.playlist.relatedStreams.map(video => video.duration).reduce((a, b) => a + b);
         },
         async clonePlaylist() {
             this.fetchJson(this.authApiUrl() + "/import/playlist", null, {
