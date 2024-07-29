@@ -131,7 +131,7 @@ export default {
                     this.loading = false;
                     this.playlist.relatedStreams.push(...json.relatedStreams);
                     this.updateTotalDuration();
-                    this.fetchDeArrowContent(this.playlist.relatedStreams);
+                    this.fetchDeArrowContent(json.relatedStreams);
                 });
             }
         },
@@ -157,10 +157,11 @@ export default {
             });
         },
         downloadPlaylistAsTxt() {
-            var data = "";
-            this.playlist.relatedStreams.forEach(element => {
-                data += "https://piped.video" + element.url + "\n";
-            });
+            const data = this.playlist.relatedStreams
+                .map(video => {
+                    return "https://piped.video" + video.url;
+                })
+                .join("\n");
             this.download(data, this.playlist.name + ".txt", "text/plain");
         },
         async bookmarkPlaylist() {
