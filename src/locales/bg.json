@@ -14,8 +14,9 @@
         "account": "Профил",
         "preferences": "Настройки",
         "subscriptions": "Абонаменти",
-        "dearrow": "DeArrow",
-        "channel_groups": "Канални групи"
+        "dearrow": "",
+        "channel_groups": "Канални групи",
+        "custom_instances": "Персонализирани инстанции"
     },
     "actions": {
         "most_recent": "Най-скорошен",
@@ -51,26 +52,26 @@
         "autoplay_video": "Автоматично пускане на видео",
         "audio_only": "Само аудио",
         "buffering_goal": "Буфериране (в секунди)",
-        "country_selection": "Избор на държава",
+        "country_selection": "Държава",
         "default_homepage": "Начална страница по подразбиране",
         "minimize_description_default": "Минимизиране на описанието по подразбиране",
         "store_watch_history": "Запазване на историята на гледане",
-        "language_selection": "Избор на език",
+        "language_selection": "Език",
         "instances_list": "Списък на инстанциите",
         "enabled_codecs": "Разрешени кодеци (множество)",
-        "instance_selection": "Избор на инстанция",
+        "instance_selection": "Инстанция",
         "show_more": "Покажи повече",
         "yes": "Да",
         "no": "Не",
         "export_to_json": "Експорт в JSON",
-        "import_from_json": "Импорт от JSON/CSV",
+        "import_from_json": "Импорт от JSON",
         "loop_this_video": "Повтаряне на това видео",
         "auto_play_next_video": "Автоматично пускане на следващото видео",
         "donations": "Дарения за разработка",
         "minimize_comments": "Минимизиране на коментарите",
         "show_comments": "Показване на коментарите",
         "show_description": "Показване на описание",
-        "search": "Търси",
+        "search": "Търсене (Ctrl+K)",
         "minimize_description": "Минимизиране на описание",
         "filter": "Филтър",
         "clear_history": "Изчистване на историята",
@@ -110,17 +111,35 @@
         "invalidate_session": "Отписване от всички устройства",
         "different_auth_instance": "Използване на различна инстанция за удостоверяване",
         "store_search_history": "Запазване на историята на търсене",
-        "instance_auth_selection": "Избор на инстанция за удостоверяване",
+        "instance_auth_selection": "Инстанция за удостоверяване",
         "confirm_reset_preferences": "Сигурни ли сте, че искате да нулирате настройките?",
         "hide_watched": "Скриване на гледани видеоклипове в Абонаменти",
-        "enable_dearrow": "Включи DeArrow"
+        "enable_dearrow": "Включи DeArrow",
+        "delete_playlist": "Изтриване на плейлиста",
+        "edit_playlist": "Редактиране на плейлист",
+        "cancel": "Отказ",
+        "dismiss": "Отхвърляне",
+        "show_search_suggestions": "Показване на предложения за търсене",
+        "download_frame": "Изтегляне на видеокадър",
+        "instance_privacy_policy": "Политика за поверителност",
+        "no_valid_playlists": "Файлът не съдържа валидни плейлисти!",
+        "show_less": "Покажи по-малко",
+        "generate_qrcode": "Генериране на QR код",
+        "create_group": "Създай група",
+        "group_name": "Име на групата",
+        "okay": "Добре",
+        "import_from_json_csv": "Импорт от JSON/CSV",
+        "playlist_name": "Име на плейлиста",
+        "playlist_description": "Описание на плейлиста"
     },
     "player": {
-        "watch_on": "Гледай в {0}"
+        "watch_on": "Гледай в {0}",
+        "failed": "Грешка с код {0}. Вижте логовете за повече информация"
     },
     "login": {
         "username": "Потребителско име",
-        "password": "Парола"
+        "password": "Парола",
+        "password_confirm": "Потвърди парола"
     },
     "video": {
         "videos": "Видеоклипове",
@@ -137,7 +156,8 @@
         "instance_name": "Име на инстанция",
         "has_cdn": "Има ли CDN?",
         "up_to_date": "Актуален?",
-        "ssl_score": "SSL резултат"
+        "ssl_score": "SSL резултат",
+        "uptime_30d": "Непрекъсната работа (30 дни)"
     },
     "comment": {
         "disabled": "Коментарите са деактивирани.",
@@ -164,6 +184,7 @@
         "copied": "Копирано!",
         "cannot_copy": "Не може да се копира!",
         "local_storage": "Това действие изисква localStorage, разрешени ли са бисквитките?",
-        "register_no_email_note": "Използването на имейл като потребителско име не се препоръчва. Продължете все пак?"
+        "register_no_email_note": "Използването на имейл като потребителско име не се препоръчва. Продължете все пак?",
+        "hours": "{amount} час(а)"
     }
 }
