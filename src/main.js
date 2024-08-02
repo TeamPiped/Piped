@@ -144,6 +144,11 @@ const mixin = {
                     var request = store.get(video.url.substr(-11));
                     request.onsuccess = function (event) {
                         if (event.target.result) {
+                            if (event.target.result.currentTime == 0) {
+                                video.watched = false;
+                                video.currentTime = event.target.result.currentTime;
+                                return;
+                            }
                             video.watched = true;
                             video.currentTime = event.target.result.currentTime;
                         }

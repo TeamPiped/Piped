@@ -132,6 +132,8 @@
         "show_chapters": "Chapters",
         "store_search_history": "Store Search History",
         "hide_watched": "Hide watched videos in the feed",
+        "mark_as_watched": "Mark as Watched",
+        "mark_as_unwatched": "Mark as Unwatched",
         "documentation": "Documentation",
         "status_page": "Status",
         "source_code": "Source code",

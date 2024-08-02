@@ -122,6 +122,11 @@
                 >
                     <i class="i-fa6-solid:circle-minus" />
                 </button>
+                <!-- TODO hide watchButton if history is disabled -->
+                <button ref="watchButton" @click="toggleWatched(item.url.substr(-11))">
+                    <i v-if="item.watched" :title="$t('actions.mark_as_unwatched')" class="i-fa6-solid:eye-slash" />
+                    <i v-else :title="$t('actions.mark_as_watched')" class="i-fa6-solid:eye" />
+                </button>
                 <ConfirmModal
                     v-if="showConfirmRemove"
                     :message="$t('actions.delete_playlist_video_confirm')"
@@ -171,7 +176,7 @@ export default {
         preferListen: { type: Boolean, default: false },
         admin: { type: Boolean, default: false },
     },
-    emits: ["remove"],
+    emits: ["update:watched", "remove"],
     data() {
         return {
             showPlaylistModal: false,
@@ -211,6 +216,40 @@ export default {
                     return;
                 }
             };
+        },
+        toggleWatched(videoId) {
+            if (window.db) {
+                // Should match WatchVideo.vue
+                var tx = window.db.transaction("watch_history", "readwrite");
+                var store = tx.objectStore("watch_history");
+                var instance = this;
+                var request = store.get(videoId);
+                request.onsuccess = function (event) {
+                    var video = event.target.result;
+                    if (video) {
+                        video.watchedAt = Date.now();
+                    } else {
+                        // Should match WatchVideo.vue
+                        video = {
+                            videoId: videoId,
+                            title: instance.item.title,
+                            duration: instance.item.duration,
+                            thumbnail: instance.item.thumbnailUrl,
+                            uploaderUrl: instance.item.uploaderUrl,
+                            uploaderName: instance.item.uploader,
+                            watchedAt: Date.now(),
+                        };
+                    }
+                    // Set time to end for shouldShowVideo
+                    video.currentTime =
+                        instance.item.currentTime !== instance.item.duration ? instance.item.duration : 0;
+                    // Save
+                    store.put(video);
+                    // Disappear if hideWatched is on
+                    instance.$emit("update:watched", [instance.item.url]);
+                    instance.shouldShowVideo();
+                };
+            }
         },
     },
 };
