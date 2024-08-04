@@ -43,11 +43,11 @@ importers:
         version: 4.4.0(vue@3.4.31(typescript@5.5.4))
     devDependencies:
       '@iconify-json/fa6-brands':
-        specifier: 1.1.21
-        version: 1.1.21
+        specifier: 1.1.22
+        version: 1.1.22
       '@iconify-json/fa6-solid':
-        specifier: 1.1.23
-        version: 1.1.23
+        specifier: 1.1.24
+        version: 1.1.24
       '@intlify/unplugin-vue-i18n':
         specifier: 4.0.0
         version: 4.0.0(rollup@2.79.1)(vue-i18n@9.13.1(vue@3.4.31(typescript@5.5.4)))
@@ -898,11 +898,11 @@ packages:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
 
-  '@iconify-json/fa6-brands@1.1.21':
-    resolution: {integrity: sha512-NS/BszVo8fUVpzA7/5b9tmkHzisZSUlm8kjdznk1Bux5p5QH3BxHZXrZUM5QsT90/7+omQC0EKukwf7H7nujZg==}
+  '@iconify-json/fa6-brands@1.1.22':
+    resolution: {integrity: sha512-a7x0hTjNI/cQ1XFyRQCyFfXJbYboYDRSmxeNgImRi8WwREDi00/U1e2WH+Xc4zBDFixBj/PQ5VOfCDaNy2ELTw==}
 
-  '@iconify-json/fa6-solid@1.1.23':
-    resolution: {integrity: sha512-wiQqnNBm8FlwmPK2KK6d+W7u2fKcqQR1kfILTR817WjNzI/pjRJqqI9kAx/uys2u1L79/Myg4trdCIy0gInObg==}
+  '@iconify-json/fa6-solid@1.1.24':
+    resolution: {integrity: sha512-ovO4kIW3CjoY36/QUTORg+7ZVlVpJqGSck+FUsqrvVJAr9MPeh3QN2UBnc9zyny41znxs7Kdc0Oz6aun4UUsyw==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3885,11 +3885,11 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.3': {}
 
-  '@iconify-json/fa6-brands@1.1.21':
+  '@iconify-json/fa6-brands@1.1.22':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/fa6-solid@1.1.23':
+  '@iconify-json/fa6-solid@1.1.24':
     dependencies:
       '@iconify/types': 2.0.0
 
