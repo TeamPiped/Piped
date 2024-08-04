@@ -122,8 +122,11 @@
                 >
                     <i class="i-fa6-solid:circle-minus" />
                 </button>
-                <!-- TODO hide watchButton if history is disabled -->
-                <button ref="watchButton" @click="toggleWatched(item.url.substr(-11))">
+                <button
+                    v-if="showMarkOnWatched && isFeed"
+                    ref="watchButton"
+                    @click="toggleWatched(item.url.substr(-11))"
+                >
                     <i v-if="item.watched" :title="$t('actions.mark_as_unwatched')" class="i-fa6-solid:eye-slash" />
                     <i v-else :title="$t('actions.mark_as_watched')" class="i-fa6-solid:eye" />
                 </button>
@@ -183,6 +186,7 @@ export default {
             showShareModal: false,
             showVideo: true,
             showConfirmRemove: false,
+            showMarkOnWatched: false,
         };
     },
     computed: {
@@ -195,6 +199,7 @@ export default {
     },
     mounted() {
         this.shouldShowVideo();
+        this.shouldShowMarkOnWatched();
     },
     methods: {
         removeVideo() {
@@ -216,6 +221,9 @@ export default {
                     return;
                 }
             };
+        },
+        shouldShowMarkOnWatched() {
+            this.showMarkOnWatched = this.getPreferenceBoolean("watchHistory", false);
         },
         toggleWatched(videoId) {
             if (window.db) {
