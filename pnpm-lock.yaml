@@ -30,8 +30,8 @@ importers:
         specifier: ^1.5.3
         version: 1.5.3
       shaka-player:
-        specifier: 4.10.5
-        version: 4.10.5
+        specifier: 4.10.9
+        version: 4.10.9
       vue:
         specifier: 3.4.31
         version: 3.4.31(typescript@5.5.4)
@@ -2525,8 +2525,8 @@ packages:
     resolution: {integrity: sha512-7PGFlmtwsEADb0WYyvCMa1t+yke6daIG4Wirafur5kcf+MhUnPms1UeR0CKQdTZD81yESwMHbtn+TR+dMviakQ==}
     engines: {node: '>= 0.4'}
 
-  shaka-player@4.10.5:
-    resolution: {integrity: sha512-WU74jRyn/wq9K6kmg2DPqY5bAcPXv3HPUvwKzwQSSYQbnpLB1OXJRjlenUXH3/KNa31vshQv0NRM+JlLn2jNtQ==}
+  shaka-player@4.10.9:
+    resolution: {integrity: sha512-ZtxcHs3Yo0MSJMFP+jD26FpLdtanxxl0P82OUksSmkkNRboOgZktYCm+mWzlxZ/lSbb2rZduDKx9q/FkHf7DCA==}
     engines: {node: '>=14'}
 
   shebang-command@2.0.0:
@@ -5664,7 +5664,7 @@ snapshots:
       functions-have-names: 1.2.3
       has-property-descriptors: 1.0.2
 
-  shaka-player@4.10.5:
+  shaka-player@4.10.9:
     dependencies:
       eme-encryption-scheme-polyfill: 2.1.5
 
