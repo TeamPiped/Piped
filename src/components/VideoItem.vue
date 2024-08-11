@@ -242,7 +242,7 @@ export default {
                             videoId: videoId,
                             title: instance.item.title,
                             duration: instance.item.duration,
-                            thumbnail: instance.item.thumbnailUrl,
+                            thumbnail: instance.item.thumbnail,
                             uploaderUrl: instance.item.uploaderUrl,
                             uploaderName: instance.item.uploader,
                             watchedAt: Date.now(),
