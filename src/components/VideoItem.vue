@@ -127,7 +127,11 @@
                     ref="watchButton"
                     @click="toggleWatched(item.url.substr(-11))"
                 >
-                    <i v-if="item.watched" :title="$t('actions.mark_as_unwatched')" class="i-fa6-solid:eye-slash" />
+                    <i
+                        v-if="item.watched && item.currentTime > item.duration * 0.9"
+                        :title="$t('actions.mark_as_unwatched')"
+                        class="i-fa6-solid:eye-slash"
+                    />
                     <i v-else :title="$t('actions.mark_as_watched')" class="i-fa6-solid:eye" />
                 </button>
                 <ConfirmModal
@@ -247,7 +251,7 @@ export default {
                         };
                     }
                     video.currentTime =
-                        instance.item.currentTime !== instance.item.duration ? instance.item.duration : 0;
+                        instance.item.currentTime < instance.item.duration * 0.9 ? instance.item.duration : 0;
                     store.put(video);
                     instance.$emit("update:watched", [instance.item.url]);
                     instance.shouldShowVideo();
