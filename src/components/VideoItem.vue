@@ -227,7 +227,6 @@ export default {
         },
         toggleWatched(videoId) {
             if (window.db) {
-                // Should match WatchVideo.vue
                 var tx = window.db.transaction("watch_history", "readwrite");
                 var store = tx.objectStore("watch_history");
                 var instance = this;
@@ -237,23 +236,19 @@ export default {
                     if (video) {
                         video.watchedAt = Date.now();
                     } else {
-                        // Should match WatchVideo.vue
                         video = {
                             videoId: videoId,
                             title: instance.item.title,
                             duration: instance.item.duration,
                             thumbnail: instance.item.thumbnail,
                             uploaderUrl: instance.item.uploaderUrl,
-                            uploaderName: instance.item.uploader,
+                            uploaderName: instance.item.uploaderName,
                             watchedAt: Date.now(),
                         };
                     }
-                    // Set time to end for shouldShowVideo
                     video.currentTime =
                         instance.item.currentTime !== instance.item.duration ? instance.item.duration : 0;
-                    // Save
                     store.put(video);
-                    // Disappear if hideWatched is on
                     instance.$emit("update:watched", [instance.item.url]);
                     instance.shouldShowVideo();
                 };
