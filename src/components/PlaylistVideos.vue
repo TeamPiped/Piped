@@ -4,10 +4,13 @@
             ><h1 class="font-bold !text-lg hover:underline" v-text="playlist.name"
         /></router-link>
         <span class="text-sm">
-            <router-link class="link-secondary" :to="playlist.uploaderUrl" :title="playlist.uploader">
-                {{ playlist.uploader }}
-            </router-link>
-            - {{ selectedIndex }} / {{ playlist.videos }}
+            <template v-if="playlist.uploader">
+                <router-link class="link-secondary" :to="playlist.uploaderUrl" :title="playlist.uploader">
+                    {{ playlist.uploader }}
+                </router-link>
+                -
+            </template>
+            {{ selectedIndex }} / {{ playlist.videos }}
         </span>
     </div>
     <div ref="scrollable" class="mt-4 max-h-screen-sm overflow-y-auto">
