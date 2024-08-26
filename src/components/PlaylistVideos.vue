@@ -1,4 +1,15 @@
 <template>
+    <div>
+        <router-link :to="{path:'/playlist',query:{list:playlistId}}"
+            ><h1 class="font-bold !text-lg hover:underline" v-text="playlist.name"
+        /></router-link>
+        <span class="text-sm">
+            <router-link class="link-secondary" :to="playlist.uploaderUrl" :title="playlist.uploader">
+                {{ playlist.uploader }}
+            </router-link>
+            - {{ selectedIndex }} / {{ playlist.videos }}
+        </span>
+    </div>
     <div ref="scrollable" class="mt-4 h-screen-sm overflow-y-scroll">
         <div
             v-for="(related, index) in playlist.relatedStreams"
