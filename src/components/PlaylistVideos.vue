@@ -73,7 +73,6 @@
 
 <script>
 import { nextTick } from "vue";
-import VideoItem from "./VideoItem.vue";
 
 export default {
     components: {},
