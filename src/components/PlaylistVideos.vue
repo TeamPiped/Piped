@@ -34,7 +34,7 @@
                     },
                 }"
             >
-                <span class="min-w-4 flex-none text-xs" v-text="index + 1" />
+                <span class="min-w-5 flex-none text-xs" v-text="index + 1" />
                 <div class="w-24 flex-none">
                     <img
                         loading="lazy"
