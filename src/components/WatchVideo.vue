@@ -32,7 +32,7 @@
                             @navigate-next="navigateNext"
                         />
                     </keep-alive>
-                    <div v-if="video&&isMobile">
+                    <div v-if="video && isMobile">
                         <ChaptersBar
                             v-if="video?.chapters?.length > 0 && showChapters"
                             :mobile-layout="isMobile"
@@ -296,7 +296,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="video&&!isMobile" class="w-96 flex-none">
+            <div v-if="video && !isMobile" class="w-96 flex-none">
                 <ChaptersBar
                     v-if="video?.chapters?.length > 0 && showChapters"
                     :mobile-layout="isMobile"
