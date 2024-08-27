@@ -664,7 +664,7 @@ export default {
                                 }
                             });
 
-                        player.selectVariantTrack(bestStream);
+                        player.selectVariantTrack(bestStream, true);
                     }
 
                     this.video.subtitles.map(subtitle => {
