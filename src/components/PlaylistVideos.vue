@@ -49,6 +49,27 @@
                             v-if="related.watched && related.duration > 0"
                             class="absolute bottom-0 left-0 h-1 bg-red-600"
                             :style="{ width: `clamp(0%, ${(related.currentTime / related.duration) * 100}%, 100%` }"
+
+                    <div class="relative text-xs">
+                        <!-- shorts thumbnail -->
+                        <span v-if="related.isShort" v-t="'video.shorts'" class="thumbnail-overlay thumbnail-left" />
+                        <span
+                            v-if="related.duration > 0 || (related.duration == 0 && related.isShort)"
+                            class="thumbnail-overlay thumbnail-right px-0.5"
+                            v-text="timeFormat(related.duration)"
+                        />
+                        <i18n-t
+                            v-else
+                            keypath="video.live"
+                            class="thumbnail-overlay thumbnail-right !bg-red-600"
+                            tag="div"
+                        >
+                            <i class="i-fa6-solid:tower-broadcast w-3" />
+                        </i18n-t>
+                        <span
+                            v-if="related.watched"
+                            v-t="'video.watched'"
+                            class="thumbnail-overlay bottom-5px left-5px px-0.5"
                         />
                     </div>
                 </div>
@@ -73,9 +94,9 @@
 
 <script>
 import { nextTick } from "vue";
-
+import VideoThumbnail from "./VideoThumbnail.vue";
 export default {
-    components: {},
+    components: { VideoThumbnail },
     props: {
         playlist: {
             type: Object,
