@@ -12,35 +12,14 @@
                 },
             }"
         >
-            <div class="w-full">
-                <img
-                    loading="lazy"
-                    class="aspect-video w-full object-contain"
-                    :src="thumbnail"
-                    :alt="title"
-                    :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
-                />
-                <!-- progress bar -->
-                <div class="relative h-1 w-full">
-                    <div
-                        v-if="item.watched && item.duration > 0"
-                        class="absolute bottom-0 left-0 h-1 bg-red-600"
-                        :style="{ width: `clamp(0%, ${(item.currentTime / item.duration) * 100}%, 100%` }"
-                    />
-                </div>
-            </div>
+            <VideoThumbnail :item="item" />
 
             <div class="relative text-sm">
-                <span
-                    v-if="item.duration > 0"
-                    class="thumbnail-overlay thumbnail-right"
-                    v-text="timeFormat(item.duration)"
-                />
                 <!-- shorts thumbnail -->
                 <span v-if="item.isShort" v-t="'video.shorts'" class="thumbnail-overlay thumbnail-left" />
                 <span
-                    v-else-if="item.duration >= 0"
-                    class="thumbnail-overlay thumbnail-right"
+                    v-if="item.duration > 0 || (item.duration == 0 && item.isShort)"
+                    class="thumbnail-overlay thumbnail-right px-0.5"
                     v-text="timeFormat(item.duration)"
                 />
                 <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right !bg-red-600" tag="div">
@@ -149,9 +128,10 @@
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import ConfirmModal from "./ConfirmModal.vue";
+import VideoThumbnail from "./VideoThumbnail.vue";
 
 export default {
-    components: { PlaylistAddModal, ConfirmModal, ShareModal },
+    components: { PlaylistAddModal, ConfirmModal, ShareModal, VideoThumbnail },
     props: {
         item: {
             type: Object,
@@ -215,9 +195,3 @@ export default {
     },
 };
 </script>
-
-<style>
-.shorts-img {
-    @apply w-full object-contain;
-}
-</style>

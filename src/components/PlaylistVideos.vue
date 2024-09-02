@@ -36,19 +36,7 @@
             >
                 <span class="min-w-5 flex-none text-xs" v-text="index + 1" />
                 <div class="w-24 flex-none">
-                    <img
-                        loading="lazy"
-                        class="aspect-video w-full object-contain"
-                        :src="related.thumbnail"
-                        :alt="related.title"
-                        :class="{ 'shorts-img': related.isShort, 'opacity-75': related.watched }"
-                    />
-                    <!-- progress bar -->
-                    <div class="relative h-1 w-full">
-                        <div
-                            v-if="related.watched && related.duration > 0"
-                            class="absolute bottom-0 left-0 h-1 bg-red-600"
-                            :style="{ width: `clamp(0%, ${(related.currentTime / related.duration) * 100}%, 100%` }"
+                    <VideoThumbnail :item="related" />
 
                     <div class="relative text-xs">
                         <!-- shorts thumbnail -->
