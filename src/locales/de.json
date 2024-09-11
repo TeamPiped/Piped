@@ -130,7 +130,14 @@
         "instances_not_shown": "Öffentliche Instanzen, die hier nicht angezeigt werden, sind derzeit nicht verfügbar.",
         "customize": "Anpassen",
         "invalid_url": "Ungültige URL!",
-        "add": "Hinzufügen"
+        "add": "Hinzufügen",
+        "creator_replied": "Ersteller*in hat geantwortet",
+        "creator_liked": "Ersteller*in mochte",
+        "invalid_input": "Ungültige Eingabe",
+        "playback_speed": "Wiedergabegeschwindigkeit",
+        "delete_group_confirm": "Diese Gruppe löschen?",
+        "concurrent_prefetch_limit": "Limit für gleichzeitigen Stream Prefetch",
+        "prefer_hls": "HLS gegenüber DASH bevorzugen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen",
