@@ -17,7 +17,7 @@
             <span v-t="'actions.status_page'" class="ml-2" />
         </a>
         <a v-if="donationHref" :href="donationHref">
-            <i class="i-fa6-solid:donate" />
+            <i class="i-fa6-solid:money-check" />
             <span v-t="'actions.instance_donations'" class="ml-2" />
         </a>
         <a v-if="privacyPolicyHref" :href="privacyPolicyHref" target="_blank">

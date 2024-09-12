@@ -6,15 +6,19 @@
 
         <CollapsableText v-if="playlist?.description" :text="playlist.description" />
 
-        <div class="mt-1 flex items-center justify-between">
+        <div class="mt-1 flex justify-between <md:flex-col md:items-center">
             <div>
                 <router-link class="link flex items-center gap-3" :to="playlist.uploaderUrl || '/'">
-                    <img loading="lazy" :src="playlist.uploaderAvatar" class="rounded-full" />
+                    <img loading="lazy" :src="playlist.uploaderAvatar" class="h-12 rounded-full" />
                     <strong v-text="playlist.uploader" />
                 </router-link>
             </div>
-            <div>
-                <strong class="mr-2" v-text="`${playlist.videos} ${$t('video.videos')}`" />
+            <div class="flex flex-wrap items-center gap-1">
+                <strong
+                    v-text="
+                        `${playlist.videos} ${$t('video.videos')} - ${timeFormat(totalDuration)}${playlist.nextpage ? '+' : ''}`
+                    "
+                />
                 <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
                     {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
                     }}<i class="i-fa6-solid:bookmark ml-3" />
@@ -68,6 +72,7 @@ export default {
     data() {
         return {
             playlist: null,
+            totalDuration: 0,
             admin: false,
             isBookmarked: false,
         };
@@ -107,6 +112,7 @@ export default {
                 .then(data => (this.playlist = data))
                 .then(() => {
                     this.updateTitle();
+                    this.updateTotalDuration();
                     this.updateWatched(this.playlist.relatedStreams);
                     this.fetchDeArrowContent(this.playlist.relatedStreams);
                 });
@@ -121,16 +127,19 @@ export default {
                 this.fetchJson(this.authApiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
                     nextpage: this.playlist.nextpage,
                 }).then(json => {
-                    this.playlist.relatedStreams.concat(json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
                     this.loading = false;
-                    json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
-                    this.fetchDeArrowContent(this.playlist.relatedStreams);
+                    this.playlist.relatedStreams.push(...json.relatedStreams);
+                    this.updateTotalDuration();
+                    this.fetchDeArrowContent(json.relatedStreams);
                 });
             }
         },
         removeVideo(index) {
             this.playlist.relatedStreams.splice(index, 1);
+        },
+        updateTotalDuration() {
+            this.totalDuration = this.playlist.relatedStreams.map(video => video.duration).reduce((a, b) => a + b);
         },
         async clonePlaylist() {
             this.fetchJson(this.authApiUrl() + "/import/playlist", null, {
@@ -148,10 +157,11 @@ export default {
             });
         },
         downloadPlaylistAsTxt() {
-            var data = "";
-            this.playlist.relatedStreams.forEach(element => {
-                data += "https://piped.video" + element.url + "\n";
-            });
+            const data = this.playlist.relatedStreams
+                .map(video => {
+                    return "https://piped.video" + video.url;
+                })
+                .join("\n");
             this.download(data, this.playlist.name + ".txt", "text/plain");
         },
         async bookmarkPlaylist() {

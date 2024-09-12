@@ -3,7 +3,7 @@
         "trending": "Tendances",
         "login": "Se connecter",
         "register": "S'inscrire",
-        "feed": "Abonnements",
+        "feed": "Flux",
         "preferences": "Préférences",
         "history": "Historique",
         "subscriptions": "Abonnements",
@@ -16,7 +16,8 @@
         "bookmarks": "Marque-pages",
         "channel_groups": "Groupes de chaînes",
         "dearrow": "DeArrow",
-        "albums": "Albums"
+        "albums": "Albums",
+        "custom_instances": "Instances Personnalisées"
     },
     "actions": {
         "subscribe": "S'abonner",
@@ -147,7 +148,16 @@
         "generate_qrcode": "Générer un QR code",
         "instance_privacy_policy": "Politique de confidentialité",
         "concurrent_prefetch_limit": "Limite de préchargements simultanés de flux",
-        "instances_not_shown": "Les instances publiques qui ne sont pas affichées ici sont actuellement indisponibles."
+        "instances_not_shown": "Les instances publiques qui ne sont pas affichées ici sont actuellement indisponibles.",
+        "creator_replied": "Le créateur a répondu",
+        "creator_liked": "Le créateur a aimé",
+        "delete_group_confirm": "Supprimer ce groupe ?",
+        "prefer_hls": "Préférez HLS plutôt que DASH",
+        "playback_speed": "Vitesse de lecture",
+        "invalid_input": "Entrée invalide",
+        "add": "Ajouter",
+        "customize": "Personnaliser",
+        "invalid_url": "URL invalide !"
     },
     "player": {
         "watch_on": "Voir sur {0}",
@@ -177,7 +187,8 @@
         "up_to_date": "À jour ?",
         "registered_users": "Utilisateurs enregistrés",
         "version": "Version",
-        "uptime_30d": "Uptime (30 j)"
+        "uptime_30d": "Uptime (30 j)",
+        "api_url": "URL de l'API"
     },
     "comment": {
         "pinned_by": "Épinglé par {author}",

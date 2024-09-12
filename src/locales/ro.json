@@ -131,7 +131,8 @@
         "instances_not_shown": "Instanțele publice care nu sunt afișate aici nu sunt disponibile în prezent.",
         "customize": "Customizează",
         "invalid_url": "URL nevalid!",
-        "add": "Adăugați"
+        "add": "Adăugați",
+        "delete_group_confirm": "Să șterg acest grup?"
     },
     "preferences": {
         "ssl_score": "Scor SSL",

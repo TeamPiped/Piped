@@ -191,16 +191,27 @@ export default {
             window.location.reload();
         },
         async importPlaylistFile(file) {
-            let text = await file.text();
+            let text = (await file.text()).trim();
             let tasks = [];
             // list of playlists exported from Piped
             if (file.name.slice(-4).toLowerCase() == ".csv") {
                 const lines = text.split("\n");
-                const playlistName = lines[1].split(",")[4];
+
+                // old format: first two lines contain playlist info (e.g. name) in CSV format
+                // new format: no information about playlist like name, ...
+                // video list has two columns: videoId and date of addition
+                const playlistInfo = lines[1].split(",");
+                let videoListStartIndex = 0;
+                let playlistName = null;
+                if (playlistInfo.length > 2) {
+                    playlistName = playlistInfo[4];
+                    videoListStartIndex = 4;
+                }
+
                 const playlist = {
-                    name: playlistName != "" ? playlistName : new Date().toJSON(),
+                    name: playlistName ?? new Date().toJSON(),
                     videos: lines
-                        .slice(4, lines.length)
+                        .slice(videoListStartIndex, lines.length)
                         .filter(line => line != "")
                         .slice(1)
                         .map(line => `https://youtube.com/watch?v=${line.split(",")[0]}`),

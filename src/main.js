@@ -204,6 +204,26 @@ const mixin = {
                 }
             }
         },
+        async fetchFeed() {
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/feed", {
+                    authToken: this.getAuthToken(),
+                });
+            } else {
+                const channels = this.getUnauthenticatedChannels();
+                const split = channels.split(",");
+                if (split.length > 100) {
+                    return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", null, {
+                        method: "POST",
+                        body: JSON.stringify(split),
+                    });
+                } else {
+                    return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
+                        channels: channels,
+                    });
+                }
+            }
+        },
         /* generate a temporary file and ask the user to download it */
         download(text, filename, mimeType) {
             var file = new Blob([text], { type: mimeType });
@@ -294,7 +314,7 @@ const mixin = {
                 var store = tx.objectStore("playlist_videos");
                 const req = store.openCursor(videoId);
                 req.onsuccess = e => {
-                    resolve(e.target.result.value);
+                    resolve(e.target.result?.value);
                 };
             });
         },
@@ -331,7 +351,7 @@ const mixin = {
                 const playlist = await this.getLocalPlaylist(playlistId);
                 const videoIds = JSON.parse(playlist.videoIds);
                 const videosFuture = videoIds.map(videoId => this.getLocalPlaylistVideo(videoId));
-                playlist.relatedStreams = await Promise.all(videosFuture);
+                playlist.relatedStreams = (await Promise.all(videosFuture)).filter(video => video !== undefined);
                 return playlist;
             }
 
@@ -448,6 +468,7 @@ const mixin = {
                 playlist.thumbnail = streamInfos[0].thumbnail || streamInfos[0].thumbnailUrl;
                 this.createOrUpdateLocalPlaylist(playlist);
                 for (let i in videoIds) {
+                    if (streamInfos[i].error) continue;
                     this.createLocalPlaylistVideo(videoIds[i], streamInfos[i]);
                 }
                 return { message: "ok" };
@@ -503,7 +524,6 @@ const mixin = {
 
             const videoIds = content
                 .filter(item => item.type === "stream")
-                .filter(item => item.dearrow === undefined)
                 .map(item => item.url.substr(-11))
                 .sort();
 

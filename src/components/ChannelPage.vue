@@ -183,8 +183,8 @@ export default {
                 this.channel.nextpage = json.nextpage;
                 this.loading = false;
                 this.updateWatched(json.relatedStreams);
-                json.relatedStreams.map(stream => this.contentItems.push(stream));
-                this.fetchDeArrowContent(this.contentItems);
+                this.contentItems.push(...json.relatedStreams);
+                this.fetchDeArrowContent(json.relatedStreams);
             });
         },
         fetchChannelTabNextPage() {
@@ -194,8 +194,8 @@ export default {
             }).then(json => {
                 this.tabs[this.selectedTab].tabNextPage = json.nextpage;
                 this.loading = false;
-                json.content.map(item => this.contentItems.push(item));
-                this.fetchDeArrowContent(this.contentItems);
+                json.this.contentItems.push(...json.content);
+                this.fetchDeArrowContent(json.content);
                 this.tabs[this.selectedTab].content = this.contentItems;
             });
         },
@@ -246,7 +246,7 @@ export default {
                 data: this.tabs[index].data,
             }).then(tab => {
                 this.contentItems = this.tabs[index].content = tab.content;
-                this.fetchDeArrowContent(this.contentItems);
+                this.fetchDeArrowContent(tab.content);
                 this.tabs[this.selectedTab].tabNextPage = tab.nextpage;
             });
         },

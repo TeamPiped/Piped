@@ -152,14 +152,22 @@ export default {
             return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
         },
     },
+    watch: {
+        $route() {
+            this.updateSearchTextFromURLSearchParams();
+        },
+    },
     mounted() {
         this.fetchAuthConfig();
-        const query = new URLSearchParams(window.location.search).get("search_query");
-        if (query) this.onSearchTextChange(query);
+        this.updateSearchTextFromURLSearchParams();
         this.focusOnSearchBar();
         this.homePagePath = this.getHomePage(this);
     },
     methods: {
+        updateSearchTextFromURLSearchParams() {
+            const query = new URLSearchParams(window.location.search).get("search_query");
+            if (query) this.onSearchTextChange(query);
+        },
         // focus on search bar when Ctrl+k is pressed
         focusOnSearchBar() {
             hotkeys("ctrl+k", event => {

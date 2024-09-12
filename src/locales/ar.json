@@ -155,7 +155,13 @@
         "concurrent_prefetch_limit": "حد الجلب المسبق للدفق المتزامن",
         "customize": "تخصيص",
         "invalid_url": "عنوان URL غير صالح!",
-        "add": "إضافة"
+        "add": "إضافة",
+        "delete_group_confirm": "حذف هذه المجموعة؟",
+        "creator_replied": "أجاب المنشء",
+        "creator_liked": "المنشء اعجب",
+        "playback_speed": "سرعة التشغيل",
+        "invalid_input": "مدخل غير صالح",
+        "prefer_hls": "تفضل HLS على DASH"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",

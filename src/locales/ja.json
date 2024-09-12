@@ -154,8 +154,14 @@
         "instances_not_shown": "現在利用できない公開インスタンスはここに表示されません。",
         "concurrent_prefetch_limit": "同時に先読みするストリーム数上限",
         "add": "追加",
-        "invalid_url": "無効な URL！",
-        "customize": "追加"
+        "invalid_url": "無効なURLです！",
+        "customize": "追加",
+        "delete_group_confirm": "このグループを削除しますか？",
+        "creator_replied": "投稿者が返信",
+        "creator_liked": "投稿者が高評価",
+        "invalid_input": "入力が無効です",
+        "playback_speed": "再生速度",
+        "prefer_hls": "DASHよりHLSを優先"
     },
     "comment": {
         "pinned_by": "{author} によって固定",

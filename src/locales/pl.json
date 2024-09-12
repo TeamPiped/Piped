@@ -155,7 +155,13 @@
         "concurrent_prefetch_limit": "Limit równoczesnego pobierania wstępnego strumienia",
         "customize": "Dostosuj",
         "invalid_url": "Nieprawidłowy adres URL!",
-        "add": "Dodaj"
+        "add": "Dodaj",
+        "delete_group_confirm": "Usunąć tę grupę?",
+        "creator_replied": "Twórca odpowiedział",
+        "creator_liked": "Twórca polubił",
+        "invalid_input": "Nieprawidłowe dane wejściowe",
+        "playback_speed": "Szybkość odtwarzania",
+        "prefer_hls": "Preferuj HLS zamiast DASH"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",

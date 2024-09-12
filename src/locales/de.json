@@ -127,7 +127,17 @@
         "download_frame": "Einzelbild (Frame) downloaden",
         "instance_privacy_policy": "Datenschutzerklärung",
         "add_to_group": "Zu Gruppe hinzufügen",
-        "instances_not_shown": "Öffentliche Instanzen, die hier nicht angezeigt werden, sind derzeit nicht verfügbar."
+        "instances_not_shown": "Öffentliche Instanzen, die hier nicht angezeigt werden, sind derzeit nicht verfügbar.",
+        "customize": "Anpassen",
+        "invalid_url": "Ungültige URL!",
+        "add": "Hinzufügen",
+        "creator_replied": "Ersteller*in hat geantwortet",
+        "creator_liked": "Ersteller*in mochte",
+        "invalid_input": "Ungültige Eingabe",
+        "playback_speed": "Wiedergabegeschwindigkeit",
+        "delete_group_confirm": "Diese Gruppe löschen?",
+        "concurrent_prefetch_limit": "Limit für gleichzeitigen Stream Prefetch",
+        "prefer_hls": "HLS gegenüber DASH bevorzugen"
     },
     "player": {
         "watch_on": "Auf {0} ansehen",
@@ -149,7 +159,9 @@
         "channels": "Kanäle",
         "bookmarks": "Lesezeichen",
         "channel_groups": "Kanalgruppen",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Alben",
+        "custom_instances": "Benutzerdefinierte Instanzen"
     },
     "video": {
         "sponsor_segments": "Sponsoren-Abschnitte",
@@ -175,7 +187,8 @@
         "registered_users": "Registrierte Benutzer",
         "version": "Version",
         "up_to_date": "Auf dem neuesten Stand?",
-        "uptime_30d": "Uptime (30 Tage)"
+        "uptime_30d": "Uptime (30 Tage)",
+        "api_url": "API-URL"
     },
     "comment": {
         "pinned_by": "Angeheftet von {author}",

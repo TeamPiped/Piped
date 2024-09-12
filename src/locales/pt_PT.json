@@ -15,7 +15,9 @@
         "channels": "Canais",
         "bookmarks": "Marcadores",
         "channel_groups": "Grupos de canais",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Álbuns",
+        "custom_instances": "Instâncias personalizadas"
     },
     "actions": {
         "view_subscriptions": "Ver subscrições",
@@ -49,7 +51,7 @@
         "enabled_codecs": "Codificadores ativados (vários)",
         "instance_selection": "Instância",
         "show_more": "Mostrar mais",
-        "import_from_json": "Importar de JSON/CSV",
+        "import_from_json": "Importar de JSON",
         "loop_this_video": "Repetir este vídeo",
         "auto_play_next_video": "Reproduzir vídeo seguinte automaticamente",
         "donations": "Doações para o desenvolvimento",
@@ -139,7 +141,17 @@
         "show_search_suggestions": "Mostrar sugestões de pesquisa",
         "chapters_layout_mobile": "Aplicações recentemente adicionadas",
         "enable_dearrow": "Ativar o DeArrow",
-        "delete_automatically": "Eliminar automaticamente após"
+        "delete_automatically": "Eliminar automaticamente após",
+        "generate_qrcode": "Gerar Código QR",
+        "add": "Adicionar",
+        "instance_privacy_policy": "Política de Privacidade",
+        "instances_not_shown": "Instâncias públicas que não aparecem aqui estão de momento em baixo.",
+        "import_from_json_csv": "Importar de JSON/CSV",
+        "download_frame": "Descarregar frame",
+        "add_to_group": "Adicionar a grupo",
+        "concurrent_prefetch_limit": "Limite de pré-busca de fluxo simultâneo",
+        "customize": "Personalizar",
+        "invalid_url": "URL inválido!"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
@@ -154,11 +166,15 @@
         "registered_users": "Utilizadores registados",
         "ssl_score": "Avaliação SSL",
         "up_to_date": "Atualizada?",
-        "version": "Versão"
+        "version": "Versão",
+        "uptime_30d": "Tempo Online (30d)",
+        "api_url": "URL do API"
     },
     "login": {
         "username": "Nome de utilizador",
-        "password": "Palavra-passe"
+        "password": "Palavra-passe",
+        "password_confirm": "Confirmar senha",
+        "passwords_incorrect": "Senhas não coincidem!"
     },
     "video": {
         "videos": "Vídeos",
@@ -189,7 +205,8 @@
         "music_artists": "YT Music: Artistas"
     },
     "player": {
-        "watch_on": "Ver em {0}"
+        "watch_on": "Ver em {0}",
+        "failed": "Falha com o código de erro {0}, ver registos para mais informações"
     },
     "subscriptions": {
         "subscribed_channels_count": "Subscreveu: {0}"
@@ -205,6 +222,8 @@
         "hours": "{quantidade} hora(s)",
         "days": "{quantidade} dia(s)",
         "weeks": "{quantidade} semana(s)",
-        "months": "{quantidade} mês(es)"
+        "months": "{quantidade} mês(es)",
+        "register_note": "Registar uma conta para esta instância de Piped. Isto ir-lhe-á permitir sincronizar as suas subscrições e playlists com a sua conta, então estarão guardadas no lado do servidor. Pode usar todas as funções sem uma conta, mas os seus dados serão guardados na cache local do seu browser. Por favor, certifique-se que você NÃO use um endereço de e-mail como o seu nome de utilizador e escolha uma palavra-passe forte que não use em mais nenhum lugar.",
+        "login_note": "Entre com uma conta criada nesta instância."
     }
 }

@@ -15,7 +15,9 @@
         "channels": "ସ୍ରୋତ ଗୁଡ଼ିକ",
         "bookmarks": "ବୁକମାର୍କଗୁଡିକ",
         "channel_groups": "ଚ୍ୟାନେଲ୍ ଗୋଷ୍ଠୀଗୁଡିକ",
-        "dearrow": "ଡି ତୀର"
+        "dearrow": "ଡି ତୀର",
+        "albums": "ଆଲବମ୍",
+        "custom_instances": "କଷ୍ଟମ୍ ଉଦାହରଣ"
     },
     "player": {
         "watch_on": "{0} ରେ ଦେଖନ୍ତୁ",
@@ -150,7 +152,15 @@
         "instance_privacy_policy": "ଗୋପନୀୟତା ନୀତି",
         "add_to_group": "ସମୂହରେ ଯୋଗ କରନ୍ତୁ",
         "instances_not_shown": "ଏଠାରେ ଦର୍ଶାଯାଇନଥିବା ସାର୍ବଜନୀନ ଉଦାହରଣଗୁଡ଼ିକ ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନାହିଁ ।",
-        "concurrent_prefetch_limit": "ସମସାମୟିକ ପ୍ରବାହ ପ୍ରାକ ଫେଚ୍ ସୀମା"
+        "concurrent_prefetch_limit": "ସମସାମୟିକ ପ୍ରବାହ ପ୍ରାକ ଫେଚ୍ ସୀମା",
+        "add": "ଯୋଡନ୍ତୁ",
+        "creator_replied": "ସୃଷ୍ଟିକର୍ତ୍ତା ଉତ୍ତର ଦେଲେ",
+        "creator_liked": "ସୃଷ୍ଟିକର୍ତ୍ତା ପସନ୍ଦ କରନ୍ତି",
+        "playback_speed": "ପ୍ଲେବେକ୍ ବେଗ",
+        "invalid_input": "ଅବୈଧ ଇନପୁଟ୍",
+        "delete_group_confirm": "ଏହି ଗୋଷ୍ଠୀ ବିଲୋପ କରିବେ କି?",
+        "customize": "କଷ୍ଟମାଇଜ୍ କରନ୍ତୁ",
+        "invalid_url": "ଅବୈଧ URL!"
     },
     "comment": {
         "loading": "ମନ୍ତବ୍ୟ ଲୋଡ୍ ହେଉଛି ...",
@@ -212,7 +222,8 @@
         "has_cdn": "CDN ଅଛି କି?",
         "up_to_date": "ଅଦ୍ୟାବଧି?",
         "ssl_score": "SSL ସ୍କୋର",
-        "uptime_30d": "ସମୟ ଅପରିବର୍ତ୍ତନୀୟ (30d)"
+        "uptime_30d": "ସମୟ ଅପରିବର୍ତ୍ତନୀୟ (30d)",
+        "api_url": "API URL"
     },
     "login": {
         "password": "ପାସୱାର୍ଡ",

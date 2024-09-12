@@ -15,7 +15,9 @@
         "channels": "Canals",
         "bookmarks": "Marcadors",
         "channel_groups": "Grups de canals",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Àlbums",
+        "custom_instances": "Instàncies personalitzades"
     },
     "actions": {
         "channel_name_desc": "Nom del canal (Z-A)",
@@ -146,7 +148,15 @@
         "add_to_group": "Afegeix al grup",
         "instance_privacy_policy": "Política de privadesa",
         "concurrent_prefetch_limit": "Límit de precàrrega de flux concurrent",
-        "instances_not_shown": "Les instàncies públiques que no es mostren aquí no es troben disponibles."
+        "instances_not_shown": "Les instàncies públiques que no es mostren aquí no es troben disponibles.",
+        "creator_liked": "Al creador li ha agradat",
+        "creator_replied": "El creador ha respost",
+        "playback_speed": "Velocitat",
+        "invalid_input": "Entrada no vàlida",
+        "delete_group_confirm": "Voleu eliminar el grup?",
+        "customize": "Personalitza",
+        "invalid_url": "URL invàlid",
+        "add": "Afegeix"
     },
     "comment": {
         "pinned_by": "Fixat per {author}",
@@ -162,7 +172,8 @@
         "version": "Versió",
         "up_to_date": "Actualitzada?",
         "registered_users": "Usuaris registrats",
-        "uptime_30d": "Temps d'activitat (30 d)"
+        "uptime_30d": "Temps d'activitat (30 d)",
+        "api_url": "URL de l'API"
     },
     "video": {
         "watched": "Vist",

@@ -136,7 +136,7 @@
                             <i class="i-fa6-solid:share mx-1.5" />
                         </button>
                         <!-- YouTube -->
-                        <WatchOnButton :link="`https://youtu.be/${getVideoId()}`" />
+                        <WatchOnButton :link="youtubeVideoHref" />
                         <!-- Odysee -->
                         <WatchOnButton
                             v-if="video.lbryId"
@@ -344,6 +344,7 @@ export default {
         toggleListenUrl(_this) {
             const url = new URL(window.location.href);
             url.searchParams.set("listen", _this.isListening ? "0" : "1");
+            url.searchParams.set("t", Math.floor(this.currentTime));
             return url.pathname + url.search;
         },
         isEmbed(_this) {
@@ -361,6 +362,11 @@ export default {
         },
         purifiedDescription() {
             return purifyHTML(this.video.description);
+        },
+        youtubeVideoHref() {
+            let link = `https://youtu.be/${this.getVideoId()}?t=${Math.round(this.currentTime)}`;
+            if (this.playlistId) link += `&list=${this.playlistId}`;
+            return link;
         },
     },
     mounted() {
@@ -525,9 +531,7 @@ export default {
                             }
                     }
                 });
-                await this.fetchPlaylistPages().then(() => {
-                    this.fetchDeArrowContent(this.playlist.relatedStreams);
-                });
+                await this.fetchPlaylistPages();
             }
         },
         async fetchPlaylistPages() {
@@ -535,8 +539,9 @@ export default {
                 await this.fetchJson(this.apiUrl() + "/nextpage/playlists/" + this.playlistId, {
                     nextpage: this.playlist.nextpage,
                 }).then(json => {
-                    this.playlist.relatedStreams = this.playlist.relatedStreams.concat(json.relatedStreams);
+                    this.playlist.relatedStreams.push(...json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
+                    this.fetchDeArrowContent(json.relatedStreams);
                 });
                 await this.fetchPlaylistPages();
             }
@@ -546,32 +551,12 @@ export default {
                 this.fetchSponsors().then(data => (this.sponsors = data));
         },
         async getComments() {
-            this.fetchComments().then(data => {
-                this.rewriteComments(data.comments);
-                this.comments = data;
-            });
+            this.comments = await this.fetchComments();
         },
         async fetchSubscribedStatus() {
             if (!this.channelId) return;
 
             this.subscribed = await this.fetchSubscriptionStatus(this.channelId);
-        },
-        rewriteComments(data) {
-            data.forEach(comment => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(comment.commentText, "text/html");
-                xmlDoc.querySelectorAll("a").forEach(elem => {
-                    if (!elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/))
-                        elem.outerHTML = elem.getAttribute("href");
-                });
-                comment.commentText = xmlDoc
-                    .querySelector("body")
-                    .innerHTML.replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm, "$1")
-                    .replaceAll(
-                        /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm,
-                        "/watch?v=$1",
-                    );
-            });
         },
         subscribeHandler() {
             this.toggleSubscriptionState(this.channelId, this.subscribed).then(success => {
@@ -616,7 +601,6 @@ export default {
                 }).then(json => {
                     this.comments.nextpage = json.nextpage;
                     this.loading = false;
-                    this.rewriteComments(json.comments);
                     this.comments.comments = this.comments.comments.concat(json.comments);
                 });
             }

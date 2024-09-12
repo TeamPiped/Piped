@@ -147,7 +147,13 @@
         "concurrent_prefetch_limit": "Ограничење претходног преузимања истовремених стримова",
         "invalid_url": "Неважећа URL адреса!",
         "add": "Додај",
-        "customize": "Прилагоди"
+        "customize": "Прилагоди",
+        "delete_group_confirm": "Избрисати ову групу?",
+        "creator_replied": "Креатор је одговорио",
+        "creator_liked": "Креатор је лајковао",
+        "invalid_input": "Неважећи унос",
+        "playback_speed": "Брзина репродукције",
+        "prefer_hls": "Преферирај HLS над DASH-ом"
     },
     "preferences": {
         "instance_locations": "Локације инстанце",

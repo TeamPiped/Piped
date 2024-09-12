@@ -141,7 +141,13 @@
         "concurrent_prefetch_limit": "Обмеження одночасної передвибірки потоків",
         "customize": "Налаштувати",
         "invalid_url": "Неправильна URL-адреса!",
-        "add": "Додати"
+        "add": "Додати",
+        "delete_group_confirm": "Видалити цю групу?",
+        "creator_replied": "Автор відповів",
+        "creator_liked": "Автор уподобав(-ла)",
+        "invalid_input": "Неналежний ввід",
+        "playback_speed": "Швидкість відтворення",
+        "prefer_hls": "Надавати перевагу HLS над DASH"
     },
     "titles": {
         "register": "Реєстрація",
