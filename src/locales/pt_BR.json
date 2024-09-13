@@ -63,7 +63,7 @@
         "no": "Não",
         "show_description": "Mostrar descrição",
         "instance_selection": "Instância",
-        "auto_play_next_video": "Reproduzir próximo vídeo automaticamente",
+        "auto_play_next_video": "Reproduzir o próximo vídeo automaticamente",
         "filter": "Filtrar",
         "store_watch_history": "Salvar histórico de exibição",
         "show_recommendations": "Mostrar recomendações",
@@ -134,7 +134,7 @@
         "add": "Adicionar",
         "delete_group_confirm": "Excluir este grupo?",
         "creator_replied": "O autor respondeu",
-        "creator_liked": "O autor gostou",
+        "creator_liked": "O autor curtiu",
         "playback_speed": "Velocidade de reprodução",
         "invalid_input": "Entrada inválida",
         "prefer_hls": "Preferir HLS em vez de DASH"
