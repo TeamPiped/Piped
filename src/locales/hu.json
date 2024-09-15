@@ -223,13 +223,13 @@
         "local_storage": "Ennek a beállításnak szüksége van a \"lokális tárhely\" funkcióra, be vannak a sütik kapcsolva?",
         "cannot_copy": "Nem lehet másolni!",
         "page_not_found": "Oldnal nem található",
-        "register_no_email_note": "Nem ajánlott e-mailt használni felhasználónévként. Tovább folytatja?",
+        "register_no_email_note": "Az e-mail-cím felhasználónévként történő használata nem ajánlott. Mégis folytatja?",
         "next_video_countdown": "Következő videó lejátszása {0}másodperc múlva",
         "weeks": "{amount} hét",
         "login_note": "Jelentkezzen be az ezen a példányon létrehozott fiókkal.",
         "months": "{amount} hónap",
         "hours": "{amount} óra",
         "days": "{amount} nap",
-        "register_note": "Regisztráljon egy fiókot ehhez a Piped példányhoz. Ez lehetővé teszi az előfizetések és lejátszási listák szinkronizálását a fiókjával, így azok a kiszolgáló oldalon kerülnek tárolásra. Az összes funkciót fiók nélkül is használhatja, de minden adat a böngésző helyi gyorsítótárában tárolódik. Kérjük, győződjön meg róla, hogy NE használjon e-mail címet felhasználónévként, és válasszon biztonságos jelszót, amelyet máshol nem használ."
+        "register_note": "Regisztráljon egy fiókot ehhez a Piped példányhoz. Ez lehetővé teszi az előfizetések és lejátszási listák szinkronizálását a fiókjával, így azok a kiszolgálói oldalon kerülnek tárolásra. Az összes funkciót fiók nélkül is használhatja, de minden adat a böngésző helyi gyorsítótárában tárolódik. Győződjön meg arról, hogy NE használjon e-mail-címet felhasználónévként, és válasszon egy biztonságos jelszót, amelyet máshol nem használ."
     }
 }
