@@ -128,12 +128,21 @@
         "playlist_bookmarked": "نشان‌دار شد",
         "instances_not_shown": "سرویس‌دهنده‌های عمومی که این جا نشان داده نشده‌اند در حال حاضر در دسترس نیستند.",
         "bookmark_playlist": "نشان‌دار",
-        "concurrent_prefetch_limit": "محدودیت پیش‌دریافت همزمان استریم"
+        "concurrent_prefetch_limit": "محدودیت پیش‌دریافت همزمان استریم",
+        "creator_replied": "سازنده پاسخ داد",
+        "creator_liked": "سازنده پسندید",
+        "playback_speed": "سرعت پخش",
+        "invalid_input": "ورودی نامعتبر",
+        "delete_group_confirm": "حذف این گروه؟",
+        "invalid_url": "نشانی نامعتبر!",
+        "customize": "سفارشی سازی",
+        "add": "افزودن",
+        "prefer_hls": "ترجیح HLS به دش"
     },
     "titles": {
         "history": "تاریخچه",
         "preferences": "تنظیمات",
-        "feed": "اکسپلور",
+        "feed": "خورام",
         "register": "ثبت نام",
         "login": "ورود",
         "trending": "محبوب",
@@ -190,7 +199,8 @@
         "version": "نسخه",
         "registered_users": "کاربران تایید شده",
         "up_to_date": "به روز؟",
-        "uptime_30d": "Uptime (30d)"
+        "uptime_30d": "Uptime (30d)",
+        "api_url": "نشانی Api"
     },
     "comment": {
         "pinned_by": "سنجاق شده توسط {author}",
