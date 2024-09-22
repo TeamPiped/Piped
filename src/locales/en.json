@@ -60,7 +60,7 @@
         "audio_only": "Audio Only",
         "default_quality": "Default Quality",
         "buffering_goal": "Buffering Goal (in seconds)",
-        "country_selection": "Country",
+        "country_selection": "Country/Region",
         "default_homepage": "Default Homepage",
         "minimize_comments_default": "Minimize Comments by default",
         "minimize_description_default": "Minimize Description by default",
