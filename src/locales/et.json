@@ -42,7 +42,7 @@
         "skip_non_music": "Muusika vahelejätmine: Mitte-muusika sektsioon",
         "theme": "Teema",
         "default_quality": "Standardkvaliteet",
-        "country_selection": "Riik",
+        "country_selection": "Riik/piirkond",
         "default_homepage": "Vaikimisi koduleht",
         "language_selection": "Keel",
         "instances_list": "Vaheserverite loend",
