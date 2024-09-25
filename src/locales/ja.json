@@ -50,7 +50,7 @@
         "audio_only": "音声のみのモード",
         "default_quality": "標準の画質",
         "buffering_goal": "バッファリング目標値 (秒)",
-        "country_selection": "国",
+        "country_selection": "国/地域",
         "default_homepage": "ホームに表示するページ",
         "show_comments": "コメントを表示",
         "minimize_description_default": "最初から説明を最小化",
