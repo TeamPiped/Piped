@@ -30,7 +30,31 @@
         "skip_sponsors": "Прапусціць спонсарскую рэкламу",
         "skip_automatically": "Аўтаматычна",
         "enable_sponsorblock": "Уключыць Sponsorblock",
-        "uses_api_from": "Выкарыстоўвае API ад "
+        "uses_api_from": "Выкарыстоўвае API ад ",
+        "light": "Светлая",
+        "autoplay_next_countdown": "Адлік па змаўчанні да наступнага відэа (у секундах)",
+        "minimize_description_default": "Згарнуць апісанне па змаўчанні",
+        "instances_list": "Спіс люстэркаў сэрвісу Piped",
+        "skip_preview": "Прапускаць кароткі змест бягучага эпізоду/паўтор часткі мінулага",
+        "skip_interaction": "Прапускаць просьбы падпісацца (Падпіска)",
+        "skip_self_promo": "Прапускаць самарэкламу",
+        "skip_non_music": "Прапускаць цішыню ў музычных роліках",
+        "min_segment_length": "Мінімальная даўжыня сегмента (у секундах)",
+        "skip_segment": "Прапусціць сегмент",
+        "enable_dearrow": "Уключыць DeArrow",
+        "auto": "Аўто",
+        "instances_not_shown": "Агульнадаступныя экзэмпляры, якія тут не паказаны, у цяперашні час недаступныя.",
+        "skip_highlight": "Перайсці да сутнасці відэа",
+        "show_markers": "Паказаць маркеры на прайгравальніку",
+        "dark": "Цёмная",
+        "autoplay_video": "Аўтапрайграванне відэа",
+        "audio_only": "Толькі гук",
+        "default_quality": "Якасць па змаўчанні",
+        "buffering_goal": "Памер буфера відэа (у секундах)",
+        "country_selection": "Краіна/Рэгіён",
+        "minimize_comments_default": "Згортваць каментары па змаўчанні",
+        "store_watch_history": "Захоўваць гісторыю прагледжаных відэа",
+        "enabled_codecs": "Уключаныя кодэкі (Можна выбраць некалькі)"
     },
     "titles": {
         "subscriptions": "Падпіскі",
@@ -48,7 +72,9 @@
         "instance": "Інстанс",
         "playlists": "Плэйлісты",
         "player": "Прайгравальнік",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Альбомы",
+        "custom_instances": "Карыстальніцкія серверы"
     },
     "player": {
         "watch_on": "Прагляд на {0}",
