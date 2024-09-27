@@ -150,7 +150,7 @@
         "add_to_group": "Hozzáadás a csoporthoz",
         "download_frame": "Keret letöltése",
         "customize": "Testreszabás",
-        "invalid_url": "Érvénytelen URL!",
+        "invalid_url": "Érvénytelen webcím!",
         "add": "Hozzáadás",
         "delete_group_confirm": "Törli ezt a csoportot?",
         "creator_replied": "A készítő válaszolt",
@@ -188,7 +188,7 @@
         "registered_users": "Regisztrált felhasználók",
         "up_to_date": "Naprakész?",
         "uptime_30d": "Üzemidő (30 nap)",
-        "api_url": "Api URL"
+        "api_url": "Api webcím"
     },
     "search": {
         "did_you_mean": "Erre gondolt: {0}?",
