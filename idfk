@@ -1,0 +1,94 @@
+# Initialize Pygame
+pygame.init()
+
+# Set up the game window
+WIDTH = 800
+HEIGHT = 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Simple Driving Game")
+
+# Colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+
+# Player car
+class Car(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.Surface((50, 100))
+        self.image.fill(RED)
+        self.rect = self.image.get_rect()
+        self.rect.center = (WIDTH // 2, HEIGHT - 100)
+
+    def move(self, direction):
+        if direction == "left" and self.rect.left > 0:
+            self.rect.x -= 5
+        if direction == "right" and self.rect.right < WIDTH:
+            self.rect.x += 5
+
+# Obstacle
+class Obstacle(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.Surface((50, 50))
+        self.image.fill(BLACK)
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(0, WIDTH - 50)
+        self.rect.y = -50
+
+    def update(self):
+        self.rect.y += 5
+        if self.rect.top > HEIGHT:
+            self.kill()
+
+# Game loop
+def game_loop():
+    clock = pygame.time.Clock()
+    car = Car()
+    all_sprites = pygame.sprite.Group(car)
+    obstacles = pygame.sprite.Group()
+    score = 0
+
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_LEFT]:
+            car.move("left")
+        if keys[pygame.K_RIGHT]:
+            car.move("right")
+
+        # Spawn obstacles
+        if random.randint(1, 60) == 1:
+            obstacle = Obstacle()
+            all_sprites.add(obstacle)
+            obstacles.add(obstacle)
+
+        # Update
+        all_sprites.update()
+
+        # Check for collisions
+        if pygame.sprite.spritecollide(car, obstacles, False):
+            running = False
+
+        # Draw
+        screen.fill(WHITE)
+        all_sprites.draw(screen)
+
+        # Display score
+        score += 1
+        font = pygame.font.Font(None, 36)
+        score_text = font.render(f"Score: {score}", True, BLACK)
+        screen.blit(score_text, (10, 10))
+
+        pygame.display.flip()
+        clock.tick(60)
+
+    pygame.quit()
+
+if __name__ == "__main__":
+    game_loop()
