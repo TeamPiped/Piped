@@ -161,7 +161,7 @@
     },
     "player": {
         "watch_on": "Zobrazit na {0}",
-        "failed": "Akce se nezdařila. Chybový kód {0}, pro více informací viz protokol"
+        "failed": "Akce selhala s chybovým kódem {0}. Více informací naleznete v protokolu."
     },
     "comment": {
         "pinned_by": "Připnuto uživatelem {author}",
