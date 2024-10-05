@@ -76,8 +76,8 @@
         "import_from_json": "Import from JSON",
         "import_from_json_csv": "Import from JSON/CSV",
         "loop_this_video": "Loop this Video",
-        "auto_play_next_video": "Auto Play next Video",
-        "auto_display_captions": "Auto Display Captions",
+        "auto_play_next_video": "Autoplay next Video",
+        "auto_display_captions": "Auto-display Captions",
         "donations": "Development donations",
         "minimize_comments": "Minimize Comments",
         "show_comments": "Show Comments",
@@ -90,7 +90,7 @@
         "view_ssl_score": "View SSL Score",
         "search": "Search (Ctrl+K)",
         "filter": "Filter",
-        "loading": "Loading...",
+        "loading": "Loading…",
         "clear_history": "Clear History",
         "hide_replies": "Hide Replies",
         "load_more_replies": "Load more Replies",
@@ -104,7 +104,7 @@
         "delete_group_confirm": "Delete this group?",
         "please_select_playlist": "Please select a playlist",
         "delete_account": "Delete Account",
-        "logout": "Logout from this device",
+        "logout": "Log out from this device",
         "minimize_recommendations_default": "Minimize Recommendations by default",
         "minimize_chapters_default": "Minimize Chapters by default",
         "chapters_layout_mobile": "Chapters Layout On Mobile",
@@ -166,7 +166,7 @@
     "comment": {
         "pinned_by": "Pinned by {author}",
         "disabled": "Comments are disabled by the uploader.",
-        "loading": "Loading comments...",
+        "loading": "Loading comments…",
         "user_disabled": "Comments are disabled in the settings."
     },
     "preferences": {
@@ -178,7 +178,7 @@
         "up_to_date": "Up to date?",
         "ssl_score": "SSL Score",
         "uptime_30d": "Uptime (30d)",
-        "api_url": "Api URL"
+        "api_url": "API URL"
     },
     "login": {
         "username": "Username",
