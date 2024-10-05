@@ -141,7 +141,7 @@
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
-        "failed": "{0} hata kodu ile başarısız oldu, daha fazla bilgi için günlüklere bakın"
+        "failed": "{0} hata kodu ile başarısız oldu. Daha fazla bilgi için günlüklere bakın."
     },
     "titles": {
         "history": "Geçmiş",
