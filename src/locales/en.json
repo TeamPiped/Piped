@@ -47,7 +47,7 @@
         "skip_non_music": "Skip Music: Non-Music Section",
         "skip_highlight": "Skip Highlight",
         "skip_filler_tangent": "Skip Filler Tangent",
-        "show_markers": "Show Markers on Player",
+        "show_markers": "Show markers in progress bar",
         "min_segment_length": "Minimum Segment Length (in seconds)",
         "skip_segment": "Skip Segment",
         "enable_dearrow": "Enable DeArrow",
