@@ -21,7 +21,7 @@
     },
     "player": {
         "watch_on": "Zobacz na {0}",
-        "failed": "Niepowodzenie z powodu kodu błędu {0}, przejrzyj logi, aby uzyskać więcej informacji"
+        "failed": "Niepowodzenie z powodu kodu błędu {0}. Przejrzyj logi, aby uzyskać więcej informacji."
     },
     "actions": {
         "subscribe": "Subskrybuj",
@@ -48,7 +48,7 @@
         "auto": "Automatyczny",
         "dark": "Ciemny",
         "light": "Jasny",
-        "autoplay_video": "Autoodtwarzanie",
+        "autoplay_video": "Automatyczne odtwarzanie",
         "audio_only": "Tylko audio",
         "default_quality": "Domyślna jakość",
         "buffering_goal": "Cel buforowania (w sekundach)",
@@ -67,7 +67,7 @@
         "export_to_json": "Eksport do pliku JSON",
         "import_from_json": "Import z pliku JSON",
         "loop_this_video": "Zapętlaj ten film",
-        "auto_play_next_video": "Autoodtwarzanie następnego filmu",
+        "auto_play_next_video": "Automatyczne odtwarzanie następnego filmu",
         "donations": "Wsparcie",
         "minimize_description": "Ukryj opis",
         "show_description": "Pokaż opis",
@@ -78,7 +78,7 @@
         "view_ssl_score": "Pokaż ocenę SSL",
         "search": "Szukaj (Ctrl+K)",
         "filter": "Filtruj",
-        "loading": "Ładowanie...",
+        "loading": "Ładowanie…",
         "clear_history": "Wyczyść historię",
         "hide_replies": "Ukryj odpowiedzi",
         "load_more_replies": "Pokaż więcej odpowiedzi",
@@ -100,7 +100,7 @@
         "back_to_home": "Idź do strony głównej",
         "instance_auth_selection": "Instancja uwierzytelniania",
         "time_code": "Kod czasowy (w sekundach)",
-        "show_markers": "Pokaż segmenty na odtwarzaczu",
+        "show_markers": "Pokaż znaczniki na pasku postępu",
         "store_search_history": "Zapamiętaj historię wyszukiwania",
         "hide_watched": "Ukryj obejrzane filmy",
         "source_code": "Kod źródłowy",
@@ -166,7 +166,7 @@
     "comment": {
         "pinned_by": "Przypięty przez {author}",
         "disabled": "Komentarze zostały wyłączone przez twórcę.",
-        "loading": "Wczytywanie komentarzy...",
+        "loading": "Wczytywanie komentarzy…",
         "user_disabled": "Komentarze wyłączone w ustawieniach."
     },
     "preferences": {
