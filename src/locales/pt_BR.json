@@ -40,7 +40,7 @@
         "export_to_json": "Exportar arquivo JSON",
         "donations": "Fazer doação para o desenvolvimento",
         "minimize_recommendations": "Ocultar recomendações",
-        "loading": "Carregando...",
+        "loading": "Carregando…",
         "hide_replies": "Ocultar respostas",
         "minimize_description": "Ocultar descrição",
         "load_more_replies": "Carregar mais respostas",
@@ -161,13 +161,13 @@
     },
     "player": {
         "watch_on": "Ver em {0}",
-        "failed": "Falhou com código de erro {0}, consulte os logs para obter mais informações"
+        "failed": "Falhou com código de erro {0}. Consulte os logs para obter mais informações"
     },
     "comment": {
         "pinned_by": "Fixado por {author}",
         "user_disabled": "Os comentários estão desativados nas configurações.",
         "disabled": "Os comentários foram desativados pelo autor.",
-        "loading": "Carregando comentários..."
+        "loading": "Carregando comentários…"
     },
     "preferences": {
         "registered_users": "Usuários registrados",
