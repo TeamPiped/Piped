@@ -47,7 +47,7 @@
         "yes": "Evet",
         "show_more": "Daha Fazla Göster",
         "instance_selection": "Sunucu",
-        "loading": "Yükleniyor...",
+        "loading": "Yükleniyor…",
         "filter": "Filtrele",
         "search": "Ara (Ctrl+K)",
         "view_ssl_score": "SSL Puanını Görüntüle",
@@ -192,7 +192,7 @@
     },
     "comment": {
         "pinned_by": "Şunun Tarafından Sabitlendi {author}",
-        "loading": "Yorumlar yükleniyor...",
+        "loading": "Yorumlar yükleniyor…",
         "user_disabled": "Yorumlar ayarlarda devre dışı bırakıldı.",
         "disabled": "Yorumlar yükleyen tarafından devre dışı bırakıldı."
     },
