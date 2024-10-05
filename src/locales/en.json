@@ -21,7 +21,7 @@
     },
     "player": {
         "watch_on": "View on {0}",
-        "failed": "Failed with error code {0}, see logs for more info"
+        "failed": "Failed with error code {0}. See logs for more info."
     },
     "actions": {
         "subscribe": "Subscribe",
