@@ -66,7 +66,7 @@
         "enable_lbry_proxy": "Proxy engedélyezése a LBRY számára",
         "search": "Keresés (Ctrl+K)",
         "filter": "Szűrés",
-        "loading": "Betöltés...",
+        "loading": "Betöltés…",
         "clear_history": "Megtekintési előzmények törlése",
         "hide_replies": "Válaszok elrejtése",
         "load_more_replies": "További válaszok megjelenítése",
@@ -86,7 +86,7 @@
         "auto_play_next_video": "Következő videó automatikus lejátszása",
         "minimize_recommendations": "Javaslatok minimalizálása",
         "instances_list": "Példányok listája",
-        "show_markers": "Jelölők megjelenítése a lejátszón",
+        "show_markers": "Jelölők megjelenítése a folyamatjelzőn",
         "delete_account": "Fiók törlése",
         "logout": "Kijelentkezés erről az eszközről",
         "minimize_recommendations_default": "Ajánlások minimalizálása alapértelmezetten",
@@ -177,7 +177,7 @@
     },
     "player": {
         "watch_on": "Megtekintés itt: {0}",
-        "failed": "Sikertelen hibakód: {0}, további információért tekintse meg a naplókat"
+        "failed": "Sikertelen hibakód: {0}. További információért tekintse meg a naplókat"
     },
     "preferences": {
         "instance_name": "Példány neve",
@@ -188,7 +188,7 @@
         "registered_users": "Regisztrált felhasználók",
         "up_to_date": "Naprakész?",
         "uptime_30d": "Üzemidő (30 nap)",
-        "api_url": "Api webcím"
+        "api_url": "API webcím"
     },
     "search": {
         "did_you_mean": "Erre gondolt: {0}?",
@@ -212,7 +212,7 @@
         "pinned_by": "Rögzítette {author}",
         "disabled": "A hozzászólásokat a feltöltő letiltotta.",
         "user_disabled": "A beállításoknál a megjegyzések le vannak tiltva.",
-        "loading": "Hozzászólások betöltése..."
+        "loading": "Hozzászólások betöltése…"
     },
     "subscriptions": {
         "subscribed_channels_count": "Feliratkozva: {0} csatornára"
