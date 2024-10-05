@@ -66,7 +66,7 @@
         "view_ssl_score": "Zobrazit stav SSL",
         "search": "Vyhledávání (Ctrl+K)",
         "filter": "Filtr",
-        "loading": "Načítání...",
+        "loading": "Načítání…",
         "clear_history": "Smazat historii",
         "hide_replies": "Skrýt odpovědi",
         "load_more_replies": "Načíst další odpovědi",
@@ -86,7 +86,7 @@
         "delete_playlist": "Odstranit playlist",
         "select_playlist": "Vyberte playlist",
         "delete_playlist_video_confirm": "Odebrat video z playlistu?",
-        "show_markers": "Zobrazit značky na přehrávači",
+        "show_markers": "Zobrazit značky v liště přehrávače",
         "delete_account": "Odstranit účet",
         "logout": "Odhlásit se z tohoto zařízení",
         "minimize_recommendations_default": "Ve výchozím nastavení minimalizovat doporučení",
@@ -132,7 +132,7 @@
         "dismiss": "Zavřít",
         "group_name": "Název skupiny",
         "create_group": "Vytvořit skupinu",
-        "auto_display_captions": "Automatické zobrazení titulků",
+        "auto_display_captions": "Automaticky zobrazit titulky",
         "playlist_name": "Název playlistu",
         "cancel": "Zrušit",
         "edit_playlist": "Upravit playlist",
@@ -165,7 +165,7 @@
     },
     "comment": {
         "pinned_by": "Připnuto uživatelem {author}",
-        "loading": "Načítání komentářů...",
+        "loading": "Načítání komentářů…",
         "disabled": "Komentáře jsou zakázány autorem videa.",
         "user_disabled": "Komentáře jsou zakázány v nastavení."
     },
@@ -178,7 +178,7 @@
         "up_to_date": "Aktuální?",
         "version": "Verze",
         "uptime_30d": "Doba online (30d)",
-        "api_url": "Api URL"
+        "api_url": "URL API"
     },
     "login": {
         "username": "Uživatelské jméno",
