@@ -29,7 +29,7 @@
         "dark": "Mörk",
         "export_to_json": "Exportera till JSON",
         "show_description": "Visa beskrivning",
-        "loading": "Laddar...",
+        "loading": "Laddar…",
         "unsubscribe": "Avsluta prenumeration",
         "sort_by": "Sortera efter:",
         "most_recent": "Senaste",
@@ -90,7 +90,7 @@
         "delete_account": "Ta bort konto",
         "clone_playlist": "Klona spellista",
         "clone_playlist_success": "Lyckad kloning!",
-        "logout": "Logga ut från denna enheten",
+        "logout": "Logga ut från den här enheten",
         "minimize_recommendations_default": "Minimera rekommendationer som standard",
         "invalidate_session": "Logga ut alla enheter",
         "different_auth_instance": "Använd en annan instans för autentisering",
@@ -161,7 +161,7 @@
     },
     "player": {
         "watch_on": "Se på {0}",
-        "failed": "Misslyckades med felkod {0}, se loggar för mer information"
+        "failed": "Misslyckades med felkod {0}. Se loggar för mer information."
     },
     "preferences": {
         "instance_name": "Instansnamn",
@@ -172,7 +172,7 @@
         "version": "Version",
         "up_to_date": "Är du uppdaterad?",
         "uptime_30d": "Upptid (30d)",
-        "api_url": "Api URL"
+        "api_url": "API URL"
     },
     "login": {
         "username": "Användarnamn",
@@ -199,7 +199,7 @@
     "comment": {
         "pinned_by": "Fäst av {author}",
         "disabled": "Kommentarer är inaktiverade av den som laddat upp.",
-        "loading": "Laddar kommentarer...",
+        "loading": "Laddar kommentarer…",
         "user_disabled": "Kommentarer är inaktiverade i inställningarna."
     },
     "search": {
