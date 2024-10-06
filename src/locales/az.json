@@ -55,7 +55,7 @@
         "export_to_json": "JSON-a İxrac Et",
         "import_from_json": "JSON -dan İdxal Et",
         "loop_this_video": "Bu Videonu Təkrarla",
-        "auto_play_next_video": "Növbəti Videonu Avto-Oynat",
+        "auto_play_next_video": "Növbəti Videonu Avto-oynat",
         "donations": "İnkişaf ianələri",
         "minimize_description": "Açıqlamanı Kiçilt",
         "show_description": "Açıqlamanı Göstər",
@@ -66,7 +66,7 @@
         "view_ssl_score": "SSL Nəticəsinə Bax",
         "search": "Axtarış (Ctrl+K)",
         "filter": "Filtr",
-        "loading": "Yüklənir...",
+        "loading": "Yüklənir…",
         "clear_history": "Tarixçəni Təmizlə",
         "hide_replies": "Cavabları Gizlət",
         "load_more_replies": "Daha Çox Cavab Yüklə",
@@ -78,7 +78,7 @@
         "select_playlist": "Oynatma Siyahısı Seç",
         "delete_playlist_confirm": "Bu oynatma siyahısı silinsin?",
         "please_select_playlist": "Xahiş edilir, oynatma siyahısı seç",
-        "country_selection": "Ölkə",
+        "country_selection": "Ölkə/Bölgə",
         "default_homepage": "Standart Əsas Səhifə",
         "show_comments": "Şərhləri Göstər",
         "instance_selection": "Server",
@@ -90,7 +90,7 @@
         "store_watch_history": "Baxış Tarixçəsin Saxla",
         "enabled_codecs": "Aktiv Kodlayıcılar (Çoxlu)",
         "yes": "Bəli",
-        "show_markers": "Oynadıcıda İşarələri Göstər",
+        "show_markers": "İrəliləyiş çubuğunda işarələri göstər",
         "delete_account": "Hesabı Sil",
         "logout": "Bu cihazdan çıx",
         "minimize_recommendations_default": "Standart Olaraq Tövsiyələri Kiçilt",
@@ -166,7 +166,7 @@
     "comment": {
         "pinned_by": "{author} tərəfindən sabitlənib",
         "disabled": "Şərhlər yükləyici tərəfindən bağlanıb.",
-        "loading": "Şərhlər yüklənilir...",
+        "loading": "Şərhlər yüklənilir…",
         "user_disabled": "Şərhlər tənzimləmələrdə qeyri-aktiv edilib."
     },
     "preferences": {
@@ -177,7 +177,7 @@
         "version": "Versiya",
         "up_to_date": "Güncəllənib?",
         "ssl_score": "SSL Nəticəsi",
-        "api_url": "Api URL",
+        "api_url": "API URL",
         "uptime_30d": "İşləmə vaxtı (30 gün)"
     },
     "login": {
