@@ -21,7 +21,7 @@
     },
     "player": {
         "watch_on": "Vaata {0} saidis",
-        "failed": "Tegevus ei õnnestunud, veakood {0}; lisateavet leiad logidest"
+        "failed": "Tegevus ei õnnestunud, veakood {0}. Lisateavet leiad logidest."
     },
     "actions": {
         "subscribe": "Telli",
@@ -58,7 +58,7 @@
         "disable_lbry": "Lülita LBRY voogedastuse puhul välja",
         "search": "Otsi (Ctrl+K)",
         "filter": "Filtreeri",
-        "loading": "Laadime...",
+        "loading": "Laadime…",
         "clear_history": "Tühjenda ajalugu",
         "hide_replies": "Peida vastused",
         "load_more_replies": "Laadi alla rohkem vastuseid",
@@ -129,7 +129,7 @@
         "instances_not_shown": "Kui avalik vaheserver pole siin kuvatud, siis pole ta hetkel kasutatav.",
         "skip_button_only": "Näita nuppu „Jäta vahele“",
         "skip_automatically": "Automatselt",
-        "show_markers": "Näita meediamängijas markereid",
+        "show_markers": "Näita meediamängija edenemisribal markereid",
         "min_segment_length": "Väikseim segmendi pikkus (sekundites)",
         "skip_segment": "Jäta segment vahele",
         "enable_dearrow": "Pisipiltide kuvamiseks kasuta DeArrow teenust",
@@ -210,7 +210,7 @@
     },
     "comment": {
         "pinned_by": "Esile tõstnud: {author}",
-        "loading": "Laadime kommentaare...",
+        "loading": "Laadime kommentaare…",
         "user_disabled": "Kommentaarid on seadistusest välja lülitatud.",
         "disabled": "Video üleslaadija ei luba kommentaare."
     },
