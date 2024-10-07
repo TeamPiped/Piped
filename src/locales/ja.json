@@ -21,7 +21,7 @@
     },
     "player": {
         "watch_on": "{0}で視聴",
-        "failed": "失敗。エラーコード {0} 。詳細はログに記録"
+        "failed": "失敗。エラーコード {0} 。詳細はログを参照。"
     },
     "actions": {
         "subscribe": "チャンネル登録",
@@ -88,7 +88,7 @@
         "delete_playlist_video_confirm": "再生リストからこの動画を削除しますか？",
         "delete_playlist": "再生リストを削除",
         "please_select_playlist": "再生リストを選択してください",
-        "show_markers": "プレイヤーに目印の区切りを表示",
+        "show_markers": "時間バーに目印の区切りを表示",
         "select_playlist": "再生リストを選択",
         "delete_playlist_confirm": "再生リストを削除しますか？",
         "delete_account": "アカウントを削除",
@@ -165,7 +165,7 @@
     },
     "comment": {
         "pinned_by": "{author} によって固定",
-        "loading": "コメントを読み込み中...",
+        "loading": "コメントを読み込み中…",
         "user_disabled": "コメントは設定で無効になっています。",
         "disabled": "コメントは投稿者によって無効化されています。"
     },
