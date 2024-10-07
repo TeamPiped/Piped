@@ -29,7 +29,7 @@
     "comment": {
         "pinned_by": "Fijado por {author}",
         "disabled": "Los comentarios están deshabilitados por el publicador.",
-        "loading": "Cargando comentarios...",
+        "loading": "Cargando comentarios..…",
         "user_disabled": "Los comentarios están deshabilitados en los ajustes."
     },
     "actions": {
@@ -99,7 +99,7 @@
         "delete_playlist_video_confirm": "¿Eliminar vídeo de lista de reproducción?",
         "please_select_playlist": "Por favor, selecciona una lista de reproducción",
         "select_playlist": "Selecciona una lista de reproducción",
-        "show_markers": "Mostrar Marcadores en Reproductor",
+        "show_markers": "Mostrar marcadores en la barra de progreso",
         "delete_account": "Eliminar Cuenta",
         "different_auth_instance": "Usar una instancia diferente para autenticación",
         "clone_playlist": "Clonar Lista de Reproducción",
@@ -145,7 +145,7 @@
         "dismiss": "Descartar",
         "group_name": "Nombre del grupo",
         "create_group": "Crear grupo",
-        "auto_display_captions": "Mostrar automáticamente subtítulos",
+        "auto_display_captions": "Visualización automática de subtítulos",
         "edit_playlist": "Editar lista de reproducción",
         "okay": "Vale",
         "playlist_name": "Nombre de la lista de reproducción",
@@ -194,7 +194,7 @@
     },
     "player": {
         "watch_on": "Ver en {0}",
-        "failed": "Falló con el código de error {0}, consulta los registros para más información"
+        "failed": "Falló con el código de error {0}. Consulta los registros para más información."
     },
     "login": {
         "password": "Contraseña",
