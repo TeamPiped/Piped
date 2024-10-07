@@ -47,7 +47,7 @@
         "view_subscriptions": "查看订阅列表",
         "unsubscribe": "取消订阅",
         "subscribe": "订阅",
-        "loading": "正在加载...",
+        "loading": "正在加载…",
         "filter": "筛选",
         "search": "搜索 (Ctrl+K)",
         "view_ssl_score": "查看 SSL 得分",
@@ -66,9 +66,9 @@
         "remove_from_playlist": "从播放列表删除",
         "delete_playlist_confirm": "删除此播放列表吗？",
         "please_select_playlist": "请选择一个播放列表",
-        "show_markers": "在播放器上显示标识",
+        "show_markers": "在进度条上显示标记",
         "delete_account": "删除账户",
-        "logout": "从设备退出登录",
+        "logout": "从此设备退出登录",
         "minimize_recommendations_default": "默认最小化推荐",
         "invalidate_session": "注销所有设备",
         "different_auth_instance": "使用不同的实例进行身份验证",
@@ -164,7 +164,7 @@
         "up_to_date": "最新？",
         "registered_users": "已注册用户",
         "uptime_30d": "在线时间（30天）",
-        "api_url": "Api URL"
+        "api_url": "API URL"
     },
     "comment": {
         "pinned_by": "固定自 {author}",
@@ -174,7 +174,7 @@
     },
     "player": {
         "watch_on": "在 {0} 观看",
-        "failed": "播放器出错，错误代码 {0}，查看日志了解更多信息"
+        "failed": "播放器出错，错误代码 {0}，查看日志了解更多信息。"
     },
     "titles": {
         "feed": "订阅流",
