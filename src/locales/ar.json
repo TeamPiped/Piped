@@ -21,7 +21,7 @@
     },
     "player": {
         "watch_on": "مشاهدة على {0}",
-        "failed": "فشل مع رمز الخطأ {0}، راجع السجلات لمزيد من المعلومات"
+        "failed": "فشل مع رمز الخطأ {0}. راجع السجلات لمزيد من المعلومات."
     },
     "actions": {
         "subscribe": "إشتراك",
@@ -64,7 +64,7 @@
         "skip_self_promo": "تخطي الترويج غير المدفوع / الذاتي",
         "skip_highlight": "تخطي التمييز",
         "skip_filler_tangent": "تخطي المحتوى الغير مهم",
-        "show_markers": "إظهار العلامات على المشغل",
+        "show_markers": "أظهِر العلامات في شريط التقدم",
         "buffering_goal": "هدف التخزين المؤقت (بالثواني)",
         "country_selection": "البلد/المنطقة",
         "default_homepage": "الصفحة الرئيسية الافتراضية",
@@ -76,7 +76,7 @@
         "enabled_codecs": "برامج الترميز الممكنة (متعددة)",
         "import_from_json": "استيراد من JSON",
         "loop_this_video": "تكرار هذا الفيديو",
-        "auto_play_next_video": "تشغيل الفيديو التالي تلقائيا",
+        "auto_play_next_video": "شغّل الفيديو التالي تلقائيًا",
         "donations": "التبرعات للتطوير",
         "minimize_description": "إخفاء الوصف",
         "show_description": "إظهار الوصف",
@@ -85,7 +85,7 @@
         "disable_lbry": "تعطيل LBRY للبث",
         "enable_lbry_proxy": "تمكين الوكيل لـ LBRY",
         "view_ssl_score": "عرض نقاط طبقة المقابس الآمنة (SSL)",
-        "loading": "جارٍ التحميل...",
+        "loading": "جارٍ التحميل…",
         "filter": "المرشحات",
         "load_more_replies": "تحميل المزيد من الردود",
         "add_to_playlist": "إضافة إلى قائمة التشغيل",
@@ -136,7 +136,7 @@
         "dismiss": "تجاهل",
         "group_name": "أسم المجموعة",
         "create_group": "إنشاء مجموعة",
-        "auto_display_captions": "عرض التسميات التوضيحية تلقائيا",
+        "auto_display_captions": "عرض التسميات التوضيحية تلقائيًا",
         "cancel": "إلغاء",
         "okay": "حسنًا",
         "playlist_description": "وصف قائمة التشغيل",
@@ -200,13 +200,13 @@
         "ssl_score": "نقاط طبقة المقابس الآمنة",
         "up_to_date": "‏محدث؟",
         "uptime_30d": "وقت التشغيل (30 يومًا)",
-        "api_url": "رابط واجهة برمجة التطبيقات"
+        "api_url": "رابط واجهة برمجة التطبيقات (API)"
     },
     "comment": {
         "pinned_by": "مثبت بواسطة {author}",
         "disabled": "يتم تعطيل التعليقات بواسطة القائم بالرفع.",
         "user_disabled": "التعليقات معطلة في الإعدادات.",
-        "loading": "تحميل التعليقات..."
+        "loading": "جارِ تحميل التعليقات…"
     },
     "login": {
         "username": "اسم المستخدم",
