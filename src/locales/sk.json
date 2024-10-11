@@ -47,7 +47,7 @@
         "no": "Nie",
         "import_from_json": "Importovať z JSON",
         "loop_this_video": "Opakovať video",
-        "auto_play_next_video": "Automaticky prehrávať ďalšie video",
+        "auto_play_next_video": "Autoplay ďalej Video",
         "donations": "Príspevky na vývoj",
         "minimize_description": "Skryť popis",
         "clear_history": "Vymazať históriu",
@@ -62,7 +62,7 @@
         "time_code": "Časový kód (v sekundách)",
         "with_timecode": "Zdieľať s časovým kódom",
         "piped_link": "Piped odkaz",
-        "show_markers": "Zobraziť značky na prehrávači",
+        "show_markers": "Zobraziť markery v pokroku bare",
         "hide_replies": "Skryť odpovede",
         "delete_playlist": "Vymazať playlist",
         "delete_playlist_confirm": "Vymazať tento playlist?",
@@ -74,14 +74,14 @@
         "delete_playlist_video_confirm": "Odstrániť video z playlistu?",
         "share": "Zdieľať",
         "follow_link": "Otvoriť odkaz",
-        "loading": "Načítavanie...",
+        "loading": "Načítanie…",
         "download_as_txt": "Stiahnuť ako .txt",
         "reset_preferences": "Resetovať nastavenia",
         "confirm_reset_preferences": "Naozaj chcete resetovať svoje nastavenia?",
         "backup_preferences": "Zálohovať nastavenia",
         "restore_preferences": "Obnoviť nastavenia",
         "delete_account": "Vymazať účet",
-        "logout": "Odhlásiť sa z tohto zariadenia",
+        "logout": "Prihlásiť sa z tohto zariadenia",
         "minimize_recommendations_default": "Skryť odporúčania predvolene",
         "different_auth_instance": "Na overenie použite inú inštanciu",
         "instance_auth_selection": "Autentifikačná inštancia",
@@ -172,7 +172,7 @@
         "has_cdn": "Používa sieť CDN?",
         "version": "Verzia",
         "uptime_30d": "Doba prevádzky (30 dní)",
-        "api_url": "Api URL"
+        "api_url": "URL API"
     },
     "video": {
         "sponsor_segments": "Sponzorské segmenty",
@@ -227,7 +227,7 @@
         "passwords_incorrect": "Heslo je nesprávne!"
     },
     "comment": {
-        "loading": "Načítavanie komentárov...",
+        "loading": "Načítanie komentárov…",
         "disabled": "Komentáre sú zakázané používateľom, ktorý nahral video.",
         "user_disabled": "Komentáre sú v nastaveniach zakázané.",
         "pinned_by": "Pripnuté používateľom {author}"

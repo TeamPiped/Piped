@@ -48,24 +48,24 @@
         "donations": "کمک های مالی برای توسعه",
         "clear_history": "تخلیه تاریخچه",
         "loop_this_video": "تکرار شدن این ویدئو",
-        "auto_play_next_video": "پخش خودکار ویدئو بعدی",
+        "auto_play_next_video": "پخش خودکار ویدیوی بعدی",
         "minimize_description": "بستن توضیحات ویدئو",
         "view_ssl_score": "دیدن امتیاز SSL",
         "search": "جست و جو",
         "filter": "فیلتر",
-        "loading": "در حال بارگذاری...",
+        "loading": "بار کردن…",
         "hide_replies": "پنهان کردن پاسخ ها",
         "load_more_replies": "بارگذاری پاسخ های بیشتر",
         "disable_lbry": "غیرفعال کردن LBRY برای استریم ها",
         "enable_lbry_proxy": "فعال کردن پراکسی برای LBRY",
         "delete_playlist": "حذف لیست پخش",
-        "show_markers": "نشانگر را روی پخش کننده نشان دهد",
+        "show_markers": "نمایش علامتگذارها در نوار پیشرفت",
         "select_playlist": "انتخاب لیست پخش",
         "add_to_playlist": "افزودن به لیست پخش",
         "create_playlist": "ایجاد لیست پخش",
         "delete_playlist_confirm": "این لیست پخش حذف شود؟",
         "delete_account": "حذف اکانت",
-        "logout": "خروج از این دستگاه",
+        "logout": "خروج از این افزاره",
         "delete_playlist_video_confirm": "ویدیو از لیست پخش حذف شود؟",
         "autoplay_next_countdown": "پیش‌فرض شمارش‌معکوس پخش ویدیوی بعدی ( به ثانیه )",
         "please_select_playlist": "لطفا فهرست پخش را انتخاب کنید",
@@ -116,7 +116,7 @@
         "instance_auth_selection": "سرویس‌دهندهٔ احراز هویت",
         "documentation": "اسناد",
         "different_auth_instance": "از سرویس‌دهندهٔ دیگری برای احراز هویت استفاده کنید",
-        "auto_display_captions": "نمایش خودکار زیرنویس",
+        "auto_display_captions": "نمایش خودکار شرح",
         "status_page": "وضعیت",
         "show_watch_on_youtube": "نمایش دکمهٔ تماشا روی YouTube",
         "generate_qrcode": "ساخت کد QR",
@@ -161,7 +161,7 @@
     },
     "player": {
         "watch_on": "تماشا روی {0}",
-        "failed": "عدم موفقیت با خطای {0}، برای اطلاعات بیشتر logها رو بررسی کنید"
+        "failed": "با کد {0} شکست خورد. برای اطّلاعات بیش‌تر گزارش‌ها را ببینید."
     },
     "search": {
         "did_you_mean": "منظورتان {0} بود؟",
@@ -200,11 +200,11 @@
         "registered_users": "کاربران تایید شده",
         "up_to_date": "به روز؟",
         "uptime_30d": "Uptime (30d)",
-        "api_url": "نشانی Api"
+        "api_url": "نشانی API"
     },
     "comment": {
         "pinned_by": "سنجاق شده توسط {author}",
-        "loading": "دریافت نظرها…",
+        "loading": "بار کردن نظرها…",
         "user_disabled": "نظرها در تنظیمات غیرفعال شده‌اند.",
         "disabled": "ارسال کننده، نظرها را غیرفعال کرده است."
     },
