@@ -21,7 +21,7 @@
     },
     "player": {
         "watch_on": "Se på {0}",
-        "failed": "Mislykkedes med fejlkode {0}. Se logfiler for mere info"
+        "failed": "Mislykkedes med fejlkode {0}. Se logfiler for mere info."
     },
     "actions": {
         "subscribe": "Abonner",
@@ -65,11 +65,11 @@
         "no": "Nej",
         "import_from_json": "Importér fra JSON",
         "loop_this_video": "Gentag denne video",
-        "auto_play_next_video": "Afspil Næste Video Automatisk",
+        "auto_play_next_video": "Auto-afspil Næste Video",
         "donations": "Donationer til udviklerne",
         "view_subscriptions": "Se Abonnementer",
         "enable_lbry_proxy": "Aktivér Proxy for LBRY",
-        "loading": "Indlæser...",
+        "loading": "Indlæser…",
         "hide_replies": "Skjul Svar",
         "load_more_replies": "Indlæs flere svar",
         "export_to_json": "Eksportér til JSON",
@@ -89,7 +89,7 @@
         "select_playlist": "Vælg en Playliste",
         "import_from_json_csv": "Importér fra JSON/CSV",
         "instance_donations": "Instansdonationer",
-        "show_markers": "Vis Markeringer på Afspilleren",
+        "show_markers": "Vis markeringer i proceslinje",
         "minimize_chapters_default": "Minimer kapitler som standard",
         "with_playlist": "Del med playliste",
         "show_watch_on_youtube": "Vis Se på Youtube knap",
@@ -115,7 +115,7 @@
         "instance_auth_selection": "Godkendelsesinstans",
         "playlist_description": "Beskrivelse af playliste",
         "show_search_suggestions": "Vis søgeforslag",
-        "auto_display_captions": "Vis Undertekster Automatisk",
+        "auto_display_captions": "Auto-vis Undertekster",
         "delete_playlist_confirm": "Slet denne playliste?",
         "please_select_playlist": "Vælg venligst en playliste",
         "chapters_layout_mobile": "Kapitel-layout på Mobil",
@@ -165,7 +165,7 @@
     },
     "comment": {
         "pinned_by": "Fastgjort af {author}",
-        "loading": "Indlæser kommentarer...",
+        "loading": "Indlæser kommentarer…",
         "disabled": "Uploaderen har slået kommentarer fra.",
         "user_disabled": "Kommentarer er slået fra i indstillingerne."
     },
