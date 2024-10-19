@@ -35,7 +35,7 @@
         "autoplay_video": "Reproduzir vídeos automaticamente",
         "audio_only": "Apenas áudio",
         "default_quality": "Qualidade padrão",
-        "country_selection": "País",
+        "country_selection": "País/Região",
         "default_homepage": "Página inicial padrão",
         "show_comments": "Mostrar comentários",
         "minimize_description_default": "Por definição, minimizar descrição",
@@ -47,7 +47,7 @@
         "import_from_json": "Importar de JSON",
         "export_to_json": "Exportar para JSON",
         "loop_this_video": "Repetir este vídeo",
-        "auto_play_next_video": "Reproduzir vídeo seguinte automaticamente",
+        "auto_play_next_video": "Reproduzir seguinte automaticamente",
         "donations": "Doações para o desenvolvimento",
         "minimize_description": "Minimizar descrição",
         "show_description": "Mostrar descrição",
@@ -57,7 +57,7 @@
         "view_ssl_score": "Ver avaliação SSL",
         "search": "Pesquisa (Ctrl+K)",
         "filter": "Filtrar",
-        "loading": "A carregar...",
+        "loading": "A carregar…",
         "clear_history": "Limpar histórico",
         "subscribe": "Subscrever",
         "unsubscribe": "Anular subscrição",
@@ -88,7 +88,7 @@
         "create_playlist": "Criar lista de reprodução",
         "clone_playlist_success": "Clonada com sucesso!",
         "clone_playlist": "Clonar lista de reprodução",
-        "show_markers": "Mostrar marcas no reprodutor",
+        "show_markers": "Mostrar marcadores na barra de progresso",
         "delete_account": "Eliminar conta",
         "logout": "Terminar sessão neste dispositivo",
         "minimize_recommendations_default": "Por definição, minimizar recomendações",
@@ -132,7 +132,7 @@
         "autoplay_next_countdown": "Contagem decrescente até ao próximo vídeo (em segundos)",
         "create_group": "Criar grupo",
         "group_name": "Nome do grupo",
-        "auto_display_captions": "Mostrar legendas",
+        "auto_display_captions": "Mostrar legendas automaticamente",
         "playlist_description": "Descrição da lista de reprodução",
         "okay": "Ok",
         "cancel": "Cancelar",
@@ -206,12 +206,12 @@
     },
     "player": {
         "watch_on": "Ver em {0}",
-        "failed": "Falha com o código de erro {0}, ver registos para mais informações"
+        "failed": "Falha com o código de erro {0}. Consulte os registos para mais informações"
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
         "disabled": "O dono do canal desativou os comentários.",
-        "loading": "A carregar comentários...",
+        "loading": "A carregar comentários…",
         "user_disabled": "Os comentários estão desativados nas definições."
     },
     "subscriptions": {
