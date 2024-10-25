@@ -27,12 +27,12 @@
         "skip_self_promo": "Omitere promoție neplătită/autopromovare",
         "skip_non_music": "Omitere muzică: Secțiune non-muzicală",
         "skip_highlight": "Omitere evidențiere",
-        "show_markers": "Se afișează marcatori în player",
+        "show_markers": "Se afișează marcatori în bara de progres",
         "dark": "Întunecat",
         "auto": "Auto",
         "audio_only": "Doar audio",
         "default_quality": "Calitate implicită",
-        "country_selection": "Țară",
+        "country_selection": "Țară/Regiune",
         "default_homepage": "Pagina principală implicită",
         "minimize_comments_default": "Minimizați comentariile în mod implicit",
         "minimize_description_default": "Minimizați descrierea în mod implicit",
@@ -46,7 +46,7 @@
         "enable_lbry_proxy": "Activați proxy pentru LBRY",
         "view_ssl_score": "Vedeți scorul SSL",
         "filter": "Filtru",
-        "loading": "Se încarcă...",
+        "loading": "Se încarcă…",
         "clear_history": "Ștergeți istoricul",
         "hide_replies": "Ascundeți răspunsurile",
         "load_more_replies": "Mai multe răspunsuri",
@@ -132,7 +132,12 @@
         "customize": "Customizează",
         "invalid_url": "URL nevalid!",
         "add": "Adăugați",
-        "delete_group_confirm": "Să șterg acest grup?"
+        "delete_group_confirm": "Să șterg acest grup?",
+        "invalid_input": "Intrare invalidă",
+        "prefer_hls": "Prefer HLS în loc de DASH",
+        "creator_replied": "Creator a răspuns",
+        "creator_liked": "Creatorul a apreciat",
+        "playback_speed": "Viteză de redare"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -149,7 +154,7 @@
         "user_disabled": "Comentariile sunt dezactivate în setări.",
         "pinned_by": "Fixat de {author}",
         "disabled": "Comentariile sunt dezactivate de către autor.",
-        "loading": "Se încarcă comentariile..."
+        "loading": "Se încarcă comentariile…"
     },
     "video": {
         "views": "{views} vizionări",
@@ -225,6 +230,6 @@
     },
     "player": {
         "watch_on": "Vezi pe {0}",
-        "failed": "A eșuat cu codul de eroare {0}, consultați jurnalele pentru mai multe informații"
+        "failed": "A eșuat cu codul de eroare {0}. Consultați jurnalele pentru mai multe informații."
     }
 }
