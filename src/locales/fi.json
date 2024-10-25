@@ -65,7 +65,7 @@
         "show_recommendations": "Näytä suositukset",
         "hide_replies": "Piilota vastaukset",
         "load_more_replies": "Lataa lisää vastauksia",
-        "instance_selection": "Instanssin valinta",
+        "instance_selection": "Instanssi",
         "delete_playlist_confirm": "Haluatko varmasti poistaa tämän soittolistan?",
         "please_select_playlist": "Valitse soittolista",
         "add_to_playlist": "Lisää soittolistaan",
@@ -122,7 +122,10 @@
         "backup_preferences": "Varmuuskopiointiasetukset",
         "restore_preferences": "Palauta asetukset",
         "skip_automatically": "Automaattisesti",
-        "enable_dearrow": "Ota käyttöön DeArrow"
+        "enable_dearrow": "Ota käyttöön DeArrow",
+        "instance_privacy_policy": "Tietosuojaseloste",
+        "instance_auth_selection": "Todennus instanssin valinta",
+        "instances_not_shown": "Julkiset instanssit, joita ei näytetä täällä, eivät ole saatavilla juuri nyt."
     },
     "player": {
         "watch_on": "Katso sivustolla {0}"
@@ -136,13 +139,16 @@
         "login": "Kirjaudu sisään",
         "trending": "Nousussa",
         "playlists": "Soittolistat",
-        "player": "Toistin",
+        "player": "Soitin",
         "instance": "Instanssi",
         "account": "Tili",
         "channels": "Kanavat",
         "bookmarks": "Kirjanmerkit",
         "albums": "Albumit",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "channel_groups": "Kanavaryhmät",
+        "livestreams": "Livelähetykset",
+        "custom_instances": "Mukautettu instanssi"
     },
     "search": {
         "did_you_mean": "Tarkoititko: {0}?",
