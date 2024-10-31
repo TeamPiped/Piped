@@ -21,7 +21,7 @@
     },
     "player": {
         "watch_on": "Lihat di {0}",
-        "failed": "Gagal dengan kode kesalahan {0}, lihat catatan untuk info lebih lanjut"
+        "failed": "Gagal dengan kode kesalahan {0}. Lihat catatan untuk info lebih lanjut."
     },
     "actions": {
         "subscribe": "Berlangganan",
@@ -47,7 +47,7 @@
         "audio_only": "Audio Saja",
         "default_quality": "Kualitas Bawaan",
         "buffering_goal": "Tujuan Buffering (dalam detik)",
-        "country_selection": "Negara",
+        "country_selection": "Negara/Wilayah",
         "default_homepage": "Halaman Beranda Bawaan",
         "show_comments": "Tampilkan Komentar",
         "minimize_description_default": "Kecilkan Deskripsi secara default",
@@ -71,7 +71,7 @@
         "view_ssl_score": "Tampilkan Skor SSL",
         "search": "Telusuri (Ctrl+K)",
         "filter": "Saring",
-        "loading": "Memuat...",
+        "loading": "Memuat…",
         "clear_history": "Hapus Riwayat",
         "hide_replies": "Sembunyikan Balasan",
         "load_more_replies": "Muat Balasan",
@@ -90,7 +90,7 @@
         "please_select_playlist": "Mohon pilih sebuah daftar putar",
         "delete_playlist_confirm": "Hapus daftar putar ini?",
         "remove_from_playlist": "Hapus dari daftar putar",
-        "show_markers": "Tampilkan Penanda pada Pemain",
+        "show_markers": "Tampilkan penanda dalam bilah progres",
         "delete_account": "Hapus Akun",
         "logout": "Keluar dari perangkat ini",
         "minimize_recommendations_default": "Kecilkan Rekomendasi secara bawaan",
@@ -136,7 +136,7 @@
         "dismiss": "Abaikan",
         "create_group": "Buat grup",
         "group_name": "Nama grup",
-        "auto_display_captions": "Tampilkan Takarir Secara Otomatis",
+        "auto_display_captions": "Tampilkan takarir secara otomatis",
         "cancel": "Batal",
         "playlist_description": "Deskripsi daftar putar",
         "edit_playlist": "Sunting daftar putar",
@@ -155,13 +155,19 @@
         "instances_not_shown": "Instance publik yang tidak ditampilkan disini saat ini tidak tersedia.",
         "customize": "Ubah",
         "add": "Tambahkan",
-        "invalid_url": "URL tidak valid!"
+        "invalid_url": "URL tidak valid!",
+        "creator_replied": "Kreator membalas",
+        "creator_liked": "Kreator menyukai",
+        "playback_speed": "Kecepatan pemutaran",
+        "invalid_input": "Masukan tidak valid",
+        "delete_group_confirm": "Hapus grup ini?",
+        "prefer_hls": "Utamakan HLS daripada DASH"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
         "disabled": "Komentar dinonaktifkan oleh pengunggah.",
         "user_disabled": "Komentar dinonaktifkan di pengaturan.",
-        "loading": "Memuat komentar..."
+        "loading": "Memuat komentar…"
     },
     "preferences": {
         "instance_name": "Nama Instansi",
