@@ -72,12 +72,19 @@
             <div class="flex flex-wrap gap-1">
                 <!-- Channel Image & Info -->
                 <div class="flex items-center">
-                    <img :src="video.uploaderAvatar" alt="" loading="lazy" class="rounded-full" />
+                    <img
+                        loading="lazy"
+                        height="48"
+                        width="48"
+                        :src="video.uploaderAvatar"
+                        alt=""
+                        class="rounded-full"
+                    />
                     <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">{{
                         video.uploader
                     }}</router-link>
                     <!-- Verified Badge -->
-                    <font-awesome-icon v-if="video.uploaderVerified" class="ml-1" icon="check" />
+                    <i v-if="video.uploaderVerified" class="i-fa6-solid:check ml-1" />
                 </div>
                 <PlaylistAddModal
                     v-if="showModal"
@@ -99,15 +106,16 @@
                         {{ $t("actions.download_frame") }}<i class="i-fa6-solid:download" />
                     </button>
                     <button class="btn flex items-center" @click="showModal = !showModal">
-                        {{ $t("actions.add_to_playlist") }}<font-awesome-icon class="ml-1" icon="circle-plus" />
+                        {{ $t("actions.add_to_playlist") }}<i class="i-fa6-solid:circle-plus ml-1" />
                     </button>
                     <button
-                        v-t="{
-                            path: `actions.${subscribed ? 'unsubscribe' : 'subscribe'}`,
-                            args: { count: numberFormat(video.uploaderSubscriberCount) },
-                        }"
                         class="btn"
                         @click="subscribeHandler"
+                        v-text="
+                            $t('actions.' + (subscribed ? 'unsubscribe' : 'subscribe')) +
+                            ' - ' +
+                            numberFormat(video.uploaderSubscriberCount)
+                        "
                     />
                     <div class="flex flex-wrap gap-1">
                         <!-- RSS Feed button -->
@@ -120,15 +128,15 @@
                             target="_blank"
                             class="btn flex items-center"
                         >
-                            <font-awesome-icon class="mx-1.5" icon="rss" />
+                            <i class="i-fa6-solid:rss mx-1.5" />
                         </a>
                         <!-- Share Dialog -->
                         <button class="btn flex items-center" @click="showShareModal = !showShareModal">
                             <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
-                            <font-awesome-icon class="mx-1.5" icon="fa-share" />
+                            <i class="i-fa6-solid:share mx-1.5" />
                         </button>
                         <!-- YouTube -->
-                        <WatchOnButton :link="`https://youtu.be/${getVideoId()}`" />
+                        <WatchOnButton :link="youtubeVideoHref" />
                         <!-- Odysee -->
                         <WatchOnButton
                             v-if="video.lbryId"
@@ -142,7 +150,7 @@
                             :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
                             class="btn flex items-center"
                         >
-                            <font-awesome-icon class="mx-1.5" :icon="isListening ? 'tv' : 'headphones'" />
+                            <i :class="isListening ? 'i-fa6-solid:tv' : 'i-fa6-solid:headphones'" class="mx-1.5" />
                         </router-link>
                     </div>
                 </div>
@@ -234,6 +242,7 @@
                     :key="comment.commentId"
                     :comment="comment"
                     :uploader="video.uploader"
+                    :uploader-avatar-url="video.uploaderAvatar"
                     :video-id="getVideoId()"
                 />
             </div>
@@ -244,6 +253,7 @@
                     :playlist-id="playlistId"
                     :playlist="playlist"
                     :selected-index="index"
+                    :prefer-listen="isListening"
                 />
                 <a
                     v-t="`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`"
@@ -256,6 +266,8 @@
                         v-for="related in video.relatedStreams"
                         :key="related.url"
                         :item="related"
+                        :prefer-listen="isListening"
+                        class="mb-4"
                         height="94"
                         width="168"
                     />
@@ -307,7 +319,7 @@ export default {
             selectedAutoLoop: false,
             selectedAutoPlay: null,
             showComments: true,
-            showDesc: true,
+            showDesc: false,
             showRecs: true,
             showChapters: true,
             comments: null,
@@ -332,6 +344,7 @@ export default {
         toggleListenUrl(_this) {
             const url = new URL(window.location.href);
             url.searchParams.set("listen", _this.isListening ? "0" : "1");
+            url.searchParams.set("t", Math.floor(this.currentTime));
             return url.pathname + url.search;
         },
         isEmbed(_this) {
@@ -349,6 +362,11 @@ export default {
         },
         purifiedDescription() {
             return purifyHTML(this.video.description);
+        },
+        youtubeVideoHref() {
+            let link = `https://youtu.be/${this.getVideoId()}?t=${Math.round(this.currentTime)}`;
+            if (this.playlistId) link += `&list=${this.playlistId}`;
+            return link;
         },
     },
     mounted() {
@@ -408,7 +426,7 @@ export default {
         this.active = true;
         this.selectedAutoPlay = this.getPreferenceBoolean("autoplay", false);
         this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
-        this.showDesc = !this.getPreferenceBoolean("minimizeDescription", false);
+        this.showDesc = !this.getPreferenceBoolean("minimizeDescription", true);
         this.showRecs = !this.getPreferenceBoolean("minimizeRecommendations", false);
         this.showChapters = !this.getPreferenceBoolean("minimizeChapters", false);
         if (this.video?.duration) {
@@ -448,7 +466,7 @@ export default {
             });
 
             sponsors?.segments?.forEach(segment => {
-                const option = skipOptions[segment.category];
+                const option = skipOptions?.[segment.category];
                 segment.autoskip = option === undefined || option === "auto";
             });
 
@@ -500,9 +518,7 @@ export default {
         },
         async getPlaylistData() {
             if (this.playlistId) {
-                await this.fetchJson(this.apiUrl() + "/playlists/" + this.playlistId).then(data => {
-                    this.playlist = data;
-                });
+                this.playlist = await this.getPlaylist(this.playlistId);
                 await this.fetchPlaylistPages().then(() => {
                     if (!(this.index >= 0)) {
                         for (let i = 0; i < this.playlist.relatedStreams.length; i++)
@@ -515,9 +531,7 @@ export default {
                             }
                     }
                 });
-                await this.fetchPlaylistPages().then(() => {
-                    this.fetchDeArrowContent(this.playlist.relatedStreams);
-                });
+                await this.fetchPlaylistPages();
             }
         },
         async fetchPlaylistPages() {
@@ -525,8 +539,9 @@ export default {
                 await this.fetchJson(this.apiUrl() + "/nextpage/playlists/" + this.playlistId, {
                     nextpage: this.playlist.nextpage,
                 }).then(json => {
-                    this.playlist.relatedStreams = this.playlist.relatedStreams.concat(json.relatedStreams);
+                    this.playlist.relatedStreams.push(...json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
+                    this.fetchDeArrowContent(json.relatedStreams);
                 });
                 await this.fetchPlaylistPages();
             }
@@ -536,65 +551,17 @@ export default {
                 this.fetchSponsors().then(data => (this.sponsors = data));
         },
         async getComments() {
-            this.fetchComments().then(data => {
-                this.rewriteComments(data.comments);
-                this.comments = data;
-            });
+            this.comments = await this.fetchComments();
         },
         async fetchSubscribedStatus() {
             if (!this.channelId) return;
-            if (!this.authenticated) {
-                this.subscribed = this.isSubscribedLocally(this.channelId);
-                return;
-            }
 
-            this.fetchJson(
-                this.authApiUrl() + "/subscribed",
-                {
-                    channelId: this.channelId,
-                },
-                {
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                    },
-                },
-            ).then(json => {
-                this.subscribed = json.subscribed;
-            });
-        },
-        rewriteComments(data) {
-            data.forEach(comment => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(comment.commentText, "text/html");
-                xmlDoc.querySelectorAll("a").forEach(elem => {
-                    if (!elem.innerText.match(/(?:[\d]{1,2}:)?(?:[\d]{1,2}):(?:[\d]{1,2})/))
-                        elem.outerHTML = elem.getAttribute("href");
-                });
-                comment.commentText = xmlDoc
-                    .querySelector("body")
-                    .innerHTML.replaceAll(/(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm, "$1")
-                    .replaceAll(
-                        /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm,
-                        "/watch?v=$1",
-                    );
-            });
+            this.subscribed = await this.fetchSubscriptionStatus(this.channelId);
         },
         subscribeHandler() {
-            if (this.authenticated) {
-                this.fetchJson(this.authApiUrl() + (this.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        channelId: this.channelId,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                });
-            } else {
-                if (!this.handleLocalSubscriptions(this.channelId)) return;
-            }
-            this.subscribed = !this.subscribed;
+            this.toggleSubscriptionState(this.channelId, this.subscribed).then(success => {
+                if (success) this.subscribed = !this.subscribed;
+            });
         },
         handleClick(event) {
             if (!event || !event.target) return;
@@ -634,12 +601,17 @@ export default {
                 }).then(json => {
                     this.comments.nextpage = json.nextpage;
                     this.loading = false;
-                    this.rewriteComments(json.comments);
                     this.comments.comments = this.comments.comments.concat(json.comments);
                 });
             }
         },
         getVideoId() {
+            if (this.$route.query.video_ids) {
+                const videos_list = this.$route.query.video_ids.split(",");
+                this.index = Number(this.$route.query.index ?? 0);
+                return videos_list[this.index];
+            }
+
             return this.$route.query.v || this.$route.params.v;
         },
         navigate(time) {
@@ -679,7 +651,15 @@ export default {
         },
         navigateNext() {
             const params = this.$route.query;
-            let url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            const video_ids = this.$route.query.video_ids?.split(",") ?? [];
+            let url;
+            if (this.playlist) {
+                url = this.playlist?.relatedStreams?.[this.index]?.url ?? this.video.relatedStreams[0].url;
+            } else if (video_ids.length > this.index + 1) {
+                url = `${this.$route.path}?index=${this.index + 1}`;
+            } else {
+                url = this.video.relatedStreams[0].url;
+            }
             const searchParams = new URLSearchParams();
             for (var param in params)
                 switch (param) {
@@ -687,7 +667,8 @@ export default {
                     case "t":
                         break;
                     case "index":
-                        if (this.index < this.playlist.relatedStreams.length) searchParams.set("index", this.index + 1);
+                        if (this.playlist && this.index < this.playlist.relatedStreams.length)
+                            searchParams.set("index", this.index + 1);
                         break;
                     case "list":
                         if (this.index < this.playlist.relatedStreams.length) searchParams.set("list", params.list);

@@ -88,10 +88,11 @@ export default {
                     });
                 }
                 // NewPipe
-                else if (text.indexOf("app_version") != -1) {
+                else if (text.indexOf("subscriptions") != -1) {
                     const json = JSON.parse(text);
                     json.subscriptions
-                        .filter(item => item.service_id == 0)
+                        // if service_id is undefined, chances are it's a freetube export
+                        .filter(item => item.service_id == 0 || item.service_id == undefined)
                         .forEach(item => {
                             const url = item.url;
                             const id = url.slice(-24);

@@ -17,8 +17,8 @@
         "channel_groups": "නාලිකා සමූහ"
     },
     "actions": {
-        "subscribe": "දායකවන්න - {count}",
-        "unsubscribe": "දායක නොවන්න - {count}",
+        "subscribe": "දායකවන්න",
+        "unsubscribe": "දායක නොවන්න",
         "most_recent": "වඩාත් මෑත",
         "least_recent": "ආසන්න මෑත",
         "channel_name_asc": "නාලිකාවේ නම (අ-ෆ)",

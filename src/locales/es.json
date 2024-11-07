@@ -22,12 +22,14 @@
         "instance_name": "Nombre de la instancia",
         "version": "Versión",
         "up_to_date": "¿Actualizado?",
-        "registered_users": "Usuarios Registrados"
+        "registered_users": "Usuarios Registrados",
+        "uptime_30d": "Tiempo de actividad (30d)",
+        "api_url": "URL de la API"
     },
     "comment": {
         "pinned_by": "Fijado por {author}",
         "disabled": "Los comentarios están deshabilitados por el publicador.",
-        "loading": "Cargando comentarios...",
+        "loading": "Cargando comentarios..…",
         "user_disabled": "Los comentarios están deshabilitados en los ajustes."
     },
     "actions": {
@@ -51,7 +53,7 @@
         "minimize_description_default": "Minimizar la descripción por defecto",
         "show_comments": "Mostrar comentarios",
         "default_homepage": "Página de inicio predeterminada",
-        "country_selection": "País",
+        "country_selection": "País/Región",
         "buffering_goal": "Objetivo de amortiguación (en segundos)",
         "default_quality": "Calidad predeterminada",
         "audio_only": "Sólo audio",
@@ -76,8 +78,8 @@
         "most_recent": "Lo más reciente",
         "sort_by": "Ordenar por:",
         "view_subscriptions": "Ver suscripciones",
-        "unsubscribe": "Anular suscripción - {count}",
-        "subscribe": "Suscribirme - {count}",
+        "unsubscribe": "Anular suscripción",
+        "subscribe": "Suscribirme",
         "loading": "Cargando…",
         "filter": "Filtrar",
         "search": "Buscar (Ctrl+K)",
@@ -97,7 +99,7 @@
         "delete_playlist_video_confirm": "¿Eliminar vídeo de lista de reproducción?",
         "please_select_playlist": "Por favor, selecciona una lista de reproducción",
         "select_playlist": "Selecciona una lista de reproducción",
-        "show_markers": "Mostrar Marcadores en Reproductor",
+        "show_markers": "Mostrar marcadores en la barra de progreso",
         "delete_account": "Eliminar Cuenta",
         "different_auth_instance": "Usar una instancia diferente para autenticación",
         "clone_playlist": "Clonar Lista de Reproducción",
@@ -143,7 +145,7 @@
         "dismiss": "Descartar",
         "group_name": "Nombre del grupo",
         "create_group": "Crear grupo",
-        "auto_display_captions": "Mostrar automáticamente subtítulos",
+        "auto_display_captions": "Visualización automática de subtítulos",
         "edit_playlist": "Editar lista de reproducción",
         "okay": "Vale",
         "playlist_name": "Nombre de la lista de reproducción",
@@ -157,7 +159,18 @@
         "import_from_json_csv": "Importar desde JSON/CSV",
         "download_frame": "Descargar fotograma",
         "instance_privacy_policy": "Política de privacidad",
-        "add_to_group": "Añadir a grupo"
+        "add_to_group": "Añadir a grupo",
+        "instances_not_shown": "Las instancias públicas que no se muestran aquí no están disponibles actualmente.",
+        "concurrent_prefetch_limit": "Límite de captación previa de transmisiones simultáneas",
+        "customize": "Personalizar",
+        "invalid_url": "¡URL no válida!",
+        "add": "Añadir",
+        "delete_group_confirm": "¿Eliminar este grupo?",
+        "creator_liked": "Al autor le gustó",
+        "creator_replied": "El autor respondió",
+        "playback_speed": "Velocidad de reproducción",
+        "invalid_input": "Entrada no válida",
+        "prefer_hls": "Preferir HLS sobre DASH"
     },
     "titles": {
         "feed": "Contenido",
@@ -175,11 +188,13 @@
         "channels": "Canales",
         "bookmarks": "Marcadores",
         "channel_groups": "Grupos de canales",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Álbumes",
+        "custom_instances": "Instancias personalizadas"
     },
     "player": {
         "watch_on": "Ver en {0}",
-        "failed": "Falló con el código de error {0}, consulta los registros para más información"
+        "failed": "Falló con el código de error {0}. Consulta los registros para más información."
     },
     "login": {
         "password": "Contraseña",

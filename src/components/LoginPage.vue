@@ -1,5 +1,8 @@
 <template>
-    <h1 v-t="'titles.login'" class="my-4 text-center font-bold" />
+    <div class="flex justify-center">
+        <h1 v-t="'titles.login'" class="my-4 text-center font-bold" />
+        <i class="i-fa6-solid:circle-info ml-2 mt-6 cursor-pointer" :title="$t('info.login_note')" />
+    </div>
     <hr />
     <div class="w-full flex items-center justify-center text-center">
         <form class="w-min children:pb-3">
@@ -39,12 +42,7 @@
 </template>
 
 <script>
-import TooltipIcon from "./TooltipIcon.vue";
-
 export default {
-    components: {
-        TooltipIcon,
-    },
     data() {
         return {
             username: null,
@@ -61,7 +59,7 @@ export default {
         this.fetchConfig();
         //TODO: Add Server Side check
         if (this.getAuthToken()) {
-            this.$router.push("/");
+            this.$router.push(import.meta.env.BASE_URL);
         }
     },
     activated() {
@@ -89,7 +87,7 @@ export default {
             }).then(resp => {
                 if (resp.token) {
                     this.setPreference("authToken" + this.hashCode(this.authApiUrl()), resp.token);
-                    window.location = "/"; // done to bypass cache
+                    window.location = import.meta.env.BASE_URL; // done to bypass cache
                 } else alert(resp.error);
             });
         },

@@ -15,15 +15,17 @@
         "channels": "Kanały",
         "bookmarks": "Zakładki",
         "channel_groups": "Grupy kanałów",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albumy",
+        "custom_instances": "Niestandardowe instancje"
     },
     "player": {
         "watch_on": "Zobacz na {0}",
-        "failed": "Niepowodzenie z powodu kodu błędu {0}, przejrzyj logi, aby uzyskać więcej informacji"
+        "failed": "Niepowodzenie z powodu kodu błędu {0}. Przejrzyj logi, aby uzyskać więcej informacji."
     },
     "actions": {
-        "subscribe": "Subskrybuj - {count}",
-        "unsubscribe": "Odsubskrybuj - {count}",
+        "subscribe": "Subskrybuj",
+        "unsubscribe": "Odsubskrybuj",
         "view_subscriptions": "Zarządzaj subskrybcjami",
         "sort_by": "Sortuj:",
         "most_recent": "Najnowsze",
@@ -43,14 +45,14 @@
         "skip_highlight": "Przechodź do meritum filmu",
         "skip_filler_tangent": "Pomijaj wstawki humorystyczne",
         "theme": "Motyw",
-        "auto": "Automatyczna",
+        "auto": "Automatyczny",
         "dark": "Ciemny",
         "light": "Jasny",
-        "autoplay_video": "Autoodtwarzanie",
+        "autoplay_video": "Automatyczne odtwarzanie",
         "audio_only": "Tylko audio",
         "default_quality": "Domyślna jakość",
         "buffering_goal": "Cel buforowania (w sekundach)",
-        "country_selection": "Kraj",
+        "country_selection": "Kraj/Region",
         "default_homepage": "Domyślna strona główna",
         "show_comments": "Pokaż komentarze",
         "minimize_description_default": "Ukryj opis",
@@ -65,7 +67,7 @@
         "export_to_json": "Eksport do pliku JSON",
         "import_from_json": "Import z pliku JSON",
         "loop_this_video": "Zapętlaj ten film",
-        "auto_play_next_video": "Autoodtwarzanie następnego filmu",
+        "auto_play_next_video": "Automatyczne odtwarzanie następnego filmu",
         "donations": "Wsparcie",
         "minimize_description": "Ukryj opis",
         "show_description": "Pokaż opis",
@@ -76,7 +78,7 @@
         "view_ssl_score": "Pokaż ocenę SSL",
         "search": "Szukaj (Ctrl+K)",
         "filter": "Filtruj",
-        "loading": "Ładowanie...",
+        "loading": "Ładowanie…",
         "clear_history": "Wyczyść historię",
         "hide_replies": "Ukryj odpowiedzi",
         "load_more_replies": "Pokaż więcej odpowiedzi",
@@ -98,7 +100,7 @@
         "back_to_home": "Idź do strony głównej",
         "instance_auth_selection": "Instancja uwierzytelniania",
         "time_code": "Kod czasowy (w sekundach)",
-        "show_markers": "Pokaż segmenty na odtwarzaczu",
+        "show_markers": "Pokaż znaczniki na pasku postępu",
         "store_search_history": "Zapamiętaj historię wyszukiwania",
         "hide_watched": "Ukryj obejrzane filmy",
         "source_code": "Kod źródłowy",
@@ -148,12 +150,23 @@
         "import_from_json_csv": "Import z pliku JSON/CSV",
         "download_frame": "Pobierz klatkę",
         "instance_privacy_policy": "Polityki prywatności",
-        "add_to_group": "Dodaj do grupy"
+        "add_to_group": "Dodaj do grupy",
+        "instances_not_shown": "Instancje publiczne, które nie są tutaj pokazane, są obecnie niedostępne.",
+        "concurrent_prefetch_limit": "Limit równoczesnego pobierania wstępnego strumienia",
+        "customize": "Dostosuj",
+        "invalid_url": "Nieprawidłowy adres URL!",
+        "add": "Dodaj",
+        "delete_group_confirm": "Usunąć tę grupę?",
+        "creator_replied": "Twórca odpowiedział",
+        "creator_liked": "Twórca polubił",
+        "invalid_input": "Nieprawidłowe dane wejściowe",
+        "playback_speed": "Szybkość odtwarzania",
+        "prefer_hls": "Preferuj HLS zamiast DASH"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
         "disabled": "Komentarze zostały wyłączone przez twórcę.",
-        "loading": "Wczytywanie komentarzy...",
+        "loading": "Wczytywanie komentarzy…",
         "user_disabled": "Komentarze wyłączone w ustawieniach."
     },
     "preferences": {
@@ -163,7 +176,9 @@
         "registered_users": "Zarejestrowani użytkownicy",
         "version": "Wersja",
         "up_to_date": "Aktualna?",
-        "ssl_score": "Ocena SSL"
+        "ssl_score": "Ocena SSL",
+        "uptime_30d": "Czas pracy (30d)",
+        "api_url": "Adres URL interfejsu API"
     },
     "login": {
         "username": "Nazwa użytkownika",
@@ -212,7 +227,7 @@
         "hours": "{amount} godziny",
         "months": "{amount} miesiące",
         "login_note": "Zaloguj się na konto utworzone w tej instancji.",
-        "register_note": "Zarejestruj konto dla tej instancji Piped. Umożliwi to synchronizację subskrypcji i list odtwarzania ze swoim kontem, dzięki czemu będą one przechowywane po stronie serwera. Możesz korzystać ze wszystkich funkcji bez konta, ale wszystkie dane będą przechowywane w lokalnej pamięci podręcznej Twojej przeglądarki. Upewnij się, że NIE używasz adresu e-mail jako nazwy użytkownika i wybierz bezpieczne hasło, którego nie używasz gdzie indziej."
+        "register_note": "Zarejestruj konto dla tej instancji Piped. Umożliwi to synchronizację subskrypcji i list odtwarzania z twoim kontem, dzięki czemu będą one przechowywane po stronie serwera. Możesz korzystać ze wszystkich funkcji bez konta, ale wszystkie dane będą przechowywane w lokalnej pamięci podręcznej Twojej przeglądarki. Upewnij się, że NIE używasz adresu e-mail jako nazwy użytkownika i wybierz bezpieczne hasło, którego nie używasz nigdzie indziej."
     },
     "subscriptions": {
         "subscribed_channels_count": "Licznik subskrybcji: {0}"

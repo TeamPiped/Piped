@@ -15,15 +15,17 @@
         "playlists": "Listas de lecturas",
         "bookmarks": "Marcapaginas",
         "channel_groups": "Grops de cadenas",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albums",
+        "custom_instances": "Instàncias personalizadas"
     },
     "player": {
         "watch_on": "Veire sus {0}",
         "failed": "Fracàs amb lo còdi d’error {0}, consultat los jornals d’audit per mai d’informacions"
     },
     "actions": {
-        "subscribe": "S’abonar - {count}",
-        "unsubscribe": "Se desabonar - {count}",
+        "subscribe": "S’abonar",
+        "unsubscribe": "Se desabonar",
         "view_subscriptions": "Veire los abonaments",
         "sort_by": "Triar per :",
         "most_recent": "Mai recents",
@@ -147,7 +149,18 @@
         "delete_automatically": "Suprimir automaticament aprèp",
         "download_frame": "Telecargar fotograma",
         "generate_qrcode": "Generar un còdi QR",
-        "instance_privacy_policy": "Politica de confidencialitat"
+        "instance_privacy_policy": "Politica de confidencialitat",
+        "add_to_group": "Apondre al grop",
+        "instances_not_shown": "Las instàncias publicas que se veson pas aicí son pas disponiblas actualament.",
+        "customize": "Personalizar",
+        "invalid_url": "URL invalida !",
+        "concurrent_prefetch_limit": "Limit de precargament de flux simultanèus",
+        "add": "Ajustar",
+        "creator_replied": "Lo creator respondèt",
+        "creator_liked": "Lo creator aimèt",
+        "playback_speed": "Velocitat de lectura",
+        "invalid_input": "Entrada non valida",
+        "delete_group_confirm": "Suprimir aqueste grop ?"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
@@ -156,7 +169,9 @@
         "has_cdn": "A un CDN ?",
         "version": "Version",
         "up_to_date": "Actualizat ?",
-        "ssl_score": "Marca SSL"
+        "ssl_score": "Marca SSL",
+        "api_url": "URL de l'Api",
+        "uptime_30d": "Temps d'activitat (30 jorns)"
     },
     "login": {
         "username": "Nom d’utilizaire",
@@ -191,7 +206,8 @@
         "hours": "{amount} ora(s)",
         "months": "{amount} mes(es)",
         "days": "{amount} jorn(s)",
-        "weeks": "{amount} setmana(s)"
+        "weeks": "{amount} setmana(s)",
+        "login_note": "Se connectar amb un compte creat sus aquesta instància."
     },
     "comment": {
         "disabled": "L’autor a desactivat los comentaris.",

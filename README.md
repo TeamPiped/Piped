@@ -57,28 +57,27 @@ By using Piped, you can freely watch and listen to content without the fear of p
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | ![Screenshot 1](https://cloudflare-ipfs.com/ipfs/bafybeiaxhsog7jzydr7xb3xhlemxilqksceqg5fraaiuojzclhocsqrcvq) | ![Screenshot 2](https://cloudflare-ipfs.com/ipfs/bafybeigafumvrgbfyufxjptvufobstrywrfv2kteyuuictfko6kvghjszu) | ![Screenshot 3](https://cloudflare-ipfs.com/ipfs/bafybeiehs5xjqmmq34gmewxoqm3j3b2ze3pve4sdmanz7ukrxwgrcmxnry) |
 
-## Public Chat Rooms
+## Having trouble?
+If you have any general questions regarding how Piped works or trouble setting up your own instance, please consult the following public chat rooms and documentation for help. Please use these platforms exclusively for such cases and do NOT open an issue.
+
+### Public Chat Rooms/Communities
 
 -   You can join us via Matrix at [#piped](https://matrix.to/#/#piped:matrix.org).
--   You can also join us at the libera.chat IRC network which is bridged to the Matrix room at [#piped](https://web.libera.chat/#piped).
-
-## Public Communities
-
 -   You can join us on Lemmy on the [!piped@feddit.rocks](https://feddit.rocks/c/piped) community.
 
-## Self-Hosting
+### Self-Hosting
 
 See https://docs.piped.video/docs/self-hosting/ for more details.
 
 The source code of the documentation website is available at https://github.com/TeamPiped/Documentation.
 
-## Documentation
+### Documentation
 
 The documentation can be found at https://docs.piped.video (accessible via IPNS as well).
 
 ## Extensions
 
-To redirect all YouTube links to Piped, you are highly recommended to use either [Piped-Redirects](https://github.com/TeamPiped/Piped-Redirects) or [Libredirect](https://github.com/libredirect/libredirect#readme).
+To redirect all YouTube links to Piped, you are highly recommended to use either [Piped-Redirects](https://github.com/TeamPiped/Piped-Redirects), [Libredirect](https://github.com/libredirect/libredirect) or [Predirect](https://github.com/libreom/predirect).
 
 ## Contributing
 
@@ -114,7 +113,7 @@ pnpm install
 ### Compiles and hot-reloads for development
 
 ```
-pnpm serve
+pnpm dev
 ```
 
 You can now make changes and view then in realtime!
@@ -127,33 +126,49 @@ If you would like to contact me personally, you may do so with the following mea
 -   Mastodon: https://mastodon.online/@kavin
 -   Email: kavin@kavin.rocks
 
+Please note that isn't meant for support, see [Public Chat Rooms/Communities](#public-chat-roomscommunities) for that.
+
 ## Donations
 
 Donations can be made at:
 
 -   bc1qhq8zjxmu405nvp37njj6zv3s980zg400pu9jfe (BTC)
 -   0x1D77D4cfB1a947514241bcf19B1F04738495e2fD (ETH)
--   8A5Up8rKgagVAz6TuUduBqHp518H1U6fYc6GqCfWsaEfjGzbSccfYpgMqp5d4oe5Ws5MuFE1iKmhQTadhMhvuk3bHRT5Ebk (XMR, aka Monero)
+-   84wyyeGTrg4U1daJufi78bAFrBQgdRhmxJZvgYv8dAFeFVwkJaBEmw5C7fNniUM9n4jfrz3NeG32Agxtp7JNAcCUFPACfwA (XMR, aka Monero)
 -   nano_1ngejzydncche4rdua3iebhj7sa95pw5geq4pb8phugtjf3tku933ktjb4pq (Nano)
 -   XpzgouDTKCUuE8a92XqjX9b43gKL8oLihw (Dash)
 
-FIAT donations can be made at: https://liberapay.com/kavin
+FIAT donations can be made at:
+
+- https://liberapay.com/kavin (Author of project, used for Project infrastructure maintenance, and official instance)
+- https://liberapay.com/Bnyro (Maintainer of repo)
 
 Contributions in any other form are also welcomed.
 
 # Made with Piped
 
--   [Yattee](https://github.com/yattee/yattee) - an alternative frontend for YouTube, for IOS.
--   [LibreTube](https://github.com/Libre-tube/LibreTube) - an alternative frontend for YouTube, for Android.
--   [Racoon](https://github.com/shailendramaurya/racoon) - A web based minimal YouTube downloader.
--   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - an alternative privacy respecting frontend for YouTube Music.
--   [Musicale](https://github.com/Bellisario/musicale) - an alternative to YouTube Music, with style.
--   [ytify](https://github.com/n-ce/ytify) - a complementary minimal audio streaming frontend for YouTube.
--   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads on Android, Linux, Windows, iOS, and Mac OSX.
--   [Piped-Material](https://github.com/mmjee/Piped-Material) - A fork of Piped, focusing on better performance and a more usable design.
--   [ReacTube](https://github.com/NeeRaj-2401/ReacTube) - Privacy friendly & distraction free Youtube front-end using Piped API.
+**Mobile/desktop apps**
+-   [LibreTube](https://github.com/Libre-tube/LibreTube) - Alternative frontend for YouTube for Android.
 -   [YTDLnis](https://github.com/deniscerri/ytdlnis) - Video and audio downloader for Android that uses Piped to update formats.
--   [DeskVideo](https://github.com/malisipi/DeskVideo) - A desktop styled, customizable alternative front-end for YouTube.
+-   [Yattee](https://github.com/yattee/yattee) - Alternative frontend for YouTube for MacOS / iOS.
+-   [Pipeline](https://gitlab.com/schmiddi-on-mobile/pipeline) - Alternative frontend for YouTube for Linux.
+-   [PlasmaTube](https://apps.kde.org/plasmatube/) - Alternative frontend for YouTube for Linux.
+-   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads on Android, Linux, Windows, iOS, and Mac OSX.
+-   [Harmony Music](https://github.com/anandnet/Harmony-Music) - YouTube Music alternative for Android/Windows/Debian, built with Flutter that supports piped linking for playlists.
+-   [VibeYou](https://github.com/you-apps/VibeYou) - Privacy focused music player for Android supporting playback via Piped.
+
+**Web apps**
+-   [Piped-Material](https://github.com/mmjee/Piped-Material) - Fork of Piped, focusing on better performance and a more usable design.
+-   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - Alternative privacy respecting front-end for YouTube Music.
+-   [ytify](https://github.com/n-ce/ytify) - Complementary audio streaming frontend for YouTube & YouTube Music.
+-   [Musicale](https://github.com/Bellisario/musicale) - Alternative frontend for YouTube Music with style.
+-   [conduit](https://github.com/ai25/conduit) - Alternative frontend for YouTube, with a modern player and watch together capabilities.
+-   [DeskVideo](https://github.com/malisipi/DeskVideo) - Desktop styled, customizable alternative frontend for YouTube.
+-   [ReacTube](https://github.com/NeeRaj-2401/ReacTube) - Privacy friendly & distraction free YouTube frontend.
+
+**Other**
+-   [vidyodl](https://github.com/MrKovar/vidyodl) - Simple API to download videos from YouTube, using Piped.
+-   [Piped Addon for Kodi](https://github.com/syhlx/plugin.video.piped) - Kodi plugin for Piped.
 
 ## YourKit
 

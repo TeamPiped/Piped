@@ -3,11 +3,11 @@
         "skip_intro": "跳過中場休息／開場動畫",
         "skip_sponsors": "跳過贊助廣告",
         "enable_sponsorblock": "啟用 SponsorBlock",
-        "country_selection": "國家",
+        "country_selection": "國家/地區",
         "channel_name_desc": "頻道名 (Z-A)",
         "channel_name_asc": "頻道名 (A-Z)",
-        "unsubscribe": "取消訂閱 - {count}",
-        "subscribe": "訂閱 - {count}",
+        "unsubscribe": "取消訂閱",
+        "subscribe": "訂閱",
         "sort_by": "排序依據：",
         "view_subscriptions": "檢視訂閱內容",
         "language_selection": "語言",
@@ -16,7 +16,7 @@
         "show_description": "顯示說明",
         "least_recent": "最早",
         "skip_interaction": "跳過互動（訂閱）提醒",
-        "skip_self_promo": "跳過無酬／自我行銷",
+        "skip_self_promo": "跳過無酬/自我行銷",
         "audio_only": "僅聲音",
         "default_quality": "預設品質",
         "show_comments": "顯示留言",
@@ -28,8 +28,8 @@
         "minimize_recommendations": "最小化推薦",
         "most_recent": "最新",
         "back": "返回",
-        "skip_outro": "跳過片尾插圖／工作人員名單",
-        "skip_preview": "跳過預覽／回顧",
+        "skip_outro": "跳過片尾插圖/工作人員名單",
+        "skip_preview": "跳過預覽/回顧",
         "autoplay_video": "自動播放影片",
         "buffering_goal": "緩衝目標（秒）",
         "skip_highlight": "跳過精采整理",
@@ -42,7 +42,7 @@
         "yes": "是",
         "no": "否",
         "export_to_json": "以 JSON 匯出",
-        "import_from_json": "從 JSON/CSV 匯入",
+        "import_from_json": "從 JSON 匯入",
         "loop_this_video": "循環播放此影片",
         "auto_play_next_video": "自動播放下一部影片",
         "donations": "開發捐款",
@@ -61,7 +61,7 @@
         "delete_playlist_video_confirm": "要從播放清單中移除影片嗎？",
         "delete_account": "刪除帳戶",
         "show_chapters": "章節",
-        "download_as_txt": "以 .txt 下載",
+        "download_as_txt": "下載為 .txt",
         "share": "分享",
         "reset_preferences": "重設偏好設定",
         "confirm_reset_preferences": "確定要重設偏好設定嗎？",
@@ -82,12 +82,12 @@
         "view_ssl_score": "查看 SSL 分數",
         "logout": "從這個設置登出",
         "minimize_comments_default": "預設為收起留言",
-        "instance_selection": "選擇站台",
+        "instance_selection": "站台",
         "skip_automatically": "自動",
         "skip_segment": "跳過分段",
         "edit_playlist": "編輯播放清單",
         "playlist_name": "播放清單名稱",
-        "instance_auth_selection": "選擇身分驗證站台",
+        "instance_auth_selection": "身分驗證站台",
         "instance_donations": "站台捐款",
         "invalidate_session": "從所有裝置登出",
         "clone_playlist": "複製播放清單",
@@ -120,7 +120,13 @@
         "minimize_recommendations_default": "預設收起推薦影片",
         "show_watch_on_youtube": "顯示「在Youtube 觀看」按鈕",
         "show_less": "顯示更少",
-        "generate_qrcode": "產生 QR 碼"
+        "generate_qrcode": "產生 QR 碼",
+        "add_to_group": "加到群組",
+        "import_from_json_csv": "從 JSON / CSV 匯入",
+        "enable_dearrow": "啟用 DeArrow 插件",
+        "delete_automatically": "在多久後自動刪除",
+        "download_frame": "下載影片幀",
+        "instance_privacy_policy": "私隱政策"
     },
     "titles": {
         "history": "歷史記錄",
@@ -137,7 +143,8 @@
         "bookmarks": "書籤",
         "livestreams": "直播",
         "channels": "頻道",
-        "channel_groups": "頻道群組"
+        "channel_groups": "頻道群組",
+        "dearrow": "DeArrow 插件"
     },
     "preferences": {
         "registered_users": "已註冊的使用者",
@@ -151,7 +158,8 @@
     "login": {
         "username": "使用者名",
         "password": "密碼",
-        "password_confirm": "確認密碼"
+        "password_confirm": "確認密碼",
+        "passwords_incorrect": "密碼不正確!"
     },
     "video": {
         "videos": "影片",
@@ -165,7 +173,9 @@
         "chapters_vertical": "垂直",
         "views": "觀看次數：{views}",
         "live": "{0} 直播",
-        "all": "全部"
+        "all": "全部",
+        "visibility": "是否顯示",
+        "license": "授權"
     },
     "search": {
         "did_you_mean": "您是否想找 {0}？",
@@ -196,10 +206,13 @@
         "days": "{amount} 天",
         "weeks": "{amount} 個星期",
         "months": "{amount} 個月",
-        "hours": "{amount} 小時"
+        "hours": "{amount} 小時",
+        "login_note": "使用在此站台中註冊的賬戶登錄。",
+        "register_note": "你可以在這個 Piped 站台註冊一個賬戶。由於資料會存放在伺服器端，這會允許你透過你的帳戶同步你的訂閱和播放清單。你亦可在不註冊的情況下使用所有功能，但所有資料將會存放在瀏覽器端的緩存中。請不要使用電郵地址再為你的用戶名稱，並使用一個未在其他地方使用過的安全密碼。"
     },
     "player": {
-        "watch_on": "在 {0} 觀看"
+        "watch_on": "在 {0} 觀看",
+        "failed": "播放失敗，錯誤代碼 {0}，詳情請翻查紀錄"
     },
     "subscriptions": {
         "subscribed_channels_count": "己訂閱： {0}"

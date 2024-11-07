@@ -45,9 +45,9 @@
         "most_recent": "最新的",
         "sort_by": "排序：",
         "view_subscriptions": "查看订阅列表",
-        "unsubscribe": "取消订阅 - {count}",
-        "subscribe": "订阅 - {count}",
-        "loading": "正在加载...",
+        "unsubscribe": "取消订阅",
+        "subscribe": "订阅",
+        "loading": "正在加载…",
         "filter": "筛选",
         "search": "搜索 (Ctrl+K)",
         "view_ssl_score": "查看 SSL 得分",
@@ -66,9 +66,9 @@
         "remove_from_playlist": "从播放列表删除",
         "delete_playlist_confirm": "删除此播放列表吗？",
         "please_select_playlist": "请选择一个播放列表",
-        "show_markers": "在播放器上显示标识",
+        "show_markers": "在进度条上显示标记",
         "delete_account": "删除账户",
-        "logout": "从设备退出登录",
+        "logout": "从此设备退出登录",
         "minimize_recommendations_default": "默认最小化推荐",
         "invalidate_session": "注销所有设备",
         "different_auth_instance": "使用不同的实例进行身份验证",
@@ -126,7 +126,18 @@
         "import_from_json_csv": "从 JSON/CSV 文件导入",
         "download_frame": "下载视频帧",
         "instance_privacy_policy": "隐私政策",
-        "add_to_group": "添加到组"
+        "add_to_group": "添加到组",
+        "instances_not_shown": "未显示在此处的公共实例当前不可用。",
+        "concurrent_prefetch_limit": "并行流预获取限制",
+        "customize": "自定义",
+        "invalid_url": "无效的 URL！",
+        "add": "添加",
+        "delete_group_confirm": "删除该组吗？",
+        "creator_replied": "创作者回复了",
+        "creator_liked": "创作者点赞了",
+        "playback_speed": "播放速度",
+        "invalid_input": "无效输入",
+        "prefer_hls": "HLS 优先于 DASH"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -135,7 +146,7 @@
         "videos": "视频",
         "live": "{0} 直播",
         "chapters": "章节",
-        "ratings_disabled": "已禁用评价",
+        "ratings_disabled": "评分已禁用",
         "shorts": "短视频",
         "all": "全部",
         "category": "类别",
@@ -151,7 +162,9 @@
         "instance_name": "实例名称",
         "version": "版本",
         "up_to_date": "最新？",
-        "registered_users": "已注册用户"
+        "registered_users": "已注册用户",
+        "uptime_30d": "在线时间（30天）",
+        "api_url": "API URL"
     },
     "comment": {
         "pinned_by": "固定自 {author}",
@@ -161,7 +174,7 @@
     },
     "player": {
         "watch_on": "在 {0} 观看",
-        "failed": "播放器出错，错误代码 {0}，查看日志了解更多信息"
+        "failed": "播放器出错，错误代码 {0}，查看日志了解更多信息。"
     },
     "titles": {
         "feed": "订阅流",
@@ -179,7 +192,9 @@
         "channels": "频道",
         "bookmarks": "书签",
         "channel_groups": "频道组",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "专辑",
+        "custom_instances": "自定义实例"
     },
     "login": {
         "password": "密码",

@@ -15,15 +15,17 @@
         "channels": "ערוצים",
         "bookmarks": "סימניות",
         "channel_groups": "קבוצות ערוץ",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "אלבומים",
+        "custom_instances": "מופעים מותאמים אישית"
     },
     "player": {
         "watch_on": "הצגה ב־{0}",
-        "failed": "חל כשל עם קוד שגיאה {0}, מידע נוסף ביומנים"
+        "failed": "חל כשל עם קוד שגיאה {0}. מידע נוסף ביומנים."
     },
     "actions": {
-        "subscribe": "מינוי - {count}",
-        "unsubscribe": "ביטול מינוי - {count}",
+        "subscribe": "מינוי",
+        "unsubscribe": "ביטול מינוי",
         "view_subscriptions": "הצגת מינויים",
         "sort_by": "מיון לפי:",
         "most_recent": "האחרונים",
@@ -47,7 +49,7 @@
         "audio_only": "שמע בלבד",
         "default_quality": "איכות ברירת מחדל",
         "buffering_goal": "יעד שמירה למטמון (בשניות)",
-        "country_selection": "מדינה",
+        "country_selection": "מדינה/אזור",
         "default_homepage": "עמוד הבית כברירת מחדל",
         "show_comments": "הצגת תגובות",
         "minimize_description_default": "מזעור התגובות כברירת מחדל",
@@ -61,7 +63,7 @@
         "no": "לא",
         "export_to_json": "ייצוא ל־JSON",
         "import_from_json": "ייבוא מ־JSON",
-        "show_markers": "הצגת סמנים בנגן",
+        "show_markers": "הצגת סמנים בסרגל ההתקדמות",
         "auto_play_next_video": "לנגן את הסרטון הבא אוטומטית",
         "donations": "תרומות בפיתוח",
         "filter": "סינון",
@@ -148,7 +150,18 @@
         "import_from_json_csv": "ייבוא מ־JSON/CSV",
         "download_frame": "הורדת תמונית",
         "instance_privacy_policy": "מדיניות פרטיות",
-        "add_to_group": "הוספה לקבוצה"
+        "add_to_group": "הוספה לקבוצה",
+        "concurrent_prefetch_limit": "מגבלת משיכה טרומית של תזרימים במקביל",
+        "instances_not_shown": "מופעים ציבוריים שאינם מופיעים כאן אינם זמינים כרגע.",
+        "creator_replied": "היוצר/ת הגיבו",
+        "creator_liked": "היוצר/ת אהבו",
+        "playback_speed": "מהירות נגינה",
+        "invalid_input": "קלט שגוי",
+        "prefer_hls": "להעדיף HLS על פני DASH",
+        "delete_group_confirm": "למחוק את הקבוצה הזאת?",
+        "customize": "התאמה אישית",
+        "invalid_url": "כתובת שגויה!",
+        "add": "הוספה"
     },
     "comment": {
         "pinned_by": "ננעץ על ידי {author}",
@@ -163,7 +176,9 @@
         "registered_users": "משתמשים רשומים",
         "version": "גרסה",
         "up_to_date": "עדכני?",
-        "ssl_score": "דירוג SSL"
+        "ssl_score": "דירוג SSL",
+        "uptime_30d": "זמן פעילות (30 ימים)",
+        "api_url": "כתובת ה־API"
     },
     "login": {
         "username": "שם משתמש",

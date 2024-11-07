@@ -15,7 +15,9 @@
         "channels": "Canals",
         "bookmarks": "Marcadors",
         "channel_groups": "Grups de canals",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Àlbums",
+        "custom_instances": "Instàncies personalitzades"
     },
     "actions": {
         "channel_name_desc": "Nom del canal (Z-A)",
@@ -64,8 +66,8 @@
         "hide_replies": "Amaga les respostes",
         "load_more_replies": "Carrega més respostes",
         "view_subscriptions": "Mostra les subscripcions",
-        "subscribe": "Subscriu-me - {count}",
-        "unsubscribe": "Anul·la la subscripció - {count}",
+        "subscribe": "Subscriu-me",
+        "unsubscribe": "Anul·la la subscripció",
         "sort_by": "Ordena per:",
         "most_recent": "Més recents",
         "least_recent": "Menys recents",
@@ -95,7 +97,7 @@
         "clone_playlist_success": "S'ha clonat correctament!",
         "download_as_txt": "Baixa com a .txt",
         "reset_preferences": "Restableix les preferències",
-        "restore_preferences": "Restaura les preferències",
+        "restore_preferences": "Importa les preferències",
         "backup_preferences": "Exporta les preferències",
         "confirm_reset_preferences": "Segur que voleu restablir les vostres preferències?",
         "back_to_home": "Torna a l'inici",
@@ -142,7 +144,19 @@
         "auto_display_captions": "Mostra els subtítols automàticament",
         "autoplay_next_countdown": "Compte enrere predefinit fins al pròxim vídeo (en segons)",
         "generate_qrcode": "Genera un codi QR",
-        "playlist_name": "Nom de la llista de reproducció"
+        "playlist_name": "Nom de la llista de reproducció",
+        "add_to_group": "Afegeix al grup",
+        "instance_privacy_policy": "Política de privadesa",
+        "concurrent_prefetch_limit": "Límit de precàrrega de flux concurrent",
+        "instances_not_shown": "Les instàncies públiques que no es mostren aquí no es troben disponibles.",
+        "creator_liked": "Al creador li ha agradat",
+        "creator_replied": "El creador ha respost",
+        "playback_speed": "Velocitat",
+        "invalid_input": "Entrada no vàlida",
+        "delete_group_confirm": "Voleu eliminar el grup?",
+        "customize": "Personalitza",
+        "invalid_url": "URL invàlid",
+        "add": "Afegeix"
     },
     "comment": {
         "pinned_by": "Fixat per {author}",
@@ -157,7 +171,9 @@
         "ssl_score": "Puntuació SSL",
         "version": "Versió",
         "up_to_date": "Actualitzada?",
-        "registered_users": "Usuaris registrats"
+        "registered_users": "Usuaris registrats",
+        "uptime_30d": "Temps d'activitat (30 d)",
+        "api_url": "URL de l'API"
     },
     "video": {
         "watched": "Vist",
@@ -214,6 +230,8 @@
         "next_video_countdown": "Pròxim vídeo en {0}s",
         "months": "{amount} mesos",
         "weeks": "{amount} setmanes",
-        "days": "{amount} dies"
+        "days": "{amount} dies",
+        "login_note": "Inicieu la sessió amb un compte creat en aquesta instància.",
+        "register_note": "Registreu un compte en aquesta instància de Piped. Això us permetrà sincronitzar les vostres subscripcions i llistes de reproducció amb el vostre compte, perquè s'emmagatzemin al servidor. Podeu emprar totes les funcions sense un compte, però totes les dades es desaran a la memòria cau local del vostre navegador. Comproveu que no utilitzeu una adreça electrònica com a nom d'usuari, i trieu una contrasenya segura que no feu servir en cap altre lloc."
     }
 }

@@ -32,6 +32,11 @@ const routes = [
         component: () => import("../components/WatchVideo.vue"),
     },
     {
+        path: "/watch_videos",
+        name: "WatchVideos",
+        component: () => import("../components/WatchVideo.vue"),
+    },
+    {
         path: "/clip/:clipId",
         name: "Clips",
         component: () => import("../components/ClipsPage.vue"),
@@ -58,6 +63,7 @@ const routes = [
     },
     {
         path: "/feed",
+        alias: ["/feed/subscriptions"],
         name: "Feed",
         component: () => import("../components/FeedPage.vue"),
     },

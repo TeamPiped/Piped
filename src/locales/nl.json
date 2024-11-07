@@ -5,7 +5,7 @@
         "add_to_playlist": "Toevoegen aan afspeellijst",
         "sort_by": "Sorteren op:",
         "buffering_goal": "Bufferdoel (in seconden)",
-        "country_selection": "Land",
+        "country_selection": "Land/regio",
         "show_recommendations": "Aanbevelingen tonen",
         "disable_lbry": "LBRY voor streamen uitschakelen",
         "enable_lbry_proxy": "Proxy voor LBRY Inschakelen",
@@ -14,14 +14,14 @@
         "filter": "Filter",
         "skip_filler_tangent": "Opvultangens Overslaan",
         "theme": "Thema",
-        "subscribe": "Abonneren - {count}",
+        "subscribe": "Abonneren",
         "skip_non_music": "Muziek Overslaan: Niet-muzieksectie",
         "show_comments": "Opmerkingen tonen",
         "skip_self_promo": "Onbetaalde-/zelfpromotie overslaan",
         "skip_highlight": "Markering Overslaan",
         "skip_interaction": "Interactieherinnering overslaan (abonneren)",
         "show_more": "Meer tonen",
-        "unsubscribe": "Afmelden - {count}",
+        "unsubscribe": "Afmelden",
         "view_subscriptions": "Abonnementen bekijken",
         "enable_sponsorblock": "Sponsorblok inschakelen",
         "skip_preview": "Voorbeschouwing/samenvatting overslaan",
@@ -126,7 +126,18 @@
         "import_from_json_csv": "Importeren uit JSON/CSV",
         "download_frame": "Beeld downloaden",
         "instance_privacy_policy": "Privacybeleid",
-        "add_to_group": "Toevoegen aan groep"
+        "add_to_group": "Toevoegen aan groep",
+        "instances_not_shown": "Openbare gevallen die hier niet worden weergegeven, zijn momenteel niet beschikbaar.",
+        "concurrent_prefetch_limit": "Limiet voor gelijk­tijdige stream-prefetching",
+        "customize": "Aanpassen",
+        "add": "Toevoegen",
+        "invalid_url": "Ongeldige URL!",
+        "delete_group_confirm": "Deze groep verwĳderen?",
+        "creator_replied": "Reactie van maker",
+        "creator_liked": "Like van maker",
+        "playback_speed": "Afspeel­snelheid",
+        "invalid_input": "Ongeldige invoer",
+        "prefer_hls": "HLS verkiezen boven DASH"
     },
     "titles": {
         "register": "Registreren",
@@ -135,19 +146,21 @@
         "preferences": "Voorkeuren",
         "history": "Geschiedenis",
         "subscriptions": "Abonnementen",
-        "trending": "Trending",
-        "playlists": "Afspeellijsten",
+        "trending": "Populair",
+        "playlists": "Afspeel­lĳsten",
         "account": "Account",
         "instance": "Instantie",
         "player": "Speler",
         "livestreams": "Livestreams",
         "channels": "Kanalen",
-        "bookmarks": "Bladwijzers",
+        "bookmarks": "Blad­wĳzers",
         "dearrow": "DeArrow",
-        "channel_groups": "Kanaal­groepen"
+        "channel_groups": "Kanaal­groepen",
+        "albums": "Albums",
+        "custom_instances": "Aangepaste instanties"
     },
     "player": {
-        "watch_on": "Bekijken op {0}",
+        "watch_on": "Bekĳken op {0}",
         "failed": "Mislukt met foutcode {0}, zie logboeken voor meer informatie"
     },
     "search": {
@@ -191,7 +204,9 @@
         "instance_locations": "Instantielocaties",
         "version": "Versie",
         "up_to_date": "Bijgewerkt?",
-        "ssl_score": "SSL-score"
+        "ssl_score": "SSL-score",
+        "uptime_30d": "Uptime (30d)",
+        "api_url": "Api-URL"
     },
     "comment": {
         "pinned_by": "Vastgemaakt door {author}",
@@ -211,7 +226,8 @@
         "weeks": "{amount} week/weken",
         "months": "{amount} maand(en)",
         "hours": "{amount} uur",
-        "login_note": "Log in met een account dat op deze instantie is aangemaakt."
+        "login_note": "Log in met een account dat op deze instantie is aangemaakt.",
+        "register_note": "Registreer een account voor deze Piped-instantie. Hierdoor kunt u uw abonnementen en afspeellijsten synchroniseren met uw account, zodat ze aan de serverkant worden opgeslagen. U kunt alle functies gebruiken zonder account, maar alle gegevens worden opgeslagen in de lokale cache van uw browser. Zorg ervoor dat u GEEN e-mailadres als gebruikersnaam gebruikt en kies een veilig wachtwoord dat u niet elders gebruikt."
     },
     "subscriptions": {
         "subscribed_channels_count": "Geabonneerd op: {0}"

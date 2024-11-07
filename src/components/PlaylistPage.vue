@@ -6,27 +6,31 @@
 
         <CollapsableText v-if="playlist?.description" :text="playlist.description" />
 
-        <div class="mt-1 flex items-center justify-between">
+        <div class="mt-1 flex justify-between <md:flex-col md:items-center">
             <div>
                 <router-link class="link flex items-center gap-3" :to="playlist.uploaderUrl || '/'">
-                    <img :src="playlist.uploaderAvatar" loading="lazy" class="rounded-full" />
+                    <img loading="lazy" :src="playlist.uploaderAvatar" class="h-12 rounded-full" />
                     <strong v-text="playlist.uploader" />
                 </router-link>
             </div>
-            <div>
-                <strong class="mr-2" v-text="`${playlist.videos} ${$t('video.videos')}`" />
+            <div class="flex flex-wrap items-center gap-1">
+                <strong
+                    v-text="
+                        `${playlist.videos} ${$t('video.videos')} - ${timeFormat(totalDuration)}${playlist.nextpage ? '+' : ''}`
+                    "
+                />
                 <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
                     {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
-                    }}<font-awesome-icon class="ml-3" icon="bookmark" />
+                    }}<i class="i-fa6-solid:bookmark ml-3" />
                 </button>
                 <button v-if="authenticated && !isPipedPlaylist" class="btn mr-1" @click="clonePlaylist">
-                    {{ $t("actions.clone_playlist") }}<font-awesome-icon class="ml-3" icon="clone" />
+                    {{ $t("actions.clone_playlist") }}<i class="i-fa6-solid:clone ml-3" />
                 </button>
                 <button class="btn mr-1" @click="downloadPlaylistAsTxt">
                     {{ $t("actions.download_as_txt") }}
                 </button>
                 <a class="btn mr-1" :href="getRssUrl">
-                    <font-awesome-icon icon="rss" />
+                    <i class="i-fa6-solid:rss" />
                 </a>
                 <WatchOnButton :link="`https://www.youtube.com/playlist?list=${$route.query.list}`" />
             </div>
@@ -68,6 +72,7 @@ export default {
     data() {
         return {
             playlist: null,
+            totalDuration: 0,
             admin: false,
             isBookmarked: false,
         };
@@ -102,19 +107,12 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
-        async fetchPlaylist() {
-            const playlistId = this.$route.query.list;
-            if (playlistId.startsWith("local")) {
-                return this.getPlaylist(playlistId);
-            }
-
-            return await await this.fetchJson(this.authApiUrl() + "/playlists/" + this.$route.query.list);
-        },
         async getPlaylistData() {
-            this.fetchPlaylist()
+            this.getPlaylist(this.$route.query.list)
                 .then(data => (this.playlist = data))
                 .then(() => {
                     this.updateTitle();
+                    this.updateTotalDuration();
                     this.updateWatched(this.playlist.relatedStreams);
                     this.fetchDeArrowContent(this.playlist.relatedStreams);
                 });
@@ -129,16 +127,19 @@ export default {
                 this.fetchJson(this.authApiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
                     nextpage: this.playlist.nextpage,
                 }).then(json => {
-                    this.playlist.relatedStreams.concat(json.relatedStreams);
                     this.playlist.nextpage = json.nextpage;
                     this.loading = false;
-                    json.relatedStreams.map(stream => this.playlist.relatedStreams.push(stream));
-                    this.fetchDeArrowContent(this.playlist.relatedStreams);
+                    this.playlist.relatedStreams.push(...json.relatedStreams);
+                    this.updateTotalDuration();
+                    this.fetchDeArrowContent(json.relatedStreams);
                 });
             }
         },
         removeVideo(index) {
             this.playlist.relatedStreams.splice(index, 1);
+        },
+        updateTotalDuration() {
+            this.totalDuration = this.playlist.relatedStreams.map(video => video.duration).reduce((a, b) => a + b);
         },
         async clonePlaylist() {
             this.fetchJson(this.authApiUrl() + "/import/playlist", null, {
@@ -156,10 +157,11 @@ export default {
             });
         },
         downloadPlaylistAsTxt() {
-            var data = "";
-            this.playlist.relatedStreams.forEach(element => {
-                data += "https://piped.video" + element.url + "\n";
-            });
+            const data = this.playlist.relatedStreams
+                .map(video => {
+                    return "https://piped.video" + video.url;
+                })
+                .join("\n");
             this.download(data, this.playlist.name + ".txt", "text/plain");
         },
         async bookmarkPlaylist() {

@@ -1,58 +1,4 @@
 import { createApp } from "vue";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-    faEye,
-    faThumbtack,
-    faCheck,
-    faHeart,
-    faHeadphones,
-    faRss,
-    faChevronLeft,
-    faLevelDownAlt,
-    faTv,
-    faLevelUpAlt,
-    faBroadcastTower,
-    faCirclePlus,
-    faCircleMinus,
-    faXmark,
-    faClone,
-    faShare,
-    faBook,
-    faServer,
-    faDonate,
-    faBookmark,
-    faEdit,
-} from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faBitcoin, faYoutube, faOdysee } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(
-    faEye,
-    faGithub,
-    faBitcoin,
-    faThumbtack,
-    faCheck,
-    faHeart,
-    faHeadphones,
-    faYoutube,
-    faOdysee,
-    faRss,
-    faChevronLeft,
-    faLevelDownAlt,
-    faLevelUpAlt,
-    faTv,
-    faBroadcastTower,
-    faCirclePlus,
-    faCircleMinus,
-    faXmark,
-    faClone,
-    faShare,
-    faBook,
-    faServer,
-    faDonate,
-    faBookmark,
-    faEdit,
-);
-
 import router from "@/router/router.js";
 import App from "./App.vue";
 
@@ -171,7 +117,7 @@ const mixin = {
             } else return defaultVal;
         },
         apiUrl() {
-            return this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
+            return this.getPreferenceString("instance", import.meta.env.VITE_PIPED_API);
         },
         authApiUrl() {
             if (this.getPreferenceBoolean("authInstance", false)) {
@@ -235,6 +181,48 @@ const mixin = {
         getUnauthenticatedChannels() {
             const localSubscriptions = this.getLocalSubscriptions() ?? [];
             return localSubscriptions.join(",");
+        },
+        async fetchSubscriptions() {
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/subscriptions", null, {
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                });
+            } else {
+                const channels = this.getUnauthenticatedChannels();
+                const split = channels.split(",");
+                if (split.length > 100) {
+                    return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", null, {
+                        method: "POST",
+                        body: JSON.stringify(split),
+                    });
+                } else {
+                    return await this.fetchJson(this.authApiUrl() + "/subscriptions/unauthenticated", {
+                        channels: this.getUnauthenticatedChannels(),
+                    });
+                }
+            }
+        },
+        async fetchFeed() {
+            if (this.authenticated) {
+                return await this.fetchJson(this.authApiUrl() + "/feed", {
+                    authToken: this.getAuthToken(),
+                });
+            } else {
+                const channels = this.getUnauthenticatedChannels();
+                const split = channels.split(",");
+                if (split.length > 100) {
+                    return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", null, {
+                        method: "POST",
+                        body: JSON.stringify(split),
+                    });
+                } else {
+                    return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
+                        channels: channels,
+                    });
+                }
+            }
         },
         /* generate a temporary file and ask the user to download it */
         download(text, filename, mimeType) {
@@ -326,7 +314,7 @@ const mixin = {
                 var store = tx.objectStore("playlist_videos");
                 const req = store.openCursor(videoId);
                 req.onsuccess = e => {
-                    resolve(e.target.result.value);
+                    resolve(e.target.result?.value);
                 };
             });
         },
@@ -359,11 +347,11 @@ const mixin = {
             });
         },
         async getPlaylist(playlistId) {
-            if (!this.authenticated) {
+            if (playlistId.startsWith("local")) {
                 const playlist = await this.getLocalPlaylist(playlistId);
                 const videoIds = JSON.parse(playlist.videoIds);
                 const videosFuture = videoIds.map(videoId => this.getLocalPlaylistVideo(videoId));
-                playlist.relatedStreams = await Promise.all(videosFuture);
+                playlist.relatedStreams = (await Promise.all(videosFuture)).filter(video => video !== undefined);
                 return playlist;
             }
 
@@ -379,7 +367,7 @@ const mixin = {
                     id: playlistId,
                     name: name,
                     description: "",
-                    thumbnail: "https://pipedproxy.kavin.rocks/?host=i.ytimg.com",
+                    thumbnail: import.meta.env.VITE_PIPED_PROXY + "/?host=i.ytimg.com",
                     videoIds: "[]", // empty list
                 });
                 return { playlistId: playlistId };
@@ -480,6 +468,7 @@ const mixin = {
                 playlist.thumbnail = streamInfos[0].thumbnail || streamInfos[0].thumbnailUrl;
                 this.createOrUpdateLocalPlaylist(playlist);
                 for (let i in videoIds) {
+                    if (streamInfos[i].error) continue;
                     this.createLocalPlaylistVideo(videoIds[i], streamInfos[i]);
                 }
                 return { message: "ok" };
@@ -503,7 +492,7 @@ const mixin = {
                 const videoIds = JSON.parse(playlist.videoIds);
                 videoIds.splice(index, 1);
                 playlist.videoIds = JSON.stringify(videoIds);
-                if (videoIds.length == 0) playlist.thumbnail = "https://pipedproxy.kavin.rocks/?host=i.ytimg.com";
+                if (videoIds.length == 0) playlist.thumbnail = import.meta.env.VITE_PIPED_PROXY + "/?host=i.ytimg.com";
                 this.createOrUpdateLocalPlaylist(playlist);
                 return { message: "ok" };
             }
@@ -535,7 +524,6 @@ const mixin = {
 
             const videoIds = content
                 .filter(item => item.type === "stream")
-                .filter(item => item.dearrow === undefined)
                 .map(item => item.url.substr(-11))
                 .sort();
 
@@ -549,6 +537,55 @@ const mixin = {
                     if (item) item.dearrow = json[videoId];
                 });
             });
+        },
+        async fetchSubscriptionStatus(channelId) {
+            if (!this.authenticated) {
+                return this.isSubscribedLocally(channelId);
+            }
+
+            const response = await this.fetchJson(
+                this.authApiUrl() + "/subscribed",
+                {
+                    channelId: channelId,
+                },
+                {
+                    headers: {
+                        Authorization: this.getAuthToken(),
+                    },
+                },
+            );
+
+            return response?.subscribed;
+        },
+        async toggleSubscriptionState(channelId, subscribed) {
+            if (!this.authenticated) return this.handleLocalSubscriptions(channelId);
+
+            const resp = await this.fetchJson(this.authApiUrl() + (subscribed ? "/unsubscribe" : "/subscribe"), null, {
+                method: "POST",
+                body: JSON.stringify({
+                    channelId: channelId,
+                }),
+                headers: {
+                    Authorization: this.getAuthToken(),
+                    "Content-Type": "application/json",
+                },
+            });
+
+            return !resp.error;
+        },
+        getCustomInstances() {
+            return JSON.parse(window.localStorage.getItem("customInstances")) ?? [];
+        },
+        addCustomInstance(instance) {
+            let customInstances = this.getCustomInstances();
+            customInstances.push(instance);
+            window.localStorage.setItem("customInstances", JSON.stringify(customInstances));
+        },
+        removeCustomInstance(instanceToDelete) {
+            let customInstances = this.getCustomInstances().filter(
+                instance => instance.api_url != instanceToDelete.api_url,
+            );
+            window.localStorage.setItem("customInstances", JSON.stringify(customInstances));
         },
     },
     computed: {
@@ -600,5 +637,4 @@ const app = createApp(App);
 app.use(i18n);
 app.use(router);
 app.mixin(mixin);
-app.component("FontAwesomeIcon", FontAwesomeIcon);
 app.mount("#app");

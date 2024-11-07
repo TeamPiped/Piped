@@ -1,42 +1,33 @@
 // Based of https://github.com/GilgusMaximus/yt-dash-manifest-generator/blob/master/src/DashGenerator.js
-
-import { Buffer } from "buffer";
-window.Buffer = Buffer;
-import { json2xml } from "xml-js";
+import { XMLBuilder } from "fast-xml-parser";
 
 export function generate_dash_file_from_formats(VideoFormats, VideoLength) {
     const generatedJSON = generate_xmljs_json_from_data(VideoFormats, VideoLength);
-    return json2xml(generatedJSON);
+    const builder = new XMLBuilder({
+        ignoreAttributes: false,
+        allowBooleanAttributes: true,
+        suppressBooleanAttributes: false,
+        attributeNamePrefix: "_",
+    });
+    return builder.build(generatedJSON);
 }
 
 function generate_xmljs_json_from_data(VideoFormatArray, VideoLength) {
     const convertJSON = {
-        declaration: {
-            attributes: {
-                version: "1.0",
-                encoding: "utf-8",
+        "?xml": {
+            _version: "1.0",
+            _encoding: "utf-8",
+            MPD: {
+                _xmlns: "urn:mpeg:dash:schema:mpd:2011",
+                _profiles: "urn:mpeg:dash:profile:full:2011",
+                _minBufferTime: "PT1.5S",
+                _type: "static",
+                _mediaPresentationDuration: `PT${VideoLength}S`,
+                Period: {
+                    AdaptationSet: generate_adaptation_set(VideoFormatArray),
+                },
             },
         },
-        elements: [
-            {
-                type: "element",
-                name: "MPD",
-                attributes: {
-                    xmlns: "urn:mpeg:dash:schema:mpd:2011",
-                    profiles: "urn:mpeg:dash:profile:full:2011",
-                    minBufferTime: "PT1.5S",
-                    type: "static",
-                    mediaPresentationDuration: `PT${VideoLength}S`,
-                },
-                elements: [
-                    {
-                        type: "element",
-                        name: "Period",
-                        elements: generate_adaptation_set(VideoFormatArray),
-                    },
-                ],
-            },
-        ],
     };
     return convertJSON;
 }
@@ -76,34 +67,27 @@ function generate_adaptation_set(VideoFormatArray) {
 
     mimeAudioObjs.forEach(mimeAudioObj => {
         const adapSet = {
-            type: "element",
-            name: "AdaptationSet",
-            attributes: {
-                id: mimeAudioObj.audioTrackId,
-                lang: mimeAudioObj.audioTrackId?.substr(0, 2),
-                mimeType: mimeAudioObj.mimeType,
-                startWithSAP: "1",
-                subsegmentAlignment: "true",
-            },
-            elements: [],
+            _id: mimeAudioObj.audioTrackId,
+            _lang: mimeAudioObj.audioTrackId?.substr(0, 2),
+            _mimeType: mimeAudioObj.mimeType,
+            _startWithSAP: "1",
+            _subsegmentAlignment: "true",
+            Representation: [],
         };
 
         let isVideoFormat = false;
 
         if (mimeAudioObj.mimeType.includes("video")) {
             isVideoFormat = true;
-        }
-
-        if (isVideoFormat) {
-            adapSet.attributes.scanType = "progressive";
+            adapSet["_scanType"] = "progressive";
         }
 
         for (var i = 0; i < mimeAudioObj.videoFormats.length; i++) {
             const videoFormat = mimeAudioObj.videoFormats[i];
             if (isVideoFormat) {
-                adapSet.elements.push(generate_representation_video(videoFormat));
+                adapSet.Representation.push(generate_representation_video(videoFormat));
             } else {
-                adapSet.elements.push(generate_representation_audio(videoFormat));
+                adapSet.Representation.push(generate_representation_audio(videoFormat));
             }
         }
 
@@ -114,94 +98,40 @@ function generate_adaptation_set(VideoFormatArray) {
 
 function generate_representation_audio(Format) {
     const representation = {
-        type: "element",
-        name: "Representation",
-        attributes: {
-            id: Format.itag,
-            codecs: Format.codec,
-            bandwidth: Format.bitrate,
+        _id: Format.itag,
+        _codecs: Format.codec,
+        _bandwidth: Format.bitrate,
+        AudioChannelConfiguration: {
+            _schemeIdUri: "urn:mpeg:dash:23003:3:audio_channel_configuration:2011",
+            _value: "2",
         },
-        elements: [
-            {
-                type: "element",
-                name: "AudioChannelConfiguration",
-                attributes: {
-                    schemeIdUri: "urn:mpeg:dash:23003:3:audio_channel_configuration:2011",
-                    value: "2",
-                },
+        BaseURL: Format.url,
+        SegmentBase: {
+            _indexRange: `${Format.indexStart}-${Format.indexEnd}`,
+            Initialization: {
+                _range: `${Format.initStart}-${Format.initEnd}`,
             },
-            {
-                type: "element",
-                name: "BaseURL",
-                elements: [
-                    {
-                        type: "text",
-                        text: Format.url,
-                    },
-                ],
-            },
-            {
-                type: "element",
-                name: "SegmentBase",
-                attributes: {
-                    indexRange: `${Format.indexStart}-${Format.indexEnd}`,
-                },
-                elements: [
-                    {
-                        type: "element",
-                        name: "Initialization",
-                        attributes: {
-                            range: `${Format.initStart}-${Format.initEnd}`,
-                        },
-                    },
-                ],
-            },
-        ],
+        },
     };
     return representation;
 }
 
 function generate_representation_video(Format) {
     const representation = {
-        type: "element",
-        name: "Representation",
-        attributes: {
-            id: Format.itag,
-            codecs: Format.codec,
-            bandwidth: Format.bitrate,
-            width: Format.width,
-            height: Format.height,
-            maxPlayoutRate: "1",
-            frameRate: Format.fps,
+        _id: Format.itag,
+        _codecs: Format.codec,
+        _bandwidth: Format.bitrate,
+        _width: Format.width,
+        _height: Format.height,
+        _maxPlayoutRate: "1",
+        _frameRate: Format.fps,
+        BaseURL: Format.url,
+        SegmentBase: {
+            _indexRange: `${Format.indexStart}-${Format.indexEnd}`,
+            Initialization: {
+                _range: `${Format.initStart}-${Format.initEnd}`,
+            },
         },
-        elements: [
-            {
-                type: "element",
-                name: "BaseURL",
-                elements: [
-                    {
-                        type: "text",
-                        text: Format.url,
-                    },
-                ],
-            },
-            {
-                type: "element",
-                name: "SegmentBase",
-                attributes: {
-                    indexRange: `${Format.indexStart}-${Format.indexEnd}`,
-                },
-                elements: [
-                    {
-                        type: "element",
-                        name: "Initialization",
-                        attributes: {
-                            range: `${Format.initStart}-${Format.initEnd}`,
-                        },
-                    },
-                ],
-            },
-        ],
     };
     return representation;
 }

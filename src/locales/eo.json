@@ -22,8 +22,8 @@
         "failed": "Fiaskis kun erarkodo {0}, vidu protokolojn por pli da informo"
     },
     "actions": {
-        "subscribe": "Aboni - {count}",
-        "unsubscribe": "Malaboni - {count}",
+        "subscribe": "Aboni",
+        "unsubscribe": "Malaboni",
         "view_subscriptions": "Vidi Abonojn",
         "sort_by": "Ordigi laŭ:",
         "most_recent": "Plej Freŝaj",

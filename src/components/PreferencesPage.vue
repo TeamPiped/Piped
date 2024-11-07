@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
         <button @click="$router.go(-1) || $router.push('/')">
-            <font-awesome-icon icon="chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
+            <i class="i-fa6-solid:chevron-left" /><span v-t="'actions.back'" class="ml-1.5" />
         </button>
     </div>
     <h1 v-t="'titles.preferences'" class="text-center font-bold" />
@@ -68,6 +68,10 @@
     <label class="pref" for="chkAudioOnly">
         <strong v-t="'actions.audio_only'" />
         <input id="chkAudioOnly" v-model="listen" class="checkbox" type="checkbox" @change="onChange($event)" />
+    </label>
+    <label class="pref" for="chkPreferHls">
+        <strong v-t="'actions.prefer_hls'" />
+        <input id="chkPreferHls" v-model="preferHls" class="checkbox" type="checkbox" @change="onChange($event)" />
     </label>
     <label class="pref" for="ddlDefaultQuality">
         <strong v-t="'actions.default_quality'" />
@@ -207,6 +211,16 @@
             @change="onChange($event)"
         />
     </label>
+    <label class="pref" for="txtPrefetchLimit">
+        <strong v-t="'actions.concurrent_prefetch_limit'" />
+        <input
+            id="txtPrefetchLimit"
+            v-model="prefetchLimit"
+            class="input w-24"
+            type="text"
+            @change="onChange($event)"
+        />
+    </label>
 
     <h2 class="text-center">SponsorBlock</h2>
     <p class="text-center">
@@ -263,6 +277,7 @@
     </label>
 
     <h2 v-t="'titles.instance'" class="text-center" />
+    <p v-t="'actions.instances_not_shown'" class="text-center" />
     <label class="pref" for="ddlInstanceSelection">
         <strong v-text="`${$t('actions.instance_selection')}:`" />
         <select id="ddlInstanceSelection" v-model="selectedInstance" class="select w-auto" @change="onChange($event)">
@@ -302,6 +317,10 @@
             </select>
         </label>
     </template>
+    <div class="pref">
+        <span v-t="'titles.custom_instances'" class="w-max" />
+        <button v-t="'actions.customize'" class="btn" @click="showCustomInstancesModal = true" />
+    </div>
     <br />
 
     <!-- options that are visible only when logged in -->
@@ -344,10 +363,11 @@
                 <th v-t="'preferences.registered_users'" />
                 <th v-t="'preferences.version'" class="lt-md:hidden" />
                 <th v-t="'preferences.up_to_date'" />
+                <th v-t="'preferences.uptime_30d'" />
                 <th v-t="'preferences.ssl_score'" />
             </tr>
         </thead>
-        <tbody v-for="instance in instances" :key="instance.name">
+        <tbody v-for="instance in publicInstances" :key="instance.name">
             <tr>
                 <td v-text="instance.name" />
                 <td v-text="instance.locations" />
@@ -355,6 +375,7 @@
                 <td v-text="instance.registered" />
                 <td class="lt-md:hidden" v-text="instance.version" />
                 <td v-text="`${instance.up_to_date ? '&#9989;' : '&#10060;'}`" />
+                <td v-text="`${Number.parseFloat(instance.uptime_30d.toFixed(2))}%`" />
                 <td>
                     <a v-t="'actions.view_ssl_score'" :href="sslScore(instance.api_url)" target="_blank" />
                 </td>
@@ -374,14 +395,23 @@
         @close="showConfirmResetPrefsDialog = false"
         @confirm="resetPreferences()"
     />
+    <CustomInstanceModal
+        v-if="showCustomInstancesModal"
+        @close="
+            showCustomInstancesModal = false;
+            fetchInstances();
+        "
+    />
 </template>
 
 <script>
 import CountryMap from "@/utils/CountryMaps/en.json";
 import ConfirmModal from "./ConfirmModal.vue";
+import CustomInstanceModal from "./CustomInstanceModal.vue";
 export default {
     components: {
         ConfirmModal,
+        CustomInstanceModal,
     },
     data() {
         return {
@@ -389,7 +419,8 @@ export default {
             selectedInstance: null,
             authInstance: false,
             selectedAuthInstance: null,
-            instances: [],
+            customInstances: [],
+            publicInstances: [],
             sponsorBlock: true,
             skipOptions: new Map([
                 ["sponsor", { value: "auto", label: "actions.skip_sponsors" }],
@@ -411,13 +442,14 @@ export default {
             autoPlayNextCountdown: 5,
             listen: false,
             resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
+            preferHls: false,
             defaultQuality: 0,
             bufferingGoal: 10,
             countryMap: CountryMap,
             countrySelected: "US",
             defaultHomepage: "trending",
             minimizeComments: false,
-            minimizeDescription: false,
+            minimizeDescription: true,
             minimizeRecommendations: false,
             minimizeChapters: false,
             showWatchOnYouTube: false,
@@ -466,6 +498,7 @@ export default {
                 { code: "ro", name: "Română" },
                 { code: "ru", name: "Русский" },
                 { code: "si", name: "සිංහල" },
+                { code: "sl", name: "Slovenian" },
                 { code: "sr", name: "Српски" },
                 { code: "sv", name: "Svenska" },
                 { code: "ta", name: "தமிழ்" },
@@ -479,9 +512,16 @@ export default {
             enabledCodecs: ["vp9", "avc"],
             disableLBRY: false,
             proxyLBRY: false,
+            prefetchLimit: 2,
             password: null,
             showConfirmResetPrefsDialog: false,
+            showCustomInstancesModal: false,
         };
+    },
+    computed: {
+        instances() {
+            return [...this.publicInstances, ...this.customInstances];
+        },
     },
     activated() {
         document.title = this.$t("titles.preferences") + " - Piped";
@@ -490,19 +530,10 @@ export default {
         if (this.$route.query.deleted == this.getAuthToken()) this.logout();
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
 
-        this.fetchJson("https://piped-instances.kavin.rocks/").then(resp => {
-            this.instances = resp;
-            if (!this.instances.some(instance => instance.api_url == this.apiUrl()))
-                this.instances.push({
-                    name: "Custom Instance",
-                    api_url: this.apiUrl(),
-                    locations: "Unknown",
-                    cdn: false,
-                });
-        });
+        this.fetchInstances();
 
         if (this.testLocalStorage) {
-            this.selectedInstance = this.getPreferenceString("instance", "https://pipedapi.kavin.rocks");
+            this.selectedInstance = this.getPreferenceString("instance", import.meta.env.VITE_PIPED_API);
             this.authInstance = this.getPreferenceBoolean("authInstance", false);
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
 
@@ -537,7 +568,7 @@ export default {
             this.countrySelected = this.getPreferenceString("region", "US");
             this.defaultHomepage = this.getPreferenceString("homepage", "trending");
             this.minimizeComments = this.getPreferenceBoolean("minimizeComments", false);
-            this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", false);
+            this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", true);
             this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
             this.minimizeChapters = this.getPreferenceBoolean("minimizeChapters", false);
             this.showWatchOnYouTube = this.getPreferenceBoolean("showWatchOnYouTube", false);
@@ -548,6 +579,7 @@ export default {
             this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
             this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
             this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
+            this.prefetchLimit = this.getPreferenceNumber("prefetchLimit", 2);
             this.hideWatched = this.getPreferenceBoolean("hideWatched", false);
             this.mobileChapterLayout = this.getPreferenceString("mobileChapterLayout", "Vertical");
             if (this.selectedLanguage != "en") {
@@ -593,6 +625,7 @@ export default {
                 localStorage.setItem("autoDisplayCaptions", this.autoDisplayCaptions);
                 localStorage.setItem("autoPlayNextCountdown", this.autoPlayNextCountdown);
                 localStorage.setItem("listen", this.listen);
+                localStorage.setItem("preferHls", this.preferHls);
                 localStorage.setItem("quality", this.defaultQuality);
                 localStorage.setItem("bufferGoal", this.bufferingGoal);
                 localStorage.setItem("region", this.countrySelected);
@@ -610,11 +643,27 @@ export default {
                 localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
                 localStorage.setItem("disableLBRY", this.disableLBRY);
                 localStorage.setItem("proxyLBRY", this.proxyLBRY);
+                localStorage.setItem("prefetchLimit", this.prefetchLimit);
                 localStorage.setItem("hideWatched", this.hideWatched);
                 localStorage.setItem("mobileChapterLayout", this.mobileChapterLayout);
 
                 if (shouldReload) window.location.reload();
             }
+        },
+        async fetchInstances() {
+            this.customInstances = this.getCustomInstances();
+
+            this.fetchJson(import.meta.env.VITE_PIPED_INSTANCES).then(resp => {
+                this.publicInstances = resp;
+                if (!this.publicInstances.some(instance => instance.api_url == this.apiUrl()))
+                    this.publicInstances.push({
+                        name: "Selected Instance",
+                        api_url: this.apiUrl(),
+                        locations: "Unknown",
+                        cdn: false,
+                        uptime_30d: 100,
+                    });
+            });
         },
         sslScore(url) {
             return "https://www.ssllabs.com/ssltest/analyze.html?d=" + new URL(url).host + "&latest";
@@ -639,14 +688,14 @@ export default {
             // reset the auth token
             localStorage.removeItem("authToken" + this.hashCode(this.authApiUrl()));
             // redirect to trending page
-            window.location = "/";
+            window.location = import.meta.env.BASE_URL;
         },
         resetPreferences() {
             this.showConfirmResetPrefsDialog = false;
             // clear the local storage
             localStorage.clear();
             // redirect to the home page
-            window.location = "/";
+            window.location = import.meta.env.BASE_URL;
         },
         async invalidateSession() {
             this.fetchJson(this.authApiUrl() + "/logout", null, {

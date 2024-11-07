@@ -15,7 +15,7 @@
         "delete_playlist_confirm": "Ștergeți acest playlist?",
         "please_select_playlist": "Vă rugăm să alegeți un playlist",
         "minimize_recommendations_default": "Minimizați recomandările în mod implicit",
-        "subscribe": "Abonare - {count}",
+        "subscribe": "Abonare",
         "least_recent": "Cele mai vechi",
         "channel_name_asc": "Numele canalului (A-Z)",
         "channel_name_desc": "Nume canalului (Z-A)",
@@ -27,12 +27,12 @@
         "skip_self_promo": "Omitere promoție neplătită/autopromovare",
         "skip_non_music": "Omitere muzică: Secțiune non-muzicală",
         "skip_highlight": "Omitere evidențiere",
-        "show_markers": "Se afișează marcatori în player",
+        "show_markers": "Se afișează marcatori în bara de progres",
         "dark": "Întunecat",
         "auto": "Auto",
         "audio_only": "Doar audio",
         "default_quality": "Calitate implicită",
-        "country_selection": "Țară",
+        "country_selection": "Țară/Regiune",
         "default_homepage": "Pagina principală implicită",
         "minimize_comments_default": "Minimizați comentariile în mod implicit",
         "minimize_description_default": "Minimizați descrierea în mod implicit",
@@ -46,7 +46,7 @@
         "enable_lbry_proxy": "Activați proxy pentru LBRY",
         "view_ssl_score": "Vedeți scorul SSL",
         "filter": "Filtru",
-        "loading": "Se încarcă...",
+        "loading": "Se încarcă…",
         "clear_history": "Ștergeți istoricul",
         "hide_replies": "Ascundeți răspunsurile",
         "load_more_replies": "Mai multe răspunsuri",
@@ -73,7 +73,7 @@
         "different_auth_instance": "Folosiți o instanță diferită pentru autentificare",
         "clone_playlist": "Clonați lista de redare",
         "backup_preferences": "Faceți backup la preferințe",
-        "unsubscribe": "Dezabonare - {count}",
+        "unsubscribe": "Dezabonare",
         "view_subscriptions": "Vedeți abonamentele",
         "sort_by": "Sortare după:",
         "download_as_txt": "Descărcați ca .txt",
@@ -93,7 +93,7 @@
         "show_more": "Mai mult",
         "no": "Nu",
         "export_to_json": "Exportați ca JSON",
-        "import_from_json": "Importați din JSON/CSV",
+        "import_from_json": "Importați din JSON",
         "auto_play_next_video": "Redați automat următorul video",
         "minimize_recommendations": "Minimizați recomandările",
         "yes": "Da",
@@ -121,7 +121,23 @@
         "chapters_layout_mobile": "Mod afișare capitole pe mobil",
         "show_search_suggestions": "Afișare sugestii căutare",
         "enable_dearrow": "Activați DeArrow",
-        "delete_automatically": "Șterge automat după"
+        "delete_automatically": "Șterge automat după",
+        "add_to_group": "Adăugați la grup",
+        "import_from_json_csv": "Importați din JSON/CSV",
+        "concurrent_prefetch_limit": "Limită de preluare anticipată a fluxului simultan",
+        "download_frame": "Descarcă cadrul",
+        "generate_qrcode": "Generează un cod QR",
+        "instance_privacy_policy": "Politica de confidențialitate",
+        "instances_not_shown": "Instanțele publice care nu sunt afișate aici nu sunt disponibile în prezent.",
+        "customize": "Customizează",
+        "invalid_url": "URL nevalid!",
+        "add": "Adăugați",
+        "delete_group_confirm": "Să șterg acest grup?",
+        "invalid_input": "Intrare invalidă",
+        "prefer_hls": "Prefer HLS în loc de DASH",
+        "creator_replied": "Creator a răspuns",
+        "creator_liked": "Creatorul a apreciat",
+        "playback_speed": "Viteză de redare"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -130,13 +146,15 @@
         "instance_name": "Nume instanță",
         "instance_locations": "Locațiile instanței",
         "has_cdn": "Are CDN?",
-        "registered_users": "Utilizatori înregistrați"
+        "registered_users": "Utilizatori înregistrați",
+        "uptime_30d": "Timp de funcționare (30 zile)",
+        "api_url": "URL-ul API"
     },
     "comment": {
         "user_disabled": "Comentariile sunt dezactivate în setări.",
         "pinned_by": "Fixat de {author}",
         "disabled": "Comentariile sunt dezactivate de către autor.",
-        "loading": "Se încarcă comentariile..."
+        "loading": "Se încarcă comentariile…"
     },
     "video": {
         "views": "{views} vizionări",
@@ -150,11 +168,15 @@
         "category": "Categorie",
         "all": "Tot",
         "chapters_horizontal": "Orizontal",
-        "chapters_vertical": "Vertical"
+        "chapters_vertical": "Vertical",
+        "visibility": "Vizibilitate",
+        "license": "Licență"
     },
     "login": {
         "username": "Nume de utilizator",
-        "password": "Parolă"
+        "password": "Parolă",
+        "password_confirm": "Confirmați parola",
+        "passwords_incorrect": "Parolele nu se potrivesc!"
     },
     "search": {
         "videos": "YouTube: Videoclipuri",
@@ -176,7 +198,12 @@
         "register_no_email_note": "Utilizarea unui e-mail ca nume de utilizator nu este recomandată. Continuați oricum?",
         "local_storage": "Această acțiune necesită localStorage, sunt activate cookie-urile?",
         "next_video_countdown": "Redarea următorului videoclip în {0}s",
-        "days": "{amount} zi(le)"
+        "days": "{amount} zi(le)",
+        "hours": "{amount} oră(e)",
+        "login_note": "Conectați-vă cu un cont creat în această instanță.",
+        "months": "{amount} lună(luni)",
+        "weeks": "{amount} săptămână(e)",
+        "register_note": "Înregistrați un cont pentru această instanță Piped. Acest lucru vă va permite să vă sincronizați abonamentele și listele de redare cu contul dvs., astfel încât acestea să fie stocate pe partea serverului. Puteți utiliza toate funcțiile fără un cont, dar toate datele vor fi stocate în memoria cache locală a browserului dvs. Vă rugăm să vă asigurați că NU folosiți o adresă de e-mail ca nume de utilizator și alegeți o parolă sigură pe care nu o folosiți în altă parte."
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonat la: {0}"
@@ -197,9 +224,12 @@
         "player": "Player-ul",
         "bookmarks": "Marcaje",
         "channel_groups": "Grupuri de canale",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "custom_instances": "Instanțe customizate",
+        "albums": "Albume"
     },
     "player": {
-        "watch_on": "Vizionați pe {0}"
+        "watch_on": "Vezi pe {0}",
+        "failed": "A eșuat cu codul de eroare {0}. Consultați jurnalele pentru mai multe informații."
     }
 }

@@ -13,8 +13,8 @@
     },
     "actions": {
         "view_subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ കാണുക",
-        "unsubscribe": "സബ്സ്ക്രൈബ് ചെയ്യേണ്ട - {count}",
-        "subscribe": "സബ്സ്ക്രൈബ് ചെയ്യുക - {count}",
+        "unsubscribe": "സബ്സ്ക്രൈബ് ചെയ്യേണ്ട",
+        "subscribe": "സബ്സ്ക്രൈബ് ചെയ്യുക",
         "instances_list": "ഇൻസ്റ്റൻസുകളുടെ പട്ടിക",
         "minimize_description_default": "സ്ഥിരമായി വിവരണം ചെറുതാക്കുക",
         "skip_intro": "ഇടവേള/ആമുഖ ആനിമേഷൻ ഒഴിവാക്കുക",

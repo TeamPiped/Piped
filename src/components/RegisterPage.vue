@@ -1,5 +1,8 @@
 <template>
-    <h1 v-t="'titles.register'" class="my-4 text-center font-bold" />
+    <div class="flex justify-center">
+        <h1 v-t="'titles.register'" class="my-4 text-center font-bold" />
+        <i class="i-fa6-solid:circle-info ml-2 mt-6 cursor-pointer" :title="$t('info.register_note')" />
+    </div>
     <hr />
     <div class="flex flex-col items-center justify-center text-center">
         <form class="w-max items-center px-3 children:pb-3">
@@ -17,7 +20,7 @@
             <div class="flex justify-center">
                 <input
                     v-model="password"
-                    class="input w-full"
+                    class="input h-auto w-full"
                     :type="showPassword ? 'text' : 'password'"
                     autocomplete="password"
                     :placeholder="$t('login.password')"
@@ -31,7 +34,7 @@
             <div class="flex justify-center">
                 <input
                     v-model="passwordConfirm"
-                    class="input w-full"
+                    class="input h-auto w-full"
                     :type="showConfirmPassword ? 'text' : 'password'"
                     autocomplete="password"
                     :placeholder="$t('login.password_confirm')"
@@ -45,7 +48,6 @@
             <div>
                 <a v-t="'titles.register'" class="btn w-auto" @click="register" />
             </div>
-            <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.register_note')" />
         </form>
     </div>
     <ConfirmModal
@@ -63,10 +65,9 @@
 <script>
 import { isEmail } from "../utils/Misc.js";
 import ConfirmModal from "./ConfirmModal.vue";
-import TooltipIcon from "./TooltipIcon.vue";
 
 export default {
-    components: { ConfirmModal, TooltipIcon },
+    components: { ConfirmModal },
     data() {
         return {
             username: null,
@@ -81,7 +82,7 @@ export default {
     mounted() {
         //TODO: Add Server Side check
         if (this.getAuthToken()) {
-            this.$router.push("/");
+            this.$router.push(import.meta.env.BASE_URL);
         }
     },
     activated() {
@@ -107,7 +108,7 @@ export default {
             }).then(resp => {
                 if (resp.token) {
                     this.setPreference("authToken" + this.hashCode(this.authApiUrl()), resp.token);
-                    window.location = "/"; // done to bypass cache
+                    window.location = import.meta.env.BASE_URL; // done to bypass cache
                 } else alert(resp.error);
             });
         },

@@ -6,7 +6,7 @@
         "minimize_description_default": "Açıklamayı Öntanımlı Olarak Küçült",
         "show_comments": "Yorumları Göster",
         "default_homepage": "Öntanımlı Ana Sayfa",
-        "country_selection": "Ülke",
+        "country_selection": "Ülke/Bölge",
         "buffering_goal": "Arabelleğe Alma Hedefi (Saniye Cinsinden)",
         "default_quality": "Öntanımlı Kalite",
         "audio_only": "Yalnızca Ses",
@@ -31,8 +31,8 @@
         "most_recent": "En Yeni",
         "sort_by": "Sıralama ölçütü:",
         "view_subscriptions": "Abonelikleri Görüntüle",
-        "unsubscribe": "Abonelikten Çık - {count}",
-        "subscribe": "Abone Ol - {count}",
+        "unsubscribe": "Abonelikten Çık",
+        "subscribe": "Abone Ol",
         "enabled_codecs": "Etkin Çözücüler (Birden Çok)",
         "enable_lbry_proxy": "LBRY için Vekil Sunucuyu Etkinleştir",
         "disable_lbry": "Akış için LBRY'yi Devre Dışı Bırak",
@@ -47,7 +47,7 @@
         "yes": "Evet",
         "show_more": "Daha Fazla Göster",
         "instance_selection": "Sunucu",
-        "loading": "Yükleniyor...",
+        "loading": "Yükleniyor…",
         "filter": "Filtrele",
         "search": "Ara (Ctrl+K)",
         "view_ssl_score": "SSL Puanını Görüntüle",
@@ -126,11 +126,22 @@
         "import_from_json_csv": "JSON/CSV Dosyasından İçe Aktar",
         "download_frame": "Kareyi indir",
         "instance_privacy_policy": "Gizlilik Politikası",
-        "add_to_group": "Gruba ekle"
+        "add_to_group": "Gruba ekle",
+        "instances_not_shown": "Burada gösterilmeyen herkese açık sunucular şu anda kullanılamıyor.",
+        "concurrent_prefetch_limit": "Eşzamanlı Akış Ön Getirme Sınırı",
+        "invalid_url": "Geçersiz URL!",
+        "customize": "Özelleştir",
+        "add": "Ekle",
+        "delete_group_confirm": "Bu grup silinsin mi?",
+        "creator_replied": "Oluşturan yanıtladı",
+        "creator_liked": "Oluşturan beğendi",
+        "playback_speed": "Oynatma hızı",
+        "invalid_input": "Geçersiz giriş",
+        "prefer_hls": "DASH yerine HLS tercih et"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
-        "failed": "{0} hata kodu ile başarısız oldu, daha fazla bilgi için günlüklere bakın"
+        "failed": "{0} hata kodu ile başarısız oldu. Daha fazla bilgi için günlüklere bakın."
     },
     "titles": {
         "history": "Geçmiş",
@@ -148,7 +159,9 @@
         "channels": "Kanallar",
         "bookmarks": "Yer İmleri",
         "channel_groups": "Kanal grupları",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albümler",
+        "custom_instances": "Özel sunucular"
     },
     "video": {
         "sponsor_segments": "Sponsorlar Bölümleri",
@@ -173,11 +186,13 @@
         "instance_name": "Sunucu Adı",
         "registered_users": "Kayıtlı Kullanıcılar",
         "version": "Sürüm",
-        "up_to_date": "Güncel Mi?"
+        "up_to_date": "Güncel Mi?",
+        "uptime_30d": "Çalışma Süresi (30g)",
+        "api_url": "API URL'si"
     },
     "comment": {
         "pinned_by": "Şunun Tarafından Sabitlendi {author}",
-        "loading": "Yorumlar yükleniyor...",
+        "loading": "Yorumlar yükleniyor…",
         "user_disabled": "Yorumlar ayarlarda devre dışı bırakıldı.",
         "disabled": "Yorumlar yükleyen tarafından devre dışı bırakıldı."
     },

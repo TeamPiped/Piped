@@ -10,11 +10,11 @@
         "passwords_incorrect": "Паролі не збігаються!"
     },
     "actions": {
-        "unsubscribe": "Відписатися - {count}",
+        "unsubscribe": "Відписатися",
         "back": "Назад",
         "skip_intro": "Пропускати паузу/заставку",
         "dark": "Темна",
-        "view_subscriptions": "Переглянути Підписки",
+        "view_subscriptions": "Оглянути Підписки",
         "channel_name_asc": "Назвою каналу (А-Я)",
         "uses_api_from": "Використовує API від ",
         "enable_sponsorblock": "Увімкнути Sponsorblock",
@@ -37,7 +37,7 @@
         "search": "Пошук (Ctrl+K)",
         "clear_history": "Очистити історію перегляду",
         "load_more_replies": "Завантажити більше відповідей",
-        "subscribe": "Підписатися - {count}",
+        "subscribe": "Підписатися",
         "sort_by": "Сортувати за:",
         "most_recent": "Найновішими",
         "channel_name_desc": "Назвою каналу (Я-А)",
@@ -53,7 +53,7 @@
         "instances_list": "Список екземплярів",
         "enabled_codecs": "Увімкнені кодеки (можна вибрати декілька)",
         "default_quality": "Якість за замовчуванням",
-        "country_selection": "Країна",
+        "country_selection": "Країна/Регіон",
         "minimize_description_default": "Не розгортати опис за замовчуванням",
         "yes": "Так",
         "import_from_json": "Імпортувати з JSON",
@@ -66,7 +66,7 @@
         "view_ssl_score": "Переглянути оцінку SSL",
         "loading": "Завантаження...",
         "hide_replies": "Сховати відповіді",
-        "skip_highlight": "Пропускати основне",
+        "skip_highlight": "Перейти до суті відео",
         "remove_from_playlist": "Видалити зі списку відтворення",
         "add_to_playlist": "Додати до списку відтворення",
         "create_playlist": "Створити список відтворення",
@@ -80,7 +80,7 @@
         "show_markers": "Показувати маркери на програвачі",
         "minimize_recommendations_default": "Згортати рекомендації за замовчуванням",
         "logout": "Вийти з цього пристрою",
-        "backup_preferences": "Налаштування резервного копіювання",
+        "backup_preferences": "Резервне копіювання налаштувань",
         "download_as_txt": "Завантажити як .txt",
         "show_chapters": "Розділи",
         "invalidate_session": "Вийти з усіх пристроїв",
@@ -136,10 +136,21 @@
         "import_from_json_csv": "Імпортувати з JSON/CSV",
         "download_frame": "Завантажити кадр",
         "instance_privacy_policy": "Політика конфіденційності",
-        "add_to_group": "Додати до групи"
+        "add_to_group": "Додати до групи",
+        "instances_not_shown": "Публічні екземпляри, які не показані тут, наразі недоступні.",
+        "concurrent_prefetch_limit": "Обмеження одночасної передвибірки потоків",
+        "customize": "Налаштувати",
+        "invalid_url": "Неправильна URL-адреса!",
+        "add": "Додати",
+        "delete_group_confirm": "Видалити цю групу?",
+        "creator_replied": "Автор відповів",
+        "creator_liked": "Автор уподобав(-ла)",
+        "invalid_input": "Неналежний ввід",
+        "playback_speed": "Швидкість відтворення",
+        "prefer_hls": "Надавати перевагу HLS над DASH"
     },
     "titles": {
-        "register": "Зареєструватися",
+        "register": "Реєстрація",
         "feed": "Підписки",
         "preferences": "Налаштування",
         "history": "Історія перегляду",
@@ -154,7 +165,9 @@
         "channels": "Канали",
         "bookmarks": "Закладки",
         "channel_groups": "Групи каналів",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Альбоми",
+        "custom_instances": "Власні екземпляри"
     },
     "comment": {
         "pinned_by": "Прикріплено користувачем {author}",
@@ -169,7 +182,9 @@
         "has_cdn": "Використовує CDN?",
         "version": "Версія",
         "up_to_date": "Версія актуальна?",
-        "registered_users": "Зареєстровано користувачей"
+        "registered_users": "Зареєстровано користувачів",
+        "uptime_30d": "Час роботи (30d)",
+        "api_url": "API URL-адреса"
     },
     "video": {
         "videos": "Відео",
@@ -204,9 +219,9 @@
     },
     "info": {
         "copied": "Скопійовано!",
-        "cannot_copy": "Не вийшло скопіювати!",
-        "page_not_found": "Сторінка не знайдена",
-        "preferences_note": "Примітка: налаштування зберігаються в локальній пам'яті вашого браузера. Видалення даних браузера призведе до їх скидання.",
+        "cannot_copy": "Не вдало сь скопіювати!",
+        "page_not_found": "Сторінку не знайдено",
+        "preferences_note": "Примітка: налаштування зберігаються в локальній пам'яті вашого браузера. Видалення даних браузера призведе до скидання налаштувань.",
         "local_storage": "Ця дія потребує localStorage, чи ввімкнуті файли cookie?",
         "register_no_email_note": "Використання електронної пошти як імені користувача не рекомендується. Все одно продовжити?",
         "next_video_countdown": "Наступне відео через {0} секунд",

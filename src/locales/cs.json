@@ -15,11 +15,13 @@
         "channels": "Kanály",
         "bookmarks": "Záložky",
         "channel_groups": "Skupiny kanálů",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Alba",
+        "custom_instances": "Vlastní instance"
     },
     "actions": {
         "loop_this_video": "Přehrávat video ve smyčce",
-        "subscribe": "Odebírat - {count}",
+        "subscribe": "Odebírat",
         "view_subscriptions": "Zobrazit odběry",
         "sort_by": "Seřadit podle:",
         "most_recent": "Nejnovější",
@@ -38,7 +40,7 @@
         "audio_only": "Pouze zvuk",
         "default_quality": "Výchozí kvalita",
         "buffering_goal": "Ukládání do vyrovnávací paměti (v sekundách)",
-        "country_selection": "Země",
+        "country_selection": "Země/oblast",
         "default_homepage": "Výchozí domovská stránka",
         "show_comments": "Zobrazit komentáře",
         "minimize_description_default": "Automaticky minimalizovat popis",
@@ -64,11 +66,11 @@
         "view_ssl_score": "Zobrazit stav SSL",
         "search": "Vyhledávání (Ctrl+K)",
         "filter": "Filtr",
-        "loading": "Načítání...",
+        "loading": "Načítání…",
         "clear_history": "Smazat historii",
         "hide_replies": "Skrýt odpovědi",
         "load_more_replies": "Načíst další odpovědi",
-        "unsubscribe": "Zrušit odběr - {count}",
+        "unsubscribe": "Zrušit odběr",
         "skip_sponsors": "Přeskočit sponzory",
         "minimize_description": "Skrýt popis",
         "skip_non_music": "Přeskočit hudbu: nehudební sekce",
@@ -84,7 +86,7 @@
         "delete_playlist": "Odstranit playlist",
         "select_playlist": "Vyberte playlist",
         "delete_playlist_video_confirm": "Odebrat video z playlistu?",
-        "show_markers": "Zobrazit značky na přehrávači",
+        "show_markers": "Zobrazit značky v liště přehrávače",
         "delete_account": "Odstranit účet",
         "logout": "Odhlásit se z tohoto zařízení",
         "minimize_recommendations_default": "Ve výchozím nastavení minimalizovat doporučení",
@@ -130,12 +132,12 @@
         "dismiss": "Zavřít",
         "group_name": "Název skupiny",
         "create_group": "Vytvořit skupinu",
-        "auto_display_captions": "Automatické zobrazení titulků",
+        "auto_display_captions": "Automaticky zobrazit titulky",
         "playlist_name": "Název playlistu",
         "cancel": "Zrušit",
         "edit_playlist": "Upravit playlist",
         "playlist_description": "Popis playlistu",
-        "okay": "Okay",
+        "okay": "Dobře",
         "show_search_suggestions": "Zobrazit našeptávání ve vyhledávání",
         "chapters_layout_mobile": "Rozložení kapitol na mobilu",
         "enable_dearrow": "Povolit DeArrow",
@@ -143,15 +145,27 @@
         "generate_qrcode": "Vygenerovat QR kód",
         "import_from_json_csv": "Importovat z JSON/CSV",
         "download_frame": "Stáhnout snímek",
-        "instance_privacy_policy": "Ochrana údajů"
+        "instance_privacy_policy": "Ochrana údajů",
+        "add_to_group": "Přidat do skupiny",
+        "instances_not_shown": "Veřejné instance, které zde nejsou zobrazeny, momentálně nejsou dostupné.",
+        "concurrent_prefetch_limit": "Limit souběžných přednačtení streamů",
+        "customize": "Přizpůsobit",
+        "invalid_url": "Neplatná adresa URL!",
+        "add": "Přidat",
+        "delete_group_confirm": "Odstranit tuto skupinu?",
+        "creator_replied": "Odpověď autora",
+        "creator_liked": "Autorovi se líbilo",
+        "playback_speed": "Rychlost přehrávání",
+        "invalid_input": "Neplatné údaje",
+        "prefer_hls": "Preferovat HLS před DASH"
     },
     "player": {
         "watch_on": "Zobrazit na {0}",
-        "failed": "Akce se nezdařila. Chybový kód {0}, pro více informací viz protokol"
+        "failed": "Akce selhala s chybovým kódem {0}. Více informací naleznete v protokolu."
     },
     "comment": {
         "pinned_by": "Připnuto uživatelem {author}",
-        "loading": "Načítání komentářů...",
+        "loading": "Načítání komentářů…",
         "disabled": "Komentáře jsou zakázány autorem videa.",
         "user_disabled": "Komentáře jsou zakázány v nastavení."
     },
@@ -162,7 +176,9 @@
         "ssl_score": "Stav SSL",
         "registered_users": "Registrovaní uživatelé",
         "up_to_date": "Aktuální?",
-        "version": "Verze"
+        "version": "Verze",
+        "uptime_30d": "Doba online (30d)",
+        "api_url": "URL API"
     },
     "login": {
         "username": "Uživatelské jméno",
@@ -215,6 +231,8 @@
         "hours": "{amount} hodin",
         "days": "{amount} dnů",
         "weeks": "{amount} týdnů",
-        "months": "{amount} měsíců"
+        "months": "{amount} měsíců",
+        "login_note": "Přihlaste se s účtem vytvořeným na této instanci.",
+        "register_note": "Zaregistrujte si účet na této instanci služby Piped. To vám umožní synchronizovat vaše odběry a seznamy skladeb s vaším účtem, takže budou uloženy na straně serveru. Všechny funkce můžete používat i bez účtu, ale všechna data budou uložena v místní mezipaměti prohlížeče. Ujistěte se, že jako uživatelské jméno NEPOUŽÍVÁTE e-mailovou adresu, a zvolte si bezpečné heslo, které nepoužíváte jinde."
     }
 }

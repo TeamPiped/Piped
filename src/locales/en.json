@@ -13,17 +13,19 @@
         "player": "Player",
         "livestreams": "Livestreams",
         "channels": "Channels",
+        "albums": "Albums",
         "bookmarks": "Bookmarks",
         "channel_groups": "Channel groups",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "custom_instances": "Custom instances"
     },
     "player": {
         "watch_on": "View on {0}",
-        "failed": "Failed with error code {0}, see logs for more info"
+        "failed": "Failed with error code {0}. See logs for more info."
     },
     "actions": {
-        "subscribe": "Subscribe - {count}",
-        "unsubscribe": "Unsubscribe - {count}",
+        "subscribe": "Subscribe",
+        "unsubscribe": "Unsubscribe",
         "view_subscriptions": "View Subscriptions",
         "sort_by": "Sort by:",
         "most_recent": "Most Recent",
@@ -32,6 +34,7 @@
         "channel_name_desc": "Channel Name (Z-A)",
         "back": "Back",
         "uses_api_from": "Uses the API from ",
+        "instances_not_shown": "Public instances that are not shown here are currently unavailable.",
         "enable_sponsorblock": "Enable Sponsorblock",
         "skip_button_only": "Show skip button",
         "skip_automatically": "Automatically",
@@ -44,7 +47,7 @@
         "skip_non_music": "Skip Music: Non-Music Section",
         "skip_highlight": "Skip Highlight",
         "skip_filler_tangent": "Skip Filler Tangent",
-        "show_markers": "Show Markers on Player",
+        "show_markers": "Show markers in progress bar",
         "min_segment_length": "Minimum Segment Length (in seconds)",
         "skip_segment": "Skip Segment",
         "enable_dearrow": "Enable DeArrow",
@@ -57,7 +60,7 @@
         "audio_only": "Audio Only",
         "default_quality": "Default Quality",
         "buffering_goal": "Buffering Goal (in seconds)",
-        "country_selection": "Country",
+        "country_selection": "Country/Region",
         "default_homepage": "Default Homepage",
         "minimize_comments_default": "Minimize Comments by default",
         "minimize_description_default": "Minimize Description by default",
@@ -73,8 +76,8 @@
         "import_from_json": "Import from JSON",
         "import_from_json_csv": "Import from JSON/CSV",
         "loop_this_video": "Loop this Video",
-        "auto_play_next_video": "Auto Play next Video",
-        "auto_display_captions": "Auto Display Captions",
+        "auto_play_next_video": "Autoplay next Video",
+        "auto_display_captions": "Auto-display Captions",
         "donations": "Development donations",
         "minimize_comments": "Minimize Comments",
         "show_comments": "Show Comments",
@@ -87,7 +90,7 @@
         "view_ssl_score": "View SSL Score",
         "search": "Search (Ctrl+K)",
         "filter": "Filter",
-        "loading": "Loading...",
+        "loading": "Loading…",
         "clear_history": "Clear History",
         "hide_replies": "Hide Replies",
         "load_more_replies": "Load more Replies",
@@ -98,9 +101,10 @@
         "delete_playlist": "Delete Playlist",
         "select_playlist": "Select a Playlist",
         "delete_playlist_confirm": "Delete this playlist?",
+        "delete_group_confirm": "Delete this group?",
         "please_select_playlist": "Please select a playlist",
         "delete_account": "Delete Account",
-        "logout": "Logout from this device",
+        "logout": "Log out from this device",
         "minimize_recommendations_default": "Minimize Recommendations by default",
         "minimize_chapters_default": "Minimize Chapters by default",
         "chapters_layout_mobile": "Chapters Layout On Mobile",
@@ -148,12 +152,21 @@
         "delete_automatically": "Delete automatically after",
         "generate_qrcode": "Generate QR Code",
         "download_frame": "Download frame",
-        "add_to_group": "Add to group"
+        "add_to_group": "Add to group",
+        "concurrent_prefetch_limit": "Concurrent Stream Prefetch Limit",
+        "customize": "Customize",
+        "invalid_url": "Invalid URL!",
+        "add": "Add",
+        "creator_replied": "Creator replied",
+        "creator_liked": "Creator liked",
+        "playback_speed": "Playback speed",
+        "invalid_input": "Invalid input",
+        "prefer_hls": "Prefer HLS over DASH"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
         "disabled": "Comments are disabled by the uploader.",
-        "loading": "Loading comments...",
+        "loading": "Loading comments…",
         "user_disabled": "Comments are disabled in the settings."
     },
     "preferences": {
@@ -163,7 +176,9 @@
         "registered_users": "Registered Users",
         "version": "Version",
         "up_to_date": "Up to date?",
-        "ssl_score": "SSL Score"
+        "ssl_score": "SSL Score",
+        "uptime_30d": "Uptime (30d)",
+        "api_url": "API URL"
     },
     "login": {
         "username": "Username",

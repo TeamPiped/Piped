@@ -24,5 +24,19 @@ export default {
         },
     },
     emits: ["close", "confirm"],
+    mounted() {
+        window.addEventListener("keydown", this.handleKeyDown);
+    },
+    unmounted() {
+        window.removeEventListener("keydown", this.handleKeyDown);
+    },
+    methods: {
+        handleKeyDown(event) {
+            if (event.code === "Enter") {
+                this.$emit("confirm");
+                event.preventDefault();
+            }
+        },
+    },
 };
 </script>

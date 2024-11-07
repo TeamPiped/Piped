@@ -12,7 +12,16 @@
             class="absolute bottom-0 z-[2000] mb-[3.5%] hidden flex-col items-center"
         >
             <canvas id="preview" ref="preview" class="rounded-sm" />
-            <span class="mt-2 w-min rounded-xl bg-dark-700 px-2 pb-1 pt-1.5 text-sm" v-text="timeFormat(currentTime)" />
+            <span
+                v-if="video.chapters.length > 1"
+                class="mt-2 text-sm drop-shadow-[0_0_2px_white] -mb-2 .dark:drop-shadow-[0_0_2px_black]"
+            >
+                {{ video.chapters.findLast(chapter => chapter.start < currentTime)?.title }}
+            </span>
+            <span
+                class="mt-2 w-min rounded-xl bg-white px-2 pb-1 pt-1.5 text-sm .dark:bg-dark-700"
+                v-text="timeFormat(currentTime)"
+            />
         </span>
         <button
             v-if="inSegment"
@@ -30,21 +39,48 @@
             v-t="{ path: 'player.failed', args: [error] }"
             class="absolute top-8 rounded bg-black/80 p-2 text-lg backdrop-blur-sm"
         />
+        <div
+            v-if="showCurrentSpeed"
+            class="text-l absolute left-1/2 top-1/2 flex flex-col transform items-center gap-6 rounded-8 bg-white/80 px-8 py-4 -translate-x-1/2 -translate-y-1/2 .dark:bg-dark-700/80"
+        >
+            <i class="i-fa6-solid:gauge-high h-25 w-25 p-5" />
+            <span v-text="$refs.videoEl.playbackRate" />
+        </div>
+        <div
+            v-if="showCurrentVolume"
+            class="text-l absolute left-1/2 top-1/2 flex flex-col transform items-center gap-6 rounded-8 bg-white/80 px-8 py-4 -translate-x-1/2 -translate-y-1/2 .dark:bg-dark-700/80"
+        >
+            <i v-if="$refs.videoEl.volume > 0" class="i-fa6-solid:volume-high h-25 w-25 p-5" />
+            <i v-else class="i-fa6-solid:volume-xmark h-25 w-25 p-5" />
+            <span v-text="Math.round($refs.videoEl.volume * 100) / 100" />
+        </div>
     </div>
+
+    <ModalComponent v-if="showSpeedModal" @close="showSpeedModal = false">
+        <h2 v-t="'actions.playback_speed'" />
+        <div class="flex flex-col">
+            <input
+                v-model="playbackSpeedInput"
+                class="input my-3"
+                type="text"
+                :placeholder="$t('actions.playback_speed')"
+                @keyup.enter="setSpeedFromInput()"
+            />
+            <button v-t="'actions.okay'" class="btn ml-auto w-min" @click="setSpeedFromInput()" />
+        </div>
+    </ModalComponent>
 </template>
 
 <script>
 import "shaka-player/dist/controls.css";
 import { parseTimeParam } from "@/utils/Misc";
+import ModalComponent from "./ModalComponent.vue";
+
 const shaka = import("shaka-player/dist/shaka-player.ui.js");
-if (!window.muxjs) {
-    import("mux.js").then(muxjs => {
-        window.muxjs = muxjs;
-    });
-}
 const hotkeys = import("hotkeys-js");
 
 export default {
+    components: { ModalComponent },
     props: {
         video: {
             type: Object,
@@ -70,6 +106,12 @@ export default {
             destroying: false,
             inSegment: false,
             isHoveringTimebar: false,
+            showSpeedModal: false,
+            showCurrentSpeed: false,
+            hideCurrentSpeed: null,
+            showCurrentVolume: false,
+            hideCurrentVolume: null,
+            playbackSpeedInput: null,
             currentTime: 0,
             seekbarPadding: 2,
             error: 0,
@@ -110,7 +152,7 @@ export default {
         this.hotkeysPromise.then(() => {
             var self = this;
             this.$hotkeys(
-                "f,m,j,k,l,c,space,up,down,left,right,0,1,2,3,4,5,6,7,8,9,shift+n,shift+,,shift+.,alt+p,return,.,,",
+                "f,m,j,k,l,c,space,up,down,left,right,ctrl+left,ctrl+right,home,end,0,1,2,3,4,5,6,7,8,9,shift+n,shift+s,shift+,,shift+.,alt+p,return,.,,",
                 function (e, handler) {
                     const videoEl = self.$refs.videoEl;
                     switch (handler.key) {
@@ -141,11 +183,11 @@ export default {
                             e.preventDefault();
                             break;
                         case "up":
-                            videoEl.volume = Math.min(videoEl.volume + 0.05, 1);
+                            self.adjustPlaybackVolume(videoEl.volume + 0.05);
                             e.preventDefault();
                             break;
                         case "down":
-                            videoEl.volume = Math.max(videoEl.volume - 0.05, 0);
+                            self.adjustPlaybackVolume(videoEl.volume - 0.05);
                             e.preventDefault();
                             break;
                         case "left":
@@ -154,6 +196,28 @@ export default {
                             break;
                         case "right":
                             videoEl.currentTime = videoEl.currentTime + 5;
+                            e.preventDefault();
+                            break;
+                        case "ctrl+left": {
+                            videoEl.currentTime = self.video.chapters.findLast(
+                                chapter => chapter.start < videoEl.currentTime,
+                            ).start;
+                            e.preventDefault();
+                            break;
+                        }
+                        case "ctrl+right": {
+                            videoEl.currentTime =
+                                self.video.chapters.find(chapter => chapter.start > videoEl.currentTime)?.start ||
+                                videoEl.duration;
+                            e.preventDefault();
+                            break;
+                        }
+                        case "home":
+                            videoEl.currentTime = 0;
+                            e.preventDefault();
+                            break;
+                        case "end":
+                            videoEl.currentTime = videoEl.duration;
                             e.preventDefault();
                             break;
                         case "0":
@@ -200,11 +264,14 @@ export default {
                             self.$emit("navigateNext");
                             e.preventDefault();
                             break;
+                        case "shift+s":
+                            self.showSpeedModal = true;
+                            break;
                         case "shift+,":
-                            self.$player.trickPlay(Math.max(videoEl.playbackRate - 0.25, 0.25));
+                            self.adjustPlaybackSpeed(videoEl.playbackRate - 0.25);
                             break;
                         case "shift+.":
-                            self.$player.trickPlay(Math.min(videoEl.playbackRate + 0.25, 2));
+                            self.adjustPlaybackSpeed(videoEl.playbackRate + 0.25);
                             break;
                         case "alt+p":
                             document.pictureInPictureElement
@@ -244,32 +311,6 @@ export default {
 
             videoEl.setAttribute("poster", this.video.thumbnailUrl);
 
-            const time = this.$route.query.t ?? this.$route.query.start;
-
-            if (time) {
-                videoEl.currentTime = parseTimeParam(time);
-                this.initialSeekComplete = true;
-            } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
-                var tx = window.db.transaction("watch_history", "readonly");
-                var store = tx.objectStore("watch_history");
-                var request = store.get(this.video.id);
-                request.onsuccess = function (event) {
-                    var video = event.target.result;
-                    const currentTime = video?.currentTime;
-                    if (currentTime) {
-                        if (currentTime < component.video.duration * 0.9) {
-                            videoEl.currentTime = currentTime;
-                        }
-                    }
-                };
-
-                tx.oncomplete = () => {
-                    this.initialSeekComplete = true;
-                };
-            } else {
-                this.initialSeekComplete = true;
-            }
-
             const noPrevPlayer = !this.$player;
 
             var streams = [];
@@ -287,7 +328,12 @@ export default {
             if (this.video.livestream) {
                 uri = this.video.hls;
                 mime = "application/x-mpegURL";
-            } else if (this.video.audioStreams.length > 0 && !lbry && MseSupport) {
+            } else if (
+                this.video.audioStreams.length > 0 &&
+                !lbry &&
+                MseSupport &&
+                !this.getPreferenceBoolean("preferHls", false)
+            ) {
                 if (!this.video.dash) {
                     const dash = (await import("../utils/DashUtils.js")).generate_dash_file_from_formats(
                         streams,
@@ -333,11 +379,12 @@ export default {
             }
 
             if (noPrevPlayer)
-                this.shakaPromise.then(() => {
+                this.shakaPromise.then(async () => {
                     if (this.destroying) return;
                     this.$shaka.polyfill.installAll();
 
-                    const localPlayer = new this.$shaka.Player(videoEl);
+                    const localPlayer = new this.$shaka.Player();
+                    await localPlayer.attach(videoEl);
                     const proxyURL = new URL(component.video.proxyUrl);
                     let proxyPath = proxyURL.pathname;
                     if (proxyPath.lastIndexOf("/") === proxyPath.length - 1) {
@@ -372,6 +419,7 @@ export default {
                         "streaming.bufferingGoal",
                         Math.max(this.getPreferenceNumber("bufferGoal", 10), 10),
                     );
+                    localPlayer.configure("streaming.bufferBehind", 300);
 
                     this.setPlayerAttrs(localPlayer, videoEl, uri, mime, this.$shaka);
                 });
@@ -408,7 +456,6 @@ export default {
                     this.$emit("ended");
                 });
             }
-
             //TODO: Add sponsors on seekbar: https://github.com/ajayyy/SponsorBlock/blob/e39de9fd852adb9196e0358ed827ad38d9933e29/src/js-components/previewBar.ts#L12
         },
         findCurrentSegment(time) {
@@ -426,7 +473,7 @@ export default {
             videoEl.currentTime = segment.segment[1];
             segment.skipped = true;
         },
-        setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
+        async setPlayerAttrs(localPlayer, videoEl, uri, mime, shaka) {
             const url = "/watch?v=" + this.video.id;
 
             if (!this.$ui) {
@@ -503,6 +550,8 @@ export default {
 
             const disableVideo = this.getPreferenceBoolean("listen", false) && !this.video.livestream;
 
+            const prefetchLimit = Math.min(Math.max(this.getPreferenceNumber("prefetchLimit", 2), 0), 10);
+
             this.$player.configure({
                 preferredVideoCodecs: this.preferredVideoCodecs,
                 preferredAudioCodecs: ["opus", "mp4a"],
@@ -510,7 +559,12 @@ export default {
                     disableVideo: disableVideo,
                 },
                 streaming: {
-                    segmentPrefetchLimit: 10,
+                    segmentPrefetchLimit: prefetchLimit,
+                    retryParameters: {
+                        maxAttempts: Infinity,
+                        baseDelay: 250,
+                        backoffFactor: 1.5,
+                    },
                 },
             });
 
@@ -519,8 +573,39 @@ export default {
                 quality > 0 && (this.video.audioStreams.length > 0 || this.video.livestream) && !disableVideo;
             if (qualityConds) this.$player.configure("abr.enabled", false);
 
+            const time = this.$route.query.t ?? this.$route.query.start;
+
+            var startTime = 0;
+
+            if (time) {
+                startTime = parseTimeParam(time);
+                this.initialSeekComplete = true;
+            } else if (window.db && this.getPreferenceBoolean("watchHistory", false)) {
+                await new Promise(resolve => {
+                    var tx = window.db.transaction("watch_history", "readonly");
+                    var store = tx.objectStore("watch_history");
+                    var request = store.get(this.video.id);
+                    request.onsuccess = function (event) {
+                        var video = event.target.result;
+                        const currentTime = video?.currentTime;
+                        if (currentTime) {
+                            if (currentTime < video.duration * 0.9) {
+                                startTime = currentTime;
+                            }
+                        }
+                        resolve();
+                    };
+
+                    tx.oncomplete = () => {
+                        this.initialSeekComplete = true;
+                    };
+                });
+            } else {
+                this.initialSeekComplete = true;
+            }
+
             player
-                .load(uri, 0, mime)
+                .load(uri, startTime, mime)
                 .then(() => {
                     const isSafari = window.navigator?.vendor?.includes("Apple");
 
@@ -579,7 +664,7 @@ export default {
                                 }
                             });
 
-                        player.selectVariantTrack(bestStream);
+                        player.selectVariantTrack(bestStream, true);
                     }
 
                     this.video.subtitles.map(subtitle => {
@@ -618,6 +703,24 @@ export default {
             // expand the player to fullscreen when the fullscreen query equals true
             if (this.$route.query.fullscreen === "true" && !this.$ui.getControls().isFullScreenEnabled())
                 this.$ui.getControls().toggleFullScreen();
+
+            const seekbar = this.$refs.container.querySelector(".shaka-seek-bar");
+            const array = ["to right"];
+            for (const chapter of this.video.chapters) {
+                const start = (chapter.start / this.video.duration) * 100;
+                if (start === 0) {
+                    continue;
+                }
+                array.push(`transparent ${start}%`);
+                array.push(`black ${start}%`);
+                array.push(`black calc(${start}% + 1px)`);
+                array.push(`transparent calc(${start}% + 1px)`);
+            }
+            seekbar.style.background = `linear-gradient(${array.join(",")})`;
+
+            seekbar.addEventListener("mouseup", () => {
+                this.$refs.videoEl.focus();
+            });
         },
         async updateProgressDatabase(time) {
             // debounce
@@ -642,7 +745,31 @@ export default {
                 this.$refs.videoEl.currentTime = time;
             }
         },
-
+        adjustPlaybackSpeed(newSpeed) {
+            const normalizedSpeed = Math.min(4, Math.max(0.25, newSpeed));
+            this.$player.trickPlay(normalizedSpeed);
+            if (this.hideCurrentSpeed) window.clearTimeout(this.hideCurrentSpeed);
+            this.showCurrentSpeed = false;
+            this.showCurrentSpeed = true;
+            this.hideCurrentSpeed = window.setTimeout(() => (this.showCurrentSpeed = false), 1500);
+        },
+        adjustPlaybackVolume(newVolume) {
+            const normalizedVolume = Math.min(1, Math.max(0, newVolume));
+            this.$refs.videoEl.volume = normalizedVolume;
+            if (this.hideCurrentVolume) window.clearTimeout(this.hideCurrentVolume);
+            this.showCurrentVolume = false;
+            this.showCurrentVolume = true;
+            this.hideCurrentVolume = window.setTimeout(() => (this.showCurrentVolume = false), 1500);
+        },
+        setSpeedFromInput() {
+            try {
+                const newSpeed = Number(this.playbackSpeedInput);
+                this.adjustPlaybackSpeed(newSpeed);
+            } catch (err) {
+                alert(this.$t("actions.invalid_input"));
+            }
+            this.showSpeedModal = false;
+        },
         updateMarkers() {
             const markers = this.$refs.container.querySelector(".shaka-ad-markers");
             const array = ["to right"];
@@ -832,6 +959,10 @@ export default {
 .shaka-text-wrapper > span > span *:first-child:last-child {
     background-color: rgba(0, 0, 0, 0.6) !important;
     padding: 0.09em 0;
+}
+
+#shaka-player-ui-time-container {
+    display: none !important;
 }
 
 .skip-segment-button {

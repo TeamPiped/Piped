@@ -21,7 +21,13 @@ export default defineConfig({
         VitePWA({
             registerType: "autoUpdate",
             workbox: {
-                globPatterns: ["**/*.{js,css,html,ico,svg,png}", "manifest.webmanifest"],
+                globPatterns: [
+                    "**/*.{css,html}",
+                    "**/[A-Z]*.js",
+                    "**/index*.js",
+                    "**/shaka-player*.js",
+                    "manifest.webmanifest",
+                ],
                 globIgnores: ["**/*-legacy-*.js"],
                 runtimeCaching: [
                     {
@@ -68,7 +74,6 @@ export default defineConfig({
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "./src"),
-            stream: "stream-browserify",
         },
     },
     build: {

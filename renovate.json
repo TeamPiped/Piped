@@ -7,6 +7,20 @@
             "matchPackagePrefixes": ["@unocss/"],
             "matchPackageNames": ["unocss"],
             "groupName": "unocss"
+        },
+        {
+            "matchPackagePrefixes": ["linkify"],
+            "groupName": "linkify"
+        },
+        {
+            "matchPackagePrefixes": ["@vitejs/"],
+            "matchPackageNames": ["vite"],
+            "groupName": "vite"
+        },
+        {
+            "matchPackagePrefixes": ["@iconify-json/"],
+            "groupName": "iconify",
+            "automerge": true
         }
     ],
     "lockFileMaintenance": {

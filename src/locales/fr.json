@@ -3,7 +3,7 @@
         "trending": "Tendances",
         "login": "Se connecter",
         "register": "S'inscrire",
-        "feed": "Abonnements",
+        "feed": "Flux",
         "preferences": "Préférences",
         "history": "Historique",
         "subscriptions": "Abonnements",
@@ -14,11 +14,14 @@
         "livestreams": "Diffusions en direct",
         "channels": "Chaînes",
         "bookmarks": "Marque-pages",
-        "channel_groups": "Groupes de chaînes"
+        "channel_groups": "Groupes de chaînes",
+        "dearrow": "DeArrow",
+        "albums": "Albums",
+        "custom_instances": "Instances Personnalisées"
     },
     "actions": {
-        "subscribe": "S'abonner - {count}",
-        "unsubscribe": "Se désabonner - {count}",
+        "subscribe": "S'abonner",
+        "unsubscribe": "Se désabonner",
         "buffering_goal": "Objectif de mise en mémoire tampon (en secondes)",
         "skip_non_music": "Ignorer la musique : section non musicale",
         "skip_self_promo": "Ignorer la promotion non rémunérée / l'autopromotion",
@@ -28,12 +31,12 @@
         "skip_intro": "Ignorer l'animation de l'entracte/Intro",
         "skip_sponsors": "Ignorer les sponsors",
         "instances_list": "Liste des instances",
-        "language_selection": "Sélection de la langue",
+        "language_selection": "Langue",
         "store_watch_history": "Conserver l'historique de visionnage",
         "minimize_description_default": "Minimiser la description par défaut",
         "show_comments": "Afficher les commentaires",
         "default_homepage": "Page d'accueil par défaut",
-        "country_selection": "Sélection du pays",
+        "country_selection": "Pays",
         "autoplay_video": "Lire automatiquement la vidéo",
         "light": "Clair",
         "dark": "Sombre",
@@ -46,7 +49,7 @@
         "view_subscriptions": "Voir les abonnements",
         "back": "Retour",
         "uses_api_from": "Utilise l'API de ",
-        "sort_by": "Trier par :",
+        "sort_by": "Trier par :",
         "channel_name_asc": "Nom de la chaîne (A-Z)",
         "least_recent": "Le moins récent",
         "most_recent": "Le plus récent",
@@ -57,10 +60,10 @@
         "donations": "Dons pour le développement",
         "auto_play_next_video": "Lire la vidéo suivante automatiquement",
         "loop_this_video": "Mettre cette vidéo en boucle",
-        "import_from_json": "Importer depuis le format JSON/CSV",
+        "import_from_json": "Importer depuis le format JSON",
         "export_to_json": "Exporter en JSON",
         "show_more": "Afficher plus",
-        "instance_selection": "Sélection de l'instance",
+        "instance_selection": "Instance",
         "minimize_description": "Minimiser la description",
         "minimize_recommendations": "Minimiser les recommandations",
         "show_recommendations": "Afficher les recommandations",
@@ -89,7 +92,7 @@
         "minimize_recommendations_default": "Minimiser les recommandations par défaut",
         "invalidate_session": "Se déconnecter de tous les appareils",
         "different_auth_instance": "Utiliser une instance différente pour l'authentification",
-        "instance_auth_selection": "Sélection de l'instance d'authentification",
+        "instance_auth_selection": "Instance d'authentification",
         "clone_playlist": "Cloner la liste de lecture",
         "clone_playlist_success": "Clonage réussi !",
         "download_as_txt": "Télécharger en tant que .txt",
@@ -125,7 +128,7 @@
         "min_segment_length": "Longueur minimale du segment (en secondes)",
         "skip_segment": "Sauter le segment",
         "show_less": "Afficher moins",
-        "okay": "OK",
+        "okay": "Valider",
         "edit_playlist": "Éditer la liste de lecture",
         "playlist_name": "Nom de la liste de lecture",
         "auto_display_captions": "Afficher sous-titres automatiquement",
@@ -136,10 +139,29 @@
         "group_name": "Nom du groupe",
         "autoplay_next_countdown": "Temps par défaut avant la prochaine vidéo (en secondes)",
         "chapters_layout_mobile": "Format des chapitres sur mobile",
-        "show_search_suggestions": "Afficher les suggestions de recherche"
+        "show_search_suggestions": "Afficher les suggestions de recherche",
+        "add_to_group": "Ajouter au groupe",
+        "import_from_json_csv": "Importer depuis le format JSON/CSV",
+        "enable_dearrow": "Activer DeArrow",
+        "delete_automatically": "Supprimer automatiquement après",
+        "download_frame": "Télécharger la miniature",
+        "generate_qrcode": "Générer un QR code",
+        "instance_privacy_policy": "Politique de confidentialité",
+        "concurrent_prefetch_limit": "Limite de préchargements simultanés de flux",
+        "instances_not_shown": "Les instances publiques qui ne sont pas affichées ici sont actuellement indisponibles.",
+        "creator_replied": "Le créateur a répondu",
+        "creator_liked": "Le créateur a aimé",
+        "delete_group_confirm": "Supprimer ce groupe ?",
+        "prefer_hls": "Préférez HLS plutôt que DASH",
+        "playback_speed": "Vitesse de lecture",
+        "invalid_input": "Entrée invalide",
+        "add": "Ajouter",
+        "customize": "Personnaliser",
+        "invalid_url": "URL invalide !"
     },
     "player": {
-        "watch_on": "Regarder sur {0}"
+        "watch_on": "Voir sur {0}",
+        "failed": "Échec avec le code erreur {0}, voir les logs pour plus d'informations"
     },
     "video": {
         "sponsor_segments": "Segments de sponsors",
@@ -153,16 +175,20 @@
         "all": "Tout",
         "category": "Catégorie",
         "chapters_horizontal": "Horizontal",
-        "chapters_vertical": "Vertical"
+        "chapters_vertical": "Vertical",
+        "visibility": "Visibilité",
+        "license": "Licence"
     },
     "preferences": {
         "ssl_score": "Score SSL",
-        "has_cdn": "A un RDC ?",
+        "has_cdn": "A un CDN ?",
         "instance_locations": "Localisations de l'instance",
         "instance_name": "Nom de l'instance",
         "up_to_date": "À jour ?",
         "registered_users": "Utilisateurs enregistrés",
-        "version": "Version"
+        "version": "Version",
+        "uptime_30d": "Uptime (30 j)",
+        "api_url": "URL de l'API"
     },
     "comment": {
         "pinned_by": "Épinglé par {author}",
@@ -172,7 +198,9 @@
     },
     "login": {
         "password": "Mot de passe",
-        "username": "Nom d'utilisateur"
+        "username": "Nom d'utilisateur",
+        "password_confirm": "Confirmez le mot de passe",
+        "passwords_incorrect": "Les mots de passe ne correspondent pas !"
     },
     "search": {
         "did_you_mean": "Vouliez-vous dire : {0} ?",
@@ -183,7 +211,8 @@
         "music_songs": "YT Music : Chansons",
         "music_videos": "YT Music : Vidéos",
         "music_playlists": "YT Music : Listes de lecture",
-        "music_albums": "YT Music : Albums"
+        "music_albums": "YT Music : Albums",
+        "music_artists": "YT Music : Artistes"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonné à : {0}"
@@ -198,6 +227,12 @@
         "cannot_copy": "Impossible de copier !",
         "local_storage": "Cette action nécessite localStorage, les cookies sont-ils activés ?",
         "register_no_email_note": "Il n'est pas recommandé d'utiliser une adresse courriel omme nom d'utilisateur. Continuer quand même ?",
-        "next_video_countdown": "Lecture de la prochaine vidéo dans {0}s"
+        "next_video_countdown": "Lecture de la prochaine vidéo dans {0}s",
+        "hours": "{amount} heure(s)",
+        "login_note": "Se connecter avec un compte créé sur cette instance.",
+        "months": "{amount} mois",
+        "weeks": "{amount} semaine(s)",
+        "register_note": "Inscrivez-vous pour ce compte sur cette instance de Piped. Cela vous permettra de synchroniser vos abonnements et listes de lecture avec votre compte, afin qu'ils soient stockés côté serveur. Vous pouvez utiliser toutes les fonctionnalités sans avoir de compte, mais toutes les données seront stockées dans le cache local de votre navigateur. Assurez-vous de NE PAS utiliser une adresse e-mail comme nom d'utilisateur et choisissez un mot de passe sécurisé que vous n'utilisez pas ailleurs.",
+        "days": "{amount} jour(s)"
     }
 }

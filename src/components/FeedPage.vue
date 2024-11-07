@@ -39,9 +39,9 @@
     <hr />
 
     <span class="flex gap-2">
-        <router-link class="btn" to="/subscriptions">Subscriptions</router-link>
+        <router-link v-t="'titles.subscriptions'" class="btn" to="/subscriptions" />
         <a :href="getRssUrl" class="btn">
-            <font-awesome-icon icon="rss" />
+            <i class="i-fa6-solid:rss" />
         </a>
     </span>
     <hr />
@@ -83,14 +83,24 @@ export default {
         },
         filteredVideos(_this) {
             const selectedGroup = _this.channelGroups.filter(group => group.groupName == _this.selectedGroupName);
+
+            const videos = this.getPreferenceBoolean("hideWatched", false)
+                ? this.videos.filter(video => !video.watched)
+                : this.videos;
+
             return _this.selectedGroupName == ""
-                ? _this.videos
-                : _this.videos.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-11)));
+                ? videos
+                : videos.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-24)));
         },
     },
     mounted() {
-        this.fetchFeed().then(videos => {
-            this.videosStore = videos;
+        this.fetchFeed().then(resp => {
+            if (resp.error) {
+                alert(resp.error);
+                return;
+            }
+
+            this.videosStore = resp;
             this.loadMoreVideos();
             this.updateWatched(this.videos);
         });
@@ -113,17 +123,6 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
-        async fetchFeed() {
-            if (this.authenticated) {
-                return await this.fetchJson(this.authApiUrl() + "/feed", {
-                    authToken: this.getAuthToken(),
-                });
-            } else {
-                return await this.fetchJson(this.authApiUrl() + "/feed/unauthenticated", {
-                    channels: this.getUnauthenticatedChannels(),
-                });
-            }
-        },
         async loadChannelGroups() {
             const groups = await this.getChannelGroups();
             this.channelGroups.push(...groups);
@@ -132,8 +131,8 @@ export default {
             if (!this.videosStore) return;
             this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
             if (this.videos.length != this.videosStore.length) {
+                this.fetchDeArrowContent(this.videosStore.slice(this.videos.length, this.currentVideoCount));
                 this.videos = this.videosStore.slice(0, this.currentVideoCount);
-                this.fetchDeArrowContent(this.videos);
             }
         },
         handleScroll() {

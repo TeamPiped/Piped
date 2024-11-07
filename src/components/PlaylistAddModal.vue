@@ -5,7 +5,12 @@
             <option v-for="playlist in playlists" :key="playlist.id" :value="playlist.id" v-text="playlist.name" />
         </select>
         <div class="mt-3 w-full flex justify-between">
-            <button ref="addButton" v-t="'actions.create_playlist'" class="btn" @click="onCreatePlaylist" />
+            <button
+                ref="addButton"
+                v-t="'actions.create_playlist'"
+                class="btn"
+                @click="showCreatePlaylistModal = true"
+            />
             <button
                 ref="addButton"
                 v-t="'actions.add_to_playlist'"
@@ -14,14 +19,21 @@
             />
         </div>
     </ModalComponent>
+    <CreatePlaylistModal
+        v-if="showCreatePlaylistModal"
+        @close="showCreatePlaylistModal = false"
+        @created="addCreatedPlaylist"
+    />
 </template>
 
 <script>
 import ModalComponent from "./ModalComponent.vue";
+import CreatePlaylistModal from "./CreatePlaylistModal.vue";
 
 export default {
     components: {
         ModalComponent,
+        CreatePlaylistModal,
     },
     props: {
         videoInfo: {
@@ -39,10 +51,13 @@ export default {
             playlists: [],
             selectedPlaylist: null,
             processing: false,
+            showCreatePlaylistModal: false,
         };
     },
     mounted() {
-        this.fetchPlaylists();
+        this.getPlaylists().then(json => {
+            this.playlists = json;
+        });
         this.selectedPlaylist = this.getPreferenceString("selectedPlaylist" + this.hashCode(this.authApiUrl()));
         window.addEventListener("keydown", this.handleKeyDown);
         window.blur();
@@ -52,7 +67,7 @@ export default {
     },
     methods: {
         handleKeyDown(event) {
-            if (event.code === "Enter") {
+            if (event.code === "Enter" && !this.showCreatePlaylistModal) {
                 this.handleClick(this.selectedPlaylist);
                 event.preventDefault();
             }
@@ -74,18 +89,9 @@ export default {
                 if (json.error) alert(json.error);
             });
         },
-        async fetchPlaylists() {
-            this.getPlaylists().then(json => {
-                this.playlists = json;
-            });
-        },
-        onCreatePlaylist() {
-            const name = prompt(this.$t("actions.create_playlist"));
-            if (!name) return;
-            this.createPlaylist(name).then(json => {
-                if (json.error) alert(json.error);
-                else this.fetchPlaylists();
-            });
+        addCreatedPlaylist(playlistId, playlistName) {
+            this.playlists.push({ id: playlistId, name: playlistName });
+            this.selectedPlaylist = playlistId;
         },
     },
 };
