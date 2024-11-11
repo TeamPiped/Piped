@@ -15,7 +15,7 @@
         "channels": "Chaînes",
         "bookmarks": "Marque-pages",
         "channel_groups": "Groupes de chaînes",
-        "dearrow": "DeArrow",
+        "dearrow": "Vignettes (DeArrow)",
         "albums": "Albums",
         "custom_instances": "Instances Personnalisées"
     },
@@ -36,7 +36,7 @@
         "minimize_description_default": "Minimiser la description par défaut",
         "show_comments": "Afficher les commentaires",
         "default_homepage": "Page d'accueil par défaut",
-        "country_selection": "Pays",
+        "country_selection": "Pays/Région",
         "autoplay_video": "Lire automatiquement la vidéo",
         "light": "Clair",
         "dark": "Sombre",
@@ -86,7 +86,7 @@
         "add_to_playlist": "Ajouter à la liste de lecture",
         "create_playlist": "Créer une liste de lecture",
         "delete_playlist_confirm": "Supprimer cette liste de lecture ?",
-        "show_markers": "Afficher les marqueurs sur le lecteur",
+        "show_markers": "Afficher des indicateurs dans la barre de progression",
         "delete_account": "Supprimer le compte",
         "logout": "Se déconnecter de cet appareil",
         "minimize_recommendations_default": "Minimiser les recommandations par défaut",
@@ -131,7 +131,7 @@
         "okay": "Valider",
         "edit_playlist": "Éditer la liste de lecture",
         "playlist_name": "Nom de la liste de lecture",
-        "auto_display_captions": "Afficher sous-titres automatiquement",
+        "auto_display_captions": "Afficher les sous-titres automatiquement",
         "dismiss": "Rejeter",
         "cancel": "Annuler",
         "playlist_description": "Description de la liste de lecture",
@@ -161,7 +161,7 @@
     },
     "player": {
         "watch_on": "Voir sur {0}",
-        "failed": "Échec avec le code erreur {0}, voir les logs pour plus d'informations"
+        "failed": "Échec avec le code erreur {0}. Voir les journaux pour plus d'informations."
     },
     "video": {
         "sponsor_segments": "Segments de sponsors",
