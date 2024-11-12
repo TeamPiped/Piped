@@ -330,6 +330,7 @@
             <strong v-t="'actions.delete_account'" />
             <div class="flex items-center">
                 <input
+                    v-if="!isOidcLogin"
                     id="txtDeleteAccountPassword"
                     ref="txtDeleteAccountPassword"
                     v-model="password"
@@ -415,6 +416,7 @@ export default {
     },
     data() {
         return {
+            isOidcLogin: false,
             mobileChapterLayout: "Vertical",
             selectedInstance: null,
             authInstance: false,
@@ -527,8 +529,10 @@ export default {
         document.title = this.$t("titles.preferences") + " - Piped";
     },
     async mounted() {
-        if (this.$route.query.deleted == this.getAuthToken()) this.logout();
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
+
+        const token = this.getAuthToken();
+        if (token && this.$route.query.deleted == token) this.logout();
 
         this.fetchInstances();
 
@@ -536,6 +540,7 @@ export default {
             this.selectedInstance = this.getPreferenceString("instance", import.meta.env.VITE_PIPED_API);
             this.authInstance = this.getPreferenceBoolean("authInstance", false);
             this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
+            this.isOidcLogin = this.getPreferenceBoolean("isOidcLogin", false);
 
             this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
             var skipOptions, skipList;
@@ -669,6 +674,10 @@ export default {
             return "https://www.ssllabs.com/ssltest/analyze.html?d=" + new URL(url).host + "&latest";
         },
         async deleteAccount() {
+            if (this.getPreferenceBoolean("isOidcLogin", false)) {
+                window.location = this.authApiUrl() + "/user/delete?session=" + this.getAuthToken();
+                return;
+            }
             this.fetchJson(this.authApiUrl() + "/user/delete", null, {
                 method: "POST",
                 headers: {

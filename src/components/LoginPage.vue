@@ -33,10 +33,9 @@
             </div>
             <ul class="children:pb-3">
                 <li v-for="provider in oidcProviders" :key="provider.name">
-                    <a class="btn" :href="provider.authUri">Log in with {{ provider.name }}</a>
+                    <a class="btn" :href="provider.authUri">Login with {{ provider.name }}</a>
                 </li>
             </ul>
-            <TooltipIcon icon="i-fa6-solid:circle-info" :tooltip="$t('info.login_note')" />
         </form>
     </div>
 </template>
@@ -54,10 +53,10 @@ export default {
         const session = this.$route.query.session;
         if (session) {
             this.setPreference("authToken" + this.hashCode(this.authApiUrl()), session);
-            this.$router.push("/");
+            this.setPreference("isOidcLogin", true);
+            window.location = import.meta.env.BASE_URL;
         }
         this.fetchConfig();
-        //TODO: Add Server Side check
         if (this.getAuthToken()) {
             this.$router.push(import.meta.env.BASE_URL);
         }
