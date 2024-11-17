@@ -11,7 +11,7 @@
         "minimize_description_default": "Beschreibung standardmäßig minimieren",
         "show_comments": "Kommentare anzeigen",
         "default_homepage": "Startseite",
-        "country_selection": "Land",
+        "country_selection": "Land/Region",
         "buffering_goal": "Pufferungsziel (in Sekunden)",
         "default_quality": "Standardqualität",
         "audio_only": "Nur Audio",
@@ -66,7 +66,7 @@
         "delete_playlist": "Playlist löschen",
         "please_select_playlist": "Bitte wähle eine Playlist",
         "select_playlist": "Wähle eine Playlist",
-        "show_markers": "Markierungen auf dem Player anzeigen",
+        "show_markers": "Markierungen im Fortschrittsbalken anzeigen",
         "delete_account": "Konto löschen",
         "logout": "Von diesem Gerät abmelden",
         "minimize_recommendations_default": "Empfehlungen standardmäßig minimieren",
@@ -141,7 +141,7 @@
     },
     "player": {
         "watch_on": "Auf {0} ansehen",
-        "failed": "Fehlgeschlagen mit Fehlercode {0}, siehe Protokolle für weitere Informationen"
+        "failed": "Fehlgeschlagen mit Fehlercode {0}. Siehe Protokolle für weitere Informationen."
     },
     "titles": {
         "history": "Verlauf",
