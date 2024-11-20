@@ -529,6 +529,10 @@ export default {
         document.title = this.$t("titles.preferences") + " - Piped";
     },
     async mounted() {
+        const deleted = this.$route.query.deleted;
+        if (deleted) {
+            this.logout();
+        }
         if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
 
         const token = this.getAuthToken();
@@ -675,7 +679,10 @@ export default {
         },
         async deleteAccount() {
             if (this.getPreferenceBoolean("isOidcLogin", false)) {
-                window.location = this.authApiUrl() + "/user/delete?session=" + this.getAuthToken();
+                const url = new URL("/user/delete", this.authApiUrl());
+                url.searchParams.append("session", this.getAuthToken());
+                url.searchParams.append("redirect", `${window.location.origin}/preferences`);
+                window.location = url.href;
                 return;
             }
             this.fetchJson(this.authApiUrl() + "/user/delete", null, {
@@ -688,14 +695,15 @@ export default {
                 }),
             }).then(resp => {
                 if (!resp.error) {
-                    const redirect = resp.redirect;
-                    redirect ? (location.href = redirect) : this.logout();
+                    this.logout();
                 } else alert(resp.error);
             });
         },
         logout() {
             // reset the auth token
             localStorage.removeItem("authToken" + this.hashCode(this.authApiUrl()));
+            // Remove oidc state
+            localStorage.removeItem("isOidcLogin");
             // redirect to trending page
             window.location = import.meta.env.BASE_URL;
         },
