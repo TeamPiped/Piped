@@ -38,7 +38,7 @@
         "audio_only": "Només àudio",
         "default_quality": "Qualitat predefinida",
         "buffering_goal": "Objectiu de la memòria intermèdia (en segons)",
-        "country_selection": "País",
+        "country_selection": "País/Regió",
         "default_homepage": "Pàgina d'inici predefinida",
         "show_comments": "Mostra els comentaris",
         "minimize_description_default": "Minimitza la descripció per defecte",
@@ -61,7 +61,7 @@
         "view_ssl_score": "Mostra la puntuació SSL",
         "search": "Cerca (Ctrl+K)",
         "filter": "Filtre",
-        "loading": "S'està carregant...",
+        "loading": "S'està carregant…",
         "clear_history": "Esborra l'historial",
         "hide_replies": "Amaga les respostes",
         "load_more_replies": "Carrega més respostes",
@@ -86,7 +86,7 @@
         "delete_playlist_confirm": "Voleu suprimir la llista de reproducció?",
         "delete_playlist_video_confirm": "Voleu suprimir el vídeo de la llista de reproducció?",
         "select_playlist": "Selecciona una llista de reproducció",
-        "show_markers": "Mostra marcadors al reproductor",
+        "show_markers": "Mostra marcadors a la barra de progrés",
         "delete_account": "Suprimeix el compte",
         "logout": "Desconnecta aquest dispositiu",
         "minimize_recommendations_default": "Minimitza les recomanacions per defecte",
@@ -156,13 +156,14 @@
         "delete_group_confirm": "Voleu eliminar el grup?",
         "customize": "Personalitza",
         "invalid_url": "URL invàlid",
-        "add": "Afegeix"
+        "add": "Afegeix",
+        "prefer_hls": "Prioritza HLS sobre DASH"
     },
     "comment": {
         "pinned_by": "Fixat per {author}",
         "user_disabled": "Els comentaris s'han desactivat en els paràmetres.",
         "disabled": "Qui va pujar el vídeo ha desactivat els comentaris.",
-        "loading": "S'estan carregant els comentaris..."
+        "loading": "S'estan carregant els comentaris…"
     },
     "preferences": {
         "instance_name": "Nom de la instància",
@@ -205,7 +206,7 @@
     },
     "player": {
         "watch_on": "Mostra a {0}",
-        "failed": "Ha fallat amb codi d'error {0}, vegeu els registres per a més informació"
+        "failed": "Ha fallat amb codi d'error {0}. Vegeu els registres per a més informació."
     },
     "login": {
         "username": "Nom d'usuari",
