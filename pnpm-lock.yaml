@@ -109,8 +109,8 @@ importers:
         specifier: 1.8.1
         version: 1.8.1(eslint@8.57.1)(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))
       vite-plugin-pwa:
-        specifier: 0.20.5
-        version: 0.20.5(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))(workbox-build@7.3.0)(workbox-window@7.1.0)
+        specifier: 0.21.0
+        version: 0.21.0(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))(workbox-build@7.3.0)(workbox-window@7.1.0)
       workbox-window:
         specifier: 7.1.0
         version: 7.1.0
@@ -2860,14 +2860,14 @@ packages:
       eslint: '>=7'
       vite: '>=2'
 
-  vite-plugin-pwa@0.20.5:
-    resolution: {integrity: sha512-aweuI/6G6n4C5Inn0vwHumElU/UEpNuO+9iZzwPZGTCH87TeZ6YFMrEY6ZUBQdIHHlhTsbMDryFARcSuOdsz9Q==}
+  vite-plugin-pwa@0.21.0:
+    resolution: {integrity: sha512-gnDE5sN2hdxA4vTl0pe6PCTPXqChk175jH8dZVVTBjFhWarZZoXaAdoTIKCIa8Zbx94sC0CnCOyERBWpxvry+g==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       '@vite-pwa/assets-generator': ^0.2.6
       vite: ^3.1.0 || ^4.0.0 || ^5.0.0
-      workbox-build: ^7.1.0
-      workbox-window: ^7.1.0
+      workbox-build: ^7.3.0
+      workbox-window: ^7.3.0
     peerDependenciesMeta:
       '@vite-pwa/assets-generator':
         optional: true
@@ -6039,7 +6039,7 @@ snapshots:
       rollup: 2.79.2
       vite: 5.4.11(lightningcss@1.27.0)(terser@5.36.0)
 
-  vite-plugin-pwa@0.20.5(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))(workbox-build@7.3.0)(workbox-window@7.1.0):
+  vite-plugin-pwa@0.21.0(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))(workbox-build@7.3.0)(workbox-window@7.1.0):
     dependencies:
       debug: 4.3.7
       pretty-bytes: 6.1.1
