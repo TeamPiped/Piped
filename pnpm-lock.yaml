@@ -110,10 +110,10 @@ importers:
         version: 1.8.1(eslint@8.57.1)(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))
       vite-plugin-pwa:
         specifier: 0.21.0
-        version: 0.21.0(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))(workbox-build@7.3.0)(workbox-window@7.1.0)
+        version: 0.21.0(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))(workbox-build@7.3.0)(workbox-window@7.3.0)
       workbox-window:
-        specifier: 7.1.0
-        version: 7.1.0
+        specifier: 7.3.0
+        version: 7.3.0
 
 packages:
 
@@ -2974,9 +2974,6 @@ packages:
   workbox-cacheable-response@7.3.0:
     resolution: {integrity: sha512-eAFERIg6J2LuyELhLlmeRcJFa5e16Mj8kL2yCDbhWE+HUun9skRQrGIFVUagqWj4DMaaPSMWfAolM7XZZxNmxA==}
 
-  workbox-core@7.1.0:
-    resolution: {integrity: sha512-5KB4KOY8rtL31nEF7BfvU7FMzKT4B5TkbYa2tzkS+Peqj0gayMT9SytSFtNzlrvMaWgv6y/yvP9C0IbpFjV30Q==}
-
   workbox-core@7.3.0:
     resolution: {integrity: sha512-Z+mYrErfh4t3zi7NVTvOuACB0A/jA3bgxUN3PwtAVHvfEsZxV9Iju580VEETug3zYJRc0Dmii/aixI/Uxj8fmw==}
 
@@ -3009,9 +3006,6 @@ packages:
 
   workbox-sw@7.3.0:
     resolution: {integrity: sha512-aCUyoAZU9IZtH05mn0ACUpyHzPs0lMeJimAYkQkBsOWiqaJLgusfDCR+yllkPkFRxWpZKF8vSvgHYeG7LwhlmA==}
-
-  workbox-window@7.1.0:
-    resolution: {integrity: sha512-ZHeROyqR+AS5UPzholQRDttLFqGMwP0Np8MKWAdyxsDETxq3qOAyXvqessc3GniohG6e0mAqSQyKOHmT8zPF7g==}
 
   workbox-window@7.3.0:
     resolution: {integrity: sha512-qW8PDy16OV1UBaUNGlTVcepzrlzyzNW/ZJvFQQs2j2TzGsg6IKjcpZC1RSquqQnTOafl5pCj5bGfAHlCjOOjdA==}
@@ -6043,14 +6037,14 @@ snapshots:
       rollup: 2.79.2
       vite: 5.4.11(lightningcss@1.27.0)(terser@5.36.0)
 
-  vite-plugin-pwa@0.21.0(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))(workbox-build@7.3.0)(workbox-window@7.1.0):
+  vite-plugin-pwa@0.21.0(vite@5.4.11(lightningcss@1.27.0)(terser@5.36.0))(workbox-build@7.3.0)(workbox-window@7.3.0):
     dependencies:
       debug: 4.3.7
       pretty-bytes: 6.1.1
       tinyglobby: 0.2.10
       vite: 5.4.11(lightningcss@1.27.0)(terser@5.36.0)
       workbox-build: 7.3.0
-      workbox-window: 7.1.0
+      workbox-window: 7.3.0
     transitivePeerDependencies:
       - supports-color
 
@@ -6193,8 +6187,6 @@ snapshots:
     dependencies:
       workbox-core: 7.3.0
 
-  workbox-core@7.1.0: {}
-
   workbox-core@7.3.0: {}
 
   workbox-expiration@7.3.0:
@@ -6246,11 +6238,6 @@ snapshots:
       workbox-routing: 7.3.0
 
   workbox-sw@7.3.0: {}
-
-  workbox-window@7.1.0:
-    dependencies:
-      '@types/trusted-types': 2.0.7
-      workbox-core: 7.1.0
 
   workbox-window@7.3.0:
     dependencies:
