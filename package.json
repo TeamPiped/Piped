@@ -24,8 +24,8 @@
         "vue-router": "4.4.5"
     },
     "devDependencies": {
-        "@iconify-json/fa6-brands": "1.2.1",
-        "@iconify-json/fa6-solid": "1.2.1",
+        "@iconify-json/fa6-brands": "1.2.3",
+        "@iconify-json/fa6-solid": "1.2.2",
         "@intlify/unplugin-vue-i18n": "5.2.0",
         "@unocss/eslint-config": "0.63.6",
         "@unocss/preset-icons": "0.63.6",
