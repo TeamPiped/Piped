@@ -21,11 +21,11 @@ importers:
         specifier: 2.5.11
         version: 2.5.11
       linkify-html:
-        specifier: 4.1.4
-        version: 4.1.4(linkifyjs@4.1.4)
+        specifier: 4.2.0
+        version: 4.2.0(linkifyjs@4.2.0)
       linkifyjs:
-        specifier: 4.1.4
-        version: 4.1.4
+        specifier: 4.2.0
+        version: 4.2.0
       qrcode:
         specifier: ^1.5.3
         version: 1.5.4
@@ -2259,13 +2259,13 @@ packages:
     resolution: {integrity: sha512-ePLRrbt3fgjXI5VFZOLbvkLD5ZRuxGKm+wJ3ujCqBtL3NanDHPo/5zicR5uEKAPiIjBYF99BM4K4okvMznjkVA==}
     engines: {node: '>= 12.0.0'}
 
-  linkify-html@4.1.4:
-    resolution: {integrity: sha512-6HA+YB++HrtPrSi+3gVEc0xdEGmqwLGErV0yagQta2bxfDOppjBHgadddpHWPR76LgB/Tiax22VfJtTqxkoijA==}
+  linkify-html@4.2.0:
+    resolution: {integrity: sha512-bVXuLiWmGwvlH95hq6q9DFGqTsQeFSGw/nHmvvjGMZv9T3GqkxuW2d2SOgk/a4DV2ajeS4c37EqlF16cjOj7GA==}
     peerDependencies:
       linkifyjs: ^4.0.0
 
-  linkifyjs@4.1.4:
-    resolution: {integrity: sha512-0/NxkHNpiJ0k9VrYCkAn9OtU1eu8xEr1tCCpDtSsVRm/SF0xAak2Gzv3QimSfgUgqLBCDlfhMbu73XvaEHUTPQ==}
+  linkifyjs@4.2.0:
+    resolution: {integrity: sha512-pCj3PrQyATaoTYKHrgWRF3SJwsm61udVh+vuls/Rl6SptiDhgE7ziUIudAedRY9QEfynmM7/RmLEfPUyw1HPCw==}
 
   load-tsconfig@0.2.5:
     resolution: {integrity: sha512-IXO6OCs9yg8tMKzfPZ1YmheJbZCiEsnBdcB03l0OcfK9prKnJb96siuHCr5Fl37/yo9DnKU+TLpxzTUspw9shg==}
@@ -5412,11 +5412,11 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.28.2
       lightningcss-win32-x64-msvc: 1.28.2
 
-  linkify-html@4.1.4(linkifyjs@4.1.4):
+  linkify-html@4.2.0(linkifyjs@4.2.0):
     dependencies:
-      linkifyjs: 4.1.4
+      linkifyjs: 4.2.0
 
-  linkifyjs@4.1.4: {}
+  linkifyjs@4.2.0: {}
 
   load-tsconfig@0.2.5: {}
 
