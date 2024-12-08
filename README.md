@@ -159,6 +159,7 @@ Contributions in any other form are also welcomed.
 -   [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) - Alternative privacy respecting front-end for YouTube Music.
 -   [ytify](https://github.com/n-ce/ytify) - Complementary audio streaming frontend for YouTube & YouTube Music. 
 -   [Piped-Material](https://github.com/mmjee/Piped-Material) - Fork of Piped, focusing on better performance and a more usable design.
+-   [Musicale](https://github.com/Bellisario/musicale) - Alternative frontend for YouTube Music with style.
 
 
 
@@ -168,7 +169,6 @@ Contributions in any other form are also welcomed.
 -   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads on Android, Linux, Windows, iOS, and Mac OSX.
 -   [VibeYou](https://github.com/you-apps/VibeYou) - Privacy focused music player for Android supporting playback via Piped.
   
--   [Musicale](https://github.com/Bellisario/musicale) - Alternative frontend for YouTube Music with style.
 -   [conduit](https://github.com/ai25/conduit) - Alternative frontend for YouTube, with a modern player and watch together capabilities.
 -   [DeskVideo](https://github.com/malisipi/DeskVideo) - Desktop styled, customizable alternative frontend for YouTube.
 -   [ReacTube](https://github.com/NeeRaj-2401/ReacTube) - Privacy friendly & distraction free YouTube frontend.
