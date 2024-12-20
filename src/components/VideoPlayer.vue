@@ -613,7 +613,7 @@ export default {
                         // Set the audio language
                         const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
                         var lang = "en";
-                        for (var l in player.getAudioLanguages()) {
+                        for (var l of player.getAudioLanguages()) {
                             if (l == prefLang) {
                                 lang = l;
                                 return;
