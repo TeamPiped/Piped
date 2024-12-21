@@ -21,7 +21,7 @@
     },
     "player": {
         "watch_on": "Veire sus {0}",
-        "failed": "Fracàs amb lo còdi d’error {0}, consultat los jornals d’audit per mai d’informacions"
+        "failed": "Fracàs amb lo còdi d’error {0}. Consultatz los jornals d’audit per mai d’informacions"
     },
     "actions": {
         "subscribe": "S’abonar",
@@ -70,7 +70,7 @@
         "source_code": "Còdi font",
         "restore_preferences": "Restablir las preferéncias",
         "skip_interaction": "Ignorar los rapèls d’interaccion (S’abonar)",
-        "show_markers": "Mostrar los marcadors sul lector",
+        "show_markers": "Mostrar los marcadors sus la barra de progression",
         "default_quality": "Qualitat per defaut",
         "buffering_goal": "Objectiu de mesa en memòria tampon (en segondas)",
         "minimize_description_default": "Minimizar la descripcion per defaut",
@@ -105,7 +105,7 @@
         "with_timecode": "Partejar amb còdi orari",
         "piped_link": "Ligam cap a Piped",
         "show_chapters": "Capítols",
-        "country_selection": "País",
+        "country_selection": "País/Region",
         "default_homepage": "Pagina d’acuèlh per defaut",
         "minimize_recommendations_default": "Minimizar las recomandacions per defaut",
         "store_watch_history": "Servar l’istoric de visualizacion",
@@ -160,7 +160,8 @@
         "creator_liked": "Lo creator aimèt",
         "playback_speed": "Velocitat de lectura",
         "invalid_input": "Entrada non valida",
-        "delete_group_confirm": "Suprimir aqueste grop ?"
+        "delete_group_confirm": "Suprimir aqueste grop ?",
+        "prefer_hls": "Preferir HLS a DASH"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
@@ -170,7 +171,7 @@
         "version": "Version",
         "up_to_date": "Actualizat ?",
         "ssl_score": "Marca SSL",
-        "api_url": "URL de l'Api",
+        "api_url": "URL de l'API",
         "uptime_30d": "Temps d'activitat (30 jorns)"
     },
     "login": {
