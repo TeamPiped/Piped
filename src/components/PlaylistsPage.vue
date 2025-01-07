@@ -209,7 +209,7 @@ export default {
                 }
 
                 const playlist = {
-                    name: playlistName ?? new Date().toJSON(),
+                    name: playlistName ?? file.name.replace(".csv", ""),
                     videos: lines
                         .slice(videoListStartIndex, lines.length)
                         .filter(line => line != "")
