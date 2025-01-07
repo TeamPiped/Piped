@@ -170,7 +170,9 @@
         "creator_replied": "El autor respondió",
         "playback_speed": "Velocidad de reproducción",
         "invalid_input": "Entrada no válida",
-        "prefer_hls": "Preferir HLS sobre DASH"
+        "prefer_hls": "Preferir HLS sobre DASH",
+        "mark_as_unwatched": "Marcar como no visto",
+        "mark_as_watched": "Marcar como visto"
     },
     "titles": {
         "feed": "Contenido",
