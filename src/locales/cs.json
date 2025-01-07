@@ -157,7 +157,9 @@
         "creator_liked": "Autorovi se líbilo",
         "playback_speed": "Rychlost přehrávání",
         "invalid_input": "Neplatné údaje",
-        "prefer_hls": "Preferovat HLS před DASH"
+        "prefer_hls": "Preferovat HLS před DASH",
+        "mark_as_watched": "Označit jako zhlédnuté",
+        "mark_as_unwatched": "Označit jako nezhlédnuté"
     },
     "player": {
         "watch_on": "Zobrazit na {0}",
