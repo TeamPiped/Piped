@@ -150,6 +150,7 @@ Contributions in any other form are also welcomed.
 **Mobile/desktop apps**
 -   [LibreTube](https://github.com/Libre-tube/LibreTube) - Alternative frontend for YouTube for Android.
 -   [Yattee](https://github.com/yattee/yattee) - Alternative frontend for YouTube for MacOS / iOS.
+-   [YTDLnis](https://github.com/deniscerri/ytdlnis) - Video and audio downloader for Android that uses Piped to update formats.
 -   [Pipeline](https://gitlab.com/schmiddi-on-mobile/pipeline) - Alternative frontend for YouTube for Linux.
 -   [PlasmaTube](https://apps.kde.org/plasmatube/) - Alternative frontend for YouTube for Linux.
 -   [Harmony Music](https://github.com/anandnet/Harmony-Music) - YouTube Music alternative for Android/Windows/Debian, built with Flutter that supports piped linking for playlists.
@@ -164,7 +165,6 @@ Contributions in any other form are also welcomed.
 
 **Not Under Active Development**
   
--   [YTDLnis](https://github.com/deniscerri/ytdlnis) - Video and audio downloader for Android that uses Piped to update formats.
 -   [PsTube](https://github.com/prateekmedia/pstube) - Watch and download videos without ads on Android, Linux, Windows, iOS, and Mac OSX.
 -   [VibeYou](https://github.com/you-apps/VibeYou) - Privacy focused music player for Android supporting playback via Piped.
   
