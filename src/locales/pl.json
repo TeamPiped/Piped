@@ -161,7 +161,9 @@
         "creator_liked": "Twórca polubił",
         "invalid_input": "Nieprawidłowe dane wejściowe",
         "playback_speed": "Szybkość odtwarzania",
-        "prefer_hls": "Preferuj HLS zamiast DASH"
+        "prefer_hls": "Preferuj HLS zamiast DASH",
+        "mark_as_watched": "Oznacz jako obejrzane",
+        "mark_as_unwatched": "Oznacz jako nieobejrzane"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
