@@ -609,16 +609,11 @@ export default {
                 .then(() => {
                     const isSafari = window.navigator?.vendor?.includes("Apple");
 
+                    let lang = "en";
                     if (!isSafari) {
                         // Set the audio language
                         const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
-                        var lang = "en";
-                        for (var l of player.getAudioLanguages()) {
-                            if (l == prefLang) {
-                                lang = l;
-                                return;
-                            }
-                        }
+                        if (player.getAudioLanguages().includes(prefLang)) lang = prefLang;
                         player.selectAudioLanguage(lang);
                     }
 

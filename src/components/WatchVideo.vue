@@ -212,7 +212,7 @@
         <input id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" type="checkbox" @change="onChange($event)" />
         <br />
         <label for="chkAutoPlay"><strong v-text="`${$t('actions.auto_play_next_video')}:`" /></label>
-        <select id="chkAutoPlay" v-model="selectedAutoPlay" class="ml-1.5 select" @change="onChange($event)">
+        <select id="chkAutoPlay" v-model="selectedAutoPlay" class="select ml-1.5" @change="onChange($event)">
             <option value="0">none</option>
             <option value="1">playlist only</option>
             <option value="2">playlist and recommendations</option>
