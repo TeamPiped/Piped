@@ -47,7 +47,7 @@
                 <div class="flex flex-auto gap-2">
                     <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
                     <span> | </span>
-                    <span v-text="uploadDate" />
+                    <span :title="new Date(video.uploadDate).toLocaleString()" v-text="uploadDate" />
                 </div>
                 <!-- Likes/dilikes -->
                 <div class="flex gap-2">
