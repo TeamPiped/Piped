@@ -93,7 +93,6 @@ export default {
     },
     methods: {
         async loadReplies() {
-            console.log(this.uploaderAvatarUrl);
             if (!this.showingReplies && this.loadingReplies) {
                 this.showingReplies = true;
                 return;
