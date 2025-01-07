@@ -127,6 +127,18 @@
                 >
                     <i class="i-fa6-solid:circle-minus" />
                 </button>
+                <button
+                    v-if="showMarkOnWatched && isFeed"
+                    ref="watchButton"
+                    @click="toggleWatched(item.url.substr(-11))"
+                >
+                    <i
+                        v-if="item.watched && item.currentTime > item.duration * 0.9"
+                        :title="$t('actions.mark_as_unwatched')"
+                        class="i-fa6-solid:eye-slash"
+                    />
+                    <i v-else :title="$t('actions.mark_as_watched')" class="i-fa6-solid:eye" />
+                </button>
                 <ConfirmModal
                     v-if="showConfirmRemove"
                     :message="$t('actions.delete_playlist_video_confirm')"
@@ -176,13 +188,14 @@ export default {
         preferListen: { type: Boolean, default: false },
         admin: { type: Boolean, default: false },
     },
-    emits: ["remove"],
+    emits: ["update:watched", "remove"],
     data() {
         return {
             showPlaylistModal: false,
             showShareModal: false,
             showVideo: true,
             showConfirmRemove: false,
+            showMarkOnWatched: false,
         };
     },
     computed: {
@@ -195,6 +208,7 @@ export default {
     },
     mounted() {
         this.shouldShowVideo();
+        this.shouldShowMarkOnWatched();
     },
     methods: {
         removeVideo() {
@@ -216,6 +230,38 @@ export default {
                     return;
                 }
             };
+        },
+        shouldShowMarkOnWatched() {
+            this.showMarkOnWatched = this.getPreferenceBoolean("watchHistory", false);
+        },
+        toggleWatched(videoId) {
+            if (window.db) {
+                var tx = window.db.transaction("watch_history", "readwrite");
+                var store = tx.objectStore("watch_history");
+                var instance = this;
+                var request = store.get(videoId);
+                request.onsuccess = function (event) {
+                    var video = event.target.result;
+                    if (video) {
+                        video.watchedAt = Date.now();
+                    } else {
+                        video = {
+                            videoId: videoId,
+                            title: instance.item.title,
+                            duration: instance.item.duration,
+                            thumbnail: instance.item.thumbnail,
+                            uploaderUrl: instance.item.uploaderUrl,
+                            uploaderName: instance.item.uploaderName,
+                            watchedAt: Date.now(),
+                        };
+                    }
+                    video.currentTime =
+                        instance.item.currentTime < instance.item.duration * 0.9 ? instance.item.duration : 0;
+                    store.put(video);
+                    instance.$emit("update:watched", [instance.item.url]);
+                    instance.shouldShowVideo();
+                };
+            }
         },
     },
 };

@@ -48,7 +48,7 @@
 
     <LoadingIndicatorPage :show-content="videosStore != null" class="video-grid">
         <template v-for="video in filteredVideos" :key="video.url">
-            <VideoItem v-if="shouldShowVideo(video)" :is-feed="true" :item="video" />
+            <VideoItem v-if="shouldShowVideo(video)" :is-feed="true" :item="video" @update:watched="onUpdateWatched" />
         </template>
     </LoadingIndicatorPage>
 </template>
@@ -139,6 +139,15 @@ export default {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
                 this.loadMoreVideos();
             }
+        },
+        onUpdateWatched(urls = null) {
+            if (urls === null) {
+                if (this.videos.length > 0) this.updateWatched(this.videos);
+                return;
+            }
+
+            const subset = this.videos.filter(({ url }) => urls.includes(url));
+            if (subset.length > 0) this.updateWatched(subset);
         },
         shouldShowVideo(video) {
             switch (this.selectedFilter.toLowerCase()) {
