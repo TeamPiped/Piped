@@ -13,7 +13,7 @@
         >
             <canvas id="preview" ref="preview" class="rounded-sm" />
             <span
-                v-if="video.chapters.length > 1"
+                v-if="(video?.chapters?.length ?? 0) > 1"
                 class="mt-2 text-sm drop-shadow-[0_0_2px_white] -mb-2 .dark:drop-shadow-[0_0_2px_black]"
             >
                 {{ video.chapters.findLast(chapter => chapter.start < currentTime)?.title }}
