@@ -157,7 +157,9 @@
         "creator_liked": "A készítő kedvelte",
         "playback_speed": "Visszajátszási sebesség",
         "invalid_input": "Érvénytelen bevitel",
-        "prefer_hls": "HLS előnyben részesítése DASH helyett"
+        "prefer_hls": "HLS előnyben részesítése DASH helyett",
+        "mark_as_unwatched": "Jelölés nem megtekintettnek",
+        "mark_as_watched": "Jelölés megtekintettnek"
     },
     "video": {
         "ratings_disabled": "Értékelések letiltva",
