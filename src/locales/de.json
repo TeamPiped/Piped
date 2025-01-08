@@ -137,7 +137,9 @@
         "playback_speed": "Wiedergabegeschwindigkeit",
         "delete_group_confirm": "Diese Gruppe löschen?",
         "concurrent_prefetch_limit": "Limit für gleichzeitigen Stream Prefetch",
-        "prefer_hls": "HLS gegenüber DASH bevorzugen"
+        "prefer_hls": "HLS gegenüber DASH bevorzugen",
+        "mark_as_unwatched": "Als ungesehen markieren",
+        "mark_as_watched": "Als gesehen markieren"
     },
     "player": {
         "watch_on": "Auf {0} ansehen",
