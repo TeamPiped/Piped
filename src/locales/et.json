@@ -161,7 +161,9 @@
         "creator_liked": "Autorile meeldis see",
         "playback_speed": "Taasesituse kiirus",
         "invalid_input": "Vigane sisend",
-        "prefer_hls": "Eelista DASH-protokollile HLS-protokolli"
+        "prefer_hls": "Eelista DASH-protokollile HLS-protokolli",
+        "mark_as_watched": "Märgi vaadatuks",
+        "mark_as_unwatched": "Märgi mittevaadatuks"
     },
     "preferences": {
         "has_cdn": "CDN'i olek?",
