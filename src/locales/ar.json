@@ -161,7 +161,9 @@
         "creator_liked": "المنشء اعجب",
         "playback_speed": "سرعة التشغيل",
         "invalid_input": "مدخل غير صالح",
-        "prefer_hls": "تفضل HLS على DASH"
+        "prefer_hls": "تفضل HLS على DASH",
+        "mark_as_watched": "وضع علامة تمت مشاهدته",
+        "mark_as_unwatched": "وضع علامة لم يتم مشاهدته"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
