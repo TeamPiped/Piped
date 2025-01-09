@@ -1,28 +1,34 @@
 <template>
     <ModalComponent>
         <div class="text-center">
-            <h2 class="mb-4 text-center text-xl font-bold">Import History</h2>
+            <h2 v-t="'actions.import_history'" class="mb-4 text-center text-xl font-bold" />
             <form>
                 <br />
                 <div>
                     <input ref="fileSelector" class="btn mb-2 ml-2" type="file" @change="fileChange" />
                 </div>
                 <div>
-                    <strong v-text="`Found ${itemsLength} items`" />
+                    <strong
+                        ><i18n-t keypath="info.found_n_items">{{ itemsLength }}</i18n-t></strong
+                    >
                 </div>
                 <div>
                     <strong class="flex items-center justify-center gap-2">
-                        Override: <input v-model="override" class="checkbox" type="checkbox" />
+                        <span v-t="'actions.override'" />: <input v-model="override" class="checkbox" type="checkbox" />
                     </strong>
                 </div>
                 <br />
                 <div>
                     <progress :value="index" :max="itemsLength" />
-                    <div v-text="`Success: ${success} Error: ${error} Skipped: ${skipped}`" />
+                    <div
+                        v-text="
+                            `${$t('info.success')}: ${success} ${$t('info.error')}: ${error} ${$t('info.skipped')}: ${skipped}`
+                        "
+                    />
                 </div>
                 <br />
                 <div>
-                    <a class="btn w-auto" @click="handleImport">Import</a>
+                    <a class="btn w-auto" @click="handleImport" v-text="$t('actions.import_history')" />
                 </div>
             </form>
         </div>
