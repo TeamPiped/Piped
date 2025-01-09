@@ -51,12 +51,6 @@ By using Piped, you can freely watch and listen to content without the fear of p
 -   [x] Public [JSON API](https://docs.piped.video/docs/api-documentation/)
 -   [x] Federated protocol on Matrix to let instances collaborate with each other
 
-## Screenshots
-
-| Player                                                                                                        | Trending                                                                                                      | Channel                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| ![Screenshot 1](https://cloudflare-ipfs.com/ipfs/bafybeiaxhsog7jzydr7xb3xhlemxilqksceqg5fraaiuojzclhocsqrcvq) | ![Screenshot 2](https://cloudflare-ipfs.com/ipfs/bafybeigafumvrgbfyufxjptvufobstrywrfv2kteyuuictfko6kvghjszu) | ![Screenshot 3](https://cloudflare-ipfs.com/ipfs/bafybeiehs5xjqmmq34gmewxoqm3j3b2ze3pve4sdmanz7ukrxwgrcmxnry) |
-
 ## Having trouble?
 If you have any general questions regarding how Piped works or trouble setting up your own instance, please consult the following public chat rooms and documentation for help. Please use these platforms exclusively for such cases and do NOT open an issue.
 
@@ -118,19 +112,9 @@ pnpm dev
 
 You can now make changes and view then in realtime!
 
-## Contact
-
-If you would like to contact me personally, you may do so with the following means:
-
--   Matrix: @kavin1337:matrix.org
--   Mastodon: https://mastodon.online/@kavin
--   Email: kavin@kavin.rocks
-
-Please note that isn't meant for support, see [Public Chat Rooms/Communities](#public-chat-roomscommunities) for that.
-
 ## Donations
 
-Donations can be made at:
+Donations (to Kavin) can be made at:
 
 -   bc1qhq8zjxmu405nvp37njj6zv3s980zg400pu9jfe (BTC)
 -   0x1D77D4cfB1a947514241bcf19B1F04738495e2fD (ETH)
@@ -140,8 +124,8 @@ Donations can be made at:
 
 FIAT donations can be made at:
 
-- https://liberapay.com/kavin (Author of project, used for Project infrastructure maintenance, and official instance)
-- https://liberapay.com/Bnyro (Maintainer of repo)
+- https://liberapay.com/kavin (Initial author)
+- https://liberapay.com/Bnyro (Current project maintainer)
 
 Contributions in any other form are also welcomed.
 
