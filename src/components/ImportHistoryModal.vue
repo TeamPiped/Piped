@@ -28,7 +28,7 @@
                 </div>
                 <br />
                 <div>
-                    <a class="btn w-auto" @click="handleImport" v-text="$t('actions.import_history')" />
+                    <a class="btn w-auto" @click="handleImport" v-text="$t('actions.import')" />
                 </div>
             </form>
         </div>

@@ -27,7 +27,7 @@
                     </label>
                 </div>
             </form>
-            <button class="btn mt-4" @click="handleExport" v-text="$t('actions.export_history')" />
+            <button class="btn mt-4" @click="handleExport" v-text="$t('actions.export')" />
         </div>
     </ModalComponent>
 </template>
