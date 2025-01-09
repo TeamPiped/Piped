@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col flex-justify-between">
-        <router-link :to="item.url">
+        <router-link :to="item.url" class="link font-bold">
             <div class="my-4 flex justify-center">
                 <img loading="lazy" class="aspect-square w-[50%] rounded-full" :src="item.thumbnail" />
             </div>
@@ -9,7 +9,7 @@
                 <i v-if="item.verified" class="i-fa6-solid:check ml-1.5" />
             </p>
         </router-link>
-        <p v-if="item.description" v-text="item.description" />
+        <p v-if="item.description" class="pt-1 text-sm" v-text="item.description" />
         <router-link v-if="item.uploaderUrl" class="link" :to="item.uploaderUrl">
             <p>
                 <span v-text="item.uploader" />
