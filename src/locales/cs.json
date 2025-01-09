@@ -106,7 +106,7 @@
         "piped_link": "Odkaz na Piped",
         "follow_link": "Otevřít odkaz",
         "copy_link": "Kopírovat odkaz",
-        "time_code": "Časový kód (v sekundách)",
+        "time_code": "Časový kód (v sekundách nebo HH:MM:SS)",
         "show_chapters": "Kapitoly",
         "store_search_history": "Ukládat historii vyhledávání",
         "hide_watched": "Skrýt sledovaná videa v kanálu",
@@ -159,7 +159,16 @@
         "invalid_input": "Neplatné údaje",
         "prefer_hls": "Preferovat HLS před DASH",
         "mark_as_watched": "Označit jako zhlédnuté",
-        "mark_as_unwatched": "Označit jako nezhlédnuté"
+        "mark_as_unwatched": "Označit jako nezhlédnuté",
+        "export_history": "Exportovat historii",
+        "import_history": "Importovat historii",
+        "file_format": "Formát souboru",
+        "override": "Přepsat",
+        "never": "Nikdy",
+        "playlists_only": "Pouze playlisty",
+        "export": "Exportovat",
+        "import": "Importovat",
+        "always": "Vždy"
     },
     "player": {
         "watch_on": "Zobrazit na {0}",
@@ -235,6 +244,11 @@
         "weeks": "{amount} týdnů",
         "months": "{amount} měsíců",
         "login_note": "Přihlaste se s účtem vytvořeným na této instanci.",
-        "register_note": "Zaregistrujte si účet na této instanci služby Piped. To vám umožní synchronizovat vaše odběry a seznamy skladeb s vaším účtem, takže budou uloženy na straně serveru. Všechny funkce můžete používat i bez účtu, ale všechna data budou uložena v místní mezipaměti prohlížeče. Ujistěte se, že jako uživatelské jméno NEPOUŽÍVÁTE e-mailovou adresu, a zvolte si bezpečné heslo, které nepoužíváte jinde."
+        "register_note": "Zaregistrujte si účet na této instanci služby Piped. To vám umožní synchronizovat vaše odběry a seznamy skladeb s vaším účtem, takže budou uloženy na straně serveru. Všechny funkce můžete používat i bez účtu, ale všechna data budou uložena v místní mezipaměti prohlížeče. Ujistěte se, že jako uživatelské jméno NEPOUŽÍVÁTE e-mailovou adresu, a zvolte si bezpečné heslo, které nepoužíváte jinde.",
+        "found_n_items": "Nalezeno {0} položek",
+        "skipped": "Přeskočeno",
+        "success": "Úspěch",
+        "error": "Chyba",
+        "selected_subscriptions": "Vybrané odběry"
     }
 }
