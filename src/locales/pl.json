@@ -163,7 +163,13 @@
         "playback_speed": "Szybkość odtwarzania",
         "prefer_hls": "Preferuj HLS zamiast DASH",
         "mark_as_watched": "Oznacz jako obejrzane",
-        "mark_as_unwatched": "Oznacz jako nieobejrzane"
+        "mark_as_unwatched": "Oznacz jako nieobejrzane",
+        "export": "Eksportuj",
+        "import": "Importuj",
+        "export_history": "Eksportuj historię",
+        "override": "Zastąp",
+        "import_history": "Importuj historię",
+        "file_format": "Format pliku"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
@@ -229,7 +235,12 @@
         "hours": "{amount} godziny",
         "months": "{amount} miesiące",
         "login_note": "Zaloguj się na konto utworzone w tej instancji.",
-        "register_note": "Zarejestruj konto dla tej instancji Piped. Umożliwi to synchronizację subskrypcji i list odtwarzania z twoim kontem, dzięki czemu będą one przechowywane po stronie serwera. Możesz korzystać ze wszystkich funkcji bez konta, ale wszystkie dane będą przechowywane w lokalnej pamięci podręcznej Twojej przeglądarki. Upewnij się, że NIE używasz adresu e-mail jako nazwy użytkownika i wybierz bezpieczne hasło, którego nie używasz nigdzie indziej."
+        "register_note": "Zarejestruj konto dla tej instancji Piped. Umożliwi to synchronizację subskrypcji i list odtwarzania z twoim kontem, dzięki czemu będą one przechowywane po stronie serwera. Możesz korzystać ze wszystkich funkcji bez konta, ale wszystkie dane będą przechowywane w lokalnej pamięci podręcznej Twojej przeglądarki. Upewnij się, że NIE używasz adresu e-mail jako nazwy użytkownika i wybierz bezpieczne hasło, którego nie używasz nigdzie indziej.",
+        "success": "Powodzenie",
+        "found_n_items": "Znalezione elementy: {0}",
+        "skipped": "Pominięto",
+        "error": "Błąd",
+        "selected_subscriptions": "Wybrane subskrypcje"
     },
     "subscriptions": {
         "subscribed_channels_count": "Licznik subskrybcji: {0}"
