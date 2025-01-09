@@ -167,7 +167,9 @@
         "export_history": "Export history",
         "import_history": "Import history",
         "file_format": "File format",
-        "override": "Override"
+        "override": "Override",
+        "import": "Import",
+        "export": "Export"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
@@ -240,6 +242,7 @@
         "found_n_items": "Found {0} items",
         "success": "Success",
         "error": "Error",
-        "skipped": "Skipped"
+        "skipped": "Skipped",
+        "selected_subscriptions": "Selected subscriptions"
     }
 }

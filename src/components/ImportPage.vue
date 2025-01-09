@@ -5,13 +5,15 @@
                 <input ref="fileSelector" type="file" @change="fileChange" />
             </div>
             <div>
-                <strong v-text="`Selected Subscriptions: ${selectedSubscriptions}`" />
+                <strong v-text="`${$t('info.selected_subscriptions')}: ${selectedSubscriptions}`" />
             </div>
             <div>
-                <strong>Override: <input v-model="override" class="checkbox" type="checkbox" /></strong>
+                <strong
+                    ><span v-t="'actions.override'" />: <input v-model="override" class="checkbox" type="checkbox"
+                /></strong>
             </div>
             <div>
-                <a class="btn w-auto" @click="handleImport">Import</a>
+                <a v-t="'actions.import'" class="btn w-auto" @click="handleImport" />
             </div>
         </form>
         <br />
