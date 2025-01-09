@@ -161,7 +161,9 @@
         "playback_speed": "Kecepatan pemutaran",
         "invalid_input": "Masukan tidak valid",
         "delete_group_confirm": "Hapus grup ini?",
-        "prefer_hls": "Utamakan HLS daripada DASH"
+        "prefer_hls": "Utamakan HLS daripada DASH",
+        "mark_as_watched": "Tandai sebagai Ditonton",
+        "mark_as_unwatched": "Tandai sebagai Belum Ditonton"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
