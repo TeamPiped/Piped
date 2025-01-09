@@ -159,7 +159,16 @@
         "invalid_input": "Érvénytelen bevitel",
         "prefer_hls": "HLS előnyben részesítése DASH helyett",
         "mark_as_unwatched": "Jelölés nem megtekintettnek",
-        "mark_as_watched": "Jelölés megtekintettnek"
+        "mark_as_watched": "Jelölés megtekintettnek",
+        "export_history": "Előzmények exportálása",
+        "import_history": "Előzmények importálása",
+        "file_format": "Fájlformátum",
+        "override": "Felülbírálás",
+        "import": "Importálás",
+        "export": "Exportálás",
+        "playlists_only": "Csak lejátszási listák",
+        "always": "Mindig",
+        "never": "Soha"
     },
     "video": {
         "ratings_disabled": "Értékelések letiltva",
@@ -232,6 +241,11 @@
         "months": "{amount} hónap",
         "hours": "{amount} óra",
         "days": "{amount} nap",
-        "register_note": "Regisztráljon egy fiókot ehhez a Piped példányhoz. Ez lehetővé teszi az előfizetések és lejátszási listák szinkronizálását a fiókjával, így azok a kiszolgálói oldalon kerülnek tárolásra. Az összes funkciót fiók nélkül is használhatja, de minden adat a böngésző helyi gyorsítótárában tárolódik. Győződjön meg arról, hogy NE használjon e-mail-címet felhasználónévként, és válasszon egy biztonságos jelszót, amelyet máshol nem használ."
+        "register_note": "Regisztráljon egy fiókot ehhez a Piped példányhoz. Ez lehetővé teszi az előfizetések és lejátszási listák szinkronizálását a fiókjával, így azok a kiszolgálói oldalon kerülnek tárolásra. Az összes funkciót fiók nélkül is használhatja, de minden adat a böngésző helyi gyorsítótárában tárolódik. Győződjön meg arról, hogy NE használjon e-mail-címet felhasználónévként, és válasszon egy biztonságos jelszót, amelyet máshol nem használ.",
+        "skipped": "Kihagyott",
+        "success": "Sikeres",
+        "selected_subscriptions": "Kiválasztott feliratkozások",
+        "found_n_items": "{0} elemet talált",
+        "error": "Hiba"
     }
 }

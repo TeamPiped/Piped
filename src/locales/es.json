@@ -114,7 +114,7 @@
         "piped_link": "Enlace de Piped",
         "follow_link": "Seguir el enlace",
         "copy_link": "Copiar enlace",
-        "time_code": "Código de tiempo (en segundos)",
+        "time_code": "Código de tiempo (en segundos o HH:MM:SS)",
         "reset_preferences": "Restablecer preferencias",
         "confirm_reset_preferences": "¿Estás seguro de que quieres restablecer tus preferencias?",
         "backup_preferences": "Copia de seguridad de preferencias",

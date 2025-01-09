@@ -13,16 +13,17 @@
         "livestreams": "Azuzer usrid",
         "bookmarks": "Ticraḍ",
         "feed": "Amultaɣ",
-        "trending": "Tiddin"
+        "trending": "Tiddin",
+        "albums": "Albumen"
     },
     "actions": {
         "dark": "Ubrik",
-        "language_selection": "Afran n tutlayt",
+        "language_selection": "Tutlayt",
         "yes": "Ih",
         "no": "Uhu",
-        "search": "Nadi",
+        "search": "Nadi (Ctrl+K)",
         "filter": "Imsizdeg",
-        "loading": "Asali...",
+        "loading": "Aɛebbi…",
         "delete_playlist_confirm": "Kkes tabdart-a n tɣuri?",
         "share": "Bḍu",
         "documentation": "Tasemlit",
@@ -76,9 +77,9 @@
         "bookmark_playlist": "Tacreḍt",
         "playlist_bookmarked": "Yettwacreḍ",
         "instances_list": "Tabdart n tummanin",
-        "country_selection": "Afran n tmurt",
+        "country_selection": "Tamurt/Tamnaḍt",
         "default_homepage": "Asebter agejdan amezwer",
-        "instance_selection": "Afran n tummant",
+        "instance_selection": "Tummant",
         "import_from_json": "Kter seg JSON/CSV",
         "store_search_history": "Ḥrez azray n unadi",
         "instance_donations": "Tawsa n tummant",
@@ -114,7 +115,16 @@
         "different_auth_instance": "Seqdec tummant tayeḍ i usesteb",
         "download_as_txt": "Sader am.txt",
         "piped_link": "Aseɣwen n Piped",
-        "clone_playlist": "Tabdart n tɣuri yemtawan"
+        "clone_playlist": "Tabdart n tɣuri yemtawan",
+        "import": "Kter",
+        "export": "Sifeḍ",
+        "never": "Werǧin",
+        "skip_automatically": "S wudem awurman",
+        "cancel": "Semmet",
+        "customize": "Sagen",
+        "add": "Rnu",
+        "create_group": "Snulfu-d agraw",
+        "group_name": "Isem n ugraw"
     },
     "preferences": {
         "version": "Lqem",
@@ -137,14 +147,19 @@
         "live": "{0} srid",
         "sponsor_segments": "Inegzumen n udellel",
         "chapters": "Ixfawen",
-        "ratings_disabled": "Iktazalen ttwasensen"
+        "ratings_disabled": "Iktazalen ttwasensen",
+        "all": "Akk",
+        "category": "Taggayt",
+        "license": "Turagt",
+        "chapters_horizontal": "Aglawan",
+        "chapters_vertical": "Ubdid"
     },
     "player": {
         "watch_on": "Wali deg {0}"
     },
     "comment": {
         "pinned_by": "Isenteḍ-itt {author}",
-        "loading": "Asali n yiwenniten...",
+        "loading": "Asali n iwenniten…",
         "disabled": "Ameskar issens iwenniten.",
         "user_disabled": "Nsan yiwenniten deg Yiɣewwaren."
     },
@@ -165,7 +180,9 @@
         "cannot_copy": "D awezɣi ad d-yettwanɣel!",
         "register_no_email_note": "Aseqdec n yimayl am yisem n useqdac, ur yettusireg ara. Kemmel ɣas akken?",
         "local_storage": "Tigawt-a aḥraz adigan, inagan n tuqqna remden?",
-        "preferences_note": "Tamawt: ismenyifen ttwaskelsen deg uklas adigan n yiminig-ik·im. Tukksa n yisefka yiminig-ik·im ad ten-iwennez."
+        "preferences_note": "Tamawt: ismenyifen ttwaskelsen deg uklas adigan n yiminig-ik·im. Tukksa n yisefka yiminig-ik·im ad ten-iwennez.",
+        "success": "Yedda",
+        "error": "Tuccḍa"
     },
     "subscriptions": {
         "subscribed_channels_count": "Imulteɣ ɣer: {0}"
