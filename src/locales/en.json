@@ -169,7 +169,10 @@
         "file_format": "File format",
         "override": "Override",
         "import": "Import",
-        "export": "Export"
+        "export": "Export",
+        "never": "Never",
+        "playlists_only": "Playlists only",
+        "always": "Always"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
