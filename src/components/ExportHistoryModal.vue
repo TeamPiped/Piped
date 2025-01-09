@@ -1,10 +1,10 @@
 <template>
     <ModalComponent>
         <div class="min-w-max flex flex-col">
-            <h2 class="mb-4 text-center text-xl font-bold">Export History</h2>
+            <h2 v-t="'actions.export_history'" class="mb-4 text-center text-xl font-bold" />
             <form>
                 <div>
-                    <label class="mr-2" for="export-format">Export as:</label>
+                    <label v-t="'actions.file_format'" class="mr-2" for="export-format" />
                     <select id="export-format" v-model="exportAs" class="select">
                         <option
                             v-for="option in exportOptions"
@@ -27,7 +27,7 @@
                     </label>
                 </div>
             </form>
-            <button class="btn mt-4" @click="handleExport">Export</button>
+            <button class="btn mt-4" @click="handleExport" v-text="$t('actions.export_history')" />
         </div>
     </ModalComponent>
 </template>

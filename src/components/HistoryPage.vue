@@ -5,8 +5,8 @@
         <div class="flex flex-col gap-2 md:flex-row md:items-center">
             <button v-t="'actions.clear_history'" class="btn" @click="clearHistory" />
 
-            <button v-t="'actions.export_to_json'" class="btn" @click="showExportModal = !showExportModal" />
-            <button v-t="'actions.import_from_json'" class="btn" @click="showImportModal = !showImportModal" />
+            <button v-t="'actions.export_history'" class="btn" @click="showExportModal = !showExportModal" />
+            <button v-t="'actions.import_history'" class="btn" @click="showImportModal = !showImportModal" />
         </div>
 
         <div class="flex items-center gap-1">
