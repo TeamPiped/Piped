@@ -146,7 +146,7 @@
         "follow_link": "Ava link",
         "piped_link": "Link Piped'i saiti",
         "copy_link": "Kopeeri link",
-        "time_code": "Ajahetk esituses (sekundites)",
+        "time_code": "Ajahetk esituses (sekundites või tt:mm:ss)",
         "documentation": "Dokumentatsioon",
         "reply_count": "{count} vastust",
         "bookmark_playlist": "Järjehoidja",
@@ -163,7 +163,16 @@
         "invalid_input": "Vigane sisend",
         "prefer_hls": "Eelista DASH-protokollile HLS-protokolli",
         "mark_as_watched": "Märgi vaadatuks",
-        "mark_as_unwatched": "Märgi mittevaadatuks"
+        "mark_as_unwatched": "Märgi mittevaadatuks",
+        "export_history": "Ekspordi ajalugu",
+        "import_history": "Impordi ajalugu",
+        "file_format": "Failivorming",
+        "override": "Asenda",
+        "import": "Impordi",
+        "export": "Ekspordi",
+        "never": "Mitte kunagi",
+        "playlists_only": "Vaid esitusloendid",
+        "always": "Alati"
     },
     "preferences": {
         "has_cdn": "CDN'i olek?",
@@ -232,6 +241,11 @@
         "login_note": "Logi sisse kontoga, mis on loodud selles vaheserveris.",
         "register_note": "Registreeri konto selles Piped'i vaheserveris. Nii tehes on sul võimalik sünkroniseerida oma tellimused ja esitusloendid oma kontole ja sellega neid serveris salvestada. Vastasel juhul saad sa kasutada selle veebisaidi terviklikku funktsionaalsust, kuid andmeid hoitakse vaid selle veebibrauseri andmehoidlas. Konto loomisel palun ära kasuta oma e-postiaadressi kasutajanimena ning loo turvaline salasõna, mida sa mujal ei kasuta.",
         "preferences_note": "Märkus: eelistused on salvestatud sinu veebibrauseri kohalikus andmekogus. Baruseris salvestatud andmete kustutamisel kõik seadistused lähtestuvad.",
-        "register_no_email_note": "Meie ei soovita kasutajanimeks e-posti aadressi. Kas ikkagi jätkame?"
+        "register_no_email_note": "Meie ei soovita kasutajanimeks e-posti aadressi. Kas ikkagi jätkame?",
+        "selected_subscriptions": "Valitud tellimused",
+        "success": "Valmis",
+        "error": "Viga",
+        "found_n_items": "Leidsime {0} objekti",
+        "skipped": "Vahelejäetud"
     }
 }
