@@ -169,7 +169,10 @@
         "export_history": "Eksportuj historię",
         "override": "Zastąp",
         "import_history": "Importuj historię",
-        "file_format": "Format pliku"
+        "file_format": "Format pliku",
+        "always": "Zawsze",
+        "playlists_only": "Tylko playlisty",
+        "never": "Nigdy"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
