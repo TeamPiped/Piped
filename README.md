@@ -69,6 +69,8 @@ The source code of the documentation website is available at https://github.com/
 
 The documentation can be found at https://docs.piped.video (accessible via IPNS as well).
 
+The API specification is located at https://github.com/TeamPiped/OpenAPI.
+
 ## Extensions
 
 To redirect all YouTube links to Piped, you are highly recommended to use either [Piped-Redirects](https://github.com/TeamPiped/Piped-Redirects), [Libredirect](https://github.com/libredirect/libredirect) or [Predirect](https://github.com/libreom/predirect).
@@ -125,7 +127,7 @@ Donations (to Kavin) can be made at:
 FIAT donations can be made at:
 
 - https://liberapay.com/kavin (Initial author)
-- https://liberapay.com/Bnyro (Current project maintainer)
+- https://liberapay.com/Bnyro (Project maintainer)
 
 Contributions in any other form are also welcomed.
 
