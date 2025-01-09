@@ -99,7 +99,7 @@
         "instance_donations": "Darowizny na rzecz instancji",
         "back_to_home": "Idź do strony głównej",
         "instance_auth_selection": "Instancja uwierzytelniania",
-        "time_code": "Kod czasowy (w sekundach)",
+        "time_code": "Kod czasowy (w sekundach lub GG:MM:SS)",
         "show_markers": "Pokaż znaczniki na pasku postępu",
         "store_search_history": "Zapamiętaj historię wyszukiwania",
         "hide_watched": "Ukryj obejrzane filmy",
