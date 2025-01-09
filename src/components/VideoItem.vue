@@ -1,7 +1,7 @@
 <template>
     <div v-if="showVideo" class="flex flex-col flex-justify-between">
         <router-link
-            class="inline-block w-full focus:text-red-400 hover:text-red-400"
+            class="link inline-block w-full"
             :to="{
                 path: '/watch',
                 query: {
