@@ -82,7 +82,7 @@
         "with_timecode": "Mit Zeitstempel teilen",
         "follow_link": "Link öffnen",
         "copy_link": "Link kopieren",
-        "time_code": "Zeitstempel (in Sekunden)",
+        "time_code": "Zeitstempel (in Sekunden oder HH:MM:SS)",
         "reset_preferences": "Einstellungen zurücksetzen",
         "confirm_reset_preferences": "Bist du sicher, dass du deine Einstellungen zurücksetzen möchtest?",
         "backup_preferences": "Einstellungen sichern",
@@ -139,7 +139,16 @@
         "concurrent_prefetch_limit": "Limit für gleichzeitigen Stream Prefetch",
         "prefer_hls": "HLS gegenüber DASH bevorzugen",
         "mark_as_unwatched": "Als ungesehen markieren",
-        "mark_as_watched": "Als gesehen markieren"
+        "mark_as_watched": "Als gesehen markieren",
+        "export_history": "Verlauf exportieren",
+        "import_history": "Verlauf importieren",
+        "file_format": "Dateiformat",
+        "override": "Überschreiben",
+        "import": "Importieren",
+        "export": "Exportieren",
+        "always": "Immer",
+        "playlists_only": "Nur Playlists",
+        "never": "Nie"
     },
     "player": {
         "watch_on": "Auf {0} ansehen",
@@ -232,6 +241,11 @@
         "hours": "{amount} Stunde(n)",
         "days": "{amount} Tag(e)",
         "login_note": "Melde dich mit einem Konto an, das du auf dieser Instanz erstellt hast.",
-        "register_note": "Erstelle ein Konto für diese Piped-Instanz. Dadurch kannst du deine Abos und Playlists mit deinem Konto synchronisieren, sie werden also serverseitig gespeichert. Du kannst all diese Funktionen auch ohne Konto nutzen, allerdings werden dann alle Daten nur im lokalen Speicher deines Browsers gespeichert. Bitte stelle sicher, dass du KEINE E-Mail-Adresse als Benutzernamen verwendest und ein sicheres Passwort wählst, welches du nicht bereits woanders nutzt."
+        "register_note": "Erstelle ein Konto für diese Piped-Instanz. Dadurch kannst du deine Abos und Playlists mit deinem Konto synchronisieren, sie werden also serverseitig gespeichert. Du kannst all diese Funktionen auch ohne Konto nutzen, allerdings werden dann alle Daten nur im lokalen Speicher deines Browsers gespeichert. Bitte stelle sicher, dass du KEINE E-Mail-Adresse als Benutzernamen verwendest und ein sicheres Passwort wählst, welches du nicht bereits woanders nutzt.",
+        "found_n_items": "{0} Objekte gefunden",
+        "error": "Fehler",
+        "success": "Erfolg",
+        "skipped": "Übersprungen",
+        "selected_subscriptions": "Ausgewählte Abos"
     }
 }
