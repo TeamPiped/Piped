@@ -109,7 +109,7 @@
         "piped_link": "Tautan Piped",
         "follow_link": "Ikuti tautan",
         "copy_link": "Salin tautan",
-        "time_code": "Kode waktu (dalam detik)",
+        "time_code": "Kode waktu (dalam detik atau JJ:MM:DD)",
         "back_to_home": "Kembali ke beranda",
         "show_chapters": "Bab",
         "store_search_history": "Simpan riwayat pencarian",
@@ -163,7 +163,16 @@
         "delete_group_confirm": "Hapus grup ini?",
         "prefer_hls": "Utamakan HLS daripada DASH",
         "mark_as_watched": "Tandai sebagai Ditonton",
-        "mark_as_unwatched": "Tandai sebagai Belum Ditonton"
+        "mark_as_unwatched": "Tandai sebagai Belum Ditonton",
+        "export_history": "Ekspor riwayat",
+        "import_history": "Impor riwayat",
+        "file_format": "Format berkas",
+        "override": "Timpa",
+        "import": "Impor",
+        "export": "Ekspor",
+        "always": "Selalu",
+        "playlists_only": "Daftar putar saja",
+        "never": "Tidak pernah"
     },
     "comment": {
         "pinned_by": "Dipasangi pin oleh {author}",
@@ -235,6 +244,11 @@
         "days": "{amount} hari",
         "months": "{amount} bulan",
         "login_note": "Masuk dengan akun yang dibuat di server ini.",
-        "register_note": "Daftarkan akun untuk server Piped ini. Ini akan memungkinkan Anda untuk menyinkronkan langganan dan daftar putar Anda dengan akun Anda, sehingga mereka disimpan di sisi server. Anda dapat menggunakan semua fitur tanpa akun, tetapi semua data akan disimpan di tembolok lokal browser Anda. Pastikan Anda TIDAK menggunakan alamat surel sebagai nama pengguna Anda dan pilih kata sandi yang aman yang tidak Anda gunakan di tempat lain."
+        "register_note": "Daftarkan akun untuk server Piped ini. Ini akan memungkinkan Anda untuk menyinkronkan langganan dan daftar putar Anda dengan akun Anda, sehingga mereka disimpan di sisi server. Anda dapat menggunakan semua fitur tanpa akun, tetapi semua data akan disimpan di tembolok lokal browser Anda. Pastikan Anda TIDAK menggunakan alamat surel sebagai nama pengguna Anda dan pilih kata sandi yang aman yang tidak Anda gunakan di tempat lain.",
+        "skipped": "Dilewati",
+        "selected_subscriptions": "Langganan terpilih",
+        "found_n_items": "Ditemukan {0} item",
+        "success": "Berhasil",
+        "error": "Kesalahan"
     }
 }
