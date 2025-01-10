@@ -86,7 +86,7 @@
         "back_to_home": "回到首页",
         "share": "分享",
         "with_timecode": "用时间码分享",
-        "time_code": "时间码（单位：秒）",
+        "time_code": "时间码（秒或 HH:MM:SS 格式）",
         "show_chapters": "章节",
         "store_search_history": "保存搜索历史",
         "hide_watched": "在源中隐藏看过的视频",
@@ -139,7 +139,16 @@
         "invalid_input": "无效输入",
         "prefer_hls": "HLS 优先于 DASH",
         "mark_as_unwatched": "标记为未观看",
-        "mark_as_watched": "标记为已观看"
+        "mark_as_watched": "标记为已观看",
+        "export_history": "导出历史",
+        "import_history": "导入历史",
+        "file_format": "文件格式",
+        "override": "覆盖",
+        "import": "导入",
+        "playlists_only": "仅播放列表",
+        "always": "始终",
+        "export": "导出",
+        "never": "永不"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
@@ -235,6 +244,11 @@
         "months": "{amount} 个月",
         "hours": "{amount} 小时",
         "login_note": "使用在此实例上创建的账户登录。",
-        "register_note": "在这个 Piped 实例上注册一个账户。你可以通过账户同步订阅和播放列表，所有数据存储在实例的服务器上。没有账户你也可以使用所有功能，但数据均储存在你所用浏览器的本地缓存中。请确保你没有将电子邮箱地址用作账户的用户名，并选择一个你不在其他地方使用的安全密码。"
+        "register_note": "在这个 Piped 实例上注册一个账户。你可以通过账户同步订阅和播放列表，所有数据存储在实例的服务器上。没有账户你也可以使用所有功能，但数据均储存在你所用浏览器的本地缓存中。请确保你没有将电子邮箱地址用作账户的用户名，并选择一个你不在其他地方使用的安全密码。",
+        "success": "成功",
+        "error": "错误",
+        "skipped": "已跳过",
+        "selected_subscriptions": "已选择订阅",
+        "found_n_items": "找到了 {0} 个项目"
     }
 }
