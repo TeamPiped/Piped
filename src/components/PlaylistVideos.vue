@@ -35,7 +35,7 @@
                 }"
             >
                 <span class="min-w-5 flex-none text-xs" v-text="index + 1" />
-                <div class="w-24 flex-none">
+                <div class="w-24 flex-none pb-1">
                     <VideoThumbnail :item="related" />
 
                     <div class="relative text-xs">
