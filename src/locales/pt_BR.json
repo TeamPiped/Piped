@@ -91,7 +91,7 @@
         "with_timecode": "Compartilhar com momento atual",
         "piped_link": "Link do Piped",
         "follow_link": "Abrir link",
-        "time_code": "Momento atual (em segundos)",
+        "time_code": "Momento atual (em segundos ou HH:MM:SS)",
         "show_chapters": "Capítulos",
         "confirm_reset_preferences": "Tem certeza de que deseja remover suas preferências?",
         "reset_preferences": "Remover preferências",
@@ -137,7 +137,18 @@
         "creator_liked": "O autor curtiu",
         "playback_speed": "Velocidade de reprodução",
         "invalid_input": "Entrada inválida",
-        "prefer_hls": "Preferir HLS em vez de DASH"
+        "prefer_hls": "Preferir HLS em vez de DASH",
+        "export_history": "Exportar histórico",
+        "import_history": "Importar histórico",
+        "file_format": "Formato do arquivo",
+        "override": "Revogar",
+        "import": "Importar",
+        "export": "Exportar",
+        "always": "Sempre",
+        "never": "Nunca",
+        "playlists_only": "Apenas playlists",
+        "mark_as_watched": "Marcar como assistido",
+        "mark_as_unwatched": "Marcar como não assistido"
     },
     "titles": {
         "history": "Histórico",
@@ -227,7 +238,12 @@
         "weeks": "{amount} semana(s)",
         "months": "{amount} mês(es)",
         "login_note": "Faça login com uma conta registrada nesta instância.",
-        "register_note": "Registre uma conta para esta instância Piped. Isto irá permitir que você sincronize suas inscrições e playlists com sua conta, para que sejam armazenadas no lado do servidor. Você pode usar todas as funções sem uma conta, mas todos os dados serão armazenados no cache local do seu navegador. Por favor certifique-se de NÃO usar seu endereço de e-mail como nome de usuário e de escolher uma senha segura que não use em nenhum outro lugar."
+        "register_note": "Registre uma conta para esta instância Piped. Isto irá permitir que você sincronize suas inscrições e playlists com sua conta, para que sejam armazenadas no lado do servidor. Você pode usar todas as funções sem uma conta, mas todos os dados serão armazenados no cache local do seu navegador. Por favor certifique-se de NÃO usar seu endereço de e-mail como nome de usuário e de escolher uma senha segura que não use em nenhum outro lugar.",
+        "error": "Erro",
+        "found_n_items": "Encontrados {0} itens",
+        "success": "Sucesso",
+        "selected_subscriptions": "Inscrições seletas",
+        "skipped": "Pulado"
     },
     "subscriptions": {
         "subscribed_channels_count": "Inscrito em: {0}"
