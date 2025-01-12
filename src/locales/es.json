@@ -172,7 +172,16 @@
         "invalid_input": "Entrada no válida",
         "prefer_hls": "Preferir HLS sobre DASH",
         "mark_as_unwatched": "Marcar como no visto",
-        "mark_as_watched": "Marcar como visto"
+        "mark_as_watched": "Marcar como visto",
+        "export_history": "Exportar historial",
+        "import_history": "Importar historial",
+        "file_format": "Formato de archivo",
+        "override": "Sobrescribir",
+        "import": "Importar",
+        "export": "Exportar",
+        "always": "Siempre",
+        "playlists_only": "Solo listas de reproducción",
+        "never": "Nunca"
     },
     "titles": {
         "feed": "Contenido",
@@ -232,6 +241,11 @@
         "weeks": "{amount} semana(s)",
         "months": "{amount} mes(es)",
         "login_note": "Inicia sesión con una cuenta creada en esta instancia.",
-        "register_note": "Registra una cuenta para esta instancia de Piped. Esto te permitirá sincronizar tus suscripciones y las listas de reproducción con tu cuenta, para que se almacenen en el servidor. Puedes utilizar todas las funciones sin una cuenta, pero todos los datos se almacenarán en la caché local de tu navegador. Asegúrate de NO utilizar una dirección de correo electrónico como nombre de usuario y elige una contraseña segura que no utilices en ningún otro sitio."
+        "register_note": "Registra una cuenta para esta instancia de Piped. Esto te permitirá sincronizar tus suscripciones y las listas de reproducción con tu cuenta, para que se almacenen en el servidor. Puedes utilizar todas las funciones sin una cuenta, pero todos los datos se almacenarán en la caché local de tu navegador. Asegúrate de NO utilizar una dirección de correo electrónico como nombre de usuario y elige una contraseña segura que no utilices en ningún otro sitio.",
+        "success": "Éxito",
+        "skipped": "Saltado",
+        "selected_subscriptions": "Suscripciones seleccionadas",
+        "found_n_items": "{0} elementos encontrados",
+        "error": "Error"
     }
 }

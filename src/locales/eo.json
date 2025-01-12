@@ -15,11 +15,12 @@
         "livestreams": "Tujelsendoj",
         "bookmarks": "Legosignoj",
         "channel_groups": "Kanalaroj",
-        "dearrow": "DeArrow"
+        "dearrow": "DeArrow",
+        "albums": "Albumoj"
     },
     "player": {
         "watch_on": "Vidi en {0}",
-        "failed": "Fiaskis kun erarkodo {0}, vidu protokolojn por pli da informo"
+        "failed": "Fiaskis kun erarkodo {0}. Vidu protokolojn por pli da informo."
     },
     "actions": {
         "subscribe": "Aboni",
