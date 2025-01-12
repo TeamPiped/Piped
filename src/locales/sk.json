@@ -59,7 +59,7 @@
         "please_select_playlist": "Vyberte zoznam skladieb",
         "back_to_home": "Späť domov",
         "copy_link": "Skopírovať odkaz",
-        "time_code": "Časový kód (v sekundách)",
+        "time_code": "Časový kód (v sekundách alebo HH:MM:SS)",
         "with_timecode": "Zdieľať s časovým kódom",
         "piped_link": "Piped odkaz",
         "show_markers": "Zobraziť markery v pokroku bare",
@@ -139,7 +139,16 @@
         "playback_speed": "Rýchlosť prehrávania",
         "prefer_hls": "Uprednostniť HLS pred DASH",
         "mark_as_watched": "Označiť ako sledované",
-        "mark_as_unwatched": "Označiť ako nesledované"
+        "mark_as_unwatched": "Označiť ako nesledované",
+        "export_history": "Export histórie",
+        "import_history": "Import histórie",
+        "file_format": "Formát súboru",
+        "override": "Override",
+        "import": "Import",
+        "export": "Export",
+        "never": "Nikdy",
+        "playlists_only": "Iba zoznamy",
+        "always": "Vždy"
     },
     "player": {
         "watch_on": "Zobraziť na {0}",
@@ -217,7 +226,12 @@
         "local_storage": "Táto akcia vyžaduje lokálne úložisko, sú povolené súbory cookie?",
         "register_no_email_note": "Použitie e-mailu ako používateľského mena sa neodporúča. Napriek tomu pokračovať?",
         "hours": "{amount} hod.",
-        "register_note": "Zaregistrujte si účet pre túto inštanciu Piped. Umožní vám to synchronizovať odbery a playlisty s vaším účtom, takže budú uložené na strane servera. Všetky funkcie môžete používať bez účtu, ale všetky údaje budú uložené v lokálnej vyrovnávacej pamäti prehliadača. Uistite sa, že NEPOUŽÍVATE e-mailovú adresu ako svoje používateľské meno a zvoľte si bezpečné heslo, ktoré inde nepoužívate."
+        "register_note": "Zaregistrujte si účet pre túto inštanciu Piped. Umožní vám to synchronizovať odbery a playlisty s vaším účtom, takže budú uložené na strane servera. Všetky funkcie môžete používať bez účtu, ale všetky údaje budú uložené v lokálnej vyrovnávacej pamäti prehliadača. Uistite sa, že NEPOUŽÍVATE e-mailovú adresu ako svoje používateľské meno a zvoľte si bezpečné heslo, ktoré inde nepoužívate.",
+        "success": "Úspešné",
+        "selected_subscriptions": "Vybrané predplatné",
+        "error": "Error",
+        "found_n_items": "Nájdené {0} položky",
+        "skipped": "Preskočené"
     },
     "subscriptions": {
         "subscribed_channels_count": "Odoberané: {0}"
