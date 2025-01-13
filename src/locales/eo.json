@@ -16,7 +16,8 @@
         "bookmarks": "Legosignoj",
         "channel_groups": "Kanalaroj",
         "dearrow": "DeArrow",
-        "albums": "Albumoj"
+        "albums": "Albumoj",
+        "custom_instances": "Personigitaj versioj"
     },
     "player": {
         "watch_on": "Vidi en {0}",
@@ -44,7 +45,7 @@
         "autoplay_video": "Aŭtomate Ludi Videon",
         "audio_only": "Nur Sono",
         "default_quality": "Implicita Kvalito",
-        "country_selection": "Lando",
+        "country_selection": "Lando/regiono",
         "default_homepage": "Implicita Ĉefpaĝo",
         "show_comments": "Montri Komentojn",
         "language_selection": "Lingvo",
@@ -83,7 +84,7 @@
         "import_from_json": "Importi el JSON",
         "show_description": "Montri Priskribon",
         "instances_list": "Listo de Piped-retejoj",
-        "auto_play_next_video": "Aŭtomate Ludi sekvan Videon",
+        "auto_play_next_video": "Aŭtomate ludi sekvan videon",
         "show_recommendations": "Montri Rekomendojn",
         "reset_preferences": "Restarigi agordojn",
         "instance_selection": "Retejo",
@@ -100,15 +101,15 @@
         "please_select_playlist": "Bonvolu elekti ludliston",
         "different_auth_instance": "Uzi alian Piped-retejon por aŭtentokontrolo",
         "back_to_home": "Ree hejmen",
-        "time_code": "Tempkodo (en sekundoj)",
+        "time_code": "Tempkodo (en sekundoj aŭ HH:MM:SS)",
         "skip_non_music": "Preterpasi Muzikon: Nemuzika Sekcio",
         "buffering_goal": "Bufra Celo (en sekundoj)",
         "follow_link": "Sekvi ligilon",
         "skip_self_promo": "Preterpasi Nepagitan/Memreklamon",
         "enabled_codecs": "Kodekoj Ebligitaj (Pluraj)",
         "auto": "Aŭtomate",
-        "show_markers": "Montri Markojn en Ludilo",
-        "loading": "Ŝarĝante...",
+        "show_markers": "Montri markojn en progresbreto",
+        "loading": "Ŝarĝante…",
         "clear_history": "Forigi la Historion",
         "skip_filler_tangent": "Preterpasi Plenigajn Scenojn",
         "skip_highlight": "Preterpasi Rimarkindan Momenton",
@@ -149,7 +150,29 @@
         "import_from_json_csv": "Importi el JSON/CSV",
         "download_frame": "Elŝuti bildon",
         "instance_privacy_policy": "Privateca politiko",
-        "add_to_group": "Aldoni al grupo"
+        "add_to_group": "Aldoni al grupo",
+        "export_history": "Eksporti historion",
+        "import_history": "Importi historion",
+        "file_format": "Dosierformo",
+        "import": "Importi",
+        "export": "Eksporti",
+        "override": "Anstataŭigi",
+        "never": "Neniam",
+        "creator_replied": "Kreinto respondis",
+        "creator_liked": "Kreinto ŝatis",
+        "instances_not_shown": "Publikaj versioj, kiuj ne estas montritaj ĉi tie, nun ne disponeblas.",
+        "always": "Ĉiam",
+        "invalid_input": "Nevalida enigo",
+        "playlists_only": "Nur ludlistoj",
+        "playback_speed": "Rapideco de ludado",
+        "delete_group_confirm": "Ĉu forigi ĉi tiun grupon?",
+        "add": "Aldoni",
+        "customize": "Agordi",
+        "invalid_url": "Nevalida URL!",
+        "mark_as_watched": "Marki kiel spektita",
+        "mark_as_unwatched": "Marki kiel ne spektita",
+        "concurrent_prefetch_limit": "Kunrula antaŭŝarĝa limo de elsendfluo",
+        "prefer_hls": "Preferi HLS antaŭ DASH"
     },
     "video": {
         "chapters": "Sekcioj",
@@ -192,7 +215,12 @@
         "weeks": "{amount} semajno(j)",
         "months": "{amount} monato(j)",
         "login_note": "Ensaluti per konto kreita en ĉi tiu retejo.",
-        "register_note": "Registri konton por ĉi tiu Piped-retejo. Tio ebligos al vi sinkronigi viajn abonojn kaj ludlistojn kun via konto, do ili estos konservitaj en la servilo. Vi ankaŭ povas uzi ĉiujn funkciojn sen konto, sed ĉiuj datenoj estos konservitaj en la loka kaŝmemoro de via retumilo. Bonvolu elekti sekuran pasvorton, kiun vi ne uzas aliloke, kaj NE uzi retadreson kiel uzantnomon."
+        "register_note": "Registri konton por ĉi tiu Piped-retejo. Tio ebligos al vi sinkronigi viajn abonojn kaj ludlistojn kun via konto, do ili estos konservitaj en la servilo. Vi ankaŭ povas uzi ĉiujn funkciojn sen konto, sed ĉiuj datenoj estos konservitaj en la loka kaŝmemoro de via retumilo. Bonvolu elekti sekuran pasvorton, kiun vi ne uzas aliloke, kaj NE uzi retadreson kiel uzantnomon.",
+        "found_n_items": "{0} elementoj trovitaj",
+        "success": "Sukcese",
+        "selected_subscriptions": "Elektitaj abonoj",
+        "error": "Eraro",
+        "skipped": "Saltita"
     },
     "login": {
         "username": "Uzantnomo",
@@ -207,13 +235,15 @@
         "ssl_score": "SSL-Poentaro",
         "up_to_date": "Ĉu ĝisdata?",
         "has_cdn": "Ĉu ĝi havas CDN-n?",
-        "instance_locations": "Nodaj Lokoj"
+        "instance_locations": "Nodaj Lokoj",
+        "uptime_30d": "Daŭro de funkciado (30 tagoj)",
+        "api_url": "URL de API"
     },
     "comment": {
         "disabled": "Komentoj estas malebligitaj de la alŝutinto.",
         "user_disabled": "Komentoj estas malebligitaj en la agordoj.",
         "pinned_by": "Fiksita de {author}",
-        "loading": "Ŝarĝante komentojn..."
+        "loading": "Ŝarĝante komentojn…"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonita al: {0}"
