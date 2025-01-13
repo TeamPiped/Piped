@@ -24,12 +24,12 @@
         "version": "Verzija",
         "up_to_date": "Najnovija verzija?",
         "uptime_30d": "Vrijeme rada (30 dana)",
-        "api_url": "URL Api-ja"
+        "api_url": "URL API-ja"
     },
     "comment": {
-        "pinned_by": "Prikvačio korisnik {author}",
+        "pinned_by": "Prikvačeno od {author}",
         "disabled": "Prijenosnik je isključio komentare.",
-        "loading": "Učitavanje komentara...",
+        "loading": "Učitavanje komentara …",
         "user_disabled": "Komentari su isključeni u postavkama."
     },
     "actions": {
@@ -41,7 +41,7 @@
         "minimize_recommendations": "Sakrij preporuke",
         "show_recommendations": "Prikaži preporuke",
         "donations": "Donacije za razvoj",
-        "auto_play_next_video": "Automatski reproduciraj idući video",
+        "auto_play_next_video": "Automatski reproduciraj sljedeći video",
         "loop_this_video": "Ponavljaj ovaj video",
         "import_from_json": "Uvezi iz JSON formata",
         "export_to_json": "Izvezi u JSON",
@@ -55,7 +55,7 @@
         "store_watch_history": "Spremi povijest gledanja",
         "show_comments": "Prikaži komentare",
         "default_homepage": "Standardna početna stranica",
-        "country_selection": "Zemlja",
+        "country_selection": "Zemlja/Regija",
         "buffering_goal": "Cilj međuspremnika (u sekundama)",
         "default_quality": "Standardna kvaliteta",
         "audio_only": "Samo zvuk",
@@ -82,7 +82,7 @@
         "skip_intro": "Preskoči pauzu i uvodnu animaciju",
         "skip_sponsors": "Preskoči sponzore",
         "enable_sponsorblock": "Uključi blok sponsora",
-        "loading": "Učitavanje…",
+        "loading": "Učitavanje …",
         "filter": "Filtar",
         "search": "Pretraga (Ctrl+K)",
         "view_ssl_score": "Pogledaj SSL ocjenu",
@@ -99,7 +99,7 @@
         "select_playlist": "Odaberi playlistu",
         "please_select_playlist": "Odaberi playlistu",
         "delete_playlist_video_confirm": "Ukloniti video iz playliste?",
-        "show_markers": "Prikaži oznake na playeru",
+        "show_markers": "Prikaži oznake u traci napretka",
         "delete_account": "Izbriši račun",
         "logout": "Odjavi se s ovog uređaja",
         "minimize_recommendations_default": "Standardno sakrij preporuke",
@@ -113,7 +113,7 @@
         "piped_link": "Piped poveznica",
         "follow_link": "Slijedi poveznicu",
         "copy_link": "Kopiraj poveznicu",
-        "time_code": "Vremenski kod (u sekundama)",
+        "time_code": "Vremenski kod (u sekundama ili HH:MM:SS)",
         "restore_preferences": "Obnovi postavke",
         "back_to_home": "Natrag na početnu stranicu",
         "confirm_reset_preferences": "Stvarno želiš resetirati tvoje postavke?",
@@ -170,11 +170,22 @@
         "creator_liked": "Autoru se sviđa",
         "invalid_input": "Neispravni unos",
         "playback_speed": "Brzina reprodukcije",
-        "prefer_hls": "Preferiraj prijenos putem HLS-a umjesto DASH-a"
+        "prefer_hls": "Preferiraj prijenos putem HLS-a umjesto DASH-a",
+        "export_history": "Izvezi povijest",
+        "import_history": "Uvezi povijest",
+        "file_format": "Format datoteke",
+        "override": "Prepiši",
+        "import": "Uvezi",
+        "export": "Izvezi",
+        "never": "Nikada",
+        "playlists_only": "Samo playliste",
+        "always": "Uvijek",
+        "mark_as_watched": "Označi kao pogledano",
+        "mark_as_unwatched": "Označi kao nepogledano"
     },
     "player": {
         "watch_on": "Gledaj na {0}",
-        "failed": "Neuspjelo s greškom {0}. Pogledaj zapise za više informacija"
+        "failed": "Neuspjelo s greškom {0}. Pogledaj zapise za više informacija."
     },
     "titles": {
         "subscriptions": "Pretplate",
@@ -233,6 +244,11 @@
         "weeks": "{amount} tj",
         "months": "{amount} mj",
         "login_note": "Prijavi se s računom stvorenim na ovoj instanci.",
-        "register_note": "Registriraj račun za ovu Piped instancu. To će ti omogućiti sinkronizaciju tvojih pretplata i playlista s tvojim računom kako bi se spremile na poslužitelju. Možeš koristiti sve značajke bez računa, ali će se svi podaci spremiti u lokalnu predmemoriju tvog preglednika. NEMOJ koristiti e-mail adresu kao korisničko ime i odaberi sigurnu lozinku koju ne koristiš negdje drugdje."
+        "register_note": "Registriraj račun za ovu Piped instancu. To će ti omogućiti sinkronizaciju tvojih pretplata i playlista s tvojim računom kako bi se spremile na poslužitelju. Možeš koristiti sve značajke bez računa, ali će se svi podaci spremiti u lokalnu predmemoriju tvog preglednika. NEMOJ koristiti e-mail adresu kao korisničko ime i odaberi sigurnu lozinku koju ne koristiš negdje drugdje.",
+        "found_n_items": "Pronađenih objekta: {0}",
+        "error": "Greška",
+        "skipped": "Preskočeno",
+        "selected_subscriptions": "Odabrane pretplate",
+        "success": "Uspjeh"
     }
 }
