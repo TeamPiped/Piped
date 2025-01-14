@@ -37,7 +37,7 @@
             <span class="line"></span>
         </button>
         <!-- navigation bar for large screen devices -->
-        <ul class="md:text-1xl hidden md:(flex flex flex-1 justify-end children:pl-3)">
+        <ul class="md:text-1xl hidden list-none md:(flex flex flex-1 justify-end children:pl-3)">
             <li v-if="shouldShowTrending">
                 <router-link v-t="'titles.trending'" to="/trending" class="nav-link" />
             </li>
