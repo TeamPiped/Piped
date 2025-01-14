@@ -5,7 +5,14 @@
         class="relative max-h-screen w-full flex justify-center"
         :class="{ 'player-container': !isEmbed }"
     >
-        <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" playsinline />
+        <video
+            ref="videoEl"
+            class="w-full"
+            data-shaka-player
+            :autoplay="shouldAutoPlay"
+            :loop="selectedAutoLoop"
+            playsinline
+        />
         <span
             id="preview-container"
             ref="previewContainer"
