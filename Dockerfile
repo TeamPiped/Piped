@@ -15,11 +15,11 @@ RUN --mount=type=cache,target=/root/.local/share/pnpm \
     pnpm install --prefer-offline && \
     pnpm build && ./localizefonts.sh
 
-FROM nginx:alpine
+FROM nginxinc/nginx-unprivileged:alpine
 
-COPY --from=build /app/dist/ /usr/share/nginx/html/
+COPY --chown=101:101 --from=build /app/dist/ /usr/share/nginx/html/
 
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --chown=101:101 docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY docker/entrypoint.sh /entrypoint.sh
 
