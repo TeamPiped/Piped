@@ -125,10 +125,36 @@
         "enable_dearrow": "Ota käyttöön DeArrow",
         "instance_privacy_policy": "Tietosuojaseloste",
         "instance_auth_selection": "Todennus instanssin valinta",
-        "instances_not_shown": "Julkiset instanssit, joita ei näytetä täällä, eivät ole saatavilla juuri nyt."
+        "instances_not_shown": "Julkiset instanssit, joita ei näytetä täällä, eivät ole saatavilla juuri nyt.",
+        "okay": "Okei",
+        "download_frame": "Lataa kehys",
+        "skip_button_only": "Näytä ohita painike",
+        "skip_segment": "Ohita segmentti",
+        "with_playlist": "Jaa soittolistan kanssa",
+        "show_less": "Näytä vähemmän",
+        "min_segment_length": "Segmentin minimipituus",
+        "edit_playlist": "Muokkaa soittolistaa",
+        "delete_group_confirm": "Poistetaanko tämä ryhmä?",
+        "clone_playlist": "Kopioi soittolista",
+        "playlist_name": "Soittolistan nimi",
+        "create_group": "Luo ryhmä",
+        "group_name": "Ryhmän nimi",
+        "cancel": "Peruuta",
+        "dismiss": "Hylkää",
+        "import_from_json_csv": "Tuo JSON tai CSV tiedostosta",
+        "auto_display_captions": "Automaattises näytä kommentit",
+        "playlist_description": "Soittolistan kuvaus",
+        "bookmark_playlist": "Kirjanmerkki",
+        "add_to_group": "Lisää ryhmään",
+        "mark_as_watched": "Merkitse katsotuksi",
+        "mark_as_unwatched": "Merkitse katsomattomaksi",
+        "show_search_suggestions": "Näytä hakuehdotuksia",
+        "delete_automatically": "Poista automaattisesti",
+        "generate_qrcode": "Luo QR koodi"
     },
     "player": {
-        "watch_on": "Katso sivustolla {0}"
+        "watch_on": "Katso sivustolla {0}",
+        "failed": "Virhe tapahtu virhekoodilla {0}, lisätiedot logeissa"
     },
     "titles": {
         "subscriptions": "Tilaukset",
@@ -159,7 +185,8 @@
         "music_songs": "YT Musiikki: Kappaleet",
         "music_videos": "YT Music: Videot",
         "music_albums": "YT Music: Albumit",
-        "music_playlists": "YT Music: Soittolistat"
+        "music_playlists": "YT Music: Soittolistat",
+        "music_artists": "YT Music: Artistit"
     },
     "comment": {
         "pinned_by": "Kiinnitti {author}",
@@ -172,5 +199,8 @@
         "copied": "Kopioitu!",
         "cannot_copy": "Ei voi kopioida!",
         "local_storage": "Tämä toiminto vaatii localStorage, ovatko evästeet käytössä?"
+    },
+    "subscriptions": {
+        "subscribed_channels_count": "Tilaa: {0}"
     }
 }
