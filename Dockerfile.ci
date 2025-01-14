@@ -1,7 +1,7 @@
-FROM nginx:alpine
+FROM nginxinc/nginx-unprivileged:alpine
 
-COPY ./dist-ci/ /usr/share/nginx/html/
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --chown=101:101 ./dist-ci/ /usr/share/nginx/html/
+COPY --chown=101:101 docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY docker/entrypoint.sh /entrypoint.sh
 
 EXPOSE 80
