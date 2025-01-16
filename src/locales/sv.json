@@ -86,7 +86,7 @@
         "create_playlist": "Skapa spellista",
         "delete_playlist": "Ta bort spellista",
         "delete_playlist_confirm": "Ta bort den här spellistan?",
-        "show_markers": "Visa markörer på spelaren",
+        "show_markers": "Visa markörer i förloppsraden",
         "delete_account": "Ta bort konto",
         "clone_playlist": "Klona spellista",
         "clone_playlist_success": "Lyckad kloning!",
@@ -120,7 +120,7 @@
         "okay": "Okej",
         "status_page": "Status",
         "minimize_chapters_default": "Minimera kapitel som standard",
-        "time_code": "Tidsstämpel (i sekunder)",
+        "time_code": "Tidsstämpel (i sekunder eller HH:MM:SS)",
         "hide_watched": "Dölj tittade videor i flödet",
         "share": "Dela",
         "show_chapters": "Kapitel",
@@ -135,7 +135,7 @@
         "copy_link": "Kopiera länk",
         "group_name": "Gruppnamn",
         "show_search_suggestions": "Visa sökförslag",
-        "auto_display_captions": "Automatisk visning av textning",
+        "auto_display_captions": "Automatisk visning av undertexter",
         "bookmark_playlist": "Bokmärke",
         "instance_donations": "Instans donationer",
         "no_valid_playlists": "Filen innehåller inga giltiga spellistor!",
@@ -157,7 +157,18 @@
         "customize": "Anpassa",
         "add": "Lägg till",
         "invalid_url": "Ogiltig URL!",
-        "prefer_hls": "Föredra HLS istället för DASH"
+        "prefer_hls": "Föredra HLS istället för DASH",
+        "export_history": "Exportera historik",
+        "import_history": "Importera historik",
+        "file_format": "Filformat",
+        "override": "Skriv över",
+        "import": "Importera",
+        "export": "Exportera",
+        "never": "Aldrig",
+        "playlists_only": "Bara spellista",
+        "always": "Alltid",
+        "mark_as_watched": "Markera som tittad på",
+        "mark_as_unwatched": "Markera som osedd"
     },
     "player": {
         "watch_on": "Se på {0}",
@@ -233,6 +244,11 @@
         "copied": "Kopierad!",
         "local_storage": "Det här kräver localStorage, är cookies aktiverat?",
         "login_note": "Logga in med ett konto som skapats på denna instans.",
-        "register_note": "Registrera ett konto för den här Piped-instansen. Då kan du synkronisera dina prenumerationer och spellistor med ditt konto, så att de lagras på serversidan. Du kan använda alla funktioner utan konto, men alla data lagras i webbläsarens lokala cache. Se till att du INTE använder en e-postadress som användarnamn och välj ett säkert lösenord som du inte använder någon annanstans."
+        "register_note": "Registrera ett konto för den här Piped-instansen. Då kan du synkronisera dina prenumerationer och spellistor med ditt konto, så att de lagras på serversidan. Du kan använda alla funktioner utan konto, men alla data lagras i webbläsarens lokala cache. Se till att du INTE använder en e-postadress som användarnamn och välj ett säkert lösenord som du inte använder någon annanstans.",
+        "found_n_items": "Hittade {0} objekt",
+        "success": "Framgång",
+        "error": "Fel",
+        "skipped": "Hoppade över",
+        "selected_subscriptions": "Valda prenumerationer"
     }
 }
