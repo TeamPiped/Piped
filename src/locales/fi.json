@@ -7,11 +7,19 @@
         "chapters": "Luvut",
         "sponsor_segments": "Sponsorien Segmentit",
         "ratings_disabled": "Arvioinnit poistettu käytöstä",
-        "shorts": "Shorts"
+        "shorts": "Shorts",
+        "chapters_horizontal": "Vaakasuora",
+        "category": "Kategoria",
+        "all": "Kaikki",
+        "visibility": "Näkyvyys",
+        "license": "Lisenssi",
+        "chapters_vertical": "Pystysuora"
     },
     "login": {
         "password": "Salasana",
-        "username": "Käyttäjätunnus"
+        "username": "Käyttäjätunnus",
+        "passwords_incorrect": "Salasanat eivät täsmää!",
+        "password_confirm": "Vahvista salasana"
     },
     "preferences": {
         "ssl_score": "SSL-pisteet",
@@ -20,7 +28,8 @@
         "instance_locations": "Instanssin sijainti",
         "has_cdn": "Onko CDN?",
         "version": "Versio",
-        "up_to_date": "Ajan tasalla?"
+        "up_to_date": "Ajan tasalla?",
+        "api_url": "API:n URL-osoite"
     },
     "actions": {
         "loading": "Ladataan…",
@@ -150,7 +159,22 @@
         "mark_as_unwatched": "Merkitse katsomattomaksi",
         "show_search_suggestions": "Näytä hakuehdotuksia",
         "delete_automatically": "Poista automaattisesti",
-        "generate_qrcode": "Luo QR koodi"
+        "generate_qrcode": "Luo QR koodi",
+        "export_history": "Vie historia",
+        "import_history": "Tuo historia",
+        "file_format": "Tiedostotyyppi",
+        "import": "Tuo",
+        "export": "Vie",
+        "playlists_only": "Vain soittolistat",
+        "always": "Aina",
+        "creator_replied": "Luoja vastasi",
+        "creator_liked": "Luoja tykkäsi",
+        "playback_speed": "Toistonopeus",
+        "customize": "Mukauta",
+        "playlist_bookmarked": "Kirjanmerkitty",
+        "autoplay_next_countdown": "Oletus viive ennen seuraavaa videota (sekunneissa)",
+        "never": "Ei ikinä",
+        "add": "Lisää"
     },
     "player": {
         "watch_on": "Katso sivustolla {0}",
@@ -198,7 +222,18 @@
         "page_not_found": "Sivua ei löydy",
         "copied": "Kopioitu!",
         "cannot_copy": "Ei voi kopioida!",
-        "local_storage": "Tämä toiminto vaatii localStorage, ovatko evästeet käytössä?"
+        "local_storage": "Tämä toiminto vaatii localStorage, ovatko evästeet käytössä?",
+        "preferences_note": "Huomio: valinnat ovat tallennettu selaimesi paikalliseen muistiin. Selaimen muistin tyhjentämine poistaa ne.",
+        "days": "{amount} päivä(ä)",
+        "weeks": "{amount} viikko(a)",
+        "months": "{amount} kuukautta",
+        "found_n_items": "Löydettiin {0} kohdetta",
+        "skipped": "Ohitettu",
+        "selected_subscriptions": "Valitut tilaukset",
+        "register_no_email_note": "Sähköpostiosoitteen käyttämistä käyttäjänimenä ei suositella. Jatketaanko silti?",
+        "next_video_countdown": "Toistetaan seuraava video {0}s päästä",
+        "hours": "{amount} tunti(a)",
+        "error": "Virhe"
     },
     "subscriptions": {
         "subscribed_channels_count": "Tilaa: {0}"
