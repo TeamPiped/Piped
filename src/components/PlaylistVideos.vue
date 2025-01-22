@@ -22,7 +22,7 @@
             :prefer-listen="preferListen"
         >
             <router-link
-                class="flex hover:bg-gray-50 .dark:hover:bg-neutral-800"
+                class="flex rounded px-2 py-1 hover:bg-gray-50 .dark:hover:bg-neutral-800"
                 :class="{ 'bg-gray-200 .dark:bg-neutral-700': index === selectedIndex - 1 }"
                 :to="{
                     path: '/watch',
@@ -35,34 +35,12 @@
                 }"
             >
                 <span class="min-w-5 flex-none text-xs" v-text="index + 1" />
-                <div class="w-24 flex-none pb-1">
-                    <VideoThumbnail :item="related" />
-
-                    <div class="relative text-xs">
-                        <!-- shorts thumbnail -->
-                        <span v-if="related.isShort" v-t="'video.shorts'" class="thumbnail-overlay thumbnail-left" />
-                        <span
-                            v-if="related.duration > 0 || (related.duration == 0 && related.isShort)"
-                            class="thumbnail-overlay thumbnail-right px-0.5"
-                            v-text="timeFormat(related.duration)"
-                        />
-                        <i18n-t
-                            v-else
-                            keypath="video.live"
-                            class="thumbnail-overlay thumbnail-right !bg-red-600"
-                            tag="div"
-                        >
-                            <i class="i-fa6-solid:tower-broadcast w-3" />
-                        </i18n-t>
-                        <span
-                            v-if="related.watched"
-                            v-t="'video.watched'"
-                            class="thumbnail-overlay bottom-5px left-5px px-0.5"
-                        />
-                    </div>
+                <div class="w-24 flex-none">
+                    <VideoThumbnail :item="related" :small="true" />
                 </div>
+
                 <div class="ml-2 flex flex-col">
-                    <span class="text-sm font-semibold leading-4" :title="related.title" v-text="related.title" />
+                    <span class="link" :title="related.title" v-text="related.title" />
                     <div class="flex-1">
                         <router-link
                             v-if="related.uploaderUrl && related.uploaderName && !hideChannel"
