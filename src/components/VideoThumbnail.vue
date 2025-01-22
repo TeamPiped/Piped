@@ -16,6 +16,20 @@
             />
         </div>
     </div>
+
+    <div class="relative" :class="small ? 'text-xs' : 'text-sm'">
+        <!-- shorts thumbnail -->
+        <span v-if="item.isShort" v-t="'video.shorts'" class="thumbnail-overlay thumbnail-left" />
+        <span
+            v-if="item.duration > 0 || (item.duration == 0 && item.isShort)"
+            class="thumbnail-overlay thumbnail-right px-0.5"
+            v-text="timeFormat(item.duration)"
+        />
+        <i18n-t v-else keypath="video.live" class="thumbnail-overlay thumbnail-right !bg-red-600" tag="div">
+            <i class="i-fa6-solid:tower-broadcast w-3" />
+        </i18n-t>
+        <span v-if="item.watched" v-t="'video.watched'" class="thumbnail-overlay bottom-5px left-5px" />
+    </div>
 </template>
 <script>
 export default {
@@ -24,6 +38,12 @@ export default {
             type: Object,
             default: () => {
                 return {};
+            },
+        },
+        small: {
+            type: Boolean,
+            default: () => {
+                return false;
             },
         },
     },
