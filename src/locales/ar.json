@@ -110,7 +110,7 @@
         "piped_link": "رابط Piped",
         "follow_link": "اتبع الرابط",
         "copy_link": "نسخ الرابط",
-        "time_code": "رمز الوقت (بالثواني)",
+        "time_code": "رمز الوقت (بالثواني أو HHH:MM:SS)",
         "show_chapters": "الفصول",
         "store_search_history": "تخزين سجل البحث",
         "documentation": "التوثيق",
