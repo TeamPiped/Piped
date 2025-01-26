@@ -70,7 +70,7 @@
         "minimize_description": "説明を最小化",
         "show_description": "説明を表示",
         "minimize_recommendations": "おすすめを最小化",
-        "show_recommendations": "おすすめを見る",
+        "show_recommendations": "おすすめを表示",
         "disable_lbry": "ストリーミングのLBRYを無効化",
         "enable_lbry_proxy": "LBRYにプロキシを使用",
         "view_ssl_score": "SSLの評価を表示",
@@ -114,7 +114,7 @@
         "restore_preferences": "設定を復元",
         "back_to_home": "ホームに戻る",
         "copy_link": "リンクコピー",
-        "time_code": "開始時間 (秒)",
+        "time_code": "開始時間 (秒 か HH:MM:SS)",
         "documentation": "説明書",
         "reset_preferences": "設定を初期化",
         "confirm_reset_preferences": "設定をリセットしますか？",
@@ -161,7 +161,18 @@
         "creator_liked": "投稿者が高評価",
         "invalid_input": "入力が無効です",
         "playback_speed": "再生速度",
-        "prefer_hls": "DASHよりHLSを優先"
+        "prefer_hls": "DASHよりHLSを優先",
+        "file_format": "ファイル形式",
+        "export_history": "履歴をエクスポート",
+        "import_history": "履歴をインポート",
+        "override": "上書き",
+        "import": "インポート",
+        "export": "エクスポート",
+        "never": "なし",
+        "always": "常に",
+        "playlists_only": "再生リストのみ",
+        "mark_as_watched": "視聴済みにする",
+        "mark_as_unwatched": "未視聴にする"
     },
     "comment": {
         "pinned_by": "{author} によって固定",
@@ -227,7 +238,12 @@
         "hours": "{amount}時間",
         "months": "{amount}月",
         "login_note": "このインスタンス用に作成したアカウントにログインできます。",
-        "register_note": "この Piped インスタンス用にアカウントを作成します。登録チャンネルと再生リストを同期するために、それらの情報をサーバー内に保存します。アカウントなしでもすべての機能を使用できますが、その場合、すべてのデータは端末内のブラウザーのキャッシュとして保存されます。ユーザー名にメールアドレスを使用しないでください。他のサービスで使っていない安全なパスワードを登録してください。"
+        "register_note": "この Piped インスタンス用にアカウントを作成します。登録チャンネルと再生リストを同期するために、それらの情報をサーバー内に保存します。アカウントなしでもすべての機能を使用できますが、その場合、すべてのデータは端末内のブラウザーのキャッシュとして保存されます。ユーザー名にメールアドレスを使用しないでください。他のサービスで使っていない安全なパスワードを登録してください。",
+        "found_n_items": "{0} 項目あります",
+        "error": "エラー",
+        "success": "成功",
+        "skipped": "飛ばされた",
+        "selected_subscriptions": "読み込まれた登録チャンネル"
     },
     "subscriptions": {
         "subscribed_channels_count": "チャンネル登録: {0}"
