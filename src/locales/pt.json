@@ -113,7 +113,7 @@
         "minimize_comments": "Minimizar comentários",
         "back_to_home": "Voltar ao início",
         "copy_link": "Copiar ligação",
-        "time_code": "Código de tempo (em segundos)",
+        "time_code": "Código de tempo (em segundos ou HH:MM:SS)",
         "minimize_comments_default": "Por definição, minimizar comentários",
         "share": "Partilhar",
         "with_timecode": "Partilhar com código de tempo",
@@ -157,7 +157,18 @@
         "creator_liked": "O criador gostou",
         "invalid_input": "Entrada inválida",
         "playback_speed": "Velocidade de reprodução",
-        "prefer_hls": "Preferir HLS a DASH"
+        "prefer_hls": "Preferir HLS a DASH",
+        "never": "Nunca",
+        "export_history": "Exportar histórico",
+        "import_history": "Importar histórico",
+        "file_format": "Formato do ficheiro",
+        "override": "Sobrepor",
+        "import": "Importar",
+        "export": "Exportar",
+        "playlists_only": "Apenas listas de reprodução",
+        "always": "Sempre",
+        "mark_as_watched": "Marcar como visto",
+        "mark_as_unwatched": "Marcar como Não visto"
     },
     "preferences": {
         "instance_name": "Nome da instância",
@@ -230,6 +241,11 @@
         "weeks": "{amount} semana(s)",
         "months": "{amount} mês(es)",
         "login_note": "Inicie sessão com uma conta criada nesta instância.",
-        "register_note": "Registe uma conta para esta instância Piped. Isso permitirá que sincronize as subscrições e listas de reprodução com a sua conta, para que elas sejam armazenadas nomo servidor. Pode usar todas as funções sem uma conta, mas todos os dados serão armazenados na cache do navegador. Certifique-se de que NÃO utiliza um endereço de e-mail como nome de utilizador e escolha uma palavra-passe segura."
+        "register_note": "Registe uma conta para esta instância Piped. Isso permitirá que sincronize as subscrições e listas de reprodução com a sua conta, para que elas sejam armazenadas nomo servidor. Pode usar todas as funções sem uma conta, mas todos os dados serão armazenados na cache do navegador. Certifique-se de que NÃO utiliza um endereço de e-mail como nome de utilizador e escolha uma palavra-passe segura.",
+        "selected_subscriptions": "Subscrições selecionadas",
+        "found_n_items": "Encontrados {0} itens",
+        "success": "Sucesso",
+        "error": "Erro",
+        "skipped": "Ignorado"
     }
 }
