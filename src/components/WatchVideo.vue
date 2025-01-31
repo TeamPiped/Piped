@@ -292,7 +292,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="video && !isMobile" class="w-96 flex-none">
+            <div v-if="video && !isMobile" class="max-w-96 flex-none">
                 <ChaptersBar
                     v-if="video?.chapters?.length > 0 && showChapters"
                     :mobile-layout="isMobile"
