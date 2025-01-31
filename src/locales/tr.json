@@ -83,7 +83,7 @@
         "back_to_home": "Ana Sayfaya Dön",
         "follow_link": "Bağlantıyı Takip Et",
         "copy_link": "Bağlantıyı Kopyala",
-        "time_code": "Zaman Kodu (Saniye Cinsinden)",
+        "time_code": "Zaman Kodu (saniyeyle ya da SS:DD:NN)",
         "with_timecode": "Zaman Koduyla Paylaş",
         "piped_link": "Piped Bağlantısı",
         "share": "Paylaş",
@@ -137,7 +137,17 @@
         "creator_liked": "Oluşturan beğendi",
         "playback_speed": "Oynatma hızı",
         "invalid_input": "Geçersiz giriş",
-        "prefer_hls": "DASH yerine HLS tercih et"
+        "prefer_hls": "DASH yerine HLS tercih et",
+        "export_history": "Geçmişi dışa aktar",
+        "import_history": "Geçmişi içe aktar",
+        "file_format": "Dosya biçimi",
+        "import": "İçe aktar",
+        "export": "Dışa aktar",
+        "playlists_only": "Yalnızca oynatma listeleri",
+        "always": "Her zaman",
+        "never": "Asla",
+        "mark_as_unwatched": "İzlenmemiş Olarak İşaretle",
+        "mark_as_watched": "İzlenmiş Olarak İşaretle"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
@@ -233,6 +243,11 @@
         "hours": "{amount} saat",
         "weeks": "{amount} hafta",
         "login_note": "Bu sunucuda oluşturulan bir hesapla oturum açın.",
-        "register_note": "Bu Piped sunucusu için bir hesap açın. Bu, aboneliklerinizi ve oynatma listelerinizi hesabınızla eşzamanlamanızı sağlar, böylece sunucu tarafında kaydedilirler. Tüm özellikleri bir hesap olmadan da kullanabilirsiniz, ancak bu şekilde tüm veriler yalnızca tarayıcınızınn yerel önbelleğinde saklanacaktır. Lütfen kullanıcı adı olarak bir e-posta adresi KULLANMADIĞINIZDAN ve başka bir yerde kullanmadığınız güvenli bir parola seçtiğinizden emin olun."
+        "register_note": "Bu Piped sunucusu için bir hesap açın. Bu, aboneliklerinizi ve oynatma listelerinizi hesabınızla eşzamanlamanızı sağlar, böylece sunucu tarafında kaydedilirler. Tüm özellikleri bir hesap olmadan da kullanabilirsiniz, ancak bu şekilde tüm veriler yalnızca tarayıcınızınn yerel önbelleğinde saklanacaktır. Lütfen kullanıcı adı olarak bir e-posta adresi KULLANMADIĞINIZDAN ve başka bir yerde kullanmadığınız güvenli bir parola seçtiğinizden emin olun.",
+        "skipped": "Atlandı",
+        "selected_subscriptions": "Seçilmiş abonelikler",
+        "found_n_items": "{0} öğe bulundu",
+        "success": "Başarılı",
+        "error": "Hata"
     }
 }
