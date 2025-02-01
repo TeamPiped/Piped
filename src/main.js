@@ -521,11 +521,11 @@ const mixin = {
         },
         fetchDeArrowContent(content) {
             if (!this.getPreferenceBoolean("dearrow", false)) return;
-            let dearrowInclude=this.getPreferenceString("dearrowInclude","");
-            dearrowInclude=dearrowInclude==""? []:dearrowInclude.split(",");
+            let dearrowInclude = this.getPreferenceString("dearrowInclude", "");
+            dearrowInclude = dearrowInclude == "" ? [] : dearrowInclude.split(",");
             const videoIds = content
                 .filter(item => item.type === "stream")
-                .filter(item=> dearrowInclude.length===0||dearrowInclude.includes(item.uploaderName))
+                .filter(item => dearrowInclude.length === 0 || dearrowInclude.includes(item.uploaderName))
                 .map(item => item.url.substr(-11))
                 .sort();
 
