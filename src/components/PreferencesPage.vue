@@ -280,7 +280,7 @@
         <textarea
             id="dearrowInclude"
             v-model="dearrowInclude"
-            class="input mr-2 w-auto h-16"
+            class="input mr-2 h-16 w-auto"
             type="text"
             @change="onChange($event)"
         />
