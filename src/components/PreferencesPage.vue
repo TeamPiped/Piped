@@ -275,6 +275,16 @@
         <strong v-t="'actions.enable_dearrow'" />
         <input id="chkDeArrow" v-model="dearrow" class="checkbox" type="checkbox" @change="onChange($event)" />
     </label>
+    <label class="pref" for="dearrowInclude">
+        <strong v-t="'include'" />
+        <input
+            id="dearrowInclude"
+            v-model="dearrowInclude"
+            class="input mr-2 w-auto"
+            type="text"
+            @change="onChange($event)"
+        />
+    </label>
 
     <h2 v-t="'titles.instance'" class="text-center" />
     <p v-t="'actions.instances_not_shown'" class="text-center" />
@@ -436,6 +446,7 @@ export default {
             showMarkers: true,
             minSegmentLength: 0,
             dearrow: false,
+            dearrowInclude: "",
             selectedTheme: "dark",
             autoPlayVideo: true,
             autoDisplayCaptions: false,
@@ -557,6 +568,7 @@ export default {
             this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
             this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
             this.dearrow = this.getPreferenceBoolean("dearrow", false);
+            this.dearrowInclude = this.getPreferenceString("dearrowInclude", "");
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
             this.autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
@@ -618,6 +630,7 @@ export default {
                 localStorage.setItem("minSegmentLength", this.minSegmentLength);
 
                 localStorage.setItem("dearrow", this.dearrow);
+                localStorage.setItem("dearrowInclude", this.dearrowInclude);
 
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
