@@ -276,11 +276,11 @@
         <input id="chkDeArrow" v-model="dearrow" class="checkbox" type="checkbox" @change="onChange($event)" />
     </label>
     <label class="pref" for="dearrowInclude">
-        <strong v-t="'include'" />
-        <input
+        <strong v-t="'channels to include (comma separated)'" />
+        <textarea
             id="dearrowInclude"
             v-model="dearrowInclude"
-            class="input mr-2 w-auto"
+            class="input mr-2 w-auto h-16"
             type="text"
             @change="onChange($event)"
         />
