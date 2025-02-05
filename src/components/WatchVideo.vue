@@ -17,10 +17,24 @@
                 <i18n-t keypath="info.next_video_countdown">{{ counter }}</i18n-t>
             </ToastComponent>
         </Transition>
-        <div class="flex gap-5 max-lg:flex-col">
+        <div v-if="wideVideo" class="-mx-1vw">
+            <keep-alive>
+                <VideoPlayer
+                    ref="videoPlayer"
+                    :video="video"
+                    :sponsors="sponsors"
+                    :selected-auto-play="selectedAutoPlay"
+                    :selected-auto-loop="selectedAutoLoop"
+                    @timeupdate="onTimeUpdate"
+                    @ended="onVideoEnded"
+                    @navigate-next="navigateNext"
+                />
+            </keep-alive>
+        </div>
+        <div class="flex gap-5">
             <div class="flex-auto">
                 <div v-show="!video.error">
-                    <keep-alive>
+                    <keep-alive v-if="!wideVideo">
                         <VideoPlayer
                             ref="videoPlayer"
                             :video="video"
@@ -386,6 +400,7 @@ export default {
             shouldShowToast: false,
             timeoutCounter: null,
             counter: 0,
+            wideVideo: true,
         };
     },
     computed: {
@@ -422,16 +437,11 @@ export default {
     },
     mounted() {
         // check screen size
-        if (window.innerWidth >= 1024) {
-            this.isMobile = false;
-        }
+        this.isMobile = window.innerWidth < 1024;
+        this.wideVideo = window.innerWidth < (window.innerHeight * 4) / 3 + 467;
         // add an event listener to watch for screen size changes
         window.addEventListener("resize", () => {
-            if (window.innerWidth >= 1024) {
-                this.isMobile = false;
-            } else {
-                this.isMobile = true;
-            }
+            this.isMobile = window.innerWidth < 1024;
         });
         this.getVideoData().then(() => {
             (async () => {
