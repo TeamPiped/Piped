@@ -285,6 +285,16 @@
             @change="onChange($event)"
         />
     </label>
+    <label class="pref" for="dearrowExclude">
+        <strong v-t="'channels to include (comma separated)'" />
+        <textarea
+            id="dearrowExclude"
+            v-model="dearrowExclude"
+            class="input mr-2 h-16 w-auto"
+            type="text"
+            @change="onChange($event)"
+        />
+    </label>
 
     <h2 v-t="'titles.instance'" class="text-center" />
     <p v-t="'actions.instances_not_shown'" class="text-center" />
@@ -447,6 +457,7 @@ export default {
             minSegmentLength: 0,
             dearrow: false,
             dearrowInclude: "",
+            dearrowExclude: "",
             selectedTheme: "dark",
             autoPlayVideo: true,
             autoDisplayCaptions: false,
@@ -569,6 +580,7 @@ export default {
             this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
             this.dearrow = this.getPreferenceBoolean("dearrow", false);
             this.dearrowInclude = this.getPreferenceString("dearrowInclude", "");
+            this.dearrowExclude = this.getPreferenceString("dearrowExclude", "");
             this.selectedTheme = this.getPreferenceString("theme", "dark");
             this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
             this.autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
@@ -631,6 +643,7 @@ export default {
 
                 localStorage.setItem("dearrow", this.dearrow);
                 localStorage.setItem("dearrowInclude", this.dearrowInclude);
+                localStorage.setItem("dearrowExclude", this.dearrowExclude);
 
                 localStorage.setItem("theme", this.selectedTheme);
                 localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
