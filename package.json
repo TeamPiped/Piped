@@ -34,7 +34,7 @@
         "@unocss/reset": "65.4.3",
         "@unocss/transformer-directives": "65.4.3",
         "@unocss/transformer-variant-group": "65.4.3",
-        "@vitejs/plugin-legacy": "6.0.0",
+        "@vitejs/plugin-legacy": "6.0.1",
         "@vitejs/plugin-vue": "5.2.1",
         "@vue/compiler-sfc": "3.5.13",
         "eslint": "8.57.1",
@@ -44,7 +44,7 @@
         "lightningcss": "1.29.1",
         "prettier": "3.4.2",
         "unocss": "65.4.3",
-        "vite": "6.0.11",
+        "vite": "6.1.0",
         "vite-plugin-eslint": "1.8.1",
         "vite-plugin-pwa": "0.21.1",
         "workbox-window": "7.3.0"
