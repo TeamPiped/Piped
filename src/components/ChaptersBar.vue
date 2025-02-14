@@ -1,6 +1,6 @@
 <template>
     <!-- desktop view -->
-    <div v-if="!mobileLayout" class="max-h-75vh max-w-35vw min-h-64 flex-col overflow-y-scroll lt-lg:hidden">
+    <div v-if="!mobileLayout" class="max-h-75vh max-w-35vw min-h-64 flex-col overflow-y-auto lt-lg:hidden">
         <h2 class="mb-2 bg-gray-500/50 p-2" aria-label="chapters" title="chapters">
             {{ $t("video.chapters") }} ({{ chapters.length }})
         </h2>
@@ -25,7 +25,7 @@
     <!-- mobile vertical view -->
     <div
         v-if="mobileLayout && getPreferenceString('mobileChapterLayout') == 'Vertical'"
-        class="max-h-64 flex flex-col overflow-y-scroll"
+        class="max-h-64 flex flex-col overflow-y-auto"
     >
         <h2 class="mb-2 bg-gray-500/50 p-2" aria-label="chapters" title="chapters">
             {{ $t("video.chapters") }} ({{ chapters.length }})
