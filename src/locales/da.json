@@ -132,7 +132,7 @@
         "with_timecode": "Del med tidskode",
         "piped_link": "Piped-link",
         "follow_link": "Følg link",
-        "time_code": "Tidskode (i sekunder)",
+        "time_code": "Tidskode (i sekunder eller HH:MM:SS)",
         "show_chapters": "Kapitler",
         "documentation": "Dokumentation",
         "status_page": "Status",
@@ -161,7 +161,18 @@
         "minimize_comments": "Minimer kommentarer",
         "delete_playlist_video_confirm": "Fjern video fra playliste?",
         "delete_account": "Slet Konto",
-        "prefer_hls": "Foretræk HLS over DASH"
+        "prefer_hls": "Foretræk HLS over DASH",
+        "export_history": "Eksportér historik",
+        "import_history": "Importér historik",
+        "file_format": "Filformat",
+        "override": "Overskriv",
+        "import": "Importér",
+        "export": "Eksportér",
+        "never": "Aldrig",
+        "playlists_only": "Kun playlister",
+        "always": "Altid",
+        "mark_as_watched": "Markér som set",
+        "mark_as_unwatched": "Markér som uset"
     },
     "comment": {
         "pinned_by": "Fastgjort af {author}",
@@ -227,7 +238,11 @@
         "preferences_note": "Bemærk: indstillinger gemmes i din browsers lokale lager. Hvis du sletter dine browserdata, nulstilles de.",
         "page_not_found": "Side ikke fundet",
         "months": "{amount} måned(er)",
-        "login_note": "Log ind med en konto oprettet på denne instans."
+        "login_note": "Log ind med en konto oprettet på denne instans.",
+        "found_n_items": "Fandt {0} elementer",
+        "success": "Succes",
+        "error": "Fejl",
+        "skipped": "Sprang over"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonneret til: {0}"
