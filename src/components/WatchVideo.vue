@@ -21,18 +21,25 @@
             <div class="flex-auto">
                 <div v-show="!video.error">
                     <Teleport defer to="#wideVideoSpot" :disabled="!wideVideo">
-                        <keep-alive>
-                            <VideoPlayer
-                                ref="videoPlayer"
-                                :video="video"
-                                :sponsors="sponsors"
-                                :selected-auto-play="selectedAutoPlay"
-                                :selected-auto-loop="selectedAutoLoop"
-                                @timeupdate="onTimeUpdate"
-                                @ended="onVideoEnded"
-                                @navigate-next="navigateNext"
-                            />
-                        </keep-alive>
+                        <div class="flex flex-row">
+                            <keep-alive>
+                                <VideoPlayer
+                                    ref="videoPlayer"
+                                    :video="video"
+                                    :sponsors="sponsors"
+                                    :selected-auto-play="selectedAutoPlay"
+                                    :selected-auto-loop="selectedAutoLoop"
+                                    @timeupdate="onTimeUpdate"
+                                    @ended="onVideoEnded"
+                                    @navigate-next="navigateNext"
+                                />
+                            </keep-alive>
+                            <button :class="wideVideo ? '-ml-5' : '-mr-5'" class="z-10" @click="wideVideo = !wideVideo">
+                                <div
+                                    :class="wideVideo ? 'i-fa6-solid:chevron-left' : 'i-fa6-solid:chevron-right'"
+                                ></div>
+                            </button>
+                        </div>
                     </Teleport>
                     <div v-if="video && isMobile">
                         <ChaptersBar
@@ -430,7 +437,6 @@ export default {
         // add an event listener to watch for screen size changes
         window.addEventListener("resize", () => {
             this.isMobile = window.innerWidth < 1024;
-            this.wideVideo = window.innerWidth < (window.innerHeight * 4) / 3 + 467;
         });
         this.getVideoData().then(() => {
             (async () => {
