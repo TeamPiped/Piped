@@ -9,7 +9,7 @@
             :is-embed="isEmbed"
         />
     </div>
-    <div id="wideVideoSpot" class="-mx-1vw"></div>
+    <div id="theaterModeSpot" class="-mx-1vw"></div>
     <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
         <Transition>
@@ -20,7 +20,7 @@
         <div class="flex gap-5">
             <div class="flex-auto">
                 <div v-show="!video.error">
-                    <Teleport defer to="#wideVideoSpot" :disabled="!wideVideo">
+                    <Teleport defer to="#theaterModeSpot" :disabled="!theaterMode">
                         <div class="flex flex-row">
                             <keep-alive>
                                 <VideoPlayer
@@ -34,9 +34,17 @@
                                     @navigate-next="navigateNext"
                                 />
                             </keep-alive>
-                            <button :class="wideVideo ? '-ml-5' : '-mr-5'" class="z-10" @click="wideVideo = !wideVideo">
+                            <button
+                                v-if="!isMobile"
+                                :class="theaterMode ? '-ml-5' : '-mr-5'"
+                                class="z-10"
+                                @click="
+                                    theaterMode = !theaterMode;
+                                    setPreference('theaterMode', theaterMode);
+                                "
+                            >
                                 <div
-                                    :class="wideVideo ? 'i-fa6-solid:chevron-left' : 'i-fa6-solid:chevron-right'"
+                                    :class="theaterMode ? 'i-fa6-solid:chevron-left' : 'i-fa6-solid:chevron-right'"
                                 ></div>
                             </button>
                         </div>
@@ -395,7 +403,7 @@ export default {
             shouldShowToast: false,
             timeoutCounter: null,
             counter: 0,
-            wideVideo: true,
+            theaterMode: false,
         };
     },
     computed: {
@@ -433,7 +441,6 @@ export default {
     mounted() {
         // check screen size
         this.isMobile = window.innerWidth < 1024;
-        this.wideVideo = window.innerWidth < (window.innerHeight * 4) / 3 + 467; //if the video player is limited by width rather than height, then clear up some horizontal room
         // add an event listener to watch for screen size changes
         window.addEventListener("resize", () => {
             this.isMobile = window.innerWidth < 1024;
@@ -480,6 +487,10 @@ export default {
     },
     activated() {
         this.active = true;
+        this.theaterMode = this.getPreferenceBoolean(
+            "theaterMode",
+            window.innerWidth < (window.innerHeight * 4) / 3 + 467, //if the video player is limited by width rather than height, then clear up some horizontal room
+        );
         this.selectedAutoPlay = this.getPreferenceNumber("autoplay", 1);
         this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", true);
