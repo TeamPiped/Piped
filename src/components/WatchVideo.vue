@@ -9,7 +9,7 @@
             :is-embed="isEmbed"
         />
     </div>
-
+    <div id="theaterModeSpot" class="-mx-1vw"></div>
     <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
         <Transition>
@@ -17,21 +17,38 @@
                 <i18n-t keypath="info.next_video_countdown">{{ counter }}</i18n-t>
             </ToastComponent>
         </Transition>
-        <div class="flex gap-5 max-lg:flex-col">
+        <div class="flex gap-5">
             <div class="flex-auto">
                 <div v-show="!video.error">
-                    <keep-alive>
-                        <VideoPlayer
-                            ref="videoPlayer"
-                            :video="video"
-                            :sponsors="sponsors"
-                            :selected-auto-play="selectedAutoPlay"
-                            :selected-auto-loop="selectedAutoLoop"
-                            @timeupdate="onTimeUpdate"
-                            @ended="onVideoEnded"
-                            @navigate-next="navigateNext"
-                        />
-                    </keep-alive>
+                    <Teleport defer to="#theaterModeSpot" :disabled="!theaterMode">
+                        <div class="flex flex-row">
+                            <keep-alive>
+                                <VideoPlayer
+                                    ref="videoPlayer"
+                                    :video="video"
+                                    :sponsors="sponsors"
+                                    :selected-auto-play="selectedAutoPlay"
+                                    :selected-auto-loop="selectedAutoLoop"
+                                    @timeupdate="onTimeUpdate"
+                                    @ended="onVideoEnded"
+                                    @navigate-next="navigateNext"
+                                />
+                            </keep-alive>
+                            <button
+                                v-if="!isMobile"
+                                :class="theaterMode ? '-ml-5' : '-mr-5'"
+                                class="z-10"
+                                @click="
+                                    theaterMode = !theaterMode;
+                                    setPreference('theaterMode', theaterMode);
+                                "
+                            >
+                                <div
+                                    :class="theaterMode ? 'i-fa6-solid:chevron-left' : 'i-fa6-solid:chevron-right'"
+                                ></div>
+                            </button>
+                        </div>
+                    </Teleport>
                     <div v-if="video && isMobile">
                         <ChaptersBar
                             v-if="video?.chapters?.length > 0 && showChapters"
@@ -292,7 +309,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="video && !isMobile" class="w-96 flex-none">
+            <div v-if="video && !isMobile" class="max-w-96 flex-none">
                 <ChaptersBar
                     v-if="video?.chapters?.length > 0 && showChapters"
                     :mobile-layout="isMobile"
@@ -386,6 +403,7 @@ export default {
             shouldShowToast: false,
             timeoutCounter: null,
             counter: 0,
+            theaterMode: false,
         };
     },
     computed: {
@@ -422,16 +440,10 @@ export default {
     },
     mounted() {
         // check screen size
-        if (window.innerWidth >= 1024) {
-            this.isMobile = false;
-        }
+        this.isMobile = window.innerWidth < 1024;
         // add an event listener to watch for screen size changes
         window.addEventListener("resize", () => {
-            if (window.innerWidth >= 1024) {
-                this.isMobile = false;
-            } else {
-                this.isMobile = true;
-            }
+            this.isMobile = window.innerWidth < 1024;
         });
         this.getVideoData().then(() => {
             (async () => {
@@ -475,6 +487,10 @@ export default {
     },
     activated() {
         this.active = true;
+        this.theaterMode = this.getPreferenceBoolean(
+            "theaterMode",
+            window.innerWidth < (window.innerHeight * 4) / 3 + 467, //if the video player is limited by width rather than height, then clear up some horizontal room
+        );
         this.selectedAutoPlay = this.getPreferenceNumber("autoplay", 1);
         this.showComments = !this.getPreferenceBoolean("minimizeComments", false);
         this.showDesc = !this.getPreferenceBoolean("minimizeDescription", true);
