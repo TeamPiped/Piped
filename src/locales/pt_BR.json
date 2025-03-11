@@ -172,7 +172,7 @@
     },
     "player": {
         "watch_on": "Ver em {0}",
-        "failed": "Falhou com código de erro {0}. Consulte os logs para obter mais informações"
+        "failed": "Falhou com código de erro {0}. Consulte os logs para obter mais informações."
     },
     "comment": {
         "pinned_by": "Fixado por {author}",
