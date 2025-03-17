@@ -242,7 +242,8 @@
         "found_n_items": "Fandt {0} elementer",
         "success": "Succes",
         "error": "Fejl",
-        "skipped": "Sprang over"
+        "skipped": "Sprang over",
+        "selected_subscriptions": "Valgte abonnementer"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonneret til: {0}"
