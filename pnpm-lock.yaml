@@ -1,4 +1,4 @@
-lockfileVersion: '9.0'
+9lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
@@ -12,8 +12,8 @@ importers:
         specifier: 3.2.4
         version: 3.2.4
       fast-xml-parser:
-        specifier: 5.0.8
-        version: 5.0.8
+        specifier: 5.0.9
+        version: 5.0.9
       hotkeys-js:
         specifier: 3.13.9
         version: 3.13.9
@@ -30,14 +30,14 @@ importers:
         specifier: ^1.5.3
         version: 1.5.4
       shaka-player:
-        specifier: 4.13.1
-        version: 4.13.1
+        specifier: 4.14.1
+        version: 4.14.1
       vue:
         specifier: 3.5.13
         version: 3.5.13(typescript@5.8.2)
       vue-i18n:
-        specifier: 11.1.0
-        version: 11.1.0(vue@3.5.13(typescript@5.8.2))
+        specifier: 11.1.2
+        version: 11.1.2(vue@3.5.13(typescript@5.8.2))
       vue-router:
         specifier: 4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.8.2))
@@ -85,17 +85,17 @@ importers:
         specifier: 8.57.1
         version: 8.57.1
       eslint-config-prettier:
-        specifier: 10.0.2
-        version: 10.0.2(eslint@8.57.1)
+        specifier: 10.1.1
+        version: 10.1.1(eslint@8.57.1)
       eslint-plugin-prettier:
         specifier: 5.2.3
         version: 5.2.3(@types/eslint@8.56.12)(eslint-config-prettier@10.0.2(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.2)
       eslint-plugin-vue:
-        specifier: 9.32.0
-        version: 9.32.0(eslint@8.57.1)
+        specifier: 10.0.0
+        version: 10.0.0(eslint@8.57.1)
       lightningcss:
-        specifier: 1.29.1
-        version: 1.29.1
+        specifier: 1.29.3
+        version: 1.29.3
       prettier:
         specifier: 3.5.2
         version: 3.5.2
