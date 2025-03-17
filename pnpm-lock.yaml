@@ -50,7 +50,7 @@ importers:
         version: 1.2.3
       '@intlify/unplugin-vue-i18n':
         specifier: 6.0.3
-        version: 6.0.3(@vue/compiler-dom@3.5.13)(eslint@8.57.1)(rollup@2.79.2)(typescript@5.8.2)(vue-i18n@11.1.0(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))
+        version: 6.0.3(@vue/compiler-dom@3.5.13)(eslint@8.57.1)(rollup@2.79.2)(typescript@5.8.2)(vue-i18n@11.1.2(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))
       '@unocss/eslint-config':
         specifier: 66.0.0
         version: 66.0.0(eslint@8.57.1)(typescript@5.8.2)
