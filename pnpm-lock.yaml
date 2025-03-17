@@ -97,20 +97,20 @@ importers:
         specifier: 1.29.3
         version: 1.29.3
       prettier:
-        specifier: 3.5.2
-        version: 3.5.2
+        specifier: 3.5.3
+        version: 3.5.3
       unocss:
         specifier: 66.0.0
         version: 66.0.0(postcss@8.5.3)(vite@6.0.11(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2))
       vite:
-        specifier: 6.0.11
-        version: 6.0.11(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0)
+        specifier: 6.2.2
+        version: 6.2.2(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0)
       vite-plugin-eslint:
         specifier: 1.8.1
-        version: 1.8.1(eslint@8.57.1)(vite@6.0.11(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))
+        version: 1.8.1(eslint@8.57.1)(vite@6.2.2(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))
       vite-plugin-pwa:
         specifier: 0.21.1
-        version: 0.21.1(vite@6.0.11(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(workbox-build@7.3.0)(workbox-window@7.3.0)
+        version: 0.21.1(vite@6.2.2(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(workbox-build@7.3.0)(workbox-window@7.3.0)
       workbox-window:
         specifier: 7.3.0
         version: 7.3.0
