@@ -157,7 +157,18 @@
         "invalid_input": "Entrée invalide",
         "add": "Ajouter",
         "customize": "Personnaliser",
-        "invalid_url": "URL invalide !"
+        "invalid_url": "URL invalide !",
+        "export_history": "Exporter l'historique",
+        "file_format": "Format de fichier",
+        "override": "Écraser",
+        "import": "Importer",
+        "export": "Exporter",
+        "never": "Jamais",
+        "always": "Toujours",
+        "import_history": "Importer l'historique",
+        "playlists_only": "Seulement les listes de lecture",
+        "mark_as_watched": "Marquer comme vu",
+        "mark_as_unwatched": "Marquer comme non vu"
     },
     "player": {
         "watch_on": "Voir sur {0}",
@@ -233,6 +244,11 @@
         "months": "{amount} mois",
         "weeks": "{amount} semaine(s)",
         "register_note": "Inscrivez-vous pour ce compte sur cette instance de Piped. Cela vous permettra de synchroniser vos abonnements et listes de lecture avec votre compte, afin qu'ils soient stockés côté serveur. Vous pouvez utiliser toutes les fonctionnalités sans avoir de compte, mais toutes les données seront stockées dans le cache local de votre navigateur. Assurez-vous de NE PAS utiliser une adresse e-mail comme nom d'utilisateur et choisissez un mot de passe sécurisé que vous n'utilisez pas ailleurs.",
-        "days": "{amount} jour(s)"
+        "days": "{amount} jour(s)",
+        "found_n_items": "{0} éléments trouvés",
+        "selected_subscriptions": "Abonnements sélectionnés",
+        "error": "Erreur",
+        "success": "Réussite",
+        "skipped": "Ignoré"
     }
 }

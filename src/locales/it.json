@@ -37,7 +37,7 @@
         "enable_lbry_proxy": "Abilita il proxy per LBRY",
         "disable_lbry": "Disabilita LBRY per lo streaming",
         "show_description": "Mostra la descrizione",
-        "minimize_description": "Minimizza descrizione",
+        "minimize_description": "Minimizza la descrizione",
         "minimize_recommendations": "Minimizza consigli",
         "show_recommendations": "Mostra consigli",
         "donations": "Donazioni per lo sviluppo",
@@ -143,11 +143,11 @@
         "playback_speed": "Velocità di riproduzione",
         "delete_group_confirm": "Cancellare questo gruppo?",
         "prefer_hls": "Preferisci HLS invece di DASH",
-        "concurrent_prefetch_limit": "Limite di stream pre-caricati contemporaneamente",
+        "concurrent_prefetch_limit": "Limite di prelettura del flusso simultaneo",
         "customize": "Modifica",
         "invalid_url": "URL non valido!",
         "add": "Aggiungi",
-        "playlists_only": "Solo Playlist",
+        "playlists_only": "Solo playlist",
         "always": "Sempre"
     },
     "player": {
@@ -199,7 +199,7 @@
         "version": "Versione",
         "up_to_date": "Aggiornato?",
         "api_url": "URL API",
-        "uptime_30d": "Tempo d'attività (30g)"
+        "uptime_30d": "Tempo di attività (30g)"
     },
     "comment": {
         "pinned_by": "Appuntato da {author}",
@@ -249,6 +249,6 @@
         "error": "Errore",
         "skipped": "Saltato",
         "success": "Successo",
-        "selected_subscriptions": "Iscrizioni Selezionate"
+        "selected_subscriptions": "Iscrizioni selezionate"
     }
 }
