@@ -37,7 +37,7 @@
         "enable_lbry_proxy": "Abilita il proxy per LBRY",
         "disable_lbry": "Disabilita LBRY per lo streaming",
         "show_description": "Mostra la descrizione",
-        "minimize_description": "Minimizza descrizione",
+        "minimize_description": "Minimizza la descrizione",
         "minimize_recommendations": "Minimizza consigli",
         "show_recommendations": "Mostra consigli",
         "donations": "Donazioni per lo sviluppo",
@@ -147,7 +147,7 @@
         "customize": "Modifica",
         "invalid_url": "URL non valido!",
         "add": "Aggiungi",
-        "playlists_only": "Solo Playlist",
+        "playlists_only": "Solo playlist",
         "always": "Sempre"
     },
     "player": {
@@ -249,6 +249,6 @@
         "error": "Errore",
         "skipped": "Saltato",
         "success": "Successo",
-        "selected_subscriptions": "Iscrizioni Selezionate"
+        "selected_subscriptions": "Iscrizioni selezionate"
     }
 }
