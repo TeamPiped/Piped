@@ -143,7 +143,7 @@
         "playback_speed": "Velocità di riproduzione",
         "delete_group_confirm": "Cancellare questo gruppo?",
         "prefer_hls": "Preferisci HLS invece di DASH",
-        "concurrent_prefetch_limit": "Limite di stream pre-caricati contemporaneamente",
+        "concurrent_prefetch_limit": "Limite di prelettura del flusso simultaneo",
         "customize": "Modifica",
         "invalid_url": "URL non valido!",
         "add": "Aggiungi",
@@ -199,7 +199,7 @@
         "version": "Versione",
         "up_to_date": "Aggiornato?",
         "api_url": "URL API",
-        "uptime_30d": "Tempo d'attività (30g)"
+        "uptime_30d": "Tempo di attività (30g)"
     },
     "comment": {
         "pinned_by": "Appuntato da {author}",
