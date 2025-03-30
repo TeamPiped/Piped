@@ -129,7 +129,7 @@
         "delete_group_confirm": "Cantzellare custu grupu?",
         "clone_playlist": "Clona s'iscalita",
         "edit_playlist": "Modìfica s'iscalita",
-        "time_code": "Marca temporale (in segundos)",
+        "time_code": "Marca temporale (in segundos o OO:MM:SS)",
         "group_name": "Nùmene de su grupu",
         "create_group": "Crea unu grupu",
         "okay": "Ab",
@@ -137,7 +137,18 @@
         "customize": "Personaliza",
         "add": "Annanghe",
         "invalid_url": "URL non vàlidu!",
-        "prefer_hls": "Preferi HLS a DASH"
+        "prefer_hls": "Preferi HLS a DASH",
+        "export_history": "Esporta sa cronologia",
+        "import_history": "Importa sa cronologia",
+        "file_format": "Formadu de documentu",
+        "import": "Importa",
+        "export": "Esporta",
+        "override": "Subraiscrie su predefinidu",
+        "never": "Mai",
+        "playlists_only": "Iscalitas ebbia",
+        "always": "Semper",
+        "mark_as_watched": "Marca comente pompiadu",
+        "mark_as_unwatched": "Marca comente non pompiadu"
     },
     "titles": {
         "login": "Intra",
@@ -230,6 +241,11 @@
         "weeks": "{amount} chida(s)",
         "months": "{amount} mese(s)",
         "register_note": "Registra unu contu pro custa istàntzia de Piped. Custu t'at a permìtere de sincronizare sas iscritziones e sas iscalitas tuas cun su contu tuo, in manera chi siant sarvadas a s'ala de su serbidore. Podes impreare totu sas funtzionalidades chene unu contu, ma totu sos datos s'ant a sarvare in sa memòria temporànea locale de su navigadore tuo. Assegura·ti de NO impreare un'indiritzu de posta eletrònica comente nùmene de utente tuo e issèbera una crae de intrada segura chi no impreas in aterue.",
-        "login_note": "Intra cun unu contu creadu in custa istàntzia."
+        "login_note": "Intra cun unu contu creadu in custa istàntzia.",
+        "skipped": "Brincadu",
+        "found_n_items": "{0} elementos atzapados",
+        "selected_subscriptions": "Iscritziones seletzionadas",
+        "success": "Sutzessu",
+        "error": "Errore"
     }
 }
