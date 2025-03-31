@@ -521,9 +521,14 @@ const mixin = {
         },
         fetchDeArrowContent(content) {
             if (!this.getPreferenceBoolean("dearrow", false)) return;
-
+            let dearrowInclude = this.getPreferenceString("dearrowInclude", "");
+            let dearrowExclude = this.getPreferenceString("dearrowExclude", "");
+            dearrowInclude = dearrowInclude == "" ? null : dearrowInclude.split(",");
+            dearrowExclude = dearrowExclude == "" ? null : dearrowExclude.split(",");
             const videoIds = content
                 .filter(item => item.type === "stream")
+                .filter(item => dearrowInclude === null || dearrowInclude.includes(item.uploaderName))
+                .filter(item => dearrowExclude === null || !dearrowExclude.includes(item.uploaderName))
                 .map(item => item.url.substr(-11))
                 .sort();
 
@@ -535,6 +540,7 @@ const mixin = {
                 Object.keys(json).forEach(videoId => {
                     const item = content.find(item => item.url.endsWith(videoId));
                     if (item) item.dearrow = json[videoId];
+                    console.log(item);
                 });
             });
         },
