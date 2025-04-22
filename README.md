@@ -11,6 +11,8 @@
 
 An open-source alternative frontend for YouTube which is efficient by design.
 
+A list of public instances can be found at the documentation [here](https://github.com/TeamPiped/documentation/blob/main/content/docs/public-instances/index.md).
+
 # The Problem
 
 YouTube has an extremely invasive privacy policy which relies on using user data in unethical ways. You give them a lot of data - ranging from ideas, music taste, content, political opinions, and much more than you think.
