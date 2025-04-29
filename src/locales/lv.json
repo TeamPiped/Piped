@@ -148,12 +148,12 @@
     },
     "player": {
         "watch_on": "Atskaņot uz {0}",
-        "failed": "Kļūda ar kodu {0}, papildus informācija pieejama žurnālos"
+        "failed": "Kļūda ar kodu {0}. Papildus informācija pieejama žurnālos."
     },
     "titles": {
-        "subscriptions": "Abonomenti",
-        "trending": "Tendences",
-        "livestreams": "Straumes",
+        "subscriptions": "Abonementi",
+        "trending": "Aktuāls",
+        "livestreams": "Tiešraides",
         "login": "Ienākt",
         "preferences": "Iestatījumi",
         "feed": "Saturs",
