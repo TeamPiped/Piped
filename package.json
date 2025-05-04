@@ -26,7 +26,7 @@
     "devDependencies": {
         "@iconify-json/fa6-brands": "1.2.5",
         "@iconify-json/fa6-solid": "1.2.3",
-        "@intlify/unplugin-vue-i18n": "6.0.3",
+        "@intlify/unplugin-vue-i18n": "6.0.8",
         "@unocss/eslint-config": "66.0.0",
         "@unocss/preset-icons": "66.0.0",
         "@unocss/preset-uno": "66.0.0",
