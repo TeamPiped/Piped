@@ -104,7 +104,7 @@
         "with_timecode": "Comparteix amb marca de temps",
         "piped_link": "Enllaç de Piped",
         "share": "Comparteix",
-        "time_code": "Marca de temps (en segons)",
+        "time_code": "Marca de temps (en segons o HH:MM:SS)",
         "copy_link": "Copia l'enllaç",
         "follow_link": "Vés a l'enllaç",
         "store_search_history": "Emmagatzema l'historial de cerca",
@@ -157,7 +157,18 @@
         "customize": "Personalitza",
         "invalid_url": "URL invàlid",
         "add": "Afegeix",
-        "prefer_hls": "Prioritza HLS sobre DASH"
+        "prefer_hls": "Prioritza HLS sobre DASH",
+        "mark_as_watched": "Marca com a vist",
+        "mark_as_unwatched": "Marca com a No vist",
+        "export_history": "Exporta l'historial",
+        "import_history": "Importa l'historial",
+        "file_format": "Format de fitxer",
+        "override": "Sobreescriu",
+        "never": "Mai",
+        "playlists_only": "Només llistes de reproducció",
+        "always": "Sempre",
+        "export": "Exporta",
+        "import": "Importa"
     },
     "comment": {
         "pinned_by": "Fixat per {author}",
@@ -233,6 +244,11 @@
         "weeks": "{amount} setmanes",
         "days": "{amount} dies",
         "login_note": "Inicieu la sessió amb un compte creat en aquesta instància.",
-        "register_note": "Registreu un compte en aquesta instància de Piped. Això us permetrà sincronitzar les vostres subscripcions i llistes de reproducció amb el vostre compte, perquè s'emmagatzemin al servidor. Podeu emprar totes les funcions sense un compte, però totes les dades es desaran a la memòria cau local del vostre navegador. Comproveu que no utilitzeu una adreça electrònica com a nom d'usuari, i trieu una contrasenya segura que no feu servir en cap altre lloc."
+        "register_note": "Registreu un compte en aquesta instància de Piped. Això us permetrà sincronitzar les vostres subscripcions i llistes de reproducció amb el vostre compte, perquè s'emmagatzemin al servidor. Podeu emprar totes les funcions sense un compte, però totes les dades es desaran a la memòria cau local del vostre navegador. Comproveu que no utilitzeu una adreça electrònica com a nom d'usuari, i trieu una contrasenya segura que no feu servir en cap altre lloc.",
+        "success": "Èxit",
+        "found_n_items": "S'han trobat {0} elements",
+        "error": "Error",
+        "selected_subscriptions": "Subscripcions seleccionades",
+        "skipped": "Omès"
     }
 }
