@@ -5,7 +5,14 @@
         class="relative max-h-screen w-full flex justify-center"
         :class="{ 'player-container': !isEmbed }"
     >
-        <video ref="videoEl" class="w-full" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
+        <video
+            ref="videoEl"
+            class="w-full"
+            data-shaka-player
+            :autoplay="shouldAutoPlay"
+            :loop="selectedAutoLoop"
+            playsinline
+        />
         <span
             id="preview-container"
             ref="previewContainer"
@@ -318,7 +325,7 @@ export default {
             streams.push(...this.video.audioStreams);
             streams.push(...this.video.videoStreams);
 
-            const MseSupport = window.MediaSource !== undefined;
+            const MseSupport = window.MediaSource !== undefined || window.ManagedMediaSource !== undefined;
 
             const lbry = null;
 
