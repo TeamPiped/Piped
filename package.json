@@ -21,7 +21,7 @@
         "shaka-player": "4.15.2",
         "vue": "3.5.16",
         "vue-i18n": "11.1.5",
-        "vue-router": "4.5.0"
+        "vue-router": "4.5.1"
     },
     "devDependencies": {
         "@iconify-json/fa6-brands": "1.2.5",
