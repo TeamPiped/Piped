@@ -11,7 +11,7 @@
         "lint": "eslint --fix --color --ignore-path .gitignore --ext .js,.vue ."
     },
     "dependencies": {
-        "dompurify": "3.2.4",
+        "dompurify": "3.2.6",
         "fast-xml-parser": "5.0.8",
         "hotkeys-js": "3.13.9",
         "javascript-time-ago": "2.5.11",
