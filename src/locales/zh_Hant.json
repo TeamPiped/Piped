@@ -144,7 +144,8 @@
         "livestreams": "直播",
         "channels": "頻道",
         "channel_groups": "頻道群組",
-        "dearrow": "DeArrow 插件"
+        "dearrow": "DeArrow 插件",
+        "albums": "專輯"
     },
     "preferences": {
         "registered_users": "已註冊的使用者",
