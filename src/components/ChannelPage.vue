@@ -64,6 +64,9 @@
             >
                 <span v-text="tab.translatedName"></span>
             </button>
+            <router-link :to="`/playlist?list=UU${channel.id.substring(2)}`">
+                <button class="btn h-full">Play all videos</button>
+            </router-link>
         </div>
 
         <hr />
