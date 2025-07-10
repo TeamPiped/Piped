@@ -147,7 +147,8 @@
         "always": "Her zaman",
         "never": "Asla",
         "mark_as_unwatched": "İzlenmemiş Olarak İşaretle",
-        "mark_as_watched": "İzlenmiş Olarak İşaretle"
+        "mark_as_watched": "İzlenmiş Olarak İşaretle",
+        "override": "Geçersiz Kıl"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
