@@ -30,8 +30,8 @@ importers:
         specifier: ^1.5.3
         version: 1.5.4
       shaka-player:
-        specifier: 4.13.1
-        version: 4.13.1
+        specifier: 4.15.9
+        version: 4.15.9
       vue:
         specifier: 3.5.16
         version: 3.5.16(typescript@5.8.2)
@@ -1584,9 +1584,6 @@ packages:
   electron-to-chromium@1.5.119:
     resolution: {integrity: sha512-Ku4NMzUjz3e3Vweh7PhApPrZSS4fyiCIbcIrG9eKrriYVLmbMepETR/v6SU7xPm98QTqMSYiCwfO89QNjXLkbQ==}
 
-  eme-encryption-scheme-polyfill@2.2.1:
-    resolution: {integrity: sha512-GzgrLuZPYGijd8oaKuBqYv3Tc2oruDZM3V2982KOuy/PA1N3zwMe+/oIXJYfZ3BH3PwW5nONdBBE+VY6jlwbrw==}
-
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
 
@@ -2566,8 +2563,8 @@ packages:
     resolution: {integrity: sha512-RJRdvCo6IAnPdsvP/7m6bsQqNnn1FCBX5ZNtFL98MmFF/4xAIJTIg1YbHW5DC2W5SKZanrC6i4HsJqlajw/dZw==}
     engines: {node: '>= 0.4'}
 
-  shaka-player@4.13.1:
-    resolution: {integrity: sha512-JUfMVd4aM5lORJSohLTD7dFhMLtu3856eWNxy5mstIuObOpI6A+maLWdehwII6jQYB0Wgp9eMbbk5tHXGQeOhg==}
+  shaka-player@4.15.9:
+    resolution: {integrity: sha512-x8TElKG1eaj3nlcO9whvH1SbGvJ1gwSdgYlbvcJBNWsMJal70C2ZLk4w8qi8uXpcDjzSR8p28gYgD7WfOdHDGA==}
     engines: {node: '>=18'}
 
   shebang-command@2.0.0:
@@ -4697,8 +4694,6 @@ snapshots:
 
   electron-to-chromium@1.5.119: {}
 
-  eme-encryption-scheme-polyfill@2.2.1: {}
-
   emoji-regex@8.0.0: {}
 
   entities@4.5.0: {}
@@ -5754,9 +5749,7 @@ snapshots:
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
 
-  shaka-player@4.13.1:
-    dependencies:
-      eme-encryption-scheme-polyfill: 2.2.1
+  shaka-player@4.15.9: {}
 
   shebang-command@2.0.0:
     dependencies:

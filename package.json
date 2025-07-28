@@ -18,7 +18,7 @@
         "linkify-html": "4.2.0",
         "linkifyjs": "4.3.2",
         "qrcode": "^1.5.3",
-        "shaka-player": "4.13.1",
+        "shaka-player": "4.15.9",
         "vue": "3.5.16",
         "vue-i18n": "11.1.10",
         "vue-router": "4.5.1"
