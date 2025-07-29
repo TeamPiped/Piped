@@ -22,10 +22,10 @@ importers:
         version: 2.5.11
       linkify-html:
         specifier: 4.2.0
-        version: 4.2.0(linkifyjs@4.2.0)
+        version: 4.2.0(linkifyjs@4.3.2)
       linkifyjs:
-        specifier: 4.2.0
-        version: 4.2.0
+        specifier: 4.3.2
+        version: 4.3.2
       qrcode:
         specifier: ^1.5.3
         version: 1.5.4
@@ -2197,8 +2197,8 @@ packages:
     peerDependencies:
       linkifyjs: ^4.0.0
 
-  linkifyjs@4.2.0:
-    resolution: {integrity: sha512-pCj3PrQyATaoTYKHrgWRF3SJwsm61udVh+vuls/Rl6SptiDhgE7ziUIudAedRY9QEfynmM7/RmLEfPUyw1HPCw==}
+  linkifyjs@4.3.2:
+    resolution: {integrity: sha512-NT1CJtq3hHIreOianA8aSXn6Cw0JzYOuDQbOrSPe7gqFnCpKP++MQe3ODgO3oh2GJFORkAAdqredOa60z63GbA==}
 
   local-pkg@1.1.1:
     resolution: {integrity: sha512-WunYko2W1NcdfAFpuLUoucsgULmgDBRkdxHxWQ7mK0cQqwPiy8E1enjuRBrhLtZkB5iScJ1XIPdhVEFK8aOLSg==}
@@ -2615,6 +2615,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
@@ -5365,11 +5366,11 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.30.1
       lightningcss-win32-x64-msvc: 1.30.1
 
-  linkify-html@4.2.0(linkifyjs@4.2.0):
+  linkify-html@4.2.0(linkifyjs@4.3.2):
     dependencies:
-      linkifyjs: 4.2.0
+      linkifyjs: 4.3.2
 
-  linkifyjs@4.2.0: {}
+  linkifyjs@4.3.2: {}
 
   local-pkg@1.1.1:
     dependencies:
