@@ -15,8 +15,8 @@ importers:
         specifier: 5.2.5
         version: 5.2.5
       hotkeys-js:
-        specifier: 3.13.14
-        version: 3.13.14
+        specifier: 3.13.15
+        version: 3.13.15
       javascript-time-ago:
         specifier: 2.5.11
         version: 2.5.11
@@ -1893,8 +1893,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hotkeys-js@3.13.14:
-    resolution: {integrity: sha512-jmWwEP3twlpPV2/WpzuQzJTg/0MRjWlvKJScEREueIuzoMJ6gmqNrv6sm1WIpW+3g0TzDmQpj2pX8HvYPx90hw==}
+  hotkeys-js@3.13.15:
+    resolution: {integrity: sha512-gHh8a/cPTCpanraePpjRxyIlxDFrIhYqjuh01UHWEwDpglJKCnvLW8kqSx5gQtOuSsJogNZXLhOdbSExpgUiqg==}
 
   idb@7.1.1:
     resolution: {integrity: sha512-gchesWBzyvGHRO9W8tzUWFDycow5gwjvFKfyV9FF32Y7F50yZMp7mP+T2mJIWFx49zicqyC4uefHM17o6xKIVQ==}
@@ -5102,7 +5102,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hotkeys-js@3.13.14: {}
+  hotkeys-js@3.13.15: {}
 
   idb@7.1.1: {}
 
