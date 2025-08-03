@@ -197,7 +197,7 @@ export default {
             }).then(json => {
                 this.tabs[this.selectedTab].tabNextPage = json.nextpage;
                 this.loading = false;
-                json.this.contentItems.push(...json.content);
+                this.contentItems.push(...json.content);
                 this.fetchDeArrowContent(json.content);
                 this.tabs[this.selectedTab].content = this.contentItems;
             });
