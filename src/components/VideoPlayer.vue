@@ -377,6 +377,9 @@ export default {
                     return response.headers.get("Content-Type");
                 });
                 mime = contentType;
+            } else if (this.video.dash && !this.getPreferenceBoolean("preferHls", false)) {
+                uri = this.video.dash;
+                mime = "application/dash+xml";
             } else if (this.video.hls) {
                 uri = this.video.hls;
                 mime = "application/x-mpegURL";
