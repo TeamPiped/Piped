@@ -15,7 +15,7 @@
         "channels": "Chaînes",
         "bookmarks": "Marque-pages",
         "channel_groups": "Groupes de chaînes",
-        "dearrow": "Vignettes (DeArrow)",
+        "dearrow": "DeArrow",
         "albums": "Albums",
         "custom_instances": "Instances Personnalisées"
     },
@@ -106,7 +106,7 @@
         "back_to_home": "Retour à l'accueil",
         "piped_link": "Lien vers Piped",
         "follow_link": "Ouvrir le lien",
-        "time_code": "Horodatage (en secondes)",
+        "time_code": "Code temporel (en secondes ou HH:MM:SS)",
         "show_chapters": "Chapitres",
         "store_search_history": "Mémoriser l'historique de recherche",
         "documentation": "Documentation",
