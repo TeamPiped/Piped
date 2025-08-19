@@ -17,7 +17,7 @@
         "channel_groups": "مجموعات القنوات",
         "dearrow": "دي ارو",
         "albums": "الألبومات",
-        "custom_instances": "مثيلات مخصصة"
+        "custom_instances": "خوادم مخصصة"
     },
     "player": {
         "watch_on": "مشاهدة على {0}",
@@ -110,7 +110,7 @@
         "piped_link": "رابط Piped",
         "follow_link": "اتبع الرابط",
         "copy_link": "نسخ الرابط",
-        "time_code": "رمز الوقت (بالثواني أو HHH:MM:SS)",
+        "time_code": "رمز الوقت (بالثواني أو HH:MM:SS)",
         "show_chapters": "الفصول",
         "store_search_history": "تخزين سجل البحث",
         "documentation": "التوثيق",
@@ -152,7 +152,7 @@
         "instance_privacy_policy": "سياسة الخصوصية",
         "add_to_group": "إضافة إلى المجموعة",
         "instances_not_shown": "الخوادم العامة غير المعروضة هنا ليست متاحة حاليًا.",
-        "concurrent_prefetch_limit": "حد الجلب المسبق للدفق المتزامن",
+        "concurrent_prefetch_limit": "حد الجلب المسبق للبث المتزامن",
         "customize": "تخصيص",
         "invalid_url": "عنوان URL غير صالح!",
         "add": "إضافة",
@@ -180,12 +180,12 @@
         "chapters": "فصول الفيديو",
         "watched": "تمت المشاهدة",
         "views": "{views} عدد المشاهدات",
-        "shorts": "مقاطع فديو قصيرة",
+        "shorts": "مقاطع فيديو قصيرة",
         "videos": "مقاطع الفيديو",
         "live": "{0} مباشر",
         "all": "الكل",
         "category": "الفئة",
-        "chapters_vertical": "رَأسِيّ",
+        "chapters_vertical": "رأسي",
         "chapters_horizontal": "أفقي",
         "visibility": "الظهور",
         "license": "الترخيص"
@@ -234,7 +234,7 @@
     "info": {
         "preferences_note": "ملاحظة: يتم حفظ الإعدادات في وحدة التخزين المحلية في متصفحك. حذف بيانات متصفحك سيؤدي إلى إعادة تعيينها.",
         "page_not_found": "لم يتم العثور على الصفحة",
-        "copied": "نسخ!",
+        "copied": "تم النسخ!",
         "cannot_copy": "لا يمكن نسخه!",
         "local_storage": "يتطلب هذا الإجراء التخزين المحلي، هل يتم تمكين ملفات تعريف الارتباط؟",
         "register_no_email_note": "لا ينصح باستخدام البريد الإلكتروني كاسم مستخدم. المضي قدما على أي حال؟",
