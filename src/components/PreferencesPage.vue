@@ -34,6 +34,17 @@
         </select>
     </label>
 
+    <label class="pref" for="ddlShowTrending">
+        <strong v-t="'actions.show_trending'" />
+        <input
+            id="ddlShowTrending"
+            v-model="showTrending"
+            class="checkbox"
+            type="checkbox"
+            @change="onChange($event)"
+        />
+    </label>
+
     <h2 v-t="'titles.player'" class="text-center" />
     <label class="pref" for="chkAutoPlayVideo">
         <strong v-t="'actions.autoplay_video'" />
@@ -516,6 +527,7 @@ export default {
             password: null,
             showConfirmResetPrefsDialog: false,
             showCustomInstancesModal: false,
+            showTrending: true,
         };
     },
     computed: {
@@ -581,6 +593,7 @@ export default {
             this.prefetchLimit = this.getPreferenceNumber("prefetchLimit", 2);
             this.hideWatched = this.getPreferenceBoolean("hideWatched", false);
             this.mobileChapterLayout = this.getPreferenceString("mobileChapterLayout", "Vertical");
+            this.showTrending = this.getPreferenceBoolean("showTrending", true);
             if (this.selectedLanguage != "en") {
                 try {
                     this.CountryMap = await import(`../utils/CountryMaps/${this.selectedLanguage}.json`).then(
@@ -645,6 +658,7 @@ export default {
                 localStorage.setItem("prefetchLimit", this.prefetchLimit);
                 localStorage.setItem("hideWatched", this.hideWatched);
                 localStorage.setItem("mobileChapterLayout", this.mobileChapterLayout);
+                localStorage.setItem("showTrending", this.showTrending);
 
                 if (shouldReload) window.location.reload();
             }
