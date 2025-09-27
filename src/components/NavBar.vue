@@ -146,7 +146,10 @@ export default {
             return _this.getPreferenceBoolean("watchHistory", false);
         },
         shouldShowTrending(_this) {
-            return _this.getPreferenceString("homepage", "trending") != "trending";
+            return (
+                _this.getPreferenceString("homepage", "trending") != "trending" &&
+                _this.getPreferenceBoolean("showTrending", true)
+            );
         },
         showSearchHistory(_this) {
             return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
