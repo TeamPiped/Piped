@@ -19,7 +19,7 @@
         "linkifyjs": "4.3.2",
         "qrcode": "^1.5.3",
         "shaka-player": "4.15.9",
-        "vue": "3.5.18",
+        "vue": "3.5.22",
         "vue-i18n": "11.1.12",
         "vue-router": "4.5.1"
     },
@@ -36,7 +36,7 @@
         "@unocss/transformer-variant-group": "66.4.1",
         "@vitejs/plugin-legacy": "7.2.1",
         "@vitejs/plugin-vue": "6.0.1",
-        "@vue/compiler-sfc": "3.5.18",
+        "@vue/compiler-sfc": "3.5.22",
         "eslint": "8.57.1",
         "eslint-config-prettier": "10.1.8",
         "eslint-plugin-prettier": "5.5.3",
