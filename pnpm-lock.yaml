@@ -18,8 +18,8 @@ importers:
         specifier: 3.13.15
         version: 3.13.15
       javascript-time-ago:
-        specifier: 2.5.11
-        version: 2.5.11
+        specifier: 2.5.12
+        version: 2.5.12
       linkify-html:
         specifier: 4.3.2
         version: 4.3.2(linkifyjs@4.3.2)
@@ -2039,8 +2039,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  javascript-time-ago@2.5.11:
-    resolution: {integrity: sha512-Zeyf5R7oM1fSMW9zsU3YgAYwE0bimEeF54Udn2ixGd8PUwu+z1Yc5t4Y8YScJDMHD6uCx6giLt3VJR5K4CMwbg==}
+  javascript-time-ago@2.5.12:
+    resolution: {integrity: sha512-s8PPq2HQ3HIbSU0SjhNvTitf5VoXbQWof9q6k3gIX7F2il0ptjD5lONTDccpuKt/2U7RjbCp/TCHPK7eDwO7zQ==}
 
   jiti@2.5.1:
     resolution: {integrity: sha512-twQoecYPiVA5K/h6SxtORw/Bs3ar+mLUtoPSc7iMXzQzK8d7eJ/R09wmTwAjiamETn1cXYPGfNnu7DMoHgu12w==}
@@ -2459,8 +2459,8 @@ packages:
     resolution: {integrity: sha512-cnE+y8bz4NhMjISKbgeVJtqNbtf5QpjZP+Bslo+UqkIt9QPnX9q095eiRRASJG1/tz6dlNr6Z5NsBiWYokp6EQ==}
     hasBin: true
 
-  relative-time-format@1.1.6:
-    resolution: {integrity: sha512-aCv3juQw4hT1/P/OrVltKWLlp15eW1GRcwP1XdxHrPdZE9MtgqFpegjnTjLhi2m2WI9MT/hQQtE+tjEWG1hgkQ==}
+  relative-time-format@1.1.11:
+    resolution: {integrity: sha512-TH+oV/w77hjaB9xCzoFYJ/Icmr/12+02IAoCI/YGS2UBTbjCbBjHGEBxGnVy4EJvOR1qadGzyFRI6hGaJJG93Q==}
 
   require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
@@ -5232,9 +5232,9 @@ snapshots:
       filelist: 1.0.4
       picocolors: 1.1.1
 
-  javascript-time-ago@2.5.11:
+  javascript-time-ago@2.5.12:
     dependencies:
-      relative-time-format: 1.1.6
+      relative-time-format: 1.1.11
 
   jiti@2.5.1: {}
 
@@ -5611,7 +5611,7 @@ snapshots:
     dependencies:
       jsesc: 3.0.2
 
-  relative-time-format@1.1.6: {}
+  relative-time-format@1.1.11: {}
 
   require-directory@2.1.1: {}
 
