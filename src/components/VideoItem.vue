@@ -14,7 +14,7 @@
         >
             <VideoThumbnail :item="item" />
 
-            <div class="flex">
+            <div class="flex justify-between">
                 <p
                     style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
                     class="link flex overflow-hidden pt-2 font-bold"
@@ -25,7 +25,7 @@
                     v-if="typeof item.dearrow?.titles[0]?.title !== 'undefined'"
                     src="/img/DeArrow.svg"
                     :title="item.title"
-                    class="m-3 box-content aspect-square"
+                    class="m-2 box-content aspect-square"
                     :style="{ height: '1lh' }"
                 />
             </div>
