@@ -4,7 +4,7 @@
     <div class="mb-3 flex justify-between">
         <div class="flex items-center gap-2">
             <button v-t="'actions.create_playlist'" class="btn" @click="showCreatePlaylistModal = true" />
-            <input type="search" class="input" placeholder="Filter …" @input="filterPlaylists" />
+            <input type="search" class="input" :placeholder="$t('actions.filter')" @input="filterPlaylists" />
         </div>
         <div class="flex">
             <button v-if="playlists.length > 0" v-t="'actions.export_to_json'" class="btn" @click="exportPlaylists" />
