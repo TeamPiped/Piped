@@ -2,7 +2,10 @@
     <h2 v-t="'titles.playlists'" class="my-4 font-bold" />
 
     <div class="mb-3 flex justify-between">
-        <button v-t="'actions.create_playlist'" class="btn" @click="showCreatePlaylistModal = true" />
+        <div class="flex items-center gap-2">
+            <button v-t="'actions.create_playlist'" class="btn" @click="showCreatePlaylistModal = true" />
+            <input type="search" class="input" placeholder="Filter …" @input="filterPlaylists" />
+        </div>
         <div class="flex">
             <button v-if="playlists.length > 0" v-t="'actions.export_to_json'" class="btn" @click="exportPlaylists" />
             <input
@@ -18,7 +21,7 @@
     </div>
 
     <div class="video-grid">
-        <div v-for="playlist in playlists" :key="playlist.id">
+        <div v-for="playlist in filteredPlaylists" :key="playlist.id">
             <router-link :to="`/playlist?list=${playlist.id}`">
                 <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
                 <div class="relative text-sm">
@@ -109,6 +112,7 @@ export default {
     data() {
         return {
             playlists: [],
+            filteredPlaylists: [],
             bookmarks: [],
             playlistToDelete: null,
             playlistToEdit: null,
@@ -127,7 +131,7 @@ export default {
     methods: {
         fetchPlaylists() {
             this.getPlaylists().then(json => {
-                this.playlists = json;
+                this.playlists = this.filteredPlaylists = json;
             });
         },
         showPlaylistEditModal(playlist) {
@@ -159,6 +163,9 @@ export default {
                 else this.playlists = this.playlists.filter(playlist => playlist.id !== id);
             });
             this.playlistToDelete = null;
+        },
+        filterPlaylists(evt) {
+            this.filteredPlaylists = this.playlists.filter(playlist => playlist.name.includes(evt.target.value));
         },
         async exportPlaylists() {
             if (!this.playlists) return;
