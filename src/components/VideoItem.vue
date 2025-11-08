@@ -25,7 +25,7 @@
                     v-if="typeof item.dearrow?.titles[0]?.title !== 'undefined'"
                     src="/img/DeArrow.svg"
                     :title="item.title"
-                    class="m-2 box-content aspect-square"
+                    class="m-2 box-content aspect-square hover:grayscale"
                     :style="{ height: '1lh' }"
                 />
             </div>

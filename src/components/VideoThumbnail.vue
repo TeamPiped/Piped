@@ -19,7 +19,7 @@
             <img
                 v-if="typeof item.dearrow?.thumbnails[0]?.thumbnail !== 'undefined'"
                 src="/img/DeArrow.svg"
-                class="dearrow-thumbnail thumbnail-overlay thumbnail-top-right box-content aspect-square bg-transparent"
+                class="dearrow-thumbnail thumbnail-overlay thumbnail-top-right box-content aspect-square bg-transparent hover:grayscale"
                 :style="{ height: '1lh' }"
             />
         </div>
