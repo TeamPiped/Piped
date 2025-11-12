@@ -49,6 +49,9 @@ export default defineConfig({
             manifest: {
                 name: "Piped",
                 short_name: "Piped",
+                description: "An alternative privacy-friendly YouTube frontend which is efficient by design.",
+                display: "standalone",
+                start_url: "/",
                 background_color: "#000000",
                 theme_color: "#fa4b4b",
                 icons: [
