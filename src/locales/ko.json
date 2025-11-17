@@ -20,7 +20,7 @@
         "skip_non_music": "음악: 음악이 아닌 구간 스킵",
         "skip_self_promo": "셀프 프로모션 스킵",
         "buffering_goal": "버퍼링 목표 (초)",
-        "country_selection": "국가",
+        "country_selection": "국가/지역",
         "store_watch_history": "시청 기록 저장",
         "language_selection": "언어",
         "no": "아니요",
@@ -51,7 +51,7 @@
         "disable_lbry": "LBRY 스트리밍 비활성화",
         "enable_lbry_proxy": "LBRY 프록시 활성화",
         "minimize_recommendations": "추천 동영상 가리기",
-        "loading": "로딩...",
+        "loading": "불러오는 중…",
         "view_ssl_score": "SSL 점수 보기",
         "skip_intro": "중간 휴식/인트로 애니메이션 스킵",
         "search": "검색 (Ctrl+K)",
@@ -71,12 +71,12 @@
         "download_as_txt": ".txt로 다운로드",
         "share": "공유",
         "copy_link": "링크 복사",
-        "time_code": "시작 시간 (초)",
+        "time_code": "시작 시간 (초 또는 HH:MM:SS)",
         "follow_link": "링크 열기",
         "piped_link": "Piped 링크",
         "with_timecode": "시작 시간을 포함하여 공유",
         "skip_filler_tangent": "잡담/농담 스킵",
-        "show_markers": "플레이어에 마커 표시",
+        "show_markers": "진행 바에 마커 표시",
         "reset_preferences": "설정 초기화",
         "confirm_reset_preferences": "설정을 초기화 하시겠습니까?",
         "restore_preferences": "설정 복원",
@@ -128,7 +128,27 @@
         "generate_qrcode": "QR 코드 생성",
         "add_to_group": "그룹에 추가",
         "instance_privacy_policy": "개인정보 보호 정책",
-        "show_search_suggestions": "검색 추천을 표시"
+        "show_search_suggestions": "검색 추천을 표시",
+        "delete_group_confirm": "이 그룹을 삭제하시겠습니까?",
+        "mark_as_watched": "시청한 영상으로 표시",
+        "mark_as_unwatched": "시청하지 않은 영상으로 표시",
+        "customize": "추가",
+        "invalid_url": "유효하지 않은 URL입니다!",
+        "add": "추가",
+        "creator_replied": "게시자가 답변함",
+        "creator_liked": "게시자가 좋아함",
+        "playback_speed": "재생 속도",
+        "invalid_input": "유효하지 않은 입력",
+        "prefer_hls": "HLS over DASH 선호",
+        "export_history": "히스토리 내보내기",
+        "import_history": "히스토리 가져오기",
+        "file_format": "파일 형식",
+        "override": "덮어쓰기",
+        "import": "가져오기",
+        "export": "내보내기",
+        "never": "없음",
+        "playlists_only": "플레이리스트만",
+        "always": "항상"
     },
     "titles": {
         "feed": "피드",
@@ -146,17 +166,19 @@
         "livestreams": "실시간",
         "channels": "채널",
         "dearrow": "",
-        "channel_groups": "채널 그룹"
+        "channel_groups": "채널 그룹",
+        "albums": "앨범",
+        "custom_instances": "커스텀 인스턴스"
     },
     "player": {
         "watch_on": "{0}에서 보기",
-        "failed": "에러 코드 {0}로 인해 실패했습니다. 더 많은 정보는 로그를 확인해주세요"
+        "failed": "에러 코드 {0}로 인해 실패했습니다. 더 많은 정보는 로그를 확인해 주십시오."
     },
     "comment": {
         "pinned_by": "에 의해 고정됨 {author}",
         "disabled": "업로더가 댓글을 비활성화했습니다.",
         "user_disabled": "설정에서 댓글을 비활성화했습니다.",
-        "loading": "댓글 로드 중..."
+        "loading": "댓글 불러오는 중…"
     },
     "preferences": {
         "has_cdn": "CDN 여부?",
@@ -166,7 +188,8 @@
         "registered_users": "등록 된 사용자",
         "version": "버전",
         "up_to_date": "최신 버전?",
-        "uptime_30d": "가동률 (30일 동안)"
+        "uptime_30d": "가동률 (30일 동안)",
+        "api_url": "API URL"
     },
     "login": {
         "username": "유저 이름",
@@ -181,7 +204,7 @@
         "sponsor_segments": "스폰서 세그먼트",
         "ratings_disabled": "등급 비활성화됨",
         "live": "{0} 라이브",
-        "shorts": "Shorts",
+        "shorts": "쇼츠",
         "chapters": "챕터",
         "category": "카테고리",
         "all": "모두",
@@ -215,7 +238,12 @@
         "login_note": "이 인스턴스에 생성된 계정으로 로그인합니다.",
         "days": "{amount}일",
         "weeks": "{amount}주",
-        "months": "{amount}달"
+        "months": "{amount}달",
+        "found_n_items": "{0}개 항목 있음",
+        "success": "성공",
+        "error": "오류",
+        "skipped": "스킵됨",
+        "selected_subscriptions": "선택된 구독"
     },
     "subscriptions": {
         "subscribed_channels_count": "구독: {0}"
