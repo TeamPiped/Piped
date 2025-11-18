@@ -19,6 +19,123 @@
                         `${playlist.videos} ${$t('video.videos')} - ${timeFormat(totalDuration)}${playlist.nextpage ? '+' : ''}`
                     "
                 />
+                <button v-t="'playlist_stats.stats'" class="btn mx-1" @click="showStats = true"></button>
+                <ModalComponent v-if="stats !== null && showStats" @close="showStats = false">
+                    <h2 v-t="'playlist_stats.playlist_stats'"></h2>
+                    <h3 v-t="'playlist_stats.general'"></h3>
+                    <ul>
+                        <li>
+                            <strong>{{ $t("video.videos") }}:</strong>
+                            <span
+                                v-if="stats.watchedStatus.watched > 0 && stats.watchedStatus.watched < playlist.videos"
+                                class="ml-1"
+                                >{{ stats.watchedStatus.watched }} / {{ playlist.videos }}</span
+                            >
+                            <span v-else>{{ playlist.videos }}</span>
+                        </li>
+                        <li>
+                            <strong>{{ $t("playlist_stats.total_duration") }}:</strong>
+                            <span
+                                v-if="stats.watchedStatus.duration > 0 && stats.watchedStatus.duration < totalDuration"
+                                class="ml-1"
+                                >{{ timeFormat(stats.watchedStatus.duration) }} / {{ timeFormat(totalDuration) }}</span
+                            >
+                            <span v-else>{{ timeFormat(totalDuration) }}</span>
+                            <span v-if="playlist.nextpage">+</span>
+                        </li>
+                        <li>
+                            <strong>{{ $t("playlist_stats.types") }}:</strong>
+                            <span class="ml-2 inline-flex">
+                                <span
+                                    v-for="(count, type) of stats.types"
+                                    :key="type"
+                                    :class="`rounded bg-gray px-1 py-0.5 text-sm text-dark tag-video-type-${type}`"
+                                >
+                                    <strong>
+                                        <i v-if="type === 'livestream'" class="i-fa6-solid:tower-broadcast w-3"></i>
+                                        {{ type }}:
+                                    </strong>
+                                    {{ count }}
+                                </span>
+                            </span>
+                        </li>
+                        <li v-if="stats.categories.length">
+                            <strong>{{ $t("playlist_stats.categories") }}:</strong>
+                            <span class="ml-2 inline-flex">
+                                <span
+                                    v-for="(count, category) of stats.categories"
+                                    :key="category"
+                                    class="rounded bg-gray px-1 py-0.5 text-sm text-dark"
+                                >
+                                    <strong>{{ category }}:</strong> {{ count }}
+                                </span>
+                            </span>
+                        </li>
+                        <li v-if="stats.tags.size">
+                            <strong>{{ $t("playlist_stats.tags") }}:</strong>
+                            <span class="ml-2 inline-flex">
+                                <span
+                                    v-for="tag of stats.tags"
+                                    :key="tag"
+                                    class="rounded bg-gray px-1 py-0.5 text-sm text-dark"
+                                >
+                                    {{ tag }}
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <strong>{{ $t("titles.channel_groups") }}:</strong>
+                            <span class="ml-2 inline-flex">
+                                <span
+                                    v-for="(count, group) of stats.byChannelGroups"
+                                    :key="group"
+                                    class="rounded bg-gray px-1 py-0.5 text-sm text-dark"
+                                >
+                                    <strong>{{ group }}:</strong> {{ count }}
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <h3 v-t="'playlist_stats.by_channel_subscription_status'" class="mt-3"></h3>
+                    <details
+                        v-for="(channels, subscriptionStatus) of stats.byChannelSubscriptionStatus"
+                        :key="subscriptionStatus"
+                        class="flex items-center gap-1"
+                        name="channels-by-subscription"
+                        :open="subscriptionStatus === 'unsubscribed'"
+                    >
+                        <summary class="cursor-pointer">
+                            {{ $t(`playlist_stats.${subscriptionStatus}`) }} ({{ Object.keys(channels).length }})
+                        </summary>
+                        <ul>
+                            <li v-for="channel of channels" :key="channel.name" class="flex items-center gap-1">
+                                <router-link :to="channel.url">
+                                    <img
+                                        v-if="channel.avatar"
+                                        loading="lazy"
+                                        :src="channel.avatar"
+                                        class="mr-0.5 mt-0.5 h-32px w-32px rounded-full"
+                                        width="68"
+                                        height="68"
+                                    />
+                                </router-link>
+                                <strong>
+                                    <router-link
+                                        v-if="channel.url && channel.name"
+                                        class="link-secondary block overflow-hidden text-sm"
+                                        :to="channel.url"
+                                        :title="channel.name"
+                                    >
+                                        <span v-text="`${channel.name}:`" />
+                                        <i v-if="channel.erified" class="i-fa6-solid:check ml-1.5" />
+                                    </router-link>
+                                </strong>
+                                {{ channel.count }}
+                            </li>
+                        </ul>
+                    </details>
+                </ModalComponent>
                 <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
                     {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
                     }}<i class="i-fa6-solid:bookmark ml-3" />
@@ -60,6 +177,7 @@ import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import CollapsableText from "./CollapsableText.vue";
 import VideoItem from "./VideoItem.vue";
 import WatchOnButton from "./WatchOnButton.vue";
+import ModalComponent from "./ModalComponent.vue";
 
 export default {
     components: {
@@ -68,6 +186,7 @@ export default {
         WatchOnButton,
         LoadingIndicatorPage,
         CollapsableText,
+        ModalComponent,
     },
     data() {
         return {
@@ -75,6 +194,10 @@ export default {
             totalDuration: 0,
             admin: false,
             isBookmarked: false,
+            showStats: false,
+            stats: null,
+            subscriptions: null,
+            channelGroups: null,
         };
     },
     computed: {
@@ -110,11 +233,14 @@ export default {
         async getPlaylistData() {
             this.getPlaylist(this.$route.query.list)
                 .then(data => (this.playlist = data))
-                .then(() => {
+                .then(async () => {
                     this.updateTitle();
                     this.updateTotalDuration();
-                    this.updateWatched(this.playlist.relatedStreams);
+                    await this.updateWatched(this.playlist.relatedStreams);
                     this.fetchDeArrowContent(this.playlist.relatedStreams);
+                    this.subscriptions = await this.fetchSubscriptions();
+                    this.channelGroups = await this.getChannelGroups();
+                    this.updateStats();
                 });
         },
         async updateTitle() {
@@ -140,6 +266,98 @@ export default {
         },
         updateTotalDuration() {
             this.totalDuration = this.playlist.relatedStreams.map(video => video.duration).reduce((a, b) => a + b);
+        },
+        updateStats() {
+            this.stats = {
+                types: this.playlist.relatedStreams.reduce((groups, stream) => {
+                    let type = stream.type;
+
+                    if (stream.isShort) {
+                        type = "short";
+                    } else if (stream.duration == 0) {
+                        type = "livestream";
+                    }
+
+                    if (!(type in groups)) {
+                        groups[type] = 0;
+                    }
+
+                    groups[type]++;
+
+                    return groups;
+                }, {}),
+                categories: this.playlist.relatedStreams.reduce((groups, stream) => {
+                    if (typeof stream.category === "undefined") {
+                        return groups;
+                    }
+
+                    if (!(stream.category in groups)) {
+                        groups[stream.category] = 0;
+                    }
+
+                    groups[stream.category]++;
+
+                    return groups;
+                }, {}),
+                tags: this.playlist.relatedStreams.reduce((tags, stream) => {
+                    if (typeof stream.tags === "undefined") {
+                        return tags;
+                    }
+
+                    for (const tag of stream.tags) {
+                        tags.set(tag);
+                    }
+
+                    return tags;
+                }, new Set()),
+                watchedStatus: this.playlist.relatedStreams.reduce(
+                    (groups, stream) => {
+                        if ("watched" in stream && stream.watched === true) {
+                            groups.watched++; // what about partially watched?
+                            groups.duration += stream.currentTime;
+                        }
+
+                        return groups;
+                    },
+                    { watched: 0, duration: 0 },
+                ),
+                byChannelSubscriptionStatus: this.playlist.relatedStreams.reduce(
+                    (groups, stream) => {
+                        const hasSubscribed = this.subscriptions.some(
+                            subscription => subscription.name === stream.uploaderName,
+                        );
+                        const subscriptionStatus = hasSubscribed ? "subscribed" : "unsubscribed";
+                        if (!(stream.uploaderName in groups[subscriptionStatus])) {
+                            groups[subscriptionStatus][stream.uploaderName] = {
+                                name: stream.uploaderName,
+                                avatar: stream.uploaderAvatar,
+                                url: stream.uploaderUrl,
+                                verified: stream.uploaderVerified,
+                                count: 0,
+                            };
+                        }
+
+                        groups[subscriptionStatus][stream.uploaderName].count++;
+
+                        return groups;
+                    },
+                    { subscribed: {}, unsubscribed: {} },
+                ),
+                byChannelGroups: this.playlist.relatedStreams.reduce((groups, stream) => {
+                    const channelGroups = this.channelGroups.filter(group =>
+                        group.channels.includes(stream.uploaderUrl.split("/").filter(Boolean)[1]),
+                    );
+                    for (const group of channelGroups) {
+                        if (!(group.groupName in groups)) {
+                            groups[group.groupName] = 0;
+                        }
+
+                        groups[group.groupName]++;
+                    }
+
+                    return groups;
+                }, {}),
+            };
         },
         async clonePlaylist() {
             this.fetchJson(this.authApiUrl() + "/import/playlist", null, {
@@ -209,3 +427,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.tag-video-type-livestream {
+    @apply bg-red-600;
+}
+</style>
