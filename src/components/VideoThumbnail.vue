@@ -1,12 +1,28 @@
 <template>
-    <div class="w-full">
-        <img
-            loading="lazy"
-            class="aspect-video w-full rounded-md object-contain"
-            :src="item.thumbnail"
-            :alt="item.title"
-            :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
-        />
+    <div class="video-thumbnail w-full">
+        <div class="relative">
+            <img
+                loading="lazy"
+                class="actual-thumbnail aspect-video w-full rounded-md object-contain"
+                :src="thumbnail"
+                :alt="title"
+                :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
+            />
+            <img
+                v-if="typeof item.dearrow?.thumbnails[0]?.thumbnail !== 'undefined'"
+                loading="lazy"
+                class="original-thumbnail aspect-video w-full rounded-md object-contain"
+                :src="item.thumbnail"
+                :alt="item.title"
+                :class="{ 'shorts-img': item.isShort, 'opacity-75': item.watched }"
+            />
+            <img
+                v-if="typeof item.dearrow?.thumbnails[0]?.thumbnail !== 'undefined'"
+                src="/img/DeArrow.svg"
+                class="dearrow-thumbnail thumbnail-overlay thumbnail-top-right box-content aspect-square bg-transparent hover:grayscale"
+                :style="{ height: '1lh' }"
+            />
+        </div>
         <!-- progress bar -->
         <div class="relative h-1 w-full">
             <div
@@ -58,8 +74,22 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .shorts-img {
     @apply w-full object-contain;
+}
+
+.original-thumbnail {
+    display: none;
+}
+
+.video-thumbnail:has(.dearrow-thumbnail:hover):has(.original-thumbnail) {
+    .actual-thumbnail {
+        display: none;
+    }
+
+    .original-thumbnail {
+        display: initial;
+    }
 }
 </style>
