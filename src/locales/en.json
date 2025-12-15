@@ -172,7 +172,8 @@
         "export": "Export",
         "never": "Never",
         "playlists_only": "Playlists only",
-        "always": "Always"
+        "always": "Always",
+        "show_trending": "Show Trending",
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
