@@ -26,15 +26,15 @@
         "skip_intro": "Izlaist Starpbrīža/Ievada Animāciju",
         "copy_link": "Kopēt saiti",
         "auto_play_next_video": "Automātiski Atskaņot Nākošo Video",
-        "instance_selection": "Instance",
+        "instance_selection": "Servera instance",
         "dismiss": "Noraidīt",
         "subscribe": "Abonēt",
         "clear_history": "Tīrīt Vēsturi",
-        "loading": "Ielādē...",
+        "loading": "Ielādē…",
         "minimize_description": "Paslēpt Aprakstu",
         "skip_interaction": "Izlaist Interakcijas atgādinājumu (Abonēt)",
         "hide_watched": "Paslēpt skatītos video saturā",
-        "time_code": "Laika kods (sekundēs)",
+        "time_code": "Laika kods (sekundēs vai HH:MM:SS)",
         "filter": "Filtrs",
         "view_ssl_score": "Rādīt SSL Vērtējumu",
         "delete_account": "Dzēst Kontu",
@@ -132,7 +132,8 @@
         "concurrent_prefetch_limit": "Vienlaicīgu Straumju Ielādes Limits",
         "customize": "Pielāgot",
         "invalid_url": "Nederīgs URL!",
-        "add": "Pievienot"
+        "add": "Pievienot",
+        "mark_as_watched": "Atzīmēt kā noskatītu"
     },
     "search": {
         "all": "YouTube: Visi",
@@ -159,7 +160,7 @@
         "feed": "Saturs",
         "channel_groups": "Kanālu grupas",
         "account": "Konts",
-        "instance": "Instance",
+        "instance": "Servera instance",
         "history": "Vēsture",
         "bookmarks": "Grāmatzīmes",
         "channels": "Kanāli",
@@ -173,7 +174,7 @@
     "video": {
         "all": "Visi",
         "live": "{0} Skatītāji",
-        "shorts": "Shorts",
+        "shorts": "Īsie video",
         "ratings_disabled": "Vērtējumi atspējoti",
         "visibility": "Redzamība",
         "videos": "Video",
@@ -202,7 +203,7 @@
         "copied": "Kopēts!"
     },
     "comment": {
-        "loading": "Ielādē komentārus...",
+        "loading": "Ielādē komentārus…",
         "user_disabled": "Komentāri ir izslēgti iestatījumos.",
         "disabled": "Augšupielādētājs atspējoja komentārus.",
         "pinned_by": "{author} piesprauda"
