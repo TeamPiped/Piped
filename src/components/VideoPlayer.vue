@@ -617,15 +617,11 @@ export default {
             player
                 .load(uri, startTime, mime)
                 .then(() => {
-                    const isSafari = window.navigator?.vendor?.includes("Apple");
-
+                    // Set the audio language
                     let lang = "en";
-                    if (!isSafari) {
-                        // Set the audio language
-                        const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
-                        if (player.getAudioLanguages().includes(prefLang)) lang = prefLang;
-                        player.selectAudioLanguage(lang);
-                    }
+                    const prefLang = this.getPreferenceString("hl", "en").substr(0, 2);
+                    if (player.getAudioLanguages().includes(prefLang)) lang = prefLang;
+                    player.selectAudioLanguage(lang);
 
                     const audioLanguages = player.getAudioLanguages();
                     if (audioLanguages.length > 1) {
