@@ -37,7 +37,7 @@
                             <button
                                 v-if="!isMobile"
                                 :class="theaterMode ? '-ml-5' : '-mr-5'"
-                                class="z-10"
+                                class="z-10 text-white"
                                 @click="
                                     theaterMode = !theaterMode;
                                     setPreference('theaterMode', theaterMode);
