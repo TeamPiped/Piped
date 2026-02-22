@@ -31,6 +31,11 @@
             <div>
                 <a v-t="'titles.login'" class="btn w-auto" @click="login" />
             </div>
+            <ul class="children:pb-3">
+                <li v-for="provider in oidcProviders" :key="provider.name">
+                    <a class="btn" :href="provider.authUri">Login with {{ provider.name }}</a>
+                </li>
+            </ul>
         </form>
     </div>
 </template>
@@ -41,10 +46,17 @@ export default {
         return {
             username: null,
             password: null,
+            oidcProviders: null,
         };
     },
     mounted() {
-        //TODO: Add Server Side check
+        const session = this.$route.query.session;
+        if (session) {
+            this.setPreference("authToken" + this.hashCode(this.authApiUrl()), session);
+            this.setPreference("isOidcLogin", true);
+            window.location = import.meta.env.BASE_URL;
+        }
+        this.fetchConfig();
         if (this.getAuthToken()) {
             this.$router.push(import.meta.env.BASE_URL);
         }
@@ -53,6 +65,16 @@ export default {
         document.title = this.$t("titles.login") + " - Piped";
     },
     methods: {
+        async fetchConfig() {
+            this.fetchJson(this.apiUrl() + "/config").then(config => {
+                this.oidcProviders = config?.oidcProviders.map(name => {
+                    return {
+                        name,
+                        authUri: `${this.authApiUrl()}/oidc/${name}/login?redirect=${window.location.origin}/login`,
+                    };
+                });
+            });
+        },
         login() {
             if (!this.username || !this.password) return;
             this.fetchJson(this.authApiUrl() + "/login", null, {
