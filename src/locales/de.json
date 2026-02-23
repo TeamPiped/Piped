@@ -190,6 +190,18 @@
         "license": "Lizenz",
         "visibility": "Sichtbarkeit"
     },
+    "playlist_stats": {
+        "stats": "Statistik",
+        "playlist_stats": "Playliststatistik",
+        "general": "Allgemein",
+        "total_duration": "Gesamtlaufzeit",
+        "types": "Arten",
+        "categories": "Kategorien",
+        "tags": "Schlagworte",
+        "by_channel_subscription_status": "Nach Kanalabonnementstatus",
+        "subscribed": "abonniert",
+        "unsubscribed": "nicht abonniert"
+    },
     "preferences": {
         "ssl_score": "SSL-Bewertung",
         "has_cdn": "Hat CDN?",
