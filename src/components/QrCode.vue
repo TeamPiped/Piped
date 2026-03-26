@@ -1,30 +1,28 @@
 <template>
     <canvas ref="qrCodeCanvas" class="mx-auto my-2" />
 </template>
-<script>
+<script setup>
+import { ref, watch, onMounted } from "vue";
 import QRCode from "qrcode";
 
-export default {
-    props: {
-        text: {
-            type: String,
-            required: true,
-        },
+const props = defineProps({
+    text: {
+        type: String,
+        required: true,
     },
-    watch: {
-        text() {
-            this.generateQrCode();
-        },
-    },
-    mounted() {
-        this.generateQrCode();
-    },
-    methods: {
-        generateQrCode() {
-            QRCode.toCanvas(this.$refs.qrCodeCanvas, this.text, error => {
-                if (error) console.error(error);
-            });
-        },
-    },
-};
+});
+
+const qrCodeCanvas = ref(null);
+
+function generateQrCode() {
+    QRCode.toCanvas(qrCodeCanvas.value, props.text, error => {
+        if (error) console.error(error);
+    });
+}
+
+watch(() => props.text, generateQrCode);
+
+onMounted(() => {
+    generateQrCode();
+});
 </script>

@@ -57,120 +57,121 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            subscriptions: [],
-            override: false,
-        };
-    },
-    computed: {
-        selectedSubscriptions() {
-            return this.subscriptions.length;
-        },
-    },
-    activated() {
-        document.title = "Import - Piped";
-    },
-    methods: {
-        fileChange() {
-            const file = this.$refs.fileSelector.files[0];
-            file.text().then(text => {
-                this.subscriptions = [];
+<script setup>
+import { ref, computed, onActivated } from "vue";
+import { useI18n } from "vue-i18n";
+import { fetchJson, authApiUrl, getAuthToken, isAuthenticated } from "@/composables/useApi.js";
+import { getLocalSubscriptions } from "@/composables/useSubscriptions.js";
 
-                // Invidious
-                if (text.indexOf("opml") != -1) {
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(text, "text/xml");
-                    xmlDoc.querySelectorAll("outline[xmlUrl]").forEach(item => {
-                        const url = item.getAttribute("xmlUrl");
-                        const id = url.slice(-24);
-                        this.subscriptions.push(id);
-                    });
-                }
-                // NewPipe
-                else if (text.indexOf("subscriptions") != -1) {
-                    const json = JSON.parse(text);
-                    json.subscriptions
-                        // if service_id is undefined, chances are it's a freetube export
-                        .filter(item => item.service_id == 0 || item.service_id == undefined)
-                        .forEach(item => {
-                            const url = item.url;
-                            const id = url.slice(-24);
-                            this.subscriptions.push(id);
-                        });
-                }
-                // Invidious JSON
-                else if (text.indexOf("thin_mode") != -1) {
-                    const json = JSON.parse(text);
-                    this.subscriptions = json.subscriptions;
-                }
-                // FreeTube DB
-                else if (text.indexOf("allChannels") != -1) {
-                    const lines = text.split("\n");
-                    for (let line of lines) {
-                        if (line === "") continue;
-                        const json = JSON.parse(line);
-                        json.subscriptions.forEach(item => {
-                            this.subscriptions.push(item.id);
-                        });
-                    }
-                }
-                // Google Takeout JSON
-                else if (text.indexOf("contentDetails") != -1) {
-                    const json = JSON.parse(text);
-                    json.forEach(item => {
-                        const id = item.snippet.resourceId.channelId;
-                        this.subscriptions.push(id);
-                    });
-                }
+const { t } = useI18n();
 
-                // Google Takeout CSV
-                else if (file.name.length >= 5 && file.name.slice(-4).toLowerCase() == ".csv") {
-                    const lines = text.split("\n");
-                    for (let i = 1; i < lines.length; i++) {
-                        const line = lines[i];
-                        const id = line.slice(0, line.indexOf(","));
-                        if (id.length === 24) this.subscriptions.push(id);
-                    }
-                }
+const fileSelector = ref(null);
+const subscriptions = ref([]);
+const override = ref(false);
+
+const selectedSubscriptions = computed(() => subscriptions.value.length);
+
+onActivated(() => {
+    document.title = "Import - Piped";
+});
+
+function fileChange() {
+    const file = fileSelector.value.files[0];
+    file.text().then(text => {
+        subscriptions.value = [];
+
+        // Invidious
+        if (text.indexOf("opml") != -1) {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(text, "text/xml");
+            xmlDoc.querySelectorAll("outline[xmlUrl]").forEach(item => {
+                const url = item.getAttribute("xmlUrl");
+                const id = url.slice(-24);
+                subscriptions.value.push(id);
             });
-        },
-        handleImport() {
-            if (this.authenticated) {
-                this.fetchJson(
-                    this.authApiUrl() + "/import",
-                    {
-                        override: this.override,
-                    },
-                    {
-                        method: "POST",
-                        headers: {
-                            Authorization: this.getAuthToken(),
-                        },
-                        body: JSON.stringify(this.subscriptions),
-                    },
-                ).then(json => {
-                    if (json.message === "ok") window.location = "/feed";
+        }
+        // NewPipe
+        else if (text.indexOf("subscriptions") != -1) {
+            const json = JSON.parse(text);
+            json.subscriptions
+                // if service_id is undefined, chances are it's a freetube export
+                .filter(item => item.service_id == 0 || item.service_id == undefined)
+                .forEach(item => {
+                    const url = item.url;
+                    const id = url.slice(-24);
+                    subscriptions.value.push(id);
                 });
-            } else {
-                this.importSubscriptionsLocally(this.subscriptions);
-                window.location = "/feed";
+        }
+        // Invidious JSON
+        else if (text.indexOf("thin_mode") != -1) {
+            const json = JSON.parse(text);
+            subscriptions.value = json.subscriptions;
+        }
+        // FreeTube DB
+        else if (text.indexOf("allChannels") != -1) {
+            const lines = text.split("\n");
+            for (let line of lines) {
+                if (line === "") continue;
+                const json = JSON.parse(line);
+                json.subscriptions.forEach(item => {
+                    subscriptions.value.push(item.id);
+                });
             }
-        },
-        importSubscriptionsLocally(newChannels) {
-            const subscriptions = this.override
-                ? [...new Set(newChannels)]
-                : [...new Set((this.getLocalSubscriptions() ?? []).concat(newChannels))];
-            // Sort for better cache hits
-            subscriptions.sort();
-            try {
-                localStorage.setItem("localSubscriptions", JSON.stringify(subscriptions));
-            } catch (e) {
-                alert(this.$t("info.local_storage"));
+        }
+        // Google Takeout JSON
+        else if (text.indexOf("contentDetails") != -1) {
+            const json = JSON.parse(text);
+            json.forEach(item => {
+                const id = item.snippet.resourceId.channelId;
+                subscriptions.value.push(id);
+            });
+        }
+
+        // Google Takeout CSV
+        else if (file.name.length >= 5 && file.name.slice(-4).toLowerCase() == ".csv") {
+            const lines = text.split("\n");
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i];
+                const id = line.slice(0, line.indexOf(","));
+                if (id.length === 24) subscriptions.value.push(id);
             }
-        },
-    },
-};
+        }
+    });
+}
+
+function handleImport() {
+    if (isAuthenticated()) {
+        fetchJson(
+            authApiUrl() + "/import",
+            {
+                override: override.value,
+            },
+            {
+                method: "POST",
+                headers: {
+                    Authorization: getAuthToken(),
+                },
+                body: JSON.stringify(subscriptions.value),
+            },
+        ).then(json => {
+            if (json.message === "ok") window.location = "/feed";
+        });
+    } else {
+        importSubscriptionsLocally(subscriptions.value);
+        window.location = "/feed";
+    }
+}
+
+function importSubscriptionsLocally(newChannels) {
+    const subs = override.value
+        ? [...new Set(newChannels)]
+        : [...new Set((getLocalSubscriptions() ?? []).concat(newChannels))];
+    // Sort for better cache hits
+    subs.sort();
+    try {
+        localStorage.setItem("localSubscriptions", JSON.stringify(subs));
+    } catch (e) {
+        alert(t("info.local_storage"));
+    }
+}
 </script>

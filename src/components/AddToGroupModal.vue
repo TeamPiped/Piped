@@ -25,56 +25,52 @@
         @close="showCreateGroupModal = false"
     />
 </template>
-<script>
+<script setup>
+import { ref, onMounted } from "vue";
 import ModalComponent from "./ModalComponent.vue";
 import CreateGroupModal from "./CreateGroupModal.vue";
+import { getChannelGroups, createOrUpdateChannelGroup } from "@/composables/useChannelGroups.js";
 
-export default {
-    components: {
-        ModalComponent,
-        CreateGroupModal,
+const props = defineProps({
+    channelId: {
+        type: String,
+        required: true,
     },
-    props: {
-        channelId: {
-            type: String,
-            required: true,
-        },
-    },
-    emits: ["close"],
-    data() {
-        return {
-            showCreateGroupModal: false,
-            channelGroups: [],
-        };
-    },
-    mounted() {
-        this.loadChannelGroups();
-    },
-    methods: {
-        async loadChannelGroups() {
-            const groups = await this.getChannelGroups();
-            this.channelGroups.push(...groups);
-        },
-        onCheckedChange(index, group) {
-            if (group.channels.includes(this.channelId)) {
-                group.channels.splice(index, 1);
-            } else {
-                group.channels.push(this.channelId);
-            }
-            this.createOrUpdateChannelGroup(group);
-        },
-        onCreateGroup(newGroupName) {
-            if (!newGroupName || this.channelGroups.some(group => group.groupName == newGroupName)) return;
+});
 
-            const newGroup = {
-                groupName: newGroupName,
-                channels: [],
-            };
-            this.channelGroups.push(newGroup);
-            this.createOrUpdateChannelGroup(newGroup);
+defineEmits(["close"]);
 
-            this.showCreateGroupModal = false;
-        },
-    },
-};
+const showCreateGroupModal = ref(false);
+const channelGroups = ref([]);
+
+async function loadChannelGroups() {
+    const groups = await getChannelGroups();
+    channelGroups.value.push(...groups);
+}
+
+onMounted(() => {
+    loadChannelGroups();
+});
+
+function onCheckedChange(index, group) {
+    if (group.channels.includes(props.channelId)) {
+        group.channels.splice(index, 1);
+    } else {
+        group.channels.push(props.channelId);
+    }
+    createOrUpdateChannelGroup(group);
+}
+
+function onCreateGroup(newGroupName) {
+    if (!newGroupName || channelGroups.value.some(group => group.groupName == newGroupName)) return;
+
+    const newGroup = {
+        groupName: newGroupName,
+        channels: [],
+    };
+    channelGroups.value.push(newGroup);
+    createOrUpdateChannelGroup(newGroup);
+
+    showCreateGroupModal.value = false;
+}
 </script>

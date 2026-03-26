@@ -15,34 +15,30 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from "vue";
 import { purifyHTML, rewriteDescription } from "@/utils/HtmlUtils";
 
-export default {
-    props: {
-        text: {
-            type: String,
-            default: null,
-        },
-        visibleLimit: {
-            type: Number,
-            default: 100,
-        },
+const props = defineProps({
+    text: {
+        type: String,
+        default: null,
     },
-    data() {
-        return {
-            showFullText: false,
-        };
+    visibleLimit: {
+        type: Number,
+        default: 100,
     },
-    methods: {
-        fullText() {
-            return purifyHTML(rewriteDescription(this.text));
-        },
-        collapsedText() {
-            return purifyHTML(rewriteDescription(this.text.slice(0, this.visibleLimit)));
-        },
-    },
-};
+});
+
+const showFullText = ref(false);
+
+function fullText() {
+    return purifyHTML(rewriteDescription(props.text));
+}
+
+function collapsedText() {
+    return purifyHTML(rewriteDescription(props.text.slice(0, props.visibleLimit)));
+}
 </script>
 
 <style>

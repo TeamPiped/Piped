@@ -62,56 +62,58 @@
     />
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted, onActivated } from "vue";
+import { useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 import { isEmail } from "../utils/Misc.js";
 import ConfirmModal from "./ConfirmModal.vue";
+import { fetchJson, authApiUrl, getAuthToken, hashCode } from "@/composables/useApi.js";
+import { setPreference } from "@/composables/usePreferences.js";
 
-export default {
-    components: { ConfirmModal },
-    data() {
-        return {
-            username: null,
-            password: null,
-            passwordConfirm: null,
-            showPassword: false,
-            showConfirmPassword: false,
-            showUnsecureRegisterDialog: false,
-            forceUnsecureRegister: false,
-        };
-    },
-    mounted() {
-        //TODO: Add Server Side check
-        if (this.getAuthToken()) {
-            this.$router.push(import.meta.env.BASE_URL);
-        }
-    },
-    activated() {
-        document.title = "Register - Piped";
-    },
-    methods: {
-        register() {
-            if (!this.username || !this.password) return;
-            if (this.password != this.passwordConfirm) {
-                alert(this.$t("login.passwords_incorrect"));
-                return;
-            }
-            if (isEmail(this.username) && !this.forceUnsecureRegister) {
-                this.showUnsecureRegisterDialog = true;
-                return;
-            }
-            this.fetchJson(this.authApiUrl() + "/register", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    username: this.username,
-                    password: this.password,
-                }),
-            }).then(resp => {
-                if (resp.token) {
-                    this.setPreference("authToken" + this.hashCode(this.authApiUrl()), resp.token);
-                    window.location = import.meta.env.BASE_URL; // done to bypass cache
-                } else alert(resp.error);
-            });
-        },
-    },
-};
+const router = useRouter();
+const { t } = useI18n();
+
+const username = ref(null);
+const password = ref(null);
+const passwordConfirm = ref(null);
+const showPassword = ref(false);
+const showConfirmPassword = ref(false);
+const showUnsecureRegisterDialog = ref(false);
+const forceUnsecureRegister = ref(false);
+
+onMounted(() => {
+    //TODO: Add Server Side check
+    if (getAuthToken()) {
+        router.push(import.meta.env.BASE_URL);
+    }
+});
+
+onActivated(() => {
+    document.title = "Register - Piped";
+});
+
+function register() {
+    if (!username.value || !password.value) return;
+    if (password.value != passwordConfirm.value) {
+        alert(t("login.passwords_incorrect"));
+        return;
+    }
+    if (isEmail(username.value) && !forceUnsecureRegister.value) {
+        showUnsecureRegisterDialog.value = true;
+        return;
+    }
+    fetchJson(authApiUrl() + "/register", null, {
+        method: "POST",
+        body: JSON.stringify({
+            username: username.value,
+            password: password.value,
+        }),
+    }).then(resp => {
+        if (resp.token) {
+            setPreference("authToken" + hashCode(authApiUrl()), resp.token);
+            window.location = import.meta.env.BASE_URL; // done to bypass cache
+        } else alert(resp.error);
+    });
+}
 </script>

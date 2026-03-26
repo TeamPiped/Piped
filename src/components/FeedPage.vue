@@ -53,115 +53,119 @@
     </LoadingIndicatorPage>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, onMounted, onActivated, onDeactivated, onUnmounted } from "vue";
+import { useI18n } from "vue-i18n";
 import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
+import { authApiUrl, getAuthToken, isAuthenticated } from "@/composables/useApi.js";
+import { getPreferenceBoolean, getPreferenceString, setPreference } from "@/composables/usePreferences.js";
+import { fetchFeed, getUnauthenticatedChannels, fetchDeArrowContent } from "@/composables/useSubscriptions.js";
+import { getChannelGroups } from "@/composables/useChannelGroups.js";
+import { updateWatched } from "@/composables/useMisc.js";
 
-export default {
-    components: {
-        VideoItem,
-        SortingSelector,
-        LoadingIndicatorPage,
-    },
-    data() {
-        return {
-            currentVideoCount: 0,
-            videoStep: 100,
-            videosStore: null,
-            videos: [],
-            availableFilters: ["all", "shorts", "videos"],
-            selectedFilter: "all",
-            selectedGroupName: "",
-            channelGroups: [],
-        };
-    },
-    computed: {
-        getRssUrl(_this) {
-            if (_this.authenticated) return _this.authApiUrl() + "/feed/rss?authToken=" + _this.getAuthToken();
-            else return _this.authApiUrl() + "/feed/unauthenticated/rss?channels=" + _this.getUnauthenticatedChannels();
-        },
-        filteredVideos(_this) {
-            const selectedGroup = _this.channelGroups.filter(group => group.groupName == _this.selectedGroupName);
+const { t } = useI18n();
 
-            const videos = this.getPreferenceBoolean("hideWatched", false)
-                ? this.videos.filter(video => !video.watched)
-                : this.videos;
+let currentVideoCount = 0;
+const videoStep = 100;
+let videosStore = null;
+const videos = ref([]);
+const availableFilters = ["all", "shorts", "videos"];
+const selectedFilter = ref("all");
+const selectedGroupName = ref("");
+const channelGroups = ref([]);
 
-            return _this.selectedGroupName == ""
-                ? videos
-                : videos.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-24)));
-        },
-    },
-    mounted() {
-        this.fetchFeed().then(resp => {
-            if (resp.error) {
-                alert(resp.error);
-                return;
-            }
+const getRssUrl = computed(() => {
+    if (isAuthenticated()) return authApiUrl() + "/feed/rss?authToken=" + getAuthToken();
+    else return authApiUrl() + "/feed/unauthenticated/rss?channels=" + getUnauthenticatedChannels();
+});
 
-            this.videosStore = resp;
-            this.loadMoreVideos();
-            this.updateWatched(this.videos);
-        });
+const filteredVideos = computed(() => {
+    const selectedGroup = channelGroups.value.filter(group => group.groupName == selectedGroupName.value);
 
-        this.selectedFilter = this.getPreferenceString("feedFilter") ?? "all";
+    const vids = getPreferenceBoolean("hideWatched", false)
+        ? videos.value.filter(video => !video.watched)
+        : videos.value;
 
-        if (!window.db) return;
+    return selectedGroupName.value == ""
+        ? vids
+        : vids.filter(video => selectedGroup[0].channels.includes(video.uploaderUrl.substr(-24)));
+});
 
-        this.loadChannelGroups();
-    },
-    activated() {
-        document.title = this.$t("titles.feed") + " - Piped";
-        if (this.videos.length > 0) this.updateWatched(this.videos);
-        window.addEventListener("scroll", this.handleScroll);
-    },
-    deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    unmounted() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    methods: {
-        async loadChannelGroups() {
-            const groups = await this.getChannelGroups();
-            this.channelGroups.push(...groups);
-        },
-        loadMoreVideos() {
-            if (!this.videosStore) return;
-            this.currentVideoCount = Math.min(this.currentVideoCount + this.videoStep, this.videosStore.length);
-            if (this.videos.length != this.videosStore.length) {
-                this.fetchDeArrowContent(this.videosStore.slice(this.videos.length, this.currentVideoCount));
-                this.videos = this.videosStore.slice(0, this.currentVideoCount);
-            }
-        },
-        handleScroll() {
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
-                this.loadMoreVideos();
-            }
-        },
-        onUpdateWatched(urls = null) {
-            if (urls === null) {
-                if (this.videos.length > 0) this.updateWatched(this.videos);
-                return;
-            }
+function loadMoreVideos() {
+    if (!videosStore) return;
+    currentVideoCount = Math.min(currentVideoCount + videoStep, videosStore.length);
+    if (videos.value.length != videosStore.length) {
+        fetchDeArrowContent(videosStore.slice(videos.value.length, currentVideoCount));
+        videos.value = videosStore.slice(0, currentVideoCount);
+    }
+}
 
-            const subset = this.videos.filter(({ url }) => urls.includes(url));
-            if (subset.length > 0) this.updateWatched(subset);
-        },
-        shouldShowVideo(video) {
-            switch (this.selectedFilter.toLowerCase()) {
-                case "shorts":
-                    return video.isShort;
-                case "videos":
-                    return !video.isShort;
-                default:
-                    return true;
-            }
-        },
-        onFilterChange() {
-            this.setPreference("feedFilter", this.selectedFilter);
-        },
-    },
-};
+function handleScroll() {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+        loadMoreVideos();
+    }
+}
+
+function onUpdateWatched(urls = null) {
+    if (urls === null) {
+        if (videos.value.length > 0) updateWatched(videos.value);
+        return;
+    }
+
+    const subset = videos.value.filter(({ url }) => urls.includes(url));
+    if (subset.length > 0) updateWatched(subset);
+}
+
+function shouldShowVideo(video) {
+    switch (selectedFilter.value.toLowerCase()) {
+        case "shorts":
+            return video.isShort;
+        case "videos":
+            return !video.isShort;
+        default:
+            return true;
+    }
+}
+
+function onFilterChange() {
+    setPreference("feedFilter", selectedFilter.value);
+}
+
+onMounted(() => {
+    fetchFeed().then(resp => {
+        if (resp.error) {
+            alert(resp.error);
+            return;
+        }
+
+        videosStore = resp;
+        loadMoreVideos();
+        updateWatched(videos.value);
+    });
+
+    selectedFilter.value = getPreferenceString("feedFilter") ?? "all";
+
+    if (!window.db) return;
+
+    (async () => {
+        const groups = await getChannelGroups();
+        channelGroups.value.push(...groups);
+    })();
+});
+
+onActivated(() => {
+    document.title = t("titles.feed") + " - Piped";
+    if (videos.value.length > 0) updateWatched(videos.value);
+    window.addEventListener("scroll", handleScroll);
+});
+
+onDeactivated(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
 </script>

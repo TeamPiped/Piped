@@ -36,37 +36,34 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        item: {
-            type: Object,
-            required: true,
-        },
+<script setup>
+import { ref, computed, onMounted } from "vue";
+import { fetchSubscriptionStatus, toggleSubscriptionState } from "@/composables/useSubscriptions.js";
+import { numberFormat } from "@/composables/useFormatting.js";
+
+const props = defineProps({
+    item: {
+        type: Object,
+        required: true,
     },
-    data() {
-        return {
-            subscribed: null,
-        };
-    },
-    computed: {
-        channelId(_this) {
-            return _this.item.url.substr(-24);
-        },
-    },
-    mounted() {
-        this.updateSubscribedStatus();
-    },
-    methods: {
-        async updateSubscribedStatus() {
-            this.subscribed = await this.fetchSubscriptionStatus(this.channelId);
-            console.log(this.subscribed);
-        },
-        subscribeHandler() {
-            this.toggleSubscriptionState(this.channelId, this.subscribed).then(success => {
-                if (success) this.subscribed = !this.subscribed;
-            });
-        },
-    },
-};
+});
+
+const subscribed = ref(null);
+
+const channelId = computed(() => props.item.url.substr(-24));
+
+async function updateSubscribedStatus() {
+    subscribed.value = await fetchSubscriptionStatus(channelId.value);
+    console.log(subscribed.value);
+}
+
+function subscribeHandler() {
+    toggleSubscriptionState(channelId.value, subscribed.value).then(success => {
+        if (success) subscribed.value = !subscribed.value;
+    });
+}
+
+onMounted(() => {
+    updateSubscribedStatus();
+});
 </script>

@@ -5,15 +5,12 @@
     </div>
 </template>
 
-<script>
-export default {
-    emits: ["dismissed"],
-    methods: {
-        dismiss() {
-            this.$emit("dismissed");
-        },
-    },
-};
+<script setup>
+const emit = defineEmits(["dismissed"]);
+
+function dismiss() {
+    emit("dismissed");
+}
 </script>
 
 <style>

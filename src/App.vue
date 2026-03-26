@@ -13,127 +13,120 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from "vue";
 import NavBar from "./components/NavBar.vue";
 import FooterComponent from "./components/FooterComponent.vue";
+import { getPreferenceString } from "@/composables/usePreferences.js";
+import { getDefaultLanguage, TimeAgo, TimeAgoConfig } from "@/composables/useFormatting.js";
+import { fetchSubscriptions } from "@/composables/useSubscriptions.js";
+import { getChannelGroups, createOrUpdateChannelGroup } from "@/composables/useChannelGroups.js";
 
 const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
-export default {
-    components: {
-        NavBar,
-        FooterComponent,
-    },
-    data() {
-        return {
-            theme: "dark",
-        };
-    },
-    mounted() {
-        this.setTheme();
-        darkModePreference.addEventListener("change", () => {
-            this.setTheme();
-        });
+const theme = ref("dark");
 
-        if ("indexedDB" in window) {
-            const request = indexedDB.open("piped-db", 6);
-            request.onupgradeneeded = ev => {
-                const db = request.result;
-                console.log("Upgrading object store.");
-                if (!db.objectStoreNames.contains("watch_history")) {
-                    const store = db.createObjectStore("watch_history", { keyPath: "videoId" });
-                    store.createIndex("video_id_idx", "videoId", { unique: true });
-                    store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
-                }
-                if (ev.oldVersion < 2) {
-                    const store = request.transaction.objectStore("watch_history");
-                    store.createIndex("watchedAt", "watchedAt", { unique: false });
-                }
-                if (!db.objectStoreNames.contains("playlist_bookmarks")) {
-                    const store = db.createObjectStore("playlist_bookmarks", { keyPath: "playlistId" });
-                    store.createIndex("playlist_id_idx", "playlistId", { unique: true });
-                    store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
-                }
-                if (!db.objectStoreNames.contains("channel_groups")) {
-                    const store = db.createObjectStore("channel_groups", { keyPath: "groupName" });
-                    store.createIndex("groupName", "groupName", { unique: true });
-                }
-                if (!db.objectStoreNames.contains("playlists")) {
-                    const playlistStore = db.createObjectStore("playlists", { keyPath: "playlistId" });
-                    playlistStore.createIndex("playlistId", "playlistId", { unique: true });
-                    const playlistVideosStore = db.createObjectStore("playlist_videos", { keyPath: "videoId" });
-                    playlistVideosStore.createIndex("videoId", "videoId", { unique: true });
-                }
-                // migration to fix an invalid previous length of channel ids: 11 -> 24
-                (async () => {
-                    if (ev.oldVersion < 6) {
-                        const subscriptions = await this.fetchSubscriptions();
-                        const channelGroups = await this.getChannelGroups();
-                        for (let group of channelGroups) {
-                            for (let i = 0; i < group.channels.length; i++) {
-                                const tooShortChannelId = group.channels[i];
-                                const foundChannel = subscriptions.find(
-                                    channel => channel.url.substr(-11) == tooShortChannelId,
-                                );
-                                if (foundChannel) group.channels[i] = foundChannel.url.substr(-24);
-                            }
-                            this.createOrUpdateChannelGroup(group);
+function setTheme() {
+    let themePref = getPreferenceString("theme", "dark");
+    const themes = {
+        dark: "dark",
+        light: "light",
+        auto: darkModePreference.matches ? "dark" : "light",
+    };
+
+    theme.value = themes[themePref];
+
+    changeTitleBarColor();
+
+    const root = document.querySelector(":root");
+    theme.value === "dark" ? root.classList.add("dark") : root.classList.remove("dark");
+}
+
+function changeTitleBarColor() {
+    const currentColor = { dark: "#0F0F0F", light: "#FFF" };
+    const themeColor = document.querySelector("meta[name='theme-color']");
+    themeColor.setAttribute("content", currentColor[theme.value]);
+}
+
+onMounted(() => {
+    setTheme();
+    darkModePreference.addEventListener("change", () => {
+        setTheme();
+    });
+
+    if ("indexedDB" in window) {
+        const request = indexedDB.open("piped-db", 6);
+        request.onupgradeneeded = ev => {
+            const db = request.result;
+            console.log("Upgrading object store.");
+            if (!db.objectStoreNames.contains("watch_history")) {
+                const store = db.createObjectStore("watch_history", { keyPath: "videoId" });
+                store.createIndex("video_id_idx", "videoId", { unique: true });
+                store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
+            }
+            if (ev.oldVersion < 2) {
+                const store = request.transaction.objectStore("watch_history");
+                store.createIndex("watchedAt", "watchedAt", { unique: false });
+            }
+            if (!db.objectStoreNames.contains("playlist_bookmarks")) {
+                const store = db.createObjectStore("playlist_bookmarks", { keyPath: "playlistId" });
+                store.createIndex("playlist_id_idx", "playlistId", { unique: true });
+                store.createIndex("id_idx", "id", { unique: true, autoIncrement: true });
+            }
+            if (!db.objectStoreNames.contains("channel_groups")) {
+                const store = db.createObjectStore("channel_groups", { keyPath: "groupName" });
+                store.createIndex("groupName", "groupName", { unique: true });
+            }
+            if (!db.objectStoreNames.contains("playlists")) {
+                const playlistStore = db.createObjectStore("playlists", { keyPath: "playlistId" });
+                playlistStore.createIndex("playlistId", "playlistId", { unique: true });
+                const playlistVideosStore = db.createObjectStore("playlist_videos", { keyPath: "videoId" });
+                playlistVideosStore.createIndex("videoId", "videoId", { unique: true });
+            }
+            // migration to fix an invalid previous length of channel ids: 11 -> 24
+            (async () => {
+                if (ev.oldVersion < 6) {
+                    const subscriptions = await fetchSubscriptions();
+                    const channelGroups = await getChannelGroups();
+                    for (let group of channelGroups) {
+                        for (let i = 0; i < group.channels.length; i++) {
+                            const tooShortChannelId = group.channels[i];
+                            const foundChannel = subscriptions.find(
+                                channel => channel.url.substr(-11) == tooShortChannelId,
+                            );
+                            if (foundChannel) group.channels[i] = foundChannel.url.substr(-24);
                         }
+                        createOrUpdateChannelGroup(group);
                     }
-                })();
-            };
-            request.onsuccess = e => {
-                window.db = e.target.result;
-            };
-        } else console.log("This browser doesn't support IndexedDB");
-
-        const App = this;
-
-        (async function () {
-            const defaultLang = await App.defaultLanguage;
-            const locale = App.getPreferenceString("hl", defaultLang);
-            if (locale !== App.TimeAgoConfig.locale) {
-                const localeTime = await import(`../node_modules/javascript-time-ago/locale/${locale}.json`)
-                    .catch(() => null)
-                    .then(module => module?.default);
-                if (localeTime) {
-                    App.TimeAgo.addLocale(localeTime);
-                    App.TimeAgoConfig.locale = locale;
                 }
+            })();
+        };
+        request.onsuccess = e => {
+            window.db = e.target.result;
+        };
+    } else console.log("This browser doesn't support IndexedDB");
+
+    (async function () {
+        const defaultLang = await getDefaultLanguage();
+        const locale = getPreferenceString("hl", defaultLang);
+        if (locale !== TimeAgoConfig.locale) {
+            const localeTime = await import(`../node_modules/javascript-time-ago/locale/${locale}.json`)
+                .catch(() => null)
+                .then(module => module?.default);
+            if (localeTime) {
+                TimeAgo.addLocale(localeTime);
+                TimeAgoConfig.locale = locale;
             }
-            if (window.i18n.global.locale.value !== locale) {
-                if (!window.i18n.global.availableLocales.includes(locale)) {
-                    const messages = await import(`./locales/${locale}.json`).then(module => module.default);
-                    window.i18n.global.setLocaleMessage(locale, messages);
-                }
-                window.i18n.global.locale.value = locale;
+        }
+        if (window.i18n.global.locale.value !== locale) {
+            if (!window.i18n.global.availableLocales.includes(locale)) {
+                const messages = await import(`./locales/${locale}.json`).then(module => module.default);
+                window.i18n.global.setLocaleMessage(locale, messages);
             }
-        })();
-    },
-    methods: {
-        setTheme() {
-            let themePref = this.getPreferenceString("theme", "dark"); // dark, light or auto
-            const themes = {
-                dark: "dark",
-                light: "light",
-                auto: darkModePreference.matches ? "dark" : "light",
-            };
-
-            this.theme = themes[themePref];
-
-            this.changeTitleBarColor();
-
-            // Used for the scrollbar
-            const root = document.querySelector(":root");
-            this.theme === "dark" ? root.classList.add("dark") : root.classList.remove("dark");
-        },
-        changeTitleBarColor() {
-            const currentColor = { dark: "#0F0F0F", light: "#FFF" };
-            const themeColor = document.querySelector("meta[name='theme-color']");
-            themeColor.setAttribute("content", currentColor[this.theme]);
-        },
-    },
-};
+            window.i18n.global.locale.value = locale;
+        }
+    })();
+});
 </script>
 
 <style>

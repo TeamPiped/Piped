@@ -27,28 +27,21 @@
     </footer>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            donationHref: null,
-            statusPageHref: null,
-            privacyPolicyHref: null,
-        };
-    },
-    mounted() {
-        this.fetchConfig();
-    },
-    methods: {
-        async fetchConfig() {
-            this.fetchJson(this.apiUrl() + "/config").then(config => {
-                this.donationHref = config?.donationUrl;
-                this.statusPageHref = config?.statusPageUrl;
-                this.privacyPolicyHref = config?.privacyPolicyUrl;
-            });
-        },
-    },
-};
+<script setup>
+import { ref, onMounted } from "vue";
+import { fetchJson, apiUrl } from "@/composables/useApi.js";
+
+const donationHref = ref(null);
+const statusPageHref = ref(null);
+const privacyPolicyHref = ref(null);
+
+onMounted(() => {
+    fetchJson(apiUrl() + "/config").then(config => {
+        donationHref.value = config?.donationUrl;
+        statusPageHref.value = config?.statusPageUrl;
+        privacyPolicyHref.value = config?.privacyPolicyUrl;
+    });
+});
 </script>
 
 <style>

@@ -9,28 +9,30 @@
     </div>
 </template>
 
-<script>
-export default {
-    emits: ["close"],
-    mounted() {
-        window.addEventListener("keydown", this.handleKeyDown);
-    },
-    unmounted() {
-        window.removeEventListener("keydown", this.handleKeyDown);
-    },
-    methods: {
-        handleKeyDown(event) {
-            if (event.code === "Escape") {
-                this.$emit("close");
-            } else return;
-            event.preventDefault();
-        },
-        handleClick(event) {
-            if (event.target !== event.currentTarget) return;
-            this.$emit("close");
-        },
-    },
-};
+<script setup>
+import { onMounted, onUnmounted } from "vue";
+
+const emit = defineEmits(["close"]);
+
+function handleKeyDown(event) {
+    if (event.code === "Escape") {
+        emit("close");
+    } else return;
+    event.preventDefault();
+}
+
+function handleClick(event) {
+    if (event.target !== event.currentTarget) return;
+    emit("close");
+}
+
+onMounted(() => {
+    window.addEventListener("keydown", handleKeyDown);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("keydown", handleKeyDown);
+});
 </script>
 
 <style scoped>

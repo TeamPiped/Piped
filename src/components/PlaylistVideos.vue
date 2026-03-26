@@ -58,52 +58,52 @@
     </div>
 </template>
 
-<script>
-import { nextTick } from "vue";
+<script setup>
+import { ref, watch, onMounted, nextTick } from "vue";
 import VideoThumbnail from "./VideoThumbnail.vue";
-export default {
-    components: { VideoThumbnail },
-    props: {
-        playlist: {
-            type: Object,
-            required: true,
-        },
-        playlistId: {
-            type: String,
-            required: true,
-        },
-        selectedIndex: {
-            type: Number,
-            required: true,
-        },
-        preferListen: {
-            type: Boolean,
-            default: false,
-        },
+import { updateWatched } from "@/composables/useMisc.js";
+
+const props = defineProps({
+    playlist: {
+        type: Object,
+        required: true,
     },
-    watch: {
-        playlist: {
-            handler() {
-                if (this.selectedIndex - 1 < this.playlist.relatedStreams.length)
-                    nextTick(() => {
-                        this.updateScroll();
-                    });
-            },
-            deep: true,
-        },
+    playlistId: {
+        type: String,
+        required: true,
     },
-    mounted() {
-        this.updateScroll();
-        this.updateWatched(this.playlist.relatedStreams);
+    selectedIndex: {
+        type: Number,
+        required: true,
     },
-    methods: {
-        updateScroll() {
-            const elems = Array.from(this.$refs.scrollable.children).filter(elm => elm.matches("div"));
-            const index = this.selectedIndex - 1;
-            if (index < elems.length)
-                this.$refs.scrollable.scrollTop =
-                    elems[this.selectedIndex - 1].offsetTop - this.$refs.scrollable.offsetTop;
-        },
+    preferListen: {
+        type: Boolean,
+        default: false,
     },
-};
+});
+
+const scrollable = ref(null);
+
+watch(
+    () => props.playlist,
+    () => {
+        if (props.selectedIndex - 1 < props.playlist.relatedStreams.length)
+            nextTick(() => {
+                updateScroll();
+            });
+    },
+    { deep: true },
+);
+
+function updateScroll() {
+    const elems = Array.from(scrollable.value.children).filter(elm => elm.matches("div"));
+    const index = props.selectedIndex - 1;
+    if (index < elems.length)
+        scrollable.value.scrollTop = elems[props.selectedIndex - 1].offsetTop - scrollable.value.offsetTop;
+}
+
+onMounted(() => {
+    updateScroll();
+    updateWatched(props.playlist.relatedStreams);
+});
 </script>

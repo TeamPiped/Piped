@@ -54,158 +54,164 @@
     </LoadingIndicatorPage>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, onMounted, onActivated, onDeactivated } from "vue";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 import ErrorHandler from "./ErrorHandler.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import CollapsableText from "./CollapsableText.vue";
 import VideoItem from "./VideoItem.vue";
 import WatchOnButton from "./WatchOnButton.vue";
+import { fetchJson, authApiUrl, getAuthToken, isAuthenticated } from "@/composables/useApi.js";
+import { getPlaylists } from "@/composables/usePlaylists.js";
+import { getPlaylist } from "@/composables/usePlaylists.js";
+import { updateWatched, download } from "@/composables/useMisc.js";
+import { fetchDeArrowContent } from "@/composables/useSubscriptions.js";
+import { timeFormat } from "@/composables/useFormatting.js";
 
-export default {
-    components: {
-        ErrorHandler,
-        VideoItem,
-        WatchOnButton,
-        LoadingIndicatorPage,
-        CollapsableText,
-    },
-    data() {
-        return {
-            playlist: null,
-            totalDuration: 0,
-            admin: false,
-            isBookmarked: false,
-        };
-    },
-    computed: {
-        getRssUrl: _this => {
-            return _this.authApiUrl() + "/rss/playlists/" + _this.$route.query.list;
-        },
-        isPipedPlaylist: _this => {
-            // regex to determine whether it's a Piped plalylist
-            return /[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}/.test(
-                _this.$route.query.list,
-            );
-        },
-    },
-    mounted() {
-        const playlistId = this.$route.query.list;
-        if (this.authenticated && playlistId?.length == 36)
-            this.getPlaylists().then(json => {
-                if (json.error) alert(json.error);
-                else if (json.some(playlist => playlist.id === playlistId)) this.admin = true;
-            });
-        else if (playlistId.startsWith("local")) this.admin = true;
-        this.isPlaylistBookmarked();
-    },
-    activated() {
-        this.getPlaylistData();
-        window.addEventListener("scroll", this.handleScroll);
-        if (this.playlist) this.updateTitle();
-    },
-    deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    methods: {
-        async getPlaylistData() {
-            this.getPlaylist(this.$route.query.list)
-                .then(data => (this.playlist = data))
-                .then(() => {
-                    this.updateTitle();
-                    this.updateTotalDuration();
-                    this.updateWatched(this.playlist.relatedStreams);
-                    this.fetchDeArrowContent(this.playlist.relatedStreams);
-                });
-        },
-        async updateTitle() {
-            document.title = this.playlist.name + " - Piped";
-        },
-        handleScroll() {
-            if (this.loading || !this.playlist || !this.playlist.nextpage) return;
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
-                this.loading = true;
-                this.fetchJson(this.authApiUrl() + "/nextpage/playlists/" + this.$route.query.list, {
-                    nextpage: this.playlist.nextpage,
-                }).then(json => {
-                    this.playlist.nextpage = json.nextpage;
-                    this.loading = false;
-                    this.playlist.relatedStreams.push(...json.relatedStreams);
-                    this.updateTotalDuration();
-                    this.fetchDeArrowContent(json.relatedStreams);
-                });
-            }
-        },
-        removeVideo(index) {
-            this.playlist.relatedStreams.splice(index, 1);
-        },
-        updateTotalDuration() {
-            this.totalDuration = this.playlist.relatedStreams.map(video => video.duration).reduce((a, b) => a + b);
-        },
-        async clonePlaylist() {
-            this.fetchJson(this.authApiUrl() + "/import/playlist", null, {
-                method: "POST",
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-                body: JSON.stringify({
-                    playlistId: this.$route.query.list,
-                }),
-            }).then(resp => {
-                if (!resp.error) {
-                    alert(this.$t("actions.clone_playlist_success"));
-                } else alert(resp.error);
-            });
-        },
-        downloadPlaylistAsTxt() {
-            const data = this.playlist.relatedStreams
-                .map(video => {
-                    return "https://piped.video" + video.url;
-                })
-                .join("\n");
-            this.download(data, this.playlist.name + ".txt", "text/plain");
-        },
-        async bookmarkPlaylist() {
-            if (!this.playlist) return;
+const route = useRoute();
+const { t } = useI18n();
 
-            if (this.isBookmarked) {
-                this.removePlaylistBookmark();
-                return;
-            }
+const playlist = ref(null);
+const totalDuration = ref(0);
+const admin = ref(false);
+const isBookmarked = ref(false);
+let loading = false;
 
-            if (window.db) {
-                const playlistId = this.$route.query.list;
-                var tx = window.db.transaction("playlist_bookmarks", "readwrite");
-                var store = tx.objectStore("playlist_bookmarks");
-                store.put({
-                    playlistId: playlistId,
-                    name: this.playlist.name,
-                    uploader: this.playlist.uploader,
-                    uploaderUrl: this.playlist.uploaderUrl,
-                    thumbnail: this.playlist.thumbnailUrl,
-                    uploaderAvatar: this.playlist.uploaderAvatar,
-                    videos: this.playlist.videos,
-                });
-                this.isBookmarked = true;
-            }
+const getRssUrl = computed(() => {
+    return authApiUrl() + "/rss/playlists/" + route.query.list;
+});
+
+const isPipedPlaylist = computed(() => {
+    return /[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}/.test(route.query.list);
+});
+
+function updateTitle() {
+    document.title = playlist.value.name + " - Piped";
+}
+
+function updateTotalDuration() {
+    totalDuration.value = playlist.value.relatedStreams.map(video => video.duration).reduce((a, b) => a + b);
+}
+
+async function getPlaylistData() {
+    getPlaylist(route.query.list)
+        .then(data => (playlist.value = data))
+        .then(() => {
+            updateTitle();
+            updateTotalDuration();
+            updateWatched(playlist.value.relatedStreams);
+            fetchDeArrowContent(playlist.value.relatedStreams);
+        });
+}
+
+function handleScroll() {
+    if (loading || !playlist.value || !playlist.value.nextpage) return;
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+        loading = true;
+        fetchJson(authApiUrl() + "/nextpage/playlists/" + route.query.list, {
+            nextpage: playlist.value.nextpage,
+        }).then(json => {
+            playlist.value.nextpage = json.nextpage;
+            loading = false;
+            playlist.value.relatedStreams.push(...json.relatedStreams);
+            updateTotalDuration();
+            fetchDeArrowContent(json.relatedStreams);
+        });
+    }
+}
+
+function removeVideo(index) {
+    playlist.value.relatedStreams.splice(index, 1);
+}
+
+async function clonePlaylist() {
+    fetchJson(authApiUrl() + "/import/playlist", null, {
+        method: "POST",
+        headers: {
+            Authorization: getAuthToken(),
         },
-        async removePlaylistBookmark() {
-            var tx = window.db.transaction("playlist_bookmarks", "readwrite");
-            var store = tx.objectStore("playlist_bookmarks");
-            store.delete(this.$route.query.list);
-            this.isBookmarked = false;
-        },
-        async isPlaylistBookmarked() {
-            // needed in order to change the is bookmarked var later
-            const App = this;
-            const playlistId = this.$route.query.list;
-            var tx = window.db.transaction("playlist_bookmarks", "readwrite");
-            var store = tx.objectStore("playlist_bookmarks");
-            var req = store.openCursor(playlistId);
-            req.onsuccess = function (e) {
-                var cursor = e.target.result;
-                App.isBookmarked = cursor ? true : false;
-            };
-        },
-    },
-};
+        body: JSON.stringify({
+            playlistId: route.query.list,
+        }),
+    }).then(resp => {
+        if (!resp.error) {
+            alert(t("actions.clone_playlist_success"));
+        } else alert(resp.error);
+    });
+}
+
+function downloadPlaylistAsTxt() {
+    const data = playlist.value.relatedStreams
+        .map(video => {
+            return "https://piped.video" + video.url;
+        })
+        .join("\n");
+    download(data, playlist.value.name + ".txt", "text/plain");
+}
+
+async function bookmarkPlaylist() {
+    if (!playlist.value) return;
+
+    if (isBookmarked.value) {
+        removePlaylistBookmark();
+        return;
+    }
+
+    if (window.db) {
+        const playlistId = route.query.list;
+        var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+        var store = tx.objectStore("playlist_bookmarks");
+        store.put({
+            playlistId: playlistId,
+            name: playlist.value.name,
+            uploader: playlist.value.uploader,
+            uploaderUrl: playlist.value.uploaderUrl,
+            thumbnail: playlist.value.thumbnailUrl,
+            uploaderAvatar: playlist.value.uploaderAvatar,
+            videos: playlist.value.videos,
+        });
+        isBookmarked.value = true;
+    }
+}
+
+async function removePlaylistBookmark() {
+    var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+    var store = tx.objectStore("playlist_bookmarks");
+    store.delete(route.query.list);
+    isBookmarked.value = false;
+}
+
+async function checkPlaylistBookmarked() {
+    const playlistId = route.query.list;
+    var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+    var store = tx.objectStore("playlist_bookmarks");
+    var req = store.openCursor(playlistId);
+    req.onsuccess = function (e) {
+        var cursor = e.target.result;
+        isBookmarked.value = cursor ? true : false;
+    };
+}
+
+onMounted(() => {
+    const playlistId = route.query.list;
+    if (isAuthenticated() && playlistId?.length == 36)
+        getPlaylists().then(json => {
+            if (json.error) alert(json.error);
+            else if (json.some(pl => pl.id === playlistId)) admin.value = true;
+        });
+    else if (playlistId.startsWith("local")) admin.value = true;
+    checkPlaylistBookmarked();
+});
+
+onActivated(() => {
+    getPlaylistData();
+    window.addEventListener("scroll", handleScroll);
+    if (playlist.value) updateTitle();
+});
+
+onDeactivated(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
 </script>

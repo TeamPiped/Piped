@@ -127,110 +127,107 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, onMounted } from "vue";
 import PlaylistAddModal from "./PlaylistAddModal.vue";
 import ShareModal from "./ShareModal.vue";
 import ConfirmModal from "./ConfirmModal.vue";
 import VideoThumbnail from "./VideoThumbnail.vue";
+import { numberFormat, timeAgo } from "@/composables/useFormatting.js";
+import { getPreferenceBoolean } from "@/composables/usePreferences.js";
+import { removeVideoFromPlaylist } from "@/composables/usePlaylists.js";
 
-export default {
-    components: { PlaylistAddModal, ConfirmModal, ShareModal, VideoThumbnail },
-    props: {
-        item: {
-            type: Object,
-            default: () => {
-                return {};
-            },
-        },
-        isFeed: {
-            type: Boolean,
-            default: false,
-        },
-        height: { type: String, default: "118" },
-        width: { type: String, default: "210" },
-        hideChannel: { type: Boolean, default: false },
-        index: { type: Number, default: -1 },
-        playlistId: { type: String, default: null },
-        preferListen: { type: Boolean, default: false },
-        admin: { type: Boolean, default: false },
-    },
-    emits: ["update:watched", "remove"],
-    data() {
-        return {
-            showPlaylistModal: false,
-            showShareModal: false,
-            showVideo: true,
-            showConfirmRemove: false,
-            showMarkOnWatched: false,
-        };
-    },
-    computed: {
-        title() {
-            return this.item.dearrow?.titles[0]?.title ?? this.item.title;
-        },
-        thumbnail() {
-            return this.item.dearrow?.thumbnails[0]?.thumbnail ?? this.item.thumbnail;
+const props = defineProps({
+    item: {
+        type: Object,
+        default: () => {
+            return {};
         },
     },
-    mounted() {
-        this.shouldShowVideo();
-        this.shouldShowMarkOnWatched();
+    isFeed: {
+        type: Boolean,
+        default: false,
     },
-    methods: {
-        removeVideo() {
-            this.$refs.removeButton.disabled = true;
-            this.removeVideoFromPlaylist(this.playlistId, this.index).then(json => {
-                if (json.error) alert(json.error);
-                else this.$emit("remove");
-            });
-        },
-        shouldShowVideo() {
-            if (!this.isFeed || !this.getPreferenceBoolean("hideWatched", false)) return;
+    height: { type: String, default: "118" },
+    width: { type: String, default: "210" },
+    hideChannel: { type: Boolean, default: false },
+    index: { type: Number, default: -1 },
+    playlistId: { type: String, default: null },
+    preferListen: { type: Boolean, default: false },
+    admin: { type: Boolean, default: false },
+});
 
-            const objectStore = window.db.transaction("watch_history", "readonly").objectStore("watch_history");
-            const request = objectStore.get(this.item.url.substr(-11));
-            request.onsuccess = event => {
-                const video = event.target.result;
-                if (video && (video.currentTime ?? 0) > video.duration * 0.9) {
-                    this.showVideo = false;
-                    return;
-                }
-            };
-        },
-        shouldShowMarkOnWatched() {
-            this.showMarkOnWatched = this.getPreferenceBoolean("watchHistory", false);
-        },
-        toggleWatched(videoId) {
-            if (window.db) {
-                var tx = window.db.transaction("watch_history", "readwrite");
-                var store = tx.objectStore("watch_history");
-                var instance = this;
-                var request = store.get(videoId);
-                request.onsuccess = function (event) {
-                    var video = event.target.result;
-                    if (video) {
-                        video.watchedAt = Date.now();
-                    } else {
-                        video = {
-                            videoId: videoId,
-                            title: instance.item.title,
-                            duration: instance.item.duration,
-                            thumbnail: instance.item.thumbnail,
-                            uploaderUrl: instance.item.uploaderUrl,
-                            uploaderName: instance.item.uploaderName,
-                            watchedAt: Date.now(),
-                        };
-                    }
-                    video.currentTime =
-                        instance.item.currentTime < instance.item.duration * 0.9 ? instance.item.duration : 0;
-                    store.put(video);
-                    instance.$emit("update:watched", [instance.item.url]);
-                    instance.shouldShowVideo();
+const emit = defineEmits(["update:watched", "remove"]);
+
+const removeButton = ref(null);
+const showPlaylistModal = ref(false);
+const showShareModal = ref(false);
+const showVideo = ref(true);
+const showConfirmRemove = ref(false);
+const showMarkOnWatched = ref(false);
+
+const title = computed(() => {
+    return props.item.dearrow?.titles[0]?.title ?? props.item.title;
+});
+
+function removeVideo() {
+    removeButton.value.disabled = true;
+    removeVideoFromPlaylist(props.playlistId, props.index).then(json => {
+        if (json.error) alert(json.error);
+        else emit("remove");
+    });
+}
+
+function shouldShowVideo() {
+    if (!props.isFeed || !getPreferenceBoolean("hideWatched", false)) return;
+
+    const objectStore = window.db.transaction("watch_history", "readonly").objectStore("watch_history");
+    const request = objectStore.get(props.item.url.substr(-11));
+    request.onsuccess = event => {
+        const video = event.target.result;
+        if (video && (video.currentTime ?? 0) > video.duration * 0.9) {
+            showVideo.value = false;
+            return;
+        }
+    };
+}
+
+function shouldShowMarkOnWatched() {
+    showMarkOnWatched.value = getPreferenceBoolean("watchHistory", false);
+}
+
+function toggleWatched(videoId) {
+    if (window.db) {
+        var tx = window.db.transaction("watch_history", "readwrite");
+        var store = tx.objectStore("watch_history");
+        var request = store.get(videoId);
+        request.onsuccess = function (event) {
+            var video = event.target.result;
+            if (video) {
+                video.watchedAt = Date.now();
+            } else {
+                video = {
+                    videoId: videoId,
+                    title: props.item.title,
+                    duration: props.item.duration,
+                    thumbnail: props.item.thumbnail,
+                    uploaderUrl: props.item.uploaderUrl,
+                    uploaderName: props.item.uploaderName,
+                    watchedAt: Date.now(),
                 };
             }
-        },
-    },
-};
+            video.currentTime = props.item.currentTime < props.item.duration * 0.9 ? props.item.duration : 0;
+            store.put(video);
+            emit("update:watched", [props.item.url]);
+            shouldShowVideo();
+        };
+    }
+}
+
+onMounted(() => {
+    shouldShowVideo();
+    shouldShowMarkOnWatched();
+});
 </script>
 
 <style>

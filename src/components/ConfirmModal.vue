@@ -10,33 +10,31 @@
     </ModalComponent>
 </template>
 
-<script>
+<script setup>
+import { onMounted, onUnmounted } from "vue";
 import ModalComponent from "./ModalComponent.vue";
 
-export default {
-    components: {
-        ModalComponent,
+defineProps({
+    message: {
+        type: String,
+        required: true,
     },
-    props: {
-        message: {
-            type: String,
-            required: true,
-        },
-    },
-    emits: ["close", "confirm"],
-    mounted() {
-        window.addEventListener("keydown", this.handleKeyDown);
-    },
-    unmounted() {
-        window.removeEventListener("keydown", this.handleKeyDown);
-    },
-    methods: {
-        handleKeyDown(event) {
-            if (event.code === "Enter") {
-                this.$emit("confirm");
-                event.preventDefault();
-            }
-        },
-    },
-};
+});
+
+const emit = defineEmits(["close", "confirm"]);
+
+function handleKeyDown(event) {
+    if (event.code === "Enter") {
+        emit("confirm");
+        event.preventDefault();
+    }
+}
+
+onMounted(() => {
+    window.addEventListener("keydown", handleKeyDown);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("keydown", handleKeyDown);
+});
 </script>

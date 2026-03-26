@@ -34,75 +34,67 @@
         </div>
     </ModalComponent>
 </template>
-<script>
+<script setup>
+import { ref, computed } from "vue";
 import ModalComponent from "./ModalComponent.vue";
 
-export default {
-    components: { ModalComponent },
-    data() {
-        return {
-            items: [],
-            override: false,
-            index: 0,
-            success: 0,
-            error: 0,
-            skipped: 0,
-        };
-    },
-    computed: {
-        itemsLength() {
-            return this.items.length;
-        },
-    },
-    methods: {
-        fileChange() {
-            const file = this.$refs.fileSelector.files[0];
-            file.text().then(text => {
-                this.items = [];
-                const json = JSON.parse(text);
-                const items = json.watchHistory.map(video => {
-                    return {
-                        ...video,
-                        watchedAt: video.watchedAt ?? 0,
-                        currentTime: video.currentTime ?? 0,
+const fileSelector = ref(null);
+const items = ref([]);
+const override = ref(false);
+const index = ref(0);
+const success = ref(0);
+const error = ref(0);
+const skipped = ref(0);
+
+const itemsLength = computed(() => items.value.length);
+
+function fileChange() {
+    const file = fileSelector.value.files[0];
+    file.text().then(text => {
+        items.value = [];
+        const json = JSON.parse(text);
+        const parsed = json.watchHistory.map(video => {
+            return {
+                ...video,
+                watchedAt: video.watchedAt ?? 0,
+                currentTime: video.currentTime ?? 0,
+            };
+        });
+        items.value = parsed.sort((a, b) => b.watchedAt - a.watchedAt);
+    });
+}
+
+function handleImport() {
+    if (window.db) {
+        var tx = window.db.transaction("watch_history", "readwrite");
+        var store = tx.objectStore("watch_history");
+        items.value.forEach(item => {
+            const dbItem = store.get(item.videoId);
+            dbItem.onsuccess = () => {
+                if (dbItem.result && dbItem.result.videoId === item.videoId) {
+                    if (!override.value) {
+                        index.value++;
+                        skipped.value++;
+                        return;
+                    }
+                }
+                try {
+                    const request = store.put(JSON.parse(JSON.stringify(item))); // prevent "Symbol could not be cloned." error
+                    request.onsuccess = () => {
+                        index.value++;
+                        success.value++;
                     };
-                });
-                this.items = items.sort((a, b) => b.watchedAt - a.watchedAt);
-            });
-        },
-        handleImport() {
-            if (window.db) {
-                var tx = window.db.transaction("watch_history", "readwrite");
-                var store = tx.objectStore("watch_history");
-                this.items.forEach(item => {
-                    const dbItem = store.get(item.videoId);
-                    dbItem.onsuccess = () => {
-                        if (dbItem.result && dbItem.result.videoId === item.videoId) {
-                            if (!this.override) {
-                                this.index++;
-                                this.skipped++;
-                                return;
-                            }
-                        }
-                        try {
-                            const request = store.put(JSON.parse(JSON.stringify(item))); // prevent "Symbol could not be cloned." error
-                            request.onsuccess = () => {
-                                this.index++;
-                                this.success++;
-                            };
-                            request.onerror = () => {
-                                this.index++;
-                                this.error++;
-                            };
-                        } catch (error) {
-                            console.error(error);
-                            this.index++;
-                            this.error++;
-                        }
+                    request.onerror = () => {
+                        index.value++;
+                        error.value++;
                     };
-                });
-            }
-        },
-    },
-};
+                } catch (err) {
+                    console.error(err);
+                    index.value++;
+                    error.value++;
+                }
+            };
+        });
+    }
+}
 </script>
