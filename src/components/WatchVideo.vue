@@ -10,7 +10,7 @@
         />
     </div>
     <div id="theaterModeSpot" class="-mx-1vw"></div>
-    <LoadingIndicatorPage :show-content="video && !isEmbed" class="w-full">
+    <LoadingIndicatorPage :show-content="video != null && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
         <Transition>
             <ToastComponent v-if="shouldShowToast" @dismissed="dismiss">
@@ -27,7 +27,7 @@
                                     ref="videoPlayer"
                                     :video="video"
                                     :sponsors="sponsors"
-                                    :selected-auto-play="selectedAutoPlay"
+                                    :selected-auto-play="selectedAutoPlayEnabled"
                                     :selected-auto-loop="selectedAutoLoop"
                                     @timeupdate="onTimeUpdate"
                                     @ended="onVideoEnded"
@@ -251,7 +251,12 @@
                 />
                 <br />
                 <label for="chkAutoPlay"><strong v-text="`${$t('actions.auto_play_next_video')}:`" /></label>
-                <select id="chkAutoPlay" v-model="selectedAutoPlay" class="select ml-1.5" @change="onChange($event)">
+                <select
+                    id="chkAutoPlay"
+                    v-model.number="selectedAutoPlay"
+                    class="select ml-1.5"
+                    @change="onChange($event)"
+                >
                     <option v-t="'actions.never'" value="0" />
                     <option v-t="'actions.playlists_only'" value="1" />
                     <option v-t="'actions.always'" value="2" />
@@ -417,6 +422,10 @@ let loading = false;
 
 const isListening = computed(() => {
     return getPreferenceBoolean("listen", false);
+});
+
+const selectedAutoPlayEnabled = computed(() => {
+    return Number(selectedAutoPlay.value) >= 1;
 });
 
 const toggleListenUrl = computed(() => {

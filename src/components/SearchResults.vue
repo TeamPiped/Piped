@@ -18,7 +18,7 @@
         </i18n-t>
     </div>
 
-    <LoadingIndicatorPage :show-content="results != null && results.items?.length" class="video-grid">
+    <LoadingIndicatorPage :show-content="Boolean(results != null && results.items?.length)" class="video-grid">
         <template v-for="result in results.items" :key="result.url">
             <ContentItem :item="result" height="94" width="168" />
         </template>

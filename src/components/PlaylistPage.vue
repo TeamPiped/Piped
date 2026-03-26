@@ -1,7 +1,7 @@
 <template>
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
-    <LoadingIndicatorPage v-show="!playlist?.error" :show-content="playlist">
+    <LoadingIndicatorPage v-show="!playlist?.error" :show-content="playlist != null">
         <h1 class="mb-1 ml-1 mt-4 text-3xl!" v-text="playlist.name" />
 
         <CollapsableText v-if="playlist?.description" :text="playlist.description" />
@@ -16,7 +16,9 @@
             <div class="flex flex-wrap items-center gap-1">
                 <strong
                     v-text="
-                        `${playlist.videos} ${$t('video.videos')} - ${timeFormat(totalDuration)}${playlist.nextpage ? '+' : ''}`
+                        `${playlist.videos} ${$t('video.videos')} - ${timeFormat(totalDuration)}${
+                            playlist.nextpage ? '+' : ''
+                        }`
                     "
                 />
                 <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
