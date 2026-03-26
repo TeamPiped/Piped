@@ -13,7 +13,7 @@
     "dependencies": {
         "dompurify": "3.3.3",
         "fast-xml-parser": "5.5.9",
-        "hotkeys-js": "3.13.15",
+        "hotkeys-js": "4.0.2",
         "javascript-time-ago": "2.6.4",
         "linkify-html": "4.3.2",
         "linkifyjs": "4.3.2",
