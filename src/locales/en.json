@@ -213,6 +213,18 @@
         "chapters_horizontal": "Horizontal",
         "chapters_vertical": "Vertical"
     },
+    "playlist_stats": {
+        "stats": "Statistics",
+        "playlist_stats": "Playlist statistics",
+        "general": "General",
+        "total_duration": "Total duration",
+        "types": "Types",
+        "categories": "Categories",
+        "tags": "Tags",
+        "by_channel_subscription_status": "By channel subscription status",
+        "subscribed": "subscribed",
+        "unsubscribed": "not subscribed"
+    },
     "search": {
         "did_you_mean": "Did you mean: {0}?",
         "all": "YouTube: All",
