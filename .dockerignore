@@ -4,4 +4,3 @@ dist/
 .*
 *.md
 !.prettier*
-!.eslintrc.cjs

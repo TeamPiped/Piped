@@ -181,7 +181,7 @@ function setSpeedFromInput() {
     try {
         const newSpeed = Number(playbackSpeedInput.value);
         adjustPlaybackSpeed(newSpeed);
-    } catch (err) {
+    } catch {
         alert(t("actions.invalid_input"));
     }
     showSpeedModal.value = false;

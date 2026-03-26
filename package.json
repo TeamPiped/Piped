@@ -8,7 +8,7 @@
         "build": "vite build",
         "preview": "vite preview",
         "format": "prettier -w --ignore-path .gitignore **/**.{js,vue,json}",
-        "lint": "eslint --fix --color --ignore-path .gitignore --ext .js,.vue ."
+        "lint": "eslint --fix --color ."
     },
     "dependencies": {
         "dompurify": "3.3.3",
@@ -17,13 +17,14 @@
         "javascript-time-ago": "2.6.4",
         "linkify-html": "4.3.2",
         "linkifyjs": "4.3.2",
-        "qrcode": "^1.5.3",
+        "qrcode": "^1.5.4",
         "shaka-player": "5.0.8",
         "vue": "3.5.31",
         "vue-i18n": "11.3.0",
         "vue-router": "5.0.4"
     },
     "devDependencies": {
+        "@eslint/js": "10.0.1",
         "@iconify-json/fa6-brands": "1.2.6",
         "@iconify-json/fa6-solid": "1.2.4",
         "@intlify/unplugin-vue-i18n": "11.1.1",
@@ -34,19 +35,21 @@
         "@unocss/reset": "66.4.1",
         "@unocss/transformer-directives": "66.4.1",
         "@unocss/transformer-variant-group": "66.4.1",
-        "@vitejs/plugin-legacy": "7.2.1",
+        "@vitejs/plugin-legacy": "8.0.1",
         "@vitejs/plugin-vue": "6.0.5",
         "@vue/compiler-sfc": "3.5.31",
-        "eslint": "8.57.1",
+        "eslint": "10.1.0",
         "eslint-config-prettier": "10.1.8",
         "eslint-plugin-prettier": "5.5.5",
-        "eslint-plugin-vue": "9.33.0",
+        "eslint-plugin-vue": "10.8.0",
+        "globals": "17.4.0",
         "lightningcss": "1.32.0",
         "prettier": "3.8.1",
         "unocss": "66.4.1",
-        "vite": "7.3.1",
+        "vite": "8.0.3",
         "vite-plugin-eslint": "1.8.1",
         "vite-plugin-pwa": "1.2.0",
+        "vue-eslint-parser": "10.3.0",
         "workbox-window": "7.4.0"
     },
     "browserslist": [

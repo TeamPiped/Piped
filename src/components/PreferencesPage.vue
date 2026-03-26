@@ -600,7 +600,7 @@ onMounted(async () => {
                 countryMap.value = await import(`../utils/CountryMaps/${selectedLanguage.value}.json`).then(
                     val => val.default,
                 );
-            } catch (e) {
+            } catch {
                 console.error("Countries not translated into " + selectedLanguage.value);
             }
         }

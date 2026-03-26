@@ -170,7 +170,7 @@ function importSubscriptionsLocally(newChannels) {
     subs.sort();
     try {
         localStorage.setItem("localSubscriptions", JSON.stringify(subs));
-    } catch (e) {
+    } catch {
         alert(t("info.local_storage"));
     }
 }

@@ -105,7 +105,7 @@ async function copyURL(mytext) {
     try {
         await navigator.clipboard.writeText(mytext);
         alert(t("info.copied"));
-    } catch ($e) {
+    } catch {
         alert(t("info.cannot_copy"));
     }
 }
