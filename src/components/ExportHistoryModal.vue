@@ -59,14 +59,14 @@ async function fetchAllVideos() {
         var store = tx.objectStore("watch_history");
         const request = store.getAll();
         return new Promise((resolve, reject) => {
-            (request.onsuccess = e => {
+            ((request.onsuccess = e => {
                 const videos = e.target.result;
                 exportVideos = videos;
                 resolve();
             }),
                 (request.onerror = e => {
                     reject(e);
-                });
+                }));
         });
     }
 }
