@@ -312,4 +312,8 @@ h2 {
 .thumbnail-left {
     @apply bottom-5px left-5px text-xs font-bold bg-red-600 uppercase;
 }
+
+.thumbnail-top-right {
+    @apply top-5px right-5px;
+}
 </style>
