@@ -119,107 +119,121 @@
     />
 </template>
 
-<script>
+<script setup>
+import { ref, computed, watch, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
 import SearchSuggestions from "./SearchSuggestions.vue";
 import hotkeys from "hotkeys-js";
-export default {
-    components: {
-        SearchSuggestions,
+import { fetchJson, authApiUrl, getAuthToken } from "@/composables/useApi.js";
+import { getPreferenceBoolean, getPreferenceString } from "@/composables/usePreferences.js";
+import { getHomePage } from "@/composables/useMisc.js";
+
+const router = useRouter();
+const route = useRoute();
+
+const videoSearch = ref(null);
+const searchSuggestions = ref(null);
+
+const searchText = ref("");
+const suggestionsVisible = ref(false);
+const showTopNav = ref(false);
+const homePagePath = ref(import.meta.env.BASE_URL);
+const registrationDisabled = ref(false);
+
+const shouldShowLogin = computed(() => {
+    return getAuthToken() == null;
+});
+
+const shouldShowRegister = computed(() => {
+    return registrationDisabled.value == false ? shouldShowLogin.value : false;
+});
+
+const shouldShowHistory = computed(() => {
+    return getPreferenceBoolean("watchHistory", false);
+});
+
+const shouldShowTrending = computed(() => {
+    return getPreferenceString("homepage", "trending") != "trending";
+});
+
+const showSearchHistory = computed(() => {
+    return getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
+});
+
+watch(
+    () => route.fullPath,
+    () => {
+        updateSearchTextFromURLSearchParams();
     },
-    data() {
-        return {
-            searchText: "",
-            suggestionsVisible: false,
-            showTopNav: false,
-            homePagePath: import.meta.env.BASE_URL,
-            registrationDisabled: false,
-        };
-    },
-    computed: {
-        shouldShowLogin(_this) {
-            return _this.getAuthToken() == null;
-        },
-        shouldShowRegister(_this) {
-            return _this.registrationDisabled == false ? _this.shouldShowLogin : false;
-        },
-        shouldShowHistory(_this) {
-            return _this.getPreferenceBoolean("watchHistory", false);
-        },
-        shouldShowTrending(_this) {
-            return _this.getPreferenceString("homepage", "trending") != "trending";
-        },
-        showSearchHistory(_this) {
-            return _this.getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
-        },
-    },
-    watch: {
-        $route() {
-            this.updateSearchTextFromURLSearchParams();
-        },
-    },
-    mounted() {
-        this.fetchAuthConfig();
-        this.updateSearchTextFromURLSearchParams();
-        this.focusOnSearchBar();
-        this.homePagePath = this.getHomePage(this);
-    },
-    methods: {
-        updateSearchTextFromURLSearchParams() {
-            const query = new URLSearchParams(window.location.search).get("search_query");
-            if (query) this.onSearchTextChange(query);
-        },
-        // focus on search bar when Ctrl+k is pressed
-        focusOnSearchBar() {
-            hotkeys("ctrl+k", event => {
-                event.preventDefault();
-                this.$refs.videoSearch.focus();
-            });
-        },
-        onKeyUp(e) {
-            if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-                e.preventDefault();
-            }
-            this.$refs.searchSuggestions.onKeyUp(e);
-        },
-        onKeyPress(e) {
-            if (e.key === "Enter") {
-                this.submitSearch(e);
-            }
-        },
-        onInputFocus() {
-            if (this.showSearchHistory) this.$refs.searchSuggestions.refreshSuggestions();
-            this.suggestionsVisible = true;
-        },
-        onInputBlur() {
-            // the search suggestions will be hidden after some seconds
-            // otherwise anchor links won't work!
-            setTimeout(() => (this.suggestionsVisible = false), 200);
-        },
-        onSearchTextChange(searchText) {
-            this.searchText = searchText;
-        },
-        async fetchAuthConfig() {
-            this.fetchJson(this.authApiUrl() + "/config").then(config => {
-                this.registrationDisabled = config?.registrationDisabled === true;
-            });
-        },
-        onSearchClick(e) {
-            this.submitSearch(e);
-        },
-        submitSearch(e) {
-            e.target.blur();
-            if (this.searchText) {
-                this.$router.push({
-                    name: "SearchResults",
-                    query: { search_query: this.searchText },
-                });
-            } else {
-                this.$router.push("/");
-            }
-            return;
-        },
-    },
-};
+);
+
+function updateSearchTextFromURLSearchParams() {
+    const query = new URLSearchParams(window.location.search).get("search_query");
+    if (query) onSearchTextChange(query);
+}
+
+function focusOnSearchBar() {
+    hotkeys("ctrl+k", event => {
+        event.preventDefault();
+        videoSearch.value.focus();
+    });
+}
+
+function onKeyUp(e) {
+    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+        e.preventDefault();
+    }
+    searchSuggestions.value.onKeyUp(e);
+}
+
+function onKeyPress(e) {
+    if (e.key === "Enter") {
+        submitSearch(e);
+    }
+}
+
+function onInputFocus() {
+    if (showSearchHistory.value) searchSuggestions.value.refreshSuggestions();
+    suggestionsVisible.value = true;
+}
+
+function onInputBlur() {
+    setTimeout(() => (suggestionsVisible.value = false), 200);
+}
+
+function onSearchTextChange(text) {
+    searchText.value = text;
+}
+
+async function fetchAuthConfig() {
+    fetchJson(authApiUrl() + "/config").then(config => {
+        registrationDisabled.value = config?.registrationDisabled === true;
+    });
+}
+
+function onSearchClick(e) {
+    submitSearch(e);
+}
+
+function submitSearch(e) {
+    e.target.blur();
+    if (searchText.value) {
+        router.push({
+            name: "SearchResults",
+            query: { search_query: searchText.value },
+        });
+    } else {
+        router.push("/");
+    }
+    return;
+}
+
+onMounted(() => {
+    fetchAuthConfig();
+    updateSearchTextFromURLSearchParams();
+    focusOnSearchBar();
+    homePagePath.value = getHomePage();
+});
 </script>
 
 <style>

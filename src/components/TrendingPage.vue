@@ -8,49 +8,49 @@
     </LoadingIndicatorPage>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted, onActivated } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import VideoItem from "./VideoItem.vue";
+import { fetchJson, apiUrl } from "@/composables/useApi.js";
+import { getPreferenceString } from "@/composables/usePreferences.js";
+import { updateWatched } from "@/composables/useMisc.js";
+import { fetchDeArrowContent } from "@/composables/useSubscriptions.js";
+import { getHomePage } from "@/composables/useMisc.js";
 
-export default {
-    components: {
-        VideoItem,
-        LoadingIndicatorPage,
-    },
-    data() {
-        return {
-            videos: [],
-        };
-    },
-    mounted() {
-        if (
-            this.$route.path == import.meta.env.BASE_URL &&
-            this.getPreferenceString("homepage", "trending") == "feed"
-        ) {
-            return;
-        }
-        let region = this.getPreferenceString("region", "US");
+const route = useRoute();
+const router = useRouter();
+const { t } = useI18n();
 
-        this.fetchTrending(region).then(videos => {
-            this.videos = videos;
-            this.updateWatched(this.videos);
-            this.fetchDeArrowContent(this.videos);
-        });
-    },
-    activated() {
-        document.title = this.$t("titles.trending") + " - Piped";
-        if (this.videos.length > 0) this.updateWatched(this.videos);
-        if (this.$route.path == import.meta.env.BASE_URL) {
-            let homepage = this.getHomePage(this);
-            if (homepage !== undefined) this.$router.push(homepage);
-        }
-    },
-    methods: {
-        async fetchTrending(region) {
-            return await this.fetchJson(this.apiUrl() + "/trending", {
-                region: region || "US",
-            });
-        },
-    },
-};
+const videos = ref([]);
+
+async function fetchTrending(region) {
+    return await fetchJson(apiUrl() + "/trending", {
+        region: region || "US",
+    });
+}
+
+onMounted(() => {
+    if (route.path == import.meta.env.BASE_URL && getPreferenceString("homepage", "trending") == "feed") {
+        return;
+    }
+    let region = getPreferenceString("region", "US");
+
+    fetchTrending(region).then(vids => {
+        videos.value = vids;
+        updateWatched(videos.value);
+        fetchDeArrowContent(videos.value);
+    });
+});
+
+onActivated(() => {
+    document.title = t("titles.trending") + " - Piped";
+    if (videos.value.length > 0) updateWatched(videos.value);
+    if (route.path == import.meta.env.BASE_URL) {
+        let homepage = getHomePage();
+        if (homepage !== undefined) router.push(homepage);
+    }
+});
 </script>

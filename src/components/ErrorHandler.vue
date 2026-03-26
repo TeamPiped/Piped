@@ -4,16 +4,17 @@
     <p ref="stacktrace" class="whitespace-pre-wrap" hidden v-text="error" />
 </template>
 
-<script>
-export default {
-    props: {
-        error: { type: String, default: null },
-        message: { type: String, default: null },
-    },
-    methods: {
-        toggleTrace() {
-            this.$refs.stacktrace.hidden = !this.$refs.stacktrace.hidden;
-        },
-    },
-};
+<script setup>
+import { ref } from "vue";
+
+defineProps({
+    error: { type: String, default: null },
+    message: { type: String, default: null },
+});
+
+const stacktrace = ref(null);
+
+function toggleTrace() {
+    stacktrace.value.hidden = !stacktrace.value.hidden;
+}
 </script>

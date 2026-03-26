@@ -31,31 +31,23 @@
         <span v-if="item.watched" v-t="'video.watched'" class="thumbnail-overlay bottom-5px left-5px" />
     </div>
 </template>
-<script>
-export default {
-    props: {
-        item: {
-            type: Object,
-            default: () => {
-                return {};
-            },
-        },
-        small: {
-            type: Boolean,
-            default: () => {
-                return false;
-            },
+<script setup>
+import { timeFormat } from "@/composables/useFormatting.js";
+
+defineProps({
+    item: {
+        type: Object,
+        default: () => {
+            return {};
         },
     },
-    computed: {
-        title() {
-            return this.item.dearrow?.titles[0]?.title ?? this.item.title;
-        },
-        thumbnail() {
-            return this.item.dearrow?.thumbnails[0]?.thumbnail ?? this.item.thumbnail;
+    small: {
+        type: Boolean,
+        default: () => {
+            return false;
         },
     },
-};
+});
 </script>
 
 <style>

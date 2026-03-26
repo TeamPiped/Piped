@@ -67,48 +67,45 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from "vue";
 import CollapsableText from "./CollapsableText.vue";
+import { fetchJson, apiUrl } from "@/composables/useApi.js";
+import { numberFormat } from "@/composables/useFormatting.js";
 
-export default {
-    components: { CollapsableText },
-    props: {
-        comment: {
-            type: Object,
-            default: () => {
-                return {};
-            },
-        },
-        uploader: { type: String, default: null },
-        uploaderAvatarUrl: { type: String, default: null },
-        videoId: { type: String, default: null },
-    },
-    data() {
-        return {
-            loadingReplies: false,
-            showingReplies: false,
-            replies: [],
-            nextpage: null,
-        };
-    },
-    methods: {
-        async loadReplies() {
-            if (!this.showingReplies && this.loadingReplies) {
-                this.showingReplies = true;
-                return;
-            }
-            this.loadingReplies = true;
-            this.showingReplies = true;
-            this.fetchJson(this.apiUrl() + "/nextpage/comments/" + this.videoId, {
-                nextpage: this.nextpage || this.comment.repliesPage,
-            }).then(json => {
-                this.replies = this.replies.concat(json.comments);
-                this.nextpage = json.nextpage;
-            });
-        },
-        async hideReplies() {
-            this.showingReplies = false;
+const props = defineProps({
+    comment: {
+        type: Object,
+        default: () => {
+            return {};
         },
     },
-};
+    uploader: { type: String, default: null },
+    uploaderAvatarUrl: { type: String, default: null },
+    videoId: { type: String, default: null },
+});
+
+const loadingReplies = ref(false);
+const showingReplies = ref(false);
+const replies = ref([]);
+const nextpage = ref(null);
+
+async function loadReplies() {
+    if (!showingReplies.value && loadingReplies.value) {
+        showingReplies.value = true;
+        return;
+    }
+    loadingReplies.value = true;
+    showingReplies.value = true;
+    fetchJson(apiUrl() + "/nextpage/comments/" + props.videoId, {
+        nextpage: nextpage.value || props.comment.repliesPage,
+    }).then(json => {
+        replies.value = replies.value.concat(json.comments);
+        nextpage.value = json.nextpage;
+    });
+}
+
+async function hideReplies() {
+    showingReplies.value = false;
+}
 </script>

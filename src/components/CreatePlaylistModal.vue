@@ -11,44 +11,41 @@
     </ModalComponent>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
 import ModalComponent from "./ModalComponent.vue";
+import { createPlaylist } from "@/composables/usePlaylists.js";
 
-export default {
-    components: {
-        ModalComponent,
-    },
-    emits: ["created", "close"],
-    data() {
-        return {
-            playlistName: "",
-        };
-    },
-    mounted() {
-        this.$refs.input.focus();
-        window.addEventListener("keydown", this.handleKeyDown);
-    },
-    unmounted() {
-        window.removeEventListener("keydown", this.handleKeyDown);
-    },
-    methods: {
-        handleKeyDown(event) {
-            if (event.code === "Enter") {
-                this.onCreatePlaylist();
-                event.preventDefault();
-            }
-        },
-        onCreatePlaylist() {
-            if (!this.playlistName) return;
+const emit = defineEmits(["created", "close"]);
 
-            this.createPlaylist(this.playlistName).then(response => {
-                if (response.error) alert(response.error);
-                else {
-                    this.$emit("created", response.playlistId, this.playlistName);
-                    this.$emit("close");
-                }
-            });
-        },
-    },
-};
+const playlistName = ref("");
+const input = ref(null);
+
+function handleKeyDown(event) {
+    if (event.code === "Enter") {
+        onCreatePlaylist();
+        event.preventDefault();
+    }
+}
+
+function onCreatePlaylist() {
+    if (!playlistName.value) return;
+
+    createPlaylist(playlistName.value).then(response => {
+        if (response.error) alert(response.error);
+        else {
+            emit("created", response.playlistId, playlistName.value);
+            emit("close");
+        }
+    });
+}
+
+onMounted(() => {
+    input.value.focus();
+    window.addEventListener("keydown", handleKeyDown);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("keydown", handleKeyDown);
+});
 </script>

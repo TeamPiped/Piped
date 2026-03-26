@@ -30,50 +30,51 @@
     </ModalComponent>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 import ModalComponent from "./ModalComponent.vue";
-export default {
-    components: { ModalComponent },
-    emits: ["close"],
-    data() {
-        return {
-            customInstances: [],
-            name: "",
-            url: "",
-        };
-    },
-    mounted() {
-        this.customInstances = this.getCustomInstances();
-    },
-    methods: {
-        async addInstance() {
-            const newInstance = {
-                name: this.name,
-                api_url: this.url,
-            };
+import { getCustomInstances, addCustomInstance, removeCustomInstance } from "@/composables/useCustomInstances.js";
 
-            if (!newInstance.name || !newInstance.api_url) {
-                return;
-            }
-            if (!this.isValidInstanceUrl(newInstance.api_url)) {
-                alert(this.$t("actions.invalid_url"));
-                return;
-            }
+const { t } = useI18n();
 
-            this.addCustomInstance(newInstance);
-            this.name = "";
-            this.url = "";
-        },
-        removeInstance(instance, index) {
-            this.customInstances.splice(index, 1);
+defineEmits(["close"]);
 
-            this.removeCustomInstance(instance);
-        },
-        isValidInstanceUrl(str) {
-            var a = document.createElement("a");
-            a.href = str;
-            return a.host && a.host != window.location.host;
-        },
-    },
-};
+const customInstances = ref([]);
+const name = ref("");
+const url = ref("");
+
+onMounted(() => {
+    customInstances.value = getCustomInstances();
+});
+
+function isValidInstanceUrl(str) {
+    var a = document.createElement("a");
+    a.href = str;
+    return a.host && a.host != window.location.host;
+}
+
+async function addInstance() {
+    const newInstance = {
+        name: name.value,
+        api_url: url.value,
+    };
+
+    if (!newInstance.name || !newInstance.api_url) {
+        return;
+    }
+    if (!isValidInstanceUrl(newInstance.api_url)) {
+        alert(t("actions.invalid_url"));
+        return;
+    }
+
+    addCustomInstance(newInstance);
+    name.value = "";
+    url.value = "";
+}
+
+function removeInstance(instance, index) {
+    customInstances.value.splice(index, 1);
+    removeCustomInstance(instance);
+}
 </script>

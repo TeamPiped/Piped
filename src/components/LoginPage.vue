@@ -35,39 +35,43 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            username: null,
-            password: null,
-        };
-    },
-    mounted() {
-        //TODO: Add Server Side check
-        if (this.getAuthToken()) {
-            this.$router.push(import.meta.env.BASE_URL);
-        }
-    },
-    activated() {
-        document.title = this.$t("titles.login") + " - Piped";
-    },
-    methods: {
-        login() {
-            if (!this.username || !this.password) return;
-            this.fetchJson(this.authApiUrl() + "/login", null, {
-                method: "POST",
-                body: JSON.stringify({
-                    username: this.username,
-                    password: this.password,
-                }),
-            }).then(resp => {
-                if (resp.token) {
-                    this.setPreference("authToken" + this.hashCode(this.authApiUrl()), resp.token);
-                    window.location = import.meta.env.BASE_URL; // done to bypass cache
-                } else alert(resp.error);
-            });
-        },
-    },
-};
+<script setup>
+import { ref, onMounted, onActivated } from "vue";
+import { useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
+import { fetchJson, authApiUrl, getAuthToken, hashCode } from "@/composables/useApi.js";
+import { setPreference } from "@/composables/usePreferences.js";
+
+const router = useRouter();
+const { t } = useI18n();
+
+const username = ref(null);
+const password = ref(null);
+
+onMounted(() => {
+    //TODO: Add Server Side check
+    if (getAuthToken()) {
+        router.push(import.meta.env.BASE_URL);
+    }
+});
+
+onActivated(() => {
+    document.title = t("titles.login") + " - Piped";
+});
+
+function login() {
+    if (!username.value || !password.value) return;
+    fetchJson(authApiUrl() + "/login", null, {
+        method: "POST",
+        body: JSON.stringify({
+            username: username.value,
+            password: password.value,
+        }),
+    }).then(resp => {
+        if (resp.token) {
+            setPreference("authToken" + hashCode(authApiUrl()), resp.token);
+            window.location = import.meta.env.BASE_URL; // done to bypass cache
+        } else alert(resp.error);
+    });
+}
 </script>

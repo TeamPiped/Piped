@@ -99,164 +99,174 @@
     />
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted, onActivated } from "vue";
+import { useI18n } from "vue-i18n";
 import ConfirmModal from "./ConfirmModal.vue";
 import ModalComponent from "./ModalComponent.vue";
 import CreatePlaylistModal from "./CreatePlaylistModal.vue";
+import {
+    getPlaylists,
+    getPlaylist,
+    createPlaylist,
+    deletePlaylist,
+    renamePlaylist,
+    changePlaylistDescription,
+    addVideosToPlaylist,
+} from "@/composables/usePlaylists.js";
+import { download } from "@/composables/useMisc.js";
 
-export default {
-    components: { ConfirmModal, ModalComponent, CreatePlaylistModal },
-    data() {
-        return {
-            playlists: [],
-            bookmarks: [],
-            playlistToDelete: null,
-            playlistToEdit: null,
-            newPlaylistName: "",
-            newPlaylistDescription: "",
-            showCreatePlaylistModal: false,
+const { t } = useI18n();
+
+const fileSelector = ref(null);
+const playlists = ref([]);
+const bookmarks = ref([]);
+const playlistToDelete = ref(null);
+const playlistToEdit = ref(null);
+const newPlaylistName = ref("");
+const newPlaylistDescription = ref("");
+const showCreatePlaylistModal = ref(false);
+
+function fetchPlaylistsList() {
+    getPlaylists().then(json => {
+        playlists.value = json;
+    });
+}
+
+function showPlaylistEditModal(playlist) {
+    newPlaylistName.value = playlist.name;
+    newPlaylistDescription.value = playlist.description;
+    playlistToEdit.value = playlist.id;
+}
+
+function editPlaylist(selectedPlaylist) {
+    const newName = newPlaylistName.value;
+    const newDescription = newPlaylistDescription.value;
+    if (newName != selectedPlaylist.name) {
+        renamePlaylist(selectedPlaylist.id, newName).then(json => {
+            if (json.error) alert(json.error);
+            else selectedPlaylist.name = newName;
+        });
+    }
+    if (newDescription != selectedPlaylist.description) {
+        changePlaylistDescription(selectedPlaylist.id, newDescription).then(json => {
+            if (json.error) alert(json.error);
+            else selectedPlaylist.description = newDescription;
+        });
+    }
+    playlistToEdit.value = null;
+}
+
+function onDeletePlaylist(id) {
+    deletePlaylist(id).then(json => {
+        if (json.error) alert(json.error);
+        else playlists.value = playlists.value.filter(playlist => playlist.id !== id);
+    });
+    playlistToDelete.value = null;
+}
+
+async function exportPlaylists() {
+    if (!playlists.value) return;
+    let json = {
+        format: "Piped",
+        version: 1,
+        playlists: [],
+    };
+    let tasks = playlists.value.map(playlist => fetchPlaylistJson(playlist.id));
+    json.playlists = await Promise.all(tasks);
+    download(JSON.stringify(json), "playlists.json", "application/json");
+}
+
+async function fetchPlaylistJson(playlistId) {
+    let playlist = await getPlaylist(playlistId);
+    return {
+        name: playlist.name,
+        type: "playlist",
+        visibility: "private",
+        videos: playlist.relatedStreams.map(stream => "https://youtube.com" + stream.url),
+    };
+}
+
+async function importPlaylists() {
+    const files = fileSelector.value.files;
+    for (let file of files) {
+        await importPlaylistFile(file);
+    }
+    window.location.reload();
+}
+
+async function importPlaylistFile(file) {
+    let text = (await file.text()).trim();
+    let tasks = [];
+    if (file.name.slice(-4).toLowerCase() == ".csv") {
+        const lines = text.split("\n");
+
+        const playlistInfo = lines[1].split(",");
+        let videoListStartIndex = 0;
+        let playlistName = null;
+        if (playlistInfo.length > 2) {
+            playlistName = playlistInfo[4];
+            videoListStartIndex = 4;
+        }
+
+        const playlist = {
+            name: playlistName ?? file.name.replace(".csv", ""),
+            videos: lines
+                .slice(videoListStartIndex, lines.length)
+                .filter(line => line != "")
+                .slice(1)
+                .map(line => `https://youtube.com/watch?v=${line.split(",")[0]}`),
         };
-    },
-    mounted() {
-        this.fetchPlaylists();
-        this.loadPlaylistBookmarks();
-    },
-    activated() {
-        document.title = this.$t("titles.playlists") + " - Piped";
-    },
-    methods: {
-        fetchPlaylists() {
-            this.getPlaylists().then(json => {
-                this.playlists = json;
-            });
-        },
-        showPlaylistEditModal(playlist) {
-            this.newPlaylistName = playlist.name;
-            this.newPlaylistDescription = playlist.description;
-            this.playlistToEdit = playlist.id;
-        },
-        editPlaylist(selectedPlaylist) {
-            // save the new name and description since they could be overwritten during the http request
-            const newName = this.newPlaylistName;
-            const newDescription = this.newPlaylistDescription;
-            if (newName != selectedPlaylist.name) {
-                this.renamePlaylist(selectedPlaylist.id, newName).then(json => {
-                    if (json.error) alert(json.error);
-                    else selectedPlaylist.name = newName;
-                });
-            }
-            if (newDescription != selectedPlaylist.description) {
-                this.changePlaylistDescription(selectedPlaylist.id, newDescription).then(json => {
-                    if (json.error) alert(json.error);
-                    else selectedPlaylist.description = newDescription;
-                });
-            }
-            this.playlistToEdit = null;
-        },
-        onDeletePlaylist(id) {
-            this.deletePlaylist(id).then(json => {
-                if (json.error) alert(json.error);
-                else this.playlists = this.playlists.filter(playlist => playlist.id !== id);
-            });
-            this.playlistToDelete = null;
-        },
-        async exportPlaylists() {
-            if (!this.playlists) return;
-            let json = {
-                format: "Piped",
-                version: 1,
-                playlists: [],
-            };
-            let tasks = this.playlists.map(playlist => this.fetchPlaylistJson(playlist.id));
-            json.playlists = await Promise.all(tasks);
-            this.download(JSON.stringify(json), "playlists.json", "application/json");
-        },
-        async fetchPlaylistJson(playlistId) {
-            let playlist = await this.getPlaylist(playlistId);
-            return {
-                name: playlist.name,
-                // possible other types: history, watch later, ...
-                type: "playlist",
-                // as Invidious supports public and private playlists
-                visibility: "private",
-                // list of the videos, starting with "https://youtube.com" to clarify that those are YT videos
-                videos: playlist.relatedStreams.map(stream => "https://youtube.com" + stream.url),
-            };
-        },
-        async importPlaylists() {
-            const files = this.$refs.fileSelector.files;
-            for (let file of files) {
-                await this.importPlaylistFile(file);
-            }
-            window.location.reload();
-        },
-        async importPlaylistFile(file) {
-            let text = (await file.text()).trim();
-            let tasks = [];
-            // list of playlists exported from Piped
-            if (file.name.slice(-4).toLowerCase() == ".csv") {
-                const lines = text.split("\n");
+        tasks.push(createPlaylistWithVideos(playlist));
+    } else if (text.includes('"Piped"')) {
+        let parsedPlaylists = JSON.parse(text).playlists;
+        if (!parsedPlaylists.length) {
+            alert(t("actions.no_valid_playlists"));
+            return;
+        }
+        for (let playlist of parsedPlaylists) {
+            tasks.push(createPlaylistWithVideos(playlist));
+        }
+    } else {
+        alert(t("actions.no_valid_playlists"));
+        return;
+    }
+    await Promise.all(tasks);
+}
 
-                // old format: first two lines contain playlist info (e.g. name) in CSV format
-                // new format: no information about playlist like name, ...
-                // video list has two columns: videoId and date of addition
-                const playlistInfo = lines[1].split(",");
-                let videoListStartIndex = 0;
-                let playlistName = null;
-                if (playlistInfo.length > 2) {
-                    playlistName = playlistInfo[4];
-                    videoListStartIndex = 4;
-                }
+async function createPlaylistWithVideos(playlist) {
+    let newPlaylist = await createPlaylist(playlist.name);
+    let videoIds = playlist.videos.map(url => url.substr(-11));
+    await addVideosToPlaylist(newPlaylist.playlistId, videoIds);
+}
 
-                const playlist = {
-                    name: playlistName ?? file.name.replace(".csv", ""),
-                    videos: lines
-                        .slice(videoListStartIndex, lines.length)
-                        .filter(line => line != "")
-                        .slice(1)
-                        .map(line => `https://youtube.com/watch?v=${line.split(",")[0]}`),
-                };
-                tasks.push(this.createPlaylistWithVideos(playlist));
-            } else if (text.includes('"Piped"')) {
-                // CSV from Google Takeout
-                let playlists = JSON.parse(text).playlists;
-                if (!playlists.length) {
-                    alert(this.$t("actions.no_valid_playlists"));
-                    return;
-                }
-                for (let playlist of playlists) {
-                    tasks.push(this.createPlaylistWithVideos(playlist));
-                }
-            } else {
-                alert(this.$t("actions.no_valid_playlists"));
-                return;
-            }
-            await Promise.all(tasks);
-        },
-        async createPlaylistWithVideos(playlist) {
-            let newPlaylist = await this.createPlaylist(playlist.name);
-            let videoIds = playlist.videos.map(url => url.substr(-11));
-            await this.addVideosToPlaylist(newPlaylist.playlistId, videoIds);
-        },
-        async loadPlaylistBookmarks() {
-            if (!window.db) return;
-            var tx = window.db.transaction("playlist_bookmarks", "readonly");
-            var store = tx.objectStore("playlist_bookmarks");
-            const cursorRequest = store.openCursor();
-            cursorRequest.onsuccess = e => {
-                const cursor = e.target.result;
-                if (cursor) {
-                    this.bookmarks.push(cursor.value);
-                    cursor.continue();
-                }
-            };
-        },
-        async removeBookmark(index) {
-            var tx = window.db.transaction("playlist_bookmarks", "readwrite");
-            var store = tx.objectStore("playlist_bookmarks");
-            store.delete(this.bookmarks[index].playlistId);
-            this.bookmarks.splice(index, 1);
-        },
-    },
-};
+async function loadPlaylistBookmarks() {
+    if (!window.db) return;
+    var tx = window.db.transaction("playlist_bookmarks", "readonly");
+    var store = tx.objectStore("playlist_bookmarks");
+    const cursorRequest = store.openCursor();
+    cursorRequest.onsuccess = e => {
+        const cursor = e.target.result;
+        if (cursor) {
+            bookmarks.value.push(cursor.value);
+            cursor.continue();
+        }
+    };
+}
+
+async function removeBookmark(index) {
+    var tx = window.db.transaction("playlist_bookmarks", "readwrite");
+    var store = tx.objectStore("playlist_bookmarks");
+    store.delete(bookmarks.value[index].playlistId);
+    bookmarks.value.splice(index, 1);
+}
+
+onMounted(() => {
+    fetchPlaylistsList();
+    loadPlaylistBookmarks();
+});
+
+onActivated(() => {
+    document.title = t("titles.playlists") + " - Piped";
+});
 </script>

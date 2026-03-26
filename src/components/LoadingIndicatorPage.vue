@@ -7,15 +7,13 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        showContent: {
-            type: Boolean,
-            required: true,
-        },
+<script setup>
+defineProps({
+    showContent: {
+        type: Boolean,
+        required: true,
     },
-};
+});
 </script>
 
 <style>

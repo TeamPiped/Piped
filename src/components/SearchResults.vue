@@ -25,115 +25,123 @@
     </LoadingIndicatorPage>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted, onUpdated, onActivated, onDeactivated, onUnmounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import ContentItem from "./ContentItem.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
+import { fetchJson, apiUrl } from "@/composables/useApi.js";
+import { getPreferenceBoolean } from "@/composables/usePreferences.js";
+import { updateWatched } from "@/composables/useMisc.js";
 
-export default {
-    components: {
-        ContentItem,
-        LoadingIndicatorPage,
-    },
-    data() {
-        return {
-            results: null,
-            availableFilters: [
-                "all",
-                "videos",
-                "channels",
-                "playlists",
-                "music_songs",
-                "music_videos",
-                "music_albums",
-                "music_playlists",
-                "music_artists",
-            ],
-            selectedFilter: this.$route.query.filter ?? "all",
-        };
-    },
-    mounted() {
-        if (this.handleRedirect()) return;
-        this.updateResults();
-        this.saveQueryToHistory();
-    },
-    updated() {
-        if (this.$route.query.search_query !== undefined) {
-            document.title = this.$route.query.search_query + " - Piped";
-        }
-    },
-    activated() {
-        this.handleRedirect();
-        window.addEventListener("scroll", this.handleScroll);
-    },
-    deactivated() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    unmounted() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    methods: {
-        async fetchResults() {
-            return await await this.fetchJson(this.apiUrl() + "/search", {
-                q: this.$route.query.search_query,
-                filter: this.$route.query.filter ?? "all",
-            });
+const route = useRoute();
+const router = useRouter();
+
+const results = ref(null);
+const availableFilters = [
+    "all",
+    "videos",
+    "channels",
+    "playlists",
+    "music_songs",
+    "music_videos",
+    "music_albums",
+    "music_playlists",
+    "music_artists",
+];
+const selectedFilter = ref(route.query.filter ?? "all");
+let loading = false;
+
+async function fetchResultsData() {
+    return await fetchJson(apiUrl() + "/search", {
+        q: route.query.search_query,
+        filter: route.query.filter ?? "all",
+    });
+}
+
+async function updateResults() {
+    document.title = route.query.search_query + " - Piped";
+    fetchResultsData().then(json => {
+        results.value = json;
+        updateWatched(results.value.items);
+    });
+}
+
+function updateFilter() {
+    router.replace({
+        query: {
+            search_query: route.query.search_query,
+            filter: selectedFilter.value,
         },
-        async updateResults() {
-            document.title = this.$route.query.search_query + " - Piped";
-            this.results = this.fetchResults().then(json => {
-                this.results = json;
-                this.updateWatched(this.results.items);
-            });
-        },
-        updateFilter() {
-            this.$router.replace({
-                query: {
-                    search_query: this.$route.query.search_query,
-                    filter: this.selectedFilter,
-                },
-            });
-        },
-        handleScroll() {
-            if (this.loading || !this.results || !this.results.nextpage) return;
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
-                this.loading = true;
-                this.fetchJson(this.apiUrl() + "/nextpage/search", {
-                    nextpage: this.results.nextpage,
-                    q: this.$route.query.search_query,
-                    filter: this.$route.query.filter ?? "all",
-                }).then(json => {
-                    this.results.nextpage = json.nextpage;
-                    this.results.id = json.id;
-                    this.loading = false;
-                    json.items.map(stream => this.results.items.push(stream));
-                });
-            }
-        },
-        handleRedirect() {
-            const query = this.$route.query.search_query;
-            const url =
-                /(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm.exec(query)?.[1] ??
-                /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm
-                    .exec(query)?.[1]
-                    .replace(/^/, "/watch?v=");
-            if (url) {
-                this.$router.push(url);
-                return true;
-            }
-        },
-        saveQueryToHistory() {
-            if (!this.getPreferenceBoolean("searchHistory", false)) return;
-            const query = this.$route.query.search_query;
-            if (!query) return;
-            const searchHistory = JSON.parse(localStorage.getItem("search_history")) ?? [];
-            if (searchHistory.includes(query)) {
-                const index = searchHistory.indexOf(query);
-                searchHistory.splice(index, 1);
-            }
-            searchHistory.unshift(query);
-            if (searchHistory.length > 10) searchHistory.shift();
-            localStorage.setItem("search_history", JSON.stringify(searchHistory));
-        },
-    },
-};
+    });
+}
+
+function handleScroll() {
+    if (loading || !results.value || !results.value.nextpage) return;
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - window.innerHeight) {
+        loading = true;
+        fetchJson(apiUrl() + "/nextpage/search", {
+            nextpage: results.value.nextpage,
+            q: route.query.search_query,
+            filter: route.query.filter ?? "all",
+        }).then(json => {
+            results.value.nextpage = json.nextpage;
+            results.value.id = json.id;
+            loading = false;
+            json.items.map(stream => results.value.items.push(stream));
+        });
+    }
+}
+
+function handleRedirect() {
+    const query = route.query.search_query;
+    const url =
+        /(?:http(?:s)?:\/\/)?(?:www\.)?youtube\.com(\/[/a-zA-Z0-9_?=&-]*)/gm.exec(query)?.[1] ??
+        /(?:http(?:s)?:\/\/)?(?:www\.)?youtu\.be\/(?:watch\?v=)?([/a-zA-Z0-9_?=&-]*)/gm
+            .exec(query)?.[1]
+            .replace(/^/, "/watch?v=");
+    if (url) {
+        router.push(url);
+        return true;
+    }
+}
+
+function saveQueryToHistory() {
+    if (!getPreferenceBoolean("searchHistory", false)) return;
+    const query = route.query.search_query;
+    if (!query) return;
+    const searchHistory = JSON.parse(localStorage.getItem("search_history")) ?? [];
+    if (searchHistory.includes(query)) {
+        const index = searchHistory.indexOf(query);
+        searchHistory.splice(index, 1);
+    }
+    searchHistory.unshift(query);
+    if (searchHistory.length > 10) searchHistory.shift();
+    localStorage.setItem("search_history", JSON.stringify(searchHistory));
+}
+
+onMounted(() => {
+    if (handleRedirect()) return;
+    updateResults();
+    saveQueryToHistory();
+});
+
+onUpdated(() => {
+    if (route.query.search_query !== undefined) {
+        document.title = route.query.search_query + " - Piped";
+    }
+});
+
+onActivated(() => {
+    handleRedirect();
+    window.addEventListener("scroll", handleScroll);
+});
+
+onDeactivated(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
 </script>

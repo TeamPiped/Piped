@@ -1,17 +1,17 @@
-<script>
-export default {
-    props: {
-        link: {
-            type: String,
-            required: true,
-        },
-        platform: {
-            type: String,
-            required: false,
-            default: "YouTube",
-        },
+<script setup>
+import { getPreferenceBoolean } from "@/composables/usePreferences.js";
+
+defineProps({
+    link: {
+        type: String,
+        required: true,
     },
-};
+    platform: {
+        type: String,
+        required: false,
+        default: "YouTube",
+    },
+});
 </script>
 
 <template>

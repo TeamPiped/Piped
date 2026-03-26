@@ -121,156 +121,160 @@
     </ModalComponent>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, onMounted, onActivated } from "vue";
 import ModalComponent from "./ModalComponent.vue";
 import CreateGroupModal from "./CreateGroupModal.vue";
 import ConfirmModal from "./ConfirmModal.vue";
+import { fetchJson, authApiUrl, getAuthToken, isAuthenticated } from "@/composables/useApi.js";
+import { fetchSubscriptions, handleLocalSubscriptions } from "@/composables/useSubscriptions.js";
+import { getChannelGroups, createOrUpdateChannelGroup, deleteChannelGroup } from "@/composables/useChannelGroups.js";
+import { download } from "@/composables/useMisc.js";
 
-export default {
-    components: { ModalComponent, CreateGroupModal, ConfirmModal },
-    data() {
-        return {
-            subscriptions: [],
-            selectedGroup: {
-                groupName: "",
-                channels: [],
+const fileSelector = ref(null);
+const subscriptions = ref([]);
+const selectedGroup = ref({
+    groupName: "",
+    channels: [],
+});
+const channelGroups = ref([]);
+const showCreateGroupModal = ref(false);
+const showEditGroupModal = ref(false);
+const editedGroupName = ref("");
+const groupToDelete = ref(null);
+
+const filteredSubscriptions = computed(() => {
+    return selectedGroup.value.groupName == ""
+        ? subscriptions.value
+        : subscriptions.value.filter(channel => selectedGroup.value.channels.includes(channel.url.substr(-24)));
+});
+
+function handleButton(subscription) {
+    const channelId = subscription.url.split("/")[2];
+    if (isAuthenticated()) {
+        fetchJson(authApiUrl() + (subscription.subscribed ? "/unsubscribe" : "/subscribe"), null, {
+            method: "POST",
+            body: JSON.stringify({
+                channelId: channelId,
+            }),
+            headers: {
+                Authorization: getAuthToken(),
+                "Content-Type": "application/json",
             },
-            channelGroups: [],
-            showCreateGroupModal: false,
-            showEditGroupModal: false,
-            editedGroupName: "",
-            groupToDelete: null,
-        };
-    },
-    computed: {
-        filteredSubscriptions(_this) {
-            return _this.selectedGroup.groupName == ""
-                ? _this.subscriptions
-                : _this.subscriptions.filter(channel => _this.selectedGroup.channels.includes(channel.url.substr(-24)));
-        },
-    },
-    mounted() {
-        this.fetchSubscriptions().then(json => {
-            if (json.error) {
-                alert(json.error);
-                return;
-            }
-
-            this.subscriptions = json;
-            this.subscriptions.forEach(subscription => (subscription.subscribed = true));
         });
+    } else {
+        handleLocalSubscriptions(channelId);
+    }
+    subscription.subscribed = !subscription.subscribed;
+}
 
-        this.channelGroups.push(this.selectedGroup);
-        if (!window.db) return;
+function exportHandler() {
+    const subs = [];
+    subscriptions.value.forEach(subscription => {
+        subs.push({
+            url: "https://www.youtube.com" + subscription.url,
+            name: subscription.name,
+            service_id: 0,
+        });
+    });
+    const json = JSON.stringify({
+        app_version: "",
+        app_version_int: 0,
+        subscriptions: subs,
+    });
+    download(json, "subscriptions.json", "application/json");
+}
 
-        this.loadChannelGroups();
-    },
-    activated() {
-        document.title = "Subscriptions - Piped";
-    },
-    methods: {
-        async loadChannelGroups() {
-            const groups = await this.getChannelGroups();
-            this.channelGroups.push(...groups);
-        },
-        handleButton(subscription) {
-            const channelId = subscription.url.split("/")[2];
-            if (this.authenticated) {
-                this.fetchJson(this.authApiUrl() + (subscription.subscribed ? "/unsubscribe" : "/subscribe"), null, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        channelId: channelId,
-                    }),
-                    headers: {
-                        Authorization: this.getAuthToken(),
-                        "Content-Type": "application/json",
-                    },
-                });
-            } else {
-                this.handleLocalSubscriptions(channelId);
-            }
-            subscription.subscribed = !subscription.subscribed;
-        },
-        exportHandler() {
-            const subscriptions = [];
-            this.subscriptions.forEach(subscription => {
-                subscriptions.push({
-                    url: "https://www.youtube.com" + subscription.url,
-                    name: subscription.name,
-                    service_id: 0,
-                });
-            });
-            const json = JSON.stringify({
-                app_version: "",
-                app_version_int: 0,
-                subscriptions: subscriptions,
-            });
-            this.download(json, "subscriptions.json", "application/json");
-        },
-        selectGroup(group) {
-            this.selectedGroup = group;
-            this.editedGroupName = group.groupName;
-        },
-        createGroup(newGroupName) {
-            if (!newGroupName || this.channelGroups.some(group => group.groupName == newGroupName)) return;
+function selectGroup(group) {
+    selectedGroup.value = group;
+    editedGroupName.value = group.groupName;
+}
 
-            const newGroup = {
-                groupName: newGroupName,
-                channels: [],
-            };
-            this.channelGroups.push(newGroup);
-            this.createOrUpdateChannelGroup(newGroup);
+function createGroup(newGroupName) {
+    if (!newGroupName || channelGroups.value.some(group => group.groupName == newGroupName)) return;
 
-            this.showCreateGroupModal = false;
-        },
-        editGroupName() {
-            const oldGroupName = this.selectedGroup.groupName;
-            const newGroupName = this.editedGroupName;
+    const newGroup = {
+        groupName: newGroupName,
+        channels: [],
+    };
+    channelGroups.value.push(newGroup);
+    createOrUpdateChannelGroup(newGroup);
 
-            // the group mustn't yet exist and the name can't be empty
-            if (!newGroupName || newGroupName == oldGroupName) return;
-            if (this.channelGroups.some(group => group.groupName == newGroupName)) return;
+    showCreateGroupModal.value = false;
+}
 
-            // create a new group with the same info and delete the old one
-            this.selectedGroup.groupName = newGroupName;
-            this.createOrUpdateChannelGroup(this.selectedGroup);
-            this.deleteChannelGroup(oldGroupName);
+function editGroupName() {
+    const oldGroupName = selectedGroup.value.groupName;
+    const newGroupName = editedGroupName.value;
 
-            this.showEditGroupModal = false;
-        },
-        deleteGroup(group) {
-            this.deleteChannelGroup(group);
-            this.channelGroups = this.channelGroups.filter(g => g.groupName != group);
-            this.selectedGroup = this.channelGroups[0] || {};
-            this.groupToDelete = null;
-        },
-        checkedChange(subscription) {
-            const channelId = subscription.url.substr(-24);
-            this.selectedGroup.channels = this.selectedGroup.channels.includes(channelId)
-                ? this.selectedGroup.channels.filter(channel => channel != channelId)
-                : this.selectedGroup.channels.concat(channelId);
-            this.createOrUpdateChannelGroup(this.selectedGroup);
-        },
-        async importGroupsHandler() {
-            const files = this.$refs.fileSelector.files;
-            for (let file of files) {
-                const groups = JSON.parse(await file.text()).groups;
-                for (let group of groups) {
-                    this.createOrUpdateChannelGroup(group);
-                    this.channelGroups.push(group);
-                }
-            }
-        },
-        exportGroupsHandler() {
-            const json = {
-                format: "Piped",
-                version: 1,
-                groups: this.channelGroups.slice(1),
-            };
-            this.download(JSON.stringify(json), "channel_groups.json", "application/json");
-        },
-    },
-};
+    if (!newGroupName || newGroupName == oldGroupName) return;
+    if (channelGroups.value.some(group => group.groupName == newGroupName)) return;
+
+    selectedGroup.value.groupName = newGroupName;
+    createOrUpdateChannelGroup(selectedGroup.value);
+    deleteChannelGroup(oldGroupName);
+
+    showEditGroupModal.value = false;
+}
+
+function deleteGroup(group) {
+    deleteChannelGroup(group);
+    channelGroups.value = channelGroups.value.filter(g => g.groupName != group);
+    selectedGroup.value = channelGroups.value[0] || {};
+    groupToDelete.value = null;
+}
+
+function checkedChange(subscription) {
+    const channelId = subscription.url.substr(-24);
+    selectedGroup.value.channels = selectedGroup.value.channels.includes(channelId)
+        ? selectedGroup.value.channels.filter(channel => channel != channelId)
+        : selectedGroup.value.channels.concat(channelId);
+    createOrUpdateChannelGroup(selectedGroup.value);
+}
+
+async function importGroupsHandler() {
+    const files = fileSelector.value.files;
+    for (let file of files) {
+        const groups = JSON.parse(await file.text()).groups;
+        for (let group of groups) {
+            createOrUpdateChannelGroup(group);
+            channelGroups.value.push(group);
+        }
+    }
+}
+
+function exportGroupsHandler() {
+    const json = {
+        format: "Piped",
+        version: 1,
+        groups: channelGroups.value.slice(1),
+    };
+    download(JSON.stringify(json), "channel_groups.json", "application/json");
+}
+
+onMounted(() => {
+    fetchSubscriptions().then(json => {
+        if (json.error) {
+            alert(json.error);
+            return;
+        }
+
+        subscriptions.value = json;
+        subscriptions.value.forEach(subscription => (subscription.subscribed = true));
+    });
+
+    channelGroups.value.push(selectedGroup.value);
+    if (!window.db) return;
+
+    (async () => {
+        const groups = await getChannelGroups();
+        channelGroups.value.push(...groups);
+    })();
+});
+
+onActivated(() => {
+    document.title = "Subscriptions - Piped";
+});
 </script>
 
 <style>

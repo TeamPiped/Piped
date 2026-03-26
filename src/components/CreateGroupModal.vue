@@ -8,28 +8,23 @@
     </ModalComponent>
 </template>
 
-<script>
+<script setup>
 import ModalComponent from "./ModalComponent.vue";
+import { ref } from "vue";
 
-export default {
-    components: { ModalComponent },
-    props: {
-        onCreateGroup: {
-            required: true,
-            type: Function,
-        },
+const props = defineProps({
+    onCreateGroup: {
+        required: true,
+        type: Function,
     },
-    emits: ["close"],
-    data() {
-        return {
-            groupName: "",
-        };
-    },
-    methods: {
-        createGroup() {
-            this.onCreateGroup(this.groupName);
-            this.$emit("close");
-        },
-    },
-};
+});
+
+const emit = defineEmits(["close"]);
+
+const groupName = ref("");
+
+function createGroup() {
+    props.onCreateGroup(groupName.value);
+    emit("close");
+}
 </script>

@@ -388,7 +388,7 @@
     <button v-t="'actions.reset_preferences'" class="btn" @click="showConfirmResetPrefsDialog = true" />
     <button v-t="'actions.backup_preferences'" class="btn mx-4" @click="backupPreferences()" />
     <label v-t="'actions.restore_preferences'" for="fileSelector" class="btn" @click="restorePreferences()" />
-    <input id="fileSelector" ref="fileSelector" class="hidden" type="file" @change="restorePreferences()" />
+    <input id="fileSelector" ref="fileSelectorEl" class="hidden" type="file" @change="restorePreferences()" />
     <ConfirmModal
         v-if="showConfirmResetPrefsDialog"
         :message="$t('actions.confirm_reset_preferences')"
@@ -404,325 +404,341 @@
     />
 </template>
 
-<script>
-import CountryMap from "@/utils/CountryMaps/en.json";
+<script setup>
+import { ref, computed, onMounted, onActivated } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
+import CountryMapDefault from "@/utils/CountryMaps/en.json";
 import ConfirmModal from "./ConfirmModal.vue";
 import CustomInstanceModal from "./CustomInstanceModal.vue";
-export default {
-    components: {
-        ConfirmModal,
-        CustomInstanceModal,
-    },
-    data() {
-        return {
-            mobileChapterLayout: "Vertical",
-            selectedInstance: null,
-            authInstance: false,
-            selectedAuthInstance: null,
-            customInstances: [],
-            publicInstances: [],
-            sponsorBlock: true,
-            skipOptions: new Map([
-                ["sponsor", { value: "auto", label: "actions.skip_sponsors" }],
-                ["intro", { value: "no", label: "actions.skip_intro" }],
-                ["outro", { value: "no", label: "actions.skip_outro" }],
-                ["preview", { value: "no", label: "actions.skip_preview" }],
-                ["interaction", { value: "auto", label: "actions.skip_interaction" }],
-                ["selfpromo", { value: "auto", label: "actions.skip_self_promo" }],
-                ["music_offtopic", { value: "auto", label: "actions.skip_non_music" }],
-                ["poi_highlight", { value: "no", label: "actions.skip_highlight" }],
-                ["filler", { value: "no", label: "actions.skip_filler_tangent" }],
-            ]),
-            showMarkers: true,
-            minSegmentLength: 0,
-            dearrow: false,
-            selectedTheme: "dark",
-            autoPlayVideo: true,
-            autoDisplayCaptions: false,
-            autoPlayNextCountdown: 5,
-            listen: false,
-            resolutions: [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320],
-            preferHls: false,
-            defaultQuality: 0,
-            bufferingGoal: 10,
-            countryMap: CountryMap,
-            countrySelected: "US",
-            defaultHomepage: "trending",
-            minimizeComments: false,
-            minimizeDescription: true,
-            minimizeRecommendations: false,
-            minimizeChapters: false,
-            showWatchOnYouTube: false,
-            searchSuggestions: true,
-            watchHistory: false,
-            searchHistory: false,
-            hideWatched: false,
-            selectedLanguage: "en",
-            languages: [
-                { code: "ar", name: "Arabic" },
-                { code: "az", name: "Azərbaycan" },
-                { code: "bg", name: "Български" },
-                { code: "bn", name: "বাংলা" },
-                { code: "bs", name: "Bosanski" },
-                { code: "ca", name: "Català" },
-                { code: "cs", name: "Čeština" },
-                { code: "da", name: "Dansk" },
-                { code: "de", name: "Deutsch" },
-                { code: "el", name: "Ελληνικά" },
-                { code: "es", name: "Español" },
-                { code: "en", name: "English" },
-                { code: "eo", name: "Esperanto" },
-                { code: "et", name: "Eesti" },
-                { code: "fa", name: "فارسی" },
-                { code: "fi", name: "Suomi" },
-                { code: "fr", name: "Français" },
-                { code: "he", name: "עברית" },
-                { code: "hi", name: "हिंदी" },
-                { code: "id", name: "Indonesia" },
-                { code: "is", name: "Íslenska" },
-                { code: "kab", name: "Taqbaylit" },
-                { code: "hr", name: "Hrvatski" },
-                { code: "it", name: "Italiano" },
-                { code: "ja", name: "日本語" },
-                { code: "ko", name: "한국어" },
-                { code: "lt", name: "Lietuvių kalba" },
-                { code: "ml", name: "മലയാളം" },
-                { code: "nb_NO", name: "Norwegian Bokmål" },
-                { code: "nl", name: "Nederlands" },
-                { code: "oc", name: "Occitan" },
-                { code: "or", name: "ଓଡ଼ିଆ" },
-                { code: "pl", name: "Polski" },
-                { code: "pt", name: "Português" },
-                { code: "pt_PT", name: "Português (Portugal)" },
-                { code: "pt_BR", name: "Português (Brasil)" },
-                { code: "ro", name: "Română" },
-                { code: "ru", name: "Русский" },
-                { code: "si", name: "සිංහල" },
-                { code: "sl", name: "Slovenian" },
-                { code: "sr", name: "Српски" },
-                { code: "sv", name: "Svenska" },
-                { code: "ta", name: "தமிழ்" },
-                { code: "th", name: "ไทย" },
-                { code: "tr", name: "Türkçe" },
-                { code: "uk", name: "Українська" },
-                { code: "vi", name: "Tiếng Việt" },
-                { code: "zh_Hant", name: "繁體中文" },
-                { code: "zh_Hans", name: "简体中文" },
-            ],
-            enabledCodecs: ["vp9", "avc"],
-            disableLBRY: false,
-            proxyLBRY: false,
-            prefetchLimit: 2,
-            password: null,
-            showConfirmResetPrefsDialog: false,
-            showCustomInstancesModal: false,
-        };
-    },
-    computed: {
-        instances() {
-            return [...this.publicInstances, ...this.customInstances];
-        },
-    },
-    activated() {
-        document.title = this.$t("titles.preferences") + " - Piped";
-    },
-    async mounted() {
-        if (Object.keys(this.$route.query).length > 0) this.$router.replace({ query: {} });
+import {
+    testLocalStorage,
+    getPreferenceString,
+    getPreferenceBoolean,
+    getPreferenceNumber,
+    getPreferenceJSON,
+} from "@/composables/usePreferences";
+import { fetchJson, apiUrl, authApiUrl, getAuthToken, hashCode, isAuthenticated } from "@/composables/useApi";
+import { getCustomInstances } from "@/composables/useCustomInstances";
+import { download } from "@/composables/useMisc";
+import { getDefaultLanguage } from "@/composables/useFormatting";
 
-        this.fetchInstances();
+const route = useRoute();
+const router = useRouter();
+const { t } = useI18n();
 
-        if (this.testLocalStorage) {
-            this.selectedInstance = this.getPreferenceString("instance", import.meta.env.VITE_PIPED_API);
-            this.authInstance = this.getPreferenceBoolean("authInstance", false);
-            this.selectedAuthInstance = this.getPreferenceString("auth_instance_url", this.selectedInstance);
+const fileSelectorEl = ref(null);
 
-            this.sponsorBlock = this.getPreferenceBoolean("sponsorblock", true);
-            var skipOptions, skipList;
-            if ((skipOptions = this.getPreferenceJSON("skipOptions")) !== undefined) {
-                Object.entries(skipOptions).forEach(([key, value]) => {
-                    var opt = this.skipOptions.get(key);
-                    if (opt !== undefined) opt.value = value;
-                    else console.log("Unknown sponsor type: " + key);
-                });
-            } else if ((skipList = this.getPreferenceString("selectedSkip")) !== undefined) {
-                skipList = skipList.split(",");
-                this.skipOptions.forEach(opt => (opt.value = "no"));
-                skipList.forEach(skip => {
-                    var opt = this.skipOptions.get(skip);
-                    if (opt !== undefined) opt.value = "auto";
-                    else console.log("Unknown sponsor type: " + skip);
-                });
-            }
+const mobileChapterLayout = ref("Vertical");
+const selectedInstance = ref(null);
+const authInstance = ref(false);
+const selectedAuthInstance = ref(null);
+const customInstances = ref([]);
+const publicInstances = ref([]);
+const sponsorBlock = ref(true);
+const skipOptions = ref(
+    new Map([
+        ["sponsor", { value: "auto", label: "actions.skip_sponsors" }],
+        ["intro", { value: "no", label: "actions.skip_intro" }],
+        ["outro", { value: "no", label: "actions.skip_outro" }],
+        ["preview", { value: "no", label: "actions.skip_preview" }],
+        ["interaction", { value: "auto", label: "actions.skip_interaction" }],
+        ["selfpromo", { value: "auto", label: "actions.skip_self_promo" }],
+        ["music_offtopic", { value: "auto", label: "actions.skip_non_music" }],
+        ["poi_highlight", { value: "no", label: "actions.skip_highlight" }],
+        ["filler", { value: "no", label: "actions.skip_filler_tangent" }],
+    ]),
+);
+const showMarkers = ref(true);
+const minSegmentLength = ref(0);
+const dearrow = ref(false);
+const selectedTheme = ref("dark");
+const autoPlayVideo = ref(true);
+const autoDisplayCaptions = ref(false);
+const autoPlayNextCountdown = ref(5);
+const listen = ref(false);
+const resolutions = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320];
+const preferHls = ref(false);
+const defaultQuality = ref(0);
+const bufferingGoal = ref(10);
+const countryMap = ref(CountryMapDefault);
+const countrySelected = ref("US");
+const defaultHomepage = ref("trending");
+const minimizeComments = ref(false);
+const minimizeDescription = ref(true);
+const minimizeRecommendations = ref(false);
+const minimizeChapters = ref(false);
+const showWatchOnYouTube = ref(false);
+const searchSuggestions = ref(true);
+const watchHistory = ref(false);
+const searchHistory = ref(false);
+const hideWatched = ref(false);
+const selectedLanguage = ref("en");
+const languages = [
+    { code: "ar", name: "Arabic" },
+    { code: "az", name: "Azərbaycan" },
+    { code: "bg", name: "Български" },
+    { code: "bn", name: "বাংলা" },
+    { code: "bs", name: "Bosanski" },
+    { code: "ca", name: "Català" },
+    { code: "cs", name: "Čeština" },
+    { code: "da", name: "Dansk" },
+    { code: "de", name: "Deutsch" },
+    { code: "el", name: "Ελληνικά" },
+    { code: "es", name: "Español" },
+    { code: "en", name: "English" },
+    { code: "eo", name: "Esperanto" },
+    { code: "et", name: "Eesti" },
+    { code: "fa", name: "فارسی" },
+    { code: "fi", name: "Suomi" },
+    { code: "fr", name: "Français" },
+    { code: "he", name: "עברית" },
+    { code: "hi", name: "हिंदी" },
+    { code: "id", name: "Indonesia" },
+    { code: "is", name: "Íslenska" },
+    { code: "kab", name: "Taqbaylit" },
+    { code: "hr", name: "Hrvatski" },
+    { code: "it", name: "Italiano" },
+    { code: "ja", name: "日本語" },
+    { code: "ko", name: "한국어" },
+    { code: "lt", name: "Lietuvių kalba" },
+    { code: "ml", name: "മലയാളം" },
+    { code: "nb_NO", name: "Norwegian Bokmål" },
+    { code: "nl", name: "Nederlands" },
+    { code: "oc", name: "Occitan" },
+    { code: "or", name: "ଓଡ଼ିଆ" },
+    { code: "pl", name: "Polski" },
+    { code: "pt", name: "Português" },
+    { code: "pt_PT", name: "Português (Portugal)" },
+    { code: "pt_BR", name: "Português (Brasil)" },
+    { code: "ro", name: "Română" },
+    { code: "ru", name: "Русский" },
+    { code: "si", name: "සිංහල" },
+    { code: "sl", name: "Slovenian" },
+    { code: "sr", name: "Српски" },
+    { code: "sv", name: "Svenska" },
+    { code: "ta", name: "தமிழ்" },
+    { code: "th", name: "ไทย" },
+    { code: "tr", name: "Türkçe" },
+    { code: "uk", name: "Українська" },
+    { code: "vi", name: "Tiếng Việt" },
+    { code: "zh_Hant", name: "繁體中文" },
+    { code: "zh_Hans", name: "简体中文" },
+];
+const enabledCodecs = ref(["vp9", "avc"]);
+const disableLBRY = ref(false);
+const proxyLBRY = ref(false);
+const prefetchLimit = ref(2);
+const password = ref(null);
+const showConfirmResetPrefsDialog = ref(false);
+const showCustomInstancesModal = ref(false);
 
-            this.showMarkers = this.getPreferenceBoolean("showMarkers", true);
-            this.minSegmentLength = Math.max(this.getPreferenceNumber("minSegmentLength", 0), 0);
-            this.dearrow = this.getPreferenceBoolean("dearrow", false);
-            this.selectedTheme = this.getPreferenceString("theme", "dark");
-            this.autoPlayVideo = this.getPreferenceBoolean("playerAutoPlay", true);
-            this.autoDisplayCaptions = this.getPreferenceBoolean("autoDisplayCaptions", false);
-            this.autoPlayNextCountdown = this.getPreferenceNumber("autoPlayNextCountdown", 5);
-            this.listen = this.getPreferenceBoolean("listen", false);
-            this.defaultQuality = Number(localStorage.getItem("quality"));
-            this.bufferingGoal = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
-            this.countrySelected = this.getPreferenceString("region", "US");
-            this.defaultHomepage = this.getPreferenceString("homepage", "trending");
-            this.minimizeComments = this.getPreferenceBoolean("minimizeComments", false);
-            this.minimizeDescription = this.getPreferenceBoolean("minimizeDescription", true);
-            this.minimizeRecommendations = this.getPreferenceBoolean("minimizeRecommendations", false);
-            this.minimizeChapters = this.getPreferenceBoolean("minimizeChapters", false);
-            this.showWatchOnYouTube = this.getPreferenceBoolean("showWatchOnYouTube", false);
-            this.searchSuggestions = this.getPreferenceBoolean("searchSuggestions", true);
-            this.watchHistory = this.getPreferenceBoolean("watchHistory", false);
-            this.searchHistory = this.getPreferenceBoolean("searchHistory", false);
-            this.selectedLanguage = this.getPreferenceString("hl", await this.defaultLanguage);
-            this.enabledCodecs = this.getPreferenceString("enabledCodecs", "vp9,avc").split(",");
-            this.disableLBRY = this.getPreferenceBoolean("disableLBRY", false);
-            this.proxyLBRY = this.getPreferenceBoolean("proxyLBRY", false);
-            this.prefetchLimit = this.getPreferenceNumber("prefetchLimit", 2);
-            this.hideWatched = this.getPreferenceBoolean("hideWatched", false);
-            this.mobileChapterLayout = this.getPreferenceString("mobileChapterLayout", "Vertical");
-            if (this.selectedLanguage != "en") {
-                try {
-                    this.CountryMap = await import(`../utils/CountryMaps/${this.selectedLanguage}.json`).then(
-                        val => val.default,
-                    );
-                } catch (e) {
-                    console.error("Countries not translated into " + this.selectedLanguage);
-                }
+const authenticated = computed(() => isAuthenticated());
+const instances = computed(() => [...publicInstances.value, ...customInstances.value]);
+
+onActivated(() => {
+    document.title = t("titles.preferences") + " - Piped";
+});
+
+onMounted(async () => {
+    if (Object.keys(route.query).length > 0) router.replace({ query: {} });
+
+    fetchInstances();
+
+    if (testLocalStorage()) {
+        selectedInstance.value = getPreferenceString("instance", import.meta.env.VITE_PIPED_API);
+        authInstance.value = getPreferenceBoolean("authInstance", false);
+        selectedAuthInstance.value = getPreferenceString("auth_instance_url", selectedInstance.value);
+
+        sponsorBlock.value = getPreferenceBoolean("sponsorblock", true);
+        var savedSkipOptions, skipList;
+        if ((savedSkipOptions = getPreferenceJSON("skipOptions")) !== undefined) {
+            Object.entries(savedSkipOptions).forEach(([key, value]) => {
+                var opt = skipOptions.value.get(key);
+                if (opt !== undefined) opt.value = value;
+                else console.log("Unknown sponsor type: " + key);
+            });
+        } else if ((skipList = getPreferenceString("selectedSkip")) !== undefined) {
+            skipList = skipList.split(",");
+            skipOptions.value.forEach(opt => (opt.value = "no"));
+            skipList.forEach(skip => {
+                var opt = skipOptions.value.get(skip);
+                if (opt !== undefined) opt.value = "auto";
+                else console.log("Unknown sponsor type: " + skip);
+            });
+        }
+
+        showMarkers.value = getPreferenceBoolean("showMarkers", true);
+        minSegmentLength.value = Math.max(getPreferenceNumber("minSegmentLength", 0), 0);
+        dearrow.value = getPreferenceBoolean("dearrow", false);
+        selectedTheme.value = getPreferenceString("theme", "dark");
+        autoPlayVideo.value = getPreferenceBoolean("playerAutoPlay", true);
+        autoDisplayCaptions.value = getPreferenceBoolean("autoDisplayCaptions", false);
+        autoPlayNextCountdown.value = getPreferenceNumber("autoPlayNextCountdown", 5);
+        listen.value = getPreferenceBoolean("listen", false);
+        defaultQuality.value = Number(localStorage.getItem("quality"));
+        bufferingGoal.value = Math.max(Number(localStorage.getItem("bufferGoal")), 10);
+        countrySelected.value = getPreferenceString("region", "US");
+        defaultHomepage.value = getPreferenceString("homepage", "trending");
+        minimizeComments.value = getPreferenceBoolean("minimizeComments", false);
+        minimizeDescription.value = getPreferenceBoolean("minimizeDescription", true);
+        minimizeRecommendations.value = getPreferenceBoolean("minimizeRecommendations", false);
+        minimizeChapters.value = getPreferenceBoolean("minimizeChapters", false);
+        showWatchOnYouTube.value = getPreferenceBoolean("showWatchOnYouTube", false);
+        searchSuggestions.value = getPreferenceBoolean("searchSuggestions", true);
+        watchHistory.value = getPreferenceBoolean("watchHistory", false);
+        searchHistory.value = getPreferenceBoolean("searchHistory", false);
+        selectedLanguage.value = getPreferenceString("hl", await getDefaultLanguage());
+        enabledCodecs.value = getPreferenceString("enabledCodecs", "vp9,avc").split(",");
+        disableLBRY.value = getPreferenceBoolean("disableLBRY", false);
+        proxyLBRY.value = getPreferenceBoolean("proxyLBRY", false);
+        prefetchLimit.value = getPreferenceNumber("prefetchLimit", 2);
+        hideWatched.value = getPreferenceBoolean("hideWatched", false);
+        mobileChapterLayout.value = getPreferenceString("mobileChapterLayout", "Vertical");
+        if (selectedLanguage.value != "en") {
+            try {
+                countryMap.value = await import(`../utils/CountryMaps/${selectedLanguage.value}.json`).then(
+                    val => val.default,
+                );
+            } catch (e) {
+                console.error("Countries not translated into " + selectedLanguage.value);
             }
         }
-    },
-    methods: {
-        async onChange() {
-            if (this.testLocalStorage) {
-                var shouldReload = false;
+    }
+});
 
-                if (
-                    this.getPreferenceString("theme", "dark") !== this.selectedTheme ||
-                    this.getPreferenceBoolean("watchHistory", false) != this.watchHistory ||
-                    this.getPreferenceString("hl", await this.defaultLanguage) !== this.selectedLanguage ||
-                    this.getPreferenceString("enabledCodecs", "vp9,avc") !== this.enabledCodecs.join(",")
-                )
-                    shouldReload = true;
+async function onChange() {
+    if (testLocalStorage()) {
+        var shouldReload = false;
 
-                localStorage.setItem("instance", this.selectedInstance);
-                localStorage.setItem("authInstance", this.authInstance);
-                localStorage.setItem("auth_instance_url", this.selectedAuthInstance);
-                localStorage.setItem("sponsorblock", this.sponsorBlock);
+        if (
+            getPreferenceString("theme", "dark") !== selectedTheme.value ||
+            getPreferenceBoolean("watchHistory", false) != watchHistory.value ||
+            getPreferenceString("hl", await getDefaultLanguage()) !== selectedLanguage.value ||
+            getPreferenceString("enabledCodecs", "vp9,avc") !== enabledCodecs.value.join(",")
+        )
+            shouldReload = true;
 
-                var skipOptions = {};
-                this.skipOptions.forEach((v, k) => (skipOptions[k] = v.value));
-                localStorage.setItem("skipOptions", JSON.stringify(skipOptions));
+        localStorage.setItem("instance", selectedInstance.value);
+        localStorage.setItem("authInstance", authInstance.value);
+        localStorage.setItem("auth_instance_url", selectedAuthInstance.value);
+        localStorage.setItem("sponsorblock", sponsorBlock.value);
 
-                localStorage.setItem("showMarkers", this.showMarkers);
-                localStorage.setItem("minSegmentLength", this.minSegmentLength);
+        var savedSkipObj = {};
+        skipOptions.value.forEach((v, k) => (savedSkipObj[k] = v.value));
+        localStorage.setItem("skipOptions", JSON.stringify(savedSkipObj));
 
-                localStorage.setItem("dearrow", this.dearrow);
+        localStorage.setItem("showMarkers", showMarkers.value);
+        localStorage.setItem("minSegmentLength", minSegmentLength.value);
 
-                localStorage.setItem("theme", this.selectedTheme);
-                localStorage.setItem("playerAutoPlay", this.autoPlayVideo);
-                localStorage.setItem("autoDisplayCaptions", this.autoDisplayCaptions);
-                localStorage.setItem("autoPlayNextCountdown", this.autoPlayNextCountdown);
-                localStorage.setItem("listen", this.listen);
-                localStorage.setItem("preferHls", this.preferHls);
-                localStorage.setItem("quality", this.defaultQuality);
-                localStorage.setItem("bufferGoal", this.bufferingGoal);
-                localStorage.setItem("region", this.countrySelected);
-                localStorage.setItem("homepage", this.defaultHomepage);
-                localStorage.setItem("minimizeComments", this.minimizeComments);
-                localStorage.setItem("minimizeDescription", this.minimizeDescription);
-                localStorage.setItem("minimizeRecommendations", this.minimizeRecommendations);
-                localStorage.setItem("minimizeChapters", this.minimizeChapters);
-                localStorage.setItem("showWatchOnYouTube", this.showWatchOnYouTube);
-                localStorage.setItem("searchSuggestions", this.searchSuggestions);
-                localStorage.setItem("watchHistory", this.watchHistory);
-                localStorage.setItem("searchHistory", this.searchHistory);
-                if (!this.searchHistory) localStorage.removeItem("search_history");
-                localStorage.setItem("hl", this.selectedLanguage);
-                localStorage.setItem("enabledCodecs", this.enabledCodecs.join(","));
-                localStorage.setItem("disableLBRY", this.disableLBRY);
-                localStorage.setItem("proxyLBRY", this.proxyLBRY);
-                localStorage.setItem("prefetchLimit", this.prefetchLimit);
-                localStorage.setItem("hideWatched", this.hideWatched);
-                localStorage.setItem("mobileChapterLayout", this.mobileChapterLayout);
+        localStorage.setItem("dearrow", dearrow.value);
 
-                if (shouldReload) window.location.reload();
-            }
-        },
-        async fetchInstances() {
-            this.customInstances = this.getCustomInstances();
+        localStorage.setItem("theme", selectedTheme.value);
+        localStorage.setItem("playerAutoPlay", autoPlayVideo.value);
+        localStorage.setItem("autoDisplayCaptions", autoDisplayCaptions.value);
+        localStorage.setItem("autoPlayNextCountdown", autoPlayNextCountdown.value);
+        localStorage.setItem("listen", listen.value);
+        localStorage.setItem("preferHls", preferHls.value);
+        localStorage.setItem("quality", defaultQuality.value);
+        localStorage.setItem("bufferGoal", bufferingGoal.value);
+        localStorage.setItem("region", countrySelected.value);
+        localStorage.setItem("homepage", defaultHomepage.value);
+        localStorage.setItem("minimizeComments", minimizeComments.value);
+        localStorage.setItem("minimizeDescription", minimizeDescription.value);
+        localStorage.setItem("minimizeRecommendations", minimizeRecommendations.value);
+        localStorage.setItem("minimizeChapters", minimizeChapters.value);
+        localStorage.setItem("showWatchOnYouTube", showWatchOnYouTube.value);
+        localStorage.setItem("searchSuggestions", searchSuggestions.value);
+        localStorage.setItem("watchHistory", watchHistory.value);
+        localStorage.setItem("searchHistory", searchHistory.value);
+        if (!searchHistory.value) localStorage.removeItem("search_history");
+        localStorage.setItem("hl", selectedLanguage.value);
+        localStorage.setItem("enabledCodecs", enabledCodecs.value.join(","));
+        localStorage.setItem("disableLBRY", disableLBRY.value);
+        localStorage.setItem("proxyLBRY", proxyLBRY.value);
+        localStorage.setItem("prefetchLimit", prefetchLimit.value);
+        localStorage.setItem("hideWatched", hideWatched.value);
+        localStorage.setItem("mobileChapterLayout", mobileChapterLayout.value);
 
-            this.fetchJson(import.meta.env.VITE_PIPED_INSTANCES).then(resp => {
-                this.publicInstances = resp;
-                if (!this.publicInstances.some(instance => instance.api_url == this.apiUrl()))
-                    this.publicInstances.push({
-                        name: "Selected Instance",
-                        api_url: this.apiUrl(),
-                        locations: "Unknown",
-                        cdn: false,
-                        uptime_30d: 100,
-                    });
+        if (shouldReload) window.location.reload();
+    }
+}
+
+async function fetchInstances() {
+    customInstances.value = getCustomInstances();
+
+    fetchJson(import.meta.env.VITE_PIPED_INSTANCES).then(resp => {
+        publicInstances.value = resp;
+        if (!publicInstances.value.some(instance => instance.api_url == apiUrl()))
+            publicInstances.value.push({
+                name: "Selected Instance",
+                api_url: apiUrl(),
+                locations: "Unknown",
+                cdn: false,
+                uptime_30d: 100,
             });
+    });
+}
+
+function sslScore(url) {
+    return "https://www.ssllabs.com/ssltest/analyze.html?d=" + new URL(url).host + "&latest";
+}
+
+async function deleteAccount() {
+    fetchJson(authApiUrl() + "/user/delete", null, {
+        method: "POST",
+        headers: {
+            Authorization: getAuthToken(),
         },
-        sslScore(url) {
-            return "https://www.ssllabs.com/ssltest/analyze.html?d=" + new URL(url).host + "&latest";
+        body: JSON.stringify({
+            password: password.value,
+        }),
+    }).then(resp => {
+        if (!resp.error) {
+            logout();
+        } else alert(resp.error);
+    });
+}
+
+function logout() {
+    localStorage.removeItem("authToken" + hashCode(authApiUrl()));
+    window.location = import.meta.env.BASE_URL;
+}
+
+function resetPreferences() {
+    showConfirmResetPrefsDialog.value = false;
+    localStorage.clear();
+    window.location = import.meta.env.BASE_URL;
+}
+
+async function invalidateSession() {
+    fetchJson(authApiUrl() + "/logout", null, {
+        method: "POST",
+        headers: {
+            Authorization: getAuthToken(),
         },
-        async deleteAccount() {
-            this.fetchJson(this.authApiUrl() + "/user/delete", null, {
-                method: "POST",
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-                body: JSON.stringify({
-                    password: this.password,
-                }),
-            }).then(resp => {
-                if (!resp.error) {
-                    this.logout();
-                } else alert(resp.error);
-            });
-        },
-        logout() {
-            // reset the auth token
-            localStorage.removeItem("authToken" + this.hashCode(this.authApiUrl()));
-            // redirect to trending page
-            window.location = import.meta.env.BASE_URL;
-        },
-        resetPreferences() {
-            this.showConfirmResetPrefsDialog = false;
-            // clear the local storage
-            localStorage.clear();
-            // redirect to the home page
-            window.location = import.meta.env.BASE_URL;
-        },
-        async invalidateSession() {
-            this.fetchJson(this.authApiUrl() + "/logout", null, {
-                method: "POST",
-                headers: {
-                    Authorization: this.getAuthToken(),
-                },
-            }).then(resp => {
-                if (!resp.error) {
-                    this.logout();
-                } else alert(resp.error);
-            });
-        },
-        backupPreferences() {
-            const data = JSON.stringify(localStorage);
-            this.download(data, "preferences.json", "application/json");
-        },
-        restorePreferences() {
-            var file = this.$refs.fileSelector.files[0];
-            file.text().then(text => {
-                const data = JSON.parse(text);
-                Object.keys(data).forEach(function (key) {
-                    localStorage.setItem(key, data[key]);
-                });
-                window.location.reload();
-            });
-        },
-    },
-};
+    }).then(resp => {
+        if (!resp.error) {
+            logout();
+        } else alert(resp.error);
+    });
+}
+
+function backupPreferences() {
+    const data = JSON.stringify(localStorage);
+    download(data, "preferences.json", "application/json");
+}
+
+function restorePreferences() {
+    var file = fileSelectorEl.value.files[0];
+    file.text().then(text => {
+        const data = JSON.parse(text);
+        Object.keys(data).forEach(function (key) {
+            localStorage.setItem(key, data[key]);
+        });
+        window.location.reload();
+    });
+}
 </script>
 
 <style>
