@@ -20,7 +20,7 @@
         "qrcode": "^1.5.3",
         "shaka-player": "4.16.24",
         "vue": "3.5.31",
-        "vue-i18n": "11.1.12",
+        "vue-i18n": "11.3.0",
         "vue-router": "4.5.1"
     },
     "devDependencies": {
