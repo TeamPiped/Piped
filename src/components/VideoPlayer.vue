@@ -13,23 +13,6 @@
             :loop="selectedAutoLoop"
             playsinline
         />
-        <span
-            id="preview-container"
-            ref="previewContainer"
-            class="absolute bottom-0 z-[2000] mb-[3.5%] hidden flex-col items-center"
-        >
-            <canvas id="preview" ref="preview" class="rounded-sm" />
-            <span
-                v-if="(video?.chapters?.length ?? 0) > 1"
-                class="mt-2 text-sm drop-shadow-[0_0_2px_white] -mb-2 .dark:drop-shadow-[0_0_2px_black]"
-            >
-                {{ video.chapters.findLast(chapter => chapter.start < currentTime)?.title }}
-            </span>
-            <span
-                class="mt-2 w-min rounded-xl bg-white px-2 pb-1 pt-1.5 text-sm .dark:bg-dark-700"
-                v-text="timeFormat(currentTime)"
-            />
-        </span>
         <button
             v-if="inSegment"
             class="skip-segment-button"
@@ -39,7 +22,7 @@
             @click="onClickSkipSegment"
         >
             <span v-t="'actions.skip_segment'" />
-            <i class="material-icons-round">skip_next</i>
+            <i class="skip-segment-icon i-fa6-solid:forward-step" aria-hidden="true" />
         </button>
         <span
             v-if="error > 0"
@@ -91,8 +74,6 @@ import {
     getPreferenceString,
     setPreference,
 } from "@/composables/usePreferences.js";
-import { timeFormat } from "@/composables/useFormatting.js";
-
 const shakaImport = import("shaka-player/dist/shaka-player.ui.js");
 const hotkeysImport = import("hotkeys-js");
 
@@ -121,22 +102,17 @@ const emit = defineEmits(["timeupdate", "ended", "navigateNext"]);
 
 const container = ref(null);
 const videoEl = ref(null);
-const previewContainer = ref(null);
-const preview = ref(null);
 
 const lastUpdate = ref(new Date().getTime());
 const initialSeekComplete = ref(false);
 const destroying = ref(false);
 const inSegment = ref(false);
-const isHoveringTimebar = ref(false);
 const showSpeedModal = ref(false);
 const showCurrentSpeed = ref(false);
 let hideCurrentSpeedTimeout = null;
 const showCurrentVolume = ref(false);
 let hideCurrentVolumeTimeout = null;
 const playbackSpeedInput = ref(null);
-const currentTime = ref(0);
-const seekbarPadding = ref(2);
 const error = ref(0);
 
 let shakaLib = null;
@@ -145,6 +121,8 @@ let uiInstance = null;
 let hotkeysLib = null;
 let shakaPromise = null;
 let hotkeysPromise = null;
+let lastSelectedTextTrack = null;
+let thumbnailVttUrl = null;
 
 const shouldAutoPlay = computed(() => {
     return getPreferenceBoolean("playerAutoPlay", true) && !props.isEmbed;
@@ -209,6 +187,36 @@ function setSpeedFromInput() {
     showSpeedModal.value = false;
 }
 
+function getActiveTextTrack() {
+    return playerInstance?.getTextTracks()?.find(track => track.active) ?? null;
+}
+
+function selectTextTrack(track) {
+    playerInstance.selectTextTrack(track ?? null);
+    if (track) {
+        lastSelectedTextTrack = track;
+    }
+}
+
+function applyPreferredTextTrack() {
+    const textTracks = playerInstance.getTextTracks();
+    const prefSubtitles = getPreferenceString("subtitles", "");
+    const autoDisplayCaptions = getPreferenceBoolean("autoDisplayCaptions", false);
+
+    let selectedTrack = null;
+
+    if (prefSubtitles !== "") {
+        selectedTrack = textTracks.find(textTrack => textTrack.language == prefSubtitles) ?? null;
+    }
+
+    if (!selectedTrack && autoDisplayCaptions) {
+        const prefLang = getPreferenceString("hl", "en").substr(0, 2);
+        selectedTrack = textTracks.find(textTrack => textTrack.language == prefLang) ?? textTracks[0] ?? null;
+    }
+
+    selectTextTrack(selectedTrack);
+}
+
 function updateMarkers() {
     const markers = container.value.querySelector(".shaka-ad-markers");
     const array = ["to right"];
@@ -251,86 +259,63 @@ function updateSponsors() {
     }
 }
 
-function setupSeekbarPreview() {
-    if (!props.video.previewFrames) return;
-    let seekBar = document.querySelector(".shaka-seek-bar");
-    seekBar.addEventListener("mousemove", e => {
-        isHoveringTimebar.value = true;
-        const position = (e.offsetX / e.target.offsetWidth) * props.video.duration;
-        showSeekbarPreview(position * 1000);
-    });
-    seekBar.addEventListener("mouseout", () => {
-        isHoveringTimebar.value = false;
-        previewContainer.value.style.display = "none";
-    });
-}
-
-async function showSeekbarPreview(position) {
-    const frame = getFrame(position);
-    const originalImage = await loadImage(frame.url);
-    if (!isHoveringTimebar.value) return;
-
-    const seekBar = document.querySelector(".shaka-seek-bar");
-    const containerEl = previewContainer.value;
-    const canvas = preview.value;
-    const ctx = canvas.getContext("2d");
-
-    const offsetX = frame.positionX * frame.frameWidth;
-    const offsetY = frame.positionY * frame.frameHeight;
-
-    canvas.width = frame.frameWidth > 100 ? frame.frameWidth : frame.frameWidth * 2;
-    canvas.height = frame.frameWidth > 100 ? frame.frameHeight : frame.frameHeight * 2;
-    ctx.drawImage(
-        originalImage,
-        offsetX,
-        offsetY,
-        frame.frameWidth,
-        frame.frameHeight,
-        0,
-        0,
-        canvas.width,
-        canvas.height,
-    );
-
-    const centerOffset = position / props.video.duration / 10;
-    const left = centerOffset - ((0.5 * canvas.width) / seekBar.clientWidth) * 100;
-    const maxLeft = ((seekBar.clientWidth - canvas.clientWidth) / seekBar.clientWidth) * 100 - seekbarPadding.value;
-
-    currentTime.value = position / 1000;
-
-    containerEl.style.left = `max(${seekbarPadding.value}%, min(${left}%, ${maxLeft}%))`;
-    containerEl.style.display = "flex";
-}
-
-function getFrame(position) {
-    let startPosition = 0;
-    const framePage = props.video.previewFrames.at(-1);
-    for (let i = 0; i < framePage.urls.length; i++) {
-        for (let positionY = 0; positionY < framePage.framesPerPageY; positionY++) {
-            for (let positionX = 0; positionX < framePage.framesPerPageX; positionX++) {
-                const endPosition = startPosition + framePage.durationPerFrame;
-                if (position >= startPosition && position <= endPosition) {
-                    return {
-                        url: framePage.urls[i],
-                        positionX: positionX,
-                        positionY: positionY,
-                        frameWidth: framePage.frameWidth,
-                        frameHeight: framePage.frameHeight,
-                    };
-                }
-                startPosition = endPosition;
-            }
-        }
+function getPreviewFramePage() {
+    const previewFrames = props.video.previewFrames;
+    if (!previewFrames) return null;
+    if (Array.isArray(previewFrames)) {
+        return previewFrames.findLast(Boolean) ?? previewFrames[previewFrames.length - 1] ?? null;
     }
-    return null;
+    return previewFrames;
 }
 
-function loadImage(url) {
-    return new Promise(r => {
-        const i = new Image();
-        i.onload = () => r(i);
-        i.src = url;
-    });
+function formatVttTime(milliseconds) {
+    const totalSeconds = Math.floor(milliseconds / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    const ms = Math.floor(milliseconds % 1000);
+
+    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+        2,
+        "0",
+    )}.${String(ms).padStart(3, "0")}`;
+}
+
+function buildThumbnailVtt(framePage) {
+    const totalCount =
+        framePage.totalCount ?? framePage.urls.length * framePage.framesPerPageX * framePage.framesPerPageY;
+    const framesPerPage = framePage.framesPerPageX * framePage.framesPerPageY;
+
+    let vtt = "WEBVTT\n\n";
+
+    for (let frameIndex = 0; frameIndex < totalCount; frameIndex++) {
+        const pageIndex = Math.floor(frameIndex / framesPerPage);
+        const frameIndexOnPage = frameIndex % framesPerPage;
+        const xIndex = frameIndexOnPage % framePage.framesPerPageX;
+        const yIndex = Math.floor(frameIndexOnPage / framePage.framesPerPageX);
+        const startTime = frameIndex * framePage.durationPerFrame;
+        const endTime = Math.min((frameIndex + 1) * framePage.durationPerFrame, props.video.duration * 1000);
+
+        vtt += `${formatVttTime(startTime)} --> ${formatVttTime(endTime)}\n`;
+        vtt += `${framePage.urls[pageIndex]}#xywh=${xIndex * framePage.frameWidth},${yIndex * framePage.frameHeight},${
+            framePage.frameWidth
+        },${framePage.frameHeight}\n\n`;
+    }
+
+    return vtt;
+}
+
+async function setupThumbnailTrack() {
+    const framePage = getPreviewFramePage();
+    if (!framePage?.urls?.length) return;
+
+    if (thumbnailVttUrl) {
+        URL.revokeObjectURL(thumbnailVttUrl);
+        thumbnailVttUrl = null;
+    }
+
+    thumbnailVttUrl = URL.createObjectURL(new Blob([buildThumbnailVtt(framePage)], { type: "text/vtt" }));
+    await playerInstance.addThumbnailsTrack(thumbnailVttUrl, "text/vtt");
 }
 
 async function updateProgressDatabase(time) {
@@ -403,7 +388,7 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
 
         uiInstance = new shaka.ui.Overlay(localPlayer, container.value, el);
 
-        const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"];
+        const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "remote"];
 
         if (props.isEmbed) {
             overflowMenuButtons.push("open_new_tab");
@@ -426,11 +411,7 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
     const event = new Event("playerInit");
     window.dispatchEvent(event);
 
-    const player = uiInstance.getControls().getPlayer();
-
-    setupSeekbarPreview();
-
-    playerInstance = player;
+    playerInstance = localPlayer;
 
     const disableVideo = getPreferenceBoolean("listen", false) && !props.video.livestream;
 
@@ -488,15 +469,17 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
         initialSeekComplete.value = true;
     }
 
-    player
+    playerInstance
         .load(uri, startTime, mime)
-        .then(() => {
+        .then(async () => {
             let lang = "en";
             const prefLang = getPreferenceString("hl", "en").substr(0, 2);
-            if (player.getAudioLanguages().includes(prefLang)) lang = prefLang;
-            player.selectAudioLanguage(lang);
+            const audioTracks = playerInstance.getAudioTracks();
+            const audioLanguages = [...new Set(audioTracks.map(t => t.language))];
+            if (audioLanguages.includes(prefLang)) lang = prefLang;
+            const selectedTrack = audioTracks.find(t => t.language === lang);
+            if (selectedTrack) playerInstance.selectAudioTrack(selectedTrack);
 
-            const audioLanguages = player.getAudioLanguages();
             if (audioLanguages.length > 1) {
                 const overflowMenuButtons = uiInstance.getConfiguration().overflowMenuButtons;
                 const newOverflowMenuButtons = [
@@ -513,7 +496,7 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
 
                 var bestAudio = 0;
 
-                const tracks = player
+                const tracks = playerInstance
                     .getVariantTracks()
                     .filter(track => track.language == lang || track.language == "und");
 
@@ -535,36 +518,28 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
                         }
                     });
 
-                player.selectVariantTrack(bestStream, true);
+                playerInstance.selectVariantTrack(bestStream, true);
             }
 
-            props.video.subtitles.map(subtitle => {
-                player.addTextTrackAsync(
-                    subtitle.url,
-                    subtitle.code,
-                    "subtitles",
-                    subtitle.mimeType,
-                    null,
-                    subtitle.name,
-                );
-            });
+            await Promise.all(
+                props.video.subtitles.map(subtitle => {
+                    return playerInstance.addTextTrackAsync(
+                        subtitle.url,
+                        subtitle.code,
+                        "subtitles",
+                        subtitle.mimeType,
+                        null,
+                        subtitle.name,
+                    );
+                }),
+            );
             el.volume = getPreferenceNumber("volume", 1);
             const rate = getPreferenceNumber("rate", 1);
             el.playbackRate = rate;
             el.defaultPlaybackRate = rate;
 
-            const autoDisplayCaptions = getPreferenceBoolean("autoDisplayCaptions", false);
-            playerInstance.setTextTrackVisibility(autoDisplayCaptions);
-
-            const prefSubtitles = getPreferenceString("subtitles", "");
-            if (prefSubtitles !== "") {
-                const textTracks = playerInstance.getTextTracks();
-                const subtitleIdx = textTracks.findIndex(textTrack => textTrack.language == prefSubtitles);
-                if (subtitleIdx != -1) {
-                    playerInstance.setTextTrackVisibility(true);
-                    playerInstance.selectTextTrack(textTracks[subtitleIdx]);
-                }
-            }
+            applyPreferredTextTrack();
+            await setupThumbnailTrack();
         })
         .catch(e => {
             console.error(e);
@@ -748,6 +723,10 @@ async function loadVideo() {
 }
 
 function destroy(hotkeys) {
+    if (thumbnailVttUrl) {
+        URL.revokeObjectURL(thumbnailVttUrl);
+        thumbnailVttUrl = null;
+    }
     if (uiInstance && !document.pictureInPictureElement) {
         uiInstance.destroy();
         uiInstance = undefined;
@@ -792,7 +771,14 @@ onActivated(() => {
                         e.preventDefault();
                         break;
                     case "c":
-                        playerInstance.setTextTrackVisibility(!playerInstance.isTextTrackVisible());
+                        if (getActiveTextTrack()) {
+                            lastSelectedTextTrack = getActiveTextTrack();
+                            playerInstance.selectTextTrack(null);
+                        } else if (lastSelectedTextTrack) {
+                            playerInstance.selectTextTrack(lastSelectedTextTrack);
+                        } else {
+                            selectTextTrack(playerInstance.getTextTracks()[0] ?? null);
+                        }
                         e.preventDefault();
                         break;
                     case "k":
@@ -956,10 +942,6 @@ defineExpose({
     @apply !text-xl;
 }
 
-.shaka-current-time {
-    @apply !text-base;
-}
-
 .shaka-video-container:-webkit-full-screen {
     max-height: none !important;
 }
@@ -977,10 +959,6 @@ defineExpose({
 .shaka-text-wrapper > span > span *:first-child:last-child {
     background-color: rgba(0, 0, 0, 0.6) !important;
     padding: 0.09em 0;
-}
-
-#shaka-player-ui-time-container {
-    display: none !important;
 }
 
 .skip-segment-button {
@@ -1009,8 +987,16 @@ defineExpose({
     line-height: 1.5em;
 }
 
-.skip-segment-button .material-icons-round {
+.skip-segment-button .skip-segment-icon {
     font-size: 1.6em !important;
     line-height: inherit !important;
+    margin-left: 0.4em;
+}
+
+/* Override Tailwind preflight's `img { max-width: 100% }` which clamps
+   the sprite-sheet image to the container width and breaks Shaka's
+   transform-based thumbnail cropping. */
+.shaka-player-ui-thumbnail-image {
+    max-width: none !important;
 }
 </style>
