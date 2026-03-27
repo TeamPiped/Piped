@@ -10,7 +10,7 @@
                 id="filters"
                 v-model="selectedFilter"
                 default="all"
-                class="h-8 grow bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
+                class="h-8 grow rounded-md bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
                 @change="onFilterChange()"
             >
                 <option v-for="filter in availableFilters" :key="filter" v-t="`video.${filter}`" :value="filter" />
@@ -25,7 +25,7 @@
                 id="group-selector"
                 v-model="selectedGroupName"
                 default=""
-                class="h-8 grow bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
+                class="h-8 grow rounded-md bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
             >
                 <option v-t="`video.all`" value="" />
                 <option

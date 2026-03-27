@@ -7,11 +7,7 @@
             <div class="relative">
                 <img loading="lazy" class="w-full" :src="props.item.thumbnail" />
             </div>
-            <p
-                class="line-clamp-2 pt-2 leading-tight font-bold hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
-                :title="props.item.name"
-                v-text="props.item.name"
-            />
+            <p class="line-clamp-2 pt-2 leading-tight font-bold" :title="props.item.name" v-text="props.item.name" />
         </router-link>
         <p
             v-if="props.item.description"

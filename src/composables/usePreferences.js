@@ -23,11 +23,12 @@ function getOrCreatePreferenceRef(key, createRef) {
     return preferenceRef;
 }
 
-function createPreferenceRefForValue(key, value) {
-    if (typeof value === "string" || value === undefined) return usePreferenceString(key);
-    if (typeof value === "boolean") return usePreferenceBoolean(key, value);
-    if (typeof value === "number") return usePreferenceNumber(key, value);
-    return usePreferenceJSON(key, value);
+function createPreferenceRefForValue(key, valueForTypeInference) {
+    if (typeof valueForTypeInference === "string" || valueForTypeInference === undefined)
+        return usePreferenceString(key);
+    if (typeof valueForTypeInference === "boolean") return usePreferenceBoolean(key);
+    if (typeof valueForTypeInference === "number") return usePreferenceNumber(key);
+    return usePreferenceJSON(key);
 }
 
 export function usePreferenceString(key, defaultVal) {

@@ -4,6 +4,7 @@
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
+    --color-light-200: #cacaca;
     --color-dark-100: #3f3f46;
     --color-dark-300: #323232;
     --color-dark-400: #222222;
@@ -33,7 +34,7 @@
 }
 
 @utility skip-segment-icon {
-    font-size: 1.6em !important;
-    line-height: inherit !important;
+    font-size: 1.6em;
+    line-height: inherit;
     margin-left: 0.4em;
 }

@@ -27,13 +27,7 @@
                     :aria-label="$t('login.password')"
                     @keyup.enter="register"
                 />
-                <button
-                    type="button"
-                    class="ml-2 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-                    @click="showPassword = !showPassword"
-                >
-                    <i-fa6-solid-eye />
-                </button>
+                <PasswordToggle v-model="showPassword" />
             </div>
             <div class="flex justify-center">
                 <input
@@ -45,20 +39,10 @@
                     :aria-label="$t('login.password_confirm')"
                     @keyup.enter="register"
                 />
-                <button
-                    type="button"
-                    class="ml-2 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-                    @click="showConfirmPassword = !showConfirmPassword"
-                >
-                    <i-fa6-solid-eye />
-                </button>
+                <PasswordToggle v-model="showConfirmPassword" />
             </div>
             <div>
-                <a
-                    v-t="'titles.register'"
-                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-                    @click="register"
-                />
+                <Button v-t="'titles.register'" @click="register" />
             </div>
         </form>
     </div>
@@ -80,6 +64,8 @@ import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { isEmail } from "../utils/Misc.js";
 import ConfirmModal from "./ConfirmModal.vue";
+import Button from "./ui/Button.vue";
+import PasswordToggle from "./ui/PasswordToggle.vue";
 import { fetchJson, authApiUrl, getAuthToken, hashCode } from "@/composables/useApi.js";
 import { setPreference } from "@/composables/usePreferences.js";
 

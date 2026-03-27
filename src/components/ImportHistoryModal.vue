@@ -19,12 +19,21 @@
                 </div>
                 <div>
                     <strong class="flex items-center justify-center gap-2">
-                        <span v-t="'actions.override'" />: <input v-model="override" class="size-4" type="checkbox" />
+                        <span v-t="'actions.override'" />: <UiCheckbox v-model="override" />
                     </strong>
                 </div>
                 <br />
                 <div>
-                    <progress :value="index" :max="itemsLength" />
+                    <ProgressRoot
+                        :model-value="itemsLength ? index : 0"
+                        :max="itemsLength || 1"
+                        class="relative h-2.5 w-full overflow-hidden rounded-full bg-gray-300 dark:bg-dark-400"
+                    >
+                        <ProgressIndicator
+                            class="h-full rounded-full bg-red-500 transition-transform duration-200 ease-out"
+                            :style="{ transform: `translateX(-${100 - progressPercent}%)` }"
+                        />
+                    </ProgressRoot>
                     <div
                         v-text="
                             `${$t('info.success')}: ${success} ${$t('info.error')}: ${error} ${$t(
@@ -47,7 +56,9 @@
 </template>
 <script setup>
 import { ref, computed } from "vue";
+import { ProgressIndicator, ProgressRoot } from "reka-ui";
 import ModalComponent from "./ModalComponent.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 
 const fileSelector = ref(null);
 const items = ref([]);
@@ -58,6 +69,10 @@ const error = ref(0);
 const skipped = ref(0);
 
 const itemsLength = computed(() => items.value.length);
+const progressPercent = computed(() => {
+    if (!itemsLength.value) return 0;
+    return Math.min((index.value / itemsLength.value) * 100, 100);
+});
 
 function fileChange() {
     const file = fileSelector.value.files[0];

@@ -29,11 +29,7 @@
                 />
             </div>
             <div>
-                <a
-                    v-t="'titles.login'"
-                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-                    @click="login"
-                />
+                <Button v-t="'titles.login'" @click="login" />
             </div>
         </form>
     </div>
@@ -45,6 +41,7 @@ import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { fetchJson, authApiUrl, getAuthToken, hashCode } from "@/composables/useApi.js";
 import { setPreference } from "@/composables/usePreferences.js";
+import Button from "./ui/Button.vue";
 
 const router = useRouter();
 const { t } = useI18n();

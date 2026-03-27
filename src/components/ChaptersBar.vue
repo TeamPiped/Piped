@@ -95,12 +95,10 @@ const isCurrentChapter = index => {
 defineEmits(["seek"]);
 </script>
 
-<style>
+<style scoped>
 @reference "../app.css";
 
-@layer base {
-    ::-webkit-scrollbar {
-        height: 5px;
-    }
+::-webkit-scrollbar {
+    height: 5px;
 }
 </style>

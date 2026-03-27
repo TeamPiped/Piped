@@ -126,11 +126,9 @@
                         <img :src="subscription.avatar" class="size-8 rounded-full" />
                         <span class="ml-2">{{ subscription.name }}</span>
                     </a>
-                    <input
-                        type="checkbox"
-                        class="size-4"
-                        :checked="selectedGroup.channels.includes(subscription.url.substr(-24))"
-                        @change="checkedChange(subscription)"
+                    <UiCheckbox
+                        :model-value="selectedGroup.channels.includes(subscription.url.substr(-24))"
+                        @update:model-value="checkedChange(subscription)"
                     />
                 </div>
                 <hr />
@@ -144,6 +142,7 @@ import { ref, computed, onMounted, onActivated } from "vue";
 import ModalComponent from "./ModalComponent.vue";
 import CreateGroupModal from "./CreateGroupModal.vue";
 import ConfirmModal from "./ConfirmModal.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 import { fetchJson, authApiUrl, getAuthToken, isAuthenticated } from "@/composables/useApi.js";
 import { fetchSubscriptions, handleLocalSubscriptions } from "@/composables/useSubscriptions.js";
 import { getChannelGroups, createOrUpdateChannelGroup, deleteChannelGroup } from "@/composables/useChannelGroups.js";

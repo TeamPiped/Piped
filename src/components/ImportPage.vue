@@ -8,16 +8,10 @@
                 <strong v-text="`${$t('info.selected_subscriptions')}: ${selectedSubscriptions}`" />
             </div>
             <div>
-                <strong
-                    ><span v-t="'actions.override'" />: <input v-model="override" class="size-4" type="checkbox"
-                /></strong>
+                <strong><span v-t="'actions.override'" />: <UiCheckbox v-model="override" /></strong>
             </div>
             <div>
-                <a
-                    v-t="'actions.import'"
-                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-                    @click="handleImport"
-                />
+                <Button v-t="'actions.import'" @click="handleImport" />
             </div>
         </form>
         <br />
@@ -64,6 +58,8 @@
 <script setup>
 import { ref, computed, onActivated } from "vue";
 import { useI18n } from "vue-i18n";
+import Button from "./ui/Button.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 import { fetchJson, authApiUrl, getAuthToken, isAuthenticated } from "@/composables/useApi.js";
 import { getLocalSubscriptions } from "@/composables/useSubscriptions.js";
 

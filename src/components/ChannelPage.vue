@@ -275,9 +275,3 @@ onUnmounted(() => {
     window.removeEventListener("scroll", handleScroll);
 });
 </script>
-
-<style>
-.active {
-    border: 0.1rem outset red;
-}
-</style>

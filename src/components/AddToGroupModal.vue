@@ -6,10 +6,9 @@
                 <div v-for="(group, index) in channelGroups" :key="group.groupName" class="px-1">
                     <div class="flex items-center justify-between">
                         <span>{{ group.groupName }}</span>
-                        <input
-                            type="checkbox"
-                            :checked="group.channels.includes(channelId)"
-                            @change="onCheckedChange(index, group)"
+                        <UiCheckbox
+                            :model-value="group.channels.includes(channelId)"
+                            @update:model-value="onCheckedChange(index, group)"
                         />
                     </div>
                     <hr class="h-1 w-full" />
@@ -33,6 +32,7 @@
 import { ref, onMounted } from "vue";
 import ModalComponent from "./ModalComponent.vue";
 import CreateGroupModal from "./CreateGroupModal.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 import { getChannelGroups, createOrUpdateChannelGroup } from "@/composables/useChannelGroups.js";
 
 const props = defineProps({

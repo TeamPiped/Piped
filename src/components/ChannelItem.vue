@@ -69,7 +69,6 @@ const channelId = computed(() => props.item.url.substr(-24));
 
 async function updateSubscribedStatus() {
     subscribed.value = await fetchSubscriptionStatus(channelId.value);
-    console.log(subscribed.value);
 }
 
 function subscribeHandler() {

@@ -138,7 +138,7 @@
                                 class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:hidden max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                                 @click="downloadCurrentFrame"
                             >
-                                {{ $t("actions.download_frame") }}<i-fa6-solid-download />
+                                {{ $t("actions.download_frame") }}<i-fa6-solid-download class="ml-1" />
                             </button>
                             <button
                                 class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
@@ -226,7 +226,7 @@
                         v-show="video?.chapters?.length > 0"
                         class="ml-2 inline-block w-auto cursor-default rounded-sm bg-gray-300 py-2 text-gray-600 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400"
                     >
-                        <input id="showChapters" v-model="showChapters" type="checkbox" />
+                        <UiCheckbox id="showChapters" v-model="showChapters" />
                         <label v-t="'actions.show_chapters'" class="ml-2" for="showChapters" />
                     </span>
 
@@ -247,7 +247,7 @@
                             <router-link
                                 v-for="tag in video.tags"
                                 :key="tag"
-                                class="line-clamp-1 inline-block w-auto cursor-pointer rounded-sm rounded-s bg-gray-300 px-2 py-1 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                                class="line-clamp-1 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 px-2 py-1 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                                 :to="`/results?search_query=${encodeURIComponent(tag)}`"
                                 >{{ tag }}</router-link
                             >
@@ -258,13 +258,7 @@
                 <hr />
 
                 <label for="chkAutoLoop"><strong v-text="`${$t('actions.loop_this_video')}:`" /></label>
-                <input
-                    id="chkAutoLoop"
-                    v-model="selectedAutoLoop"
-                    class="ml-1.5"
-                    type="checkbox"
-                    @change="onChange($event)"
-                />
+                <UiCheckbox id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" @change="onChange($event)" />
                 <br />
                 <label for="chkAutoPlay"><strong v-text="`${$t('actions.auto_play_next_video')}:`" /></label>
                 <select
@@ -383,6 +377,7 @@ import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnButton from "./WatchOnButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import ToastComponent from "./ToastComponent.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 import { parseTimeParam } from "@/utils/Misc";
 import { purifyHTML, rewriteDescription } from "@/utils/HtmlUtils";
 import { fetchJson, apiUrl } from "@/composables/useApi.js";

@@ -63,7 +63,7 @@ onMounted(() => {
 
 @layer components {
     footer {
-        background-color: #cacaca;
+        background-color: var(--color-light-200);
     }
     .dark footer {
         background-color: var(--color-dark-800);

@@ -26,7 +26,7 @@
         </div>
 
         <div class="ml-4 flex items-center">
-            <input id="autoDelete" v-model="autoDeleteHistory" type="checkbox" @change="onChange" />
+            <UiCheckbox id="autoDelete" v-model="autoDeleteHistory" @change="onChange" />
             <label v-t="'actions.delete_automatically'" class="ml-2" for="autoDelete" />
             <select
                 v-model="autoDeleteDelayHours"
@@ -66,6 +66,7 @@ import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
 import ExportHistoryModal from "./ExportHistoryModal.vue";
 import ImportHistoryModal from "./ImportHistoryModal.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 import { getPreferenceBoolean, getPreferenceString, setPreference } from "@/composables/usePreferences.js";
 
 let currentVideoCount = 0;

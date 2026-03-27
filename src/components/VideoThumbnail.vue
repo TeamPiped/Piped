@@ -5,7 +5,7 @@
             class="aspect-video w-full rounded-md object-contain"
             :src="item.thumbnail"
             :alt="item.title"
-            :class="{ 'w-full object-contain': item.isShort, 'opacity-75': item.watched }"
+            :class="{ 'opacity-75': item.watched }"
         />
         <!-- progress bar -->
         <div class="relative h-1 w-full">

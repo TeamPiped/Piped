@@ -3,16 +3,16 @@
         <h2 v-t="'actions.share'" class="mb-5" />
         <div class="flex justify-between">
             <label v-t="'actions.piped_link'" />
-            <input v-model="pipedLink" type="checkbox" @change="onChange" />
+            <UiCheckbox v-model="pipedLink" @change="onChange" />
         </div>
         <hr />
         <div v-if="hasPlaylist" class="flex justify-between">
             <label v-t="'actions.with_playlist'" />
-            <input v-model="withPlaylist" type="checkbox" @change="onChange" />
+            <UiCheckbox v-model="withPlaylist" @change="onChange" />
         </div>
         <div class="flex justify-between">
             <label v-t="'actions.with_timecode'" for="withTimeCode" />
-            <input id="withTimeCode" v-model="withTimeCode" type="checkbox" @change="onChange" />
+            <UiCheckbox id="withTimeCode" v-model="withTimeCode" @change="onChange" />
         </div>
         <div v-if="withTimeCode" class="mt-2 flex items-center justify-between">
             <label v-t="'actions.time_code'" />
@@ -29,21 +29,9 @@
         </a>
         <QrCode v-if="showQrCode" :text="generatedLink" />
         <div class="mt-4 flex justify-end">
-            <button
-                v-t="'actions.generate_qrcode'"
-                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-                @click="showQrCode = !showQrCode"
-            />
-            <button
-                v-t="'actions.follow_link'"
-                class="ml-3 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-                @click="followLink()"
-            />
-            <button
-                v-t="'actions.copy_link'"
-                class="ml-3 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-                @click="copyLink()"
-            />
+            <Button v-t="'actions.generate_qrcode'" @click="showQrCode = !showQrCode" />
+            <Button v-t="'actions.follow_link'" class="ml-3" @click="followLink()" />
+            <Button v-t="'actions.copy_link'" class="ml-3" @click="copyLink()" />
         </div>
     </ModalComponent>
 </template>
@@ -52,6 +40,8 @@
 import { ref, computed, onMounted, defineAsyncComponent } from "vue";
 import { useI18n } from "vue-i18n";
 import ModalComponent from "./ModalComponent.vue";
+import Button from "./ui/Button.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 import { getPreferenceBoolean, setPreference } from "@/composables/usePreferences.js";
 
 const QrCode = defineAsyncComponent(() => import("./QrCode.vue"));

@@ -173,6 +173,7 @@ onBeforeUnmount(() => {
 
     :root {
         color-scheme: only light;
+        scrollbar-color: #4b4f52 #d1d5db;
     }
 
     ::-webkit-scrollbar {
@@ -193,10 +194,6 @@ onBeforeUnmount(() => {
 
     ::-webkit-scrollbar-corner {
         background-color: #0b0e0f;
-    }
-
-    :root {
-        scrollbar-color: #4b4f52 #d1d5db;
     }
 
     .dark ::-webkit-scrollbar {

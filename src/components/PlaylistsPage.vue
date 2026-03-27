@@ -43,8 +43,7 @@
                     />
                 </div>
                 <p
-                    style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="my-2 flex overflow-hidden hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
+                    class="my-2 line-clamp-2 hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
                     :title="playlist.name"
                     v-text="playlist.name"
                 />

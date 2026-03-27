@@ -1,36 +1,32 @@
 <template>
-    <div class="fixed top-0 left-0 z-50 table size-full bg-gray-500/80 transition-opacity dark:bg-dark-900/80">
-        <div class="table-cell align-middle" @click="handleClick">
-            <div class="relative m-auto w-min min-w-[20vw] rounded-xl bg-white p-5 dark:bg-dark-700">
-                <button class="absolute top-1 right-2.5" @click="$emit('close')"><i-fa6-solid-xmark /></button>
+    <DialogRoot :open="true" @update:open="onOpenChange">
+        <DialogPortal>
+            <DialogOverlay class="fixed inset-0 z-50 bg-gray-500/80 transition-opacity dark:bg-dark-900/80" />
+            <DialogContent
+                class="fixed top-1/2 left-1/2 z-50 w-min min-w-[20vw] -translate-1/2 rounded-xl bg-white p-5 text-black focus:outline-none dark:bg-dark-700 dark:text-white"
+            >
+                <DialogClose as-child>
+                    <button
+                        type="button"
+                        class="absolute top-1 right-2.5 text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white"
+                    >
+                        <i-fa6-solid-xmark />
+                    </button>
+                </DialogClose>
                 <slot></slot>
-            </div>
-        </div>
-    </div>
+            </DialogContent>
+        </DialogPortal>
+    </DialogRoot>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { DialogClose, DialogContent, DialogOverlay, DialogPortal, DialogRoot } from "reka-ui";
 
 const emit = defineEmits(["close"]);
 
-function handleKeyDown(event) {
-    if (event.code === "Escape") {
+function onOpenChange(open) {
+    if (!open) {
         emit("close");
-    } else return;
-    event.preventDefault();
+    }
 }
-
-function handleClick(event) {
-    if (event.target !== event.currentTarget) return;
-    emit("close");
-}
-
-onMounted(() => {
-    window.addEventListener("keydown", handleKeyDown);
-});
-
-onUnmounted(() => {
-    window.removeEventListener("keydown", handleKeyDown);
-});
 </script>

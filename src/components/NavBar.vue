@@ -25,16 +25,11 @@
                 @focus="onInputFocus"
                 @blur="onInputBlur"
             />
-            <span
-                v-if="searchText"
-                class="absolute right-3 size-4 cursor-pointer rounded-full bg-[#ccc] text-center text-[10px] text-black opacity-50 hover:opacity-70"
-                @click="searchText = ''"
-                >⨉</span
-            >
+            <ClearButton v-if="searchText" @clear="searchText = ''" />
         </div>
         <button
             id="search-btn"
-            class="mx-1 inline-block h-10 w-auto cursor-pointer rounded-sm bg-gray-300 px-2.5 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            class="mx-1 hidden h-10 w-auto cursor-pointer rounded-sm bg-gray-300 px-2.5 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-[848px]:hidden max-md:px-2 min-[848px]:inline-block md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
             @click="onSearchClick"
         >
             <i-fa6-solid-magnifying-glass />
@@ -134,12 +129,7 @@
             @focus="onInputFocus"
             @blur="onInputBlur"
         />
-        <span
-            v-if="searchText"
-            class="absolute right-3 size-4 cursor-pointer rounded-full bg-[#ccc] text-center text-[10px] text-black opacity-50 hover:opacity-70"
-            @click="searchText = ''"
-            >⨉</span
-        >
+        <ClearButton v-if="searchText" @clear="searchText = ''" />\n
     </div>
     <SearchSuggestions
         v-show="(searchText || showSearchHistory) && suggestionsVisible"
@@ -153,6 +143,7 @@
 import { ref, computed, watch, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import SearchSuggestions from "./SearchSuggestions.vue";
+import ClearButton from "./ui/ClearButton.vue";
 import hotkeys from "hotkeys-js";
 import { fetchJson, authApiUrl, getAuthToken } from "@/composables/useApi.js";
 import { getPreferenceBoolean, getPreferenceString } from "@/composables/usePreferences.js";
@@ -266,10 +257,4 @@ onMounted(() => {
 });
 </script>
 
-<style>
-@media screen and (max-width: 848px) {
-    #search-btn {
-        display: none;
-    }
-}
-</style>
+<style></style>

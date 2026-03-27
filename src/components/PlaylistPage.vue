@@ -222,7 +222,7 @@ onMounted(() => {
             if (json.error) alert(json.error);
             else if (json.some(pl => pl.id === playlistId)) admin.value = true;
         });
-    else if (playlistId.startsWith("local")) admin.value = true;
+    else if (playlistId?.startsWith("local")) admin.value = true;
     checkPlaylistBookmarked();
 });
 
