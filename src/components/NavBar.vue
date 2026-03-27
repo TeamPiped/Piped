@@ -129,7 +129,7 @@
             @focus="onInputFocus"
             @blur="onInputBlur"
         />
-        <ClearButton v-if="searchText" @clear="searchText = ''" />\n
+        <ClearButton v-if="searchText" @clear="searchText = ''" />
     </div>
     <SearchSuggestions
         v-show="(searchText || showSearchHistory) && suggestionsVisible"
