@@ -168,7 +168,12 @@
         "playlists_only": "Pouze playlisty",
         "export": "Exportovat",
         "import": "Importovat",
-        "always": "Vždy"
+        "always": "Vždy",
+        "clear": "Vymazat",
+        "show_password": "Zobrazit heslo",
+        "hide_password": "Skrýt heslo",
+        "rss_feed": "Kanál RSS",
+        "playlist_rss_feed": "Kanál RSS playlistu"
     },
     "player": {
         "watch_on": "Zobrazit na {0}",
