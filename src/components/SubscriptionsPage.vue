@@ -4,11 +4,11 @@
     <div class="flex flex-wrap justify-between">
         <div class="flex gap-1">
             <!-- import json/csv -->
-            <button
+            <router-link
+                v-t="'actions.import_from_json_csv'"
+                to="/import"
                 class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-            >
-                <router-link v-t="'actions.import_from_json_csv'" to="/import" />
-            </button>
+            />
             <!-- export to json -->
             <button
                 v-t="'actions.export_to_json'"

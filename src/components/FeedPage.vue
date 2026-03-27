@@ -52,6 +52,7 @@
         <a
             :href="getRssUrl"
             class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            :aria-label="$t('actions.rss_feed')"
         >
             <i-fa6-solid-rss />
         </a>

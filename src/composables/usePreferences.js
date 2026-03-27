@@ -32,12 +32,19 @@ function createPreferenceRefForValue(key, valueForTypeInference) {
 }
 
 export function usePreferenceString(key, defaultVal) {
-    return getOrCreatePreferenceRef(key, () =>
+    const preferenceRef = getOrCreatePreferenceRef(key, () =>
         useLocalStorage(key, defaultVal ?? null, {
             serializer: StorageSerializers.any,
             writeDefaults: false,
         }),
     );
+
+    const queryValue = getQueryPreference(key);
+    if (queryValue !== null && preferenceRef.value !== queryValue) {
+        preferenceRef.value = queryValue;
+    }
+
+    return preferenceRef;
 }
 
 export function usePreferenceBoolean(key, defaultVal = false) {
@@ -104,13 +111,19 @@ export function getPreferenceBoolean(key, defaultVal) {
 }
 
 export function getPreferenceString(key, defaultVal) {
-    const queryValue = getQueryPreference(key);
-    if (queryValue !== null) return queryValue;
-
     if (testLocalStorage()) {
-        const value = usePreferenceString(key, defaultVal).value;
+        const preferenceRef = usePreferenceString(key, defaultVal);
+        const queryValue = getQueryPreference(key);
+        if (queryValue !== null && preferenceRef.value !== queryValue) {
+            preferenceRef.value = queryValue;
+        }
+
+        const value = preferenceRef.value;
         return value ?? defaultVal;
     }
+
+    const queryValue = getQueryPreference(key);
+    if (queryValue !== null) return queryValue;
 
     return defaultVal;
 }
@@ -133,7 +146,13 @@ export function getPreferenceNumber(key, defaultVal) {
 
 export function getPreferenceJSON(key, defaultVal) {
     const queryValue = getQueryPreference(key);
-    if (queryValue !== null) return JSON.parse(queryValue);
+    if (queryValue !== null) {
+        try {
+            return JSON.parse(queryValue);
+        } catch {
+            return defaultVal;
+        }
+    }
 
     if (testLocalStorage()) {
         const value = usePreferenceJSON(key, defaultVal).value;
