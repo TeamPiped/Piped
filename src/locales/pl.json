@@ -172,7 +172,12 @@
         "file_format": "Format pliku",
         "always": "Zawsze",
         "playlists_only": "Tylko playlisty",
-        "never": "Nigdy"
+        "never": "Nigdy",
+        "clear": "Wyczyść",
+        "show_password": "Pokaż hasło",
+        "hide_password": "Ukryj hasło",
+        "rss_feed": "Kanał RSS",
+        "playlist_rss_feed": "Kanał RSS playlisty"
     },
     "comment": {
         "pinned_by": "Przypięty przez {author}",
