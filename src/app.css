@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    --color-dark-100: #3f3f46;
+    --color-dark-300: #323232;
+    --color-dark-400: #222222;
+    --color-dark-700: #1a1a1a;
+    --color-dark-800: #141414;
+    --color-dark-900: #0f0f0f;
+}
+
+@utility skip-segment-button {
+    z-index: 1000;
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+    right: 0;
+    background-color: rgb(0 0 0 / 0.5);
+    border: 2px rgba(255, 255, 255, 0.75) solid;
+    border-right: 0;
+    border-radius: 0.75em;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    line-height: 1.5em;
+}
+
+@utility skip-segment-icon {
+    font-size: 1.6em !important;
+    line-height: inherit !important;
+    margin-left: 0.4em;
+}

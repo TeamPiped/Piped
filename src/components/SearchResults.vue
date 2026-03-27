@@ -4,7 +4,13 @@
     <label for="ddlSearchFilters">
         <strong v-text="`${$t('actions.filter')}:`" />
     </label>
-    <select id="ddlSearchFilters" v-model="selectedFilter" default="all" class="select w-auto" @change="updateFilter()">
+    <select
+        id="ddlSearchFilters"
+        v-model="selectedFilter"
+        default="all"
+        class="h-8 w-auto rounded-md bg-gray-300 px-2.5 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
+        @change="updateFilter()"
+    >
         <option v-for="filter in availableFilters" :key="filter" v-t="`search.${filter}`" :value="filter" />
     </select>
 
@@ -18,7 +24,10 @@
         </i18n-t>
     </div>
 
-    <LoadingIndicatorPage :show-content="Boolean(results != null && results.items?.length)" class="video-grid">
+    <LoadingIndicatorPage
+        :show-content="Boolean(results != null && results.items?.length)"
+        class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
+    >
         <template v-for="result in results.items" :key="result.url">
             <ContentItem :item="result" height="94" width="168" />
         </template>

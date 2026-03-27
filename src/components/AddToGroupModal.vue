@@ -1,6 +1,6 @@
 <template>
     <ModalComponent @close="$emit('close')">
-        <div class="min-w-[50vw] flex flex-col">
+        <div class="flex min-w-[50vw] flex-col">
             <div class="h-[70vh] overflow-y-scroll pr-4">
                 <span v-t="'actions.add_to_group'" class="mb-3 inline-block w-max text-2xl" />
                 <div v-for="(group, index) in channelGroups" :key="group.groupName" class="px-1">
@@ -15,7 +15,11 @@
                     <hr class="h-1 w-full" />
                 </div>
             </div>
-            <button v-t="'actions.create_group'" class="btn ml-auto w-max" @click="showCreateGroupModal = true" />
+            <button
+                v-t="'actions.create_group'"
+                class="ml-auto inline-block w-max cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="showCreateGroupModal = true"
+            />
         </div>
     </ModalComponent>
 

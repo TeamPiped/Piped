@@ -1,7 +1,7 @@
 <template>
-    <nav class="relative w-full flex flex-wrap items-center justify-center px-2 pb-2.5 sm:px-4">
+    <nav class="relative flex w-full flex-wrap items-center justify-center px-2 pb-2.5 sm:px-4">
         <div class="flex flex-1 justify-start">
-            <router-link class="flex items-center text-3xl font-bold font-sans" :to="homePagePath"
+            <router-link class="flex items-center font-sans text-3xl font-bold" :to="homePagePath"
                 ><img
                     alt="logo"
                     src="/img/icons/logo.svg"
@@ -11,11 +11,11 @@
                 />iped</router-link
             >
         </div>
-        <div class="search-container lt-md:hidden">
+        <div class="relative inline-flex items-center max-md:hidden">
             <input
                 ref="videoSearch"
                 v-model="searchText"
-                class="input h-10 w-72 pr-20"
+                class="h-10 w-72 rounded-md bg-gray-300 px-2.5 pr-20 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
                 type="text"
                 role="search"
                 :title="$t('actions.search')"
@@ -25,81 +25,106 @@
                 @focus="onInputFocus"
                 @blur="onInputBlur"
             />
-            <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
+            <span
+                v-if="searchText"
+                class="absolute right-3 size-4 cursor-pointer rounded-full bg-[#ccc] text-center text-[10px] text-black opacity-50 hover:opacity-70"
+                @click="searchText = ''"
+                >⨉</span
+            >
         </div>
-        <button id="search-btn" class="input btn mx-1 h-10" @click="onSearchClick">
-            <div class="i-fa6-solid:magnifying-glass"></div>
+        <button
+            id="search-btn"
+            class="mx-1 inline-block h-10 w-auto cursor-pointer rounded-sm bg-gray-300 px-2.5 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            @click="onSearchClick"
+        >
+            <i-fa6-solid-magnifying-glass />
         </button>
         <!-- three vertical lines for toggling the hamburger menu on mobile -->
         <button class="mr-3 flex flex-col justify-end md:hidden" @click="showTopNav = !showTopNav">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
+            <span class="my-[0.1125rem] rounded-xl bg-dark-900 px-2.5 py-px dark:bg-white"></span>
+            <span class="my-[0.1125rem] rounded-xl bg-dark-900 px-2.5 py-px dark:bg-white"></span>
+            <span class="my-[0.1125rem] rounded-xl bg-dark-900 px-2.5 py-px dark:bg-white"></span>
         </button>
         <!-- navigation bar for large screen devices -->
-        <ul class="md:text-1xl hidden list-none md:(flex flex flex-1 justify-end children:pl-3)">
+        <ul class="hidden list-none *:pl-3 md:flex md:flex-1 md:justify-end">
             <li v-if="shouldShowTrending">
-                <router-link v-t="'titles.trending'" to="/trending" class="nav-link" />
+                <router-link
+                    v-t="'titles.trending'"
+                    to="/trending"
+                    class="hover:text-red-500 dark:hover:text-red-400"
+                />
             </li>
             <li>
-                <router-link v-t="'titles.preferences'" to="/preferences" class="nav-link" />
+                <router-link
+                    v-t="'titles.preferences'"
+                    to="/preferences"
+                    class="hover:text-red-500 dark:hover:text-red-400"
+                />
             </li>
             <li v-if="shouldShowLogin">
-                <router-link v-t="'titles.login'" to="/login" class="nav-link" />
+                <router-link v-t="'titles.login'" to="/login" class="hover:text-red-500 dark:hover:text-red-400" />
             </li>
             <li v-if="shouldShowRegister">
-                <router-link v-t="'titles.register'" to="/register" class="nav-link" />
+                <router-link
+                    v-t="'titles.register'"
+                    to="/register"
+                    class="hover:text-red-500 dark:hover:text-red-400"
+                />
             </li>
             <li v-if="shouldShowHistory">
-                <router-link v-t="'titles.history'" to="/history" class="nav-link" />
+                <router-link v-t="'titles.history'" to="/history" class="hover:text-red-500 dark:hover:text-red-400" />
             </li>
             <li>
-                <router-link v-t="'titles.playlists'" to="/playlists" class="nav-link" />
+                <router-link
+                    v-t="'titles.playlists'"
+                    to="/playlists"
+                    class="hover:text-red-500 dark:hover:text-red-400"
+                />
             </li>
             <li v-if="!shouldShowTrending">
-                <router-link v-t="'titles.feed'" to="/feed" class="nav-link" />
+                <router-link v-t="'titles.feed'" to="/feed" class="hover:text-red-500 dark:hover:text-red-400" />
             </li>
         </ul>
     </nav>
     <!-- navigation bar for mobile devices -->
     <div
         v-if="showTopNav"
-        class="mobile-nav mb-4 flex flex-col children:(w-full flex items-center gap-1 border-b border-dark-100 p-1)"
+        class="mb-4 flex flex-col *:flex *:w-full *:items-center *:gap-1 *:border-b *:border-dark-100 *:p-1"
     >
         <router-link v-if="shouldShowTrending" to="/trending">
-            <div class="i-fa6-solid:fire"></div>
+            <i-fa6-solid-fire />
             <i18n-t keypath="titles.trending"></i18n-t>
         </router-link>
         <router-link to="/preferences">
-            <div class="i-fa6-solid:gear"></div>
+            <i-fa6-solid-gear />
             <i18n-t keypath="titles.preferences"></i18n-t>
         </router-link>
         <router-link v-if="shouldShowLogin" to="/login">
-            <div class="i-fa6-solid:user"></div>
+            <i-fa6-solid-user />
             <i18n-t keypath="titles.login"></i18n-t>
         </router-link>
         <router-link v-if="shouldShowLogin" to="/register">
-            <div class="i-fa6-solid:user-plus"></div>
+            <i-fa6-solid-user-plus />
             <i18n-t keypath="titles.register"></i18n-t>
         </router-link>
         <router-link v-if="shouldShowHistory" to="/history">
-            <div class="i-fa6-solid:clock-rotate-left"></div>
+            <i-fa6-solid-clock-rotate-left />
             <i18n-t keypath="titles.history"></i18n-t>
         </router-link>
         <router-link to="/playlists">
-            <div class="i-fa6-solid:list"></div>
+            <i-fa6-solid-list />
             <i18n-t keypath="titles.playlists"></i18n-t>
         </router-link>
         <router-link v-if="!shouldShowTrending" to="/feed">
-            <div class="i-fa6-solid:play"></div>
+            <i-fa6-solid-play />
             <i18n-t keypath="titles.feed"></i18n-t>
         </router-link>
     </div>
     <!-- search suggestions for mobile devices -->
-    <div class="search-container mb-2 w-full md:hidden">
+    <div class="relative mb-2 inline-flex w-full items-center md:hidden">
         <input
             v-model="searchText"
-            class="input h-10 w-full"
+            class="h-10 w-full rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
             type="text"
             role="search"
             :title="$t('actions.search')"
@@ -109,7 +134,12 @@
             @focus="onInputFocus"
             @blur="onInputBlur"
         />
-        <span v-if="searchText" class="delete-search" @click="searchText = ''">⨉</span>
+        <span
+            v-if="searchText"
+            class="absolute right-3 size-4 cursor-pointer rounded-full bg-[#ccc] text-center text-[10px] text-black opacity-50 hover:opacity-70"
+            @click="searchText = ''"
+            >⨉</span
+        >
     </div>
     <SearchSuggestions
         v-show="(searchText || showSearchHistory) && suggestionsVisible"
@@ -237,32 +267,6 @@ onMounted(() => {
 </script>
 
 <style>
-.search-container {
-    @apply relative inline-flex items-center;
-}
-.delete-search {
-    @apply absolute right-3 cursor-pointer rounded-full bg-[#ccc] w-4 h-4 text-center text-black opacity-50 hover:(opacity-70) text-size-[10px];
-}
-.mobile-nav div {
-    @apply mx-1;
-}
-
-#search-btn:hover {
-    @apply bg-red-400;
-}
-
-.dark #search-btn:hover {
-    @apply bg-dark-100;
-}
-
-.nav-link {
-    @apply hover:text-red-500;
-}
-
-.dark .nav-link {
-    @apply hover:text-red-400;
-}
-
 @media screen and (max-width: 848px) {
     #search-btn {
         display: none;

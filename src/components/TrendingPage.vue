@@ -3,7 +3,10 @@
 
     <hr />
 
-    <LoadingIndicatorPage :show-content="videos.length != 0" class="video-grid">
+    <LoadingIndicatorPage
+        :show-content="videos.length != 0"
+        class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
+    >
         <VideoItem v-for="video in videos" :key="video.url" :item="video" height="118" width="210" />
     </LoadingIndicatorPage>
 </template>

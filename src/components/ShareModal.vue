@@ -16,7 +16,12 @@
         </div>
         <div v-if="withTimeCode" class="mt-2 flex items-center justify-between">
             <label v-t="'actions.time_code'" />
-            <input v-model="timeStamp" class="input w-12" type="text" @change="onChange" />
+            <input
+                v-model="timeStamp"
+                class="h-8 w-12 rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
+                type="text"
+                @change="onChange"
+            />
         </div>
         <hr />
         <a :href="generatedLink" target="_blank">
@@ -24,9 +29,21 @@
         </a>
         <QrCode v-if="showQrCode" :text="generatedLink" />
         <div class="mt-4 flex justify-end">
-            <button v-t="'actions.generate_qrcode'" class="btn" @click="showQrCode = !showQrCode" />
-            <button v-t="'actions.follow_link'" class="btn ml-3" @click="followLink()" />
-            <button v-t="'actions.copy_link'" class="btn ml-3" @click="copyLink()" />
+            <button
+                v-t="'actions.generate_qrcode'"
+                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="showQrCode = !showQrCode"
+            />
+            <button
+                v-t="'actions.follow_link'"
+                class="ml-3 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="followLink()"
+            />
+            <button
+                v-t="'actions.copy_link'"
+                class="ml-3 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="copyLink()"
+            />
         </div>
     </ModalComponent>
 </template>

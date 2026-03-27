@@ -2,13 +2,16 @@
     <ErrorHandler v-if="playlist && playlist.error" :message="playlist.message" :error="playlist.error" />
 
     <LoadingIndicatorPage v-show="!playlist?.error" :show-content="playlist != null">
-        <h1 class="mb-1 ml-1 mt-4 text-3xl!" v-text="playlist.name" />
+        <h1 class="mt-4 mb-1 ml-1 text-3xl!" v-text="playlist.name" />
 
         <CollapsableText v-if="playlist?.description" :text="playlist.description" />
 
-        <div class="mt-1 flex justify-between <md:flex-col md:items-center">
+        <div class="mt-1 flex justify-between max-md:flex-col md:items-center">
             <div>
-                <router-link class="link flex items-center gap-3" :to="playlist.uploaderUrl || '/'">
+                <router-link
+                    class="flex items-center gap-3 hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
+                    :to="playlist.uploaderUrl || '/'"
+                >
                     <img loading="lazy" :src="playlist.uploaderAvatar" class="h-12 rounded-full" />
                     <strong v-text="playlist.uploader" />
                 </router-link>
@@ -21,18 +24,32 @@
                         }`
                     "
                 />
-                <button v-if="!isPipedPlaylist" class="btn mx-1" @click="bookmarkPlaylist">
+                <button
+                    v-if="!isPipedPlaylist"
+                    class="mx-1 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                    @click="bookmarkPlaylist"
+                >
                     {{ $t(`actions.${isBookmarked ? "playlist_bookmarked" : "bookmark_playlist"}`)
-                    }}<i class="i-fa6-solid:bookmark ml-3" />
+                    }}<i-fa6-solid-bookmark class="ml-3" />
                 </button>
-                <button v-if="authenticated && !isPipedPlaylist" class="btn mr-1" @click="clonePlaylist">
-                    {{ $t("actions.clone_playlist") }}<i class="i-fa6-solid:clone ml-3" />
+                <button
+                    v-if="authenticated && !isPipedPlaylist"
+                    class="mr-1 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                    @click="clonePlaylist"
+                >
+                    {{ $t("actions.clone_playlist") }}<i-fa6-solid-clone class="ml-3" />
                 </button>
-                <button class="btn mr-1" @click="downloadPlaylistAsTxt">
+                <button
+                    class="mr-1 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                    @click="downloadPlaylistAsTxt"
+                >
                     {{ $t("actions.download_as_txt") }}
                 </button>
-                <a class="btn mr-1" :href="getRssUrl">
-                    <i class="i-fa6-solid:rss" />
+                <a
+                    class="mr-1 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                    :href="getRssUrl"
+                >
+                    <i-fa6-solid-rss />
                 </a>
                 <WatchOnButton :link="`https://www.youtube.com/playlist?list=${$route.query.list}`" />
             </div>
@@ -40,7 +57,9 @@
 
         <hr />
 
-        <div class="video-grid">
+        <div
+            class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
+        >
             <VideoItem
                 v-for="(video, index) in playlist.relatedStreams"
                 :key="video.url"

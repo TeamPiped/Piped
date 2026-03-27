@@ -12,14 +12,14 @@
             <div class="flex place-items-center">
                 <img height="48" width="48" class="m-1 rounded-full" :src="channel.avatarUrl" />
                 <div class="flex items-center gap-1">
-                    <h1 class="!text-xl" v-text="channel.name" />
-                    <i v-if="channel.verified" class="i-fa6-solid:check !text-xl" />
+                    <h1 class="text-xl!" v-text="channel.name" />
+                    <i-fa6-solid-check v-if="channel.verified" class="text-xl!" />
                 </div>
             </div>
 
             <div class="flex gap-2">
                 <button
-                    class="btn"
+                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                     @click="subscribeHandler"
                     v-text="
                         $t('actions.' + (subscribed ? 'unsubscribe' : 'subscribe')) +
@@ -31,7 +31,7 @@
                 <button
                     v-if="subscribed"
                     v-t="'actions.add_to_group'"
-                    class="btn"
+                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                     @click="showGroupModal = true"
                 ></button>
 
@@ -43,9 +43,9 @@
                     role="button"
                     :href="`${apiUrl()}/feed/unauthenticated/rss?channels=${channel.id}`"
                     target="_blank"
-                    class="btn flex-col"
+                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                 >
-                    <i class="i-fa6-solid:rss" />
+                    <i-fa6-solid-rss />
                 </a>
             </div>
         </div>
@@ -58,20 +58,28 @@
             <button
                 v-for="(tab, index) in tabs"
                 :key="tab.name"
-                class="btn mr-2"
-                :class="{ active: selectedTab == index }"
+                class="mr-2 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                :class="{
+                    'bg-gray-500 text-white dark:bg-dark-300': selectedTab == index,
+                }"
                 @click="loadTab(index)"
             >
                 <span v-text="tab.translatedName"></span>
             </button>
             <router-link :to="`/playlist?list=UU${channel.id.substring(2)}`">
-                <button class="btn h-full">Play all videos</button>
+                <button
+                    class="inline-block h-full w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                >
+                    Play all videos
+                </button>
             </router-link>
         </div>
 
         <hr />
 
-        <div class="video-grid">
+        <div
+            class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
+        >
             <ContentItem
                 v-for="item in contentItems"
                 :key="item.url"

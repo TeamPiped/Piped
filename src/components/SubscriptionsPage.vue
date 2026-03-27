@@ -4,18 +4,24 @@
     <div class="flex flex-wrap justify-between">
         <div class="flex gap-1">
             <!-- import json/csv -->
-            <button class="btn">
+            <button
+                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            >
                 <router-link v-t="'actions.import_from_json_csv'" to="/import" />
             </button>
             <!-- export to json -->
-            <button v-t="'actions.export_to_json'" class="btn" @click="exportHandler" />
+            <button
+                v-t="'actions.export_to_json'"
+                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="exportHandler"
+            />
         </div>
         <div class="m-1 flex flex-wrap gap-1">
             <!-- import channel groups to json-->
             <div>
                 <label
                     for="fileSelector"
-                    class="btn"
+                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                     v-text="`${$t('actions.import_from_json')} (${$t('titles.channel_groups')})`"
                 />
                 <input
@@ -30,30 +36,30 @@
 
             <!-- export channel groups to json  -->
             <button
-                class="btn"
+                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                 @click="exportGroupsHandler"
                 v-text="`${$t('actions.export_to_json')} (${$t('titles.channel_groups')})`"
             />
         </div>
         <!-- subscriptions count, only shown if there are any  -->
-        <div v-if="subscriptions.length > 0" class="flex self-center gap-1">
+        <div v-if="subscriptions.length > 0" class="flex gap-1 self-center">
             <i18n-t keypath="subscriptions.subscribed_channels_count">{{ subscriptions.length }}</i18n-t>
         </div>
     </div>
     <br />
     <hr />
-    <div class="w-full flex flex-wrap">
+    <div class="flex w-full flex-wrap">
         <button
             v-for="group in channelGroups"
             :key="group.groupName"
-            class="btn mx-1 w-max"
-            :class="{ selected: selectedGroup === group }"
+            class="mx-1 inline-block w-max cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            :class="{ 'border-2 border-red-500': selectedGroup === group }"
             @click="selectGroup(group)"
         >
             <span v-text="group.groupName !== '' ? group.groupName : $t('video.all')" />
             <div v-if="group.groupName != '' && selectedGroup == group">
-                <i class="i-fa6-solid:pen mx-2" @click="showEditGroupModal = true" />
-                <i class="i-fa6-solid:circle-minus mx-2" @click="groupToDelete = group.groupName" />
+                <i-fa6-solid-pen class="mx-2" @click="showEditGroupModal = true" />
+                <i-fa6-solid-circle-minus class="mx-2" @click="groupToDelete = group.groupName" />
             </div>
         </button>
         <ConfirmModal
@@ -62,28 +68,31 @@
             @close="groupToDelete = null"
             @confirm="deleteGroup(groupToDelete)"
         />
-        <button class="btn mx-1" @click="showCreateGroupModal = true">
-            <i class="i-fa6-solid:circle-plus" />
+        <button
+            class="mx-1 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            @click="showCreateGroupModal = true"
+        >
+            <i-fa6-solid-circle-plus />
         </button>
     </div>
     <br />
     <hr />
     <!-- Subscriptions card list -->
-    <div class="xl:grid xl:grid-cols-5 <md:flex-wrap">
+    <div class="max-md:flex-wrap xl:grid xl:grid-cols-5">
         <!-- channel info card -->
         <div
             v-for="subscription in filteredSubscriptions"
             :key="subscription.url"
-            class="col m-2 border border-gray-500 rounded-lg p-1"
+            class="m-2 rounded-lg border border-gray-500 p-1"
         >
-            <router-link :to="subscription.url" class="text-4x4 flex p-2 font-bold">
-                <img :src="subscription.avatar" class="h-[fit-content] rounded-full" width="48" height="48" />
+            <router-link :to="subscription.url" class="flex p-2 text-4xl font-bold">
+                <img :src="subscription.avatar" class="h-fit rounded-full" width="48" height="48" />
                 <span class="mx-2 self-center" v-text="subscription.name" />
             </router-link>
             <!-- subscribe / unsubscribe btn -->
             <button
                 v-t="`actions.${subscription.subscribed ? 'unsubscribe' : 'subscribe'}`"
-                class="btn mt-2 w-full"
+                class="mt-2 inline-block w-full cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                 @click="handleButton(subscription)"
             />
         </div>
@@ -97,20 +106,29 @@
     />
 
     <ModalComponent v-if="showEditGroupModal" @close="showEditGroupModal = false">
-        <div class="mb-5 mt-3 flex justify-between">
-            <input v-model="editedGroupName" type="text" class="input" />
-            <button v-t="'actions.okay'" class="btn" :placeholder="$t('actions.group_name')" @click="editGroupName()" />
+        <div class="mt-3 mb-5 flex justify-between">
+            <input
+                v-model="editedGroupName"
+                type="text"
+                class="h-8 rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
+            />
+            <button
+                v-t="'actions.okay'"
+                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                :placeholder="$t('actions.group_name')"
+                @click="editGroupName()"
+            />
         </div>
-        <div class="mb-2 mt-3 h-[80vh] flex flex-col overflow-y-scroll pr-2">
+        <div class="mt-3 mb-2 flex h-[80vh] flex-col overflow-y-scroll pr-2">
             <div v-for="subscription in subscriptions" :key="subscription.name">
                 <div class="mr-3 flex items-center justify-between">
                     <a :href="subscription.url" target="_blank" class="flex items-center overflow-hidden">
-                        <img :src="subscription.avatar" class="h-8 w-8 rounded-full" />
+                        <img :src="subscription.avatar" class="size-8 rounded-full" />
                         <span class="ml-2">{{ subscription.name }}</span>
                     </a>
                     <input
                         type="checkbox"
-                        class="checkbox"
+                        class="size-4"
                         :checked="selectedGroup.channels.includes(subscription.url.substr(-24))"
                         @change="checkedChange(subscription)"
                     />
@@ -276,9 +294,3 @@ onActivated(() => {
     document.title = "Subscriptions - Piped";
 });
 </script>
-
-<style>
-.selected {
-    border: 0.1rem outset red;
-}
-</style>

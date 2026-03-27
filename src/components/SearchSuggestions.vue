@@ -1,5 +1,7 @@
 <template>
-    <div class="suggestions-container absolute">
+    <div
+        class="absolute left-1/2 z-10 box-border w-full max-w-3xl -translate-x-1/2 transform-gpu bg-gray-300 max-md:max-w-[calc(100%-0.5rem)] dark:bg-dark-400"
+    >
         <ul>
             <li
                 v-for="(suggestion, i) in searchSuggestions"
@@ -8,8 +10,8 @@
                 @click="setSelected(i)"
             >
                 <router-link
-                    class="suggestion"
-                    :class="{ 'suggestion-selected': selected === i }"
+                    class="block w-full p-1"
+                    :class="{ 'bg-gray-200 dark:bg-dark-100': selected === i }"
                     :to="`/results?search_query=${encodeURIComponent(suggestion)}`"
                     >{{ suggestion }}</router-link
                 >
@@ -84,25 +86,3 @@ function setSelected(val) {
 
 defineExpose({ onKeyUp, refreshSuggestions });
 </script>
-
-<style>
-.suggestions-container {
-    @apply left-1/2 translate-x-[-50%] transform-gpu max-w-3xl w-full box-border z-10 lt-md:max-w-[calc(100%-0.5rem)] bg-gray-300;
-}
-
-.dark .suggestions-container {
-    @apply bg-dark-400;
-}
-
-.suggestion-selected {
-    @apply bg-gray-200;
-}
-
-.dark .suggestion-selected {
-    @apply bg-dark-100;
-}
-
-.suggestion {
-    @apply block w-full p-1;
-}
-</style>

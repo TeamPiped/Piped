@@ -1,27 +1,46 @@
 <template>
-    <div class="flex flex-col flex-justify-between">
-        <router-link :to="props.item.url" class="link inline-block">
+    <div class="flex flex-col justify-between">
+        <router-link
+            :to="props.item.url"
+            class="inline-block hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
+        >
             <div class="relative">
                 <img loading="lazy" class="w-full" :src="props.item.thumbnail" />
             </div>
-            <p class="link pt-2 font-bold" :title="props.item.name" v-text="props.item.name" />
+            <p
+                class="line-clamp-2 pt-2 leading-tight font-bold hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
+                :title="props.item.name"
+                v-text="props.item.name"
+            />
         </router-link>
-        <p v-if="props.item.description" v-text="props.item.description" />
+        <p
+            v-if="props.item.description"
+            class="mt-1 line-clamp-2 text-sm text-gray-600 dark:text-gray-400"
+            v-text="props.item.description"
+        />
 
-        <router-link v-if="props.item.uploaderUrl" class="link-secondary text-sm" :to="props.item.uploaderUrl">
-            <p>
+        <router-link
+            v-if="props.item.uploaderUrl"
+            class="mt-1 line-clamp-1 block text-sm underline decoration-dark-400 hover:text-dark-400 focus:text-dark-400 dark:text-gray-300 dark:decoration-dark-100 dark:hover:text-gray-400"
+            :to="props.item.uploaderUrl"
+        >
+            <p class="leading-tight">
                 <span v-text="props.item.uploaderName" />
-                <i v-if="props.item.uploaderVerified" class="i-fa6-solid:check ml-1.5" />
+                <i-fa6-solid-check v-if="props.item.uploaderVerified" class="ml-1.5" />
             </p>
         </router-link>
-        <a v-else-if="props.item.uploaderName" class="link" v-text="props.item.uploaderName" />
+        <a
+            v-else-if="props.item.uploaderName"
+            class="mt-1 line-clamp-1 block text-sm hover:text-red-500 focus:text-red-500 dark:text-gray-300 dark:hover:text-red-400 dark:focus:text-red-400"
+            v-text="props.item.uploaderName"
+        />
 
         <template v-if="props.item.videos >= 0">
-            <br v-if="props.item.uploaderName" />
-            <span class="text-sm" v-text="`${props.item.videos} ${$t('video.videos')}`" />
+            <span
+                class="mt-1 text-sm font-medium text-gray-700 dark:text-gray-300"
+                v-text="`${props.item.videos} ${$t('video.videos')}`"
+            />
         </template>
-
-        <br />
     </div>
 </template>
 

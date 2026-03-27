@@ -1,6 +1,9 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import Unocss from "unocss/vite";
+import tailwindcss from "@tailwindcss/vite";
+import Icons from "unplugin-icons/vite";
+import Components from "unplugin-vue-components/vite";
+import IconsResolver from "unplugin-icons/resolver";
 import legacy from "@vitejs/plugin-legacy";
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 import { VitePWA } from "vite-plugin-pwa";
@@ -11,7 +14,12 @@ import eslintPlugin from "vite-plugin-eslint";
 export default defineConfig({
     plugins: [
         vue(),
-        Unocss(),
+        tailwindcss(),
+        Icons({ compiler: "vue3", scale: 1 }),
+        Components({
+            resolvers: [IconsResolver()],
+            dts: false,
+        }),
         VueI18nPlugin({
             include: path.resolve(__dirname, "./src/locales/**"),
         }),

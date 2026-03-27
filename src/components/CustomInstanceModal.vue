@@ -7,8 +7,8 @@
                 <div v-for="(customInstance, index) in customInstances" :key="customInstance.name">
                     <div class="flex items-center justify-between">
                         <span>{{ customInstance.name }} - {{ customInstance.api_url }}</span>
-                        <span
-                            class="i-fa6-solid:circle-minus cursor-pointer"
+                        <i-fa6-solid-circle-minus
+                            class="cursor-pointer"
                             @click="removeInstance(customInstance, index)"
                         />
                     </div>
@@ -16,15 +16,24 @@
                 </div>
             </div>
             <form class="flex flex-col items-end gap-2">
-                <input v-model="name" class="input w-full" type="text" :placeholder="$t('preferences.instance_name')" />
+                <input
+                    v-model="name"
+                    class="h-8 w-full rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
+                    type="text"
+                    :placeholder="$t('preferences.instance_name')"
+                />
                 <input
                     v-model="url"
-                    class="input w-full"
+                    class="h-8 w-full rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
                     type="text"
                     :placeholder="$t('preferences.api_url')"
                     @keyup.enter="addInstance"
                 />
-                <button v-t="'actions.add'" class="btn w-min" @click.prevent="addInstance" />
+                <button
+                    v-t="'actions.add'"
+                    class="inline-block w-min cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                    @click.prevent="addInstance"
+                />
             </form>
         </div>
     </ModalComponent>
