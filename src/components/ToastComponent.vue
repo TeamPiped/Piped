@@ -1,7 +1,9 @@
 <template>
-    <div class="toast">
+    <div
+        class="fixed top-12 right-12 z-9999 flex min-w-max flex-col justify-center rounded-sm bg-white/80 p-4 text-black shadow-sm duration-200 dark:bg-dark-900/80 dark:text-white"
+    >
         <slot />
-        <button v-t="'actions.dismiss'" @click="dismiss" />
+        <button v-t="'actions.dismiss'" class="underline" @click="dismiss" />
     </div>
 </template>
 
@@ -12,15 +14,3 @@ function dismiss() {
     emit("dismissed");
 }
 </script>
-
-<style>
-.toast {
-    @apply bg-white/80 text-black flex flex-col justify-center fixed top-12 right-12 p-4 min-w-max shadow rounded duration-200 z-9999;
-}
-.dark .toast {
-    @apply bg-dark-900/80 text-white;
-}
-.toast button {
-    @apply underline;
-}
-</style>

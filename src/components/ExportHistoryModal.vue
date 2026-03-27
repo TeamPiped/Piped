@@ -1,11 +1,15 @@
 <template>
     <ModalComponent>
-        <div class="min-w-max flex flex-col">
+        <div class="flex min-w-max flex-col">
             <h2 v-t="'actions.export_history'" class="mb-4 text-center text-xl font-bold" />
             <form>
                 <div>
                     <label v-t="'actions.file_format'" class="mr-2" for="export-format" />
-                    <select id="export-format" v-model="exportAs" class="select">
+                    <select
+                        id="export-format"
+                        v-model="exportAs"
+                        class="h-8 rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
+                    >
                         <option
                             v-for="option in exportOptions"
                             :key="option"
@@ -14,27 +18,24 @@
                         />
                     </select>
                 </div>
-                <div v-if="exportAs === 'history'">
+                <CheckboxGroupRoot v-if="exportAs === 'history'" v-model="selectedFields">
                     <label v-for="field in fields" :key="field" class="flex items-center gap-2">
-                        <input
-                            v-model="selectedFields"
-                            class="checkbox"
-                            type="checkbox"
-                            :value="field"
-                            :disabled="field === 'videoId'"
-                        />
+                        <UiCheckbox :id="`export-field-${field}`" :value="field" :disabled="field === 'videoId'" />
                         <span v-text="formatField(field)" />
                     </label>
-                </div>
+                </CheckboxGroupRoot>
             </form>
-            <button class="btn mt-4" @click="handleExport" v-text="$t('actions.export')" />
+            <Button v-t="'actions.export'" class="mt-4" @click="handleExport" />
         </div>
     </ModalComponent>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { CheckboxGroupRoot } from "reka-ui";
 import ModalComponent from "./ModalComponent.vue";
+import Button from "./ui/Button.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 import { download } from "@/composables/useMisc.js";
 
 const exportOptions = ["playlist", "history"];

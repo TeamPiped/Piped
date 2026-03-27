@@ -4,8 +4,7 @@ import App from "./App.vue";
 
 import { createI18n } from "vue-i18n";
 import enLocale from "@/locales/en.json";
-import "@unocss/reset/tailwind.css";
-import "uno.css";
+import "./app.css";
 
 import("./registerServiceWorker");
 

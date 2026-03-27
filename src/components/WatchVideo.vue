@@ -1,5 +1,5 @@
 <template>
-    <div v-if="video && isEmbed" class="absolute left-0 top-0 z-50 h-full w-full bg-black">
+    <div v-if="video && isEmbed" class="absolute top-0 left-0 z-50 size-full bg-black">
         <VideoPlayer
             ref="videoPlayer"
             :video="video"
@@ -9,7 +9,7 @@
             :is-embed="isEmbed"
         />
     </div>
-    <div id="theaterModeSpot" class="-mx-1vw"></div>
+    <div id="theaterModeSpot" class="-mx-[1vw]"></div>
     <LoadingIndicatorPage :show-content="video != null && !isEmbed" class="w-full">
         <ErrorHandler v-if="video && video.error" :message="video.message" :error="video.error" />
         <Transition>
@@ -43,9 +43,10 @@
                                     setPreference('theaterMode', theaterMode);
                                 "
                             >
-                                <div
-                                    :class="theaterMode ? 'i-fa6-solid:chevron-left' : 'i-fa6-solid:chevron-right'"
-                                ></div>
+                                <div>
+                                    <i-fa6-solid-chevron-left v-if="theaterMode" />
+                                    <i-fa6-solid-chevron-right v-else />
+                                </div>
                             </button>
                         </div>
                     </Teleport>
@@ -66,8 +67,8 @@
                         />
                     </div>
                     <!-- video title -->
-                    <div class="mt-2 break-words text-2xl font-bold" v-text="video.title" />
-                    <div class="mb-3 mt-3 flex flex-wrap">
+                    <div class="mt-2 text-2xl font-bold wrap-break-word" v-text="video.title" />
+                    <div class="my-3 flex flex-wrap">
                         <!-- views / date -->
                         <div class="flex flex-auto gap-2">
                             <span v-t="{ path: 'video.views', args: { views: addCommas(video.views) } }" />
@@ -78,11 +79,11 @@
                         <div class="flex gap-2">
                             <template v-if="video.likes >= 0">
                                 <div class="flex items-center">
-                                    <div class="i-fa6-solid:thumbs-up" />
+                                    <i-fa6-solid-thumbs-up />
                                     <strong class="ml-1" v-text="addCommas(video.likes)" />
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="i-fa6-solid:thumbs-down" />
+                                    <i-fa6-solid-thumbs-down />
                                     <strong
                                         class="ml-1"
                                         v-text="video.dislikes >= 0 ? addCommas(video.dislikes) : '?'"
@@ -108,11 +109,14 @@
                                 alt=""
                                 class="rounded-full"
                             />
-                            <router-link v-if="video.uploaderUrl" class="link ml-1.5" :to="video.uploaderUrl">{{
-                                video.uploader
-                            }}</router-link>
+                            <router-link
+                                v-if="video.uploaderUrl"
+                                class="ml-1.5 hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
+                                :to="video.uploaderUrl"
+                                >{{ video.uploader }}</router-link
+                            >
                             <!-- Verified Badge -->
-                            <i v-if="video.uploaderVerified" class="i-fa6-solid:check ml-1" />
+                            <i-fa6-solid-check v-if="video.uploaderVerified" class="ml-1" />
                         </div>
                         <PlaylistAddModal
                             v-if="showModal"
@@ -130,14 +134,20 @@
                         />
                         <div class="ml-auto flex flex-wrap gap-1">
                             <!-- Subscribe Button -->
-                            <button class="btn flex items-center gap-1 <md:hidden" @click="downloadCurrentFrame">
-                                {{ $t("actions.download_frame") }}<i class="i-fa6-solid:download" />
-                            </button>
-                            <button class="btn flex items-center" @click="showModal = !showModal">
-                                {{ $t("actions.add_to_playlist") }}<i class="i-fa6-solid:circle-plus ml-1" />
+                            <button
+                                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:hidden max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                                @click="downloadCurrentFrame"
+                            >
+                                {{ $t("actions.download_frame") }}<i-fa6-solid-download class="ml-1" />
                             </button>
                             <button
-                                class="btn"
+                                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                                @click="showModal = !showModal"
+                            >
+                                {{ $t("actions.add_to_playlist") }}<i-fa6-solid-circle-plus class="ml-1" />
+                            </button>
+                            <button
+                                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                                 @click="subscribeHandler"
                                 v-text="
                                     $t('actions.' + (subscribed ? 'unsubscribe' : 'subscribe')) +
@@ -156,14 +166,17 @@
                                         video.uploaderUrl.split('/')[2]
                                     }`"
                                     target="_blank"
-                                    class="btn flex items-center"
+                                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                                 >
-                                    <i class="i-fa6-solid:rss mx-1.5" />
+                                    <i-fa6-solid-rss class="mx-1.5" />
                                 </a>
                                 <!-- Share Dialog -->
-                                <button class="btn flex items-center" @click="showShareModal = !showShareModal">
-                                    <i18n-t class="lt-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
-                                    <i class="i-fa6-solid:share mx-1.5" />
+                                <button
+                                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                                    @click="showShareModal = !showShareModal"
+                                >
+                                    <i18n-t class="max-lg:hidden" keypath="actions.share" tag="strong"></i18n-t>
+                                    <i-fa6-solid-share class="mx-1.5" />
                                 </button>
                                 <!-- YouTube -->
                                 <WatchOnButton :link="youtubeVideoHref" />
@@ -178,12 +191,12 @@
                                     :to="toggleListenUrl"
                                     :aria-label="(isListening ? 'Watch ' : 'Listen to ') + video.title"
                                     :title="(isListening ? 'Watch ' : 'Listen to ') + video.title"
-                                    class="btn flex items-center"
+                                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                                 >
-                                    <i
-                                        :class="isListening ? 'i-fa6-solid:tv' : 'i-fa6-solid:headphones'"
-                                        class="mx-1.5"
-                                    />
+                                    <div>
+                                        <i-fa6-solid-tv v-if="isListening" class="mx-1.5" />
+                                        <i-fa6-solid-headphones v-else class="mx-1.5" />
+                                    </div>
                                 </router-link>
                             </div>
                         </div>
@@ -194,7 +207,7 @@
                     <div
                         v-for="metaInfo in video?.metaInfo ?? []"
                         :key="metaInfo.title"
-                        class="btn my-3 flex flex-wrap cursor-default gap-2 px-4 py-2"
+                        class="my-3 inline-block w-auto cursor-default rounded-sm bg-gray-300 px-4 py-2 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
                     >
                         <span>{{ metaInfo.description ?? metaInfo.title }}</span>
                         <a v-for="(link, linkIndex) in metaInfo.urls" :key="linkIndex" :href="link" class="underline">{{
@@ -205,18 +218,21 @@
 
                     <button
                         v-t="`actions.${showDesc ? 'minimize_description' : 'show_description'}`"
-                        class="btn mb-2"
+                        class="mb-2 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                         @click="showDesc = !showDesc"
                     />
 
-                    <span v-show="video?.chapters?.length > 0" class="btn ml-2">
-                        <input id="showChapters" v-model="showChapters" type="checkbox" />
+                    <span
+                        v-show="video?.chapters?.length > 0"
+                        class="ml-2 inline-block w-auto cursor-default rounded-sm bg-gray-300 py-2 text-gray-600 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400"
+                    >
+                        <UiCheckbox id="showChapters" v-model="showChapters" />
                         <label v-t="'actions.show_chapters'" class="ml-2" for="showChapters" />
                     </span>
 
                     <template v-if="showDesc">
                         <!-- eslint-disable-next-line vue/no-v-html -->
-                        <div class="description break-words" v-html="purifiedDescription" />
+                        <div class="wrap-break-word [&_a]:underline [&_a]:brightness-75" v-html="purifiedDescription" />
                         <br />
 
                         <div
@@ -231,7 +247,7 @@
                             <router-link
                                 v-for="tag in video.tags"
                                 :key="tag"
-                                class="btn line-clamp-1 rounded-s px-2 py-1"
+                                class="line-clamp-1 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 px-2 py-1 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                                 :to="`/results?search_query=${encodeURIComponent(tag)}`"
                                 >{{ tag }}</router-link
                             >
@@ -242,19 +258,13 @@
                 <hr />
 
                 <label for="chkAutoLoop"><strong v-text="`${$t('actions.loop_this_video')}:`" /></label>
-                <input
-                    id="chkAutoLoop"
-                    v-model="selectedAutoLoop"
-                    class="ml-1.5"
-                    type="checkbox"
-                    @change="onChange($event)"
-                />
+                <UiCheckbox id="chkAutoLoop" v-model="selectedAutoLoop" class="ml-1.5" @change="onChange($event)" />
                 <br />
                 <label for="chkAutoPlay"><strong v-text="`${$t('actions.auto_play_next_video')}:`" /></label>
                 <select
                     id="chkAutoPlay"
                     v-model.number="selectedAutoPlay"
-                    class="select ml-1.5"
+                    class="ml-1.5 h-8 rounded-md bg-gray-300 px-2.5 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
                     @change="onChange($event)"
                 >
                     <option v-t="'actions.never'" value="0" />
@@ -266,7 +276,7 @@
                 <div v-if="isMobile">
                     <a
                         v-t="`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`"
-                        class="btn mb-2"
+                        class="mb-2 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                         @click="showRecs = !showRecs"
                     />
                     <hr v-show="showRecs" />
@@ -288,7 +298,7 @@
                     <div class="">
                         <button
                             v-if="!comments?.disabled"
-                            class="btn mb-2"
+                            class="mb-2 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                             @click="toggleCommentsVisibility"
                             v-text="
                                 `${$t(
@@ -333,7 +343,7 @@
                 />
                 <a
                     v-t="`actions.${showRecs ? 'minimize_recommendations' : 'show_recommendations'}`"
-                    class="btn mb-2"
+                    class="mb-2 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                     @click="showRecs = !showRecs"
                 />
                 <hr v-show="showRecs" />
@@ -367,6 +377,7 @@ import PlaylistVideos from "./PlaylistVideos.vue";
 import WatchOnButton from "./WatchOnButton.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import ToastComponent from "./ToastComponent.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 import { parseTimeParam } from "@/utils/Misc";
 import { purifyHTML, rewriteDescription } from "@/utils/HtmlUtils";
 import { fetchJson, apiUrl } from "@/composables/useApi.js";
@@ -802,10 +813,5 @@ onUnmounted(() => {
 .v-leave-to {
     opacity: 0;
     transform: translateX(100%) scale(0.5);
-}
-
-.description a {
-    text-decoration: underline;
-    filter: brightness(0.75);
 }
 </style>

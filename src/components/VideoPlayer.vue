@@ -2,8 +2,8 @@
     <div
         ref="container"
         data-shaka-player-container
-        class="relative max-h-screen w-full flex justify-center"
-        :class="{ 'player-container': !isEmbed }"
+        class="relative flex max-h-screen w-full justify-center"
+        :class="{ 'max-h-[75vh] min-h-64 bg-black': !isEmbed }"
     >
         <video
             ref="videoEl"
@@ -22,26 +22,26 @@
             @click="onClickSkipSegment"
         >
             <span v-t="'actions.skip_segment'" />
-            <i class="skip-segment-icon i-fa6-solid:forward-step" aria-hidden="true" />
+            <i-fa6-solid-forward-step class="skip-segment-icon" aria-hidden="true" />
         </button>
         <span
             v-if="error > 0"
             v-t="{ path: 'player.failed', args: [error] }"
-            class="absolute top-8 rounded bg-black/80 p-2 text-lg backdrop-blur-sm"
+            class="absolute top-8 rounded-sm bg-black/80 p-2 text-lg backdrop-blur-sm"
         />
         <div
             v-if="showCurrentSpeed"
-            class="text-l absolute left-1/2 top-1/2 flex flex-col transform items-center gap-6 rounded-8 bg-white/80 px-8 py-4 -translate-x-1/2 -translate-y-1/2 .dark:bg-dark-700/80"
+            class="absolute top-1/2 left-1/2 flex -translate-1/2 transform flex-col items-center gap-6 rounded-4xl bg-white/80 px-8 py-4 text-lg dark:bg-dark-700/80"
         >
-            <i class="i-fa6-solid:gauge-high h-25 w-25 p-5" />
+            <i-fa6-solid-gauge-high class="size-25 p-5" />
             <span v-text="videoEl.playbackRate" />
         </div>
         <div
             v-if="showCurrentVolume"
-            class="text-l absolute left-1/2 top-1/2 flex flex-col transform items-center gap-6 rounded-8 bg-white/80 px-8 py-4 -translate-x-1/2 -translate-y-1/2 .dark:bg-dark-700/80"
+            class="absolute top-1/2 left-1/2 flex -translate-1/2 transform flex-col items-center gap-6 rounded-4xl bg-white/80 px-8 py-4 text-lg dark:bg-dark-700/80"
         >
-            <i v-if="videoEl.volume > 0" class="i-fa6-solid:volume-high h-25 w-25 p-5" />
-            <i v-else class="i-fa6-solid:volume-xmark h-25 w-25 p-5" />
+            <i-fa6-solid-volume-high v-if="videoEl.volume > 0" class="size-25 p-5" />
+            <i-fa6-solid-volume-xmark v-else class="size-25 p-5" />
             <span v-text="Math.round(videoEl.volume * 100) / 100" />
         </div>
     </div>
@@ -51,12 +51,16 @@
         <div class="flex flex-col">
             <input
                 v-model="playbackSpeedInput"
-                class="input my-3"
+                class="my-3 h-8 w-auto rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
                 type="text"
                 :placeholder="$t('actions.playback_speed')"
                 @keyup.enter="setSpeedFromInput()"
             />
-            <button v-t="'actions.okay'" class="btn ml-auto w-min" @click="setSpeedFromInput()" />
+            <button
+                v-t="'actions.okay'"
+                class="ml-auto inline-block w-min cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="setSpeedFromInput()"
+            />
         </div>
     </ModalComponent>
 </template>
@@ -917,86 +921,55 @@ defineExpose({
 </script>
 
 <style>
-:root {
-    --player-base: rgba(255, 255, 255, 0.3);
-    --player-buffered: rgba(255, 255, 255, 0.54);
-    --player-played: rgba(255, 0, 0);
+@layer base {
+    :root {
+        --player-base: rgba(255, 255, 255, 0.3);
+        --player-buffered: rgba(255, 255, 255, 0.54);
+        --player-played: rgba(255, 0, 0);
 
-    --spon-seg-sponsor: #00d400;
-    --spon-seg-selfpromo: #ffff00;
-    --spon-seg-interaction: #cc00ff;
-    --spon-seg-poi_highlight: #ff1684;
-    --spon-seg-intro: #00ffff;
-    --spon-seg-outro: #0202ed;
-    --spon-seg-preview: #008fd6;
-    --spon-seg-filler: #7300ff;
-    --spon-seg-music_offtopic: #ff9900;
-    --spon-seg-default: white;
+        --spon-seg-sponsor: #00d400;
+        --spon-seg-selfpromo: #ffff00;
+        --spon-seg-interaction: #cc00ff;
+        --spon-seg-poi_highlight: #ff1684;
+        --spon-seg-intro: #00ffff;
+        --spon-seg-outro: #0202ed;
+        --spon-seg-preview: #008fd6;
+        --spon-seg-filler: #7300ff;
+        --spon-seg-music_offtopic: #ff9900;
+        --spon-seg-default: white;
+    }
 }
 
-.player-container {
-    @apply max-h-75vh min-h-64 bg-black;
-}
+@layer components {
+    .shaka-video-container .material-icons-round {
+        font-size: 1.25rem !important;
+        line-height: 1.75rem;
+    }
 
-.shaka-video-container .material-icons-round {
-    @apply !text-xl;
-}
+    .shaka-video-container:-webkit-full-screen {
+        max-height: none !important;
+    }
 
-.shaka-video-container:-webkit-full-screen {
-    max-height: none !important;
-}
+    /* captions style */
+    .shaka-text-wrapper * {
+        text-align: left !important;
+    }
 
-/* captions style */
-.shaka-text-wrapper * {
-    text-align: left !important;
-}
+    .shaka-text-wrapper > span > span {
+        background-color: transparent !important;
+    }
 
-.shaka-text-wrapper > span > span {
-    background-color: transparent !important;
-}
+    /* apply to all spans that don't include multiple other spans to avoid the style being applied to the text container too when the subtitles are two lines */
+    .shaka-text-wrapper > span > span *:first-child:last-child {
+        background-color: rgba(0, 0, 0, 0.6) !important;
+        padding: 0.09em 0;
+    }
 
-/* apply to all spans that don't include multiple other spans to avoid the style being applied to the text container too when the subtitles are two lines */
-.shaka-text-wrapper > span > span *:first-child:last-child {
-    background-color: rgba(0, 0, 0, 0.6) !important;
-    padding: 0.09em 0;
-}
-
-.skip-segment-button {
-    /* position button above player overlay */
-    z-index: 1000;
-
-    position: absolute;
-    transform: translate(0, -50%);
-    top: 50%;
-    right: 0;
-
-    background-color: rgb(0 0 0 / 0.5);
-    border: 2px rgba(255, 255, 255, 0.75) solid;
-    border-right: 0;
-    border-radius: 0.75em;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    padding: 0.5em;
-
-    /* center text vertically */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #fff;
-    line-height: 1.5em;
-}
-
-.skip-segment-button .skip-segment-icon {
-    font-size: 1.6em !important;
-    line-height: inherit !important;
-    margin-left: 0.4em;
-}
-
-/* Override Tailwind preflight's `img { max-width: 100% }` which clamps
-   the sprite-sheet image to the container width and breaks Shaka's
-   transform-based thumbnail cropping. */
-.shaka-player-ui-thumbnail-image {
-    max-width: none !important;
+    /* Override Tailwind preflight's `img { max-width: 100% }` which clamps
+       the sprite-sheet image to the container width and breaks Shaka's
+       transform-based thumbnail cropping. */
+    .shaka-player-ui-thumbnail-image {
+        max-width: none !important;
+    }
 }
 </style>

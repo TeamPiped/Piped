@@ -1,7 +1,7 @@
 <template>
     <h1 v-t="'titles.feed'" class="my-4 text-center font-bold" />
 
-    <div class="flex flex-col flex-wrap gap-2 children:(flex items-center gap-1) md:flex-row md:items-center">
+    <div class="flex flex-col flex-wrap gap-2 *:flex *:items-center *:gap-1 md:flex-row md:items-center">
         <span>
             <label for="filters">
                 <strong v-text="`${$t('actions.filter')}:`" />
@@ -10,7 +10,7 @@
                 id="filters"
                 v-model="selectedFilter"
                 default="all"
-                class="select flex-grow"
+                class="h-8 grow rounded-md bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
                 @change="onFilterChange()"
             >
                 <option v-for="filter in availableFilters" :key="filter" v-t="`video.${filter}`" :value="filter" />
@@ -21,7 +21,12 @@
             <label for="group-selector">
                 <strong v-text="`${$t('titles.channel_groups')}:`" />
             </label>
-            <select id="group-selector" v-model="selectedGroupName" default="" class="select flex-grow">
+            <select
+                id="group-selector"
+                v-model="selectedGroupName"
+                default=""
+                class="h-8 grow rounded-md bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
+            >
                 <option v-t="`video.all`" value="" />
                 <option
                     v-for="group in channelGroups"
@@ -39,14 +44,25 @@
     <hr />
 
     <span class="flex gap-2">
-        <router-link v-t="'titles.subscriptions'" class="btn" to="/subscriptions" />
-        <a :href="getRssUrl" class="btn">
-            <i class="i-fa6-solid:rss" />
+        <router-link
+            v-t="'titles.subscriptions'"
+            class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            to="/subscriptions"
+        />
+        <a
+            :href="getRssUrl"
+            class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            :aria-label="$t('actions.rss_feed')"
+        >
+            <i-fa6-solid-rss />
         </a>
     </span>
     <hr />
 
-    <LoadingIndicatorPage :show-content="videosStore != null" class="video-grid">
+    <LoadingIndicatorPage
+        :show-content="videosStore != null"
+        class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
+    >
         <template v-for="video in filteredVideos" :key="video.url">
             <VideoItem v-if="shouldShowVideo(video)" :is-feed="true" :item="video" @update:watched="onUpdateWatched" />
         </template>

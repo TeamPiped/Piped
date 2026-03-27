@@ -1,9 +1,10 @@
 import js from "@eslint/js";
-import unoConfig from "@unocss/eslint-config/flat";
 import { defineConfig } from "eslint/config";
+import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import prettierRecommended from "eslint-plugin-prettier/recommended";
 import vue from "eslint-plugin-vue";
 import globals from "globals";
+import vueParser from "vue-eslint-parser";
 
 export default defineConfig([
     {
@@ -25,14 +26,26 @@ export default defineConfig([
         files: ["**/*.{js,mjs,cjs,vue}"],
     },
     ...vue.configs["flat/recommended"],
-    {
-        ...unoConfig,
-        files: ["**/*.{js,mjs,cjs,vue}"],
-    },
+
     {
         files: ["**/*.vue"],
         rules: {
             "no-useless-assignment": "off",
+        },
+    },
+    {
+        files: ["**/*.vue"],
+        extends: [betterTailwindcss.configs.recommended],
+        settings: {
+            "better-tailwindcss": {
+                entryPoint: "src/app.css",
+            },
+        },
+        languageOptions: {
+            parser: vueParser,
+        },
+        rules: {
+            "better-tailwindcss/enforce-consistent-line-wrapping": "off",
         },
     },
     {

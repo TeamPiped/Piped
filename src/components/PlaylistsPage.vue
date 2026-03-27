@@ -2,9 +2,18 @@
     <h2 v-t="'titles.playlists'" class="my-4 font-bold" />
 
     <div class="mb-3 flex justify-between">
-        <button v-t="'actions.create_playlist'" class="btn" @click="showCreatePlaylistModal = true" />
+        <button
+            v-t="'actions.create_playlist'"
+            class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            @click="showCreatePlaylistModal = true"
+        />
         <div class="flex">
-            <button v-if="playlists.length > 0" v-t="'actions.export_to_json'" class="btn" @click="exportPlaylists" />
+            <button
+                v-if="playlists.length > 0"
+                v-t="'actions.export_to_json'"
+                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="exportPlaylists"
+            />
             <input
                 id="fileSelector"
                 ref="fileSelector"
@@ -13,45 +22,62 @@
                 multiple="multiple"
                 @change="importPlaylists"
             />
-            <label v-t="'actions.import_from_json_csv'" for="fileSelector" class="btn ml-2" />
+            <label
+                v-t="'actions.import_from_json_csv'"
+                for="fileSelector"
+                class="ml-2 inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+            />
         </div>
     </div>
 
-    <div class="video-grid">
+    <div
+        class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
+    >
         <div v-for="playlist in playlists" :key="playlist.id">
             <router-link :to="`/playlist?list=${playlist.id}`">
                 <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
                 <div class="relative text-sm">
                     <span
-                        class="thumbnail-overlay thumbnail-right"
+                        class="absolute right-1.25 bottom-1.25 rounded-md bg-black/75 px-1.25 text-white"
                         v-text="`${playlist.videos} ${$t('video.videos')}`"
                     />
                 </div>
                 <p
-                    style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="link my-2 flex overflow-hidden"
+                    class="my-2 line-clamp-2 hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
                     :title="playlist.name"
                     v-text="playlist.name"
                 />
             </router-link>
-            <button v-t="'actions.edit_playlist'" class="btn h-auto" @click="showPlaylistEditModal(playlist)" />
-            <button v-t="'actions.delete_playlist'" class="btn ml-2 h-auto" @click="playlistToDelete = playlist.id" />
+            <button
+                v-t="'actions.edit_playlist'"
+                class="inline-block size-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="showPlaylistEditModal(playlist)"
+            />
+            <button
+                v-t="'actions.delete_playlist'"
+                class="ml-2 inline-block size-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="playlistToDelete = playlist.id"
+            />
             <ModalComponent v-if="playlist.id == playlistToEdit" @close="playlistToEdit = null">
                 <div class="flex flex-col gap-2">
                     <h2 v-t="'actions.edit_playlist'" />
                     <input
                         v-model="newPlaylistName"
-                        class="input"
+                        class="h-8 rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
                         type="text"
                         :placeholder="$t('actions.playlist_name')"
                     />
                     <input
                         v-model="newPlaylistDescription"
-                        class="input"
+                        class="h-8 rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
                         type="text"
                         :placeholder="$t('actions.playlist_description')"
                     />
-                    <button v-t="'actions.okay'" class="btn ml-auto" @click="editPlaylist(playlist)" />
+                    <button
+                        v-t="'actions.okay'"
+                        class="ml-auto inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                        @click="editPlaylist(playlist)"
+                    />
                 </div>
             </ModalComponent>
             <ConfirmModal
@@ -66,7 +92,10 @@
 
     <h2 v-t="'titles.bookmarks'" class="my-4 font-bold" />
 
-    <div v-if="bookmarks" class="video-grid">
+    <div
+        v-if="bookmarks"
+        class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
+    >
         <router-link
             v-for="(playlist, index) in bookmarks"
             :key="playlist.playlistId"
@@ -74,19 +103,22 @@
         >
             <img class="w-full" :src="playlist.thumbnail" alt="thumbnail" />
             <div class="relative text-sm">
-                <span class="thumbnail-overlay thumbnail-right" v-text="`${playlist.videos} ${$t('video.videos')}`" />
-                <div class="absolute bottom-100px right-5px z-100 px-5px" @click.prevent="removeBookmark(index)">
-                    <i class="i-fa6-solid:bookmark ml-3" />
+                <span
+                    class="absolute right-1.25 bottom-1.25 rounded-md bg-black/75 px-1.25 text-white"
+                    v-text="`${playlist.videos} ${$t('video.videos')}`"
+                />
+                <div class="absolute right-1.25 bottom-25 z-100 px-1.25" @click.prevent="removeBookmark(index)">
+                    <i-fa6-solid-bookmark class="ml-3" />
                 </div>
             </div>
             <p
                 style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                class="link my-2 flex overflow-hidden"
+                class="my-2 flex overflow-hidden hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
                 :title="playlist.name"
                 v-text="playlist.name"
             />
             <a :href="playlist.uploaderUrl" class="flex items-center">
-                <img class="h-32px w-32px rounded-full" :src="playlist.uploaderAvatar" />
+                <img class="size-8 rounded-full" :src="playlist.uploaderAvatar" />
                 <span class="ml-3 hover:underline" v-text="playlist.uploader" />
             </a>
         </router-link>
@@ -95,7 +127,7 @@
     <CreatePlaylistModal
         v-if="showCreatePlaylistModal"
         @close="showCreatePlaylistModal = false"
-        @created="fetchPlaylists"
+        @created="fetchPlaylistsList"
     />
 </template>
 

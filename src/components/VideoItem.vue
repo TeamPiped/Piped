@@ -1,7 +1,7 @@
 <template>
-    <div v-if="showVideo" class="flex flex-col flex-justify-between">
+    <div v-if="showVideo" class="flex flex-col justify-between">
         <router-link
-            class="link inline-block w-full"
+            class="inline-block w-full hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
             :to="{
                 path: '/watch',
                 query: {
@@ -16,53 +16,54 @@
 
             <div>
                 <p
-                    style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
-                    class="link flex overflow-hidden pt-2 font-bold"
+                    class="line-clamp-2 pt-2 leading-tight font-bold hover:text-red-500 focus:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400"
                     :title="title"
                     v-text="title"
                 />
             </div>
         </router-link>
 
-        <div class="flex">
+        <div class="flex items-start pt-1">
             <router-link :to="item.uploaderUrl">
                 <img
                     v-if="item.uploaderAvatar"
                     loading="lazy"
                     :src="item.uploaderAvatar"
-                    class="mr-0.5 mt-0.5 h-32px w-32px rounded-full"
+                    class="mt-0.5 mr-0.5 size-8 shrink-0 rounded-full"
                     width="68"
                     height="68"
                 />
             </router-link>
 
-            <div class="flex-1 px-2">
+            <div class="min-w-0 flex-1 px-2">
                 <router-link
                     v-if="item.uploaderUrl && item.uploaderName && !hideChannel"
-                    class="link-secondary block overflow-hidden text-sm"
+                    class="inline-flex max-w-full items-center gap-1 text-sm/tight underline decoration-dark-400 hover:text-dark-400 focus:text-dark-400 dark:text-gray-300 dark:decoration-dark-100 dark:hover:text-gray-400 dark:hover:underline dark:hover:decoration-gray-400"
                     :to="item.uploaderUrl"
                     :title="item.uploaderName"
                 >
-                    <span v-text="item.uploaderName" />
-                    <i v-if="item.uploaderVerified" class="i-fa6-solid:check ml-1.5" />
+                    <span class="truncate" v-text="item.uploaderName" />
+                    <i-fa6-solid-check v-if="item.uploaderVerified" class="shrink-0" />
                 </router-link>
 
-                <div v-if="item.views >= 0 || item.uploadedDate" class="video-info">
-                    <span v-if="item.views >= 0">
-                        <i class="i-fa6-solid:eye" />
-                        <span class="pl-1" v-text="`${numberFormat(item.views)} •`" />
+                <div
+                    v-if="item.views >= 0 || item.uploadedDate"
+                    class="mt-1 flex flex-wrap items-center gap-x-1 text-xs font-normal text-gray-600 dark:text-gray-400"
+                >
+                    <span v-if="item.views >= 0" class="inline-flex items-center gap-1">
+                        <i-fa6-solid-eye class="shrink-0" />
+                        <span v-text="`${numberFormat(item.views)} •`" />
                     </span>
                     <span
                         v-if="item.uploaded > 0"
-                        class="pl-0.5"
                         :title="new Date(item.uploaded).toLocaleString()"
                         v-text="timeAgo(item.uploaded)"
                     />
-                    <span v-else-if="item.uploadedDate" class="pl-0.5" v-text="item.uploadedDate" />
+                    <span v-else-if="item.uploadedDate" v-text="item.uploadedDate" />
                 </div>
             </div>
 
-            <div class="flex items-center gap-2.5">
+            <div class="ml-1 flex shrink-0 items-center gap-2.5 pt-0.5">
                 <router-link
                     :to="{
                         path: '/watch',
@@ -76,13 +77,14 @@
                     :aria-label="preferListen ? title : 'Listen to ' + title"
                     :title="preferListen ? title : 'Listen to ' + title"
                 >
-                    <i :class="preferListen ? 'i-fa6-solid:tv' : 'i-fa6-solid:headphones'" />
+                    <i-fa6-solid-tv v-if="preferListen" />
+                    <i-fa6-solid-headphones v-else />
                 </router-link>
                 <button :title="$t('actions.add_to_playlist')" @click="showPlaylistModal = !showPlaylistModal">
-                    <i class="i-fa6-solid:circle-plus" />
+                    <i-fa6-solid-circle-plus />
                 </button>
                 <button :title="$t('actions.share')" @click="showShareModal = !showShareModal">
-                    <i class="i-fa6-solid:share" />
+                    <i-fa6-solid-share />
                 </button>
                 <button
                     v-if="admin"
@@ -90,19 +92,18 @@
                     :title="$t('actions.remove_from_playlist')"
                     @click="showConfirmRemove = true"
                 >
-                    <i class="i-fa6-solid:circle-minus" />
+                    <i-fa6-solid-circle-minus />
                 </button>
                 <button
                     v-if="showMarkOnWatched && isFeed"
                     ref="watchButton"
                     @click="toggleWatched(item.url.substr(-11))"
                 >
-                    <i
+                    <i-fa6-solid-eye-slash
                         v-if="item.watched && item.currentTime > item.duration * 0.9"
                         :title="$t('actions.mark_as_unwatched')"
-                        class="i-fa6-solid:eye-slash"
                     />
-                    <i v-else :title="$t('actions.mark_as_watched')" class="i-fa6-solid:eye" />
+                    <i-fa6-solid-eye v-else :title="$t('actions.mark_as_watched')" />
                 </button>
                 <ConfirmModal
                     v-if="showConfirmRemove"
@@ -229,13 +230,3 @@ onMounted(() => {
     shouldShowMarkOnWatched();
 });
 </script>
-
-<style>
-.video-info {
-    @apply mt-1 text-xs text-gray-600 font-normal;
-}
-
-.dark .video-info {
-    @apply text-gray-400;
-}
-</style>

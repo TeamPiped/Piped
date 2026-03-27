@@ -1,15 +1,15 @@
 <template>
     <div class="flex justify-center">
         <h1 v-t="'titles.login'" class="my-4 text-center font-bold" />
-        <i class="i-fa6-solid:circle-info ml-2 mt-6 cursor-pointer" :title="$t('info.login_note')" />
+        <i-fa6-solid-circle-info class="mt-6 ml-2 cursor-pointer" :title="$t('info.login_note')" />
     </div>
     <hr />
-    <div class="w-full flex items-center justify-center text-center">
-        <form class="w-min children:pb-3">
+    <div class="flex w-full items-center justify-center text-center">
+        <form class="w-min *:pb-3">
             <div>
                 <input
                     v-model="username"
-                    class="input"
+                    class="h-8 rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
                     type="text"
                     autocomplete="username"
                     :placeholder="$t('login.username')"
@@ -20,7 +20,7 @@
             <div>
                 <input
                     v-model="password"
-                    class="input"
+                    class="h-8 rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
                     type="password"
                     autocomplete="password"
                     :placeholder="$t('login.password')"
@@ -29,7 +29,7 @@
                 />
             </div>
             <div>
-                <a v-t="'titles.login'" class="btn w-auto" @click="login" />
+                <Button v-t="'titles.login'" @click="login" />
             </div>
         </form>
     </div>
@@ -41,6 +41,7 @@ import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { fetchJson, authApiUrl, getAuthToken, hashCode } from "@/composables/useApi.js";
 import { setPreference } from "@/composables/usePreferences.js";
+import Button from "./ui/Button.vue";
 
 const router = useRouter();
 const { t } = useI18n();

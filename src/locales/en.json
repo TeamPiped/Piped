@@ -91,6 +91,7 @@
         "search": "Search (Ctrl+K)",
         "filter": "Filter",
         "loading": "Loading…",
+        "clear": "Clear",
         "clear_history": "Clear History",
         "hide_replies": "Hide Replies",
         "load_more_replies": "Load more Replies",
@@ -172,7 +173,11 @@
         "export": "Export",
         "never": "Never",
         "playlists_only": "Playlists only",
-        "always": "Always"
+        "always": "Always",
+        "show_password": "Show password",
+        "hide_password": "Hide password",
+        "rss_feed": "RSS feed",
+        "playlist_rss_feed": "Playlist RSS feed"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",

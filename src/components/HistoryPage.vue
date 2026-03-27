@@ -3,10 +3,22 @@
 
     <div class="flex justify-between">
         <div class="flex flex-col gap-2 md:flex-row md:items-center">
-            <button v-t="'actions.clear_history'" class="btn" @click="clearHistory" />
+            <button
+                v-t="'actions.clear_history'"
+                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="clearHistory"
+            />
 
-            <button v-t="'actions.export_history'" class="btn" @click="showExportModal = !showExportModal" />
-            <button v-t="'actions.import_history'" class="btn" @click="showImportModal = !showImportModal" />
+            <button
+                v-t="'actions.export_history'"
+                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="showExportModal = !showExportModal"
+            />
+            <button
+                v-t="'actions.import_history'"
+                class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                @click="showImportModal = !showImportModal"
+            />
         </div>
 
         <div class="flex items-center gap-1">
@@ -14,9 +26,13 @@
         </div>
 
         <div class="ml-4 flex items-center">
-            <input id="autoDelete" v-model="autoDeleteHistory" type="checkbox" @change="onChange" />
+            <UiCheckbox id="autoDelete" v-model="autoDeleteHistory" @change="onChange" />
             <label v-t="'actions.delete_automatically'" class="ml-2" for="autoDelete" />
-            <select v-model="autoDeleteDelayHours" class="select ml-3 pl-3" @change="onChange">
+            <select
+                v-model="autoDeleteDelayHours"
+                class="ml-3 h-8 rounded-md bg-gray-300 pl-3 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
+                @change="onChange"
+            >
                 <option v-t="{ path: 'info.hours', args: { amount: '1' } }" value="1" />
                 <option v-t="{ path: 'info.hours', args: { amount: '3' } }" value="3" />
                 <option v-t="{ path: 'info.hours', args: { amount: '6' } }" value="6" />
@@ -33,7 +49,9 @@
 
     <hr />
 
-    <div class="video-grid">
+    <div
+        class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
+    >
         <VideoItem v-for="video in videos" :key="video.url" :item="video" />
     </div>
 
@@ -48,6 +66,7 @@ import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
 import ExportHistoryModal from "./ExportHistoryModal.vue";
 import ImportHistoryModal from "./ImportHistoryModal.vue";
+import UiCheckbox from "./ui/Checkbox.vue";
 import { getPreferenceBoolean, getPreferenceString, setPreference } from "@/composables/usePreferences.js";
 
 let currentVideoCount = 0;
