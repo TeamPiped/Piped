@@ -85,7 +85,7 @@ const { t } = useI18n();
 
 let currentVideoCount = 0;
 const videoStep = 100;
-let videosStore = null;
+const videosStore = ref(null);
 const videos = ref([]);
 const availableFilters = ["all", "shorts", "videos"];
 const selectedFilter = ref("all");
@@ -110,11 +110,11 @@ const filteredVideos = computed(() => {
 });
 
 function loadMoreVideos() {
-    if (!videosStore) return;
-    currentVideoCount = Math.min(currentVideoCount + videoStep, videosStore.length);
-    if (videos.value.length != videosStore.length) {
-        fetchDeArrowContent(videosStore.slice(videos.value.length, currentVideoCount));
-        videos.value = videosStore.slice(0, currentVideoCount);
+    if (!videosStore.value) return;
+    currentVideoCount = Math.min(currentVideoCount + videoStep, videosStore.value.length);
+    if (videos.value.length != videosStore.value.length) {
+        fetchDeArrowContent(videosStore.value.slice(videos.value.length, currentVideoCount));
+        videos.value = videosStore.value.slice(0, currentVideoCount);
     }
 }
 
@@ -156,7 +156,7 @@ onMounted(() => {
             return;
         }
 
-        videosStore = resp;
+        videosStore.value = resp;
         loadMoreVideos();
         updateWatched(videos.value);
     });
