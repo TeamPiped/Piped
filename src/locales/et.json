@@ -172,7 +172,12 @@
         "export": "Ekspordi",
         "never": "Mitte kunagi",
         "playlists_only": "Vaid esitusloendid",
-        "always": "Alati"
+        "always": "Alati",
+        "clear": "Tühjenda",
+        "show_password": "Näita salasõna",
+        "hide_password": "Peida salasõna",
+        "rss_feed": "RSS-uudisvoog",
+        "playlist_rss_feed": "Esitusloendi RSS-uudisvoog"
     },
     "preferences": {
         "has_cdn": "CDN'i olek?",
