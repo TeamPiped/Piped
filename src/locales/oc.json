@@ -161,7 +161,8 @@
         "playback_speed": "Velocitat de lectura",
         "invalid_input": "Entrada non valida",
         "delete_group_confirm": "Suprimir aqueste grop ?",
-        "prefer_hls": "Preferir HLS a DASH"
+        "prefer_hls": "Preferir HLS a DASH",
+        "clear": "Escafar"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",

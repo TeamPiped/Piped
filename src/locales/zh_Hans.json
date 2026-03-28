@@ -148,7 +148,12 @@
         "playlists_only": "仅播放列表",
         "always": "始终",
         "export": "导出",
-        "never": "永不"
+        "never": "永不",
+        "clear": "清除",
+        "show_password": "显示密码",
+        "hide_password": "隐藏数据",
+        "rss_feed": "RSS 源",
+        "playlist_rss_feed": "播放列表 RSS 源"
     },
     "video": {
         "sponsor_segments": "赞助商部分",
