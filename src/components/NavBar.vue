@@ -147,7 +147,6 @@ import ClearButton from "./ui/ClearButton.vue";
 import hotkeys from "hotkeys-js";
 import { fetchJson, authApiUrl, getAuthToken } from "@/composables/useApi.js";
 import { getPreferenceBoolean, getPreferenceString } from "@/composables/usePreferences.js";
-import { getHomePage } from "@/composables/useMisc.js";
 
 const router = useRouter();
 const route = useRoute();
@@ -158,8 +157,9 @@ const searchSuggestions = ref(null);
 const searchText = ref("");
 const suggestionsVisible = ref(false);
 const showTopNav = ref(false);
-const homePagePath = ref(import.meta.env.BASE_URL);
 const registrationDisabled = ref(false);
+
+const homePagePath = import.meta.env.BASE_URL;
 
 const shouldShowLogin = computed(() => {
     return getAuthToken() == null;
@@ -253,7 +253,6 @@ onMounted(() => {
     fetchAuthConfig();
     updateSearchTextFromURLSearchParams();
     focusOnSearchBar();
-    homePagePath.value = getHomePage();
 });
 </script>
 

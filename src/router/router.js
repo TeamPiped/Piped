@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { getHomePage } from "@/composables/useMisc.js";
 
 const routes = [
     {
         path: "/",
         name: "Home",
-        component: () => import("../components/TrendingPage.vue"),
+        redirect: () => getHomePage() ?? "/trending",
     },
     {
         path: "/trending",
