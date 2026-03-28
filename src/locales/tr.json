@@ -148,7 +148,12 @@
         "never": "Asla",
         "mark_as_unwatched": "İzlenmemiş Olarak İşaretle",
         "mark_as_watched": "İzlenmiş Olarak İşaretle",
-        "override": "Geçersiz Kıl"
+        "override": "Geçersiz Kıl",
+        "clear": "Temizle",
+        "show_password": "Parolayı göster",
+        "hide_password": "Parolayı gizle",
+        "rss_feed": "RSS akışı",
+        "playlist_rss_feed": "Oynatma listesi RSS akışı"
     },
     "player": {
         "watch_on": "{0} üzerinde görüntüle",
