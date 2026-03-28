@@ -1,7 +1,7 @@
 <template>
     <nav class="relative flex w-full flex-wrap items-center justify-center px-2 pb-2.5 sm:px-4">
         <div class="flex flex-1 justify-start">
-            <router-link class="flex items-center font-sans text-3xl font-bold" :to="homePagePath"
+            <router-link class="flex items-center font-sans text-3xl font-bold" to="/"
                 ><img
                     alt="logo"
                     src="/img/icons/logo.svg"
@@ -158,8 +158,6 @@ const searchText = ref("");
 const suggestionsVisible = ref(false);
 const showTopNav = ref(false);
 const registrationDisabled = ref(false);
-
-const homePagePath = import.meta.env.BASE_URL;
 
 const shouldShowLogin = computed(() => {
     return getAuthToken() == null;
