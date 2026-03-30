@@ -148,7 +148,12 @@
         "export": "Exportieren",
         "always": "Immer",
         "playlists_only": "Nur Playlists",
-        "never": "Nie"
+        "never": "Nie",
+        "clear": "Löschen",
+        "show_password": "Passwort anzeigen",
+        "hide_password": "Passwort verstecken",
+        "rss_feed": "RSS-Feed",
+        "playlist_rss_feed": "Playlist RSS-Feed"
     },
     "player": {
         "watch_on": "Auf {0} ansehen",
