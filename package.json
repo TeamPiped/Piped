@@ -20,7 +20,7 @@
         "linkifyjs": "4.3.2",
         "qrcode": "^1.5.4",
         "reka-ui": "^2.9.2",
-        "shaka-player": "5.0.8",
+        "shaka-player": "5.0.9",
         "vue": "3.5.31",
         "vue-i18n": "11.3.0",
         "vue-router": "5.0.4"
