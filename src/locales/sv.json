@@ -15,7 +15,7 @@
         "dearrow": "DeArrow",
         "livestreams": "Livesändningar",
         "channels": "Kanaler",
-        "channel_groups": "Kanal Grupper",
+        "channel_groups": "Kanalgrupper",
         "albums": "Album",
         "custom_instances": "Anpassade instanser"
     },
@@ -58,7 +58,7 @@
         "filter": "Filter",
         "hide_replies": "Dölj svar",
         "load_more_replies": "Ladda fler svar",
-        "enable_sponsorblock": "Aktivera sponsorblockering",
+        "enable_sponsorblock": "Aktivera Sponsorblock",
         "skip_preview": "Hoppa över förhandsgranskning/sammanfattning",
         "autoplay_video": "Spela upp video automatiskt",
         "country_selection": "Land/Område",
@@ -168,7 +168,12 @@
         "playlists_only": "Bara spellista",
         "always": "Alltid",
         "mark_as_watched": "Markera som tittad på",
-        "mark_as_unwatched": "Markera som osedd"
+        "mark_as_unwatched": "Markera som osedd",
+        "clear": "Rensa",
+        "show_password": "Visa lösenord",
+        "hide_password": "Dölj lösenord",
+        "rss_feed": "RSS-flöde",
+        "playlist_rss_feed": "Spellista RSS-flöde"
     },
     "player": {
         "watch_on": "Se på {0}",
