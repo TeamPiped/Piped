@@ -172,7 +172,12 @@
         "never": "ابدا",
         "always": "دائما",
         "import_history": "إستيراد السجل",
-        "playlists_only": "قوائم التشغيل فقط"
+        "playlists_only": "قوائم التشغيل فقط",
+        "clear": "امسح",
+        "show_password": "أظهر كلمة السر",
+        "hide_password": "أخفِ كلمة السر",
+        "rss_feed": "خلاصة RSS",
+        "playlist_rss_feed": "قائمة تشغيل خلاصة RSS"
     },
     "video": {
         "sponsor_segments": "المقاطع الإعلانية",
