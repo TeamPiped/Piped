@@ -148,7 +148,12 @@
         "export": "Export",
         "never": "Nikdy",
         "playlists_only": "Iba zoznamy",
-        "always": "Vždy"
+        "always": "Vždy",
+        "clear": "Vyčistiť",
+        "show_password": "Zobraziť heslo",
+        "hide_password": "Skryť heslo",
+        "rss_feed": "Kanál RSS",
+        "playlist_rss_feed": "Kanál RSS playlistu"
     },
     "player": {
         "watch_on": "Zobraziť na {0}",
