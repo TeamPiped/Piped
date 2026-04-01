@@ -148,7 +148,12 @@
         "never": "Nunca",
         "playlists_only": "Apenas playlists",
         "mark_as_watched": "Marcar como assistido",
-        "mark_as_unwatched": "Marcar como não assistido"
+        "mark_as_unwatched": "Marcar como não assistido",
+        "clear": "Limpar",
+        "show_password": "Mostrar senha",
+        "hide_password": "Esconder senha",
+        "rss_feed": "Feed RSS",
+        "playlist_rss_feed": "Feed RSS de playlist"
     },
     "titles": {
         "history": "Histórico",
