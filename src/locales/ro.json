@@ -114,7 +114,7 @@
         "create_group": "Creați un grup",
         "auto_display_captions": "Afișare automată subtitrări",
         "playlist_name": "Numele playlist-ului",
-        "okay": "OK",
+        "okay": "Ok",
         "playlist_description": "Descrierea playlist-ului",
         "edit_playlist": "Editează playlist-ul",
         "cancel": "Anulare",
@@ -137,7 +137,23 @@
         "prefer_hls": "Prefer HLS în loc de DASH",
         "creator_replied": "Creator a răspuns",
         "creator_liked": "Creatorul a apreciat",
-        "playback_speed": "Viteză de redare"
+        "playback_speed": "Viteză de redare",
+        "export_history": "Istoric Export",
+        "import_history": "Istoric Import",
+        "file_format": "Format fișier",
+        "override": "Suprascrie",
+        "import": "Import",
+        "export": "Export",
+        "never": "Niciodatǎ",
+        "playlists_only": "doar Playlist",
+        "always": "Întotdeauna",
+        "show_password": "Aratǎ Parola",
+        "hide_password": "Ascunde Parola",
+        "rss_feed": "Flux RSS",
+        "playlist_rss_feed": "Flux RSS Playlist",
+        "clear": "Șterge",
+        "mark_as_watched": "Marcheazǎ ca vizionat",
+        "mark_as_unwatched": "Marcheazǎ ca nevizionat"
     },
     "preferences": {
         "ssl_score": "Scor SSL",
@@ -201,9 +217,14 @@
         "days": "{amount} zi(le)",
         "hours": "{amount} oră(e)",
         "login_note": "Conectați-vă cu un cont creat în această instanță.",
-        "months": "{amount} lună(luni)",
-        "weeks": "{amount} săptămână(e)",
-        "register_note": "Înregistrați un cont pentru această instanță Piped. Acest lucru vă va permite să vă sincronizați abonamentele și listele de redare cu contul dvs., astfel încât acestea să fie stocate pe partea serverului. Puteți utiliza toate funcțiile fără un cont, dar toate datele vor fi stocate în memoria cache locală a browserului dvs. Vă rugăm să vă asigurați că NU folosiți o adresă de e-mail ca nume de utilizator și alegeți o parolă sigură pe care nu o folosiți în altă parte."
+        "months": "{amount} lună(i)",
+        "weeks": "{amount} săptămână(i)",
+        "register_note": "Înregistrați un cont pentru această instanță Piped. Acest lucru vă va permite să vă sincronizați abonamentele și listele de redare cu contul dvs., astfel încât acestea să fie stocate pe partea serverului. Puteți utiliza toate funcțiile fără un cont, dar toate datele vor fi stocate în memoria cache locală a browserului dvs. Vă rugăm să vă asigurați că NU folosiți o adresă de e-mail ca nume de utilizator și alegeți o parolă sigură pe care nu o folosiți în altă parte.",
+        "selected_subscriptions": "Subscribții selectate",
+        "skipped": "Sǎrite",
+        "error": "Eroare",
+        "success": "Succes",
+        "found_n_items": "{0} articole gǎsite"
     },
     "subscriptions": {
         "subscribed_channels_count": "Abonat la: {0}"
