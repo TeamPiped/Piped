@@ -3,7 +3,7 @@
         ref="container"
         data-shaka-player-container
         class="relative flex max-h-screen w-full justify-center"
-        :class="{ 'max-h-[75vh] min-h-64 bg-black': !isEmbed }"
+        :class="{ 'max-h-[75vh]! min-h-64 bg-black': !isEmbed }"
     >
         <video
             ref="videoEl"
