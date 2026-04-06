@@ -34,7 +34,7 @@
         "@vitejs/plugin-legacy": "8.0.1",
         "@vitejs/plugin-vue": "6.0.5",
         "@vue/compiler-sfc": "3.5.31",
-        "eslint": "10.1.0",
+        "eslint": "10.2.0",
         "eslint-config-prettier": "10.1.8",
         "eslint-plugin-better-tailwindcss": "^4.3.2",
         "eslint-plugin-prettier": "5.5.5",
