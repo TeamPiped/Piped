@@ -148,7 +148,12 @@
         "export": "내보내기",
         "never": "없음",
         "playlists_only": "플레이리스트만",
-        "always": "항상"
+        "always": "항상",
+        "clear": "지우기",
+        "show_password": "패스워드 표시",
+        "hide_password": "패스워드 가리기",
+        "rss_feed": "RSS 피드",
+        "playlist_rss_feed": "플레이리스트 RSS 피드"
     },
     "titles": {
         "feed": "피드",
