@@ -168,7 +168,12 @@
         "playlists_only": "Apenas listas de reprodução",
         "always": "Sempre",
         "mark_as_watched": "Marcar como visto",
-        "mark_as_unwatched": "Marcar como Não visto"
+        "mark_as_unwatched": "Marcar como Não visto",
+        "clear": "Limpar",
+        "show_password": "Mostrar palavra-passe",
+        "hide_password": "Ocultar palavra-passe",
+        "rss_feed": "Fonte RSS",
+        "playlist_rss_feed": "RSS da lista de reprodução"
     },
     "preferences": {
         "instance_name": "Nome da instância",
