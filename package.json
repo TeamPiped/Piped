@@ -13,7 +13,7 @@
     "dependencies": {
         "@vueuse/core": "^14.2.1",
         "dompurify": "3.3.3",
-        "fast-xml-parser": "5.5.11",
+        "fast-xml-parser": "5.5.12",
         "hotkeys-js": "4.0.3",
         "javascript-time-ago": "2.6.4",
         "linkify-html": "4.3.2",
