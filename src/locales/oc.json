@@ -21,7 +21,7 @@
     },
     "player": {
         "watch_on": "Veire sus {0}",
-        "failed": "Fracàs amb lo còdi d’error {0}. Consultatz los jornals d’audit per mai d’informacions"
+        "failed": "Fracàs amb lo còdi d’error {0}. Consultatz los jornals d’audit per mai d’informacions."
     },
     "actions": {
         "subscribe": "S’abonar",
@@ -59,7 +59,7 @@
         "theme": "Tèma",
         "language_selection": "Lenga",
         "loop_this_video": "Legir en bocla la vidèo",
-        "reset_preferences": "Restablir las preferéncias",
+        "reset_preferences": "Reïnicializar las preferéncias",
         "auto": "Auto",
         "dark": "Escur",
         "light": "Clar",
@@ -116,7 +116,7 @@
         "minimize_chapters_default": "Minimizar los capítols per defaut",
         "download_as_txt": "Telecargar coma .txt",
         "copy_link": "Copiar lo ligam",
-        "time_code": "Moment (en segondas)",
+        "time_code": "Còdi de temps (en segondas o HH:MM:SS)",
         "store_search_history": "Gardar l’istoric de recèrca",
         "confirm_reset_preferences": "Volètz vertadièrament reïnicializar las preferéncias ?",
         "hide_watched": "Rescondre las vidèos vistas al flux",
@@ -162,7 +162,22 @@
         "invalid_input": "Entrada non valida",
         "delete_group_confirm": "Suprimir aqueste grop ?",
         "prefer_hls": "Preferir HLS a DASH",
-        "clear": "Escafar"
+        "clear": "Escafar",
+        "mark_as_watched": "Marcar coma vist",
+        "mark_as_unwatched": "Marcar coma non vist",
+        "export_history": "Exportar l'istoric",
+        "import_history": "Importar l'istoric",
+        "file_format": "Format de fichièr",
+        "override": "Subreescriure",
+        "import": "Importar",
+        "export": "Exportar",
+        "never": "Jamai",
+        "playlists_only": "Solament las listas de lectura",
+        "always": "Totjorn",
+        "show_password": "Afichar lo senhal",
+        "hide_password": "Amagar lo senhal",
+        "rss_feed": "Flux RSS",
+        "playlist_rss_feed": "Flux RSS lista de lectura"
     },
     "preferences": {
         "instance_locations": "Localizacion de l’instància",
@@ -209,7 +224,13 @@
         "months": "{amount} mes(es)",
         "days": "{amount} jorn(s)",
         "weeks": "{amount} setmana(s)",
-        "login_note": "Se connectar amb un compte creat sus aquesta instància."
+        "login_note": "Se connectar amb un compte creat sus aquesta instància.",
+        "register_note": "Enregistratz un compte per aquesta instància de Piped. Aquò vos permetrà de sincronizar vòstres abonaments e vòstras listas de lectura amb vòstre compte, per que sián servats sul servidor. Podètz utilizar totas las foncionalitats sens compte, mas totas las donadas seràn alara servadas dins lo cache local de vòstre navigador. Mercés de plan vos assegurar de PAS utilizar d'adreça e-mail coma nom d'utilizaire e de causir un senhal segur qu'utilizetz pas enluòc mai.",
+        "found_n_items": "{0} elements trobats",
+        "success": "Succès",
+        "error": "Error",
+        "skipped": "Ignorat",
+        "selected_subscriptions": "Abonaments seleccionants"
     },
     "comment": {
         "disabled": "L’autor a desactivat los comentaris.",
