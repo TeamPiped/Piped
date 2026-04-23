@@ -168,7 +168,12 @@
         "playlists_only": "Només llistes de reproducció",
         "always": "Sempre",
         "export": "Exporta",
-        "import": "Importa"
+        "import": "Importa",
+        "clear": "Esborra",
+        "show_password": "Mostra la contrasenya",
+        "hide_password": "Amaga la contrasenya",
+        "rss_feed": "Canal RSS",
+        "playlist_rss_feed": "Canal RSS de llistes de reproducció"
     },
     "comment": {
         "pinned_by": "Fixat per {author}",
