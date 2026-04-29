@@ -45,8 +45,8 @@ importers:
         specifier: 11.3.2
         version: 11.3.2(vue@3.5.32(typescript@6.0.3))
       vue-router:
-        specifier: 5.0.4
-        version: 5.0.4(@vue/compiler-sfc@3.5.32)(vue@3.5.32(typescript@6.0.3))
+        specifier: 5.0.6
+        version: 5.0.6(@vue/compiler-sfc@3.5.32)(vue@3.5.32(typescript@6.0.3))
     devDependencies:
       '@eslint/js':
         specifier: 10.0.1
@@ -3021,8 +3021,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  vue-router@5.0.4:
-    resolution: {integrity: sha512-lCqDLCI2+fKVRl2OzXuzdSWmxXFLQRxQbmHugnRpTMyYiT+hNaycV0faqG5FBHDXoYrZ6MQcX87BvbY8mQ20Bg==}
+  vue-router@5.0.6:
+    resolution: {integrity: sha512-9+kmUTGbKMyW9Asoy98IXXYIzrTMT7JDAdpDDeEkorHvybpUvBI2wsrSM5jFOXrFydpzRFJ9vAh+80DN2PGu9w==}
     peerDependencies:
       '@pinia/colada': '>=0.21.2'
       '@vue/compiler-sfc': ^3.5.17
@@ -6201,7 +6201,7 @@ snapshots:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.32(typescript@6.0.3)
 
-  vue-router@5.0.4(@vue/compiler-sfc@3.5.32)(vue@3.5.32(typescript@6.0.3)):
+  vue-router@5.0.6(@vue/compiler-sfc@3.5.32)(vue@3.5.32(typescript@6.0.3)):
     dependencies:
       '@babel/generator': 7.29.1
       '@vue-macros/common': 3.1.2(vue@3.5.32(typescript@6.0.3))
