@@ -29,7 +29,7 @@
         "@eslint/js": "10.0.1",
         "@iconify-json/fa6-brands": "1.2.6",
         "@iconify-json/fa6-solid": "1.2.4",
-        "@intlify/unplugin-vue-i18n": "11.1.1",
+        "@intlify/unplugin-vue-i18n": "11.1.2",
         "@tailwindcss/vite": "^4.2.2",
         "@vitejs/plugin-legacy": "8.0.1",
         "@vitejs/plugin-vue": "6.0.6",
