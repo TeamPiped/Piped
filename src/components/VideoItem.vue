@@ -181,10 +181,11 @@ function removeVideo() {
 }
 
 function shouldShowVideo() {
-    if (isChannelBlocked(props.item.uploaderUrl)) {
-        showVideo.value = false;
-        return;
-    }
+    isChannelBlocked(props.item.uploaderUrl).then(blocked => {
+        if (blocked) {
+            showVideo.value = false;
+        }
+    });
 
     if (!props.isFeed || !getPreferenceBoolean("hideWatched", false)) return;
 

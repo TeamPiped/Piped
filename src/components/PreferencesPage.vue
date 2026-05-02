@@ -389,20 +389,30 @@
         </div>
         <br />
     </div>
-    <h2 v-t="'titles.misc'"></h2>
-    <label
-        class="mx-[15vw] my-2 flex items-center justify-between odd:bg-gray-200 max-md:mx-[2vw] dark:odd:bg-dark-800"
-        for="blockedChannels"
-    >
-        <strong v-t="'actions.blocked_channels'" />
-        <input
-            id="blockedChannels"
-            v-model="blockedChannels"
-            type="text"
-            class="h-8 w-auto bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
-            @change="onChange($event)"
-        />
-    </label>
+    <h2 v-t="'titles.blocked_channels'" class="text-center"></h2>
+    <table class="w-full border text-left text-lg font-light">
+        <thead>
+            <tr>
+                <th v-t="'preferences.channel'" />
+                <th />
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="channel in blockedChannels" :key="channel.channelId">
+                <td>
+                    <a :href="`/channel/${channel.channelId}`" v-text="channel.name" />
+                </td>
+                <td class="text-end">
+                    <button
+                        class="inline-flex items-center gap-1 rounded-sm px-3 py-2 text-gray-700 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:text-gray-300"
+                        @click="unblockChannel(channel.channelId)"
+                    >
+                        <i-fa6-solid-trash class="shrink-0" />
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <h2 id="instancesList" v-t="'actions.instances_list'" />
     <table class="w-full border text-left text-lg font-light">
         <thead>
@@ -486,6 +496,7 @@ import {
     usePreferenceString,
 } from "@/composables/usePreferences";
 import { fetchJson, apiUrl, authApiUrl, getAuthToken, hashCode, isAuthenticated } from "@/composables/useApi";
+import { getBlockedChannels, removeBlockedChannel } from "@/composables/useChannels.js";
 import { getCustomInstances } from "@/composables/useCustomInstances";
 import { download } from "@/composables/useMisc";
 import { getDefaultLanguage } from "@/composables/useFormatting";
@@ -516,6 +527,7 @@ const authInstance = usePreferenceBoolean("authInstance", false);
 const selectedAuthInstance = usePreferenceString("auth_instance_url", selectedInstance.value);
 const customInstances = ref([]);
 const publicInstances = ref([]);
+const blockedChannels = ref([]);
 const sponsorBlock = usePreferenceBoolean("sponsorblock", true);
 const skipOptionsStorage = usePreferenceJSON("skipOptions", null);
 const skipOptions = ref(createDefaultSkipOptions());
@@ -611,7 +623,6 @@ const codecOptions = [
 ];
 const disableLBRY = usePreferenceBoolean("disableLBRY", false);
 const proxyLBRY = usePreferenceBoolean("proxyLBRY", false);
-const blockedChannels = usePreferenceString("blockedChannels", "");
 const prefetchLimit = usePreferenceNumber("prefetchLimit", 2);
 const password = ref(null);
 const showConfirmResetPrefsDialog = ref(false);
@@ -682,6 +693,7 @@ onMounted(async () => {
     if (Object.keys(route.query).length > 0) router.replace({ query: {} });
 
     fetchInstances();
+    loadBlockedChannels();
 
     if (testLocalStorage()) {
         skipOptions.value = normalizeSkipOptions(skipOptionsStorage.value);
@@ -728,6 +740,15 @@ async function fetchInstances() {
             });
         }
     });
+}
+
+async function loadBlockedChannels() {
+    blockedChannels.value = await getBlockedChannels();
+}
+
+async function unblockChannel(channelId) {
+    removeBlockedChannel(channelId);
+    blockedChannels.value = blockedChannels.value.filter(channel => channel.channelId !== channelId);
 }
 
 function sslScore(url) {
