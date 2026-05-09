@@ -133,6 +133,8 @@
         "show_chapters": "Chapters",
         "store_search_history": "Store Search History",
         "hide_watched": "Hide watched videos in the feed",
+	"personalized_trending": "Personalize trending page",
+	"personalized_trending_only": "Show only recommendations (hide global trending)",
         "mark_as_watched": "Mark as Watched",
         "mark_as_unwatched": "Mark as Unwatched",
         "documentation": "Documentation",
