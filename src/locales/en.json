@@ -236,6 +236,7 @@
         "subscribed_channels_count": "Subscribed to: {0}"
     },
     "info": {
+		"no_watch_history_trending": "No history found to personalize trending page",
         "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them.",
         "page_not_found": "Page not found",
         "copied": "Copied!",

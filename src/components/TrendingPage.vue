@@ -2,9 +2,14 @@
     <h1 v-t="'titles.trending'" class="my-4 text-center font-bold" />
     <hr />
     <LoadingIndicatorPage
-        :show-content="videos.length != 0"
+        :show-content="loaded"
         class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
     >
+        <p
+            v-if="videos.length === 0"
+            v-t="'info.no_watch_history_trending'"
+            class="col-span-full text-center text-gray-500"
+        />
         <VideoItem v-for="video in videos" :key="video.url" :item="video" height="118" width="210" />
     </LoadingIndicatorPage>
 </template>
@@ -25,6 +30,7 @@ const route = useRoute();
 const router = useRouter();
 const { t } = useI18n();
 const videos = ref([]);
+const loaded = ref(false);
 
 function idbCursorToPromise(store, fn) {
     return new Promise((resolve, reject) => {
@@ -43,11 +49,17 @@ function idbCursorToPromise(store, fn) {
 }
 
 async function getPreferredChannels() {
-    if (!window.db || !getPreferenceBoolean("watchHistory", false)) return [];
+    if (!window.db || !getPreferenceBoolean("watchHistory", false)) return { ids: [], count: 0 };
 
     const tx = window.db.transaction("watch_history", "readonly");
     const store = tx.objectStore("watch_history");
     const counts = new Map();
+
+    const countReq = store.count();
+    const historyCount = await new Promise((res, rej) => {
+        countReq.onsuccess = () => res(countReq.result);
+        countReq.onerror = () => rej(countReq.error);
+    });
 
     await idbCursorToPromise(store, video => {
         if (video.uploaderUrl) {
@@ -56,17 +68,20 @@ async function getPreferredChannels() {
         }
     });
 
-    return Array.from(counts.entries())
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 10)
-        .map(([id]) => id);
+    return {
+        ids: Array.from(counts.entries())
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10)
+            .map(([id]) => id),
+        count: historyCount,
+    };
 }
 
 const channelCache = new Map();
 const CHANNEL_CACHE_TTL = 5 * 60 * 1000;
 
-async function fetchChannelVideos(channelIds) {
-    const cacheKey = channelIds.slice().sort().join(",");
+async function fetchChannelVideos(channelIds, historyCount) {
+    const cacheKey = channelIds.slice().sort().join(",") + "@" + historyCount;
     const cached = channelCache.get(cacheKey);
     if (cached && Date.now() - cached.ts < CHANNEL_CACHE_TTL) return cached.data;
 
@@ -102,14 +117,14 @@ async function fetchTrending(region) {
         return await fetchJson(apiUrl() + "/trending", { region: region || "US" });
     }
 
-    const [trending, preferredChannels] = await Promise.all([
+    const [trending, { ids: preferredChannels, count: historyCount }] = await Promise.all([
         personalizedTrendingOnly ? Promise.resolve([]) : fetchJson(apiUrl() + "/trending", { region: region || "US" }),
         getPreferredChannels(),
     ]);
 
     if (preferredChannels.length === 0) return trending;
 
-    const recommended = await fetchChannelVideos(preferredChannels);
+    const recommended = await fetchChannelVideos(preferredChannels, historyCount);
 
     const seen = new Set();
     const dedup = arr =>
@@ -133,6 +148,7 @@ onMounted(() => {
     const region = getPreferenceString("region", "US");
     fetchTrending(region).then(vids => {
         videos.value = vids;
+        loaded.value = true;
         updateWatched(videos.value);
         fetchDeArrowContent(videos.value);
     });
@@ -144,6 +160,16 @@ onActivated(() => {
     if (route.path == import.meta.env.BASE_URL) {
         const homepage = getHomePage();
         if (homepage !== undefined) router.push(homepage);
+    }
+    if (getPreferenceBoolean("personalizedTrending", false)) {
+        channelCache.clear();
+        loaded.value = false;
+        const region = getPreferenceString("region", "US");
+        fetchTrending(region).then(vids => {
+            videos.value = vids;
+            loaded.value = true;
+            fetchDeArrowContent(videos.value);
+        });
     }
 });
 </script>
