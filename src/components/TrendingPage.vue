@@ -6,7 +6,7 @@
         class="mx-2 grid grid-cols-1 gap-y-5 max-md:gap-x-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5"
     >
         <p
-            v-if="videos.length === 0"
+            v-if="loaded && videos.length === 0 && personalizedOnly"
             v-t="'info.no_watch_history_trending'"
             class="col-span-full text-center text-gray-500"
         />
@@ -31,6 +31,8 @@ const router = useRouter();
 const { t } = useI18n();
 const videos = ref([]);
 const loaded = ref(false);
+const personalizedOnly = ref(false);
+const firstActivation = ref(true);
 
 function idbCursorToPromise(store, fn) {
     return new Promise((resolve, reject) => {
@@ -91,7 +93,7 @@ async function fetchChannelVideos(channelIds, historyCount) {
         .flatMap(r =>
             r.value.relatedStreams
                 .slice()
-                .sort((a, b) => ((b.uploadedDate ?? 0) > (a.uploadedDate ?? 0) ? 1 : -1))
+                .sort((a, b) => (b.uploaded ?? 0) - (a.uploaded ?? 0))
                 .slice(0, 5),
         );
     channelCache.set(cacheKey, { ts: Date.now(), data });
@@ -143,14 +145,17 @@ async function fetchTrending(region) {
 
 onMounted(() => {
     if (route.path == import.meta.env.BASE_URL && getPreferenceString("homepage", "trending") == "feed") {
+        firstActivation.value = false;
         return;
     }
+    personalizedOnly.value = getPreferenceBoolean("personalizedTrendingOnly", false);
     const region = getPreferenceString("region", "US");
     fetchTrending(region).then(vids => {
         videos.value = vids;
         loaded.value = true;
         updateWatched(videos.value);
         fetchDeArrowContent(videos.value);
+        firstActivation.value = false;
     });
 });
 
@@ -161,13 +166,19 @@ onActivated(() => {
         const homepage = getHomePage();
         if (homepage !== undefined) router.push(homepage);
     }
+    if (firstActivation.value) {
+        firstActivation.value = false;
+        return;
+    }
     if (getPreferenceBoolean("personalizedTrending", false)) {
+        personalizedOnly.value = getPreferenceBoolean("personalizedTrendingOnly", false);
         channelCache.clear();
         loaded.value = false;
         const region = getPreferenceString("region", "US");
         fetchTrending(region).then(vids => {
             videos.value = vids;
             loaded.value = true;
+            updateWatched(videos.value);
             fetchDeArrowContent(videos.value);
         });
     }
