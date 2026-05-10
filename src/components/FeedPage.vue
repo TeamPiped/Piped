@@ -95,11 +95,9 @@ const channelGroups = ref([]);
 
 const getRssUrl = computed(() => {
     if (isAuthenticated()) return authApiUrl() + "/feed/rss?authToken=" + getAuthToken();
-    else {
-        const channels = getUnauthenticatedChannels();
-        if (!channels) return null;
-        return authApiUrl() + "/feed/unauthenticated/rss?channels=" + channels;
-    }
+    const channels = getUnauthenticatedChannels();
+    if (!channels) return null;
+    return authApiUrl() + "/feed/unauthenticated/rss?channels=" + channels;
 });
 
 const filteredVideos = computed(() => {

@@ -51,8 +51,8 @@ async function getPreferredChannels() {
 
     await idbCursorToPromise(store, video => {
         if (video.uploaderUrl) {
-            const id = video.uploaderUrl.split("/").pop();
-            counts.set(id, (counts.get(id) || 0) + 1);
+            const id = video.uploaderUrl.replace(/\/+$/, "").split("/").pop();
+            if (id) counts.set(id, (counts.get(id) || 0) + 1);
         }
     });
 
@@ -62,11 +62,25 @@ async function getPreferredChannels() {
         .map(([id]) => id);
 }
 
+const channelCache = new Map();
+const CHANNEL_CACHE_TTL = 5 * 60 * 1000;
+
 async function fetchChannelVideos(channelIds) {
+    const cacheKey = channelIds.slice().sort().join(",");
+    const cached = channelCache.get(cacheKey);
+    if (cached && Date.now() - cached.ts < CHANNEL_CACHE_TTL) return cached.data;
+
     const results = await Promise.allSettled(channelIds.map(id => fetchJson(apiUrl() + "/channel/" + id)));
-    return results
+    const data = results
         .filter(r => r.status === "fulfilled" && r.value?.relatedStreams)
-        .flatMap(r => r.value.relatedStreams.slice(0, 5));
+        .flatMap(r =>
+            r.value.relatedStreams
+                .slice()
+                .sort((a, b) => ((b.uploadedDate ?? 0) > (a.uploadedDate ?? 0) ? 1 : -1))
+                .slice(0, 5),
+        );
+    channelCache.set(cacheKey, { ts: Date.now(), data });
+    return data;
 }
 
 function interleave(trending, recommended) {
@@ -74,9 +88,7 @@ function interleave(trending, recommended) {
     let ti = 0,
         ri = 0;
     while (ti < trending.length || ri < recommended.length) {
-        if (ti < trending.length) out.push(trending[ti++]);
-        if (ti < trending.length) out.push(trending[ti++]);
-        if (ti < trending.length) out.push(trending[ti++]);
+        for (let i = 0; i < 3 && ti < trending.length; i++) out.push(trending[ti++]);
         if (ri < recommended.length) out.push(recommended[ri++]);
     }
     return out;
@@ -102,7 +114,8 @@ async function fetchTrending(region) {
     const seen = new Set();
     const dedup = arr =>
         arr.filter(v => {
-            const id = v.url?.split("v=")[1];
+            const qs = v.url?.includes("?") ? v.url.slice(v.url.indexOf("?")) : "";
+            const id = qs ? new URLSearchParams(qs).get("v") : null;
             if (!id || seen.has(id)) return false;
             seen.add(id);
             return true;
