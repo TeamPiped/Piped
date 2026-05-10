@@ -119,28 +119,41 @@ async function fetchTrending(region) {
         return await fetchJson(apiUrl() + "/trending", { region: region || "US" });
     }
 
-    const [trending, { ids: preferredChannels, count: historyCount }] = await Promise.all([
-        personalizedTrendingOnly ? Promise.resolve([]) : fetchJson(apiUrl() + "/trending", { region: region || "US" }),
-        getPreferredChannels(),
-    ]);
+    const plainTrending = personalizedTrendingOnly
+        ? Promise.resolve([])
+        : fetchJson(apiUrl() + "/trending", { region: region || "US" });
 
-    if (preferredChannels.length === 0) return trending;
+    try {
+        const [trending, { ids: preferredChannels, count: historyCount }] = await Promise.all([
+            plainTrending,
+            getPreferredChannels(),
+        ]);
 
-    const recommended = await fetchChannelVideos(preferredChannels, historyCount);
+        if (preferredChannels.length === 0) return trending;
 
-    const seen = new Set();
-    const dedup = arr =>
-        arr.filter(v => {
-            const qs = v.url?.includes("?") ? v.url.slice(v.url.indexOf("?")) : "";
-            const id = qs ? new URLSearchParams(qs).get("v") : null;
-            if (!id || seen.has(id)) return false;
-            seen.add(id);
-            return true;
-        });
+        const recommended = await fetchChannelVideos(preferredChannels, historyCount);
 
-    if (personalizedTrendingOnly) return dedup(recommended);
+        const seen = new Set();
+        const dedup = arr =>
+            arr.filter(v => {
+                const qs = v.url?.includes("?") ? v.url.slice(v.url.indexOf("?")) : "";
+                const id = qs ? new URLSearchParams(qs).get("v") : null;
+                if (!id || seen.has(id)) return false;
+                seen.add(id);
+                return true;
+            });
 
-    return interleave(dedup(trending), dedup(recommended));
+        if (personalizedTrendingOnly) return dedup(recommended);
+
+        return interleave(dedup(trending), dedup(recommended));
+    } catch {
+        return await fetchJson(apiUrl() + "/trending", { region: region || "US" });
+    }
+}
+
+function updatePersonalizedOnly() {
+    personalizedOnly.value =
+        getPreferenceBoolean("personalizedTrending", false) && getPreferenceBoolean("personalizedTrendingOnly", false);
 }
 
 onMounted(() => {
@@ -148,7 +161,7 @@ onMounted(() => {
         firstActivation.value = false;
         return;
     }
-    personalizedOnly.value = getPreferenceBoolean("personalizedTrendingOnly", false);
+    updatePersonalizedOnly();
     const region = getPreferenceString("region", "US");
     fetchTrending(region).then(vids => {
         videos.value = vids;
@@ -171,7 +184,7 @@ onActivated(() => {
         return;
     }
     if (getPreferenceBoolean("personalizedTrending", false)) {
-        personalizedOnly.value = getPreferenceBoolean("personalizedTrendingOnly", false);
+        updatePersonalizedOnly();
         channelCache.clear();
         loaded.value = false;
         const region = getPreferenceString("region", "US");
