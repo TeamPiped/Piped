@@ -640,7 +640,7 @@ async function loadVideo() {
             return response.headers.get("Content-Type");
         });
         mime = contentType;
-    // Safari defaults to HLS due to limited MSE/DASH support (see isSafari above).
+        // Safari defaults to HLS due to limited MSE/DASH support (see isSafari above).
     } else if (props.video.dash && !getPreferenceBoolean("preferHls", isSafari)) {
         uri = props.video.dash;
         mime = "application/dash+xml";
