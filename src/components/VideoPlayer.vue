@@ -587,6 +587,7 @@ async function loadVideo() {
     streams.push(...props.video.videoStreams);
 
     const MseSupport = window.MediaSource !== undefined || window.ManagedMediaSource !== undefined;
+    // Safari has limited MSE/DASH support, so we default to native HLS playback.
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
     const lbry = null;
@@ -639,6 +640,7 @@ async function loadVideo() {
             return response.headers.get("Content-Type");
         });
         mime = contentType;
+    // Safari defaults to HLS due to limited MSE/DASH support (see isSafari above).
     } else if (props.video.dash && !getPreferenceBoolean("preferHls", isSafari)) {
         uri = props.video.dash;
         mime = "application/dash+xml";
