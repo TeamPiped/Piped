@@ -1,0 +1,55 @@
+# Piped – single-domain Caddy configuration
+#
+# Usage:
+#   Set PIPED_DOMAIN in your environment (or .env file) before starting.
+#   When set to a real public domain, Caddy provisions TLS automatically.
+#   When not set, defaults to localhost (Caddy uses a local self-signed cert).
+#
+#   PIPED_DOMAIN=piped.example.com docker compose up -d
+
+{
+    # Disable the Caddy admin API (not needed in production)
+    admin off
+    # Email for Let's Encrypt certificates (optional but recommended)
+    email {$ACME_EMAIL:}
+}
+
+{$PIPED_DOMAIN:localhost} {
+
+    # ── Piped Backend API ───────────────────────────────────────────────────────
+    # All /api/* requests are forwarded to pipedapi with the prefix stripped.
+    # e.g. GET /api/streams/abc123 → pipedapi:8080/streams/abc123
+    handle /api/* {
+        uri strip_prefix /api
+        reverse_proxy pipedapi:8080 {
+            header_up Host {upstream_hostport}
+        }
+    }
+
+    # ── Piped media proxy routes (served by the backend at root paths) ──────────
+    handle /videoplayback* {
+        reverse_proxy pipedapi:8080
+    }
+    handle /proxy/* {
+        reverse_proxy pipedapi:8080
+    }
+
+    # ── TikTok proxy service ────────────────────────────────────────────────────
+    # /tiktok/* → tiktok-proxy:3000 (prefix stripped)
+    # e.g. GET /tiktok/trending → tiktok-proxy:3000/trending
+    handle /tiktok/* {
+        uri strip_prefix /tiktok
+        reverse_proxy tiktok-proxy:3000
+    }
+
+    # ── Frontend (everything else) ──────────────────────────────────────────────
+    handle {
+        reverse_proxy frontend:80
+    }
+
+    # Logging (optional, comment out to silence)
+    log {
+        output stderr
+        level WARN
+    }
+}

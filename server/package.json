@@ -1,0 +1,17 @@
+{
+    "name": "piped-tiktok-proxy",
+    "version": "1.0.0",
+    "description": "Self-hosted TikTok proxy for Piped using yt-dlp",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "node --watch index.js"
+    },
+    "dependencies": {
+        "express": "^4.18.3"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}

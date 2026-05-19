@@ -84,6 +84,17 @@ export default defineConfig({
             "@": path.resolve(__dirname, "./src"),
         },
     },
+    server: {
+        proxy: {
+            // Forward /tiktok/* to the local TikTok proxy server (server/index.js).
+            // Run: cd server && npm install && npm start
+            "/tiktok": {
+                target: `http://localhost:${process.env.TIKTOK_PROXY_PORT || 3000}`,
+                changeOrigin: true,
+                rewrite: (p) => p.replace(/^\/tiktok/, ""),
+            },
+        },
+    },
     build: {
         sourcemap: true,
         cssMinify: "lightningcss",

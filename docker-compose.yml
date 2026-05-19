@@ -1,0 +1,85 @@
+services:
+
+  # ── Caddy reverse proxy ──────────────────────────────────────────────────────
+  # Handles HTTPS (automatic via Let's Encrypt), routes all traffic.
+  # Set PIPED_DOMAIN=yourdomain.com in a .env file for production HTTPS.
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"   # HTTP/3
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      PIPED_DOMAIN: ${PIPED_DOMAIN:-localhost}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+    depends_on:
+      - frontend
+      - pipedapi
+      - tiktok-proxy
+
+  # ── Piped frontend ───────────────────────────────────────────────────────────
+  # Static assets served by nginx, API URL injected at container start.
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      # Tell the frontend where the backend API lives.
+      # With the Caddy /api/* routing the backend is at /api on the same domain.
+      BACKEND_URL: ${PIPED_BACKEND_URL:-https://${PIPED_DOMAIN:-localhost}/api}
+    expose:
+      - "80"
+
+  # ── Piped Backend (Java / NewPipe Extractor) ─────────────────────────────────
+  pipedapi:
+    image: 1337kavin/piped:latest
+    restart: unless-stopped
+    volumes:
+      # Mount your customised config/piped.properties here.
+      # Copy config/piped.properties.example → config/piped.properties and edit it.
+      - ./config/piped.properties:/app/config.properties:ro
+    expose:
+      - "8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ── PostgreSQL for Piped Backend ─────────────────────────────────────────────
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: piped
+      POSTGRES_USER: piped
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U piped -d piped"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── TikTok proxy (yt-dlp based) ──────────────────────────────────────────────
+  tiktok-proxy:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    expose:
+      - "3000"
+    # Give yt-dlp enough time to fetch playlists
+    stop_grace_period: 15s
+
+volumes:
+  postgres_data:
+  caddy_data:
+  caddy_config:

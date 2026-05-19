@@ -1,0 +1,30 @@
+# Piped Backend configuration
+# Copy this file to config/piped.properties and fill in your values.
+# docker compose will mount config/piped.properties into the piped backend container.
+
+# ── Server ─────────────────────────────────────────────────────────────────────
+PORT=8080
+
+# ── PostgreSQL ─────────────────────────────────────────────────────────────────
+# When using the docker-compose.yml in this repo the hostname is "postgres".
+hibernate.connection.url=jdbc:postgresql://postgres:5432/piped
+hibernate.connection.username=piped
+hibernate.connection.password=changeme
+
+# ── Public URLs ────────────────────────────────────────────────────────────────
+# Replace piped.example.com with your actual domain (the same value as PIPED_DOMAIN).
+# If you are running locally use http://localhost.
+
+# The path at which the backend is reachable (note: /api prefix added by Caddy)
+API_URL=https://piped.example.com/api
+
+# The frontend URL (root of your domain)
+FRONTEND_URL=https://piped.example.com
+
+# Used to build proxied media URLs returned to the frontend
+PROXY_PART=https://piped.example.com
+
+# ── Rate limiting / features ────────────────────────────────────────────────────
+# Uncomment and adjust as needed:
+# DISABLE_REGISTRATION=false
+# FEED_RETENTION=30

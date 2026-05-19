@@ -246,13 +246,10 @@
         "subscribed_channels_count": "Subscribed to: {0}"
     },
     "tiktok": {
-        "api_not_configured": "TikTok API not configured",
-        "api_configure_hint": "To use TikTok integration, set a TikTok API endpoint URL in Preferences → TikTok.",
-        "go_to_settings": "Go to Settings",
         "search_placeholder": "Search TikTok…",
         "no_videos": "No videos found",
         "for_you": "For You",
-        "api_url_label": "TikTok API URL"
+        "no_auth_notice": "Personalised feed requires a TikTok login, which isn't supported yet. Showing trending content instead."
     },
     "shortcuts": {
         "navigation": "Navigation",
