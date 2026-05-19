@@ -6,7 +6,7 @@
 PORT=8080
 
 # ── PostgreSQL ─────────────────────────────────────────────────────────────────
-hibernate.connection.url=jdbc:postgresql://postgres:5432/piped
+hibernate.connection.url=jdbc:postgresql://post:5432/piped
 hibernate.connection.username=piped
 hibernate.connection.password=changeme
 

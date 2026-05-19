@@ -12,11 +12,11 @@ services:
     ports:
       - "${PORT:-8091}:80"
     depends_on:
-      - pipedapi
+      - pipe
       - edu-relay
 
   # ── Piped Backend (Java / NewPipe Extractor) ─────────────────────────────────
-  pipedapi:
+  pipe:
     image: 1337kavin/piped:latest
     restart: unless-stopped
     volumes:
@@ -24,11 +24,11 @@ services:
     expose:
       - "8080"
     depends_on:
-      postgres:
+      post:
         condition: service_healthy
 
   # ── PostgreSQL ────────────────────────────────────────────────────────────────
-  postgres:
+  post:
     image: postgres:17-alpine
     restart: unless-stopped
     environment:

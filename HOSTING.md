@@ -107,17 +107,17 @@ Serve `dist/` with any static file host. For the full stack locally, use Docker 
 | Service | Port | Role |
 |---|---|---|
 | `frontend` (nginx) | **8091** ← only public port | Static files + internal routing |
-| `pipedapi` | 8080 (internal) | YouTube data extraction |
-| `postgres` | 5432 (internal) | Piped Backend database |
+| `pipe` | 8080 (internal) | YouTube data extraction |
+| `post` | 5432 (internal) | Piped Backend database |
 | `edu-relay` | 3000 (internal) | Short-form video content relay |
 
 Internal routing in nginx:
 
 | Path | Destination |
 |---|---|
-| `/api/*` | Piped Backend (prefix stripped) |
-| `/calculus/*` | Piped Backend `/proxy/*` (renamed) |
-| `/videoplayback` | Piped Backend |
+| `/api/*` | `pipe` Backend (prefix stripped) |
+| `/calculus/*` | `pipe` Backend `/proxy/*` (renamed) |
+| `/videoplayback` | `pipe` Backend |
 | `/math/*` | Content relay (prefix stripped) |
 | `/*` | Frontend static files |
 
@@ -131,7 +131,7 @@ yt-dlp needs to stay current — update inside the container:
 docker compose exec edu-relay pip install -U yt-dlp
 ```
 
-**Backend fails to start**
+**Backend (`pipe`) fails to start**
 Check that `POSTGRES_PASSWORD` in `.env` matches `hibernate.connection.password` in
 `config/piped.properties`, and that `config/piped.properties` exists (copy from `.example`).
 
