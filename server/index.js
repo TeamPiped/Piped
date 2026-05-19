@@ -91,6 +91,11 @@ function ytdlpPlaylist(url, count = 20) {
 
 // ── Normalisation ───────────────────────────────────────────────────────────────
 
+/** Extract hashtags from text, e.g. "#cats" → "cats". */
+function extractHashtags(text = "") {
+    return (text.match(/#(\w+)/g) ?? []).map(h => h.slice(1).toLowerCase());
+}
+
 /**
  * Convert a yt-dlp entry (flat-playlist or full) into the common video shape
  * expected by TikTokFeed.vue.
@@ -102,6 +107,11 @@ function normalizeEntry(e, opts = {}) {
         cover = e.thumbnails[e.thumbnails.length - 1]?.url ?? null;
     }
 
+    // Tags: combine yt-dlp tags with hashtags found in title/description
+    const rawTags = Array.isArray(e.tags) ? e.tags.map(t => t.toLowerCase()) : [];
+    const inlineTags = extractHashtags(`${e.title ?? ""} ${e.description ?? ""}`);
+    const tags = [...new Set([...rawTags, ...inlineTags])];
+
     // Stream URL from formats list – prefer mp4, max 720p, avoid watermarked variants
     let playUrl = null;
     if (Array.isArray(e.formats)) {
@@ -111,7 +121,6 @@ function normalizeEntry(e, opts = {}) {
             .find((f) => (f.height ?? 9999) <= 720);
         const best = mp4 ?? e.formats.find((f) => f.url);
         if (best?.url) {
-            // Route through our stream proxy to avoid CORS / signed-URL issues
             playUrl = `/stream?url=${encodeURIComponent(best.url)}`;
         }
     }
@@ -119,10 +128,11 @@ function normalizeEntry(e, opts = {}) {
     return {
         id: e.id ?? e.display_id ?? null,
         title: e.title ?? e.description ?? "",
+        tags,
         author: {
             nickname: e.uploader ?? e.channel ?? "Unknown",
             uniqueId: (e.uploader_id ?? e.channel_id ?? "").replace(/^@/, ""),
-            avatarUrl: null, // flat-playlist entries don't include avatars
+            avatarUrl: null,
         },
         stats: {
             plays: e.view_count ?? 0,

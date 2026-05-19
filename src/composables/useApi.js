@@ -18,16 +18,16 @@ export function hashCode(s) {
 }
 
 function resolveDefaultApiUrl() {
-    // Runtime config injected by docker/nginx (BYOD approach — no rebuild needed)
+    // Runtime config injected at container start (no rebuild needed)
     const runtimeUrl = window.__PIPED_CONFIG__?.apiUrl;
     if (runtimeUrl && !runtimeUrl.includes("__PIPED_API_URL__")) return runtimeUrl;
 
-    // Build-time env var
+    // Build-time env var (pnpm dev with VITE_PIPED_API set)
     const envUrl = import.meta.env.VITE_PIPED_API;
     if (envUrl) return envUrl;
 
-    // BYOD fallback: assume API is served from the same origin
-    return window.location.origin;
+    // Single-domain default: backend served at /api on the same origin
+    return window.location.origin + "/api";
 }
 
 export function apiUrl() {

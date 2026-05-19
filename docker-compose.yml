@@ -1,47 +1,30 @@
 services:
 
-  # ── Caddy reverse proxy ──────────────────────────────────────────────────────
-  # Handles HTTPS (automatic via Let's Encrypt), routes all traffic.
-  # Set PIPED_DOMAIN=yourdomain.com in a .env file for production HTTPS.
-  caddy:
-    image: caddy:2-alpine
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"   # HTTP/3
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    environment:
-      PIPED_DOMAIN: ${PIPED_DOMAIN:-localhost}
-      ACME_EMAIL: ${ACME_EMAIL:-}
-    depends_on:
-      - frontend
-      - pipedapi
-      - tiktok-proxy
-
-  # ── Piped frontend ───────────────────────────────────────────────────────────
-  # Static assets served by nginx, API URL injected at container start.
+  # ── Frontend + router (the only exposed port) ────────────────────────────────
+  # nginx serves the static frontend AND routes /api/* and /math/* internally.
+  # Point your external reverse proxy at PORT (default 8091).
+  # e.g. in Caddy:  reverse_proxy localhost:8091
   frontend:
     build:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
+    ports:
+      - "${PORT:-8091}:80"
     environment:
-      # Tell the frontend where the backend API lives.
-      # With the Caddy /api/* routing the backend is at /api on the same domain.
-      BACKEND_URL: ${PIPED_BACKEND_URL:-https://${PIPED_DOMAIN:-localhost}/api}
-    expose:
-      - "80"
+      # Full backend URL injected into index.html at startup.
+      # With single-domain routing the frontend auto-detects via window.location.origin/api.
+      # Only set this if your backend lives at a different origin.
+      BACKEND_URL: ${PIPED_EXTERNAL_URL:+${PIPED_EXTERNAL_URL}/api}
+    depends_on:
+      - pipedapi
+      - edu-relay
 
   # ── Piped Backend (Java / NewPipe Extractor) ─────────────────────────────────
   pipedapi:
     image: 1337kavin/piped:latest
     restart: unless-stopped
     volumes:
-      # Mount your customised config/piped.properties here.
       # Copy config/piped.properties.example → config/piped.properties and edit it.
       - ./config/piped.properties:/app/config.properties:ro
     expose:
@@ -68,18 +51,15 @@ services:
       timeout: 5s
       retries: 5
 
-  # ── TikTok proxy (yt-dlp based) ──────────────────────────────────────────────
-  tiktok-proxy:
+  # ── Education content relay (yt-dlp based) ───────────────────────────────────
+  edu-relay:
     build:
       context: ./server
       dockerfile: Dockerfile
     restart: unless-stopped
     expose:
       - "3000"
-    # Give yt-dlp enough time to fetch playlists
     stop_grace_period: 15s
 
 volumes:
   postgres_data:
-  caddy_data:
-  caddy_config:

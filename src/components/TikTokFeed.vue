@@ -28,12 +28,12 @@
                     </div>
                 </div>
 
-                <!-- overlay gradient -->
+                <!-- hover overlay -->
                 <div
                     class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
                 />
 
-                <!-- info -->
+                <!-- stats (on hover) -->
                 <div
                     class="absolute inset-x-0 bottom-0 p-2 text-white opacity-0 transition-opacity group-hover:opacity-100"
                 >
@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <!-- author badge always visible -->
+                <!-- author badge -->
                 <div class="absolute top-2 left-2 flex items-center gap-1.5">
                     <img
                         v-if="video.author.avatarUrl"
@@ -69,18 +69,19 @@
             <div
                 v-if="activeVideo"
                 class="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
-                @click.self="activeVideo = null"
+                @click.self="closeVideo"
             >
                 <div class="relative mx-4 flex max-h-screen w-full max-w-sm flex-col">
                     <button
                         class="absolute -top-10 right-0 rounded-full p-2 text-white hover:text-gray-300"
-                        @click="activeVideo = null"
+                        @click="closeVideo"
                     >
                         <i-fa6-solid-xmark class="size-6" />
                     </button>
                     <div class="relative overflow-hidden rounded-2xl bg-black">
                         <video
                             v-if="activeVideo.video.playUrl"
+                            ref="videoEl"
                             :src="activeVideo.video.playUrl"
                             class="max-h-[80vh] w-full object-contain"
                             controls
@@ -120,17 +121,32 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, nextTick } from "vue";
 
 defineProps({
     videos: { type: Array, default: () => [] },
     loading: { type: Boolean, default: false },
 });
 
-const activeVideo = ref(null);
+const emit = defineEmits(["watched"]);
 
-function openVideo(video) {
+const activeVideo = ref(null);
+const videoEl = ref(null);
+
+async function openVideo(video) {
     activeVideo.value = video;
+    await nextTick();
+}
+
+function closeVideo() {
+    // Record completion percentage before clearing
+    const vid = videoEl.value;
+    const watchPct = vid && vid.duration > 0 ? Math.min(1, vid.currentTime / vid.duration) : 0.5;
+
+    if (activeVideo.value) {
+        emit("watched", { video: activeVideo.value, watchPct });
+    }
+    activeVideo.value = null;
 }
 
 function formatCount(n) {
