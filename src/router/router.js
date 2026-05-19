@@ -5,12 +5,37 @@ const routes = [
     {
         path: "/",
         name: "Home",
-        redirect: () => getHomePage() ?? "/trending",
+        redirect: () => getHomePage() ?? "/recommended",
+    },
+    {
+        path: "/recommended",
+        name: "Recommended",
+        component: () => import("../components/RecommendedPage.vue"),
     },
     {
         path: "/trending",
         name: "Trending",
         component: () => import("../components/TrendingPage.vue"),
+    },
+    {
+        path: "/shorts",
+        name: "Shorts",
+        component: () => import("../components/ShortsPage.vue"),
+    },
+    {
+        path: "/tiktok",
+        name: "TikTok",
+        component: () => import("../components/TikTokPage.vue"),
+    },
+    {
+        path: "/queue",
+        name: "WatchQueue",
+        component: () => import("../components/WatchQueuePage.vue"),
+    },
+    {
+        path: "/collections",
+        name: "Collections",
+        component: () => import("../components/CollectionsPage.vue"),
     },
     {
         path: "/preferences",

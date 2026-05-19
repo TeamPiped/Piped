@@ -64,6 +64,7 @@
             class="h-8 w-auto bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
             @change="onChange($event)"
         >
+            <option v-t="'titles.recommended'" value="recommended" />
             <option v-t="'titles.trending'" value="trending" />
             <option v-t="'titles.feed'" value="feed" />
         </select>
@@ -287,6 +288,24 @@
         </template>
         <PreferenceSwitch id="chkDeArrow" v-model="dearrow" @change="onChange" />
     </PreferenceRow>
+
+    <!-- TikTok Integration -->
+    <h2 class="text-center">TikTok</h2>
+    <label
+        id="tiktok"
+        class="mx-[15vw] my-2 flex items-center justify-between odd:bg-gray-200 max-md:mx-[2vw] dark:odd:bg-dark-800"
+        for="tiktokApiUrl"
+    >
+        <strong v-t="'tiktok.api_url_label'" />
+        <input
+            id="tiktokApiUrl"
+            v-model="tiktokApi"
+            type="url"
+            class="h-8 w-72 rounded-md bg-gray-300 px-2.5 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
+            placeholder="https://your-tiktok-api.example.com"
+            @change="onChange($event)"
+        />
+    </label>
 
     <h2 v-t="'titles.instance'" class="text-center" />
     <p v-t="'actions.instances_not_shown'" class="text-center" />
@@ -519,7 +538,8 @@ const defaultQuality = usePreferenceNumber("quality", 0);
 const bufferingGoal = usePreferenceNumber("bufferGoal", 10);
 const countryMap = ref(CountryMapDefault);
 const countrySelected = usePreferenceString("region", "US");
-const defaultHomepage = usePreferenceString("homepage", "trending");
+const defaultHomepage = usePreferenceString("homepage", "recommended");
+const tiktokApi = usePreferenceString("tiktokApi", null);
 const minimizeComments = usePreferenceBoolean("minimizeComments", false);
 const minimizeDescription = usePreferenceBoolean("minimizeDescription", true);
 const minimizeRecommendations = usePreferenceBoolean("minimizeRecommendations", false);

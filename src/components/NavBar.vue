@@ -1,189 +1,319 @@
 <template>
-    <nav class="relative flex w-full flex-wrap items-center justify-center px-2 pb-2.5 sm:px-4">
-        <div class="flex flex-1 justify-start">
-            <router-link class="flex items-center font-sans text-3xl font-bold" to="/"
-                ><img
-                    alt="logo"
-                    src="/img/icons/logo.svg"
-                    height="32"
-                    width="32"
-                    class="mr-[-0.6rem] w-10"
-                />iped</router-link
+    <!-- Desktop sidebar -->
+    <aside
+        class="fixed top-0 left-0 z-30 hidden h-full flex-col bg-white shadow-sm transition-all duration-200 md:flex dark:bg-dark-900 dark:shadow-dark-700"
+        :class="collapsed ? 'w-14' : 'w-56'"
+    >
+        <!-- Logo + collapse toggle -->
+        <div class="flex h-14 shrink-0 items-center px-3" :class="collapsed ? 'justify-center' : 'justify-between'">
+            <router-link v-if="!collapsed" class="flex items-center gap-1 font-sans text-xl font-bold" to="/">
+                <img alt="logo" src="/img/icons/logo.svg" height="28" width="28" class="shrink-0" />
+                iped
+            </router-link>
+            <button
+                class="rounded-lg p-1.5 text-gray-500 hover:bg-gray-100 dark:hover:bg-dark-700"
+                :title="collapsed ? 'Expand sidebar' : 'Collapse sidebar'"
+                @click="collapsed = !collapsed"
             >
+                <i-fa6-solid-bars />
+            </button>
         </div>
-        <div class="relative inline-flex items-center max-md:hidden">
+
+        <!-- Search (only when expanded) -->
+        <div v-if="!collapsed" class="relative shrink-0 px-3 pb-3">
             <input
                 ref="videoSearch"
                 v-model="searchText"
-                class="h-10 w-72 rounded-md bg-gray-300 px-2.5 pr-20 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
+                class="h-9 w-full rounded-lg bg-gray-100 px-3 pr-8 text-sm text-gray-700 focus:ring-2 focus:ring-red-400 focus:outline-none dark:bg-dark-700 dark:text-gray-300"
                 type="text"
                 role="search"
-                :title="$t('actions.search')"
                 :placeholder="$t('actions.search')"
                 @keyup="onKeyUp"
                 @keypress="onKeyPress"
                 @focus="onInputFocus"
                 @blur="onInputBlur"
             />
-            <ClearButton v-if="searchText" @clear="searchText = ''" />
+            <i-fa6-solid-magnifying-glass class="absolute top-2 right-5 text-sm text-gray-400" />
+            <SearchSuggestions
+                v-show="(searchText || showSearchHistory) && suggestionsVisible"
+                ref="searchSuggestions"
+                :search-text="searchText"
+                class="inset-x-3 w-auto"
+                @searchchange="onSearchTextChange"
+            />
         </div>
-        <button
-            id="search-btn"
-            class="mx-1 hidden h-10 w-auto cursor-pointer rounded-sm bg-gray-300 px-2.5 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-[848px]:hidden max-md:px-2 min-[848px]:inline-block md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
-            @click="onSearchClick"
-        >
-            <i-fa6-solid-magnifying-glass />
-        </button>
-        <!-- three vertical lines for toggling the hamburger menu on mobile -->
-        <button class="mr-3 flex flex-col justify-end md:hidden" @click="showTopNav = !showTopNav">
-            <span class="my-[0.1125rem] rounded-xl bg-dark-900 px-2.5 py-px dark:bg-white"></span>
-            <span class="my-[0.1125rem] rounded-xl bg-dark-900 px-2.5 py-px dark:bg-white"></span>
-            <span class="my-[0.1125rem] rounded-xl bg-dark-900 px-2.5 py-px dark:bg-white"></span>
-        </button>
-        <!-- navigation bar for large screen devices -->
-        <ul class="hidden list-none *:pl-3 md:flex md:flex-1 md:justify-end">
-            <li v-if="shouldShowTrending">
-                <router-link
-                    v-t="'titles.trending'"
-                    to="/trending"
-                    class="hover:text-red-500 dark:hover:text-red-400"
-                />
-            </li>
-            <li>
-                <router-link
-                    v-t="'titles.preferences'"
-                    to="/preferences"
-                    class="hover:text-red-500 dark:hover:text-red-400"
-                />
-            </li>
-            <li v-if="shouldShowLogin">
-                <router-link v-t="'titles.login'" to="/login" class="hover:text-red-500 dark:hover:text-red-400" />
-            </li>
-            <li v-if="shouldShowRegister">
-                <router-link
-                    v-t="'titles.register'"
-                    to="/register"
-                    class="hover:text-red-500 dark:hover:text-red-400"
-                />
-            </li>
-            <li v-if="shouldShowHistory">
-                <router-link v-t="'titles.history'" to="/history" class="hover:text-red-500 dark:hover:text-red-400" />
-            </li>
-            <li>
-                <router-link
-                    v-t="'titles.playlists'"
-                    to="/playlists"
-                    class="hover:text-red-500 dark:hover:text-red-400"
-                />
-            </li>
-            <li v-if="!shouldShowTrending">
-                <router-link v-t="'titles.feed'" to="/feed" class="hover:text-red-500 dark:hover:text-red-400" />
-            </li>
-        </ul>
-    </nav>
-    <!-- navigation bar for mobile devices -->
+
+        <!-- Nav links -->
+        <nav class="flex flex-1 flex-col gap-0.5 overflow-y-auto px-2 pb-2">
+            <NavLinkItem
+                to="/recommended"
+                :collapsed="collapsed"
+                :icon="IFa6SolidWandMagicSparkles"
+                :label="$t('titles.recommended')"
+            />
+            <NavLinkItem to="/trending" :collapsed="collapsed" :icon="IFa6SolidFire" :label="$t('titles.trending')" />
+            <NavLinkItem to="/shorts" :collapsed="collapsed" :icon="IFa6SolidFilm" :label="$t('titles.shorts')" />
+            <NavLinkItem to="/tiktok" :collapsed="collapsed" :icon="IFa6BrandsTiktok" :label="'TikTok'" />
+
+            <hr class="my-1 border-gray-200 dark:border-dark-700" />
+
+            <NavLinkItem to="/feed" :collapsed="collapsed" :icon="IFa6SolidRss" :label="$t('titles.feed')" />
+            <NavLinkItem
+                to="/subscriptions"
+                :collapsed="collapsed"
+                :icon="IFa6SolidBell"
+                :label="$t('titles.subscriptions')"
+            />
+            <NavLinkItem
+                to="/queue"
+                :collapsed="collapsed"
+                :icon="IFa6SolidListUl"
+                :label="$t('titles.queue')"
+                :badge="queueSize > 0 ? queueSize : null"
+            />
+
+            <hr class="my-1 border-gray-200 dark:border-dark-700" />
+
+            <NavLinkItem
+                v-if="showHistory"
+                to="/history"
+                :collapsed="collapsed"
+                :icon="IFa6SolidClockRotateLeft"
+                :label="$t('titles.history')"
+            />
+            <NavLinkItem to="/playlists" :collapsed="collapsed" :icon="IFa6SolidList" :label="$t('titles.playlists')" />
+            <NavLinkItem
+                to="/collections"
+                :collapsed="collapsed"
+                :icon="IFa6SolidLayerGroup"
+                :label="$t('titles.collections')"
+            />
+        </nav>
+
+        <!-- Bottom actions -->
+        <div class="shrink-0 border-t border-gray-200 p-2 dark:border-dark-700">
+            <NavLinkItem
+                to="/preferences"
+                :collapsed="collapsed"
+                :icon="IFa6SolidGear"
+                :label="$t('titles.preferences')"
+            />
+            <NavLinkItem
+                v-if="showLogin"
+                to="/login"
+                :collapsed="collapsed"
+                :icon="IFa6SolidUser"
+                :label="$t('titles.login')"
+            />
+            <NavLinkItem
+                v-if="showRegister"
+                to="/register"
+                :collapsed="collapsed"
+                :icon="IFa6SolidUserPlus"
+                :label="$t('titles.register')"
+            />
+            <button
+                v-if="!collapsed"
+                class="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-dark-700"
+                :title="$t('titles.keyboard_shortcuts')"
+                @click="$emit('showShortcuts')"
+            >
+                <i-fa6-solid-keyboard class="shrink-0" />
+                <span class="truncate">{{ $t("titles.keyboard_shortcuts") }}</span>
+            </button>
+            <button
+                v-else
+                class="flex w-full items-center justify-center rounded-lg px-2.5 py-2 text-sm text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-dark-700"
+                :title="$t('titles.keyboard_shortcuts')"
+                @click="$emit('showShortcuts')"
+            >
+                <i-fa6-solid-keyboard />
+            </button>
+        </div>
+    </aside>
+
+    <!-- Mobile top bar -->
     <div
-        v-if="showTopNav"
-        class="mb-4 flex flex-col *:flex *:w-full *:items-center *:gap-1 *:border-b *:border-dark-100 *:p-1"
+        class="fixed inset-x-0 top-0 z-30 flex h-14 items-center gap-2 bg-white px-3 shadow-sm md:hidden dark:bg-dark-900"
     >
-        <router-link v-if="shouldShowTrending" to="/trending">
-            <i-fa6-solid-fire />
-            <i18n-t keypath="titles.trending"></i18n-t>
+        <button
+            class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-dark-700"
+            @click="showMobileMenu = !showMobileMenu"
+        >
+            <i-fa6-solid-bars />
+        </button>
+        <router-link class="flex items-center gap-1 font-sans text-xl font-bold" to="/">
+            <img alt="logo" src="/img/icons/logo.svg" height="26" width="26" />
+            iped
         </router-link>
-        <router-link to="/preferences">
-            <i-fa6-solid-gear />
-            <i18n-t keypath="titles.preferences"></i18n-t>
-        </router-link>
-        <router-link v-if="shouldShowLogin" to="/login">
-            <i-fa6-solid-user />
-            <i18n-t keypath="titles.login"></i18n-t>
-        </router-link>
-        <router-link v-if="shouldShowLogin" to="/register">
-            <i-fa6-solid-user-plus />
-            <i18n-t keypath="titles.register"></i18n-t>
-        </router-link>
-        <router-link v-if="shouldShowHistory" to="/history">
-            <i-fa6-solid-clock-rotate-left />
-            <i18n-t keypath="titles.history"></i18n-t>
-        </router-link>
-        <router-link to="/playlists">
-            <i-fa6-solid-list />
-            <i18n-t keypath="titles.playlists"></i18n-t>
-        </router-link>
-        <router-link v-if="!shouldShowTrending" to="/feed">
-            <i-fa6-solid-play />
-            <i18n-t keypath="titles.feed"></i18n-t>
-        </router-link>
+        <div class="relative flex flex-1">
+            <input
+                v-model="searchText"
+                class="h-9 w-full rounded-lg bg-gray-100 px-3 text-sm text-gray-700 focus:ring-2 focus:ring-red-400 focus:outline-none dark:bg-dark-700 dark:text-gray-300"
+                type="text"
+                role="search"
+                :placeholder="$t('actions.search')"
+                @keyup="onKeyUp"
+                @keypress="onKeyPress"
+                @focus="onInputFocus"
+                @blur="onInputBlur"
+            />
+            <SearchSuggestions
+                v-show="(searchText || showSearchHistory) && suggestionsVisible"
+                ref="searchSuggestions"
+                :search-text="searchText"
+                @searchchange="onSearchTextChange"
+            />
+        </div>
     </div>
-    <!-- search suggestions for mobile devices -->
-    <div class="relative mb-2 inline-flex w-full items-center md:hidden">
-        <input
-            v-model="searchText"
-            class="h-10 w-full rounded-md bg-gray-300 px-2.5 text-gray-600 focus:shadow-red-400 focus:outline-2 focus:outline-red-500 dark:bg-dark-400 dark:text-gray-400"
-            type="text"
-            role="search"
-            :title="$t('actions.search')"
-            :placeholder="$t('actions.search')"
-            @keyup="onKeyUp"
-            @keypress="onKeyPress"
-            @focus="onInputFocus"
-            @blur="onInputBlur"
-        />
-        <ClearButton v-if="searchText" @clear="searchText = ''" />
-    </div>
-    <SearchSuggestions
-        v-show="(searchText || showSearchHistory) && suggestionsVisible"
-        ref="searchSuggestions"
-        :search-text="searchText"
-        @searchchange="onSearchTextChange"
-    />
+
+    <!-- Mobile menu drawer -->
+    <Transition name="slide-left">
+        <div v-if="showMobileMenu" class="fixed inset-0 z-40 md:hidden" @click.self="showMobileMenu = false">
+            <div class="absolute top-0 left-0 h-full w-64 bg-white shadow-xl dark:bg-dark-900" @click.stop>
+                <div class="flex h-14 items-center justify-between px-4">
+                    <router-link
+                        class="flex items-center gap-1 font-sans text-xl font-bold"
+                        to="/"
+                        @click="showMobileMenu = false"
+                    >
+                        <img alt="logo" src="/img/icons/logo.svg" height="26" width="26" />
+                        iped
+                    </router-link>
+                    <button class="p-2" @click="showMobileMenu = false">
+                        <i-fa6-solid-xmark />
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-0.5 px-2 pb-4">
+                    <MobileNavLinkItem
+                        to="/recommended"
+                        :label="$t('titles.recommended')"
+                        @click="showMobileMenu = false"
+                    >
+                        <i-fa6-solid-wand-magic-sparkles />
+                    </MobileNavLinkItem>
+                    <MobileNavLinkItem to="/trending" :label="$t('titles.trending')" @click="showMobileMenu = false">
+                        <i-fa6-solid-fire />
+                    </MobileNavLinkItem>
+                    <MobileNavLinkItem to="/shorts" :label="$t('titles.shorts')" @click="showMobileMenu = false">
+                        <i-fa6-solid-film />
+                    </MobileNavLinkItem>
+                    <MobileNavLinkItem to="/tiktok" label="TikTok" @click="showMobileMenu = false">
+                        <i-fa6-brands-tiktok />
+                    </MobileNavLinkItem>
+                    <hr class="my-1 border-gray-200 dark:border-dark-700" />
+                    <MobileNavLinkItem to="/feed" :label="$t('titles.feed')" @click="showMobileMenu = false">
+                        <i-fa6-solid-rss />
+                    </MobileNavLinkItem>
+                    <MobileNavLinkItem
+                        to="/subscriptions"
+                        :label="$t('titles.subscriptions')"
+                        @click="showMobileMenu = false"
+                    >
+                        <i-fa6-solid-bell />
+                    </MobileNavLinkItem>
+                    <MobileNavLinkItem to="/queue" :label="$t('titles.queue')" @click="showMobileMenu = false">
+                        <i-fa6-solid-list-ul />
+                    </MobileNavLinkItem>
+                    <hr class="my-1 border-gray-200 dark:border-dark-700" />
+                    <MobileNavLinkItem
+                        v-if="showHistory"
+                        to="/history"
+                        :label="$t('titles.history')"
+                        @click="showMobileMenu = false"
+                    >
+                        <i-fa6-solid-clock-rotate-left />
+                    </MobileNavLinkItem>
+                    <MobileNavLinkItem to="/playlists" :label="$t('titles.playlists')" @click="showMobileMenu = false">
+                        <i-fa6-solid-list />
+                    </MobileNavLinkItem>
+                    <MobileNavLinkItem
+                        to="/collections"
+                        :label="$t('titles.collections')"
+                        @click="showMobileMenu = false"
+                    >
+                        <i-fa6-solid-layer-group />
+                    </MobileNavLinkItem>
+                    <hr class="my-1 border-gray-200 dark:border-dark-700" />
+                    <MobileNavLinkItem
+                        to="/preferences"
+                        :label="$t('titles.preferences')"
+                        @click="showMobileMenu = false"
+                    >
+                        <i-fa6-solid-gear />
+                    </MobileNavLinkItem>
+                    <MobileNavLinkItem
+                        v-if="showLogin"
+                        to="/login"
+                        :label="$t('titles.login')"
+                        @click="showMobileMenu = false"
+                    >
+                        <i-fa6-solid-user />
+                    </MobileNavLinkItem>
+                    <MobileNavLinkItem
+                        v-if="showRegister"
+                        to="/register"
+                        :label="$t('titles.register')"
+                        @click="showMobileMenu = false"
+                    >
+                        <i-fa6-solid-user-plus />
+                    </MobileNavLinkItem>
+                </nav>
+            </div>
+        </div>
+    </Transition>
 </template>
 
 <script setup>
 import { ref, computed, watch, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import SearchSuggestions from "./SearchSuggestions.vue";
-import ClearButton from "./ui/ClearButton.vue";
+import NavLinkItem from "./NavLinkItem.vue";
+import MobileNavLinkItem from "./MobileNavLinkItem.vue";
 import hotkeys from "hotkeys-js";
 import { fetchJson, authApiUrl, getAuthToken } from "@/composables/useApi.js";
-import { getPreferenceBoolean, getPreferenceString } from "@/composables/usePreferences.js";
+import { getPreferenceBoolean } from "@/composables/usePreferences.js";
+import { useQueue } from "@/composables/useQueue.js";
+
+import IFa6SolidWandMagicSparkles from "~icons/fa6-solid/wand-magic-sparkles";
+import IFa6SolidFire from "~icons/fa6-solid/fire";
+import IFa6SolidFilm from "~icons/fa6-solid/film";
+import IFa6BrandsTiktok from "~icons/fa6-brands/tiktok";
+import IFa6SolidRss from "~icons/fa6-solid/rss";
+import IFa6SolidBell from "~icons/fa6-solid/bell";
+import IFa6SolidListUl from "~icons/fa6-solid/list-ul";
+import IFa6SolidClockRotateLeft from "~icons/fa6-solid/clock-rotate-left";
+import IFa6SolidList from "~icons/fa6-solid/list";
+import IFa6SolidLayerGroup from "~icons/fa6-solid/layer-group";
+import IFa6SolidGear from "~icons/fa6-solid/gear";
+import IFa6SolidUser from "~icons/fa6-solid/user";
+import IFa6SolidUserPlus from "~icons/fa6-solid/user-plus";
+
+defineEmits(["showShortcuts"]);
 
 const router = useRouter();
 const route = useRoute();
 
 const videoSearch = ref(null);
 const searchSuggestions = ref(null);
-
 const searchText = ref("");
 const suggestionsVisible = ref(false);
-const showTopNav = ref(false);
+const showMobileMenu = ref(false);
 const registrationDisabled = ref(false);
+const collapsed = ref(false);
 
-const shouldShowLogin = computed(() => {
-    return getAuthToken() == null;
-});
+const { queueSize } = useQueue();
 
-const shouldShowRegister = computed(() => {
-    return registrationDisabled.value == false ? shouldShowLogin.value : false;
-});
-
-const shouldShowHistory = computed(() => {
-    return getPreferenceBoolean("watchHistory", false);
-});
-
-const shouldShowTrending = computed(() => {
-    return getPreferenceString("homepage", "trending") != "trending";
-});
-
-const showSearchHistory = computed(() => {
-    return getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history");
-});
+const showLogin = computed(() => getAuthToken() == null);
+const showRegister = computed(() => !registrationDisabled.value && showLogin.value);
+const showHistory = computed(() => getPreferenceBoolean("watchHistory", false));
+const showSearchHistory = computed(
+    () => getPreferenceBoolean("searchHistory", false) && localStorage.getItem("search_history"),
+);
 
 watch(
     () => route.fullPath,
-    () => {
-        updateSearchTextFromURLSearchParams();
-    },
+    () => updateSearchTextFromURLSearchParams(),
 );
 
 function updateSearchTextFromURLSearchParams() {
@@ -191,28 +321,17 @@ function updateSearchTextFromURLSearchParams() {
     if (query) onSearchTextChange(query);
 }
 
-function focusOnSearchBar() {
-    hotkeys("ctrl+k", event => {
-        event.preventDefault();
-        videoSearch.value.focus();
-    });
-}
-
 function onKeyUp(e) {
-    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-        e.preventDefault();
-    }
-    searchSuggestions.value.onKeyUp(e);
+    if (e.key === "ArrowUp" || e.key === "ArrowDown") e.preventDefault();
+    searchSuggestions.value?.onKeyUp(e);
 }
 
 function onKeyPress(e) {
-    if (e.key === "Enter") {
-        submitSearch(e);
-    }
+    if (e.key === "Enter") submitSearch(e);
 }
 
 function onInputFocus() {
-    if (showSearchHistory.value) searchSuggestions.value.refreshSuggestions();
+    if (showSearchHistory.value) searchSuggestions.value?.refreshSuggestions();
     suggestionsVisible.value = true;
 }
 
@@ -224,34 +343,48 @@ function onSearchTextChange(text) {
     searchText.value = text;
 }
 
-async function fetchAuthConfig() {
-    fetchJson(authApiUrl() + "/config").then(config => {
-        registrationDisabled.value = config?.registrationDisabled === true;
-    });
-}
-
-function onSearchClick(e) {
-    submitSearch(e);
-}
-
 function submitSearch(e) {
-    e.target.blur();
+    e.target?.blur();
+    showMobileMenu.value = false;
     if (searchText.value) {
-        router.push({
-            name: "SearchResults",
-            query: { search_query: searchText.value },
-        });
+        router.push({ name: "SearchResults", query: { search_query: searchText.value } });
     } else {
         router.push("/");
     }
-    return;
+}
+
+async function fetchAuthConfig() {
+    try {
+        const config = await fetchJson(authApiUrl() + "/config");
+        registrationDisabled.value = config?.registrationDisabled === true;
+    } catch {
+        // config endpoint unavailable
+    }
 }
 
 onMounted(() => {
     fetchAuthConfig();
     updateSearchTextFromURLSearchParams();
-    focusOnSearchBar();
+    hotkeys("ctrl+k", e => {
+        e.preventDefault();
+        videoSearch.value?.focus();
+    });
+    // Navigation shortcuts
+    hotkeys("g+h", () => router.push("/recommended"));
+    hotkeys("g+t", () => router.push("/trending"));
+    hotkeys("g+f", () => router.push("/feed"));
+    hotkeys("g+s", () => router.push("/shorts"));
+    hotkeys("g+q", () => router.push("/queue"));
 });
 </script>
 
-<style></style>
+<style scoped>
+.slide-left-enter-active,
+.slide-left-leave-active {
+    transition: opacity 0.2s;
+}
+.slide-left-enter-from,
+.slide-left-leave-to {
+    opacity: 0;
+}
+</style>

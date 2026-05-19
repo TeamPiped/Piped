@@ -83,6 +83,9 @@
                 <button :title="$t('actions.add_to_playlist')" @click="showPlaylistModal = !showPlaylistModal">
                     <i-fa6-solid-circle-plus />
                 </button>
+                <button :title="$t('titles.queue')" @click="addVideoToQueue">
+                    <i-fa6-solid-list-ul />
+                </button>
                 <button :title="$t('actions.share')" @click="showShareModal = !showShareModal">
                     <i-fa6-solid-share />
                 </button>
@@ -137,6 +140,7 @@ import VideoThumbnail from "./VideoThumbnail.vue";
 import { numberFormat, timeAgo } from "@/composables/useFormatting.js";
 import { getPreferenceBoolean } from "@/composables/usePreferences.js";
 import { removeVideoFromPlaylist } from "@/composables/usePlaylists.js";
+import { useQueue } from "@/composables/useQueue.js";
 
 const props = defineProps({
     item: {
@@ -160,6 +164,7 @@ const props = defineProps({
 
 const emit = defineEmits(["update:watched", "remove"]);
 
+const { addToQueue } = useQueue();
 const removeButton = ref(null);
 const showPlaylistModal = ref(false);
 const showShareModal = ref(false);
@@ -176,6 +181,17 @@ function removeVideo() {
     removeVideoFromPlaylist(props.playlistId, props.index).then(json => {
         if (json.error) alert(json.error);
         else emit("remove");
+    });
+}
+
+function addVideoToQueue() {
+    addToQueue({
+        url: props.item.url,
+        title: props.item.title,
+        thumbnail: props.item.thumbnail,
+        uploaderName: props.item.uploaderName,
+        uploaderUrl: props.item.uploaderUrl,
+        duration: props.item.duration,
     });
 }
 

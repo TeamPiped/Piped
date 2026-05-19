@@ -28,12 +28,14 @@ export function download(text, filename, mimeType) {
 }
 
 export function getHomePage() {
-    switch (getPreferenceString("homepage", "trending")) {
+    switch (getPreferenceString("homepage", "recommended")) {
+        case "recommended":
+            return "/recommended";
         case "trending":
             return "/trending";
         case "feed":
             return "/feed";
         default:
-            return undefined;
+            return "/recommended";
     }
 }

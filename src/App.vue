@@ -1,25 +1,33 @@
 <template>
-    <div
-        class="flex min-h-screen w-full flex-col bg-white px-[1vw] py-5 text-black antialiased dark:bg-dark-900 dark:text-white"
-        :class="[theme]"
-    >
-        <div class="flex-1">
-            <NavBar />
-            <router-view v-slot="{ Component }">
-                <keep-alive :max="5">
-                    <component :is="Component" :key="$route.fullPath" />
-                </keep-alive>
-            </router-view>
-        </div>
+    <div class="flex min-h-screen bg-white text-black antialiased dark:bg-dark-900 dark:text-white" :class="[theme]">
+        <!-- Navigation (sidebar on desktop, top bar on mobile — self-contained) -->
+        <NavBar @show-shortcuts="shortcutsModal?.open()" />
 
-        <FooterComponent />
+        <!-- Main content area — offset by sidebar width on desktop -->
+        <div class="flex min-w-0 flex-1 flex-col md:pl-56">
+            <!-- Mobile: spacer so content clears the fixed top bar -->
+            <div class="h-14 shrink-0 md:hidden" />
+
+            <main class="flex-1 px-4 py-5 md:px-6">
+                <router-view v-slot="{ Component }">
+                    <keep-alive :max="5">
+                        <component :is="Component" :key="$route.fullPath" />
+                    </keep-alive>
+                </router-view>
+            </main>
+
+            <FooterComponent />
+        </div>
     </div>
+
+    <KeyboardShortcutsModal ref="shortcutsModal" />
 </template>
 
 <script setup>
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import NavBar from "./components/NavBar.vue";
 import FooterComponent from "./components/FooterComponent.vue";
+import KeyboardShortcutsModal from "./components/KeyboardShortcutsModal.vue";
 import { testLocalStorage, usePreferenceString } from "@/composables/usePreferences.js";
 import { getDefaultLanguage, TimeAgo, TimeAgoConfig } from "@/composables/useFormatting.js";
 import { fetchSubscriptions } from "@/composables/useSubscriptions.js";
@@ -30,6 +38,7 @@ const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 const themePreference = usePreferenceString("theme", "dark");
 const localePreference = usePreferenceString("hl", "en");
 const theme = ref("dark");
+const shortcutsModal = ref(null);
 
 function setTheme() {
     const themes = {
