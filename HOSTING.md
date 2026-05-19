@@ -1,6 +1,6 @@
 # Hosting Piped
 
-Three ways to run your own instance:
+Three deployment options:
 
 1. [Docker Compose (recommended)](#docker-compose)
 2. [GitHub Codespaces](#github-codespaces)
@@ -8,61 +8,47 @@ Three ways to run your own instance:
 
 ---
 
+## How BYOD works
+
+Unlike the original Piped, **no domain configuration is required**.
+
+nginx uses `sub_filter` to rewrite the Piped Backend's placeholder URLs
+(`http://placeholder.invalid/...`) with the actual domain from each incoming request's
+`Host` + `X-Forwarded-Proto` headers — the same approach Invidious uses.
+
+You can put this behind any domain, change domains later, or run it locally:
+everything auto-detects at request time.
+
+---
+
 ## Docker Compose
 
-Everything runs behind a single nginx port. You point your own reverse proxy at that port —
-no extra TLS config needed inside this stack.
+**Requirements:** Docker Engine 24+ and Docker Compose v2.
 
-**Example Caddy config** (in your existing Caddyfile):
+```bash
+git clone https://github.com/YOUR_FORK/Piped.git
+cd Piped
+
+# 1. Create backend config (only the DB password needs changing)
+cp config/piped.properties.example config/piped.properties
+# Edit: change hibernate.connection.password=changeme to something strong
+
+# 2. Create .env
+cp .env.example .env
+# Edit: set POSTGRES_PASSWORD to match the password above
+
+# 3. Start
+docker compose up -d
 ```
-piped.yourdomain.com {
+
+**Caddy config** (in your existing Caddyfile — nothing else needed):
+```
+piped.example.com {
     reverse_proxy localhost:8091
 }
 ```
 
-### Steps
-
-**1. Clone**
-```bash
-git clone https://github.com/YOUR_FORK/Piped.git && cd Piped
-```
-
-**2. Create your backend config**
-```bash
-cp config/piped.properties.example config/piped.properties
-# Edit the three URL lines if you want video streams to work (see below)
-```
-
-**3. Create `.env`**
-```bash
-cp .env.example .env
-# Edit PORT and POSTGRES_PASSWORD
-```
-
-**4. Start**
-```bash
-docker compose up -d
-docker compose logs -f   # watch startup
-```
-
-That's it. `reverse_proxy localhost:8091` in your proxy and you're done.
-
-### About `PIPED_EXTERNAL_URL`
-
-The Piped backend generates absolute URLs for video streams using `PROXY_PART` in
-`config/piped.properties`. If left empty, streams may not load. Set it to your public URL:
-
-```bash
-# .env
-PIPED_EXTERNAL_URL=https://piped.yourdomain.com
-```
-
-And update `config/piped.properties`:
-```
-PROXY_PART=https://piped.yourdomain.com
-API_URL=https://piped.yourdomain.com/api
-FRONTEND_URL=https://piped.yourdomain.com
-```
+That's it. Works on any domain with no further config.
 
 ### Updating
 ```bash
@@ -74,72 +60,81 @@ docker compose up -d --build
 
 ## GitHub Codespaces
 
-**1.** Open the repo → **Code → Codespaces → Create codespace**
+1. Open repo → **Code → Codespaces → Create codespace**
+2. In the terminal:
+   ```bash
+   pnpm install && pnpm dev
+   ```
+3. Codespaces auto-forwards the port — open the forwarded URL.
 
-**2.** In the terminal:
+**For the content relay** (second terminal):
 ```bash
-pnpm install
-pnpm dev
-```
-
-Open the forwarded port (Codespaces auto-exposes it).
-
-**3.** For TikTok content, open a second terminal:
-```bash
-pip install yt-dlp   # if not already installed
+pip install yt-dlp
 cd server && npm install && npm start
 ```
 
-Vite automatically forwards `/math/*` to `localhost:3000`.
+Vite automatically forwards `/math/*` → `localhost:3000`.
 
 ---
 
 ## Local dev
 
 ```bash
-# Install deps
 pnpm install
 
-# Optional: point at a Piped API (defaults to /api on same origin)
+# Optional: use a public Piped API instead of running the backend locally
 echo "VITE_PIPED_API=https://pipedapi.kavin.rocks" > .env
 
-# Start frontend
 pnpm dev
+```
 
-# Start content relay (separate terminal, needs yt-dlp installed)
+**Content relay** (separate terminal, needs yt-dlp):
+```bash
 cd server && npm install && npm start
 ```
 
 ### Production build
 ```bash
-pnpm build
-# Serve dist/ with any static file host
+pnpm build   # output in dist/
 ```
+
+Serve `dist/` with any static file host. For the full stack locally, use Docker Compose.
 
 ---
 
 ## Service overview
 
-| Service | Port | What it does |
+| Service | Port | Role |
 |---|---|---|
-| `frontend` (nginx) | **8091** (public) | Serves static files; routes `/api/*` and `/math/*` internally |
-| `pipedapi` | 8080 (internal) | Piped Backend — YouTube data via NewPipe Extractor |
-| `postgres` | 5432 (internal) | Database for Piped Backend |
-| `edu-relay` | 3000 (internal) | Content relay (yt-dlp based) for short-form video |
+| `frontend` (nginx) | **8091** ← only public port | Static files + internal routing |
+| `pipedapi` | 8080 (internal) | YouTube data extraction |
+| `postgres` | 5432 (internal) | Piped Backend database |
+| `edu-relay` | 3000 (internal) | Short-form video content relay |
+
+Internal routing in nginx:
+
+| Path | Destination |
+|---|---|
+| `/api/*` | Piped Backend (prefix stripped) |
+| `/calculus/*` | Piped Backend `/proxy/*` (renamed) |
+| `/videoplayback` | Piped Backend |
+| `/math/*` | Content relay (prefix stripped) |
+| `/*` | Frontend static files |
 
 ---
 
 ## Troubleshooting
 
 **Content relay returns no results**
-yt-dlp needs to be current. Update inside the container:
+yt-dlp needs to stay current — update inside the container:
 ```bash
 docker compose exec edu-relay pip install -U yt-dlp
 ```
 
-**Videos don't load / stream errors**
-Set `PIPED_EXTERNAL_URL` in `.env` and update `config/piped.properties` (see above).
-
-**Backend won't connect to postgres**
+**Backend fails to start**
 Check that `POSTGRES_PASSWORD` in `.env` matches `hibernate.connection.password` in
-`config/piped.properties`.
+`config/piped.properties`, and that `config/piped.properties` exists (copy from `.example`).
+
+**Videos don't stream**
+Verify nginx is running (`docker compose ps`) and that your reverse proxy passes the
+original `Host` header through (Caddy does this by default).

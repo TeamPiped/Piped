@@ -1,30 +1,23 @@
 # Piped Backend configuration
-# Copy this file to config/piped.properties and fill in your values.
-# docker compose will mount config/piped.properties into the piped backend container.
+# Copy to config/piped.properties and adjust the database password.
+# Everything else works automatically — no domain config needed.
 
 # ── Server ─────────────────────────────────────────────────────────────────────
 PORT=8080
 
 # ── PostgreSQL ─────────────────────────────────────────────────────────────────
-# When using the docker-compose.yml in this repo the hostname is "postgres".
 hibernate.connection.url=jdbc:postgresql://postgres:5432/piped
 hibernate.connection.username=piped
 hibernate.connection.password=changeme
 
-# ── Public URLs ────────────────────────────────────────────────────────────────
-# Replace piped.example.com with your actual domain (the same value as PIPED_DOMAIN).
-# If you are running locally use http://localhost.
+# ── Public URLs — DO NOT CHANGE these three lines ──────────────────────────────
+# nginx rewrites these placeholder values at request time using sub_filter,
+# replacing them with the actual domain the user is accessing from.
+# This is what makes BYOD / any-domain work — same technique as Invidious.
+PROXY_PART=http://placeholder.invalid
+API_URL=http://placeholder.invalid/api
+FRONTEND_URL=http://placeholder.invalid
 
-# The path at which the backend is reachable (note: /api prefix added by Caddy)
-API_URL=https://piped.example.com/api
-
-# The frontend URL (root of your domain)
-FRONTEND_URL=https://piped.example.com
-
-# Used to build proxied media URLs returned to the frontend
-PROXY_PART=https://piped.example.com
-
-# ── Rate limiting / features ────────────────────────────────────────────────────
-# Uncomment and adjust as needed:
+# ── Optional features ───────────────────────────────────────────────────────────
 # DISABLE_REGISTRATION=false
 # FEED_RETENTION=30
