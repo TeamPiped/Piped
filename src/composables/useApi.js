@@ -1,19 +1,21 @@
 import { getPreferenceBoolean, getPreferenceString } from "./usePreferences.js";
 
-export function fetchJson(url, params, options) {
+export async function fetchJson(url, params, options) {
     if (params) {
         url = new URL(url);
-        for (var param in params) url.searchParams.set(param, params[param]);
+        for (const param in params) url.searchParams.set(param, params[param]);
     }
-    return fetch(url, options).then(response => {
-        return response.json();
-    });
+    const response = await fetch(url, options);
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
 }
 
 export function hashCode(s) {
-    return s.split("").reduce(function (a, b) {
+    return s.split("").reduce((a, b) => {
         a = (a << 5) - a + b.charCodeAt(0);
-        return a & a;
+        return a | 0;
     }, 0);
 }
 

@@ -4,8 +4,13 @@ const preferenceRefs = new Map();
 
 export function testLocalStorage() {
     try {
-        if (window.localStorage !== undefined) localStorage;
-        return true;
+        if (typeof window.localStorage !== "undefined") {
+            const testKey = "__piped_storage_test__";
+            window.localStorage.setItem(testKey, testKey);
+            window.localStorage.removeItem(testKey);
+            return true;
+        }
+        return false;
     } catch {
         return false;
     }
@@ -83,28 +88,20 @@ export function setPreference(key, value, disableAlert = false) {
 export function getPreferenceBoolean(key, defaultVal) {
     const queryValue = getQueryPreference(key);
     if (queryValue !== null) {
-        switch (String(queryValue).toLowerCase()) {
-            case "true":
-            case "1":
-            case "on":
-            case "yes":
-                return true;
-            default:
-                return false;
+        const lowerValue = String(queryValue).toLowerCase();
+        if (lowerValue === "true" || lowerValue === "1" || lowerValue === "on" || lowerValue === "yes") {
+            return true;
         }
+        return false;
     }
 
     if (testLocalStorage()) {
         const value = usePreferenceBoolean(key, defaultVal).value;
-        switch (String(value).toLowerCase()) {
-            case "true":
-            case "1":
-            case "on":
-            case "yes":
-                return true;
-            default:
-                return false;
+        const lowerValue = String(value).toLowerCase();
+        if (lowerValue === "true" || lowerValue === "1" || lowerValue === "on" || lowerValue === "yes") {
+            return true;
         }
+        return false;
     }
 
     return defaultVal;

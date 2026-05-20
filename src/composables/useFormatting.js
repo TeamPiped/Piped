@@ -11,16 +11,16 @@ export { TimeAgo };
 export const TimeAgoConfig = { locale: "en" };
 
 export function timeFormat(duration) {
-    var pad = function (num, size) {
+    const pad = (num, size) => {
         return ("000" + num).slice(size * -1);
     };
 
-    var time = parseFloat(duration).toFixed(3),
-        hours = Math.floor(time / 60 / 60),
-        minutes = Math.floor(time / 60) % 60,
-        seconds = Math.floor(time - minutes * 60);
+    const time = parseFloat(duration).toFixed(3);
+    const hours = Math.floor(time / 60 / 60);
+    const minutes = Math.floor(time / 60) % 60;
+    const seconds = Math.floor(time % 60);
 
-    var str = "";
+    let str = "";
 
     if (hours > 0) str += hours + ":";
 
@@ -30,7 +30,7 @@ export function timeFormat(duration) {
 }
 
 export function numberFormat(num) {
-    var loc = `${getPreferenceString("hl")}-${getPreferenceString("region")}`;
+    let loc = `${getPreferenceString("hl")}-${getPreferenceString("region")}`;
 
     try {
         Intl.getCanonicalLocales(loc);
@@ -45,8 +45,9 @@ export function numberFormat(num) {
 }
 
 export function addCommas(num) {
-    num = parseInt(num);
-    return num.toLocaleString("en-US");
+    const parsed = parseFloat(num);
+    if (isNaN(parsed)) return num;
+    return parsed.toLocaleString("en-US");
 }
 
 export function timeAgo(time) {
