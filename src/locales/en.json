@@ -23,13 +23,56 @@
         "continue_watching": "Continue Watching",
         "queue": "Watch Queue",
         "collections": "Collections",
-        "keyboard_shortcuts": "Keyboard Shortcuts"
+        "keyboard_shortcuts": "Keyboard Shortcuts",
+        "watch_later": "Watch Later",
+        "favorites": "Favorites",
+        "stats": "Statistics",
+        "sleep_timer": "Sleep Timer",
+        "videos": "videos",
+        "bookmark": "Bookmark",
+        "recent_channels": "Recently visited channels",
+        "filters": "Filters",
+        "reading_mode": "Reading Mode"
+    },
+    "stats": {
+        "hours_watched": "Hours watched",
+        "videos_watched": "Videos watched",
+        "channels": "Channels",
+        "avg_per_video": "Avg / video",
+        "top_channels": "Top channels by watch time"
+    },
+    "filters": {
+        "any_time": "Any time",
+        "last_hour": "Last hour",
+        "today": "Today",
+        "this_week": "This week",
+        "this_month": "This month",
+        "this_year": "This year",
+        "any_duration": "Any duration",
+        "short": "Short",
+        "medium": "Medium",
+        "long": "Long",
+        "relevance": "Relevance",
+        "upload_date": "Upload date",
+        "view_count": "View count",
+        "rating": "Rating"
     },
     "player": {
         "watch_on": "View on {0}",
         "failed": "Failed with error code {0}. See logs for more info."
     },
     "actions": {
+        "clear_all": "Clear all",
+        "remove": "Remove",
+        "save": "Save",
+        "cancel": "Cancel",
+        "reset": "Reset",
+        "custom": "Custom",
+        "random_pick": "Random",
+        "export_all": "Export all data",
+        "import_all": "Import data",
+        "add_bookmark": "Add bookmark",
+        "bookmark_note": "Note (optional)",
         "subscribe": "Subscribe",
         "unsubscribe": "Unsubscribe",
         "view_subscriptions": "View Subscriptions",
@@ -198,6 +241,9 @@
         "user_disabled": "Comments are disabled in the settings."
     },
     "preferences": {
+        "accent_color": "Accent colour",
+        "default_speed": "Default playback speed",
+        "backup_restore": "Backup & restore",
         "instance_name": "Instance Name",
         "instance_locations": "Instance Locations",
         "has_cdn": "Has CDN?",
@@ -276,6 +322,14 @@
         "next_short": "Next short"
     },
     "info": {
+        "watch_later_empty": "Nothing saved for later yet. Hit the clock icon on any video to add it.",
+        "favorites_empty": "No favorites yet. Tap the heart on a video to add it here.",
+        "bookmarks_empty": "No bookmarks yet. Open a video and add timestamps to remember key moments.",
+        "bookmarks_empty_video": "No bookmarks for this video yet.",
+        "stats_empty": "Watch some videos and your stats will appear here.",
+        "sleep_timer_running": "Stopping playback in",
+        "accent_hint": "Choose a colour or pick a custom one — it applies across the whole app.",
+        "backup_hint": "Download everything saved locally (preferences, queue, favorites, bookmarks, watch history) as a single JSON file. Import it later or on another device.",
         "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them.",
         "page_not_found": "Page not found",
         "recommended_empty": "Watch some videos to get personalized recommendations, or browse Trending to get started.",

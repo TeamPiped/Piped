@@ -86,6 +86,12 @@
                 <button :title="$t('titles.queue')" @click="addVideoToQueue">
                     <i-fa6-solid-list-ul />
                 </button>
+                <button :title="$t('titles.watch_later')" @click="addToWatchLater">
+                    <i-fa6-solid-clock :class="laterFlag ? 'text-blue-500' : ''" />
+                </button>
+                <button :title="$t('titles.favorites')" @click="toggleFav">
+                    <i-fa6-solid-heart :class="favFlag ? 'text-pink-500' : ''" />
+                </button>
                 <button :title="$t('actions.share')" @click="showShareModal = !showShareModal">
                     <i-fa6-solid-share />
                 </button>
@@ -141,6 +147,8 @@ import { numberFormat, timeAgo } from "@/composables/useFormatting.js";
 import { getPreferenceBoolean } from "@/composables/usePreferences.js";
 import { removeVideoFromPlaylist } from "@/composables/usePlaylists.js";
 import { useQueue } from "@/composables/useQueue.js";
+import { useWatchLater } from "@/composables/useWatchLater.js";
+import { useFavorites } from "@/composables/useFavorites.js";
 
 const props = defineProps({
     item: {
@@ -165,6 +173,39 @@ const props = defineProps({
 const emit = defineEmits(["update:watched", "remove"]);
 
 const { addToQueue } = useQueue();
+const { addLater, isLater, items: laterItems } = useWatchLater();
+const { toggle: toggleFavorite, isFavorite, items: favItems } = useFavorites();
+
+const laterFlag = computed(() => {
+    void laterItems.value;
+    return isLater(props.item.url);
+});
+const favFlag = computed(() => {
+    void favItems.value;
+    return isFavorite(props.item.url);
+});
+
+function addToWatchLater() {
+    addLater({
+        url: props.item.url,
+        title: props.item.title,
+        thumbnail: props.item.thumbnail,
+        uploaderName: props.item.uploaderName,
+        uploaderUrl: props.item.uploaderUrl,
+        duration: props.item.duration,
+    });
+}
+
+function toggleFav() {
+    toggleFavorite({
+        url: props.item.url,
+        title: props.item.title,
+        thumbnail: props.item.thumbnail,
+        uploaderName: props.item.uploaderName,
+        uploaderUrl: props.item.uploaderUrl,
+        duration: props.item.duration,
+    });
+}
 const removeButton = ref(null);
 const showPlaylistModal = ref(false);
 const showShareModal = ref(false);

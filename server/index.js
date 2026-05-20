@@ -48,10 +48,10 @@ function ytdlpJson(url, extra = []) {
         const proc = spawn("yt-dlp", args, { timeout: 45_000 });
         let out = "";
         let err = "";
-        proc.stdout.on("data", (d) => (out += d));
-        proc.stderr.on("data", (d) => (err += d));
+        proc.stdout.on("data", d => (out += d));
+        proc.stderr.on("data", d => (err += d));
         proc.on("error", reject);
-        proc.on("close", (code) => {
+        proc.on("close", code => {
             if (code !== 0) return reject(new Error(err.trim() || `yt-dlp exited ${code}`));
             try {
                 resolve(JSON.parse(out.trim()));
@@ -65,20 +65,14 @@ function ytdlpJson(url, extra = []) {
 /** Run yt-dlp on a playlist URL, return parsed JSON (single-json mode). */
 function ytdlpPlaylist(url, count = 20) {
     return new Promise((resolve, reject) => {
-        const args = ytdlpArgs([
-            "--flat-playlist",
-            "--dump-single-json",
-            "-I",
-            `1:${count}`,
-            url,
-        ]);
+        const args = ytdlpArgs(["--flat-playlist", "--dump-single-json", "-I", `1:${count}`, url]);
         const proc = spawn("yt-dlp", args, { timeout: 60_000 });
         let out = "";
         let err = "";
-        proc.stdout.on("data", (d) => (out += d));
-        proc.stderr.on("data", (d) => (err += d));
+        proc.stdout.on("data", d => (out += d));
+        proc.stderr.on("data", d => (err += d));
         proc.on("error", reject);
-        proc.on("close", (code) => {
+        proc.on("close", code => {
             if (code !== 0) return reject(new Error(err.trim() || `yt-dlp exited ${code}`));
             try {
                 resolve(JSON.parse(out.trim()));
@@ -116,10 +110,10 @@ function normalizeEntry(e, opts = {}) {
     let playUrl = null;
     if (Array.isArray(e.formats)) {
         const mp4 = e.formats
-            .filter((f) => f.ext === "mp4" && f.url && !f.format_id?.includes("watermark"))
+            .filter(f => f.ext === "mp4" && f.url && !f.format_id?.includes("watermark"))
             .sort((a, b) => (b.height ?? 0) - (a.height ?? 0))
-            .find((f) => (f.height ?? 9999) <= 720);
-        const best = mp4 ?? e.formats.find((f) => f.url);
+            .find(f => (f.height ?? 9999) <= 720);
+        const best = mp4 ?? e.formats.find(f => f.url);
         if (best?.url) {
             playUrl = `/stream?url=${encodeURIComponent(best.url)}`;
         }
@@ -161,9 +155,7 @@ app.get("/trending", async (req, res) => {
     const perTag = Math.ceil(count / tags.length);
 
     const results = await Promise.allSettled(
-        tags.map((tag) =>
-            ytdlpPlaylist(`https://www.tiktok.com/tag/${tag}`, perTag),
-        ),
+        tags.map(tag => ytdlpPlaylist(`https://www.tiktok.com/tag/${tag}`, perTag)),
     );
 
     const seen = new Set();
@@ -210,22 +202,16 @@ app.get("/search", async (req, res) => {
 
     const count = Math.min(parseInt(req.query.count) || 20, 60);
 
-    let data = null;
+    let data;
     const tag = q.replace(/^#/, "");
 
     // Try TikTok search URL first (yt-dlp TikTokSearchIE)
     try {
-        data = await ytdlpPlaylist(
-            `https://www.tiktok.com/search/video?q=${encodeURIComponent(q)}`,
-            count,
-        );
+        data = await ytdlpPlaylist(`https://www.tiktok.com/search/video?q=${encodeURIComponent(q)}`, count);
     } catch {
         // Fallback: treat the query as a hashtag
         try {
-            data = await ytdlpPlaylist(
-                `https://www.tiktok.com/tag/${encodeURIComponent(tag)}`,
-                count,
-            );
+            data = await ytdlpPlaylist(`https://www.tiktok.com/tag/${encodeURIComponent(tag)}`, count);
         } catch (err) {
             return res.status(502).json({ error: err.message });
         }
@@ -270,7 +256,7 @@ app.get("/stream", (req, res) => {
     }
 
     // Safety: only proxy known TikTok CDN domains
-    const allowed = TIKTOK_CDN_HOSTS.some((h) => parsed.hostname.endsWith(h));
+    const allowed = TIKTOK_CDN_HOSTS.some(h => parsed.hostname.endsWith(h));
     if (!allowed) {
         return res.status(403).json({ error: "URL is not from a TikTok CDN" });
     }
@@ -288,7 +274,7 @@ app.get("/stream", (req, res) => {
                 range: req.headers.range ?? "bytes=0-",
             },
         },
-        (upstreamRes) => {
+        upstreamRes => {
             // Forward relevant headers
             const forward = [
                 "content-type",
@@ -307,7 +293,7 @@ app.get("/stream", (req, res) => {
         },
     );
 
-    upstream.on("error", (err) => {
+    upstream.on("error", err => {
         if (!res.headersSent) res.status(502).json({ error: err.message });
     });
 

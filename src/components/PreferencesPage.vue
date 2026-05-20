@@ -70,7 +70,30 @@
         </select>
     </label>
 
+    <!-- Custom accent colour -->
+    <div class="mx-[15vw] my-3 max-md:mx-[2vw]">
+        <AccentColorPicker />
+    </div>
+
+    <!-- One-click backup / restore -->
+    <div class="mx-[15vw] my-3 max-md:mx-[2vw]">
+        <DataPortabilitySection />
+    </div>
+
     <h2 v-t="'titles.player'" class="text-center" />
+    <label
+        class="mx-[15vw] my-2 flex items-center justify-between odd:bg-gray-200 max-md:mx-[2vw] dark:odd:bg-dark-800"
+        for="ddlDefaultSpeed"
+    >
+        <strong>{{ $t("preferences.default_speed") }}</strong>
+        <select
+            id="ddlDefaultSpeed"
+            v-model.number="defaultSpeed"
+            class="h-8 w-auto bg-gray-300 text-gray-600 dark:bg-dark-400 dark:text-gray-400"
+        >
+            <option v-for="p in speedPresets" :key="p" :value="p">{{ p }}x</option>
+        </select>
+    </label>
     <PreferenceRow for-id="chkAutoPlayVideo">
         <template #label>
             <strong v-t="'actions.autoplay_video'" />
@@ -483,6 +506,9 @@ import PreferenceListbox from "./ui/PreferenceListbox.vue";
 import PreferenceNumberField from "./ui/PreferenceNumberField.vue";
 import PreferenceRow from "./ui/PreferenceRow.vue";
 import PreferenceSwitch from "./ui/PreferenceSwitch.vue";
+import AccentColorPicker from "./AccentColorPicker.vue";
+import DataPortabilitySection from "./DataPortabilitySection.vue";
+import { useDefaultSpeed } from "@/composables/useDefaultSpeed.js";
 import {
     testLocalStorage,
     usePreferenceBoolean,
@@ -528,6 +554,7 @@ const showMarkers = usePreferenceBoolean("showMarkers", true);
 const minSegmentLength = usePreferenceNumber("minSegmentLength", 0);
 const dearrow = usePreferenceBoolean("dearrow", false);
 const selectedTheme = usePreferenceString("theme", "dark");
+const { speed: defaultSpeed, presets: speedPresets } = useDefaultSpeed();
 const autoPlayVideo = usePreferenceBoolean("playerAutoPlay", true);
 const autoDisplayCaptions = usePreferenceBoolean("autoDisplayCaptions", false);
 const autoPlayNextCountdown = usePreferenceNumber("autoPlayNextCountdown", 5);

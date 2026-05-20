@@ -32,8 +32,13 @@ import { testLocalStorage, usePreferenceString } from "@/composables/usePreferen
 import { getDefaultLanguage, TimeAgo, TimeAgoConfig } from "@/composables/useFormatting.js";
 import { fetchSubscriptions } from "@/composables/useSubscriptions.js";
 import { getChannelGroups, createOrUpdateChannelGroup } from "@/composables/useChannelGroups.js";
+import { useTheme } from "@/composables/useTheme.js";
+import { startNotificationPoller } from "@/composables/useChannelNotifications.js";
 
 const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+
+// Initialise the custom accent colour (sets --piped-accent on :root)
+useTheme();
 
 const themePreference = usePreferenceString("theme", "dark");
 const localePreference = usePreferenceString("hl", "en");
@@ -161,6 +166,10 @@ onMounted(() => {
             applyLocale(locale);
         });
     })();
+
+    // Channel-upload notifications: starts the background poller.
+    // No-op if no channels are subscribed for notifications.
+    startNotificationPoller();
 });
 
 onBeforeUnmount(() => {

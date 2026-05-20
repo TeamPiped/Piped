@@ -81,6 +81,24 @@
                 :icon="IFa6SolidClockRotateLeft"
                 :label="$t('titles.history')"
             />
+            <NavLinkItem
+                to="/watch-later"
+                :collapsed="collapsed"
+                :icon="IFa6SolidClock"
+                :label="$t('titles.watch_later')"
+            />
+            <NavLinkItem
+                to="/favorites"
+                :collapsed="collapsed"
+                :icon="IFa6SolidHeart"
+                :label="$t('titles.favorites')"
+            />
+            <NavLinkItem
+                to="/bookmarks"
+                :collapsed="collapsed"
+                :icon="IFa6SolidBookmark"
+                :label="$t('titles.bookmarks')"
+            />
             <NavLinkItem to="/playlists" :collapsed="collapsed" :icon="IFa6SolidList" :label="$t('titles.playlists')" />
             <NavLinkItem
                 to="/collections"
@@ -88,6 +106,7 @@
                 :icon="IFa6SolidLayerGroup"
                 :label="$t('titles.collections')"
             />
+            <NavLinkItem to="/stats" :collapsed="collapsed" :icon="IFa6SolidChartLine" :label="$t('titles.stats')" />
         </nav>
 
         <!-- Bottom actions -->
@@ -115,6 +134,25 @@
             <button
                 v-if="!collapsed"
                 class="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-dark-700"
+                :title="$t('titles.sleep_timer')"
+                @click="showSleepTimer = true"
+            >
+                <i-fa6-solid-moon class="shrink-0" :class="sleepActive ? 'text-indigo-500' : ''" />
+                <span class="truncate">
+                    {{ sleepActive ? sleepRemaining : $t("titles.sleep_timer") }}
+                </span>
+            </button>
+            <button
+                v-else
+                class="flex w-full items-center justify-center rounded-lg px-2.5 py-2 text-sm text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-dark-700"
+                :title="$t('titles.sleep_timer')"
+                @click="showSleepTimer = true"
+            >
+                <i-fa6-solid-moon :class="sleepActive ? 'text-indigo-500' : ''" />
+            </button>
+            <button
+                v-if="!collapsed"
+                class="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-dark-700"
                 :title="$t('titles.keyboard_shortcuts')"
                 @click="$emit('showShortcuts')"
             >
@@ -130,6 +168,7 @@
                 <i-fa6-solid-keyboard />
             </button>
         </div>
+        <SleepTimerModal v-if="showSleepTimer" @close="showSleepTimer = false" />
     </aside>
 
     <!-- Mobile top bar -->
@@ -288,6 +327,12 @@ import IFa6SolidLayerGroup from "~icons/fa6-solid/layer-group";
 import IFa6SolidGear from "~icons/fa6-solid/gear";
 import IFa6SolidUser from "~icons/fa6-solid/user";
 import IFa6SolidUserPlus from "~icons/fa6-solid/user-plus";
+import IFa6SolidClock from "~icons/fa6-solid/clock";
+import IFa6SolidHeart from "~icons/fa6-solid/heart";
+import IFa6SolidBookmark from "~icons/fa6-solid/bookmark";
+import IFa6SolidChartLine from "~icons/fa6-solid/chart-line";
+import SleepTimerModal from "./SleepTimerModal.vue";
+import { useSleepTimer } from "@/composables/useSleepTimer.js";
 
 defineEmits(["showShortcuts"]);
 
@@ -303,6 +348,15 @@ const registrationDisabled = ref(false);
 const collapsed = ref(false);
 
 const { queueSize } = useQueue();
+
+const showSleepTimer = ref(false);
+const { active: sleepActive, remaining: sleepRemainingSec } = useSleepTimer();
+const sleepRemaining = computed(() => {
+    const s = sleepRemainingSec.value;
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return `${m}:${String(sec).padStart(2, "0")}`;
+});
 
 const showLogin = computed(() => getAuthToken() == null);
 const showRegister = computed(() => !registrationDisabled.value && showLogin.value);

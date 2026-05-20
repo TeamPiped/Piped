@@ -3,16 +3,22 @@
         <!-- Continue Watching strip -->
         <ContinueWatchingSection v-if="continueWatching.length > 0" :videos="continueWatching" class="mb-6" />
 
+        <!-- Recently visited channels -->
+        <RecentChannelsSection />
+
         <div class="mb-4 flex items-center justify-between">
             <h1 class="text-2xl font-bold">{{ $t("titles.recommended") }}</h1>
-            <button
-                class="flex items-center gap-1.5 rounded-md bg-gray-200 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-300 dark:bg-dark-400 dark:text-gray-300 dark:hover:bg-dark-300"
-                :disabled="loading"
-                @click="refresh"
-            >
-                <i-fa6-solid-rotate-right :class="{ 'animate-spin': loading }" />
-                {{ $t("actions.refresh") }}
-            </button>
+            <div class="flex items-center gap-2">
+                <RandomPickButton source="feed" />
+                <button
+                    class="flex items-center gap-1.5 rounded-md bg-gray-200 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-300 dark:bg-dark-400 dark:text-gray-300 dark:hover:bg-dark-300"
+                    :disabled="loading"
+                    @click="refresh"
+                >
+                    <i-fa6-solid-rotate-right :class="{ 'animate-spin': loading }" />
+                    {{ $t("actions.refresh") }}
+                </button>
+            </div>
         </div>
 
         <LoadingIndicatorPage
@@ -39,6 +45,8 @@ import { useI18n } from "vue-i18n";
 import VideoItem from "./VideoItem.vue";
 import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import ContinueWatchingSection from "./ContinueWatchingSection.vue";
+import RecentChannelsSection from "./RecentChannelsSection.vue";
+import RandomPickButton from "./RandomPickButton.vue";
 import { fetchRecommended } from "@/composables/useRecommended.js";
 import { updateWatched } from "@/composables/useMisc.js";
 import { fetchDeArrowContent } from "@/composables/useSubscriptions.js";

@@ -38,6 +38,26 @@ const routes = [
         component: () => import("../components/CollectionsPage.vue"),
     },
     {
+        path: "/watch-later",
+        name: "WatchLater",
+        component: () => import("../components/WatchLaterPage.vue"),
+    },
+    {
+        path: "/favorites",
+        name: "Favorites",
+        component: () => import("../components/FavoritesPage.vue"),
+    },
+    {
+        path: "/stats",
+        name: "Stats",
+        component: () => import("../components/StatsPage.vue"),
+    },
+    {
+        path: "/bookmarks",
+        name: "Bookmarks",
+        component: () => import("../components/BookmarksPage.vue"),
+    },
+    {
         path: "/preferences",
         name: "Preferences",
         component: () => import("../components/PreferencesPage.vue"),

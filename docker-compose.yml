@@ -21,8 +21,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./config/piped.properties:/app/config.properties:ro
-    expose:
-      - "8080"
     depends_on:
       post:
         condition: service_healthy
