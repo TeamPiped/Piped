@@ -61,7 +61,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onActivated, onDeactivated } from "vue";
+import { ref, onActivated, onDeactivated } from "vue";
 import VideoItem from "./VideoItem.vue";
 import SortingSelector from "./SortingSelector.vue";
 import ExportHistoryModal from "./ExportHistoryModal.vue";
@@ -73,8 +73,8 @@ let currentVideoCount = 0;
 const videoStep = 100;
 const videosStore = [];
 const videos = ref([]);
-const autoDeleteHistory = ref(false);
-const autoDeleteDelayHours = ref("24");
+const autoDeleteHistory = ref(getPreferenceBoolean("autoDeleteWatchHistory", false));
+const autoDeleteDelayHours = ref(getPreferenceString("autoDeleteWatchHistoryDelayHours", "24"));
 const showExportModal = ref(false);
 const showImportModal = ref(false);
 
@@ -109,11 +109,12 @@ function onChange() {
     setPreference("autoDeleteWatchHistoryDelayHours", autoDeleteDelayHours.value);
 }
 
-onMounted(() => {
-    autoDeleteHistory.value = getPreferenceBoolean("autoDeleteWatchHistory", false);
-    autoDeleteDelayHours.value = getPreferenceString("autoDeleteWatchHistoryDelayHours", "24");
+function loadHistory() {
+    videosStore.length = 0;
+    currentVideoCount = 0;
+    videos.value = [];
 
-    (async () => {
+    return (async () => {
         if (window.db && getPreferenceBoolean("watchHistory", false)) {
             var tx = window.db.transaction("watch_history", "readwrite");
             var store = tx.objectStore("watch_history");
@@ -148,10 +149,11 @@ onMounted(() => {
     })().then(() => {
         loadMoreVideos();
     });
-});
+}
 
 onActivated(() => {
     document.title = "Watch History - Piped";
+    loadHistory();
     window.addEventListener("scroll", handleScroll);
 });
 
