@@ -222,7 +222,7 @@
     },
     "player": {
         "watch_on": "Ver em {0}",
-        "failed": "Falha com o código de erro {0}. Consulte os registos para mais informações"
+        "failed": "Falha com o código de erro {0}. Consulte os registos para mais informações."
     },
     "comment": {
         "pinned_by": "Afixado por {author}",
