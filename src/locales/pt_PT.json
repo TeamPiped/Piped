@@ -228,7 +228,7 @@
     },
     "player": {
         "watch_on": "Ver em {0}",
-        "failed": "Falha com o código de erro {0}, ver registos para mais informações"
+        "failed": "Falha com o código de erro {0}. Consulte os registos para mais informações."
     },
     "subscriptions": {
         "subscribed_channels_count": "Subscreveu: {0}"
