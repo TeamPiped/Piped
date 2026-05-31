@@ -181,7 +181,12 @@
         "playlists_only": "Samo playliste",
         "always": "Uvijek",
         "mark_as_watched": "Označi kao pogledano",
-        "mark_as_unwatched": "Označi kao nepogledano"
+        "mark_as_unwatched": "Označi kao nepogledano",
+        "clear": "Izbriši",
+        "show_password": "Prikaži lozinku",
+        "hide_password": "Sakrij lozinku",
+        "rss_feed": "RSS feed",
+        "playlist_rss_feed": "RSS feed playlista"
     },
     "player": {
         "watch_on": "Gledaj na {0}",
