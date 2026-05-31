@@ -972,4 +972,16 @@ defineExpose({
         max-width: none !important;
     }
 }
+
+/* Suppress Firefox/Gecko's blue :focus outline on the <video> element.
+   We explicitly .focus() the video on seek-bar mouseup (so hotkeys-js keeps
+   receiving keys), and Gecko draws a system focus outline whenever a <video>
+   is focused. Chromium uses :focus-visible heuristics on media elements so it
+   doesn't render the outline for click-driven focus. Kept outside @layer so
+   it wins over any layered rule, and !important to override the UA focus ring
+   if specificity gets shadowed. */
+video.shaka-video:focus,
+video[data-shaka-player]:focus {
+    outline: none !important;
+}
 </style>
