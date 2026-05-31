@@ -1,23 +1,28 @@
 /**
- * Workaround for shaka-project/shaka-player#4775.
+ * HACK: Firefox-only fast path for navigator.mediaCapabilities.decodingInfo().
  *
- * Firefox's navigator.mediaCapabilities.decodingInfo() costs ~14 ms per call
- * (out-of-process decoder probe). Shaka calls it once per Variant in the DASH
- * manifest while filtering supported variants; YouTube manifests routinely
- * have 1000+ variants, so player initialization stalls 15-20 s on Gecko-based
- * browsers before any SourceBuffer is added or any segment is fetched.
+ * Rough comparison: Chromium ~0.1 ms/call vs Firefox ~20 ms/call.
+ * Shaka calls decodingInfo once per Variant while filtering the manifest, so on
+ * a YouTube-shape manifest with many Variants Firefox stalls several seconds at
+ * player init before any SourceBuffer is added.
  *
- * This module delegates the "supported" check to MediaSource.isTypeSupported
- * (sub-ms on Firefox) and caches the result per MIME string. Smooth /
- * powerEfficient are returned conservatively as true; Shaka's ABR will
- * downshift if real playback isn't smooth.
+ * This module delegates "supported" to MediaSource.isTypeSupported (sub-ms on
+ * Firefox) and synthesizes smooth = powerEfficient = supported.
+ *
+ * KNOWN DOWNSIDE: by forcing smooth and powerEfficient to true we discard the
+ * native signals Shaka would otherwise see. If anything in the player chain
+ * reads those fields (e.g. preferredDecodingAttributes is set, a downstream
+ * consumer ranks variants on power efficiency, or a Shaka upgrade changes
+ * filtering), this shim will cause Shaka to pick streams the device cannot
+ * decode in real time — frame drops, software-decode CPU spikes, battery
+ * drain. Today (Shaka 5.1, Piped default config) those fields are not read
+ * and the shim is harmless; revisit on every Shaka upgrade.
  *
  * Active only on Gecko engines, so Chromium / Safari / Edge / iOS Firefox
  * (WebKit) are unaffected. DRM probes (keySystemConfiguration) and non-
  * media-source query types fall through to the native API unchanged.
  *
- * Remove this module (and its import in main.js) once Shaka ships a caching
- * fix for #4775.
+ * Refs: https://github.com/TeamPiped/Piped/issues/4238
  */
 if (
     typeof navigator !== "undefined" &&
