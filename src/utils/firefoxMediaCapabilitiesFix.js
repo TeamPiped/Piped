@@ -22,7 +22,9 @@
  * (WebKit) are unaffected. DRM probes (keySystemConfiguration) and non-
  * media-source query types fall through to the native API unchanged.
  *
- * Refs: https://github.com/TeamPiped/Piped/issues/4238
+ * Refs:
+ *   https://bugzilla.mozilla.org/show_bug.cgi?id=2043895
+ *   https://github.com/TeamPiped/Piped/issues/4238
  */
 if (
     typeof navigator !== "undefined" &&
