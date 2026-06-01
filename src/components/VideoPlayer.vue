@@ -589,6 +589,8 @@ async function loadVideo() {
     streams.push(...props.video.videoStreams);
 
     const MseSupport = window.MediaSource !== undefined || window.ManagedMediaSource !== undefined;
+    // Safari has limited MSE/DASH support, so we default to native HLS playback.
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
     const lbry = null;
 
@@ -602,7 +604,7 @@ async function loadVideo() {
         props.video.audioStreams.length > 0 &&
         !lbry &&
         MseSupport &&
-        !getPreferenceBoolean("preferHls", false)
+        !getPreferenceBoolean("preferHls", isSafari)
     ) {
         if (!props.video.dash) {
             const dash = (await import("../utils/DashUtils.js")).generate_dash_file_from_formats(
@@ -640,7 +642,8 @@ async function loadVideo() {
             return response.headers.get("Content-Type");
         });
         mime = contentType;
-    } else if (props.video.dash && !getPreferenceBoolean("preferHls", false)) {
+        // Safari defaults to HLS due to limited MSE/DASH support (see isSafari above).
+    } else if (props.video.dash && !getPreferenceBoolean("preferHls", isSafari)) {
         uri = props.video.dash;
         mime = "application/dash+xml";
     } else if (props.video.hls) {
