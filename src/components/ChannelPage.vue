@@ -20,6 +20,12 @@
             <div class="flex gap-2">
                 <button
                     class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
+                    @click="blockHandler"
+                    v-text="$t('actions.' + (blocked ? 'unblock' : 'block'))"
+                ></button>
+
+                <button
+                    class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white focus:shadow-red-400 focus:outline-2 focus:outline-red-500 max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
                     @click="subscribeHandler"
                     v-text="
                         $t('actions.' + (subscribed ? 'unsubscribe' : 'subscribe')) +
@@ -105,6 +111,7 @@ import LoadingIndicatorPage from "./LoadingIndicatorPage.vue";
 import CollapsableText from "./CollapsableText.vue";
 import AddToGroupModal from "./AddToGroupModal.vue";
 import { fetchJson, apiUrl } from "@/composables/useApi.js";
+import { isChannelBlocked, toggleChannelBlock } from "@/composables/useChannels.js";
 import { numberFormat } from "@/composables/useFormatting.js";
 import {
     fetchSubscriptionStatus,
@@ -118,6 +125,7 @@ const { t } = useI18n();
 
 const channel = ref(null);
 const subscribed = ref(false);
+const blocked = ref(false);
 const tabs = ref([]);
 const selectedTab = ref(0);
 const contentItems = ref([]);
@@ -127,6 +135,11 @@ let loading = false;
 async function fetchSubscribedStatus() {
     if (!channel.value.id) return;
     subscribed.value = await fetchSubscriptionStatus(channel.value.id);
+}
+
+async function fetchBlockedStatus() {
+    if (!channel.value.id) return;
+    blocked.value = await isChannelBlocked(channel.value.id);
 }
 
 async function fetchChannel() {
@@ -144,6 +157,7 @@ async function getChannelData() {
                 document.title = channel.value.name + " - Piped";
                 contentItems.value = channel.value.relatedStreams;
                 fetchSubscribedStatus();
+                fetchBlockedStatus();
                 updateWatched(channel.value.relatedStreams);
                 fetchDeArrowContent(channel.value.relatedStreams);
                 tabs.value.push({
@@ -207,6 +221,10 @@ function subscribeHandler() {
     toggleSubscriptionState(channel.value.id, subscribed.value).then(success => {
         if (success) subscribed.value = !subscribed.value;
     });
+}
+
+async function blockHandler() {
+    blocked.value = await toggleChannelBlock(channel.value.id, channel.value.name);
 }
 
 function getTranslatedTabName(tabName) {
