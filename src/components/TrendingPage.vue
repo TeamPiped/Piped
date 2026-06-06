@@ -87,15 +87,8 @@ async function fetchChannelVideos(channelIds, historyCount) {
     const cached = channelCache.get(cacheKey);
     if (cached && Date.now() - cached.ts < CHANNEL_CACHE_TTL) return cached.data;
 
-    const results = await Promise.allSettled(channelIds.map(id => fetchJson(apiUrl() + "/channel/" + id)));
-    const data = results
-        .filter(r => r.status === "fulfilled" && r.value?.relatedStreams)
-        .flatMap(r =>
-            r.value.relatedStreams
-                .slice()
-                .sort((a, b) => (b.uploaded ?? 0) - (a.uploaded ?? 0))
-                .slice(0, 5),
-        );
+    const feeds = await fetchJson(apiUrl() + "/feeds/unauthenticated?channels=" + channelIds.join(","));
+    const data = (feeds ?? []).slice().sort((a, b) => (b.uploaded ?? 0) - (a.uploaded ?? 0));
     channelCache.set(cacheKey, { ts: Date.now(), data });
     return data;
 }
