@@ -554,18 +554,33 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
         uiInstance.getControls().toggleFullScreen();
 
     const seekbar = container.value.querySelector(".shaka-seek-bar");
-    const array = ["to right"];
-    for (const chapter of props.video.chapters) {
-        const start = (chapter.start / props.video.duration) * 100;
-        if (start === 0) {
-            continue;
+
+    // Shaka overlays two marker divs inside .shaka-seek-bar-container:
+    // .shaka-ad-markers and .shaka-chapter-markers, both sized to the 5px
+    // container. Paint chapter boundaries on the dedicated overlay instead of
+    // on .shaka-seek-bar, which is a 40px-tall <input> whose background would
+    // render the markers at the input's full touch-target height.
+    const chapterMarkers = container.value.querySelector(".shaka-chapter-markers");
+    window.__chapterDebug = {
+        found: !!chapterMarkers,
+        chapters: props.video.chapters?.length,
+        duration: props.video.duration,
+    };
+    if (chapterMarkers) {
+        const array = ["to right"];
+        for (const chapter of props.video.chapters) {
+            const start = (chapter.start / props.video.duration) * 100;
+            if (start === 0) {
+                continue;
+            }
+            array.push(`transparent ${start}%`);
+            array.push(`black ${start}%`);
+            array.push(`black calc(${start}% + 1px)`);
+            array.push(`transparent calc(${start}% + 1px)`);
         }
-        array.push(`transparent ${start}%`);
-        array.push(`black ${start}%`);
-        array.push(`black calc(${start}% + 1px)`);
-        array.push(`transparent calc(${start}% + 1px)`);
+        chapterMarkers.style.background = `linear-gradient(${array.join(",")})`;
+        window.__chapterDebug.painted = chapterMarkers.style.background;
     }
-    seekbar.style.background = `linear-gradient(${array.join(",")})`;
 
     seekbar.addEventListener("mouseup", () => {
         videoEl.value.focus();
