@@ -145,8 +145,9 @@ import { useRouter, useRoute } from "vue-router";
 import SearchSuggestions from "./SearchSuggestions.vue";
 import ClearButton from "./ui/ClearButton.vue";
 import hotkeys from "hotkeys-js";
-import { fetchJson, authApiUrl, getAuthToken } from "@/composables/useApi.js";
+import { getAuthToken } from "@/composables/useApi.js";
 import { getPreferenceBoolean, getPreferenceString } from "@/composables/usePreferences.js";
+import { useConfig } from "@/composables/useConfig.js";
 
 const router = useRouter();
 const route = useRoute();
@@ -157,7 +158,9 @@ const searchSuggestions = ref(null);
 const searchText = ref("");
 const suggestionsVisible = ref(false);
 const showTopNav = ref(false);
-const registrationDisabled = ref(false);
+
+const { authConfig } = useConfig();
+const registrationDisabled = computed(() => authConfig.value?.registrationDisabled === true);
 
 const shouldShowLogin = computed(() => {
     return getAuthToken() == null;
@@ -224,12 +227,6 @@ function onSearchTextChange(text) {
     searchText.value = text;
 }
 
-async function fetchAuthConfig() {
-    fetchJson(authApiUrl() + "/config").then(config => {
-        registrationDisabled.value = config?.registrationDisabled === true;
-    });
-}
-
 function onSearchClick(e) {
     submitSearch(e);
 }
@@ -248,7 +245,6 @@ function submitSearch(e) {
 }
 
 onMounted(() => {
-    fetchAuthConfig();
     updateSearchTextFromURLSearchParams();
     focusOnSearchBar();
 });

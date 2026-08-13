@@ -42,20 +42,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { fetchJson, apiUrl } from "@/composables/useApi.js";
+import { computed } from "vue";
+import { useConfig } from "@/composables/useConfig.js";
 
-const donationHref = ref(null);
-const statusPageHref = ref(null);
-const privacyPolicyHref = ref(null);
+const { config } = useConfig();
 
-onMounted(() => {
-    fetchJson(apiUrl() + "/config").then(config => {
-        donationHref.value = config?.donationUrl;
-        statusPageHref.value = config?.statusPageUrl;
-        privacyPolicyHref.value = config?.privacyPolicyUrl;
-    });
-});
+const donationHref = computed(() => config.value?.donationUrl);
+const statusPageHref = computed(() => config.value?.statusPageUrl);
+const privacyPolicyHref = computed(() => config.value?.privacyPolicyUrl);
 </script>
 
 <style>
