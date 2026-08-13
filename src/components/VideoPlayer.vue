@@ -263,6 +263,35 @@ function updateSponsors() {
     }
 }
 
+// Shaka overlays two marker divs inside .shaka-seek-bar-container:
+// .shaka-ad-markers (used by updateMarkers) and .shaka-chapter-markers, both
+// sized to the 5px container. Paint chapter boundaries on the dedicated
+// overlay instead of on .shaka-seek-bar, a 40px-tall <input> whose background
+// would render the markers at the input's full touch-target height.
+function updateChapterMarkers() {
+    const markers = container.value.querySelector(".shaka-chapter-markers");
+    if (!markers) return;
+
+    const chapters = props.video.chapters ?? [];
+    if (chapters.length === 0) {
+        markers.style.background = "transparent";
+        return;
+    }
+
+    const array = ["to right"];
+    for (const chapter of chapters) {
+        const start = (chapter.start / props.video.duration) * 100;
+        if (start === 0) {
+            continue;
+        }
+        array.push(`transparent ${start}%`);
+        array.push(`black ${start}%`);
+        array.push(`black calc(${start}% + 1px)`);
+        array.push(`transparent calc(${start}% + 1px)`);
+    }
+    markers.style.background = `linear-gradient(${array.join(",")})`;
+}
+
 function getPreviewFramePage() {
     const previewFrames = props.video.previewFrames;
     if (!previewFrames) return null;
@@ -554,33 +583,7 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
         uiInstance.getControls().toggleFullScreen();
 
     const seekbar = container.value.querySelector(".shaka-seek-bar");
-
-    // Shaka overlays two marker divs inside .shaka-seek-bar-container:
-    // .shaka-ad-markers and .shaka-chapter-markers, both sized to the 5px
-    // container. Paint chapter boundaries on the dedicated overlay instead of
-    // on .shaka-seek-bar, which is a 40px-tall <input> whose background would
-    // render the markers at the input's full touch-target height.
-    const chapterMarkers = container.value.querySelector(".shaka-chapter-markers");
-    window.__chapterDebug = {
-        found: !!chapterMarkers,
-        chapters: props.video.chapters?.length,
-        duration: props.video.duration,
-    };
-    if (chapterMarkers) {
-        const array = ["to right"];
-        for (const chapter of props.video.chapters) {
-            const start = (chapter.start / props.video.duration) * 100;
-            if (start === 0) {
-                continue;
-            }
-            array.push(`transparent ${start}%`);
-            array.push(`black ${start}%`);
-            array.push(`black calc(${start}% + 1px)`);
-            array.push(`transparent calc(${start}% + 1px)`);
-        }
-        chapterMarkers.style.background = `linear-gradient(${array.join(",")})`;
-        window.__chapterDebug.painted = chapterMarkers.style.background;
-    }
+    updateChapterMarkers();
 
     seekbar.addEventListener("mouseup", () => {
         videoEl.value.focus();
