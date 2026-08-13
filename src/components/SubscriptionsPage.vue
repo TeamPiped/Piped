@@ -57,7 +57,7 @@
             @click="selectGroup(group)"
         >
             <span v-text="group.groupName !== '' ? group.groupName : $t('video.all')" />
-            <div v-if="group.groupName != '' && selectedGroup == group">
+            <div v-if="group.groupName != '' && selectedGroup == group" class="inline-flex">
                 <i-fa6-solid-pen class="mx-2" @click="showEditGroupModal = true" />
                 <i-fa6-solid-circle-minus class="mx-2" @click="groupToDelete = group.groupName" />
             </div>
@@ -83,11 +83,11 @@
         <div
             v-for="subscription in filteredSubscriptions"
             :key="subscription.url"
-            class="m-2 rounded-lg border border-gray-500 p-1"
+            class="m-2 min-w-0 rounded-lg border border-gray-500 p-1"
         >
             <router-link :to="subscription.url" class="flex p-2 text-4xl font-bold">
                 <img :src="subscription.avatar" class="h-fit rounded-full" width="48" height="48" />
-                <span class="mx-2 self-center" v-text="subscription.name" />
+                <span class="mx-2 min-w-0 self-center truncate" v-text="subscription.name" />
             </router-link>
             <!-- subscribe / unsubscribe btn -->
             <button
