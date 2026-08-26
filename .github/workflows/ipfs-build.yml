@@ -22,7 +22,7 @@ jobs:
                   cache: "pnpm"
             - run: pnpm install
             - run: pnpm build && ./localizefonts.sh && cp dist/index.html dist/ipfs-404.html
-            - uses: aquiladev/ipfs-action@v0.3.1-alpha.2
+            - uses: aquiladev/ipfs-action@v0.3.1
               id: ipfs-add
               with:
                   path: ./dist
