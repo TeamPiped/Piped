@@ -148,7 +148,12 @@
         "invalid_url": "URL non valido!",
         "add": "Aggiungi",
         "playlists_only": "Solo playlist",
-        "always": "Sempre"
+        "always": "Sempre",
+        "show_password": "Mostra password",
+        "hide_password": "Nascondi password",
+        "rss_feed": "Feed RSS",
+        "playlist_rss_feed": "Feed RSS della playlist",
+        "clear": "Pulisci"
     },
     "player": {
         "watch_on": "Guarda su {0}",
@@ -165,7 +170,7 @@
         "playlists": "Playlist",
         "account": "Account",
         "instance": "Istanza",
-        "player": "Player",
+        "player": "Lettore",
         "livestreams": "Streaming live",
         "channels": "Canali",
         "bookmarks": "Segnalibri",
