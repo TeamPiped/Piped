@@ -6,6 +6,7 @@
         :class="{ 'max-h-[75vh] min-h-64 bg-black': !isEmbed }"
     >
         <video
+            v-if="!isAudioOnly"
             ref="videoEl"
             class="w-full"
             data-shaka-player
@@ -13,6 +14,7 @@
             :loop="selectedAutoLoop"
             playsinline
         />
+        <audio v-else ref="videoEl" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
         <button
             v-if="inSegment"
             class="skip-segment-button"
@@ -71,6 +73,7 @@ import { ref, computed, onMounted, onActivated, onDeactivated, onUnmounted } fro
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { parseTimeParam } from "@/utils/Misc";
+import { selectLegacyStream, shouldUseAudioOnlyElement } from "@/utils/PlayerUtils";
 import ModalComponent from "./ModalComponent.vue";
 import {
     getPreferenceBoolean,
@@ -130,6 +133,12 @@ let thumbnailVttUrl = null;
 
 const shouldAutoPlay = computed(() => {
     return getPreferenceBoolean("playerAutoPlay", true) && !props.isEmbed;
+});
+
+// iOS only allows background/lock-screen playback for <audio> elements, not <video>
+// (even when the video track itself is disabled), so listen mode needs a real <audio> element.
+const isAudioOnly = computed(() => {
+    return shouldUseAudioOnlyElement(getPreferenceBoolean("listen", false), props.video.livestream);
 });
 
 const preferredVideoCodecs = computed(() => {
@@ -421,7 +430,9 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
 
         uiInstance = new shaka.ui.Overlay(localPlayer, container.value, el);
 
-        const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "remote"];
+        const overflowMenuButtons = ["quality", "captions"];
+        if (!isAudioOnly.value) overflowMenuButtons.push("picture_in_picture");
+        overflowMenuButtons.push("playback_rate", "remote");
 
         if (props.isEmbed) {
             overflowMenuButtons.push("open_new_tab");
@@ -446,7 +457,7 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
 
     playerInstance = localPlayer;
 
-    const disableVideo = getPreferenceBoolean("listen", false) && !props.video.livestream;
+    const disableVideo = isAudioOnly.value;
 
     const prefetchLimit = Math.min(Math.max(getPreferenceNumber("prefetchLimit", 2), 0), 10);
 
@@ -665,7 +676,8 @@ async function loadVideo() {
         uri = props.video.hls;
         mime = "application/x-mpegURL";
     } else {
-        uri = props.video.videoStreams.findLast(stream => stream.codec == null).url;
+        const stream = selectLegacyStream(props.video.videoStreams, isAudioOnly.value);
+        uri = stream.url;
         mime = "video/mp4";
     }
 
@@ -715,7 +727,7 @@ async function loadVideo() {
 
     if (noPrevPlayer) {
         el.addEventListener("loadeddata", () => {
-            if (document.pictureInPictureElement) el.requestPictureInPicture();
+            if (!isAudioOnly.value && document.pictureInPictureElement) el.requestPictureInPicture();
         });
         el.addEventListener("timeupdate", () => {
             const time = el.currentTime;
@@ -900,6 +912,7 @@ onActivated(() => {
                         adjustPlaybackSpeed(el.playbackRate + 0.25);
                         break;
                     case "alt+p":
+                        if (isAudioOnly.value) break;
                         document.pictureInPictureElement
                             ? document.exitPictureInPicture()
                             : el.requestPictureInPicture();
