@@ -676,7 +676,7 @@ async function loadVideo() {
         uri = props.video.hls;
         mime = "application/x-mpegURL";
     } else {
-        uri = props.video.videoStreams.findLast(stream => stream.codec == null).url;
+        uri = props.video.videoStreams.findLast(stream => stream.codec == null && !stream.videoOnly).url;
         mime = "video/mp4";
     }
 
