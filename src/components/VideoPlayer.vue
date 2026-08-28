@@ -73,7 +73,7 @@ import { ref, computed, onMounted, onActivated, onDeactivated, onUnmounted } fro
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { parseTimeParam } from "@/utils/Misc";
-import { shouldUseAudioOnlyElement } from "@/utils/PlayerUtils";
+import { selectLegacyStream, shouldUseAudioOnlyElement } from "@/utils/PlayerUtils";
 import ModalComponent from "./ModalComponent.vue";
 import {
     getPreferenceBoolean,
@@ -676,9 +676,7 @@ async function loadVideo() {
         uri = props.video.hls;
         mime = "application/x-mpegURL";
     } else {
-        const legacyStreams = props.video.videoStreams.filter(stream => stream.codec == null);
-        const stream =
-            (isAudioOnly.value && legacyStreams.findLast(stream => !stream.videoOnly)) || legacyStreams.at(-1);
+        const stream = selectLegacyStream(props.video.videoStreams, isAudioOnly.value);
         uri = stream.url;
         mime = "video/mp4";
     }
