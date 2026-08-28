@@ -430,7 +430,9 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
 
         uiInstance = new shaka.ui.Overlay(localPlayer, container.value, el);
 
-        const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "remote"];
+        const overflowMenuButtons = ["quality", "captions"];
+        if (!isAudioOnly.value) overflowMenuButtons.push("picture_in_picture");
+        overflowMenuButtons.push("playback_rate", "remote");
 
         if (props.isEmbed) {
             overflowMenuButtons.push("open_new_tab");
@@ -724,7 +726,7 @@ async function loadVideo() {
 
     if (noPrevPlayer) {
         el.addEventListener("loadeddata", () => {
-            if (document.pictureInPictureElement) el.requestPictureInPicture();
+            if (!isAudioOnly.value && document.pictureInPictureElement) el.requestPictureInPicture();
         });
         el.addEventListener("timeupdate", () => {
             const time = el.currentTime;
@@ -909,6 +911,7 @@ onActivated(() => {
                         adjustPlaybackSpeed(el.playbackRate + 0.25);
                         break;
                     case "alt+p":
+                        if (isAudioOnly.value) break;
                         document.pictureInPictureElement
                             ? document.exitPictureInPicture()
                             : el.requestPictureInPicture();
