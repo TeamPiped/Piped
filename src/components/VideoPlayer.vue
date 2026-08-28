@@ -6,6 +6,7 @@
         :class="{ 'max-h-[75vh] min-h-64 bg-black': !isEmbed }"
     >
         <video
+            v-if="!isAudioOnly"
             ref="videoEl"
             class="w-full"
             data-shaka-player
@@ -13,6 +14,7 @@
             :loop="selectedAutoLoop"
             playsinline
         />
+        <audio v-else ref="videoEl" data-shaka-player :autoplay="shouldAutoPlay" :loop="selectedAutoLoop" />
         <button
             v-if="inSegment"
             class="skip-segment-button"
@@ -71,6 +73,7 @@ import { ref, computed, onMounted, onActivated, onDeactivated, onUnmounted } fro
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { parseTimeParam } from "@/utils/Misc";
+import { shouldUseAudioOnlyElement } from "@/utils/PlayerUtils";
 import ModalComponent from "./ModalComponent.vue";
 import {
     getPreferenceBoolean,
@@ -130,6 +133,12 @@ let thumbnailVttUrl = null;
 
 const shouldAutoPlay = computed(() => {
     return getPreferenceBoolean("playerAutoPlay", true) && !props.isEmbed;
+});
+
+// iOS only allows background/lock-screen playback for <audio> elements, not <video>
+// (even when the video track itself is disabled), so listen mode needs a real <audio> element.
+const isAudioOnly = computed(() => {
+    return shouldUseAudioOnlyElement(getPreferenceBoolean("listen", false), props.video.livestream);
 });
 
 const preferredVideoCodecs = computed(() => {
@@ -446,7 +455,7 @@ async function setPlayerAttrs(localPlayer, el, uri, mime, shaka) {
 
     playerInstance = localPlayer;
 
-    const disableVideo = getPreferenceBoolean("listen", false) && !props.video.livestream;
+    const disableVideo = isAudioOnly.value;
 
     const prefetchLimit = Math.min(Math.max(getPreferenceNumber("prefetchLimit", 2), 0), 10);
 
