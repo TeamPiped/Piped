@@ -90,7 +90,7 @@ onMounted(() => {
     darkModePreference.addEventListener("change", handlePreferredColorSchemeChange);
 
     if ("indexedDB" in window) {
-        const request = indexedDB.open("piped-db", 6);
+        const request = indexedDB.open("piped-db", 7);
         request.onupgradeneeded = ev => {
             const db = request.result;
             console.log("Upgrading object store.");
@@ -117,6 +117,10 @@ onMounted(() => {
                 playlistStore.createIndex("playlistId", "playlistId", { unique: true });
                 const playlistVideosStore = db.createObjectStore("playlist_videos", { keyPath: "videoId" });
                 playlistVideosStore.createIndex("videoId", "videoId", { unique: true });
+            }
+            if (!db.objectStoreNames.contains("blocked_channels")) {
+                const store = db.createObjectStore("blocked_channels", { keyPath: "channelId" });
+                store.createIndex("channelId", "channelId", { unique: true });
             }
             // migration to fix an invalid previous length of channel ids: 11 -> 24
             (async () => {
