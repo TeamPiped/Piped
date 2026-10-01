@@ -14,7 +14,7 @@
         "@vueuse/core": "^14.2.1",
         "dompurify": "3.4.13",
         "fast-xml-parser": "5.7.0",
-        "hotkeys-js": "4.0.3",
+        "hotkeys-js": "4.0.8",
         "javascript-time-ago": "2.6.4",
         "linkify-html": "4.3.2",
         "linkifyjs": "4.3.2",
