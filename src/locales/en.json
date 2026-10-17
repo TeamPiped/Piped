@@ -132,7 +132,9 @@
         "time_code": "Time code (in seconds or HH:MM:SS)",
         "show_chapters": "Chapters",
         "store_search_history": "Store Search History",
-        "hide_watched": "Hide watched videos in the feed",
+    	"hide_watched": "Hide watched videos in the feed",
+		"personalized_trending": "Personalize trending page",
+		"personalized_trending_only": "Show only recommendations (hide global trending)",
         "mark_as_watched": "Mark as Watched",
         "mark_as_unwatched": "Mark as Unwatched",
         "documentation": "Documentation",
@@ -234,6 +236,7 @@
         "subscribed_channels_count": "Subscribed to: {0}"
     },
     "info": {
+		"no_watch_history_trending": "No history found to personalize trending page",
         "preferences_note": "Note: preferences are saved in the local storage of your browser. Deleting your browser data will reset them.",
         "page_not_found": "Page not found",
         "copied": "Copied!",
