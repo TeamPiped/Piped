@@ -50,6 +50,7 @@
             to="/subscriptions"
         />
         <a
+            v-if="getRssUrl"
             :href="getRssUrl"
             class="inline-block w-auto cursor-pointer rounded-sm bg-gray-300 py-2 text-gray-600 hover:bg-gray-500 hover:text-white max-md:px-2 md:px-4 dark:bg-dark-400 dark:text-gray-400 dark:hover:bg-dark-300"
             :aria-label="$t('actions.rss_feed')"
@@ -94,7 +95,9 @@ const channelGroups = ref([]);
 
 const getRssUrl = computed(() => {
     if (isAuthenticated()) return authApiUrl() + "/feed/rss?authToken=" + getAuthToken();
-    else return authApiUrl() + "/feed/unauthenticated/rss?channels=" + getUnauthenticatedChannels();
+    const channels = getUnauthenticatedChannels();
+    if (!channels) return null;
+    return authApiUrl() + "/feed/unauthenticated/rss?channels=" + channels;
 });
 
 const filteredVideos = computed(() => {
@@ -112,7 +115,7 @@ const filteredVideos = computed(() => {
 function loadMoreVideos() {
     if (!videosStore.value) return;
     currentVideoCount = Math.min(currentVideoCount + videoStep, videosStore.value.length);
-    if (videos.value.length != videosStore.value.length) {
+    if (videos.value.length !== videosStore.value.length) {
         fetchDeArrowContent(videosStore.value.slice(videos.value.length, currentVideoCount));
         videos.value = videosStore.value.slice(0, currentVideoCount);
     }
