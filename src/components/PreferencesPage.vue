@@ -106,6 +106,12 @@
         </template>
         <PreferenceSwitch id="chkPreferHls" v-model="preferHls" @change="onChange" />
     </PreferenceRow>
+    <PreferenceRow for-id="chkPreferDubbedAudio">
+        <template #label>
+            <strong v-t="'actions.prefer_dubbed_audio'" />
+        </template>
+        <PreferenceSwitch id="chkPreferDubbedAudio" v-model="preferDubbedAudio" @change="onChange" />
+    </PreferenceRow>
     <label
         class="mx-[15vw] my-2 flex items-center justify-between odd:bg-gray-200 max-md:mx-[2vw] dark:odd:bg-dark-800"
         for="ddlDefaultQuality"
@@ -515,6 +521,7 @@ const autoPlayNextCountdown = usePreferenceNumber("autoPlayNextCountdown", 5);
 const listen = usePreferenceBoolean("listen", false);
 const resolutions = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320];
 const preferHls = usePreferenceBoolean("preferHls", false);
+const preferDubbedAudio = usePreferenceBoolean("preferDubbedAudio", false);
 const defaultQuality = usePreferenceNumber("quality", 0);
 const bufferingGoal = usePreferenceNumber("bufferGoal", 10);
 const countryMap = ref(CountryMapDefault);
