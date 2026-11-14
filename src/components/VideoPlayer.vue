@@ -682,7 +682,26 @@ async function loadVideo() {
                 proxyPath = proxyPath.substring(0, proxyPath.length - 1);
             }
 
+            // YouTube's live HLS audio is packed AAC (an ID3 timestamp tag plus ADTS frames), but
+            // its segments are named seg.ts. Shaka trusts the extension, treats the audio as
+            // MPEG-TS, never offsets its timestamps onto the video's timeline, and playback
+            // stalls on the poster forever. Rename those segments to seg.aac in the media
+            // playlists (YouTube's audio segment URLs contain /goap/, video ones /govp/) so Shaka
+            // handles them as packed audio, and rename them back in the request filter below so
+            // googlevideo still gets the URL it expects.
+            const youtubeAudioSegmentTs = /^(.*\/goap\/.*\/file\/seg)\.ts(?=\?|$)/gm;
+            const youtubeAudioSegmentAac = /(\/goap\/.*\/file\/seg)\.aac(?=\?|$)/;
+            localPlayer.getNetworkingEngine().registerResponseFilter((type, response) => {
+                if (type !== shakaLib.net.NetworkingEngine.RequestType.MANIFEST) return;
+                const text = new TextDecoder().decode(response.data);
+                if (!text.startsWith("#EXTM3U")) return;
+                const renamed = text.replace(youtubeAudioSegmentTs, "$1.aac");
+                if (renamed !== text) response.data = new TextEncoder().encode(renamed).buffer;
+            });
+
             localPlayer.getNetworkingEngine().registerRequestFilter((_type, request) => {
+                // Undo the seg.aac rename from the response filter above.
+                request.uris[0] = request.uris[0].replace(youtubeAudioSegmentAac, "$1.ts");
                 const uri = request.uris[0];
                 var url = new URL(uri);
                 const headers = request.headers;
