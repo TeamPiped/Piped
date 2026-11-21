@@ -9,7 +9,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/TeamPiped/Piped-Frontend)](https://github.com/TeamPiped/Piped/commits)
 [![Translation status](https://hosted.weblate.org/widgets/piped/-/frontend/svg-badge.svg)](https://hosted.weblate.org/projects/piped/frontend/)
 
-An open-source alternative frontend for YouTube which is efficient by design.
+An open-source alternative frontend for YouTube which is minimalist by design.
 
 A list of public instances can be found at the documentation [here](https://github.com/TeamPiped/documentation/blob/main/content/docs/public-instances/index.md).
 
