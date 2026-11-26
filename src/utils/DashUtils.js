@@ -61,6 +61,7 @@ function generate_adaptation_set(VideoFormatArray) {
         mimeAudioObjs.push({
             audioTrackId,
             mimeType,
+            audioTrackName: videoFormat.audioTrackName,
             videoFormats: [videoFormat],
         });
     });
@@ -68,7 +69,11 @@ function generate_adaptation_set(VideoFormatArray) {
     mimeAudioObjs.forEach(mimeAudioObj => {
         const adapSet = {
             _id: mimeAudioObj.audioTrackId,
-            _lang: mimeAudioObj.audioTrackId?.substr(0, 2),
+            // The id is "<language>.<n>" ("zh-Hans.3"), so keep the whole
+            // language tag: truncating to two letters would make zh-Hans and
+            // zh-Hant indistinguishable to the player.
+            _lang: mimeAudioObj.audioTrackId?.split(".")[0],
+            _label: mimeAudioObj.audioTrackName,
             _mimeType: mimeAudioObj.mimeType,
             _startWithSAP: "1",
             _subsegmentAlignment: "true",
