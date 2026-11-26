@@ -17,7 +17,8 @@
         "bookmarks": "Bookmarks",
         "channel_groups": "Channel groups",
         "dearrow": "DeArrow",
-        "custom_instances": "Custom instances"
+        "custom_instances": "Custom instances",
+        "blocked_channels": "Blocked Channels"
     },
     "player": {
         "watch_on": "View on {0}",
@@ -177,7 +178,10 @@
         "show_password": "Show password",
         "hide_password": "Hide password",
         "rss_feed": "RSS feed",
-        "playlist_rss_feed": "Playlist RSS feed"
+        "playlist_rss_feed": "Playlist RSS feed",
+        "blocked_channels": "Blocked channels",
+        "block": "Block",
+        "unblock": "Unblock"
     },
     "comment": {
         "pinned_by": "Pinned by {author}",
@@ -194,7 +198,8 @@
         "up_to_date": "Up to date?",
         "ssl_score": "SSL Score",
         "uptime_30d": "Uptime (30d)",
-        "api_url": "API URL"
+        "api_url": "API URL",
+        "channel": "Channel"
     },
     "login": {
         "username": "Username",
