@@ -158,7 +158,6 @@
         for="chkMinimizeChapters"
     >
         <strong v-t="'actions.chapters_layout_mobile'" />
-
         <select
             id="ddlDefaultHomepage"
             v-model="mobileChapterLayout"
@@ -198,6 +197,18 @@
             <strong v-t="'actions.hide_watched'" />
         </template>
         <PreferenceSwitch id="chkHideWatched" v-model="hideWatched" @change="onChange" />
+    </PreferenceRow>
+    <PreferenceRow v-if="watchHistory" for-id="chkPersonalizedTrending">
+        <template #label>
+            <strong v-t="'actions.personalized_trending'" />
+        </template>
+        <PreferenceSwitch id="chkPersonalizedTrending" v-model="personalizedTrending" @change="onChange" />
+    </PreferenceRow>
+    <PreferenceRow v-if="watchHistory && personalizedTrending" for-id="chkPersonalizedTrendingOnly">
+        <template #label>
+            <strong v-t="'actions.personalized_trending_only'" />
+        </template>
+        <PreferenceSwitch id="chkPersonalizedTrendingOnly" v-model="personalizedTrendingOnly" @change="onChange" />
     </PreferenceRow>
     <PreferenceRow for-id="ddlEnabledCodecs">
         <template #label>
@@ -529,6 +540,8 @@ const searchSuggestions = usePreferenceBoolean("searchSuggestions", true);
 const watchHistory = usePreferenceBoolean("watchHistory", false);
 const searchHistory = usePreferenceBoolean("searchHistory", false);
 const hideWatched = usePreferenceBoolean("hideWatched", false);
+const personalizedTrending = usePreferenceBoolean("personalizedTrending", false);
+const personalizedTrendingOnly = usePreferenceBoolean("personalizedTrendingOnly", false);
 const selectedLanguage = usePreferenceString("hl", "en");
 const languages = [
     { code: "ar", name: "Arabic" },
